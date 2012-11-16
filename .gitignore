@@ -1,0 +1,8 @@
+/.idea
+.DS_Store
+/xoops_trust_path/templates_c/
+/xoops_trust_path/cache/
+/html/uploads/*
+/xoops_trust_path/modules/protector/configs/*
+/xoops_trust_path/uploads/*
+/html/modules/xelfinder/cache/*
