@@ -1,4 +1,4 @@
-# XOOPS X (ten) Distribution
+# Momonga Project
 
 * Based on [xoopscube/legacy:master](https://github.com/xoopscube/legacy)
 * Add altsys
@@ -16,30 +16,11 @@ ResourceDiscoveryOrder=Theme,ThemeD3,ThemeDefault,ThemeDefaultD3,DbTplSet
 
 ## Web site
 
-[XOOPS X (ten) Distribution Pack](http://www.xoopscube.net/)
-
 ## Quick install
 
 Please change `T="../xoops_trust_path"` by your liking.
 
-### On the shell (sh, bash)
-
-```bash
-cd [DOCUMENT ROOT]
-T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$T#"|sh
-```
-
-### On the shell (csh)
-
-```csh
-cd [DOCUMENT ROOT]
-set T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$T#"|sh
-```
-
 ### On the web
-
-* Upload "[install.cgi](https://github.com/XoopsX/installer/raw/master/install.cgi)" into [DOCUMENT ROOT] & chmod +x install.cgi
-* Access to `install.cgi?../xoops_trust_path` with web browser (change `../xoops_trust_path` by your liking)
 
 ***
 
