@@ -5,7 +5,7 @@ define('_XCORE_PREVENT_LOAD_CORE_',1) ;
 
 include '../../mainfile.php' ;
 
-if( defined( 'XOOPS_TRUST_PATH' ) && XOOPS_TRUST_PATH != '' && file_exists( XOOPS_TRUST_PATH.'/libs/altsys' ) ) {
+if( defined( 'XOOPS_TRUST_PATH' ) && XOOPS_TRUST_PATH != '' && file_exists( XOOPS_TRUST_PATH.'/modules/altsys' ) ) {
 	die( 'No problem with your XOOPS_TRUST_PATH' ) ;
 }
 
@@ -23,7 +23,7 @@ if( @$_POST['dbpassword'] == XOOPS_DB_PASS ) {
 				if( substr( $file , 0 , 1 ) == '.' ) continue ;
 				$fullpath = $base_dir . '/' . $file ;
 				if( ! is_dir( $fullpath ) ) continue ;
-				if( is_dir( $fullpath.'/libs/altsys' ) ) {
+				if( is_dir( $fullpath.'/modules/altsys' ) ) {
 					$xoops_trust_path = $fullpath ;
 					break 2 ;
 				}

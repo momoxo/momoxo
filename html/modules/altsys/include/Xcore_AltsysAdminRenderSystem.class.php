@@ -7,6 +7,6 @@ $mydirpath = dirname( dirname( __FILE__ ) ) ;
 // require $mydirpath.'/mytrustdirname.php' ; // set $mytrustdirname
 $mytrustdirname = 'altsys' ;
 
-require XOOPS_TRUST_PATH.'/libs/'.$mytrustdirname.'/include/Xcore_AltsysAdminRenderSystem.class.php' ;
+require XOOPS_TRUST_PATH.'/modules/'.$mytrustdirname.'/include/Xcore_AltsysAdminRenderSystem.class.php' ;
 
 ?>

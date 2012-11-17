@@ -21,13 +21,13 @@ if( file_exists( "$mydirpath/language/$language/modinfo.php" ) ) {
 
 include dirname(dirname(__FILE__)).'/admin_menu.php' ;
 
-if( file_exists( XOOPS_TRUST_PATH.'/libs/altsys/mytplsadmin.php' ) ) {
+if( file_exists( XOOPS_TRUST_PATH.'/modules/altsys/mytplsadmin.php' ) ) {
 	// mytplsadmin (TODO check if this module has tplfile)
 	$title = defined( '_MD_A_MYMENU_MYTPLSADMIN' ) ? _MD_A_MYMENU_MYTPLSADMIN : 'tplsadmin' ;
 	array_push( $adminmenu , array( 'title' => $title , 'link' => 'admin/index.php?mode=admin&lib=altsys&page=mytplsadmin' ) ) ;
 }
 
-if( file_exists( XOOPS_TRUST_PATH.'/libs/altsys/myblocksadmin.php' ) ) {
+if( file_exists( XOOPS_TRUST_PATH.'/modules/altsys/myblocksadmin.php' ) ) {
 	// myblocksadmin
 	$title = defined( '_MD_A_MYMENU_MYBLOCKSADMIN' ) ? _MD_A_MYMENU_MYBLOCKSADMIN : 'blocksadmin' ;
 	array_push( $adminmenu , array( 'title' => $title , 'link' => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin' ) ) ;
@@ -36,7 +36,7 @@ if( file_exists( XOOPS_TRUST_PATH.'/libs/altsys/myblocksadmin.php' ) ) {
 // preferences
 $config_handler =& xoops_gethandler('config');
 if( count( $config_handler->getConfigs( new Criteria( 'conf_modid' , $xoopsModule->mid() ) ) ) > 0 ) {
-	if( file_exists( XOOPS_TRUST_PATH.'/libs/altsys/mypreferences.php' ) ) {
+	if( file_exists( XOOPS_TRUST_PATH.'/modules/altsys/mypreferences.php' ) ) {
 		// mypreferences
 		$title = defined( '_MD_A_MYMENU_MYPREFERENCES' ) ? _MD_A_MYMENU_MYPREFERENCES : _PREFERENCES ;
 		array_push( $adminmenu , array( 'title' => $title , 'link' => 'admin/index.php?mode=admin&lib=altsys&page=mypreferences' ) ) ;
