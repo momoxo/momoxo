@@ -21,7 +21,7 @@
 
 function b_xcore_comments_show($options) {
     $block = array();
-    include_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
+    include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
     $comment_handler =& xoops_gethandler('comment');
     $criteria = new CriteriaCompo(new Criteria('com_status', XOOPS_COMMENT_ACTIVE));
     $criteria->setLimit(intval($options[0]));

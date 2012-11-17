@@ -33,8 +33,8 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	exit();
 }
 // RMV-NOTIFY
-include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
-include_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
+include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 
 /**
  *
@@ -102,7 +102,7 @@ class XoopsNotification extends XoopsObject
 		$method = $user->getVar('notify_method');
 
 		$xoopsMailer =& getMailer();
-		include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
+		include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
 		switch($method) {
 		case XOOPS_NOTIFICATION_METHOD_PM:
 			$xoopsMailer->usePM();
@@ -137,7 +137,7 @@ class XoopsNotification extends XoopsObject
 		// If send-once-then-delete, delete notification
 		// If send-once-then-wait, disable notification
 
-		include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
+		include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
 		$notification_handler = xoops_gethandler('notification');
 
 		if ($this->getVar('not_mode') == XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE) {

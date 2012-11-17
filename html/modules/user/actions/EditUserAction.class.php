@@ -145,7 +145,7 @@ class User_EditUserAction extends User_AbstractEditAction
 		//
 		$root =& XCube_Root::getSingleton();
 		$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
-		require_once XOOPS_ROOT_PATH . "/include/notification_constants.php";
+		require_once XOOPS_ROOT_PATH . "/modules/xcore/include/notification_constants.php";
 
 		// Check the PM service has been installed.
 		$root =& XCube_Root::getSingleton();

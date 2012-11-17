@@ -311,12 +311,12 @@ class Xcore_Controller extends XCube_Controller
 	function _setupEnvironment()
 	{
 		parent::_setupEnvironment();
-		require_once XOOPS_ROOT_PATH.'/include/version.php';
+		require_once XOOPS_ROOT_PATH.'/modules/xcore/include/version.php';
 		
 		require_once XOOPS_TRUST_PATH.'/settings/definition.inc.php';
 		define('XOOPS_XCORE_PATH',XOOPS_MODULE_PATH.'/'.XOOPS_XCORE_PROC_NAME);
 
-		require_once XOOPS_ROOT_PATH.'/include/functions.php';
+		require_once XOOPS_ROOT_PATH.'/modules/xcore/include/functions.php';
 
 		require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/object.php';
 		require_once XOOPS_ROOT_PATH.'/class/criteria.php';
@@ -532,7 +532,7 @@ class Xcore_Controller extends XCube_Controller
 	// @todo change to refer settings ini file for HostAbstractLayer.
 	function _processHostAbstractLayer()
 	{
-		require_once XOOPS_ROOT_PATH.'/include/functions.php';
+		require_once XOOPS_ROOT_PATH.'/modules/xcore/include/functions.php';
 	
 		$path_translated = xoops_getenv('PATH_TRANSLATED');
 		$script_filename = xoops_getenv('SCRIPT_FILENAME');
@@ -831,7 +831,7 @@ class Xcore_Controller extends XCube_Controller
 		//
 		// $this->mRenderSystem->_processStartPage();
 
-		require_once XOOPS_ROOT_PATH.'/include/old_theme_functions.php';
+		require_once XOOPS_ROOT_PATH.'/modules/xcore/include/old_theme_functions.php';
 		$GLOBALS['xoopsTheme']['thename'] = $GLOBALS['xoopsConfig']['theme_set'];
 
 		//

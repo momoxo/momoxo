@@ -206,7 +206,7 @@ class Xcore_CommentListAction extends Xcore_AbstractListAction
         				// trigger notification event if necessary
 	        			if ($notify_event) {
 		            	$not_modid = $comment->getVar('com_modid');
-            			include_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+            			include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
             			$not_catinfo =& notificationCommentCategoryInfo($not_modid);
          			   	$not_category = $not_catinfo['name'];
             			$not_itemid = $comment->getVar('com_itemid');

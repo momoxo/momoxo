@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH . "/include/notification_functions.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/include/notification_functions.php";
 
 require_once XOOPS_MODULE_PATH . "/xcore/forms/NotifyDeleteForm.class.php";
 

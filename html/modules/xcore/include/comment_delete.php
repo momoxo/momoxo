@@ -32,7 +32,7 @@
 if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
     exit();
 }
-include_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
+include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
 $op = 'delete';
 if (!empty($_POST)) {
     $com_mode = isset($_POST['com_mode']) ? htmlspecialchars(trim($_POST['com_mode']), ENT_QUOTES) : 'flat';

@@ -97,9 +97,9 @@ if ( !defined("XOOPS_MAINFILE_INCLUDED") ) {
     //    But $xoopsOption['nocommon'] is deprecated.
     //
     if (!defined('_XCORE_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
-        include_once XOOPS_ROOT_PATH.'/include/cubecore_init.php';
+        include_once XOOPS_ROOT_PATH.'/modules/xcore/include/cubecore_init.php';
         if (!isset($xoopsOption['nocommon']) && !defined('_XCORE_PREVENT_EXEC_COMMON_')) {
-            include XOOPS_ROOT_PATH.'/include/common.php';
+            include XOOPS_ROOT_PATH.'/modules/xcore/include/common.php';
         }
     }
 }

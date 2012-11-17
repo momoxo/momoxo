@@ -782,7 +782,7 @@ class Xcore_ModuleInstallUtils
 		// Insert comment config by old style.
 		//
 		if ($module->getVar('hascomments') !=0 ) {
-			require_once XOOPS_ROOT_PATH . "/include/comment_constants.php";
+			require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
 
 			$configInfos[] = array('name' => 'com_rule',
 			                         'title' => '_CM_COMRULES',
@@ -806,8 +806,8 @@ class Xcore_ModuleInstallUtils
 		// Insert comment config by old style.
 		//
 		if ($module->get('hasnotification') != 0) {
-			require_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
-			require_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+			require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
+			require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 			
 			$t_options = array();
 			$t_options['_NOT_CONFIG_DISABLE'] = XOOPS_NOTIFICATION_DISABLE;

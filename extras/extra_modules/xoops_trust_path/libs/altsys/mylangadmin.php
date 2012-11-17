@@ -219,7 +219,7 @@ if( altsys_get_core_type() == ALTSYS_CORE_TYPE_XCL21 ) {
 	// X2 core etc.
 	$notice4disp = _MYLANGADMIN_MSG_HOWTOENABLED3LANGMAN4X2.'<br />' ;
 	$notice4disp .= '
-		<h4>include/common.php</h4>
+		<h4>modules/xcore/include/common.php</h4>
 		<pre>
         <strike>if ( file_exists(XOOPS_ROOT_PATH."/modules/"...."/main.php") ) {
             include_once XOOPS_ROOT_PATH."/modules/"...."/main.php";

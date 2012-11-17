@@ -26,7 +26,7 @@
 //  ------------------------------------------------------------------------ //
 
 include '../../../../mainfile.php';
-include XOOPS_ROOT_PATH.'/include/cp_functions.php';
+include XOOPS_ROOT_PATH.'/modules/xcore/include/cp_functions.php';
 if (is_object($xoopsUser)) {
 	$module_handler =& xoops_gethandler('module');
 	$xoopsModule =& $module_handler->getByDirname('system');

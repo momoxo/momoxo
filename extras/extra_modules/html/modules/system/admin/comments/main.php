@@ -39,7 +39,7 @@ if ( !is_object($xoopsUser) || !is_object($xoopsModule) || !$xoopsUser->isAdmin(
     }
     switch ($op) {
     case 'list':
-        include_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
+        include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
         include_once XOOPS_ROOT_PATH.'/language/'.$xoopsConfig['language'].'/comment.php';
         $limit_array = array(10, 20, 50, 100);
         $status_array = array(XOOPS_COMMENT_PENDING => _CM_PENDING, XOOPS_COMMENT_ACTIVE => _CM_ACTIVE, XOOPS_COMMENT_HIDDEN => _CM_HIDDEN);

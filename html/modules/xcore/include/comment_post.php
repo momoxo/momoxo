@@ -36,7 +36,7 @@ if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
 $t_root =& XCube_Root::getSingleton();
 $t_root->mLanguageManager->loadPageTypeMessageCatalog("comment");	///< @todo Is this must?
 
-include_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
+include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
 
 $com_id = isset($_POST['com_id']) ? (int)$_POST['com_id'] : 0;
 $extra_params = '';
@@ -109,7 +109,7 @@ if (!empty($_POST)) {
 switch ( $op ) {
 
 case "delete":
-    include XOOPS_ROOT_PATH.'/include/comment_delete.php';
+    include XOOPS_ROOT_PATH.'/modules/xcore/include/comment_delete.php';
     break;
 case "preview":
     $myts =& MyTextSanitizer::getInstance();
@@ -132,12 +132,12 @@ case "preview":
     if ($xoopsModule->getVar('dirname') != 'system') {
         include XOOPS_ROOT_PATH.'/header.php';
         themecenterposts($com_title, $p_comment);
-        include XOOPS_ROOT_PATH.'/include/comment_form.php';
+        include XOOPS_ROOT_PATH.'/modules/xcore/include/comment_form.php';
         include XOOPS_ROOT_PATH.'/footer.php';
     } else {
         xoops_cp_header();
         themecenterposts($com_title, $p_comment);
-        include XOOPS_ROOT_PATH.'/include/comment_form.php';
+        include XOOPS_ROOT_PATH.'/modules/xcore/include/comment_form.php';
         xoops_cp_footer();
     }
     break;
@@ -349,7 +349,7 @@ case "post":
         // trigger notification event if necessary
         if ($notify_event) {
             $not_modid = $com_modid;
-            include_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+            include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
             $not_catinfo =& notificationCommentCategoryInfo($not_modid);
             $not_category = $not_catinfo['name'];
             $not_itemid = $com_itemid;

@@ -12,7 +12,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
 require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/CommentAdminEditForm.class.php";
-require_once XOOPS_ROOT_PATH . "/include/comment_constants.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
 
 class Xcore_CommentEditAction extends Xcore_AbstractEditAction
 {

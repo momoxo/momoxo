@@ -32,7 +32,7 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	}
 }
 
-if (!defined('XOOPS_CPFUNC_LOADED')) require_once XOOPS_ROOT_PATH . "/include/cp_functions.php";
+if (!defined('XOOPS_CPFUNC_LOADED')) require_once XOOPS_ROOT_PATH . "/modules/xcore/include/cp_functions.php";
 
 //
 // [Special Mission] Additional CHECK!!

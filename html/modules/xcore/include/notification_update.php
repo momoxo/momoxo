@@ -46,8 +46,8 @@ if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
 	exit();
 }
 
-include_once XOOPS_ROOT_PATH.'/include/notification_constants.php';
-include_once XOOPS_ROOT_PATH.'/include/notification_functions.php';
+include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_constants.php';
+include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_functions.php';
 
 $root =& XCube_Root::getSingleton();
 $root->mLanguageManager->loadPageTypeMessageCatalog('notification');
@@ -95,7 +95,7 @@ foreach ($update_list as $update_item) {
 // notifyUsers at appropriate places... (need to figure out where
 // comment submit occurs and where comment approval occurs)...
 
-include_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 
 $redirect_args = array();
 foreach ($update_list as $update_item) {

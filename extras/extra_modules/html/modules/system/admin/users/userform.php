@@ -93,7 +93,7 @@ $uorder_select = new XoopsFormSelect(_US_CSORTORDER, "uorder", $uorder_value);
 $uorder_select->addOptionArray(array("0"=>_OLDESTFIRST, "1"=>_NEWESTFIRST));
 // RMV-NOTIFY
 include_once XOOPS_ROOT_PATH. '/language/' . $xoopsConfig['language'] . '/notification.php';
-include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
+include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
 $notify_method_select = new XoopsFormSelect(_NOT_NOTIFYMETHOD, 'notify_method', $notify_method_value);
 $notify_method_select->addOptionArray(array(XOOPS_NOTIFICATION_METHOD_DISABLE=>_NOT_METHOD_DISABLE, XOOPS_NOTIFICATION_METHOD_PM=>_NOT_METHOD_PM, XOOPS_NOTIFICATION_METHOD_EMAIL=>_NOT_METHOD_EMAIL));
 $notify_mode_select = new XoopsFormSelect(_NOT_NOTIFYMODE, 'notify_mode', $notify_mode_value);

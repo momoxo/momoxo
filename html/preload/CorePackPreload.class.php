@@ -4,7 +4,7 @@
 define('XUPDATE_INSTALLERCHECKER_ACTIVE', false);
 
 // corepack version
-include_once(XOOPS_ROOT_PATH . '/include/corepack_version.php');
+include_once(XOOPS_ROOT_PATH . '/modules/xcore/include/corepack_version.php');
 
 class CorePackPreload extends XCube_ActionFilter
 {

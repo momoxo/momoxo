@@ -2,7 +2,7 @@
 
 // notification handler for D3 modules
 
-require_once XOOPS_ROOT_PATH . '/include/notification_functions.php' ;
+require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php' ;
 
 class D3NotificationHandler {
 //HACK by domifara for php5.3+

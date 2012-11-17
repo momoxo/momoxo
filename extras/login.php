@@ -61,7 +61,7 @@ if ($op == 'dologin') {
         $user->setVar('last_login', time());
         if (!$member_handler->insertUser($user)) {
         }
-        require_once XOOPS_ROOT_PATH . '/include/session.php';
+        require_once XOOPS_ROOT_PATH . '/modules/xcore/include/session.php';
         xoops_session_regenerate();
         $_SESSION = array();
         $_SESSION['xoopsUserId'] = $user->getVar('uid');

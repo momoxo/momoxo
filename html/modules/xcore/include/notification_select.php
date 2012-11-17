@@ -28,8 +28,8 @@
 if (!defined('XOOPS_ROOT_PATH')) {
 	exit();
 }
-include_once XOOPS_ROOT_PATH.'/include/notification_constants.php';
-include_once XOOPS_ROOT_PATH.'/include/notification_functions.php';
+include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_constants.php';
+include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_functions.php';
 $xoops_notification = array();
 $xoops_notification['show'] = isset($xoopsModule) && is_object($xoopsUser) && notificationEnabled('inline') ? 1 : 0;
 if ($xoops_notification['show']) {

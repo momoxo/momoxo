@@ -109,7 +109,7 @@ class User_UserViewAction extends User_AbstractViewAction
 		// Notifications. (TODO Also dirty...)
 		//
 		$controller->mRoot->mLanguageManager->loadPageTypeMessageCatalog('notification');
-		require_once XOOPS_ROOT_PATH . "/include/notification_constants.php";
+		require_once XOOPS_ROOT_PATH . "/modules/xcore/include/notification_constants.php";
 
 		$methodOptions = array(XOOPS_NOTIFICATION_METHOD_DISABLE => _NOT_METHOD_DISABLE,
 		                         XOOPS_NOTIFICATION_METHOD_PM => _NOT_METHOD_PM,

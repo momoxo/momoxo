@@ -45,7 +45,7 @@ class Emaillogin extends XCube_ActionFilter
     $user =& $handler->get($userArr[0]->get('uid'));
     $xoopsUser = $user;
   
-    require_once XOOPS_ROOT_PATH . '/include/session.php';
+    require_once XOOPS_ROOT_PATH . '/modules/xcore/include/session.php';
     xoops_session_regenerate();
     $_SESSION = array();
     $_SESSION['xoopsUserId'] = $xoopsUser->get('uid');

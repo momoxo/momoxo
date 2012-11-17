@@ -8,7 +8,7 @@ if( empty( $xoopsModule ) ) {
 	$xoopsModule =& $moduleperm_handler->getByDirname( 'altsys' ) ;
 }
 
-require XOOPS_ROOT_PATH.'/include/cp_functions.php' ;
+require XOOPS_ROOT_PATH.'/modules/xcore/include/cp_functions.php' ;
 
 // breadcrumbs
 $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;

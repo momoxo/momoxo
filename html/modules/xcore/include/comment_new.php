@@ -46,7 +46,7 @@ $t_root =& XCube_Root::getSingleton();
 $t_root->mLanguageManager->loadModuleMessageCatalog("xcore");
 
 
-require_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
 if ('system' != $xoopsModule->getVar('dirname') && XOOPS_COMMENT_APPROVENONE == $xoopsModuleConfig['com_rule']) {
 	exit();
 }

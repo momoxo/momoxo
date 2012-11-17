@@ -60,7 +60,7 @@ function notificationEnabled ($style, $module_id=null)
 			return false;
 		}
 	}
-	include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
+	include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
 	if (($style == 'block') && ($status == XOOPS_NOTIFICATION_ENABLEBLOCK || $status == XOOPS_NOTIFICATION_ENABLEBOTH)) {
 		return true;
 	}
@@ -215,7 +215,7 @@ function &notificationEvents ($category_name, $enabled_only, $module_id=null)
 		$com_config = $module->getInfo('comments');
 		if (!empty($category['item_name']) && $category['item_name'] == $com_config['itemName']) {
 			$mail_template_dir = XOOPS_ROOT_PATH . '/language/' . $xoopsConfig['language'] . '/mail_template/';
-			include_once XOOPS_ROOT_PATH . '/include/comment_constants.php';
+			include_once XOOPS_ROOT_PATH . '/modules/xcore/include/comment_constants.php';
 			$config_handler =& xoops_gethandler('config');
 			$com_config = $config_handler->getConfigsByCat(0,$module_id);
 			if (!$enabled_only) {

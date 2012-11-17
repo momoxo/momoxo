@@ -39,7 +39,7 @@ if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
 require_once XOOPS_ROOT_PATH.'/header.php';
 
 require_once XOOPS_MODULE_PATH . "/xcore/forms/CommentEditForm.class.php";
-require_once XOOPS_ROOT_PATH . "/include/comment_constants.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
 
 //
 // Load message resource

@@ -36,7 +36,7 @@ if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
 	exit();
 }
 
-require_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
 
 if (XOOPS_COMMENT_APPROVENONE != $xoopsModuleConfig['com_rule']) {
 

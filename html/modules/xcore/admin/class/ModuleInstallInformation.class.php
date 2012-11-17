@@ -626,7 +626,7 @@ class Xcore_ModinfoX2FileReader extends Xcore_AbstractModinfoReader
 	function _loadCommentPreferenceInfomations(&$modversion, &$collection)
 	{
 		if (isset($modversion['hasComments']) && $modversion['hasComments'] == true) {
-			require_once XOOPS_ROOT_PATH . "/include/comment_constants.php";
+			require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
 			
 			$comRule = array('name' => 'com_rule',
 			                 'title' => '_CM_COMRULES',
@@ -656,8 +656,8 @@ class Xcore_ModinfoX2FileReader extends Xcore_AbstractModinfoReader
 	function _loadNotificationPreferenceInfomations(&$modversion, &$collection)
 	{
 		if (isset($modversion['hasNotification']) && $modversion['hasNotification'] == true) {
-			require_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
-			require_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+			require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
+			require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 			
 			$t_options = array();
 			$t_options['_NOT_CONFIG_DISABLE'] = XOOPS_NOTIFICATION_DISABLE;

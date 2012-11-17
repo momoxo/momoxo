@@ -22,7 +22,7 @@
 function b_xcore_notification_show()
 {
     global $xoopsConfig, $xoopsUser, $xoopsModule;
-    include_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+    include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 	
 	$root =& XCube_Root::getSingleton();
 	$root->mLanguageManager->loadPageTypeMessageCatalog('notification');

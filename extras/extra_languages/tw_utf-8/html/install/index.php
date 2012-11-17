@@ -42,7 +42,7 @@ if ( isset($_POST) ) {
     }
 }
 
-include_once './include/functions.php';
+include_once './modules/xcore/include/functions.php';
 $language = getLanguage();
 include_once './language/'.$language.'/install.php';
 define('_OKIMG', '<img src="img/yes.gif" width="6" height="12" border="0" alt="OK" /> ');

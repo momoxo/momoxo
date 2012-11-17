@@ -15,7 +15,7 @@ $moduleperm_handler =& xoops_gethandler( 'groupperm' ) ;
 if( ! is_object( @$xoopsUser ) || ! $moduleperm_handler->checkRight( 'module_admin' , $xoopsModule->getVar( 'mid' ) , $xoopsUser->getGroups() ) ) die( 'only admin can access this area' ) ;
 
 $xoopsOption['pagetype'] = 'admin' ;
-require XOOPS_ROOT_PATH.'/include/cp_functions.php' ;
+require XOOPS_ROOT_PATH.'/modules/xcore/include/cp_functions.php' ;
 
 // language files (admin.php)
 $language = empty( $xoopsConfig['language'] ) ? 'english' : $xoopsConfig['language'] ;

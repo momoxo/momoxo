@@ -36,7 +36,7 @@ if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
 	exit();
 }
 require_once XOOPS_ROOT_PATH . '/header.php';
-require_once XOOPS_ROOT_PATH . "/include/comment_constants.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
 
 require_once XOOPS_MODULE_PATH . "/xcore/forms/CommentEditForm.class.php";
 
@@ -131,7 +131,7 @@ if ($xoopsModule->getVar('dirname') != 'system') {
 	// TODO
 	//
 	xoops_cp_header();
-	require_once XOOPS_ROOT_PATH.'/include/comment_form.php';
+	require_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_form.php';
 	xoops_cp_footer();
 }
 ?>

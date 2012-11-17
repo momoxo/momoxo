@@ -1,7 +1,7 @@
 <?php
 // $Id: groupperm.php,v 1.1 2007/05/15 02:35:00 minahito Exp $
 
-include '../../../include/cp_header.php';
+include '../../../modules/xcore/include/cp_header.php';
 $modid = isset($_POST['modid']) ? intval($_POST['modid']) : 0;
 
 //

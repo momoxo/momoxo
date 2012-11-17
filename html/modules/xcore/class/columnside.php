@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH . '/include/comment_constants.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/include/comment_constants.php';
 
 class XcoreColumnsideObject extends XoopsSimpleObject
 {

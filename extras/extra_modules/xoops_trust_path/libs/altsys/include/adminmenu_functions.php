@@ -109,7 +109,7 @@ function altsys_adminmenu_hack_ft_2col_x20()
 			return ;
 		} else {
 			// rebuild adminmenu
-			require_once XOOPS_ROOT_PATH.'/include/cp_functions.php' ;
+			require_once XOOPS_ROOT_PATH.'/modules/xcore/include/cp_functions.php' ;
 			xoops_module_write_admin_menu( xoops_module_get_admin_menu() ) ;
 			// backup $xoops_admin_menu_dv
 			$backup_admin_menu_dv = $xoops_admin_menu_dv ;
@@ -168,7 +168,7 @@ function altsys_adminmenu_hack_ft_noimg_x20()
 			return ;
 		} else {
 			// rebuild adminmenu
-			require_once XOOPS_ROOT_PATH.'/include/cp_functions.php' ;
+			require_once XOOPS_ROOT_PATH.'/modules/xcore/include/cp_functions.php' ;
 			xoops_module_write_admin_menu( xoops_module_get_admin_menu() ) ;
 			// backup $xoops_admin_menu_dv
 			$backup_admin_menu_dv = $xoops_admin_menu_dv ;
@@ -210,7 +210,7 @@ function altsys_adminmenu_hack_ft_xcsty_x20()
 			return ;
 		} else {
 			// rebuild adminmenu
-			require_once XOOPS_ROOT_PATH.'/include/cp_functions.php' ;
+			require_once XOOPS_ROOT_PATH.'/modules/xcore/include/cp_functions.php' ;
 			$fp = fopen( ALTSYS_ADMINMENU_FILE , 'wb' ) ;
 			fwrite( $fp , xoops_module_get_admin_menu() ) ;
 			fclose( $fp ) ;

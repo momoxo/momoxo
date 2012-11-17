@@ -341,7 +341,7 @@ function b_system_topposters_show($options)
 function b_system_comments_show($options)
 {
     $block = array();
-    include_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
+    include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
     $comment_handler =& xoops_gethandler('comment');
     $criteria = new CriteriaCompo(new Criteria('com_status', XOOPS_COMMENT_ACTIVE));
     $criteria->setLimit(intval($options[0]));
@@ -383,7 +383,7 @@ function b_system_comments_show($options)
 function b_system_notification_show()
 {
     global $xoopsConfig, $xoopsUser, $xoopsModule;
-    include_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+    include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
     include_once XOOPS_ROOT_PATH . '/language/' . $xoopsConfig['language'] . '/notification.php';
     // Notification must be enabled, and user must be logged in
     if (empty($xoopsUser) || !notificationEnabled('block')) {

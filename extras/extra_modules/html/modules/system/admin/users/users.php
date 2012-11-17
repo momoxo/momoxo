@@ -101,7 +101,7 @@ function displayUsers()
     $umode_value = $xoopsConfig['com_mode'];
     $uorder_value = $xoopsConfig['com_order'];
     // RMV-NOTIFY
-    include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
+    include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
     $notify_method_value = XOOPS_NOTIFICATION_METHOD_PM;
     $notify_mode_value = XOOPS_NOTIFICATION_MODE_SENDALWAYS;
     $bio_value = "";
@@ -192,7 +192,7 @@ function synchronize($id, $type)
         // Array of tables from which to count 'posts'
         $tables = array();
         // Count comments (approved only: com_status == XOOPS_COMMENT_ACTIVE)
-        include_once XOOPS_ROOT_PATH . '/include/comment_constants.php';
+        include_once XOOPS_ROOT_PATH . '/modules/xcore/include/comment_constants.php';
         $tables[] = array ('table_name' => 'xoopscomments', 'uid_column' => 'com_uid', 'criteria' => new Criteria('com_status', XOOPS_COMMENT_ACTIVE));
         // Count forum posts
         $tables[] = array ('table_name' => 'bb_posts', 'uid_column' => 'uid');

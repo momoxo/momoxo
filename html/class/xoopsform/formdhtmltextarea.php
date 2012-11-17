@@ -45,7 +45,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  */
 include_once XOOPS_ROOT_PATH."/class/xoopsform/formtextarea.php";
 
-// Make sure you have included /include/xoopscodes.php, otherwise DHTML will not work properly!
+// Make sure you have included /modules/xcore/include/xoopscodes.php, otherwise DHTML will not work properly!
 
 /**
  * A textarea with xoopsish formatting and smilie buttons

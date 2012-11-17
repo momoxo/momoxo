@@ -128,8 +128,8 @@ class Xcore_EventFunction
 	 */
 	function notifications_select(&$render)
 	{
-		require_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
-		require_once XOOPS_ROOT_PATH . '/include/notification_functions.php';
+		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
+		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 
 		$root =& XCube_Root::getSingleton();
 		$xoopsModule =& $root->mContext->mXoopsModule;
