@@ -1,6 +1,6 @@
-# XOOPS X (ten) Distribution
+# Momonga Project
 
-* Based on [momonga-project/momonga:master](https://github.com/momonga-project/momonga)
+* Based on [xoopscube/legacy:master](https://github.com/xoopscube/legacy)
 * Add altsys
 * Add XOOPS Protector
 * Add [X-update](https://github.com/XoopsX/xupdate)
@@ -16,61 +16,19 @@ ResourceDiscoveryOrder=Theme,ThemeD3,ThemeDefault,ThemeDefaultD3,DbTplSet
 
 ## Web site
 
-[XOOPS X (ten) Distribution Pack](http://www.xoopscube.net/)
-
 ## Quick install
 
-Please change `T="../xoops_trust_path"` by your liking.
-
-### On the shell (sh, bash)
-
-```bash
-cd [DOCUMENT ROOT]
-T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$T#"|sh
-```
-
-### On the shell (csh)
-
-```csh
-cd [DOCUMENT ROOT]
-set T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$T#"|sh
-```
-
 ### On the web
-
-* Upload "[install.cgi](https://github.com/XoopsX/installer/raw/master/install.cgi)" into [DOCUMENT ROOT] & chmod +x install.cgi
-* Access to `install.cgi?../xoops_trust_path` with web browser (change `../xoops_trust_path` by your liking)
 
 ***
 
 
-##Xcore
-
-* [About](#about)
-* [License](#license)
-* [Requirements](#requirements)
-* [Features](#features)
-* [Download](#download)
-* [Installation](#installation)
-* [Overview](#overview)
-* [Screenshots](#screenshots)
-* [Extensibility](#extensibility)
-* [Modules](#modules)
-* [Themes](#themes)
-* [Documentation](#documentation)
-* [Site and Support](#site-and-support)
-* [Contribute](#contribute)
+##Momonga
 
 ***
 
 About
 ====
-
-**XOOPS Cube** is an Open Source Web Application Platform built with PHP and MySQL empowering webmasters to make a custom content management system and create dynamic and content rich websites with ease.
-
-**XOOPS Cube Legacy** is a Simple, Secure and Scalable content management system and the package distribution of XOOPS Cube Project Team.
-
-**The XOOPS Cube Project** is friendly managed, developed and supported by a volunteer group with a multidisciplinary focus to provide a variety of different perspectives and ideas to consider in further development and design. XCL Team spirit  aims to strengthen everyone's social network, share the essential knowledge and understanding of the “spirit of open source” necessary to encourage creativity.
 
 ***
 
@@ -82,7 +40,7 @@ License
 XOOPS Cube was started from scratch and the XOOPS Cube Core source code is released under the BSD licence.
 
  
-###XOOPS Cube Legacy
+###XOOPS Cube Legacy  
 
 XOOPS Cube Legacy source code which is one of base modules to ensure compatibility with old versions of Xoops 2 is released under a GPL licence.
 
@@ -167,46 +125,10 @@ XOOPS Cube Legacy packages are available at [downloads](https://github.com/momon
 Installation
 ====
 
-XOOPS Cube Legacy Installation Guide
-
-http://xoopscube.sourceforge.net/documentation/
-
 ***
 
 Overview
 ====
-
-XOOPS Cube Legacy Administration
-
-Graphical User Interface (GUI)
-
-
-
-Screenshots
-====
-
-Screenshots and description.
-
-### Legacy System Preferences
-
-<img src="https://lh4.googleusercontent.com/-Rnhk9YUrttg/SB6gFWZAAQI/AAAAAAAAAe4/OT62wYd3w4I/s756/xcl_admin_settings.png">
-
-### User Groups Management
-
-<img src="http://gigamaster.myht.org/uploads/imgcad6d972581f658bc849f.png">
-
-### Modules Management
-
-<img src="http://gigamaster.myht.org/uploads/img84a2a7de03c93e7932649.png">
-
-### Blocks Management
-
-<img src="http://gigamaster.myht.org/uploads/imgb2e53f9cd9e93013b68c3.png">
-
-### Themes Management
-
-<img src="http://gigamaster.myht.org/uploads/img02a99ae6c063f277b2d71.png">
-
 
 ***
 
@@ -246,5 +168,5 @@ Contribute
 ====
 
 XOOPS Cube Legacy is open source project community driven. We encourage everyone in the community to contribute their knowledge and expertise.
-Everyone in the community benefits from every [enhancement request](https://github.com/momonga-project/momonga/issues), submit [bug report](https://github.com/momonga-project/momonga/issues) and [patch](https://github.com/momonga-project/momonga/pulls) implemented to improve **Xcore**.
-You can influence what happens to Open Source and the direction for **Xcore** future growth.
+Everyone in the community benefits from every [enhancement request](https://github.com/xoopscube/legacy/issues), submit [bug report](https://github.com/xoopscube/legacy/issues) and [patch](https://github.com/xoopscube/legacy/pulls) implemented to improve **Legacy**. 
+You can influence what happens to Open Source and the direction for **Legacy** future growth.
