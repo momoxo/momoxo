@@ -218,6 +218,20 @@ tr .even td {
 	text-align:left;
 	background:url(../design/bg_blocktitle.png) left top repeat-x;
 }
+#leftcolumn .head_system {
+	padding:5px;
+	font-weight:bold;
+	border:1px solid #D2E9B4;
+	text-align:left;
+	background:url(../design/bg_blocktitle_system.png) left top repeat-x;
+}
+#leftcolumn .head2_system {
+	padding:5px;
+	font-weight:bold;
+	border:1px solid #B0D87C;
+	text-align:left;
+	background:url(../design/bg_blocktitle2_system.png) left top repeat-x;
+}
 #leftcolumn .head a, #leftcolumn .head a:visited {
 	font-weight:bold;
 }
@@ -233,6 +247,18 @@ tr .even td {
 	font-weight:bold;
 }
 
+#leftcolumn .head2system {
+	padding:5px;
+	text-align:left;		
+	border-top:1px solid #fff;
+	border:1px solid #EBFFEF;
+	background:url(../design/bg_blocktitle2_system.png) left top repeat-x;
+}
+
+#leftcolumn .head2system a {
+	font-weight:bold;
+}
+
 #leftcolumn .submenu {
 	margin:0px;
 	padding:3px 2px;
@@ -240,6 +266,19 @@ tr .even td {
 	background:url(../design/bg_blockcontent.png) left top repeat-x;
 }
 #leftcolumn .submenu li {
+	margin:0;
+	padding:2px 2px 2px 17px;
+	list-style:none;
+	background:url(../design/menulist.png) center left no-repeat;
+}
+#leftcolumn .submenu_system {
+	border:1px solid #CCFFFF;
+	margin:0px;
+	padding:3px 2px;
+	display:none;	
+	background:url(../design/bg_blockcontent_system.png) left top repeat-x;
+}
+#leftcolumn .submenu_system li {
 	margin:0;
 	padding:2px 2px 2px 17px;
 	list-style:none;
