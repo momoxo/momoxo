@@ -11,12 +11,12 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * @todo
  *    This may have to be admin-preload.
  */
-class XcoreRender_Cacheclear extends XCube_ActionFilter {
+class Xcore_Cacheclear extends XCube_ActionFilter {
     function preBlockFilter()
     {
-		$this->mRoot->mDelegateManager->add('Xcore_ModuleInstallAction.InstallSuccess', 'XcoreRender_Cacheclear::cacheClear');
-		$this->mRoot->mDelegateManager->add('Xcore_ModuleUpdateAction.UpdateSuccess', 'XcoreRender_Cacheclear::cacheClear');
-		$this->mRoot->mDelegateManager->add('Xcore_ModuleUninstaller._fireNotifyUninstallTemplateBegun', 'XcoreRender_Cacheclear::cacheClear');
+		$this->mRoot->mDelegateManager->add('Xcore_ModuleInstallAction.InstallSuccess', 'Xcore_Cacheclear::cacheClear');
+		$this->mRoot->mDelegateManager->add('Xcore_ModuleUpdateAction.UpdateSuccess', 'Xcore_Cacheclear::cacheClear');
+		$this->mRoot->mDelegateManager->add('Xcore_ModuleUninstaller._fireNotifyUninstallTemplateBegun', 'Xcore_Cacheclear::cacheClear');
     }
     
     function cacheClear(&$module)

@@ -12,7 +12,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * prepared under XOOPS Cube regular process. For that, this action filter
  * tries to get 'Xcore_RenderSystem' as dummy.
  */
-class XcoreRender_StartupXoopsTpl extends XCube_ActionFilter
+class Xcore_StartupXoopsTpl extends XCube_ActionFilter
 {
 	function postFilter()
 	{
