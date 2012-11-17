@@ -14,7 +14,7 @@ class User_PrimaryFilter extends XCube_ActionFilter
 		$this->mController->mSetupUser->add("User_Utils::setupUser");
 		$this->mController->_mNotifyRedirectToUser->add("User_Utils::convertUrlToUser");
 
-		$file = XOOPS_ROOT_PATH . "/modules/user/modules/xcore/kernel/XcorepageFunctions.class.php";
+		$file = XOOPS_ROOT_PATH . "/modules/user/kernel/XcorepageFunctions.class.php";
 		
 		$root->mDelegateManager->add("Xcorepage.Userinfo.Access", "User_XcorepageFunctions::userinfo", $file);
 		$root->mDelegateManager->add("Xcorepage.Edituser.Access", "User_XcorepageFunctions::edituser", $file);
