@@ -166,7 +166,7 @@ class Xcore_RenderSystem extends XCube_RenderSystem
 		
    		$mTpl->assign(array('xoops_requesturi' => htmlspecialchars($GLOBALS['xoopsRequestUri'], ENT_QUOTES),	//@todo ?????????????
 							// set JavaScript/Weird, but need extra <script> tags for 2.0.x themes
-							'xoops_js' => '//--></script><script type="text/javascript" src="'.XOOPS_URL.'/include/xoops.js"></script><script type="text/javascript"><!--'
+							'xoops_js' => '//--></script><script type="text/javascript" src="'.XOOPS_URL.'/js/xoops.js"></script><script type="text/javascript"><!--'
 						));
 	
 		$mTpl->assign('xoops_sitename', $textFilter->toShow($context->getAttribute('xcore_sitename')));
@@ -518,7 +518,7 @@ class Xcore_RenderSystem extends XCube_RenderSystem
 		<meta name="copyright" content="'.htmlspecialchars($xoopsConfigMetaFooter['meta_copyright']).'" />
 		<meta name="generator" content="XOOPS" />
 		<title>'.htmlspecialchars($xoopsConfig['sitename']).'</title>
-		<script type="text/javascript" src="'.XOOPS_URL.'/include/xoops.js"></script>
+		<script type="text/javascript" src="'.XOOPS_URL.'/js/xoops.js"></script>
 		';
 		$themecss = getcss($xoopsConfig['theme_set']);
 		echo '<link rel="stylesheet" type="text/css" media="all" href="'.XOOPS_URL.'/xoops.css" />';

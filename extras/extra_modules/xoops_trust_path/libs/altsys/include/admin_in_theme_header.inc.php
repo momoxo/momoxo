@@ -52,7 +52,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 	}
 	//unset($config);
 	// Weird, but need extra <script> tags for 2.0.x themes
-	//$xoopsTpl->assign('xoops_js', '//--></script><script type="text/javascript" src="'.XOOPS_URL.'/include/xoops.js"></script><script type="text/javascript"><!--');
+	//$xoopsTpl->assign('xoops_js', '//--></script><script type="text/javascript" src="'.XOOPS_URL.'/js/xoops.js"></script><script type="text/javascript"><!--');
 	// get all blocks and assign to smarty
 
 //HACK by domifara
