@@ -214,7 +214,7 @@ class XoopsMultiMailer extends PHPMailer {
      * @return bool
      */
     function SetLanguage($lang_type, $lang_path = 'language/') {
-        // Patch for KARIMOJI 2008/09/21
+        // Patch for XOOPS Cube Legacy 2008/09/21
         $ext = substr($lang_path, -1, 1);
         if ($ext != '/' && file_exists($lang_path)) {
             include($lang_path);

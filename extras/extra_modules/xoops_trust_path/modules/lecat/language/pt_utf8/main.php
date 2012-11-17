@@ -1,7 +1,7 @@
 <?php
 /**
 * $Id$
-* KARIMOJI 2.2 - Módulo LeCAT - Tradução para o Português
+* XOOPS Cube Legacy 2.2 - Módulo LeCAT - Tradução para o Português
 * Traduzido por Mikhail Miguel < mailto:mikhail.miguel@gmail.com >
 * http://xoops.net.br/ | http://about.me/mikhail.miguel
 * Esta tradução encontra-se licenciada sob a licença Creative Commons Attribution 2.5 Brazil.

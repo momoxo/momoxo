@@ -3,7 +3,7 @@
 // $Id: main.php 928 2011-04-14 17:25:48Z mikhail $
 // License http://creativecommons.org/licenses/by/2.5/br/
 // ############################################################### //
-// ## KARIMOJI 2.1 - Tradução para o Português do Brasil
+// ## XOOPS Cube Legacy 2.1 - Tradução para o Português do Brasil
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## E-mail.........: mikhail.miguel@gmail.com

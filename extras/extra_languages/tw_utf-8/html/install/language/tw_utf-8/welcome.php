@@ -1,14 +1,14 @@
 <?php
 // $Id: welcome.php,v 1.2 2008/10/12 04:30:00 minahito Exp $
 $content =
-"<u><b>KARIMOJI是什麼?</b></u>
+"<u><b>XOOPS Cube Legacy是什麼?</b></u>
 <p>
-<b>KARIMOJI</b>的目標是為使用者建立一個容易開發模組及完全跳脫框架特徵的系統，整個套件完全採用了物件導向的PHP語言(Object Oriented)，
+<b>XOOPS Cube Legacy</b>的目標是為使用者建立一個容易開發模組及完全跳脫框架特徵的系統，整個套件完全採用了物件導向的PHP語言(Object Oriented)，
 我們的著眼點是建立比其他系統更接近一般使用者的網站管理系統，您可以使用它來建立大型企業網站，公司內部入口系統，法人入口系統，或是更多其他的網站應用。
 
 </p>
 <p>
-KARIMOJI 的釋出依照<a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL)</a>授權，並遵循此一方向讓大家可以照自己所需自由的修改，並用於各種用途，但必須保留程式碼的版權宣告及GPL規範的完整性，並且不得直接販售本程式碼。
+XOOPS Cube Legacy 的釋出依照<a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL)</a>授權，並遵循此一方向讓大家可以照自己所需自由的修改，並用於各種用途，但必須保留程式碼的版權宣告及GPL規範的完整性，並且不得直接販售本程式碼。
 </p>
 <u><b>環境需求</b></u>
 <p>

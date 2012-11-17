@@ -116,7 +116,7 @@ define("_MD_USER_MESSAGE_USER_DELETE_SUCCESS","O seu perfil foi definitivamente 
 define("_MD_USER_MESSAGE_YOURREGISTERED","Agora voc� est� cadastrado. Uma mensagem com a sua chave de ativa��o foi enviada ao e-mail que voc� nos forneceu. Por favor, siga as instru��es contidas no e-mail para habilitar a sua conta.");
 define("_MD_USER_MESSAGE_YOURREGISTERED2","Agora voc� est� cadastrado. Por favor, espere pela aprova��o dos administradores.");
 // ############################################################### //
-// ## KARIMOJI - Vers�o em Portugu�s
+// ## XOOPS Cube Legacy - Vers�o em Portugu�s
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## Website........: http://xoops.net.br

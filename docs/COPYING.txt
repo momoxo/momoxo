@@ -1,8 +1,8 @@
 ------------------------------------------------------------
-Copyright and License notice about KARIMOJI 2.1.x
+Copyright and License notice about XOOPS Cube Legacy 2.1.x
 ------------------------------------------------------------
 
-Most of the files included in KARIMOJI 2.1.x package are licensed under
+Most of the files included in XOOPS Cube Legacy 2.1.x package are licensed under
 the "GNU PUBLIC LICENSE VERSION 2.0". (see /docs/GPL_V2.txt)
 
  Many of these files are delivered from 

@@ -1,13 +1,13 @@
 <?php
 // $Id: welcome.php,v 1.2 2008/10/12 04:30:49 minahito Exp $
 $content =
-"<u><b>Co to je KARIMOJI?</b></u>
+"<u><b>Co to je XOOPS Cube Legacy?</b></u>
 <p>
-<b>KARIMOJI</b> je dynamick� OO (Objektov� Orientovan�) port�lov� skript vznikl� na z�kladech open source a napsan� v PHP.
+<b>XOOPS Cube Legacy</b> je dynamick� OO (Objektov� Orientovan�) port�lov� skript vznikl� na z�kladech open source a napsan� v PHP.
 XOOPS Cube podporuje �adu datab�z�, d�ky �emu� je ide�ln� n�stroj pro v�voj mal�ch i velk�ch dynamick�ch komunitn�ch web-server�, vnitro-podnikov�ch port�l�, firemn�ch port�l�, weblog� a mnoh�ch dal��ch.
 </p>
 <p>
-KARIMOJI je vyd�v�n pod licen�n�mi podm�nkami <a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL)</a> a je voln� k pou�it� �i upravov�n�.
+XOOPS Cube Legacy je vyd�v�n pod licen�n�mi podm�nkami <a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL)</a> a je voln� k pou�it� �i upravov�n�.
 Je voln� k distribuci pokud budou dodr�eny podm�nky GPL.
 </p>
 <u><b>Po�adavky</b></u>

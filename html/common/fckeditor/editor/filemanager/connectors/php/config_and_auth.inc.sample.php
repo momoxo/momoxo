@@ -42,7 +42,7 @@ if( ! is_object( $xoopsUser ) ) {
 	$uid = $xoopsUser->getVar( 'uid' ) ;
 	// check isadmin
 	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
-		// for Cube 2.1 (check if KARIMOJI_LEGALEGAmodule admin)
+		// for Cube 2.1 (check if Legacy module admin)
 		$module_handler =& xoops_gethandler( 'module' ) ;
 		$module =& $module_handler->getByDirname( 'xcore' ) ;
 		$fck_isadmin = $xoopsUser->isAdmin( $module->getVar('mid') ) ;

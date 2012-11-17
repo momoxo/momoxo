@@ -6,14 +6,14 @@
  * Type:     resource
  * Name:     db
  * Purpose:  Fetches templates from a database
- * Version:  for KARIMOJI 2.2
+ * Version:  for XOOPS Cube Legacy 2.2
  *           Based on Hodajuku Distribution 1.04 resource.db.php
  * -------------------------------------------------------------
  */
 
 function smarty_resource_db_systemTpl($tpl_name)
 {
-    // Replace KARIMOJI_LEGALEGASystem Template name to KARIMOJI_LEGALEGAModule Template name
+    // Replace Legacy System Template name to Legacy Module Template name
     static $patterns = null;
     static $replacements = null;
     if (!$patterns) {

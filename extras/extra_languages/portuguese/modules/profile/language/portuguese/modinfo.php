@@ -1,6 +1,6 @@
 <?php
 // ******************************************************************** //
-// ** KARIMOJI - Profile Module - Portuguese
+// ** XOOPS Cube Legacy - Profile Module - Portuguese
 // ** Por Mikhail Miguel <mikhail.miguel@gmail.com> - http://xoops.net.br/
 // ** $Id$
 // **	License http://creativecommons.org/licenses/by/2.5/br/

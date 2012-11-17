@@ -1,7 +1,7 @@
 <?php
 // $Id$
 define("_INSTALL_L0","Bienvenue dans l'assistant d'installation de XOOPS Cube 2.2");
-define("_INSTALL_L168","KARIMOJI requires PHP5 or later");
+define("_INSTALL_L168","XOOPS Cube Legacy requires PHP5 or later");
 define("_INSTALL_L70","Merci de changer les permissions du fichier mainfile.php afin qu'il soit accessible en �criture par le serveur (ex. chmod 777 sur un serveur UNIX/LINUX, ou v�rifier les propri�t�s du fichier et s'assurer que l'option 'Lecture seule' n'est pas coch�e sur un serveur Windows). Rechargez cette page une fois les permissions chang�es.");
 //define("_INSTALL_L71","Cliquez sur le bouton ci-dessous pour commencer l'installation.");
 define("_INSTALL_L1","Ouvrez le fichier mainfile.php avec un �diteur de texte et cherchez le code suivant � la ligne 31 :");

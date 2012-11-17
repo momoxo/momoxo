@@ -2,7 +2,7 @@
 // $Id$
 // License http://creativecommons.org/licenses/by/2.5/br/
 // ############################################################### //
-// ## KARIMOJI - Vers�o em Portugu�s
+// ## XOOPS Cube Legacy - Vers�o em Portugu�s
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## Website........: http://xoops.net.br/

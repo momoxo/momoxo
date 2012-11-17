@@ -9,12 +9,12 @@ Utilisez le compte administrateur cr�� dans la 1�re �tape de l'installat
 <p>Une liste de modules pouvant �tre install�s s'affichera apr�s votre connexion.<br>
 S�lectionnez les modules compl�mentaires et cliquez sur le bouton <b>[ Installer ]</b>.</p>
 <p>Les modules sp�cifi�s seront install�s automatiquement et s'affichera ensuite<br>
-la page d'accueil de votre site KARIMOJI pr�t � l'emploi!</p>
+la page d'accueil de votre site XOOPS Cube Legacy pr�t � l'emploi!</p>
 <img src='img/xcl_d3.png' width='200' height='230' alt='Package D3 Modules' align='left' style='margin-right:10px' />
-<h3 align='center'>KARIMOJI : Modules</h3>
+<h3 align='center'>XOOPS Cube Legacy : Modules</h3>
 <br />
 <p><u><b>Documentation</b></u>
-<br />Les modules KARIMOJI_LEGALEGAdisposent d'une documentation accessible depuis d'administration.
+<br />Les modules Legacy disposent d'une documentation accessible depuis d'administration.
 <br />
 <br />
 <u><b>Support</b></u>

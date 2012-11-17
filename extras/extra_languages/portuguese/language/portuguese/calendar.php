@@ -1,6 +1,6 @@
 <?php
 // *************************************************************************
-// ** KARIMOJI - vers�o em portugu�s por Mikhail Miguel
+// ** XOOPS Cube Legacy - vers�o em portugu�s por Mikhail Miguel
 // ** $Id$
 // ** License: http://creativecommons.org/licenses/by/2.5/br/
 // ** http://sf.net/users/mikhail | http://code.google.com/u/mikhail.miguel

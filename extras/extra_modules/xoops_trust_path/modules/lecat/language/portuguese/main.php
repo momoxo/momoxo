@@ -1,7 +1,7 @@
 <?php
 /**
 * $Id$
-* KARIMOJI 2.2 - M�dulo LeCAT - Tradu��o para o Portugu�s
+* XOOPS Cube Legacy 2.2 - M�dulo LeCAT - Tradu��o para o Portugu�s
 * Traduzido por Mikhail Miguel < mailto:mikhail.miguel@gmail.com >
 * http://xoops.net.br/ | http://about.me/mikhail.miguel
 * Esta tradu��o encontra-se licenciada sob a licen�a Creative Commons Attribution 2.5 Brazil.

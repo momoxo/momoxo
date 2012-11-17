@@ -6,7 +6,7 @@ Module developer can get category tree and can check permission about user group
 
 Environment
 -----------
-KARIMOJI 2.2 or later.
+XOOPS Cube Legacy 2.2 or later.
 
 Setup
 -----

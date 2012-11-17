@@ -22,7 +22,7 @@ define( '_MI_ALTSYS_ADMINMENU_HFT' , 'Reescribir el Men� de Administraci�n' 
 define( '_MI_ALTSYS_ADMINMENU_HFTDSC' , 'Si su men� de Administraci�n est� roto, puede eliminar el archivo cache/adminmenu.php.' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_2COL' , 'Dos columnas de iconos de m�dulos' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_NOIMG' , 'IMG a TEXT' ) ;
-define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'Como XoopsCube KARIMOJI_LEGALEGA2.1' ) ;
+define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'Como XoopsCube Legacy 2.1' ) ;
 
 define( '_MI_ALTSYS_ADMINMENU_IM' , 'Copiar los enlaces de "mymenu" al men� de administraci�n' ) ;
 define( '_MI_ALTSYS_ADMINMENU_IMDSC' , 'Si su men� de Administraci�n est� roto, puede eliminar el archivo cache/adminmenu.php' ) ;

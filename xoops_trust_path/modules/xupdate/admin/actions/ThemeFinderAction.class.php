@@ -16,7 +16,7 @@ require_once XUPDATE_TRUST_PATH . '/class/AbstractAction.class.php';
  * This action shows the list of selectable themes to user.
  *
  * [Notice]
- * In KARIMOJI which can have many themes with different render-
+ * In XOOPS Cube Legacy which can have many themes with different render-
  * systems, that one render-system has the control to change themes is wrong,
  * because this action can't list up themes of other render-systems.
  * The action to change themes should be in Xcore. And, each render-systems
@@ -24,7 +24,7 @@ require_once XUPDATE_TRUST_PATH . '/class/AbstractAction.class.php';
  *
  * Therefore, this class is test for that we may move this action from
  * XcoreRender module. If you want to check the concept of this strategy, see
- * ThemeSelect preload in KARIMOJI_LEGALEGAmodule.
+ * ThemeSelect preload in Legacy module.
  */
 class Xupdate_Admin_ThemeFinderAction extends Xupdate_AbstractAction
 {

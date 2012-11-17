@@ -2,7 +2,7 @@
 // Translation Info
 // *************************************************************** //
 // ############################################################### //
-// ## KARIMOJI 2.2 - Tradu��o para o Portugu�s do Brasil
+// ## XOOPS Cube Legacy 2.2 - Tradu��o para o Portugu�s do Brasil
 // ## $Id$
 // ## License http://creativecommons.org/licenses/by/2.5/br/
 // ## Por............: Mikhail Miguel

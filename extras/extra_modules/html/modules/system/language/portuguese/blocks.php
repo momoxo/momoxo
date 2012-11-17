@@ -1,6 +1,6 @@
 <?php
 // *************************************************************** //
-// ** KARIMOJI - Vers�o em Portugu�s
+// ** XOOPS Cube Legacy - Vers�o em Portugu�s
 // ** $Id: blocks.php 336 2009-07-31 09:53:22Z mikhail $
 // **	License http://creativecommons.org/licenses/by/2.5/br/
 // *************************************************************** //

@@ -1,11 +1,11 @@
 myckeditor
 ==========
-CK Editor(Wysiwig Editor for textarea) for KARIMOJI
-This module is a just sample how to implement wysiwig editor as KARIMOJI module.
+CK Editor(Wysiwig Editor for textarea) for XOOPS Cube Legacy
+This module is a just sample how to implement wysiwig editor as XOOPS Cube Legacy module.
 
 Requirement
 -----------
--KARIMOJI 2.2 or later
+-XOOPS Cube Legacy 2.2 or later
 
 Main Feature
 ------------

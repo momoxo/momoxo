@@ -1,7 +1,7 @@
 <?php
 // $Id: install.php,v 1.3 2008/03/15 06:20:01 gusagi Exp $
 define("_INSTALL_L0","XOOPS Cube 2.2 ���󥹥ȡ��륦�������ɤؤ褦����");
-define("_INSTALL_L168","KARIMOJI ��ư��ˤ� PHP5 �ʹߤ�ɬ�פǤ�");
+define("_INSTALL_L168","XOOPS Cube Legacy ��ư��ˤ� PHP5 �ʹߤ�ɬ�פǤ�");
 define("_INSTALL_L70","�����о��mainfile.php �ؤν񤭹��߸��¤�Ϳ���Ƥ���������<br />���㡧UNIX/LINUX�����Фξ���chmod 777 mainfile.php��Windows�����Фξ����ɤ߼�����ѥץ�ѥƥ������åȤ���Ƥ��ʤ��������å����롣��<br />���¤����괰λ�塢�֥饦���Ρֹ����ץܥ���򲡤��Ƥ��Υڡ���������ɤ߹���Ǥ���������");
 //define("_INSTALL_L71","�����Υܥ���򥯥�å�����ȥ��󥹥ȡ���򳫻Ϥ��ޤ���");
 define("_INSTALL_L1","mainfile.php�򳫤���31���ܤ˰ʲ��Υ����ɤ����뤳�Ȥ��ǧ���Ƥ���������");

@@ -1,5 +1,5 @@
 현재  
-KARIMOJI는
+XOOPS Cube Legacy는
 UTF-8을 기본 인코딩으로 채택하고 있지 않습니다. 
 일부 국가/지역에서 아직 UTF-8 이 널리사용되고 있지 않는 점 등등 
 그 이유는 여러가지가 있습니다만... 
@@ -13,7 +13,7 @@ EUC-KR: ~/language/korean/*.*
 UTF-8: ~/language/ko_utf8/*.* 
  
 <한국어 UTF-8 언어팩 사용법> 
-1,해당 언어팩을 다운받으신 후 KARIMOJI Package에 추가/복사합니다.
+1,해당 언어팩을 다운받으신 후 XOOPS Cube Legacy Package에 추가/복사합니다.
 2,언어파일용 디렉토리에 koreanutf 디렉토리가 성공적으로 추가되었는지 확인합니다. 
 3.INSTALL.ko.html 을 참고하여 설치를 진행합니다. 
 ( 설치언어로 koreanutf 을 선택하는 것 이외엔 EUC-KR 과 동일합니다.) 

@@ -3,7 +3,7 @@
 // $Id$
 // License http://creativecommons.org/licenses/by/2.5/br/
 // ############################################################### //
-// ## KARIMOJI 2.2 - Tradução para o Português
+// ## XOOPS Cube Legacy 2.2 - Tradução para o Português
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## E-mail.........: mikhail.miguel@gmail.com

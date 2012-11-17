@@ -9,7 +9,7 @@ Version="1.0.0"
 
 [Theme]
 RenderSystem=Xcore_RenderSystem
-Format="XOOPS2 KARIMOJI_LEGALEGAStyle"
+Format="XOOPS2 Legacy Style"
 Author=XOOPS Cube Project Team
 ScreenShot="screenshot.png"
 Description="Default theme of XOOPS Cube 2.1"

@@ -3,13 +3,13 @@
 $content .=
 "<u><b>Qu'est-ce que c'est ?</b></u>
 <p>
-<b>KARIMOJI</b> est basé sur un script de portail dynamique O.O. (Orienté Objet) écrit en PHP.
-KARIMOJI supporte un certain nombre de base de données,
-ce qui fait de KARIMOJI l'outil idéal pour le développement de petits et grands sites communautaires
+<b>XOOPS Cube Legacy</b> est basé sur un script de portail dynamique O.O. (Orienté Objet) écrit en PHP.
+XOOPS Cube Legacy supporte un certain nombre de base de données,
+ce qui fait de XOOPS Cube Legacy l'outil idéal pour le développement de petits et grands sites communautaires
 dynamiques, portails intranet de sociétés, portails d'entreprise, blogs et beaucoup plus encore.
 </p>
 <p>
-KARIMOJI est publié sous les termes de la <a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL - Licence Grand Public)</a> et libre d'utilisation et de modification.
+XOOPS Cube Legacy est publié sous les termes de la <a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL - Licence Grand Public)</a> et libre d'utilisation et de modification.
 Il est librement redistribuable tant que vous vous soumettez aux termes de distribution GPL.
 </p>
 <u><b>Conditions</b></u>

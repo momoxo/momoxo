@@ -1,7 +1,7 @@
 �y�e�[�}���@�z basic5
 �y�o�[�W�����z 0.04
 �y��@���@�ҁz marine / mistgreen
-�y����@���z KARIMOJI 2.1x (HD1.04)�A2.2
+�y����@���z XOOPS Cube Legacy 2.1x (HD1.04)�A2.2
 �y���C�Z���X�z MIT
 �y�� �J ��@�z 2011-11-13
 
@@ -11,7 +11,7 @@
 
 �@PC�ł�iPhone ���̃X�}�[�g�t�H���ł��g���� XCL2.1x(HD1.04)�EXCL2.2�p�e�[�}�ł��BHTML5�ō���Ă��܂��B
 �@�{�����ɉ����āA�_��Ƀy�[�W���C�A�E�g��؂�ւ��郌�X�|���V�u�E�E�F�u�f�U�C���iResponsive Web Design �j���̗p���܂����B
-�@KARIMOJI 2.2 �œ���m�F���܂����B
+�@XOOPS Cube Legacy 2.2 �œ���m�F���܂����B
 
 �@���L�T�C�g�̃e���v���[�g�𗬗p���āAXoops�p�̃e�[�}�Ƃ��Ă݂܂����B
 	http://www.onextrapixel.com/2011/09/12/create-a-responsive-web-design-template/

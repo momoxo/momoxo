@@ -10,7 +10,7 @@
 
 if (!defined("XOOPS_MAINFILE_INCLUDED")) exit();
 if (!defined('XOOPS_TRUST_PATH')){
-	echo "XOOPS_TRUST_PATH is required after KARIMOJI 2.2 in mainfile.php";exit();
+	echo "XOOPS_TRUST_PATH is required after XOOPS Cube Legacy 2.2 in mainfile.php";exit();
 }
 
 

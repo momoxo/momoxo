@@ -282,7 +282,7 @@ class Xupdate_FtpModuleInstall extends Xupdate_FtpCommonZipArchive {
 				return false;
 			}
 			
-			// for KARIMOJI_LEGALEGAcore extra languages
+			// for Legacy core extra languages
 			if ($this->dirname === 'xcore') {
 				// copy extras languages
 				$langs = array();

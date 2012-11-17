@@ -1,5 +1,5 @@
 ﻿
-KARIMOJI "Package_Xcore" & "XCube core" Changelog
+XOOPS Cube Legacy "Package_Xcore" & "XCube core" Changelog
 
 ----------------------------------------
 2012/10/**: Package Revision 2.2.2 Beta1
@@ -14,7 +14,7 @@ https://github.com/momonga-project/momonga
 #31 About admin panel form.
 #30 NOT IN criteria render bug
 #29 module admin anchor error after module install.
-#26 fix xoops_gethandler() for internal class in cube_KARIMOJI_LEGALEGA2.2.1
+#26 fix xoops_gethandler() for internal class in cube_Legacy 2.2.1
 #25 xcore: load trust side language file
 #23 xcore: admin theme onload func switch to onready
 #22 Change xc_pack2011.png
@@ -88,7 +88,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3509214 - PHPMailer 5.1 with several bugs closed in PHPMailer 5.2.1
 - Fix Bug #3512942 - Magic Quotes REMOVED from PHP 5.4 and deprecated in PHP 5.3
 
-[Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
+[Feature Request - From Feature Requests Legacy Tracker]
 - Feature Request #3470809 - template download info is  [File type : File (-1 bytes)]
 - Feature Request #3470813 - prevent out of ob_buffer memory during to backup
 
@@ -125,7 +125,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3409729 - xoops_meta_description set
 - Fix Bug #3464105 - Timing of the client data set
 
-[Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
+[Feature Request - From Feature Requests Legacy Tracker]
 - Feature Request #2976820 - MyTextSanitizer delegate
 - Feature Request #3165296 - Replace resource.db.php with HD version
 - Feature Request #3314900 - please ckeditor version up
@@ -171,10 +171,10 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3298903 - Guests can't view their profile items
 - Fix Bug #3301424 - user module admin UserView error
 
-[Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
+[Feature Request - From Feature Requests Legacy Tracker]
 - Fix Bug #3307977 - site_custom.ini for multisite
 
-[Feature Request : KARIMOJI_LEGALEGA- From Feature Requests KARIMOJI_LEGALEGATracker]
+[Feature Request : Legacy - From Feature Requests Legacy Tracker]
 - Fix Bug #3308571 - Add altsys as extara_modules
 
 [Other Changes/Enhancements]
@@ -236,7 +236,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3161729 - Back button doesn't work
 - Fix Bug #3164123 - Insert image through Image Manager
 
-[Patches - From Patches KARIMOJI_LEGALEGATracker]
+[Patches - From Patches Legacy Tracker]
 - Patches #3176946 - function createOnloadFunctionTag patch by gara
 
 [Staff]
@@ -277,7 +277,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3104539 - Broken links in /themes/xcore_default/layout.css
 - Fix Bug #3104945 - nusoap: class nusoap_base not found errors & path disclosure
 
-[Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
+[Feature Request - From Feature Requests Legacy Tracker]
 - Feature Request #3101119 - I want you to move templates_c to xoops_trust_path
 - Feature Request #3102808 - Avoid Smarty Debug infinite loop
 
@@ -337,7 +337,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3012550 - missing xcoreRender language definition japanese/ja_utf8
 - Fix Bug #3027196 - Lecat with undefined constant _MI_LECAT_KEYWORD_SETTING_EDIT
 
-[Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
+[Feature Request - From Feature Requests Legacy Tracker]
 - Feature Request #3049858 - xoops.js improvement
 - Feature Request #3053523 - TYPE=MyISAM cause error in  MySQL 5.5.3
 - Feature Request #3053875 - TYPE = MYISAM in modules/message/sql/mysql.sql
@@ -446,7 +446,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #2862491 - NOT show title in form when reply comment
 - Fix Bug #2874305 - A typo in UserInfoProtector
 
-[Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
+[Feature Request - From Feature Requests Legacy Tracker]
 - Feature Request #2889797 - parse_ini_file() compliant for PHP5.3
 - Feature Request #1718527 - User Profile Extended
 - Feature Request #1721686 - Mailjob API of user module
@@ -473,7 +473,7 @@ https://github.com/momonga-project/momonga
 - Feature Request #2746645 - Replace the Smarty files with links
 - Feature Request #2889797 - parse_ini_file() compliant for PHP5.3
 
-[Patches - From Patches KARIMOJI_LEGALEGATracker]
+[Patches - From Patches Legacy Tracker]
 - Patches #1812761 - Block table checker
 
 [Other Changes/Enhancements]
@@ -491,7 +491,7 @@ https://github.com/momonga-project/momonga
 - Add Filemanager (Admin side, under development)
 - Change getting script for Dhtmltarea by Delegate
 - Add xcore/class/interface for delegate: category, tag, progress
-- Add Lecat(KARIMOJI_LEGALEGACategory) module.
+- Add Lecat(Legacy Category) module.
 - Add `trust_dirname` to modules table
 - Add Xcore_Utils APIs
   - getUid()
@@ -601,7 +601,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 
 [Other Changes/Enhancements]
 - Request #2682887 - MySQL Database Connection should specify the client_flags
-- KARIMOJI_LEGALEGAController class provides XCORE_MODULE_VERSION constant as phpversion.
+- Legacy Controller class provides XCORE_MODULE_VERSION constant as phpversion.
 
 [Staff]
 - gigamaster
@@ -698,7 +698,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1950018 - charset Problem in css.php
 - Fix Bug #1950017 - PathDisclo in xcoreRender/admin/css.php
 - Fix Bug #1944713 - PATH Disclosure ? in Xcore_Controller::_parseUrl()
-- Fix Bug #1939992 - Invalid xhtml templates in KARIMOJI_LEGALEGAmodule.
+- Fix Bug #1939992 - Invalid xhtml templates in Legacy module.
 - Fix Bug #1938443 - ID is multiple defined in TplsetList
 - Fix Bug #1924223 - The request which includes URL cannot be processed.
 - Fix Bug #1971682 - Could not read PM from a removed user.
@@ -720,7 +720,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Patch #1961603 - portuguese translations: bug fix and enhancements.
 - Patch #1992777 - xoopsmailerlocal.php for zh-tw.
 - Patch #2011199 - Czech message catalog for XCL.
-- Patch #2016023 - Package KARIMOJI_LEGALEGA215rc patch FR and PT typo.
+- Patch #2016023 - Package Legacy 215rc patch FR and PT typo.
 - (Exception Patch) Improve LostPassAction.
 - Request #2795674 - Update phpmailer from 2.0.3 to 2.0.4
 
@@ -854,7 +854,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 ------------------------------------
 [Bug Fix - From Bug Tracker]
 - Fix Bug #1713628 - Custom Session is not available
-- Fix Bug #1719025 - Search func of XC KARIMOJI_LEGALEGAdoesn't work properly
+- Fix Bug #1719025 - Search func of XC Legacy doesn't work properly
 - Fix Bug #1719891 - ModuleUpdate can't handle $modversion['blocks'][0] perfectly
 - Fix Bug #1721593 - Some bugs of Comment Management!
 - Fix Bug #1722319 - GroupPerm Action doesn't list up any Custom block!
@@ -866,7 +866,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1748531 - Block Weight parameter's max value is 255
 - Fix Bug #1738481 - small typo in notification from X2
 - Fix Bug #1738590 - typo Xcore_ModuleInstallUtils
-- Fix Bug #1743994 - Missing ':' in KARIMOJI_LEGALEGAadmin stylesheet
+- Fix Bug #1743994 - Missing ':' in Legacy admin stylesheet
 - Fix Bug #1748531 - Is max of block weight 255 ?
 - Fix Bug #1748545 - The ImgUploader leaves an old file at ImageEdit
 - Fix Bug #1749522 - Bugs Lost your Password
@@ -913,7 +913,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1734674 - tiny bugs in GroupPropertyAction
 - Fix Bug #1731829 - TYPO Lagacy_AdminRenderSystem.classlphp
 - Fix Bug #1730013 - Bugs related to image management/manager
-- Fix Bug #1730012 - Some TYPOs in KARIMOJI_LEGALEGAmodules
+- Fix Bug #1730012 - Some TYPOs in Legacy modules
 - Fix Bug #1730010 - garbage in comment_list.html
 - Fix Bug #1727006 - TYPO in xcore_search_results.html (Duplicate #1723406)
 - Fix Bug #1725379 - Module Update problem
@@ -935,14 +935,14 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1710643 - Can't render [size=xx-small][/size] tag
 
 [Patches - From Patch Tracker]
-- Patch #1726645 - KARIMOJI_LEGALEGA>> Language >> english >> admin.php
+- Patch #1726645 - Legacy >> Language >> english >> admin.php
 - Patch #1719822 - japaneseutf
 
 [Other Changes/Enhancements]
-- Package_KARIMOJI_LEGALEGAgot Korean language files (EUC-KR & kr_utf8).
-- Package_KARIMOJI_LEGALEGAgot ja_utf8 language files. (patch #1719822)
-- Preference of KARIMOJI_LEGALEGAgot to take languages files including number characters.
-- Package_KARIMOJI_LEGALEGAgot Greek language files.
-- Package_KARIMOJI_LEGALEGAgot French language files (french & fr_utf8).
-- Package_KARIMOJI_LEGALEGAgot Traditional Chinese language files.
-- KARIMOJI_LEGALEGAmodule's help image files are replaced more better files.
+- Package_Legacy got Korean language files (EUC-KR & kr_utf8).
+- Package_Legacy got ja_utf8 language files. (patch #1719822)
+- Preference of Legacy got to take languages files including number characters.
+- Package_Legacy got Greek language files.
+- Package_Legacy got French language files (french & fr_utf8).
+- Package_Legacy got Traditional Chinese language files.
+- Legacy module's help image files are replaced more better files.

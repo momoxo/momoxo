@@ -1,7 +1,7 @@
 <?php
 /**
  * @file jQuery_Pretty.class.php
- * @package For KARIMOJI_LEGALEGACube KARIMOJI_LEGALEGA2.2
+ * @package For Legacy Cube Legacy 2.2
  * @version $Id: jQuery_Pretty.class.php ver0.01 2011/07/27  00:40:00 domifara  $
  */
 

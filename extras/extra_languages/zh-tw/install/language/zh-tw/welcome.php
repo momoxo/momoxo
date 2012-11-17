@@ -6,15 +6,15 @@
 // 翻譯者：SUN (sun@meto.com.tw) http://www.meto.com.tw
 
 $content .=
-"<u><b>KARIMOJI介紹</b></u>
+"<u><b>XOOPS Cube Legacy介紹</b></u>
 <p>
-<b>KARIMOJI</b> 的目標是為使用者建立一個容易開發模組及完全跳脫框架特徵的系統，整個套件完全採用了物件導向的PHP語言(Object Oriented)
-KARIMOJI 支援多種資料庫,
-making KARIMOJI 是一個從建立小型到大型動態網站都是再完美不過的工具,
+<b>XOOPS Cube Legacy</b> 的目標是為使用者建立一個容易開發模組及完全跳脫框架特徵的系統，整個套件完全採用了物件導向的PHP語言(Object Oriented)
+XOOPS Cube Legacy 支援多種資料庫,
+making XOOPS Cube Legacy 是一個從建立小型到大型動態網站都是再完美不過的工具,
 不論是公司團體組織甚至只是小型的個人網站等等都非常的適用。
 </p>
 <p>
-KARIMOJI 依照於<a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL)</a>並遵循此一方向
+XOOPS Cube Legacy 依照於<a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' target='_blank'>GNU General Public License (GPL)</a>並遵循此一方向
 讓大家可以照自己所需修改，並用於各種用途，但必須保留程式碼的版權宣告完整性，並且不得直接販售本程式碼。
 </p>
 <u><b>環境需求</b></u>

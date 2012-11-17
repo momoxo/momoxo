@@ -22,7 +22,7 @@ define( '_MI_ALTSYS_ADMINMENU_HFT' , 'Rewrite admin menu' ) ;
 define( '_MI_ALTSYS_ADMINMENU_HFTDSC' , 'If your admin menu is broken, remove cache/adminmenu.php. This feature works only with XOOPS 2.0.x' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_2COL' , 'Two columns of module icons' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_NOIMG' , 'IMG to TEXT' ) ;
-define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'Like XoopsCube KARIMOJI_LEGALEGA2.1' ) ;
+define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'Like XoopsCube Legacy 2.1' ) ;
 
 define( '_MI_ALTSYS_ADMINMENU_IM' , 'Copy mymenu links into admin menu' ) ;
 define( '_MI_ALTSYS_ADMINMENU_IMDSC' , 'If your admin menu is broken, remove cache/adminmenu.php. This feature works only with XOOPS 2.0.x' ) ;
