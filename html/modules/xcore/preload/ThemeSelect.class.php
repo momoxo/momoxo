@@ -18,20 +18,18 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  */
 class Xcore_ThemeSelect extends XCube_ActionFilter
 {
-	/**
-	 * @var XCube_Delegate
-	 */
-	var $mIsSelectableTheme = null;
-	
+
 	function Xcore_ThemeSelect(&$controller)
 	{
 		//
 		// TODO remove
 		//
 		parent::XCube_ActionFilter($controller);
-		$this->mIsSelectableTheme =new XCube_Delegate();
-		$this->mIsSelectableTheme->register('Xcore_ThemeSelect.IsSelectableTheme');
-		
+
+        $controller->mRoot->mDelegateManager->add('XcoreThemeHandler.GetInstalledThemes', 'XcoreRender_DelegateFunctions::getInstalledThemes', XOOPS_ROOT_PATH . "/modules/xcoreRender/kernel/DelegateFunctions.class.php");
+
+
+
 		$controller->mSetupUser->add(array(&$this, 'doChangeTheme'));
 	}
 	
@@ -76,6 +74,8 @@ class Xcore_ThemeSelect extends XCube_ActionFilter
 	{
 		return in_array($theme_name, $this->mRoot->mContext->getXoopsConfig('theme_set_allowed'));
 	}
+
+
 }
 
 ?>
