@@ -96,7 +96,6 @@ class Xcore_ModuleListAction extends Xcore_Action
                 // Store & Sync isactive of blocks with isactive of the module.
                 //
                 if ($moduleHandler->insert($module)) {
-                	$successFlag &= true;
                 	$blockHandler->syncIsActive($module->get('mid'), $module->get('isactive'));
                 }
                 else {
