@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class XcoreRenderTplfileObject extends XoopsSimpleObject
+class XcoreTplfileObject extends XoopsSimpleObject
 {
 	/**
 	 * @access public
@@ -12,7 +12,7 @@ class XcoreRenderTplfileObject extends XoopsSimpleObject
 	
 	var $mOverride = null;
 	
-	function XcoreRenderTplfileObject()
+	function XcoreTplfileObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -46,13 +46,13 @@ class XcoreRenderTplfileObject extends XoopsSimpleObject
 	 * Create the clone with source for the template set that is specified by $tplsetName.
 	 * 
 	 * @param $tplsetName string
-	 * @return object XcoreRenderTplfileObject
+	 * @return object XcoreTplfileObject
 	 */
 	function &createClone($tplsetName)
 	{
 		$this->loadSource();
 		
-		$obj =new XcoreRenderTplfileObject();
+		$obj =new XcoreTplfileObject();
 
 		$obj->set('tpl_refid', $this->get('tpl_refid'));
 		$obj->set('tpl_module', $this->get('tpl_module'));
@@ -96,11 +96,11 @@ class XcoreRenderTplfileObject extends XoopsSimpleObject
 	}
 }
 
-class XcoreRenderTplfileHandler extends XoopsObjectGenericHandler
+class XcoreTplfileHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "tplfile";
 	var $mPrimary = "tpl_id";
-	var $mClass = "XcoreRenderTplfileObject";
+	var $mClass = "XcoreTplfileObject";
 	
 	function insert(&$obj, $force = false)
 	{
@@ -114,7 +114,7 @@ class XcoreRenderTplfileHandler extends XoopsObjectGenericHandler
 			return true;
 		}
 		else {
-			$handler =& xoops_getmodulehandler('tplsource', 'xcoreRender');
+			$handler =& xoops_getmodulehandler('tplsource', 'xcore');
 
 			if ($obj->Source->isNew()) {
 				$obj->Source->set('tpl_id', $obj->get('tpl_id'));
@@ -153,7 +153,7 @@ class XcoreRenderTplfileHandler extends XoopsObjectGenericHandler
 		$obj->loadSource();
 		
 		if (is_object($obj->Source)) {
-			$handler =& xoops_getmodulehandler('tplsource', 'xcoreRender');
+			$handler =& xoops_getmodulehandler('tplsource', 'xcore');
 			if (!$handler->delete($obj->Source, $force)) {
 				return false;
 			}

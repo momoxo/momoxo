@@ -1,14 +1,14 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplfileDownloadAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
 
-class XcoreRender_TplfileDownloadAction extends XcoreRender_Action
+class Xcore_TplfileDownloadAction extends Xcore_Action
 {
 	var $mObject = null;
 	
@@ -19,14 +19,14 @@ class XcoreRender_TplfileDownloadAction extends XcoreRender_Action
 		$handler =& xoops_getmodulehandler('tplfile');
 		$this->mObject =& $handler->get($id);
 		
-		return $this->mObject != null ? XCORERENDER_FRAME_VIEW_SUCCESS : XCORERENDER_FRAME_VIEW_ERROR;
+		return $this->mObject != null ? XCORE_FRAME_VIEW_SUCCESS : XCORE_FRAME_VIEW_ERROR;
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
 	{
 		$this->mObject->loadSource();
 		if ($this->mObject->Source == null) {
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		$source = $this->mObject->Source->get('tpl_source');
@@ -49,7 +49,7 @@ class XcoreRender_TplfileDownloadAction extends XcoreRender_Action
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 }
 

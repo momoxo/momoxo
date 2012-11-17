@@ -1,15 +1,15 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplfileEditAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
 
-class XcoreRender_TplfileEditAction extends XcoreRender_AbstractEditAction
+class Xcore_TplfileEditAction extends Xcore_AbstractEditAction
 {
 	function _getId()
 	{
@@ -33,7 +33,7 @@ class XcoreRender_TplfileEditAction extends XcoreRender_AbstractEditAction
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new XcoreRender_TplfileEditForm();
+		$this->mActionForm =new Xcore_TplfileEditForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -68,7 +68,7 @@ class XcoreRender_TplfileEditAction extends XcoreRender_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

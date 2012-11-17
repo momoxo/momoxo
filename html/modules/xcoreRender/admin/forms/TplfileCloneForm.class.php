@@ -1,19 +1,19 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplfileCloneForm.class.php,v 1.1 2007/05/15 02:34:40 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
 require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class XcoreRender_TplfileCloneForm extends XcoreRender_TplfileEditForm
+class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 {
 	function getTokenName()
 	{
-		return "module.xcoreRender.TplfileCloneForm.TOKEN";
+		return "module.xcore.TplfileCloneForm.TOKEN";
 	}
 
 	function prepare()
@@ -30,19 +30,19 @@ class XcoreRender_TplfileCloneForm extends XcoreRender_TplfileEditForm
 		//
 		$this->mFieldProperties['tpl_tplset'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['tpl_tplset']->setDependsByArray(array('required'));
-		$this->mFieldProperties['tpl_tplset']->addMessage('required', _AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_TPL_TPLSET);
+		$this->mFieldProperties['tpl_tplset']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_TPL_TPLSET);
 	}
 	
 	function validateTpl_tplset()
 	{
 		$tplset = $this->get('tpl_tplset');
 
-		$handler =& xoops_getmodulehandler('tplset', 'xcoreRender');
+		$handler =& xoops_getmodulehandler('tplset', 'xcore');
 		$criteria =new Criteria('tplset_name', $this->get('tpl_tplset'));
 		$objs =& $handler->getObjects($criteria);
 		
 		if (count($objs) == 0) {
-			$this->addErrorMessage(_AD_XCORERENDER_ERROR_TPLSET_WRONG);
+			$this->addErrorMessage(_AD_XCORE_ERROR_TPLSET_WRONG);
 		}
 	}
 	

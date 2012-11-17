@@ -1,15 +1,15 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplfileCloneAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileCloneForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileCloneForm.class.php";
 
-class XcoreRender_TplfileCloneAction extends XcoreRender_AbstractEditAction
+class Xcore_TplfileCloneAction extends Xcore_AbstractEditAction
 {
 	var $mTargetObject = null;
 	
@@ -47,7 +47,7 @@ class XcoreRender_TplfileCloneAction extends XcoreRender_AbstractEditAction
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new XcoreRender_TplfileCloneForm();
+		$this->mActionForm =new Xcore_TplfileCloneForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -68,7 +68,7 @@ class XcoreRender_TplfileCloneAction extends XcoreRender_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 }
 

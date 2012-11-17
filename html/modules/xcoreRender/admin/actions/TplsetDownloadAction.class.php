@@ -1,14 +1,14 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplsetDownloadAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
 
-class XcoreRender_TplsetDownloadAction extends XcoreRender_Action
+class Xcore_TplsetDownloadAction extends Xcore_Action
 {
 	var $mPreparedFlag = false;
 	
@@ -45,7 +45,7 @@ class XcoreRender_TplsetDownloadAction extends XcoreRender_Action
 		$this->mDownloader =& $this->_createDownloader($method);
 		
 		if ($this->mDownloader == null) {
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		$id = xoops_getrequest('tplset_id');
@@ -54,7 +54,7 @@ class XcoreRender_TplsetDownloadAction extends XcoreRender_Action
 		$this->mTplset =& $handler->get($id);
 		
 		if ($this->mTplset == null) {
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		$xml = "<?xml version=\"1.0\"?>" . "\n" .
@@ -100,7 +100,7 @@ class XcoreRender_TplsetDownloadAction extends XcoreRender_Action
 		
 		$this->mDownloader->addFileData($xml, $this->mTplset->getShow('tplset_name') . '/tplset.xml', time());
 		
-		return XCORERENDER_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
@@ -111,7 +111,7 @@ class XcoreRender_TplsetDownloadAction extends XcoreRender_Action
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 }
 

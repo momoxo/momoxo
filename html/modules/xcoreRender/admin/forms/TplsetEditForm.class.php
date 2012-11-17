@@ -1,6 +1,6 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplsetEditForm.class.php,v 1.2 2007/06/07 05:27:57 minahito Exp $
  */
 
@@ -9,11 +9,11 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
 require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class XcoreRender_TplsetEditForm extends XCube_ActionForm
+class Xcore_TplsetEditForm extends XCube_ActionForm
 {
 	function getTokenName()
 	{
-		return "module.xcoreRender.TplsetEditForm.TOKEN" . $this->get('tplset_id');
+		return "module.xcore.TplsetEditForm.TOKEN" . $this->get('tplset_id');
 	}
 
 	function prepare()
@@ -30,11 +30,11 @@ class XcoreRender_TplsetEditForm extends XCube_ActionForm
 		//
 		$this->mFieldProperties['tplset_id'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['tplset_id']->setDependsByArray(array('required'));
-		$this->mFieldProperties['tplset_id']->addMessage('required', _AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_TPLSET_ID);
+		$this->mFieldProperties['tplset_id']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_TPLSET_ID);
 
 		$this->mFieldProperties['tplset_desc'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['tplset_desc']->setDependsByArray(array('maxlength'));
-		$this->mFieldProperties['tplset_desc']->addMessage('maxlength', _AD_XCORERENDER_ERROR_MAXLENGTH, _AD_XCORERENDER_LANG_TPLSET_DESC, '255');
+		$this->mFieldProperties['tplset_desc']->addMessage('maxlength', _AD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_TPLSET_DESC, '255');
 		$this->mFieldProperties['tplset_desc']->addVar('maxlength', 255);
 	}
 

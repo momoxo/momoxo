@@ -639,7 +639,7 @@ function &xoops_getmodulehandler($name = null, $module_dir = null, $optional = f
         }
 
     if (!isset($mhdr[$name]) && !$optional) {
-        trigger_error('Handler does not exist<br />Module: '.$module_dir.'<br />Name: '.$name, E_USER_ERROR);
+        echo new RuntimeException('Handler does not exist. Module: '.$module_dir.'Name: '.$name);die;
     }
     
     return $mhdr[$name];

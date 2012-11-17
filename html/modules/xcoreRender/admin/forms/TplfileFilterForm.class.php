@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractFilterForm.class.php";
 
 define('TPLFILE_SORT_KEY_TPL_ID', 1);
 define('TPLFILE_SORT_KEY_TPL_REFID', 2);
@@ -17,7 +17,7 @@ define('TPLFILE_SORT_KEY_MAXVALUE', 9);
 
 define('TPLFILE_SORT_KEY_DEFAULT', TPLFILE_SORT_KEY_TPL_FILE);
 
-class XcoreRender_TplfileFilterForm extends XcoreRender_AbstractFilterForm
+class Xcore_TplfileFilterForm extends Xcore_AbstractFilterForm
 {
 	var $mSortKeys = array(
 		TPLFILE_SORT_KEY_TPL_ID => 'tpl_id',

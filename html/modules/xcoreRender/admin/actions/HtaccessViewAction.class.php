@@ -1,16 +1,16 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * HtaccessViewAction.class.php
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class XcoreRender_HtaccessViewAction extends XcoreRender_Action
+class Xcore_HtaccessViewAction extends Xcore_Action
 {
 	public function getDefaultView(&$controller, &$xoopsUser)
 	{
-		return XCORERENDER_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 
 	public function executeViewSuccess(&$controller, &$xoopsUser, &$render)

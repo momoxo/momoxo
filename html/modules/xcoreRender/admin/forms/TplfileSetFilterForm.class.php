@@ -2,13 +2,13 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileFilterForm.class.php";
 
 /***
  * @internal
  * This class is a filter form for list up tplfile object *with* override.
  */
-class XcoreRender_TplfileSetFilterForm extends XcoreRender_TplfileFilterForm
+class Xcore_TplfileSetFilterForm extends Xcore_TplfileFilterForm
 {
 	function additionalFetch()
 	{

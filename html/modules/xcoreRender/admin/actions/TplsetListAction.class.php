@@ -2,19 +2,19 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplsetFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplsetSelectForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetSelectForm.class.php";
 
-class XcoreRender_TplsetListAction extends XcoreRender_AbstractListAction
+class Xcore_TplsetListAction extends Xcore_AbstractListAction
 {
 	var $mActionForm = null;
 	var $mActiveTemplateSet = null;
 	
 	function prepare(&$controller, &$xoopsUser, $moduleConfig)
 	{
-		XcoreRender_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
-		$this->mActionForm =new XcoreRender_TplsetSelectForm();
+		Xcore_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
+		$this->mActionForm =new Xcore_TplsetSelectForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -26,7 +26,7 @@ class XcoreRender_TplsetListAction extends XcoreRender_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter =new XcoreRender_TplsetFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new Xcore_TplsetFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 	

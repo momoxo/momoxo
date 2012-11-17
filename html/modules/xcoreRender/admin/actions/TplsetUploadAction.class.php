@@ -1,28 +1,28 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplsetUploadAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplsetUploadForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetUploadForm.class.php";
 
-class XcoreRender_TplsetUploadAction extends XcoreRender_Action
+class Xcore_TplsetUploadAction extends Xcore_Action
 {
 	var $mActionForm = null;
 	var $mErrorMessages = array();
 	
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new XcoreRender_TplsetUploadForm();
+		$this->mActionForm =new Xcore_TplsetUploadForm();
 		$this->mActionForm->prepare();
 	}
 	
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		return XCORERENDER_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 	
 	function _addErrorMessage($msg)
@@ -33,7 +33,7 @@ class XcoreRender_TplsetUploadAction extends XcoreRender_Action
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (xoops_getrequest('_form_control_cancel') != null) {
-			return XCORERENDER_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		$this->mActionForm->fetch();
@@ -56,7 +56,7 @@ class XcoreRender_TplsetUploadAction extends XcoreRender_Action
 		$tar->openTar($formFile->_mTmpFileName);
 
 		if (!is_array($tar->files)) {
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		$tplsetName = null;
@@ -76,33 +76,33 @@ class XcoreRender_TplsetUploadAction extends XcoreRender_Action
 		// Check tplset name.
 		//
 		if ($tplsetName == null || preg_match('/[' . preg_quote('\/:*?"<>|','/') . ']/', $tplsetName)) {
-			$this->_addErrorMessage(_AD_XCORERENDER_ERROR_TPLSET_NAME_WRONG);
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			$this->_addErrorMessage(_AD_XCORE_ERROR_TPLSET_NAME_WRONG);
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		$handler =& xoops_getmodulehandler('tplset');
 		if ($handler->getCount(new Criteria('tplset_name', $tplsetName)) != 0) {
-			$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORERENDER_ERROR_TPLSET_ALREADY_EXISTS, $tplsetName));
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_TPLSET_ALREADY_EXISTS, $tplsetName));
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		$tplset =& $handler->create();
 		$tplset->set('tplset_name', $tplsetName);
 		if (!$handler->insert($tplset)) {
-			$this->_addErrorMessage(_AD_XCORERENDER_ERROR_COULD_NOT_SAVE_TPLSET);
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			$this->_addErrorMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_TPLSET);
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		$themeimages = array();
 		if (!$this->_fetchTemplateFiles($tar, $tplset, $themeimages)) {
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		if (!$this->_fetchImageset($tar, $tplset, $themeimages)) {
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
-		return XCORERENDER_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 	
 	function _fetchTemplateFiles(&$tar, &$tplset, &$themeimages)
@@ -126,7 +126,7 @@ class XcoreRender_TplsetUploadAction extends XcoreRender_Action
 				$tplfile->set('tpl_lastimported', time());
 				
 				if (!$handler->insert($tplfile)) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORERENDER_ERROR_COULD_NOT_SAVE_TPLFILE, $tplfile->get('tpl_file')));
+					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_TPLFILE, $tplfile->get('tpl_file')));
 				}
 				unset($default);
 			}
@@ -148,12 +148,12 @@ class XcoreRender_TplsetUploadAction extends XcoreRender_Action
 		$imgset->set('imgset_refid', 0);
 		
 		if (!$handler->insert($imgset)) {
-			$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORERENDER_ERROR_COULD_NOT_SAVE_IMAGESET, $tplset->get('tplset_name')));
+			$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGESET, $tplset->get('tplset_name')));
 			return false;
 		}
 		
 		if (!$handler->linktplset($imgset->get('imgset_id'), $tplset->get('tplset_name'))) {
-			$this->_addErrorMessage(_AD_XCORERENDER_ERROR_COULD_NOT_SAVE_LINKTPLSET);
+			$this->_addErrorMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_LINKTPLSET);
 			return false;
 		}
 		
@@ -165,7 +165,7 @@ class XcoreRender_TplsetUploadAction extends XcoreRender_Action
 				$image->set('imgsetimg_imgset', $imgset->get('imgset_id'));
 				$image->set('imgsetimg_body', $themeimages[$i]['content'], true);
 				if (!$handler->insert($image)) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORERENDER_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $image->get('imgsetimg_file')));
+					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $image->get('imgsetimg_file')));
 				}
 				unset($image);
 			}
@@ -188,7 +188,7 @@ class XcoreRender_TplsetUploadAction extends XcoreRender_Action
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
 		if (count($this->mErrorMessages) == 0) {
-			$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
+			$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 		}
 		else {
 			$render->setTemplateName("tplset_upload_error.html");

@@ -1,28 +1,28 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplfileListAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileSetFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileUploadForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileSetFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileUploadForm.class.php";
 
-class XcoreRender_TplfileListAction extends XcoreRender_AbstractListAction
+class Xcore_TplfileListAction extends Xcore_AbstractListAction
 {
 	/**
 	 * A instance of action form for uploading.
-	 * @var XcoreRender_TplfileUploadForm
+	 * @var Xcore_TplfileUploadForm
 	 */
 	var $mActionForm = null;
 	
 	function prepare(&$controller, &$xoopsUser, $moduleConfig)
 	{
-		XcoreRender_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
-		$this->mActionForm =new XcoreRender_TplfileUploadForm();
+		Xcore_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
+		$this->mActionForm =new Xcore_TplfileUploadForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -34,8 +34,8 @@ class XcoreRender_TplfileListAction extends XcoreRender_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter = isset($_REQUEST['tpl_tplset']) ? new XcoreRender_TplfileSetFilterForm($this->_getPageNavi(), $this->_getHandler())
-		                                         : new XcoreRender_TplfileFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter = isset($_REQUEST['tpl_tplset']) ? new Xcore_TplfileSetFilterForm($this->_getPageNavi(), $this->_getHandler())
+		                                         : new Xcore_TplfileFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 	
@@ -60,7 +60,7 @@ class XcoreRender_TplfileListAction extends XcoreRender_AbstractListAction
 			$this->mObjects =& $handler->getObjects($criteria);
 		}
 	
-		return XCORERENDER_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 
 	/**
@@ -129,7 +129,7 @@ class XcoreRender_TplfileListAction extends XcoreRender_AbstractListAction
 			unset($formFile);
 		}
 		
-		$errorMessage = $successFlag ? _AD_XCORERENDER_MESSAGE_UPLOAD_TEMPLATE_SUCCESS : _AD_XCORERENDER_ERROR_DBUPDATE_FAILED;
+		$errorMessage = $successFlag ? _AD_XCORE_MESSAGE_UPLOAD_TEMPLATE_SUCCESS : _AD_XCORE_ERROR_DBUPDATE_FAILED;
 		
 		//
 		// No good exmaple ;)
@@ -140,7 +140,7 @@ class XcoreRender_TplfileListAction extends XcoreRender_AbstractListAction
 
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->mRoot->mDelegateManager->add('Xcore.Event.Explaceholder.Get.XcoreRenderPagenaviHidden', 'XcoreRender_TplfileListAction::renderHiddenControl');
+		$controller->mRoot->mDelegateManager->add('Xcore.Event.Explaceholder.Get.XcoreRenderPagenaviHidden', 'Xcore_TplfileListAction::renderHiddenControl');
 		
 		$render->setTemplateName("tplfile_list.html");
 		

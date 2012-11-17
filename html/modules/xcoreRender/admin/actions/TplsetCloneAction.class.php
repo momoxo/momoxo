@@ -1,15 +1,15 @@
 <?php
 /**
- * @package xcoreRender
+ * @package xcore
  * @version $Id: TplsetCloneAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/actions/TplsetEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplsetCloneForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/actions/TplsetEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetCloneForm.class.php";
 
-class XcoreRender_TplsetCloneAction extends XcoreRender_TplsetEditAction
+class Xcore_TplsetCloneAction extends Xcore_TplsetEditAction
 {
 	var $mCloneObject = null;
 	
@@ -21,7 +21,7 @@ class XcoreRender_TplsetCloneAction extends XcoreRender_TplsetEditAction
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new XcoreRender_TplsetCloneForm();
+		$this->mActionForm =new Xcore_TplsetCloneForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -33,11 +33,11 @@ class XcoreRender_TplsetCloneAction extends XcoreRender_TplsetEditAction
 	function execute(&$controller, &$xoopsUser)
 	{
 		if ($this->mObject == null) {
-			return XCORERENDER_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		if (xoops_getrequest('_form_control_cancel') != null) {
-			return XCORERENDER_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		//
@@ -49,13 +49,13 @@ class XcoreRender_TplsetCloneAction extends XcoreRender_TplsetEditAction
 		$this->mActionForm->validate();
 
 		if($this->mActionForm->hasError()) {
-			return XCORERENDER_FRAME_VIEW_INPUT;
+			return XCORE_FRAME_VIEW_INPUT;
 		}
 			
 		$this->mActionForm->update($this->mCloneObject);
 		
-		return $this->mObjectHandler->insertClone($this->mObject, $this->mCloneObject) ? XCORERENDER_FRAME_VIEW_SUCCESS
-		                                                     : XCORERENDER_FRAME_VIEW_ERROR;
+		return $this->mObjectHandler->insertClone($this->mObject, $this->mCloneObject) ? XCORE_FRAME_VIEW_SUCCESS
+		                                                     : XCORE_FRAME_VIEW_ERROR;
 	}
 	
 	function executeViewInput(&$controller, &$xoopsUser, &$render)
@@ -72,7 +72,7 @@ class XcoreRender_TplsetCloneAction extends XcoreRender_TplsetEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)
