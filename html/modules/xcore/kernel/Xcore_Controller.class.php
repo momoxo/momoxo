@@ -325,7 +325,7 @@ class Xcore_Controller extends XCube_Controller
 
 		require_once XOOPS_XCORE_PATH.'/kernel/object.php';				// ToDo (here?)
 		require_once XOOPS_XCORE_PATH.'/kernel/handler.php';				// ToDo
-		require_once XOOPS_ROOT_PATH.'/core/XCube_Utils.class.php'; // ToDo
+		require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/XCube_Utils.class.php'; // ToDo
 
 		require_once XOOPS_ROOT_PATH.'/class/xoopssecurity.php';
 		$GLOBALS['xoopsSecurity'] = new XoopsSecurity();

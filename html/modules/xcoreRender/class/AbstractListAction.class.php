@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH . "/core/XCube_PageNavigator.class.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_PageNavigator.class.php";
 
 class XcoreRender_AbstractListAction extends XcoreRender_Action
 {
