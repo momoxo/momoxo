@@ -5,7 +5,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH.'/modules/xcoreRender/kernel/Xcore_RenderTarget.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_RenderTarget.class.php';
 require_once XOOPS_ROOT_PATH . '/class/template.php';
 
 /**

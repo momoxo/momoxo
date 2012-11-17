@@ -8,14 +8,14 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 //
 // TODO
 //
-require_once XOOPS_ROOT_PATH . '/modules/xcoreRender/kernel/Xcore_RenderSystem.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_RenderSystem.class.php';
 
 define('XCORE_ADMIN_RENDER_TEMPLATE_DIRNAME', 'templates');
 
 define('XCORE_ADMIN_RENDER_FALLBACK_PATH', XOOPS_MODULE_PATH . '/xcore/admin/theme');
 define('XCORE_ADMIN_RENDER_FALLBACK_URL', XOOPS_MODULE_URL . '/xcore/admin/theme');
 
-require_once SMARTY_DIR.'/Smarty.class.php';
+require_once SMARTY_DIR . '/Smarty.class.php';
 
 /**
  * @internal

@@ -38,7 +38,7 @@ $file = "stylesheets/" . trim(@$_GET['file']);
 if (strstr($theme, "..") !== false || strstr($dirname, "..") !== false || strstr($file, "..") !== false) {
 	exit();
 }
-require_once XOOPS_ROOT_PATH.'/modules/xcoreRender/kernel/Xcore_AdminRenderSystem.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_AdminRenderSystem.class.php';
 
 $smarty =new Xcore_AdminSmarty();
 $smarty->register_modifier("theme", "Xcore_modifier_css_theme");
