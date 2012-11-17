@@ -6,3 +6,4 @@
 /xoops_trust_path/modules/protector/configs/*
 /xoops_trust_path/uploads/*
 /html/modules/xelfinder/cache/*
+/html/preload/AdelieDebug.php

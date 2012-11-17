@@ -1,0 +1,62 @@
+<?php
+
+define('_MD_XCORE_ERROR_DBUPDATE_FAILED', "������ ���������� ��");
+define('_MD_XCORE_ERROR_EMAIL', "{0} �������� Email");
+define('_MD_XCORE_ERROR_INCORRECTLOGIN', "������ �����������!");
+define('_MD_XCORE_ERROR_MASK', "�������� ������ {0}.");
+define('_MD_XCORE_ERROR_MAXLENGTH', "������� {0:toLower} ���������� {1} ��� ������ ��������.");
+define('_MD_XCORE_ERROR_OBJECTEXIST', "�������� ������ � {0:toLower}.");
+define('_MD_XCORE_ERROR_PERMISSION', "� ������� ��������");
+define('_MD_XCORE_ERROR_REQUIRED', "{0} ������������ ����.");
+define('_MD_XCORE_ERROR_SEARCH_NOT_ENABLED', "����� �������� ��������.");
+define('_MD_XCORE_ERROR_SEARCH_QUERY_REQUIRED', "������� ��������� �����.");
+define('_MD_XCORE_ERROR_YOU_MUST_UPLOAD', "You must upload an image file.");
+define('_MD_XCORE_FORMAT_SEARCH_SEPARATOR', "/[\s,]+/");
+define('_MD_XCORE_LANG_ANDOR', "AndOr");
+define('_MD_XCORE_LANG_CLICKASMILIE', "�������� �� ��������, ����� �������� ��� � ���� ���������.");
+define('_MD_XCORE_LANG_CODE', "���");
+define('_MD_XCORE_LANG_COM_EXPARAMS', "�������������� ��������� �����������");
+define('_MD_XCORE_LANG_COM_ICON', "������");
+define('_MD_XCORE_LANG_COM_ID', "ID");
+define('_MD_XCORE_LANG_COM_IP', "IP");
+define('_MD_XCORE_LANG_COM_ITEMID', "Item ID");
+define('_MD_XCORE_LANG_COM_MODID', "Module ID");
+define('_MD_XCORE_LANG_COM_PID', "PID");
+define('_MD_XCORE_LANG_COM_ROOTID', "Root ID");
+define('_MD_XCORE_LANG_COM_TEXT', "�����������");
+define('_MD_XCORE_LANG_COM_TITLE', "���������");
+define('_MD_XCORE_LANG_COMMENT_RULE', "Comment rules");
+define('_MD_XCORE_LANG_DOBR', "��������� ������� ������ �������������");
+define('_MD_XCORE_LANG_DOHTML', "�������� HTML ����");
+define('_MD_XCORE_LANG_DOSMILEY', "������������ ��������");
+define('_MD_XCORE_LANG_DOXCODE', "�������� ���� XOOPS");
+define('_MD_XCORE_LANG_EMOTION', "Emoticon");
+define('_MD_XCORE_LANG_ERROR', "������");
+define('_MD_XCORE_LANG_FMAIL', "Email �����");
+define('_MD_XCORE_LANG_FNAME', "��� �����");
+define('_MD_XCORE_LANG_IMAGE', "image");
+define('_MD_XCORE_LANG_IMAGE_FILE', "���� �����������");
+define('_MD_XCORE_LANG_IMAGE_MIMETYPE', "mimetype �����������");
+define('_MD_XCORE_LANG_IMAGE_NICENAME', "Image nicename");
+define('_MD_XCORE_LANG_IMAGE_POSITION', "Image position");
+define('_MD_XCORE_LANG_IMAGE_UPLOAD', "Image upload");
+define('_MD_XCORE_LANG_IMGCAT_ID', "���. id");
+define('_MD_XCORE_LANG_MID', "mid");
+define('_MD_XCORE_LANG_NEXT_PAGE', "����. ��������");
+define('_MD_XCORE_LANG_OPTION', "Option");
+define('_MD_XCORE_LANG_POST', "Post");
+define('_MD_XCORE_LANG_PREV_PAGE', "����. ��������");
+define('_MD_XCORE_LANG_SHOW_ALL', "�������� ��");
+define('_MD_XCORE_LANG_SMILIES', "��������");
+define('_MD_XCORE_LANG_UID', "uid");
+define('_MD_XCORE_LANG_YMAIL', "��� Email");
+define('_MD_XCORE_LANG_YNAME', "���� ���");
+define('_MD_XCORE_MESSAGE_INSTALL_COMPLETE_CONFIRM', "��������� ���������!");
+define('_MD_XCORE_MESSAGE_INSTALL_COMPLETE_WARNING', "������� ������� {0} ����� ��������� ����������� ��������� ���������� ��������������.");
+define('_MD_XCORE_MESSAGE_LOGGEDOUT', "�� ������� �������������.");
+define('_MD_XCORE_MESSAGE_LOGIN_SUCCESS', "����������� ������ �������.");
+define('_MD_XCORE_MESSAGE_THANKYOUFORVISIT', "����� ���������� �� ��� ����!");
+
+define('_MB_XCORE_MAINMENU_EXPAND_SUB', "Show all submenus");
+
+?>
