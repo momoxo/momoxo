@@ -89,6 +89,7 @@
         <a href="index.php?action=ModuleInfo&amp;dirname=<{$module->getVar('dirname')}>"><img src="<{"icons/info.png"|theme}>" alt="<{$smarty.const._AD_LEGACY_LANG_INFORMATION}>" title="<{$smarty.const._AD_LEGACY_LANG_INFORMATION}>" /></a>
       </td>
     </tr>
+	<input type="hidden" name="issystem[<{$module->getVar('mid')}>]" value="<{$module->getVar('issystem')}>">
   <{/foreach}>
   <tr>
     <td class="foot" colspan="7">

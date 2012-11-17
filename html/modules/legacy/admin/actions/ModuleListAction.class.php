@@ -85,12 +85,21 @@ class Legacy_ModuleListAction extends Legacy_Action
             $olddata['weight'] = $module->get('weight');
             $olddata['isactive'] = $module->get('isactive');
             $newdata['name'] = $this->mActionForm->get('name', $mid);
-            $newdata['weight'] = $this->mActionForm->get('weight', $mid);
+                // momonga
+                if($this->mActionForm->get('issystem', $mid) == 0){
+					$weight = $this->mActionForm->get('weight', $mid) + 10000;
+				} else {
+					$weight = $this->mActionForm->get('weight', $mid);
+				}
+				var_dump($weight);
+                $newdata['weight'] = $weight;
+                
+               
             $newdata['isactive'] = $this->mActionForm->get('isactive', $mid);
             if (count(array_diff_assoc($olddata, $newdata)) > 0 ) {
-                $module->set('name', $this->mActionForm->get('name', $mid));
-                $module->set('weight', $this->mActionForm->get('weight', $mid));
-                $module->set('isactive', $this->mActionForm->get('isactive', $mid));
+                $module->set('name', $newdata["name"]);
+                $module->set('isactive', $newdata["isactive"]);
+                $module->set('weight', $newdata["weight"]);
 
                 //
                 // Store & Sync isactive of blocks with isactive of the module.
@@ -104,6 +113,7 @@ class Legacy_ModuleListAction extends Legacy_Action
                 }
             }
         }
+       // exit;
 
         return $successFlag ? LEGACY_FRAME_VIEW_SUCCESS : LEGACY_FRAME_VIEW_ERROR;
     }
