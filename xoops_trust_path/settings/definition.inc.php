@@ -32,7 +32,7 @@ define("XOOPS_CACHE_PATH", XOOPS_TRUST_PATH."/cache");
 define("XOOPS_MODULE_PATH", XOOPS_ROOT_PATH."/modules");
 define("XOOPS_UPLOAD_PATH", XOOPS_ROOT_PATH."/uploads");
 define("XOOPS_THEME_PATH", XOOPS_ROOT_PATH."/themes");
-define("XOOPS_LIBRARY_PATH", XOOPS_TRUST_PATH."/libs");
+define("XOOPS_VENDOR_PATH", XOOPS_TRUST_PATH."/vendor");
 
 // URL
 define("XOOPS_MODULE_URL", XOOPS_URL."/modules");
