@@ -26,7 +26,7 @@ class Xcore_ThemeSelect extends XCube_ActionFilter
 		//
 		parent::XCube_ActionFilter($controller);
 
-        $controller->mRoot->mDelegateManager->add('XcoreThemeHandler.GetInstalledThemes', 'XcoreRender_DelegateFunctions::getInstalledThemes', XOOPS_ROOT_PATH . "/modules/xcoreRender/kernel/DelegateFunctions.class.php");
+        $controller->mRoot->mDelegateManager->add('XcoreThemeHandler.GetInstalledThemes', 'XcoreRender_DelegateFunctions::getInstalledThemes', XOOPS_ROOT_PATH . "/modules/xcore/kernel/DelegateFunctions.class.php");
 
 
 
