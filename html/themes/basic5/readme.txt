@@ -72,8 +72,8 @@
 
 �@�uplugin�v�f�B���N�g���́AXCL2.1x �� XCL2.2 �ł͏ꏊ���Ⴄ�̂ł����ӂ��������B
 �@�@�@XCL2.1x�̏ꍇ�@/XOOPS_ROOT_PATH/class/smarty/plugins/ 
-�@�@�@XCL2.2�̏ꍇ�@ /XOOPS_TRUST_PATH/libs/smarty/plugins/�@�܂���
-�@�@�@�@�@�@�@�@�@�@ /XOOPS_TRUST_PATH/libs/smartyplugins/  �ipreload�uHdXoopsTplHook.class.php�v���g���Ă���ꍇ�j
+�@�@�@XCL2.2�̏ꍇ�@ /XOOPS_TRUST_PATH/vendor/smarty/plugins/�@�܂���
+�@�@�@�@�@�@�@�@�@�@ /XOOPS_TRUST_PATH/vendor/smartyplugins/  �ipreload�uHdXoopsTplHook.class.php�v���g���Ă���ꍇ�j
 
 
 �y�e�[�}���e���v���[�g�����p�ł��Ȃ��ꍇ�z

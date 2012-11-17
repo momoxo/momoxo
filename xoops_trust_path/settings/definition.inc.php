@@ -24,7 +24,7 @@ define("XOOPS_MATCH_EQUAL",2);
 define("XOOPS_MATCH_CONTAIN",3);
 
 // Smarty
-define("SMARTY_DIR", XOOPS_TRUST_PATH."/libs/smarty/");
+define("SMARTY_DIR", XOOPS_TRUST_PATH."/vendor/smarty/");
 define("XOOPS_COMPILE_PATH", XOOPS_TRUST_PATH."/templates_c");
 
 // Path

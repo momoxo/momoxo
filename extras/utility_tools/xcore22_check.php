@@ -151,10 +151,10 @@ function checkDirectory()
 		$ret[] = 'Reove all files(<span style="color:red;">NOT DIRECTORY</span>) in '.XOOPS_ROOT_PATH.'/class/smarty/*.*';
 	}
 	if(count(glob(XOOPS_ROOT_PATH.'/class/smarty/plugins/*.php'))>0){
-		$ret[] = 'Move all php files in '.XOOPS_ROOT_PATH.'/class/smarty/plugins/ to '.XOOPS_TRUST_PATH.'/libs/smarty/plugins. <br /><span style="color:red;">BE CAREFUL NOT TO OVERWRITE EXISTING FILES !!!</span>';
+		$ret[] = 'Move all php files in '.XOOPS_ROOT_PATH.'/class/smarty/plugins/ to '.XOOPS_TRUST_PATH.'/vendor/smarty/plugins. <br /><span style="color:red;">BE CAREFUL NOT TO OVERWRITE EXISTING FILES !!!</span>';
 	}
-	if(! is_dir(XOOPS_TRUST_PATH.'/libs/smarty')){
-		$ret[] = 'Copy '.XOOPS_TRUST_PATH.'/libs/smarty from XCL22';
+	if(! is_dir(XOOPS_TRUST_PATH.'/vendor/smarty')){
+		$ret[] = 'Copy '.XOOPS_TRUST_PATH.'/vendor/smarty from XCL22';
 	}
 	return $ret;
 }

@@ -18,7 +18,7 @@ class CorePackPreload extends XCube_ActionFilter
 		if (! defined('HYP_COMMON_PRELOAD_CONF')) {
 			$xoopsConfig = $this->mRoot->mContext->mXoopsConfig;
 
-			$target_dir = XOOPS_TRUST_PATH.'/libs/smartyplugins';
+			$target_dir = XOOPS_TRUST_PATH.'/vendor/smartyplugins';
 			if(is_dir($target_dir)) {
 				$_1st = array_shift($xoopsTpl->plugins_dir);
 				if ($_1st === $target_dir) {
