@@ -16,9 +16,9 @@ class jQuery_Pretty extends XCube_ActionFilter
 
 	public function addScript(&$jQuery)
 	{
-		$jQuery->addLibrary('/common/prettyphoto/js/jquery.prettyPhoto.js', true);
-		$jQuery->addLibrary('/common/prettyphoto/js/jQuery_Pretty.4preload.js', true);
-		$jQuery->addStylesheet('/common/prettyphoto/css/prettyPhoto.css', true);
+		$jQuery->addLibrary('/js/vendor/prettyphoto/js/jquery.prettyPhoto.js', true);
+		$jQuery->addLibrary('/js/vendor/prettyphoto/js/jQuery_Pretty.4preload.js', true);
+		$jQuery->addStylesheet('/js/vendor/prettyphoto/css/prettyPhoto.css', true);
 
 	}
 //class END

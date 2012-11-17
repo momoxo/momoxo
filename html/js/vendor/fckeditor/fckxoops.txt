@@ -3,7 +3,7 @@
 == FCKeditor for XOOPS ==
 
 [b]USAGE[/b]
-- extract file tree under XOOPS_ROOT_PATH  (XOOPS_ROOT_PATH/common/)
+- extract file tree under XOOPS_ROOT_PATH  (XOOPS_ROOT_PATH/js/vendor/)
 - make directory named fckeditor under uploads (XOOPS_ROOT_PATH/uploads/fckeditor/)
 - set permission of the directory 0777 (if your PHP runs as CGI, set 0755 instead)
 - to modify configuration, rename  editor/filemanager/connectors/php/config_and_auth.inc.dist.php to config_and_auth.inc.php. then edit the file.
@@ -58,7 +58,7 @@ A function fck_resize_by_imagemagick() will be a good sample.
 ������ˡ
 
 ���������֤���ष��XOOPS_ROOT_PATHľ���ˤ����Ƥ���������
-XOOPS_ROOT_PATH/common/
+XOOPS_ROOT_PATH/js/vendor/
 �Ȥ������ˤʤ�ޤ���
 
 ���Ǥˡ��ʤ�餫��common�ե����������Ƥ���С�common�ե����������

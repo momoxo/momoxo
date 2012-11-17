@@ -6,7 +6,7 @@
  * Type:     function
  * Name:     fck_htmlarea
  * Examples: {fck_htmlarea name=message width=100% hight=300px
-basepath=/common/fckeditor/ toolbar=Custom skin=silver  value=$message}
+basepath=/js/vendor/fckeditor/ toolbar=Custom skin=silver  value=$message}
  * -------------------------------------------------------------
  */
 
@@ -14,7 +14,7 @@ basepath=/common/fckeditor/ toolbar=Custom skin=silver  value=$message}
 define ("FCK_HTMLAREA_DEFID_PREFIX", "fck_form_");
 define ("FCK_HTMLAREA_DEFAULT_WIDTH", "100%");
 define ("FCK_HTMLAREA_DEFAULT_HIGHT", "400px");
-define ("FCK_HTMLAREA_DEFAULT_BASEPATH", "/common/fckeditor/");
+define ("FCK_HTMLAREA_DEFAULT_BASEPATH", "/js/vendor/fckeditor/");
 define ("FCK_HTMLAREA_DEFAULT_TOOLBAR", "Default");
 define ("FCK_HTMLAREA_DEFAULT_SKIN", "default");
 
@@ -53,7 +53,7 @@ FCK_HTMLAREA_DEFAULT_SKIN;
 
                // TODO include_once is chenge require_once ??
                // TODO include_once is move this heder ??
-               include_once XOOPS_ROOT_PATH.'/common/fckeditor/fckeditor.php';
+               include_once XOOPS_ROOT_PATH.'/js/vendor/fckeditor/fckeditor.php';
                ob_start();
                        $oFCKeditor = new FCKeditor($name) ;
                        $oFCKeditor->BasePath = XOOPS_URL. $basepath;

@@ -5,11 +5,11 @@ define( 'FCK_IS_BROWSER_CONNECTOR' , 1 ) ;
 // for XOOPS
 require '../../../../../../mainfile.php' ;
 
-require_once dirname(__FILE__).'/functions.php' ;
+require_once dirname(__FILE__) . '/functions.php';
 if( file_exists( dirname(__FILE__).'/config_and_auth.inc.php' ) ) {
 	include dirname(__FILE__).'/config_and_auth.inc.php' ;
 } else {
-	include dirname(__FILE__).'/config_and_auth.inc.dist.php' ;
+	include dirname(__FILE__) . '/config_and_auth.inc.dist.php';
 }
 
 // Get the main request informaiton.

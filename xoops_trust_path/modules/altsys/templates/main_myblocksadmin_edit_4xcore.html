@@ -14,11 +14,11 @@
 </style>
 
 <{if $common_fck_installed}>
-<script type="text/javascript" src="<{$xoops_url}>/common/fckeditor/fckeditor.js"></script>
+<script type="text/javascript" src="<{$xoops_url}>/js/vendor/fckeditor/fckeditor.js"></script>
 <script type="text/javascript"><!--
 	function fckeditor_exec() {
 		var oFCKeditor = new FCKeditor( "textarea_content" , "100%" , "500" , "Default" );
-		oFCKeditor.BasePath = "<{$xoops_url}>/common/fckeditor/";
+		oFCKeditor.BasePath = "<{$xoops_url}>/js/vendor/fckeditor/";
 		oFCKeditor.ReplaceTextarea();
 	}
 // --></script>

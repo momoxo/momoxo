@@ -28,7 +28,7 @@ define("_MD_A_MYBLOCKSADMIN_FMT_TAGRULE","%s será substituído por %s.");
 define("_MD_A_MYBLOCKSADMIN_LINK_FORCECLONE","Forçar clonagem");
 define("_MD_A_MYBLOCKSADMIN_NAME","Nome");
 define("_MD_A_MYBLOCKSADMIN_NEWFORM","Criar um novo bloco");
-define("_MD_A_MYBLOCKSADMIN_NOTICE4COMMONFCK","Se você deseja utilizar um editor visual (WYSIWYG), instale-o em /common/fckeditor");
+define("_MD_A_MYBLOCKSADMIN_NOTICE4COMMONFCK","Se você deseja utilizar um editor visual (WYSIWYG), instale-o em /js/vendor/fckeditor");
 define("_MD_A_MYBLOCKSADMIN_OPTIONS","Blocos");
 define("_MD_A_MYBLOCKSADMIN_PERM_MADMIN","Administrar");
 define("_MD_A_MYBLOCKSADMIN_PERM_MREAD","Acessar");

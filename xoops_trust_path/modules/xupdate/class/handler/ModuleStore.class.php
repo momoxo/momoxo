@@ -510,17 +510,17 @@ EOD;
 			if ($type === 'ondemand') {
 				$notifyJS .= "\n".'$(\'.ondemand-button\').show();';
 				$ondemandBtn = '<div class="hide ondemand-button">
-				<a href="javascript:"><img src="'.XOOPS_URL.'/common/js/notify/images/icon-arrowdown.png" /></a>
+				<a href="javascript:"><img src="'.XOOPS_URL.'/js/vendor/js/notify/images/icon-arrowdown.png" /></a>
 				</div>';
 			}
 			$headerScript= $root->mContext->getAttribute('headerScript');
-			$headerScript->addStylesheet('/common/js/notify/style/default.css');
+			$headerScript->addStylesheet('/js/vendor/js/notify/style/default.css');
 			$headerScript->addStylesheet('/modules/'.$this->mDirname.'/admin/templates/stylesheets/module.css');
-			$headerScript->addLibrary('/common/js/notify/notification.js');
-			$headerScript->addLibrary('/common/js/jquery.cookie.js');
+			$headerScript->addLibrary('/js/vendor/js/notify/notification.js');
+			$headerScript->addLibrary('/js/vendor/js/jquery.cookie.js');
 			$headerScript->addScript($notifyJS);
 			$result = '<div class="notification '.$type.' hide">
-			<a class="close" href="javascript:"><img src="'.XOOPS_URL.'/common/js/notify/images/icon-close.png" /></a>
+			<a class="close" href="javascript:"><img src="'.XOOPS_URL.'/js/vendor/js/notify/images/icon-close.png" /></a>
 			<div>'.$msg.'</div>
 			</div>' . $ondemandBtn;
 		}

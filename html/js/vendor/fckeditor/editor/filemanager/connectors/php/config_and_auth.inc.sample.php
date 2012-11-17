@@ -7,7 +7,7 @@ define( 'FCK_UPLOAD_NAME' , 'NewFile' ) ;
 define( 'FCK_UPLOAD_PATH_BASE' , XOOPS_UPLOAD_PATH.'/fckeditor' ) ;
 define( 'FCK_UPLOAD_URL_BASE' , XOOPS_UPLOAD_URL.'/fckeditor' ) ;
 define( 'FCK_TRUSTUPLOAD_PATH_BASE' , XOOPS_TRUST_PATH.'/uploads/fckeditor' ) ;
-define( 'FCK_TRUSTUPLOAD_URL_BASE' , XOOPS_URL.'/common/fckeditor/editor/filemanager/connectors/php/transfer.php?file=' ) ;
+define( 'FCK_TRUSTUPLOAD_URL_BASE' , XOOPS_URL.'/js/vendor/fckeditor/editor/filemanager/connectors/php/transfer.php?file=' ) ;
 define( 'FCK_FILE_PREFIX' , '' ) ; // not in use now
 define( 'FCK_DIGITS4USERDIR' , 1 ) ; // create folder 0/ 1/ 2/ ... 9/ under uploads/fckeditor/ and chmod 777 them
 define( 'FCK_USER_SELFDELETE_LIMIT' , 3600 ) ; // set the time limit by sec. 0 means normal users cannot delete files uploaded by themselves
