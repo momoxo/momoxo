@@ -10,7 +10,7 @@ if (!defined('PATH_SEPARATOR')) {
 		define('PATH_SEPARATOR', ';');
 	}
 }
-set_include_path(get_include_path() . PATH_SEPARATOR . dirname(dirname(__FILE__)) . '/PEAR');
+set_include_path(get_include_path() . PATH_SEPARATOR . XOOPS_VENDOR_PATH .'/PEAR');
 require_once 'File/Archive.php';
 
 class Xupdate_FtpCommonZipArchive extends Xupdate_FtpCommonFunc {
