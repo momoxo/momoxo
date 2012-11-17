@@ -7,7 +7,7 @@
 - cURLエクステンション (必須)
 - zip 拡張関数：--enable-zipでphpがコンパイルされている (推奨)
 - MySQL 5.0 以上 (必須)
-- Xoops Cube legacy 2.2.0 以上
+- KARIMOJI 2.2.0 以上
 
 ○ 履歴
 - 2012-6-9  alpha3b naao

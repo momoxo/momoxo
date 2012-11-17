@@ -25,7 +25,7 @@ class LegacyRender_DelegateFunctions
 				if (file_exists($themeDir . '/theme.html')) {
 					$theme->mName = $dirname;
 					$theme->mRenderSystemName = 'Legacy_RenderSystem';
-					$theme->mFormat = 'XOOPS2 Legacy Style';
+					$theme->mFormat = 'XOOPS2 KARIMOJI_LEGALEGAStyle';
 				}
 			}
 			$results[$dirname] =& $theme;

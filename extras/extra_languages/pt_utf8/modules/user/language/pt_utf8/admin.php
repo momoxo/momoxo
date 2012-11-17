@@ -164,7 +164,7 @@ define("_AD_USER_TIPS_USER_EDIT","Se você deseja mudar de senha, complete os ca
 define("_AD_USER_TIPS_USER_NEW","É necessário completar os campos <q>Codinome</q>, <q>Endereço de correio-eletrônico</q>, <q>Senha</q> e <q>Confirmar senha</q>.");
 define("_AD_USER_TIPS_USER_SEARCH","Você pode pesquisar e classificar os dados dos associados cadastrados para encontrar informações relevantes aos seus objetivos.<br /> A precisão do resultado final das pesquisas será diretamente relacionada ao número de campos que você criar.");
 // ############################################################### //
-// ## XOOPS Cube Legacy - Versão em Português
+// ## KARIMOJI - Versão em Português
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## Website........: http://xoops.net.br

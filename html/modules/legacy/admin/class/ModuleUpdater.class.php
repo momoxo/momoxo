@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: ModuleUpdater.class.php,v 1.5 2008/09/25 15:12:41 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -21,7 +21,7 @@ require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
  * sub-class of this class. It's easy to make by many utility functions. You
  * can write your sub-class as well as batch files.
  * 
- * On Legacy System module, upgrade is called when users try to update. So you
+ * On KARIMOJI_LEGALEGASystem module, upgrade is called when users try to update. So you
  * must implement your sub-class for also correct update. For example, the
  * custom-update-install have to update module templates & block templates,
  * because users expect that the module-update function does it.

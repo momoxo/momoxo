@@ -3,14 +3,14 @@
  *
  * @package Legacy
  * @version $Id: Legacy_Controller.class.php,v 1.22 2008/11/14 09:45:23 mumincacao Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 if (!defined('XOOPS_TRUST_PATH')){
-	echo 'XOOPS_TRUST_PATH is required after XOOPS Cube Legacy 2.2 in mainfile.php';exit();
+	echo 'XOOPS_TRUST_PATH is required after KARIMOJI 2.2 in mainfile.php';exit();
 }
 
 define('LEGACY_MODULE_VERSION', '2.2');
@@ -40,7 +40,7 @@ require_once XOOPS_ROOT_PATH . '/modules/legacy/class/Legacy_Debugger.class.php'
  * implement. Now, we are investigating the influence.
  *
  * [TODO]
- * XCube_Controller keeps a process that set up instances of some legacy classes,
+ * XCube_Controller keeps a process that set up instances of some KARIMOJI_LEGALEGAclasses,
  * yet. We should move its process to this controller.
  */
 class Legacy_Controller extends XCube_Controller
@@ -225,7 +225,7 @@ class Legacy_Controller extends XCube_Controller
 	/**
 	 * Subset of executeCommon() Method
 	 * It'll be used when process starts with $xoopsOption['nocommon'] and
-	 * This process requires connecting XOOPS Database or LEGACY constant values
+	 * This process requires connecting XOOPS Database or KARIMOJI_LEGALEGAconstant values
 	 * But it won't do any other initial settings
 	 *	(eg. Session start, Permission handling)
 	 *
@@ -945,7 +945,7 @@ class Legacy_Controller extends XCube_Controller
 		$isAdmin=false;
 		if(is_object($this->mRoot->mContext->mXoopsUser)) {
 			if($this->mRoot->mContext->mModule != null && $this->mRoot->mContext->mModule->isActive()) {
-				// @todo I depend on Legacy Module Controller.
+				// @todo I depend on KARIMOJI_LEGALEGAModule Controller.
 				$mid = $this->mRoot->mContext->mXoopsModule->getVar('mid');
 			}
 			else {

@@ -50,13 +50,13 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		
 		if ( $type == 0 ) {
 		
-		$welcome = '<b>Welcome to XOOPS Cube Legacy!!</b><br />Have a nice time!!';
+		$welcome = '<b>Welcome to KARIMOJI!!</b><br />Have a nice time!!';
 		echo $welcome;
 		}//type0 if
 		
 		elseif ( $type == 1 ) {
 		
-		$welcome = '<b>Welcome to XOOPS Cube Legacy!!</b><br />Have a nice and happy time!!';
+		$welcome = '<b>Welcome to KARIMOJI!!</b><br />Have a nice and happy time!!';
 		$attributes = array();
 		$attributes['dummy_content'] = $welcome;
 		$template = XOOPS_LEGACY_PATH."/templates/legacy_dummy.html";
@@ -70,7 +70,7 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		//it's just a example! please customize it!
 		$welcome_title = 'Welcome Message!';
 		$welcome_msg = array();
-		$welcome_msg[] = 'Welcome to XOOPS Cube Legacy!!';
+		$welcome_msg[] = 'Welcome to KARIMOJI!!';
 		$welcome_msg[] = 'Have a nice and happy time!!';
 		$attributes = array();
 		$attributes['title'] = $welcome_title;

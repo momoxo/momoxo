@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: Legacy_HttpContext.class.php,v 1.4 2008/09/25 15:12:00 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -14,7 +14,7 @@ require_once XOOPS_ROOT_PATH . "/modules/legacy/kernel/Legacy_Module.class.php";
 
 /**
  * @public
- * @brief [Secret Agreement] The context class for Legacy which extends to keep
+ * @brief [Secret Agreement] The context class for KARIMOJI_LEGALEGAwhich extends to keep
  *        Legacy-module-specific informations.
  * @attention
  *     Only Legacy_Controller or its sub-classes calls this constructor.

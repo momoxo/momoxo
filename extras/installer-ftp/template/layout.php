@@ -12,7 +12,7 @@
 
 <div id="container">
 
-    <h1>XOOPS Cube Legacy - Web FTP Installer</h1>
+    <h1>KARIMOJI - Web FTP Installer</h1>
 	
 	<noscript><div class="confirmMsg"><?php $this->_('Please set your browser with JavaScript ON.');?></div></noscript>
 	

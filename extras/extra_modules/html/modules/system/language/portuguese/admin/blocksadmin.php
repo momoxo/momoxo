@@ -1,23 +1,23 @@
 <?php
 // *************************************************************** //
-// ** XOOPS Cube Legacy - Versão em Português
+// ** KARIMOJI - Versï¿½o em Portuguï¿½s
 // ** $Id: blocksadmin.php 616 2010-04-27 22:04:08Z mikhail $
 // **	License http://creativecommons.org/licenses/by/2.5/br/
 // *************************************************************** //
-define("_AM_ABOVEORG","Antes do conteúdo original");
-define("_AM_ACTION","Ações");
+define("_AM_ABOVEORG","Antes do conteï¿½do original");
+define("_AM_ACTION","Aï¿½ï¿½es");
 define("_AM_ADDBLOCK","Criar um novo bloco");
-define("_AM_ADVANCED","Opções avançadas");
-define("_AM_AFNOSMILE","Automático (emos desabilitados)");
-define("_AM_AFTERORG","Após o conteúdo original");
-define("_AM_AFWSMILE","Automático (emos habilitados)");
-define("_AM_ALLPAGES","Todas as páginas");
-define("_AM_BADMIN","Administração dos blocos");
+define("_AM_ADVANCED","Opï¿½ï¿½es avanï¿½adas");
+define("_AM_AFNOSMILE","Automï¿½tico (emos desabilitados)");
+define("_AM_AFTERORG","Apï¿½s o conteï¿½do original");
+define("_AM_AFWSMILE","Automï¿½tico (emos habilitados)");
+define("_AM_ALLPAGES","Todas as pï¿½ginas");
+define("_AM_BADMIN","Administraï¿½ï¿½o dos blocos");
 define("_AM_BALIAS","Alias");
-define("_AM_BCACHETIME","Duração do cache");
-define("_AM_BLKDESC","Descrição");
+define("_AM_BCACHETIME","Duraï¿½ï¿½o do cache");
+define("_AM_BLKDESC","Descriï¿½ï¿½o");
 define("_AM_BLKTYPE","Tipo de bloco");
-define("_AM_BLOCKTAG1","%s resultará %s");
+define("_AM_BLOCKTAG1","%s resultarï¿½ %s");
 define("_AM_CBCENTER","central-centro");
 define("_AM_CBLEFT","centro-esquerda");
 define("_AM_CBRIGHT","centro-direita");
@@ -25,12 +25,12 @@ define("_AM_CENTER","Central");
 define("_AM_CLONE","Clonar");
 define("_AM_CLONEBLK","Clonado");
 define("_AM_CLONEBLOCK","Clonar o bloco");
-define("_AM_CONTENT","Conteúdo");
-define("_AM_CTYPE","Tipo de conteúdo");
+define("_AM_CONTENT","Conteï¿½do");
+define("_AM_CTYPE","Tipo de conteï¿½do");
 define("_AM_CUSTOMHTML","Bloco personalizado (HTML)");
-define("_AM_CUSTOMNOSMILE","Bloco personalizado (formato automático)");
+define("_AM_CUSTOMNOSMILE","Bloco personalizado (formato automï¿½tico)");
 define("_AM_CUSTOMPHP","Bloco personalizado (PHP)");
-define("_AM_CUSTOMSMILE","Bloco personalizado (automático + smilies)");
+define("_AM_CUSTOMSMILE","Bloco personalizado (automï¿½tico + smilies)");
 define("_AM_DBUPDATED","Banco de dados atualizado corretamente.");
 define("_AM_DELETE","Remover");
 define("_AM_DISPRIGHT","Mostrar apenas os blocos da direita");
@@ -41,28 +41,28 @@ define("_AM_GROUP","Grupo");
 define("_AM_HTML","HTML");
 define("_AM_LEFT","Esquerda");
 define("_AM_LISTBLOCK","Listar todos os blocos");
-define("_AM_MODULE","Módulo");
-define("_AM_MODULECANT","Este bloco não pode ser apagado diretamente. Se você deseja desabilitar este bloco, desative o módulo.");
+define("_AM_MODULE","Mï¿½dulo");
+define("_AM_MODULECANT","Este bloco nï¿½o pode ser apagado diretamente. Se vocï¿½ deseja desabilitar este bloco, desative o mï¿½dulo.");
 define("_AM_NAME","Nome");
-define("_AM_NOTSELNG","'%s' não está selecionado.");
-define("_AM_OPTIONS","Opções");
+define("_AM_NOTSELNG","'%s' nï¿½o estï¿½ selecionado.");
+define("_AM_OPTIONS","Opï¿½ï¿½es");
 define("_AM_PHP","Script PHP");
-define("_AM_POSCONTT","Posição do conteúdo adicional");
+define("_AM_POSCONTT","Posiï¿½ï¿½o do conteï¿½do adicional");
 define("_AM_RIGHT","Direita");
-define("_AM_RUSUREDEL","Você tem certeza de que deseja remover o módulo <b>%s</b>?");
-define("_AM_SAVECHANGES","Gravar as alterações");
+define("_AM_RUSUREDEL","Vocï¿½ tem certeza de que deseja remover o mï¿½dulo <b>%s</b>?");
+define("_AM_SAVECHANGES","Gravar as alteraï¿½ï¿½es");
 define("_AM_SBLEFT","Bloco lateral - esquerda");
 define("_AM_SBRIGHT","Bloco lateral - direita");
 define("_AM_SIDE","Tipo");
 define("_AM_SUBMIT","Enviar");
-define("_AM_SVISIBLEIN","Mostrar blocos visíveis em %s");
-define("_AM_SYSTEMCANT","Os blocos do sistema não podem ser apagados.");
-define("_AM_TITLE","Título");
-define("_AM_TOPONLY","Somente a página principal");
-define("_AM_TOPPAGE","Página principal");
+define("_AM_SVISIBLEIN","Mostrar blocos visï¿½veis em %s");
+define("_AM_SYSTEMCANT","Os blocos do sistema nï¿½o podem ser apagados.");
+define("_AM_TITLE","Tï¿½tulo");
+define("_AM_TOPONLY","Somente a pï¿½gina principal");
+define("_AM_TOPPAGE","Pï¿½gina principal");
 define("_AM_UNASSIGNED","Indefinido");
-define("_AM_USEFULTAGS","Códigos úteis:");
+define("_AM_USEFULTAGS","Cï¿½digos ï¿½teis:");
 define("_AM_VISIBLE","Mostrar");
 define("_AM_VISIBLEIN","Mostrar em");
-define("_AM_WEIGHT","Posição");
+define("_AM_WEIGHT","Posiï¿½ï¿½o");
 ?>

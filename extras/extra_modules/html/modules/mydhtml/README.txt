@@ -1,11 +1,11 @@
 mydhtml
 =======
-SmartMarkUP (BBcode Editor for textarea) for XOOPS Cube Legacy
-This module is a just sample how to implement BBCode editor as XOOPS Cube Legacy module.
+SmartMarkUP (BBcode Editor for textarea) for KARIMOJI
+This module is a just sample how to implement BBCode editor as KARIMOJI module.
 
 Requirement
 -----------
--XOOPS Cube Legacy 2.2 or later
+-KARIMOJI 2.2 or later
 
 Main Feature
 ------------

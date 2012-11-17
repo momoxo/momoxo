@@ -176,7 +176,7 @@ class nusoap_base {
 
 	/**
 	* XML Schema types in an array of uri => (array of xml type => php type)
-	* is this legacy yet?
+	* is this KARIMOJI_LEGALEGAyet?
 	* no, this is used by the nusoap_xmlschema class to verify type => namespace mappings.
 	* @var      array
 	* @access   public

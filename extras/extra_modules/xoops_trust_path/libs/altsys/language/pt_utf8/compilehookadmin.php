@@ -1,6 +1,6 @@
 <?php
 // ******************************************************************** //
-// ** XOOPS Cube Legacy - AltSys Module - Portuguese
+// ** KARIMOJI - AltSys Module - Portuguese
 // ** Por Mikhail Miguel <mikhail.miguel@gmail.com> - http://xoops.net.br/
 // ** $Id$
 // **	License http://creativecommons.org/licenses/by/2.5/br/

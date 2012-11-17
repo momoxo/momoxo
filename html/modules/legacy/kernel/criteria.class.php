@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: criteria.class.php,v 1.4 2008/09/25 15:11:59 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -52,7 +52,7 @@ define("LEGACY_EXPRESSION_OR", "or");
   *   This class don't receive $criteria as reference.
   *
   * \note
-  *   We planned modifying old Criteria of XOOPS2 for Legacy generations. But,
+  *   We planned modifying old Criteria of XOOPS2 for KARIMOJI_LEGALEGAgenerations. But,
   *   old Criteria class has some fatal problems for this plan unfortunately.
   *   Plus, it's manner violation that old class are patched to fundamental defect
   *   if it come to have two different class characteristics. Therefore we should

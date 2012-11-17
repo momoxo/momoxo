@@ -4,9 +4,9 @@ define( '_MI_ALTSYS_MODULENAME' , 'ALTSYS' ) ;
 define( '_MI_ALTSYS_MODULEDESC' , 'Managing system easily' ) ;
 
 // menus
-define( '_MI_ALTSYS_MENU_CUSTOMBLOCKS' , 'eigene Blöcke' ) ;
+define( '_MI_ALTSYS_MENU_CUSTOMBLOCKS' , 'eigene Blï¿½cke' ) ;
 define( '_MI_ALTSYS_MENU_NEWCUSTOMBLOCK' , 'neuen Block erstellen' ) ;
-define( '_MI_ALTSYS_MENU_MYBLOCKSADMIN' , 'Modul-Blöcke' ) ;
+define( '_MI_ALTSYS_MENU_MYBLOCKSADMIN' , 'Modul-Blï¿½cke' ) ;
 define( '_MI_ALTSYS_MENU_MYTPLSADMIN' , 'Templates' ) ;
 define( '_MI_ALTSYS_MENU_COMPILEHOOKADMIN' , 'erweiterte Templates' ) ;
 define( '_MI_ALTSYS_MENU_MYLANGADMIN' , 'Sprachen' ) ;
@@ -22,7 +22,7 @@ define( '_MI_ALTSYS_ADMINMENU_HFT' , 'Rewrite admin menu' ) ;
 define( '_MI_ALTSYS_ADMINMENU_HFTDSC' , 'If your admin menu is broken, remove cache/adminmenu.php. This feature works only with XOOPS 2.0.x' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_2COL' , 'Two columns of module icons' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_NOIMG' , 'IMG to TEXT' ) ;
-define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'Like XoopsCube Legacy 2.1' ) ;
+define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'Like XoopsCube KARIMOJI_LEGALEGA2.1' ) ;
 
 define( '_MI_ALTSYS_ADMINMENU_IM' , 'Copy mymenu links into admin menu' ) ;
 define( '_MI_ALTSYS_ADMINMENU_IMDSC' , 'If your admin menu is broken, remove cache/adminmenu.php. This feature works only with XOOPS 2.0.x' ) ;

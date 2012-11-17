@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: AdminSideMenu.class.php,v 1.3 2008/09/25 15:12:44 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -13,7 +13,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 define('LEGACY_ADMINMENU_CACHEPREFIX', XOOPS_CACHE_PATH.'/'.urlencode(XOOPS_URL).'_admin_menu_');
 
 /**
- * This is test menu block for control panel of legacy module.
+ * This is test menu block for control panel of KARIMOJI_LEGALEGAmodule.
  * This loads module objects by a permission of the current user.
  * Then this load module's adminmenu and module's information.
  *
@@ -57,7 +57,7 @@ class Legacy_AdminSideMenu extends Legacy_AbstractBlockProcedure
 	{
 		$root =& XCube_Root::getSingleton();
 		
-		// load message catalog of legacy for _AD_LEGACY_LANG_NO_SETTING, even if the current module is not Legacy.
+		// load message catalog of KARIMOJI_LEGALEGAfor _AD_LEGACY_LANG_NO_SETTING, even if the current module is not Legacy.
 		$langMgr =& $root->mLanguageManager;
 		$langMgr->loadModuleAdminMessageCatalog('legacy'); 
 		//

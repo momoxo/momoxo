@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: Legacy_Module.class.php,v 1.6 2008/09/25 15:11:59 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -13,7 +13,7 @@
   * @brief [Abstract] Represents modules and used for Legacy_Controller
   * 
   * This is an abstract class which has interfaces to connect with the controller about
-  * the module process. Legacy controller makes an interface of this class and uses its
+  * the module process. KARIMOJI_LEGALEGAcontroller makes an interface of this class and uses its
   * methods to call module programs.
   * 
   * So modules may define their sub-classes implementing this interface.

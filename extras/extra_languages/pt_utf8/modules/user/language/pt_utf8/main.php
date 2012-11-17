@@ -116,7 +116,7 @@ define("_MD_USER_MESSAGE_USER_DELETE_SUCCESS","O seu perfil foi definitivamente 
 define("_MD_USER_MESSAGE_YOURREGISTERED","Agora você está cadastrado. Uma mensagem com a sua chave de ativação foi enviada ao <i>e-mail</i> que você nos forneceu. Por favor, siga as instruções contidas no <i>e-mail</i> para habilitar a sua conta.");
 define("_MD_USER_MESSAGE_YOURREGISTERED2","Agora você está cadastrado. Por favor, espere pela aprovação dos administradores.");
 // ############################################################### //
-// ## XOOPS Cube Legacy - Versão em Português
+// ## KARIMOJI - Versão em Português
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## Website........: http://xoops.net.br

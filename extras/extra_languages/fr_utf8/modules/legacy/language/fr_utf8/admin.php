@@ -35,7 +35,7 @@ define('_AD_LEGACY_PHPVERSION', "PHP Version");
 define('_AD_LEGACY_SERVER', "Server");
 define('_AD_LEGACY_SYSTEMINFO', "Site/System Info");
 define('_AD_LEGACY_USERAGENT', "User Agent");
-define('_AD_LEGACY_XCLEGACYVERSION', "XC Legacy Version");
+define('_AD_LEGACY_XCLEGACYVERSION', "XC KARIMOJI_LEGALEGAVersion");
 define('_AD_LEGACY_XCVERSION', "XOOPS Cube Version");
 
 // ERROR

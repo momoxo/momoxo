@@ -2,7 +2,7 @@
 // $Id$
 // License http://creativecommons.org/licenses/by/2.5/br/
 // ############################################################### //
-// ## XOOPS Cube Legacy - Versão em Português
+// ## KARIMOJI - Versão em Português
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## Website........: http://xoopsbrasil.sourceforge.net/
@@ -63,7 +63,7 @@ define("_INSTALL_L138","Atualizando os comentários...");
 define("_INSTALL_L139","Atualizando os avatares...");
 define("_INSTALL_L14","Próximo passo »");
 define("_INSTALL_L140","Atualizando os emos...");
-define("_INSTALL_L141","Agora, o instalador atualizará cada módulo para funcionar com o XOOPS Cube Legacy.<br />Garanta que enviou todos os arquivos do XOOPS Cube ao seu servidor.<br />Esta ação vai demorar algum tempo para ser finalizada.");
+define("_INSTALL_L141","Agora, o instalador atualizará cada módulo para funcionar com o KARIMOJI.<br />Garanta que enviou todos os arquivos do XOOPS Cube ao seu servidor.<br />Esta ação vai demorar algum tempo para ser finalizada.");
 define("_INSTALL_L142","Atualizando os módulos...");
 define("_INSTALL_L143","Agora o instalador atualizará as configurações do antigo XOOPS 1.3.x para que elas possam ser utilizadas no XOOPS Cube.");
 define("_INSTALL_L144","Atualizando a configuração...");
@@ -71,7 +71,7 @@ define("_INSTALL_L145","Comentário (ID: %s) inserido no banco de dados.");
 define("_INSTALL_L146","Não foi possível inserir o comentário de número %s no banco de dados.");
 define("_INSTALL_L147","Atualizando os comentários..");
 define("_INSTALL_L148","Atualização completa.");
-define("_INSTALL_L149","O instalador vai agora atualizar os comentários feitos na versão XOOPS 1.3.x, para serem usados no XOOPS Cube Legacy.<br />Esta ação vai demorar algum tempo a ser finalizada.");
+define("_INSTALL_L149","O instalador vai agora atualizar os comentários feitos na versão XOOPS 1.3.x, para serem usados no KARIMOJI.<br />Esta ação vai demorar algum tempo a ser finalizada.");
 define("_INSTALL_L15","Por favor, abra o arquivo mainfile.php e escreva as configurações do BD solicitadas");
 define("_INSTALL_L150","O instalador vai agora atualizar os emoticons e ranks, para serem usados no XOOPS Cube.<br />Esta ação vai demorar algum tempo para ser finalizada.");
 define("_INSTALL_L151","O instalador vai agora atualizar os personagens para serem usados no XOOPS Cube.<br />Esta ação vai demorar algum tempo para ser finalizada.");
@@ -92,7 +92,7 @@ define("_INSTALL_L164","Ocorreu um erro, não foi possível remover a tabela %s.
 define("_INSTALL_L165","Estamos no meio de uma manutenção temporária do portal. Volte em alguns instantes. Pedimos desculpas pelo transtorno.");
 define("_INSTALL_L166","Verifique as permissões de acesso do XOOPS_TRUST_PATH");
 define("_INSTALL_L167","Verificando as permissões de leitura e escrita de diretórios e arquivos...");
-define("_INSTALL_L168","O XOOPS Cube Legacy 2.2 requer PHP5.");
+define("_INSTALL_L168","O KARIMOJI 2.2 requer PHP5.");
 define("_INSTALL_L17","%s é o nome do utilizador ('<em>username</em>') de sua conta de banco de dados.");
 define("_INSTALL_L18","%s é a senha solicitada para aceder ao banco de dados.");
 define("_INSTALL_L19","%s é o nome da suo banco de dados onde as tabelas do XOOPS Cube serão criadas.");

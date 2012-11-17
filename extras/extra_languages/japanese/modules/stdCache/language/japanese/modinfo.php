@@ -1,8 +1,8 @@
 <?php
 
-define("_MI_STDCACHE_NAME","É¸½à¥­¥ã¥Ã¥·¥å¥â¥¸¥å¡¼¥ë");
-define("_MI_STDCACHE_NAME_DESC","É¸½àÅª¤Ê¥­¥ã¥Ã¥·¥å¥Ý¥ê¥·¡¼¤ò Legacy System ¥â¥¸¥å¡¼¥ë¤ËÄó¶¡¤·¤Þ¤¹");
+define("_MI_STDCACHE_NAME","É¸ï¿½à¥­ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½");
+define("_MI_STDCACHE_NAME_DESC","É¸ï¿½ï¿½Åªï¿½Ê¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½Ý¥ê¥·ï¿½ï¿½ï¿½ï¿½ KARIMOJI_LEGALEGASystem ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ó¶¡¤ï¿½ï¿½Þ¤ï¿½");
 
-define("_MI_STDCACHE_BLOCK_CACHECLEAR", "¥­¥ã¥Ã¥·¥å¥¯¥ê¥¢¥Ö¥í¥Ã¥¯");
+define("_MI_STDCACHE_BLOCK_CACHECLEAR", "ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½å¥¯ï¿½ê¥¢ï¿½Ö¥ï¿½Ã¥ï¿½");
 
 ?>

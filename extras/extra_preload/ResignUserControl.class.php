@@ -6,7 +6,7 @@ define("RESIGN_USER_GROUP_ID", 0);
 /**
  * @brief This preload controls 'UserDelete' action of the user module in the public side.
  * 
- * Basically, Package_Legacy deletes all informations of the user who want to delete self
+ * Basically, Package_KARIMOJI_LEGALEGAdeletes all informations of the user who want to delete self
  * account. But, if you want to control it, this file is good sample. This sample doesn't
  * delete the user's informations from DB. Instead, this removes the user from groups and
  * moves the user to the special group indicated by RESIGN_USER_GROUP_ID. 

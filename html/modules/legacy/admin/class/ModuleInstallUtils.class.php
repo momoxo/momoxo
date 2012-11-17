@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: ModuleInstallUtils.class.php,v 1.11 2008/10/26 04:07:23 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -58,7 +58,7 @@ class Legacy_ModuleInstallLog
 
 /**
  * This class is collection of static utility functions for module installation.
- * These functions are useful for Legacy modules' system-fixed-installer and
+ * These functions are useful for KARIMOJI_LEGALEGAmodules' system-fixed-installer and
  * modules' custom-installer. All functions for the custom-installer are added
  * notes as "FOR THE CUSTOM-ISNTALLER".
  * 
@@ -249,7 +249,7 @@ class Legacy_ModuleInstallUtils
 	 * @warning
 	 * 
 	 * This function depends the specific spec of Legacy_RenderSystem, but this
-	 * static function is needed by the 2nd installer of Legacy System.
+	 * static function is needed by the 2nd installer of KARIMOJI_LEGALEGASystem.
 	 * 
 	 * @static
 	 * @param XoopsModule $module
@@ -273,7 +273,7 @@ class Legacy_ModuleInstallUtils
 	 * @warning
 	 * 
 	 * This function depends the specific spec of Legacy_RenderSystem, but this
-	 * static function is needed by the 2nd installer of Legacy System.
+	 * static function is needed by the 2nd installer of KARIMOJI_LEGALEGASystem.
 	 * 
 	 * @static
 	 * @param XoopsModule $module
@@ -337,7 +337,7 @@ class Legacy_ModuleInstallUtils
 	 * @warning
 	 * 
 	 * This function depends the specific spec of Legacy_RenderSystem, but this
-	 * static function is needed by the 2nd installer of Legacy System.
+	 * static function is needed by the 2nd installer of KARIMOJI_LEGALEGASystem.
 	 * 
 	 * @static
 	 * @param XoopsModule $module

@@ -1,56 +1,56 @@
 <?php
 // *************************************************************** //
-// ** XOOPS Cube Legacy - Versão em Português
+// ** KARIMOJI - Versï¿½o em Portuguï¿½s
 // ** $Id: modulesadmin.php 616 2010-04-27 22:04:08Z mikhail $
 // **	License http://creativecommons.org/licenses/by/2.5/br/
 // *************************************************************** //
-define("_MD_AM_MODADMIN","Administração de módulos");
-define("_MD_AM_MODULE","Nome do Módulo");
-define("_MD_AM_VERSION","Versão");
-define("_MD_AM_LASTUP","Última atualização");
+define("_MD_AM_MODADMIN","Administraï¿½ï¿½o de mï¿½dulos");
+define("_MD_AM_MODULE","Nome do Mï¿½dulo");
+define("_MD_AM_VERSION","Versï¿½o");
+define("_MD_AM_LASTUP","ï¿½ltima atualizaï¿½ï¿½o");
 define("_MD_AM_DEACTIVATED","Desabilitado");
-define("_MD_AM_ACTION","Ações");
+define("_MD_AM_ACTION","Aï¿½ï¿½es");
 define("_MD_AM_DEACTIVATE","Desabilitar");
 define("_MD_AM_ACTIVATE","Habilitar");
 define("_MD_AM_UPDATE","Atualizar");
-define("_MD_AM_DUPEN","Registro duplicado na tabela de módulos.");
-define("_MD_AM_DEACTED","O módulo selecionado foi desabilitado. Agora pode desintalá-lo com segurança.");
-define("_MD_AM_ACTED","O módulo selecionado foi habilitado.");
-define("_MD_AM_UPDTED","O módulo selecionado foi atualizado.");
-define("_MD_AM_SYSNO","O módulo do sistema não pode ser desabilitado.");
-define("_MD_AM_STRTNO","Este módulo está definido como a sua página inicial padrão. por gentileza, altere a página inicial nas definições do seu site.");
+define("_MD_AM_DUPEN","Registro duplicado na tabela de mï¿½dulos.");
+define("_MD_AM_DEACTED","O mï¿½dulo selecionado foi desabilitado. Agora pode desintalï¿½-lo com seguranï¿½a.");
+define("_MD_AM_ACTED","O mï¿½dulo selecionado foi habilitado.");
+define("_MD_AM_UPDTED","O mï¿½dulo selecionado foi atualizado.");
+define("_MD_AM_SYSNO","O mï¿½dulo do sistema nï¿½o pode ser desabilitado.");
+define("_MD_AM_STRTNO","Este mï¿½dulo estï¿½ definido como a sua pï¿½gina inicial padrï¿½o. por gentileza, altere a pï¿½gina inicial nas definiï¿½ï¿½es do seu site.");
 define("_MD_AM_PCMFM","Por favor, confirme:");
 define("_MD_AM_ORDER","Ordem");
 define("_MD_AM_ORDER0","(0 = ocultar)");
 define("_MD_AM_ACTIVE","Ativo");
 define("_MD_AM_INACTIVE","Inativo");
-define("_MD_AM_NOTINSTALLED","Não instalado");
-define("_MD_AM_NOCHANGE","Sem mudanças");
+define("_MD_AM_NOTINSTALLED","Nï¿½o instalado");
+define("_MD_AM_NOCHANGE","Sem mudanï¿½as");
 define("_MD_AM_INSTALL","Instalar");
 define("_MD_AM_UNINSTALL","Desinstalar");
 define("_MD_AM_SUBMIT","Enviar");
 define("_MD_AM_CANCEL","Cancelar");
 define("_MD_AM_DBUPDATE","Banco de dados atualizado corretamente.");
-define("_MD_AM_BTOMADMIN","Voltar à página de configuração de módulos");
-define("_MD_AM_FAILINS","Não foi possível instalar %s.");
-define("_MD_AM_FAILACT","Não foi possível habilitar %s.");
-define("_MD_AM_FAILDEACT","Não foi possível desabilitar %s.");
-define("_MD_AM_FAILUPD","Não foi possível atualizar %s.");
-define("_MD_AM_FAILUNINS","Não foi possível desinstalar %s.");
-define("_MD_AM_FAILORDER","Não foi possível reordenar %s.");
-define("_MD_AM_FAILWRITE","Não foi possível gravar no menu principal.");
-define("_MD_AM_ALEXISTS","O módulo %s já estava instalado.");
+define("_MD_AM_BTOMADMIN","Voltar ï¿½ pï¿½gina de configuraï¿½ï¿½o de mï¿½dulos");
+define("_MD_AM_FAILINS","Nï¿½o foi possï¿½vel instalar %s.");
+define("_MD_AM_FAILACT","Nï¿½o foi possï¿½vel habilitar %s.");
+define("_MD_AM_FAILDEACT","Nï¿½o foi possï¿½vel desabilitar %s.");
+define("_MD_AM_FAILUPD","Nï¿½o foi possï¿½vel atualizar %s.");
+define("_MD_AM_FAILUNINS","Nï¿½o foi possï¿½vel desinstalar %s.");
+define("_MD_AM_FAILORDER","Nï¿½o foi possï¿½vel reordenar %s.");
+define("_MD_AM_FAILWRITE","Nï¿½o foi possï¿½vel gravar no menu principal.");
+define("_MD_AM_ALEXISTS","O mï¿½dulo %s jï¿½ estava instalado.");
 define("_MD_AM_ERRORSC","Erro(s):");
-define("_MD_AM_OKINS","O módulo %s foi instalado corretamente.");
-define("_MD_AM_OKACT","O módulo %s foi habilitado corretamente.");
-define("_MD_AM_OKDEACT","O módulo %s foi desabilitado corretamente.");
-define("_MD_AM_OKUPD","O módulo %s foi atualizado corretamente.");
-define("_MD_AM_OKUNINS","O módulo %s foi desinstalado corretamente.");
-define("_MD_AM_OKORDER","O módulo %s foi reorganizado corretamente.");
-define("_MD_AM_RUSUREINS","Pressione o botão abaixo para instalar o módulo");
-define("_MD_AM_RUSUREUPD","Pressione o botão abaixo para atualizar o módulo");
-define("_MD_AM_RUSUREUNINS","Tem certeza de que deseja desinstalar o módulo?");
-define("_MD_AM_LISTUPBLKS","Os seguinte blocos foram atualizados.<b?>Escolha os blocos cujo conteúdo (modelo e opções) podem ser reescritos.<b?>");
+define("_MD_AM_OKINS","O mï¿½dulo %s foi instalado corretamente.");
+define("_MD_AM_OKACT","O mï¿½dulo %s foi habilitado corretamente.");
+define("_MD_AM_OKDEACT","O mï¿½dulo %s foi desabilitado corretamente.");
+define("_MD_AM_OKUPD","O mï¿½dulo %s foi atualizado corretamente.");
+define("_MD_AM_OKUNINS","O mï¿½dulo %s foi desinstalado corretamente.");
+define("_MD_AM_OKORDER","O mï¿½dulo %s foi reorganizado corretamente.");
+define("_MD_AM_RUSUREINS","Pressione o botï¿½o abaixo para instalar o mï¿½dulo");
+define("_MD_AM_RUSUREUPD","Pressione o botï¿½o abaixo para atualizar o mï¿½dulo");
+define("_MD_AM_RUSUREUNINS","Tem certeza de que deseja desinstalar o mï¿½dulo?");
+define("_MD_AM_LISTUPBLKS","Os seguinte blocos foram atualizados.<b?>Escolha os blocos cujo conteï¿½do (modelo e opï¿½ï¿½es) podem ser reescritos.<b?>");
 define("_MD_AM_NEWBLKS","Novos blocos");
 define("_MD_AM_DEPREBLKS","Blocos obsoletos");
 ?>

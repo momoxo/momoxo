@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: ModuleInstaller.class.php,v 1.4 2008/10/26 04:00:40 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -90,7 +90,7 @@ class Legacy_ModuleInstaller
         }
 
         //
-        // Add a permission which administrators can manage. (Special for Legacy System Module)
+        // Add a permission which administrators can manage. (Special for KARIMOJI_LEGALEGASystem Module)
         //
         if ($this->_mXoopsModule->getVar('dirname') == 'system') {
 			$root =& XCube_Root::getSingleton();
@@ -201,7 +201,7 @@ class Legacy_ModuleInstaller
 			}
 			
             if (function_exists($funcName)) {
-				// Because X2 can use reference parameter, Legacy doesn't use the following code;'
+				// Because X2 can use reference parameter, KARIMOJI_LEGALEGAdoesn't use the following code;'
                 // if (!call_user_func($funcName, $this->_mXoopsModule)) {
 
 				$result = $funcName($this->_mXoopsModule, new XCube_Ref($this->mLog));                	

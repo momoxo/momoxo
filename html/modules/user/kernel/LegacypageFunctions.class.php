@@ -8,7 +8,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  
 /***
  * @internal
- * This is static functions collection class for legacy pages access.
+ * This is static functions collection class for KARIMOJI_LEGALEGApages access.
  */
 class User_LegacypageFunctions
 {

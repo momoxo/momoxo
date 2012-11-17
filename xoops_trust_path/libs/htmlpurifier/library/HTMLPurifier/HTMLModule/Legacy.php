@@ -1,12 +1,12 @@
 <?php
 
 /**
- * XHTML 1.1 Legacy module defines elements that were previously
+ * XHTML 1.1 KARIMOJI_LEGALEGAmodule defines elements that were previously
  * deprecated.
  *
- * @note Not all legacy elements have been implemented yet, which
+ * @note Not all KARIMOJI_LEGALEGAelements have been implemented yet, which
  *       is a bit of a reverse problem as compared to browsers! In
- *       addition, this legacy module may implement a bit more than
+ *       addition, this KARIMOJI_LEGALEGAmodule may implement a bit more than
  *       mandated by XHTML 1.1.
  *
  * This module can be used in combination with TransformToStrict in order
@@ -16,7 +16,7 @@
  * See docs/ref-strictness.txt for more details.
  */
 
-class HTMLPurifier_HTMLModule_Legacy extends HTMLPurifier_HTMLModule
+class HTMLPurifier_HTMLModule_KARIMOJI_LEGALEGAextends HTMLPurifier_HTMLModule
 {
 
     public $name = 'Legacy';

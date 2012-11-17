@@ -1,191 +1,191 @@
-yƒe[ƒ}–¼@z basic5
-yƒo[ƒWƒ‡ƒ“z 0.04
-yì@¬@ŽÒz marine / mistgreen
-y“®ì@ŠÂ‹«z XOOPS Cube Legacy 2.1x (HD1.04)A2.2
-yƒ‰ƒCƒZƒ“ƒXz MIT
-yŒö ŠJ “ú@z 2011-11-13
+ï¿½yï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½@ï¿½z basic5
+ï¿½yï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½z 0.04
+ï¿½yï¿½ï¿½@ï¿½ï¿½ï¿½@ï¿½Òz marine / mistgreen
+ï¿½yï¿½ï¿½ï¿½ï¿½@ï¿½Â‹ï¿½ï¿½z KARIMOJI 2.1x (HD1.04)ï¿½A2.2
+ï¿½yï¿½ï¿½ï¿½Cï¿½Zï¿½ï¿½ï¿½Xï¿½z MIT
+ï¿½yï¿½ï¿½ ï¿½J ï¿½ï¿½@ï¿½z 2011-11-13
 
 ======================================================
-à–¾iŠT—vj
+ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½Tï¿½vï¿½j
 ======================================================
 
-@PC‚Å‚àiPhone “™‚ÌƒXƒ}[ƒgƒtƒHƒ“‚Å‚àŽg‚¦‚é XCL2.1x(HD1.04)EXCL2.2—pƒe[ƒ}‚Å‚·BHTML5‚Åì‚Á‚Ä‚¢‚Ü‚·B
-@‰{——ŠÂ‹«‚É‰ž‚¶‚ÄA_“î‚Éƒy[ƒWƒŒƒCƒAƒEƒg‚ðØ‚è‘Ö‚¦‚éƒŒƒXƒ|ƒ“ƒVƒuEƒEƒFƒuƒfƒUƒCƒ“iResponsive Web Design j‚ðÌ—p‚µ‚Ü‚µ‚½B
-@Xoops Cube Legacy 2.2 ‚Å“®ìŠm”F‚µ‚Ü‚µ‚½B
+ï¿½@PCï¿½Å‚ï¿½iPhone ï¿½ï¿½ï¿½ÌƒXï¿½}ï¿½[ï¿½gï¿½tï¿½Hï¿½ï¿½ï¿½Å‚ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ XCL2.1x(HD1.04)ï¿½EXCL2.2ï¿½pï¿½eï¿½[ï¿½}ï¿½Å‚ï¿½ï¿½BHTML5ï¿½Åï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
+ï¿½@ï¿½{ï¿½ï¿½ï¿½Â‹ï¿½ï¿½É‰ï¿½ï¿½ï¿½ï¿½ÄAï¿½_ï¿½ï¿½Éƒyï¿½[ï¿½Wï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ï¿½Ø‚ï¿½Ö‚ï¿½ï¿½éƒŒï¿½Xï¿½|ï¿½ï¿½ï¿½Vï¿½uï¿½Eï¿½Eï¿½Fï¿½uï¿½fï¿½Uï¿½Cï¿½ï¿½ï¿½iResponsive Web Design ï¿½jï¿½ï¿½ï¿½Ì—pï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
+ï¿½@KARIMOJI 2.2 ï¿½Å“ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
 
-@‰º‹LƒTƒCƒg‚Ìƒeƒ“ƒvƒŒ[ƒg‚ð—¬—p‚µ‚ÄAXoops—p‚Ìƒe[ƒ}‚Æ‚µ‚Ä‚Ý‚Ü‚µ‚½B
+ï¿½@ï¿½ï¿½ï¿½Lï¿½Tï¿½Cï¿½gï¿½Ìƒeï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ð—¬—pï¿½ï¿½ï¿½ÄAXoopsï¿½pï¿½Ìƒeï¿½[ï¿½}ï¿½Æ‚ï¿½ï¿½Ä‚Ý‚Ü‚ï¿½ï¿½ï¿½ï¿½B
 	http://www.onextrapixel.com/2011/09/12/create-a-responsive-web-design-template/
 
-@ƒwƒbƒ_[‚É‚ÍAxugj_assign ƒvƒ‰ƒOƒCƒ“‚ð—˜—p‚µ‚ÄAƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚½ƒ‚ƒWƒ…[ƒ‹‚É‘Î‰ž‚·‚éƒƒjƒ…[‚ðŽ©“®•\Ž¦‚·‚é‚æ‚¤‚É‚µ‚Ä‚¢‚Ü‚·B
-@‚Ü‚½Aƒtƒbƒ^[‚Éƒ†[ƒU[ƒƒjƒ…[€–Ú‚àŽ©“®•\Ž¦‚·‚é‚Ì‚ÅAxoops‚ÌŒÝŠ·ƒ‚ƒWƒ…[ƒ‹‚Å‚ ‚éuƒƒCƒ“ƒƒjƒ…[vuƒ†[ƒU[ƒƒjƒ…[v‚ð—˜—p‚µ‚È‚¢‰^—p‚ª‰Â”\‚Æ‚È‚Á‚Ä‚¢‚Ü‚·B
+ï¿½@ï¿½wï¿½bï¿½_ï¿½[ï¿½É‚ÍAxugj_assign ï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ð—˜—pï¿½ï¿½ï¿½ÄAï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½É‘Î‰ï¿½ï¿½ï¿½ï¿½éƒï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
+ï¿½@ï¿½Ü‚ï¿½ï¿½Aï¿½tï¿½bï¿½^ï¿½[ï¿½Éƒï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAxoopsï¿½ÌŒÝŠï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½vï¿½uï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½vï¿½ð—˜—pï¿½ï¿½ï¿½È‚ï¿½ï¿½^ï¿½pï¿½ï¿½ï¿½Â”\ï¿½Æ‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 
-@‚±‚Ìƒe[ƒ}‚É‚Â‚¢‚Ä‚Í MIT ƒ‰ƒCƒZƒ“ƒX‚Æ‚³‚¹‚Ä‚¢‚½‚¾‚«‚Ü‚·B
-
-
-======================================================
-à–¾iÚ×j
-======================================================
-
-@‚Æ‚è‚ ‚¦‚¸Autf8‚Æeuc‚Ìlanguageƒtƒ@ƒCƒ‹‚Í—pˆÓ‚µ‚Ü‚µ‚½‚ªAHTML5‚Æ‚¢‚¤‚±‚Æ‚Å utf8ƒx[ƒX‚Å“®ì‚·‚é‚ÆŽv‚¢‚Ü‚·Beuc‚Å‚Ì“®ì‚ÍŠm”F‚µ‚Ä‚¢‚Ü‚¹‚ñB
-
-@ƒƒjƒ…[‚ÍAXoops Users Group Japan(XUGJ) ‚Å GIJOE‚³‚ñ‚ª’ñ¥‚³‚ê‚½ xugj_assign.php ‚ð—˜—p‚µ‚½ƒƒjƒ…[‚ðÌ—p‚µ‚Ä‚¢‚Ü‚·B
-@’Êí‚ÌƒƒCƒ“ƒƒjƒ…[‚É•\Ž¦‚³‚ê‚é‚Ì‚Æ“¯‚¶€–Ú‚ªŽ©“®‚Å•\Ž¦‚³‚ê‚é‚Ì‚ÅAƒƒjƒ…[‚Ì€–Ú‚ð•ÒW‚·‚é•K—v‚à‚ ‚è‚Ü‚¹‚ñB
-@@http://www.xugj.org/modules/d3forum/index.php?topic_id=125
-
-@‚È‚¨A“¯••‚µ‚Ä‚¢‚é‚à‚Ì‚ÍAƒIƒŠƒWƒiƒ‹‚Ì xugj_assign.php ‚©‚ç­‚µ•ÏX‚µ‚Ä‚¢‚é‚Ì‚ÅAxugj_assign_basic.php ‚Æ‚¢‚¤–¼Ì‚É•ÏX‚µ‚Ä‚¢‚Ü‚·B
-
-@jQuery.js + jquery.jgrowlƒvƒ‰ƒOƒCƒ“‚ð—˜—p‚µ‚ÄA‰æ–Ê‘JˆÚ‚¹‚¸‚ÉƒŠƒ_ƒCƒŒƒNƒg•\Ž¦‚Å‚«‚é‚Ì‚ÅAƒXƒs[ƒfƒB[‚ÅƒZƒ“ƒX‚Ì—Ç‚¢•\Ž¦‚ª‰Â”\‚Æ‚È‚Á‚Ä‚¢‚Ü‚·B@‚È‚¨A–{ƒe[ƒ}‚É‚ÍAdomifara‚³‚ñì¬‚Ìphpƒtƒ@ƒCƒ‹‚É‚æ‚éƒCƒ“ƒNƒ‹[ƒh•û–@‚ð—p‚¢‚Ä‚¨‚è‚Ü‚·B
-@domifara‚³‚ñA‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚·BijavascriptƒIƒtŽž‚É‚ÍAƒŠƒ_ƒCƒŒƒNƒg‚Ì•¶Žš‚È‚Ç‚ªƒ{ƒbƒNƒX•\Ž¦‚³‚ê‚Ü‚·Bj
-
-@jQuery‚É‚Â‚¢‚Ä‚ÍAdomifara‚³‚ñ‚É‚æ‚éXCL2.2‘Î‰ž‘[’u‚ª‚Æ‚ç‚ê‚Ä‚¨‚èAjQuery‚Ì“ñd“Ç‚Ýž‚Ý–hŽ~‚â‘¼‚Ìjavascript‚Æ‚ÌƒoƒbƒeƒBƒ“ƒO‚ð‰Â”\‚ÈŒÀ‚è”ð‚¯‚éŽd‘g‚Ý‚ª—p‚¢‚ç‚ê‚Ä‚¨‚è‚Ü‚·B@(xugj_already_js.php ‚ðXCL2.1‘Î‰ž”Å‚É·‚µ‘Ö‚¦‚Ä‚¨‚è‚Ü‚·Bj
-
-
-y‰æ–Ê•\Ž¦‚É‚Â‚¢‚Äz
-
-@‚±‚Ìƒe[ƒ}‚Å‚ÍAƒƒfƒBƒAEƒNƒGƒŠiMedia Queriesj‚ð—˜—p‚µ‚ÄA•\Ž¦‚·‚éƒfƒoƒCƒXiƒuƒ‰ƒEƒUj‚Ì‰æ–Ê•‚É‚æ‚èƒXƒ^ƒCƒ‹iCSSj‚ÌØ‘Ö‚ðs‚¢‚Ü‚·B
-
-@Šî–{‚ÍA¶ƒƒCƒ“E‰EƒTƒCƒhƒJƒ‰ƒ€‚Ì‚QƒJƒ‰ƒ€•\Ž¦‚Æ‚È‚Á‚Ä‚¨‚èAÅ‘å•\Ž¦•‚Í‚X‚W‚O‚‚˜‚Åƒuƒ‰ƒEƒU‚Ì•‚ðk‚ß‚é‚Æ‚»‚ê‚É‰ž‚¶‚Ä‰¡•‚ª‹·‚Ü‚èAƒfƒoƒCƒX‚Ì•‚ª480pxˆÈ‰º‚É‚È‚é‚Æ‚PƒJƒ‰ƒ€•\Ž¦‚ÉØ‚è‘Ö‚í‚è‚Ü‚·B
-
-@‚È‚¨A’†‰›E’†‰›ƒJƒ‰ƒ€‚É‚Â‚¢‚Ä‚ÍA•\Ž¦‡Ý’è‚É‰ž‚¶‚ÄAƒgƒbƒv‚Æƒ{ƒbƒgƒ€‚É•ˆê”t‚Éƒ{ƒbƒNƒX•\Ž¦‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-
-@¡@@’†‰›’†‰›ƒJƒ‰ƒ€@•\Ž¦‡ ‚O@iƒgƒbƒvƒJƒ‰ƒ€j
-@¡@@’†‰›’†‰›ƒJƒ‰ƒ€@•\Ž¦‡‚T‚O‚OˆÈã@iƒ{ƒbƒgƒ€ƒJƒ‰ƒ€j
+ï¿½@ï¿½ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½É‚Â‚ï¿½ï¿½Ä‚ï¿½ MIT ï¿½ï¿½ï¿½Cï¿½Zï¿½ï¿½ï¿½Xï¿½Æ‚ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 
 ======================================================
-ƒCƒ“ƒXƒg[ƒ‹
+ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½Ú×j
 ======================================================
 
-@ƒCƒ“ƒXƒg[ƒ‹‚Í’Êíƒe[ƒ}‚Æ“¯‚¶‚Å‚·‚ªAŽå—vƒ‚ƒWƒ…[ƒ‹‚Ìƒeƒ“ƒvƒŒ[ƒg‚ð–{ƒe[ƒ}‚ÉÅ“K‰»‚³‚¹Aƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg‚Æ‚µ‚Ä—˜—p‚·‚éÝ’è‚ª‰Â”\‚Å‚·‚Ì‚ÅA‚»‚Ìê‡{ƒ¿‚Ìì‹Æ‚ª•K—v‚Æ‚È‚è‚Ü‚·B
+ï¿½@ï¿½Æ‚è‚ ï¿½ï¿½ï¿½ï¿½ï¿½Autf8ï¿½ï¿½eucï¿½ï¿½languageï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Í—pï¿½Ó‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½AHTML5ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ utf8ï¿½xï¿½[ï¿½Xï¿½Å“ï¿½ï¿½ì‚·ï¿½ï¿½ÆŽvï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Beucï¿½Å‚Ì“ï¿½ï¿½ï¿½ÍŠmï¿½Fï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B
 
-@‚Ü‚¸‚ÍA‰ð“€‚µ‚Ä‚Å‚«‚ ‚ª‚Á‚½ƒtƒHƒ‹ƒ_ubasicv‚ðFTP‚É‚ÄƒTƒCƒg‚Ìƒe[ƒ}EƒfƒBƒŒƒNƒgƒŠ‚ÖƒRƒs[‚µ‚Ä‚­‚¾‚³‚¢B
-@ŽŸ‚ÉAŽŸ‚ÌŽè‡‚Åƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg—˜—p‚Ì‚½‚ß‚Ìì‹Æs‚Á‚Ä‚­‚¾‚³‚¢B
+ï¿½@ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ÍAXoops Users Group Japan(XUGJ) ï¿½ï¿½ GIJOEï¿½ï¿½ï¿½ñ‚ª’ñ¥‚ï¿½ï¿½ê‚½ xugj_assign.php ï¿½ð—˜—pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì—pï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
+ï¿½@ï¿½Êï¿½Ìƒï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Æ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Ìï¿½ï¿½Ú‚ï¿½ÒWï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B
+ï¿½@ï¿½@http://www.xugj.org/modules/d3forum/index.php?topic_id=125
 
-@Š®—¹‚µ‚½‚ç’Êí‚Ìƒe[ƒ}‚Æ“¯—lAŠÇ—‰æ–Ê‚ÌuŒÝŠ·ƒ‚ƒWƒ…[ƒ‹vuƒe[ƒ}‚ÌŠÇ—v‚Å‚±‚Ìƒe[ƒ}‚ðŽg—p‚·‚éÝ’è‚Æ‚µ‚Ä‚­‚¾‚³‚¢B
+ï¿½@ï¿½È‚ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÍAï¿½Iï¿½ï¿½ï¿½Wï¿½iï¿½ï¿½ï¿½ï¿½ xugj_assign.php ï¿½ï¿½ï¿½ç­ï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚ÅAxugj_assign_basic.php ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚É•ÏXï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 
+ï¿½@jQuery.js + jquery.jgrowlï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ð—˜—pï¿½ï¿½ï¿½ÄAï¿½ï¿½Ê‘Jï¿½Ú‚ï¿½ï¿½ï¿½ï¿½Éƒï¿½ï¿½_ï¿½Cï¿½ï¿½ï¿½Nï¿½gï¿½\ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½Ì‚ÅAï¿½Xï¿½sï¿½[ï¿½fï¿½Bï¿½[ï¿½ÅƒZï¿½ï¿½ï¿½Xï¿½Ì—Ç‚ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ï¿½Æ‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½@ï¿½È‚ï¿½ï¿½Aï¿½{ï¿½eï¿½[ï¿½}ï¿½É‚ÍAdomifaraï¿½ï¿½ï¿½ï¿½ì¬ï¿½ï¿½phpï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½É‚ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½@ï¿½ï¿½pï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+ï¿½@domifaraï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½è‚ªï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½ijavascriptï¿½Iï¿½tï¿½ï¿½ï¿½É‚ÍAï¿½ï¿½ï¿½_ï¿½Cï¿½ï¿½ï¿½Nï¿½gï¿½Ì•ï¿½ï¿½ï¿½ï¿½È‚Ç‚ï¿½ï¿½{ï¿½bï¿½Nï¿½Xï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½j
 
-yƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg‚ª—˜—p‰Â”\‚Èê‡z
-
-@‚²—˜—p‚É‚È‚Á‚Ä‚¢‚é xoops ‚ªƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg—˜—p‰Â”\‚Èê‡‚ÍA–{ƒe[ƒ}ƒfƒBƒŒƒNƒgƒŠ‰º‚É‚ ‚é utemplatesvƒfƒBƒŒƒNƒgƒŠ‚ÉŽû”[‚³‚ê‚½ƒJƒXƒ^ƒ}ƒCƒYÏ‚Ý‚Ìƒeƒ“ƒvƒŒ[ƒg‚ð—˜—p‚·‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
-
-@‚±‚Ìê‡Axugj_date ‚â xugj_block ‚ð—˜—p‚µ‚Ü‚·‚Ì‚ÅA–{ƒe[ƒ}‰º‚Ìuup/pluginvƒtƒHƒ‹ƒ_‚ÉŽû”[‚³‚ê‚Ä‚¢‚é modifier.xugj_date.php ‚Æ function.xugj_block.php ‚ðFTP‚É‚ÄƒTƒCƒg‚ÌupluginvƒfƒBƒŒƒNƒgƒŠ‚ÉƒRƒs[‚µ‚Ä‚­‚¾‚³‚¢BiŠù‚É‘¶Ý‚·‚éê‡‚Í•s—vj
-
-@upluginvƒfƒBƒŒƒNƒgƒŠ‚ÍAXCL2.1x ‚Æ XCL2.2 ‚Å‚ÍêŠ‚ªˆá‚¤‚Ì‚Å‚²’ˆÓ‚­‚¾‚³‚¢B
-@@@XCL2.1x‚Ìê‡@/XOOPS_ROOT_PATH/class/smarty/plugins/ 
-@@@XCL2.2‚Ìê‡@ /XOOPS_TRUST_PATH/libs/smarty/plugins/@‚Ü‚½‚Í
-@@@@@@@@@@ /XOOPS_TRUST_PATH/libs/smartyplugins/  ipreloaduHdXoopsTplHook.class.phpv‚ðŽg‚Á‚Ä‚¢‚éê‡j
+ï¿½@jQueryï¿½É‚Â‚ï¿½ï¿½Ä‚ÍAdomifaraï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½XCL2.2ï¿½Î‰ï¿½ï¿½[ï¿½uï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½AjQueryï¿½Ì“ï¿½dï¿½Ç‚Ýï¿½ï¿½Ý–hï¿½~ï¿½â‘¼ï¿½ï¿½javascriptï¿½Æ‚Ìƒoï¿½bï¿½eï¿½Bï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Â”\ï¿½ÈŒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dï¿½gï¿½Ý‚ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½@(xugj_already_js.php ï¿½ï¿½XCL2.1ï¿½Î‰ï¿½ï¿½Å‚Éï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½j
 
 
-yƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg‚ª—˜—p‚Å‚«‚È‚¢ê‡z
+ï¿½yï¿½ï¿½Ê•\ï¿½ï¿½ï¿½É‚Â‚ï¿½ï¿½Äz
 
-@‚à‚µAƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg‚ð—˜—p‚Å‚«‚È‚¢ŠÂ‹«‚Ìê‡A–{ƒe[ƒ}‰º‚Ìuup/preloadvƒtƒHƒ‹ƒ_‚É‚ ‚é HdXoopsTplHook.class.php ‚ðFTP‚É‚ÄƒTƒCƒg‚ÌupreloadvƒfƒBƒŒƒNƒgƒŠ‚ÉA–{ƒe[ƒ}‰º‚Ìuup/pluginvƒtƒHƒ‹ƒ_‚É‚ ‚é resource.db.php ‚ðƒTƒCƒg‚ÌupluginvƒfƒBƒŒƒNƒgƒŠ‚É‚»‚ê‚¼‚êƒRƒs[‚µ‚Ä‚­‚¾‚³‚¢B
+ï¿½@ï¿½ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½Å‚ÍAï¿½ï¿½ï¿½fï¿½Bï¿½Aï¿½Eï¿½Nï¿½Gï¿½ï¿½ï¿½iMedia Queriesï¿½jï¿½ð—˜—pï¿½ï¿½ï¿½ÄAï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½oï¿½Cï¿½Xï¿½iï¿½uï¿½ï¿½ï¿½Eï¿½Uï¿½jï¿½Ì‰ï¿½Ê•ï¿½ï¿½É‚ï¿½ï¿½Xï¿½^ï¿½Cï¿½ï¿½ï¿½iCSSï¿½jï¿½ÌØ‘Ö‚ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
-@Ú×‚Í‚±‚¿‚ç‚ðŽQÆ‚µ‚Ä‰º‚³‚¢B
-@@http://xoops.peak.ne.jp/md/news/index.php?page=article&storyid=450
+ï¿½@ï¿½ï¿½{ï¿½ÍAï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Eï¿½Eï¿½Tï¿½Cï¿½hï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Qï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Æ‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Aï¿½Å‘ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Í‚Xï¿½Wï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Åƒuï¿½ï¿½ï¿½Eï¿½Uï¿½Ì•ï¿½ï¿½ï¿½ï¿½kï¿½ß‚ï¿½Æ‚ï¿½ï¿½ï¿½É‰ï¿½ï¿½ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½Aï¿½fï¿½oï¿½Cï¿½Xï¿½Ì•ï¿½ï¿½ï¿½480pxï¿½È‰ï¿½ï¿½É‚È‚ï¿½Æ‚Pï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ÉØ‚ï¿½Ö‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 
+ï¿½@ï¿½È‚ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½É‚Â‚ï¿½ï¿½Ä‚ÍAï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½É‰ï¿½ï¿½ï¿½ï¿½ÄAï¿½gï¿½bï¿½vï¿½Æƒ{ï¿½bï¿½gï¿½ï¿½ï¿½É•ï¿½ï¿½ï¿½tï¿½Éƒ{ï¿½bï¿½Nï¿½Xï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 
-yƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg—˜—p‰Â”\‚¾‚ªA–{ƒe[ƒ}‚Ìƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg‚ðŽg‚¢‚½‚­‚È‚¢ê‡z
-
-@‹t‚ÉA‚²—˜—p‚É‚È‚Á‚Ä‚¢‚é xoops ‚ªƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg—˜—p‰Â”\‚Èó‘Ô‚Å‚ ‚Á‚ÄA–{ƒe[ƒ}‰º‚Ìƒeƒ“ƒvƒŒ[ƒg‚ðŽg‚¢‚½‚­‚È‚¢ê‡‚ÍAƒe[ƒ}‰º‚É‚ ‚éutemplatesvƒfƒBƒŒƒNƒgƒŠ‚ðíœ‚µ‚Ä‚­‚¾‚³‚¢Bi“–ŠYƒfƒBƒŒƒNƒgƒŠ“à‚ÌŒÂ•Ê‚Ìƒeƒ“ƒvƒŒ[ƒg‚ðíœ‚·‚é‚Ì‚à—Ç‚¢‚Å‚µ‚å‚¤Bj
-@‚½‚¾‚µAwebphotoƒ‚ƒWƒ…[ƒ‹Žg—pŽž‚ÌƒMƒƒƒ‰ƒŠ[•\Ž¦‚È‚Ç‚Í‚Å‚«‚È‚­‚È‚è‚Ü‚·B
-
-¡——RFƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg—˜—p‰Â”\‚ÈxoopsiHD‚È‚Çj‚Å‚ÍAŽŸ‚Ì—Dæ‡ˆÊ‚Åƒeƒ“ƒvƒŒ[ƒg‚ð“Ç‚Ýž‚Þ‚½‚ß
-@‚P@ƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg
-@‚Q@Œ»ÝActive‚ÈDBƒeƒ“ƒvƒŒ[ƒg
-@‚R@Default(DB)ƒeƒ“ƒvƒŒ[ƒg
-
-@‚Â‚Ü‚èAƒeƒ“ƒvƒŒ[ƒg‚ð•ÏX‚µ‚æ‚¤‚Æ‚µ‚ÄAAltsys‚ÅuŒ»ÝActive‚ÈDBƒeƒ“ƒvƒŒ[ƒgv‚ð‚¢‚­‚çC³‚µ‚Ä‚àAƒe[ƒ}‰ºƒeƒ“ƒvƒŒ[ƒg‚ª‚ ‚éê‡‚Í‚»‚¿‚ç‚ª—Dæ‚³‚ê‚Ä‚µ‚Ü‚¤‚Ì‚Å‚·B
-
-
-yprettyPhoto‚ð—˜—p‚·‚éê‡z
-@‚±‚Ìƒe[ƒ}‚Å‚ÍAjQuery ‚Ìƒvƒ‰ƒOƒCƒ“‚Å‚ ‚é prettyPhoto ‚ð—˜—p‚·‚é‚Æ‚¨Ÿ­—Ž‚Èƒ|ƒbƒvƒAƒbƒv‰æ‘œ•\Ž¦‚ª‚Å‚«‚é‚æ‚¤‚ÉÝ’è‚µ‚Ä‚¢‚Ü‚·B
-
-@‚²—˜—p‚É‚È‚é‚É‚ÍA“¯••‚µ‚Ä‚¢‚é jQuery_Pretty.class.php ‚ðƒTƒCƒg‚ÌƒvƒŠƒ[ƒhƒfƒBƒŒƒNƒgƒŠ‚ÉƒAƒbƒvƒ[ƒh‚µ‚Ä‚­‚¾‚³‚¢B
-@xcl2.2‚Ìê‡‚ÍAxoops‚ÌcommonƒfƒBƒŒƒNƒgƒŠ‚É jQuery ‚Æˆê‚É prettyPhoto ‚ª“ü‚Á‚Ä‚¢‚é‚ÆŽv‚¢‚Ü‚·‚Ì‚ÅA‚»‚ê‚Åì“®‚·‚é‚ÆŽv‚¢‚Ü‚·B‚à‚µAcommonƒfƒBƒŒƒNƒgƒŠ‚É prettyPhoto ‚ª‚È‚¢ê‡‚ÍA‚±‚Ìƒe[ƒ}‚É“¯••‚µ‚Ä‚¢‚é‚à‚Ì‚ðƒAƒbƒvƒ[ƒh‚µ‚Ä‚­‚¾‚³‚¢B
-
-@—˜—p‚µ‚Ä‚¢‚éƒvƒŠƒ[ƒh‚Ídomifara‚³‚ñì‚Ì‚à‚Ì‚ÅAÅV‚Ì‚à‚Ì‚ÍŽŸ‚Ìurl‚Æ‚È‚è‚Ü‚·Bidomifara‚³‚ñAŠ´ŽÓ‚µ‚Ü‚·Bj
-@@@http://xodomifara.lolipop.jp/doxo/modules/d3downloads/index.php?page=singlefile&cid=3&lid=67
-
-
-ywebphoto‚Ì—˜—p‚É‚Â‚¢‚Äz
-@webphoto‚ÅprettyPhoto‚ð—˜—p‚·‚éê‡Awebphoto‚Ìˆê”ÊÝ’è‰æ–Ê‚É‚ÄAŽŸ‚ÌÝ’è‚ðs‚Á‚Ä‚­‚¾‚³‚¢B
-@@PopBox‚ðŽg—p‚·‚é@u‚¢‚¢‚¦v
-	LightBox‚ðŽg—p‚·‚éu‚¢‚¢‚¦v
-
-@ˆê”ÊÝ’è‰æ–Ê‚É‚ÄÝ’è‚·‚éŠeŽí‰æ‘œ‚Ì‘å‚«‚³‚ÍƒfƒtƒHƒ‹ƒg‚ð‘z’è‚µ‚Ä‚¢‚Ü‚·B
-@ˆê——•\Ž¦‚Ì•\Ž¦ƒ^ƒCƒv‚ÍAuƒe[ƒuƒ‹•\Ž¦vuà–¾•¶•t‚«ƒŠƒXƒg•\Ž¦v‚Ì‚¢‚¸‚ê‚Å‚à prettyPhoto ‚ª“®ì‚·‚é‚æ‚¤‚ÉÝ’è‚µ‚Ä‚¢‚Ü‚·‚ªAƒe[ƒuƒ‹•\Ž¦‚ð‘I‘ð‚µ‚½ê‡Aƒe[ƒuƒ‹‚Å‚Í‚È‚­ diviƒ{ƒbƒNƒXj‚ð—˜—p‚µ‚½•\Ž¦‚Æ‚µ‚Ä‚¨‚èA‰æ–Ê•‚É‰ž‚¶‚Äƒ{ƒbƒNƒX‚ª•À‚Ô‚æ‚¤‚ÉÝ’è‚µ‚Ä‚¢‚Ü‚·‚Ì‚ÅAƒe[ƒuƒ‹•\Ž¦Žž‚ÌƒJƒ‰ƒ€”—“‚Ì”’l‚ÍˆÓ–¡‚ð‚È‚µ‚Ü‚¹‚ñB
-
-@‚È‚¨A‚±‚Ìƒe[ƒ}‚Å‚ÍAwebphotoƒ‚ƒWƒ…[ƒ‹‚ðuwebphotovƒfƒBƒŒƒNƒgƒŠ–¼‚É‚Ä—˜—p‚·‚éê‡‚ð‘z’è‚µ‚ÄAƒeƒ“ƒvƒŒ[ƒg“™‚ÌÝ’è‚ðs‚Á‚Ä‚¢‚Ü‚·B‚à‚µAˆá‚¤ƒfƒBƒŒƒNƒgƒŠ–¼‚Å‚²—˜—p‚Ìê‡‚ÍA•Ê“rƒJƒXƒ^ƒ}ƒCƒY‚ª•K—v‚Æ‚È‚è‚Ü‚·‚Ì‚ÅA‚²—¹³‚­‚¾‚³‚¢B
+ï¿½@ï¿½ï¿½ï¿½@ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½ï¿½ï¿½ï¿½ ï¿½Oï¿½@ï¿½iï¿½gï¿½bï¿½vï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½j
+ï¿½@ï¿½ï¿½ï¿½@ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½Oï¿½Oï¿½Èï¿½@ï¿½iï¿½{ï¿½bï¿½gï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½j
 
 
 ======================================================
-ƒJƒXƒ^ƒ}ƒCƒY
+ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½
 ======================================================
 
-yƒƒjƒ…[•\Ž¦€–Ú‚Ì•ÏXz
+ï¿½@ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½Í’Êï¿½eï¿½[ï¿½}ï¿½Æ“ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½vï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ìƒeï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½{ï¿½eï¿½[ï¿½}ï¿½ÉÅ“Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Æ‚ï¿½ï¿½Ä—ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½Ý’è‚ªï¿½Â”\ï¿½Å‚ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Ìê‡ï¿½{ï¿½ï¿½ï¿½Ìï¿½Æ‚ï¿½ï¿½Kï¿½vï¿½Æ‚È‚ï¿½Ü‚ï¿½ï¿½B
 
-@‚±‚Ìƒe[ƒ}‚Å‚ÍAxugj_assign_php‚ð—p‚¢‚½ƒƒjƒ…[•\Ž¦‚ðs‚¢‚Ü‚·‚ªAƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‰‰ñ•\Ž¦‚µ‚½Žž‚ÉAƒƒCƒ“ƒƒjƒ…[•\Ž¦‚·‚éÝ’è‚Æ‚È‚Á‚Ä‚¢‚éƒƒjƒ…[€–Ú‚ðŽ©“®‚Åˆø—p‚µ‚Ä‚«‚Ü‚·Bi•\Ž¦—p‚ÌƒLƒƒƒbƒVƒ…ƒtƒ@ƒCƒ‹‚ðŽ©“®ì¬‚µ‚Ä—˜—pj
+ï¿½@ï¿½Ü‚ï¿½ï¿½ÍAï¿½ð“€‚ï¿½ï¿½Ä‚Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½ubasicï¿½vï¿½ï¿½FTPï¿½É‚ÄƒTï¿½Cï¿½gï¿½Ìƒeï¿½[ï¿½}ï¿½Eï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÖƒRï¿½sï¿½[ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+ï¿½@ï¿½ï¿½ï¿½ÉAï¿½ï¿½ï¿½ÌŽè‡ï¿½Åƒeï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½pï¿½Ì‚ï¿½ï¿½ß‚Ìï¿½Æsï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
-@]‚Á‚ÄAƒ‚ƒWƒ…[ƒ‹‚ÌŠÇ—‚É‚Äƒ‚ƒWƒ…[ƒ‹‚Ì•\Ž¦–¼‚ð•Ï‚¦‚½‚èA•À‚Ñ‡‚ðu‚Ov‚Æ‚µ‚Ä”ñ•\Ž¦Žw’è‚µ‚½ê‡‚Å‚àAƒe[ƒ}‚Ìƒƒjƒ…[•\Ž¦‚ÍˆÈ‘Oì¬‚µ‚½ƒLƒƒƒbƒVƒ…ƒtƒ@ƒCƒ‹‚ð—˜—p‚·‚é‚±‚Æ‚©‚çA•ÏX‚µ‚½•\Ž¦‚Æ‚È‚è‚Ü‚¹‚ñB
+ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êï¿½Ìƒeï¿½[ï¿½}ï¿½Æ“ï¿½ï¿½lï¿½Aï¿½Ç—ï¿½ï¿½ï¿½Ê‚Ìuï¿½ÝŠï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½vï¿½uï¿½eï¿½[ï¿½}ï¿½ÌŠÇ—ï¿½ï¿½vï¿½Å‚ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½Ý’ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
-@‚»‚Ì‚æ‚¤‚Èê‡AFTPƒ\ƒtƒg‚ðŽg‚Á‚ÄAcacheƒfƒBƒŒƒNƒgƒŠ“à‚Ì theme_basic_menus_****.php ‚ðíœ‚µ‚Ä‚­‚¾‚³‚¢B
-@Ä“xAƒTƒCƒg‚ð•\Ž¦‚µ‚½Û‚ÉAV‚µ‚­ƒƒjƒ…[—p‚ÌƒLƒƒƒbƒVƒ…ƒtƒ@ƒCƒ‹‚ªŽ©“®¶¬‚³‚ê‚Ü‚·B
 
-@‚È‚¨Adomifara‚³‚ñì¬‚Ìuxugjƒƒjƒ…[ƒLƒƒƒbƒVƒ…ƒŠƒtƒŒƒVƒ…@ŠÇ—‰æ–Êƒ‚ƒWƒ…[ƒ‹v‚ð—˜—p‚·‚é‚ÆAFTPƒ\ƒtƒg‚ðŽg‚í‚¸‚ÉƒLƒƒƒbƒVƒ…ƒtƒ@ƒCƒ‹‚Ìíœ‚ª‚Å‚«‚é‚Ì‚ÅA•Ö—˜‚¾‚ÆŽv‚¢‚Ü‚·Bidomifara‚³‚ñA‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚·Bj
-@@http://xodomifara.lolipop.jp/doxo/modules/d3downloads/index.php?cid=2
+ï¿½yï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½pï¿½Â”\ï¿½Èê‡ï¿½z
+
+ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½É‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ xoops ï¿½ï¿½ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½pï¿½Â”\ï¿½Èê‡ï¿½ÍAï¿½{ï¿½eï¿½[ï¿½}ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ ï¿½utemplatesï¿½vï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÉŽï¿½[ï¿½ï¿½ï¿½ê‚½ï¿½Jï¿½Xï¿½^ï¿½}ï¿½Cï¿½Yï¿½Ï‚Ý‚Ìƒeï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ð—˜—pï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚È‚ï¿½Ü‚ï¿½ï¿½B
+
+ï¿½@ï¿½ï¿½ï¿½Ìê‡ï¿½Axugj_date ï¿½ï¿½ xugj_block ï¿½ð—˜—pï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Ì‚ÅAï¿½{ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½Ìuup/pluginï¿½vï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½ÉŽï¿½[ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ modifier.xugj_date.php ï¿½ï¿½ function.xugj_block.php ï¿½ï¿½FTPï¿½É‚ÄƒTï¿½Cï¿½gï¿½Ìupluginï¿½vï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÉƒRï¿½sï¿½[ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½iï¿½ï¿½É‘ï¿½ï¿½Ý‚ï¿½ï¿½ï¿½ê‡ï¿½Í•sï¿½vï¿½j
+
+ï¿½@ï¿½upluginï¿½vï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÍAXCL2.1x ï¿½ï¿½ XCL2.2 ï¿½Å‚ÍêŠï¿½ï¿½ï¿½á‚¤ï¿½Ì‚Å‚ï¿½ï¿½ï¿½ï¿½Ó‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+ï¿½@ï¿½@ï¿½@XCL2.1xï¿½Ìê‡ï¿½@/XOOPS_ROOT_PATH/class/smarty/plugins/ 
+ï¿½@ï¿½@ï¿½@XCL2.2ï¿½Ìê‡ï¿½@ /XOOPS_TRUST_PATH/libs/smarty/plugins/ï¿½@ï¿½Ü‚ï¿½ï¿½ï¿½
+ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ /XOOPS_TRUST_PATH/libs/smartyplugins/  ï¿½ipreloadï¿½uHdXoopsTplHook.class.phpï¿½vï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½j
+
+
+ï¿½yï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½pï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½z
+
+ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ð—˜—pï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½Â‹ï¿½ï¿½Ìê‡ï¿½Aï¿½{ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½Ìuup/preloadï¿½vï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½É‚ï¿½ï¿½ï¿½ HdXoopsTplHook.class.php ï¿½ï¿½FTPï¿½É‚ÄƒTï¿½Cï¿½gï¿½Ìupreloadï¿½vï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÉAï¿½{ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½Ìuup/pluginï¿½vï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½É‚ï¿½ï¿½ï¿½ resource.db.php ï¿½ï¿½ï¿½Tï¿½Cï¿½gï¿½Ìupluginï¿½vï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½É‚ï¿½ï¿½ê‚¼ï¿½ï¿½Rï¿½sï¿½[ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+
+ï¿½@ï¿½Ú×‚Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½Æ‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+ï¿½@ï¿½@http://xoops.peak.ne.jp/md/news/index.php?page=article&storyid=450
+
+
+ï¿½yï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½pï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½eï¿½[ï¿½}ï¿½Ìƒeï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½z
+
+ï¿½@ï¿½tï¿½ÉAï¿½ï¿½ï¿½ï¿½ï¿½pï¿½É‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ xoops ï¿½ï¿½ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½pï¿½Â”\ï¿½Èï¿½Ô‚Å‚ï¿½ï¿½ï¿½ï¿½ÄAï¿½{ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½Ìƒeï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ÍAï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½utemplatesï¿½vï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½iï¿½ï¿½ï¿½Yï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ÌŒÂ•Ê‚Ìƒeï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Ç‚ï¿½ï¿½Å‚ï¿½ï¿½å‚¤ï¿½Bï¿½j
+ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Awebphotoï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ÌƒMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½\ï¿½ï¿½ï¿½È‚Ç‚Í‚Å‚ï¿½ï¿½È‚ï¿½ï¿½È‚ï¿½Ü‚ï¿½ï¿½B
+
+ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Fï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½pï¿½Â”\ï¿½ï¿½xoopsï¿½iHDï¿½È‚Çjï¿½Å‚ÍAï¿½ï¿½ï¿½Ì—Dï¿½æ‡ï¿½Ê‚Åƒeï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½Ç‚Ýï¿½ï¿½Þ‚ï¿½ï¿½ï¿½
+ï¿½@ï¿½Pï¿½@ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½g
+ï¿½@ï¿½Qï¿½@ï¿½ï¿½ï¿½ï¿½Activeï¿½ï¿½DBï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½g
+ï¿½@ï¿½Rï¿½@Default(DB)ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½g
+
+ï¿½@ï¿½Â‚Ü‚ï¿½Aï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ÏXï¿½ï¿½ï¿½æ‚¤ï¿½Æ‚ï¿½ï¿½ÄAAltsysï¿½Åuï¿½ï¿½ï¿½ï¿½Activeï¿½ï¿½DBï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Aï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í‚ï¿½ï¿½ï¿½ï¿½ç‚ªï¿½Dï¿½æ‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Ì‚Å‚ï¿½ï¿½B
+
+
+ï¿½yprettyPhotoï¿½ð—˜—pï¿½ï¿½ï¿½ï¿½ê‡ï¿½z
+ï¿½@ï¿½ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½Å‚ÍAjQuery ï¿½Ìƒvï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ prettyPhoto ï¿½ð—˜—pï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èƒ|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½æ‘œï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½æ‚¤ï¿½ÉÝ’è‚µï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
+
+ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½É‚È‚ï¿½É‚ÍAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ jQuery_Pretty.class.php ï¿½ï¿½ï¿½Tï¿½Cï¿½gï¿½Ìƒvï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÉƒAï¿½bï¿½vï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+ï¿½@xcl2.2ï¿½Ìê‡ï¿½ÍAxoopsï¿½ï¿½commonï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ jQuery ï¿½Æˆêï¿½ï¿½ prettyPhoto ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ÆŽvï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½Åì“®ï¿½ï¿½ï¿½ï¿½ÆŽvï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½Acommonï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ prettyPhoto ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ÍAï¿½ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+
+ï¿½@ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½domifaraï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Ì‚ÅAï¿½ÅVï¿½Ì‚ï¿½ï¿½Ì‚ÍŽï¿½ï¿½ï¿½urlï¿½Æ‚È‚ï¿½Ü‚ï¿½ï¿½Bï¿½idomifaraï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ó‚ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½j
+ï¿½@ï¿½@ï¿½@http://xodomifara.lolipop.jp/doxo/modules/d3downloads/index.php?page=singlefile&cid=3&lid=67
+
+
+ï¿½ywebphotoï¿½Ì—ï¿½ï¿½pï¿½É‚Â‚ï¿½ï¿½Äz
+ï¿½@webphotoï¿½ï¿½prettyPhotoï¿½ð—˜—pï¿½ï¿½ï¿½ï¿½ê‡ï¿½Awebphotoï¿½Ìˆï¿½ÊÝ’ï¿½ï¿½Ê‚É‚ÄAï¿½ï¿½ï¿½ÌÝ’ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+ï¿½@ï¿½@PopBoxï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½@ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½v
+	LightBoxï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½v
+
+ï¿½@ï¿½ï¿½ÊÝ’ï¿½ï¿½Ê‚É‚ÄÝ’è‚·ï¿½ï¿½eï¿½ï¿½æ‘œï¿½Ì‘å‚«ï¿½ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ï¿½zï¿½è‚µï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
+ï¿½@ï¿½ê——ï¿½\ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ÍAï¿½uï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½vï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½\ï¿½ï¿½ï¿½vï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ prettyPhoto ï¿½ï¿½ï¿½ï¿½ï¿½ì‚·ï¿½ï¿½æ‚¤ï¿½ÉÝ’è‚µï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Aï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Aï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½Å‚Í‚È‚ï¿½ divï¿½iï¿½{ï¿½bï¿½Nï¿½Xï¿½jï¿½ð—˜—pï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Aï¿½ï¿½Ê•ï¿½ï¿½É‰ï¿½ï¿½ï¿½ï¿½Äƒ{ï¿½bï¿½Nï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ô‚æ‚¤ï¿½ÉÝ’è‚µï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Ì‚ÅAï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒJï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½lï¿½ÍˆÓ–ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B
+
+ï¿½@ï¿½È‚ï¿½ï¿½Aï¿½ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½Å‚ÍAwebphotoï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½uwebphotoï¿½vï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½É‚Ä—ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½zï¿½è‚µï¿½ÄAï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ÌÝ’ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½á‚¤ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½pï¿½Ìê‡ï¿½ÍAï¿½Ê“rï¿½Jï¿½Xï¿½^ï¿½}ï¿½Cï¿½Yï¿½ï¿½ï¿½Kï¿½vï¿½Æ‚È‚ï¿½Ü‚ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
 
 ======================================================
-—˜—p‚É‚Â‚¢‚Ä
+ï¿½Jï¿½Xï¿½^ï¿½}ï¿½Cï¿½Y
 ======================================================
 
-@‚±‚Ìƒe[ƒ}‚ÍAMIT ƒ‰ƒCƒZƒ“ƒX‚Å‚·B‚²Ž©—R‚É‰ü•Ï‚·‚é‚È‚Ç‚µ‚Ä‚²—˜—p‚­‚¾‚³‚¢B
+ï¿½yï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ú‚Ì•ÏXï¿½z
 
-@‚È‚¨AŽGŽE‘Ð‚Ö‚ÌŒfÚ‚Ìê‡‚É‚ÍA‚ ‚ç‚©‚¶‚ß“–ƒTƒCƒgŠÇ—l‚Ö‚²ˆê•ñ‚¢‚½‚¾‚¯‚é‚ÆŠð‚µ‚¢‚Å‚·B
-@@˜A—æFhttp://xoops123.com/modules/liaise/
+ï¿½@ï¿½ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½Å‚ÍAxugj_assign_phpï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Aï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉAï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½Æ‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½éƒï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åˆï¿½pï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½iï¿½\ï¿½ï¿½ï¿½pï¿½ÌƒLï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½Ä—ï¿½ï¿½pï¿½j
+
+ï¿½@ï¿½]ï¿½ï¿½ï¿½ÄAï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ÌŠÇ—ï¿½ï¿½É‚Äƒï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ñï¿½ï¿½ï¿½ï¿½uï¿½Oï¿½vï¿½Æ‚ï¿½ï¿½Ä”ï¿½\ï¿½ï¿½ï¿½wï¿½è‚µï¿½ï¿½ï¿½ê‡ï¿½Å‚ï¿½ï¿½Aï¿½eï¿½[ï¿½}ï¿½Ìƒï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½\ï¿½ï¿½ï¿½ÍˆÈ‘Oï¿½ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ð—˜—pï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½ï¿½Aï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Æ‚È‚ï¿½Ü‚ï¿½ï¿½ï¿½B
+
+ï¿½@ï¿½ï¿½ï¿½Ì‚æ‚¤ï¿½Èê‡ï¿½AFTPï¿½\ï¿½tï¿½gï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ÄAcacheï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ theme_basic_menus_****.php ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+ï¿½@ï¿½Ä“xï¿½Aï¿½Tï¿½Cï¿½gï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û‚ÉAï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½pï¿½ÌƒLï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+
+ï¿½@ï¿½È‚ï¿½ï¿½Adomifaraï¿½ï¿½ï¿½ï¿½ì¬ï¿½Ìuxugjï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Lï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½@ï¿½Ç—ï¿½ï¿½ï¿½Êƒï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½vï¿½ð—˜—pï¿½ï¿½ï¿½ï¿½ÆAFTPï¿½\ï¿½tï¿½gï¿½ï¿½ï¿½gï¿½í‚¸ï¿½ÉƒLï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìíœï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½Ì‚ÅAï¿½Ö—ï¿½ï¿½ï¿½ï¿½ÆŽvï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½idomifaraï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½è‚ªï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½j
+ï¿½@ï¿½@http://xodomifara.lolipop.jp/doxo/modules/d3downloads/index.php?cid=2
+
+
+======================================================
+ï¿½ï¿½ï¿½pï¿½É‚Â‚ï¿½ï¿½ï¿½
+======================================================
+
+ï¿½@ï¿½ï¿½ï¿½Ìƒeï¿½[ï¿½}ï¿½ÍAMIT ï¿½ï¿½ï¿½Cï¿½Zï¿½ï¿½ï¿½Xï¿½Å‚ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½É‰ï¿½Ï‚ï¿½ï¿½ï¿½È‚Ç‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+
+ï¿½@ï¿½È‚ï¿½ï¿½Aï¿½Gï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½Ð‚Ö‚ÌŒfï¿½Ú‚Ìê‡ï¿½É‚ÍAï¿½ï¿½ï¿½ç‚©ï¿½ï¿½ï¿½ß“ï¿½ï¿½Tï¿½Cï¿½gï¿½Ç—ï¿½ï¿½lï¿½Ö‚ï¿½ï¿½ï¿½ñ‚¢‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÆŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½B
+ï¿½@ï¿½@ï¿½Aï¿½ï¿½ï¿½ï¿½Fhttp://xoops123.com/modules/liaise/
 
 
 
 ======================================================
-ƒo[ƒWƒ‡ƒ“ƒAƒbƒv—š—ð
+ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½
 ======================================================
 
 2011-11-13 ver0.01
-@‚Æ‚è‚ ‚¦‚¸ŒöŠJ‚µ‚Ä‚Ý‚éB
+ï¿½@ï¿½Æ‚è‚ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½Ä‚Ý‚ï¿½B
 
 2011-11-13 ver0.02
-	480pxˆÈ‰º‚Ìƒuƒ‰ƒEƒU•\Ž¦‚Ìê‡ACenterLAR ‚ðƒtƒ[ƒg‚³‚¹‚ÄA‰º‚É‰ñ‚èž‚ÞÝ’è‚Æ‚µ‚½B
+	480pxï¿½È‰ï¿½ï¿½Ìƒuï¿½ï¿½ï¿½Eï¿½Uï¿½\ï¿½ï¿½ï¿½Ìê‡ï¿½ACenterLï¿½AR ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ÄAï¿½ï¿½ï¿½É‰ï¿½èžï¿½ÞÝ’ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½B
 
 2011-11-13 ver0.03
-	ŠeŠ‚ð’²®‚µ‚Ä‚Ý‚½Bƒiƒr‚Ì‰º‚ÉƒTƒuƒƒjƒ…[‚ð•\Ž¦‚·‚é‚æ‚¤‚É‚µ‚½B
+	ï¿½eï¿½ï¿½ï¿½ð’²ï¿½ï¿½ï¿½ï¿½Ä‚Ý‚ï¿½ï¿½Bï¿½iï¿½rï¿½Ì‰ï¿½ï¿½ÉƒTï¿½uï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½ï¿½B
 
 2011-11-15 ver0.03a
-@‰æ–Ê•’²®‚Ìà–¾‚È‚Ç‚ð’Ç‹L
+ï¿½@ï¿½ï¿½Ê•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½È‚Ç‚ï¿½Ç‹L
 
 2011-12-05 ver0.04
-@xugj_already_js.php ‚ðV”Å‚É·‚µ‘Ö‚¦‚½B
-@jquery.jgrowl.js ‚ðÅ¬”Å‚É·‚µ‘Ö‚¦‚½B
-@jGrowl‚Ì“®ì‚ð’†‰›ã‚É•\Ž¦‚·‚é‚æ‚¤‚É‚µA‰¡•‚ðL‚°‚Ä“§‰ß“x•ÏXAboxshadow‚ð•\Ž¦‚·‚é‚æ‚¤‚É‚µ‚½B
-@ƒe[ƒ}‰ºŒ¾Œêƒtƒ@ƒCƒ‹‚É english ‚ð’Ç‰ÁB
-@style.css‚É‚Â‚«AŽŸ‚Ì‹LqŠÔˆá‚¢‚ðC³
+ï¿½@xugj_already_js.php ï¿½ï¿½Vï¿½Å‚Éï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½ï¿½B
+ï¿½@jquery.jgrowl.js ï¿½ï¿½ï¿½Åï¿½ï¿½Å‚Éï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½ï¿½B
+ï¿½@jGrowlï¿½Ì“ï¿½ï¿½ï¿½ð’†‰ï¿½ï¿½ï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½Ä“ï¿½ï¿½ß“xï¿½ÏXï¿½Aboxshadowï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½ï¿½B
+ï¿½@ï¿½eï¿½[ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ english ï¿½ï¿½Ç‰ï¿½ï¿½B
+ï¿½@style.cssï¿½É‚Â‚ï¿½ï¿½Aï¿½ï¿½ï¿½Ì‹Lï¿½qï¿½Ôˆá‚¢ï¿½ï¿½ï¿½Cï¿½ï¿½
 
-  @ŠÔˆá‚¢
+  ï¿½@ï¿½Ôˆá‚¢
 		-webkit-transition-timing function: linear, ease-in;
 		-moz-transition-timing function: linear, ease-in;
 		transition-timing function: linear, ease-in;
 
-@@³‰ðifunction‚Ì‘O‚ÉƒnƒCƒtƒ“‚ ‚èj
+ï¿½@ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ifunctionï¿½Ì‘Oï¿½Éƒnï¿½Cï¿½tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
 		-webkit-transition-timing-function: linear, ease-in;
 		-moz-transition-timing-function: linear, ease-in;
 		transition-timing-function: linear, ease-in;
 
 
 ======================================================
-‚¨Šè‚¢
+ï¿½ï¿½ï¿½è‚¢
 ======================================================
 
-@‚Å‚«‚Ü‚µ‚½‚çA“–•û‚ÌƒTƒCƒgŒfŽ¦”Âi‚²–K–â’ j‚É‰½‚©‘‚«ž‚ñ‚Å‚¢‚½‚¾‚¯‚é‚ÆŠð‚µ‚¢‚Å‚·`m(_ _)m
-@@ http://xoops123.com/modules/d3forum/?forum_id=1 
+ï¿½@ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ÌƒTï¿½Cï¿½gï¿½fï¿½ï¿½ï¿½Âiï¿½ï¿½ï¿½Kï¿½â’ ï¿½jï¿½É‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÆŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½`m(_ _)m
+ï¿½@ï¿½@ http://xoops123.com/modules/d3forum/?forum_id=1 
 
 
 

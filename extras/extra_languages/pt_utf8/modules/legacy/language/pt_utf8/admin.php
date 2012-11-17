@@ -3,7 +3,7 @@
 // TRANSLATION INFO
 // License http://creativecommons.org/licenses/by/2.5/br/
 // ############################################################### //
-// ## XOOPS Cube Legacy - Versão em Português
+// ## KARIMOJI - Versão em Português
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## Website........: http://xoops.net.br
@@ -353,7 +353,7 @@ define("_AD_LEGACY_TIPS_SMILES","Mostra, renomeia, remove ou envia arquivos com 
 define("_AD_LEGACY_TIPS_SMILES_UPLOAD", "You can easily register many smiles by uploading a compressed archive!<br />This batch-upload doesn't check Length and File-Size of each smiles!<br />Pre-adjust them before you archive!<br />(Only tar.gz or zip archive)");
 define("_AD_LEGACY_TIPS_THEME_ADMIN","Choose the look of your <i>site</i> by clicking the 'select' button next to your favourite theme.<br/> Let your users choose their own favourite look and feel for your site. Check the boxes to add a theme to the theme selection block. For more details, read the help.");
 define("_AD_LEGACY_USERAGENT","Identidade do navegador ('<em><a href='http://goo.gl/WfF6'>UA</a></em>')");
-define("_AD_LEGACY_XCLEGACYVERSION","Versão do XOOPS Cube Legacy");
+define("_AD_LEGACY_XCLEGACYVERSION","Versão do KARIMOJI");
 define("_AD_LEGACY_XCVERSION","Versão do XOOPS Cube");
 define("_MD_AM_ADMINML","E-mail do administrador");
 define("_MD_AM_ADMNOTSET","O endereço de correio eletrônico do administrador não foi definido.");

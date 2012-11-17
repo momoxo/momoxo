@@ -6,10 +6,10 @@ $content =
 <p>Click the button bellow to "The 2nd Step Installation" and use the same username and password  created during the 1st step for the administrator account.</p>
 <p>After login, select from the list of available modules those to install automatically and your new XOOPS Cube website is ready to run!</p>
 <img src="img/xcl_d3.png" width="200" height="230" alt="Package D3 Modules" align="left" style="margin-right:10px" />
-<h3 align="center">XOOPS Cube Legacy Modules</h3>
+<h3 align="center">KARIMOJI Modules</h3>
 <br />
 <p><u><b>Manual</b></u>
-<br />Legacy modules have links to the help files from each module administration menu.
+<br />KARIMOJI_LEGALEGAmodules have links to the help files from each module administration menu.
 <br />
 <br />
 <u><b>Support</b></u>

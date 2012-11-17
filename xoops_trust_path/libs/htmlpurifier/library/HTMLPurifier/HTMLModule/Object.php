@@ -2,7 +2,7 @@
 
 /**
  * XHTML 1.1 Object Module, defines elements for generic object inclusion
- * @warning Users will commonly use <embed> to cater to legacy browsers: this
+ * @warning Users will commonly use <embed> to cater to KARIMOJI_LEGALEGAbrowsers: this
  *      module does not allow this sort of behavior
  */
 class HTMLPurifier_HTMLModule_Object extends HTMLPurifier_HTMLModule

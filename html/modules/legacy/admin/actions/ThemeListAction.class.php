@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: ThemeListAction.class.php,v 1.5 2008/09/25 15:11:47 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -17,7 +17,7 @@ require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ThemeSelectForm.class.php"
  * This action shows the list of selectable themes to user.
  * 
  * [Notice]
- * In XOOPS Cube Legacy which can have many themes with different render-
+ * In KARIMOJI which can have many themes with different render-
  * systems, that one render-system has the control to change themes is wrong,
  * because this action can't list up themes of other render-systems.
  * The action to change themes should be in Legacy. And, each render-systems
@@ -25,7 +25,7 @@ require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ThemeSelectForm.class.php"
  * 
  * Therefore, this class is test for that we may move this action from
  * LegacyRender module. If you want to check the concept of this strategy, see 
- * ThemeSelect preload in Legacy module.
+ * ThemeSelect preload in KARIMOJI_LEGALEGAmodule.
  */
 class Legacy_ThemeListAction extends Legacy_Action
 {

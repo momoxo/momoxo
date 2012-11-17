@@ -2,7 +2,7 @@
 // Translation Info
 // $Id$
 // ############################################################### //
-// ## XOOPS Cube Legacy - Versão em Português
+// ## KARIMOJI - Versão em Português
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## Website........: http://xoops.net.br

@@ -3,14 +3,14 @@
  *
  * @package Legacy
  * @version $Id: cubecore_init.php,v 1.3 2008/09/25 15:12:45 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
 if (!defined("XOOPS_MAINFILE_INCLUDED")) exit();
 if (!defined('XOOPS_TRUST_PATH')){
-	echo "XOOPS_TRUST_PATH is required after XOOPS Cube Legacy 2.2 in mainfile.php";exit();
+	echo "XOOPS_TRUST_PATH is required after KARIMOJI 2.2 in mainfile.php";exit();
 }
 
 

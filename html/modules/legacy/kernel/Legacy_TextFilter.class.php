@@ -3,8 +3,8 @@
  *
  * @package Legacy
  * @version $Id: Legacy_TextFilter.class.php,v 1.9 2008/09/25 15:11:57 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/xoopscube/legacy>
- * @license https://github.com/xoopscube/legacy/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
+ * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
@@ -43,7 +43,7 @@ class Legacy_TextFilter extends XCube_TextFilter
 	var $mXCodePre = null;
 	/**
 	 * @var XCube_Delegate
-	 * @deprecated	keep compatible with XC2.1 Beta3. Legacy 2.2.0 will not support this.
+	 * @deprecated	keep compatible with XC2.1 Beta3. KARIMOJI_LEGALEGA2.2.0 will not support this.
 	 * @todo
 	 *	  This is a deprecated member.
 	 */

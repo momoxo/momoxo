@@ -1,40 +1,40 @@
 <?php
 
 define( '_MI_ALTSYS_MODULENAME' , 'ALTSYS' ) ;
-define( '_MI_ALTSYS_MODULEDESC' , '¤â¤Ã¤È»È¤¤¤ä¤¹¤¤¥·¥¹¥Æ¥à´ÉÍý¤ò¡ª' ) ;
+define( '_MI_ALTSYS_MODULEDESC' , 'ï¿½ï¿½Ã¤È»È¤ï¿½ï¿½ä¤¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½' ) ;
 
 // menus
-define( '_MI_ALTSYS_MENU_CUSTOMBLOCKS' , '¥«¥¹¥¿¥à¥Ö¥í¥Ã¥¯' ) ;
-define( '_MI_ALTSYS_MENU_NEWCUSTOMBLOCK' , '(¿·µ¬)' ) ;
-define( '_MI_ALTSYS_MENU_MYBLOCKSADMIN' , '¥Ö¥í¥Ã¥¯´ÉÍý' ) ;
-define( '_MI_ALTSYS_MENU_MYTPLSADMIN' , '¥Æ¥ó¥×¥ì¡¼¥È´ÉÍý' ) ;
-define( '_MI_ALTSYS_MENU_COMPILEHOOKADMIN' , '¥Æ¥ó¥×¥ì¡¼¥È¤Î¹âÅÙ¤ÊÁàºî' ) ;
-define( '_MI_ALTSYS_MENU_MYLANGADMIN' , '¸À¸ìÄê¿ô´ÉÍý' ) ;
-define( '_MI_ALTSYS_MENU_ADVANCEDLANGADMIN' , '¸À¸ìÄê¿ô¤Î¹âÅÙ¤ÊÁàºî' ) ;
-define( '_MI_ALTSYS_MENU_MYAVATAR' , '¥¢¥Ð¥¿¡¼´ÉÍý' ) ;
-define( '_MI_ALTSYS_MENU_MYSMILEY' , '´é¥¢¥¤¥³¥ó´ÉÍý' ) ;
+define( '_MI_ALTSYS_MENU_CUSTOMBLOCKS' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¥ï¿½Ã¥ï¿½' ) ;
+define( '_MI_ALTSYS_MENU_NEWCUSTOMBLOCK' , '(ï¿½ï¿½ï¿½ï¿½)' ) ;
+define( '_MI_ALTSYS_MENU_MYBLOCKSADMIN' , 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_MENU_MYTPLSADMIN' , 'ï¿½Æ¥ï¿½×¥ì¡¼ï¿½È´ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_MENU_COMPILEHOOKADMIN' , 'ï¿½Æ¥ï¿½×¥ì¡¼ï¿½È¤Î¹ï¿½ï¿½Ù¤ï¿½ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_MENU_MYLANGADMIN' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_MENU_ADVANCEDLANGADMIN' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¹ï¿½ï¿½Ù¤ï¿½ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_MENU_MYAVATAR' , 'ï¿½ï¿½ï¿½Ð¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_MENU_MYSMILEY' , 'ï¿½é¥¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' ) ;
 
 // blocks
-define( '_MI_ALTSYS_BNAME_ADMIN_MENU' , '´ÉÍý¥á¥Ë¥å¡¼' ) ;
+define( '_MI_ALTSYS_BNAME_ADMIN_MENU' , 'ï¿½ï¿½ï¿½ï¿½ï¿½Ë¥å¡¼' ) ;
 
 // configs
-define( '_MI_ALTSYS_ADMINMENU_HFT' , '´ÉÍý¼ÔÍÑ¥á¥Ë¥å¡¼¤Î½ñ¤­´¹¤¨' ) ;
-define( '_MI_ALTSYS_ADMINMENU_HFTDSC' , '´ÉÍý²èÌÌº¸¤Î¥â¥¸¥å¡¼¥ë¥á¥Ë¥å¡¼¤ò½ñ¤­´¹¤¨¤Þ¤¹¡£É½¼¨¤¬¤ª¤«¤·¤¯¤Ê¤Ã¤¿¤é¡¢¤Ê¤ó¤é¤«¤Î¥â¥¸¥å¡¼¥ë¤ò¥¢¥Ã¥×¥Ç¡¼¥È¤¹¤ë¤«¡¢cache/adminmenu.php ¤òºï½ü¤·¤Æ¤¯¤À¤µ¤¤¡£XOOPS 2.0.x°Ê³°¤Ç¤ÏÌµ»ë¤µ¤ì¤Þ¤¹¡£' ) ;
-define( '_MI_ALTSYS_AMHFT_OPT_2COL' , '¥â¥¸¥å¡¼¥ë¥¢¥¤¥³¥ó¤Î£²ÎóÉ½¼¨' ) ;
-define( '_MI_ALTSYS_AMHFT_OPT_NOIMG' , '¥¢¥¤¥³¥óÉ½¼¨¤òÊ¸»úÎó¤Ë²þ¤á¤ë' ) ;
-define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'XC Legacy 2.1É÷¤Ë¤¹¤ë' ) ;
+define( '_MI_ALTSYS_ADMINMENU_HFT' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¥ï¿½Ë¥å¡¼ï¿½Î½ñ¤­´ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_ADMINMENU_HFTDSC' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½Î¥â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½Ë¥å¡¼ï¿½ï¿½ñ¤­´ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤Ã¤ï¿½ï¿½é¡¢ï¿½Ê¤ï¿½é¤«ï¿½Î¥â¥¸ï¿½å¡¼ï¿½ï¿½ò¥¢¥Ã¥×¥Ç¡ï¿½ï¿½È¤ï¿½ï¿½ë¤«ï¿½ï¿½cache/adminmenu.php ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½XOOPS 2.0.xï¿½Ê³ï¿½ï¿½Ç¤ï¿½Ìµï¿½ë¤µï¿½ï¿½Þ¤ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_AMHFT_OPT_2COL' , 'ï¿½â¥¸ï¿½å¡¼ï¿½ë¥¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½É½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_AMHFT_OPT_NOIMG' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'XC KARIMOJI_LEGALEGA2.1ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½' ) ;
 
-define( '_MI_ALTSYS_ADMINMENU_IM' , 'mymenuÂÐ±þ¥â¥¸¥å¡¼¥ë¤ÎÈ¿±Ç' ) ;
-define( '_MI_ALTSYS_ADMINMENU_IMDSC' , 'mymenuÂÐ±þ¥â¥¸¥å¡¼¥ë¤Î¥ê¥ó¥¯¤ò¡¢´ÉÍý²èÌÌº¸¤Î¥â¥¸¥å¡¼¥ë¥á¥Ë¥å¡¼¤ËÈ¿±Ç¤µ¤»¤Þ¤¹¡£É½¼¨¤¬¤ª¤«¤·¤¯¤Ê¤Ã¤¿»þ¤ÎÂÐ±þË¡¤Ï¡¢¾å¤ÈÆ±¤¸¤Ç¤¹¡£XOOPS 2.0.x°Ê³°¤Ç¤ÏÌµ»ë¤µ¤ì¤Þ¤¹¡£' ) ;
+define( '_MI_ALTSYS_ADMINMENU_IM' , 'mymenuï¿½Ð±ï¿½ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½È¿ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_ADMINMENU_IMDSC' , 'mymenuï¿½Ð±ï¿½ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥ï¿½ó¥¯¤ò¡¢´ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½Î¥â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½Ë¥å¡¼ï¿½ï¿½È¿ï¿½Ç¤ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½Ë¡ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½XOOPS 2.0.xï¿½Ê³ï¿½ï¿½Ç¤ï¿½Ìµï¿½ë¤µï¿½ï¿½Þ¤ï¿½ï¿½ï¿½' ) ;
 
-define( '_MI_ALTSYS_ADMIN_IN_THEME' , '´ÉÍý²èÌÌÍÑ¥Æ¡¼¥Þ' ) ;
-define( '_MI_ALTSYS_ADMIN_IN_THEMEDSC' , '´ÉÍý²èÌÌ¤òÉ½¼¨¤¹¤ë¥Æ¡¼¥ÞÌ¾¤ò»ØÄê¤·¤Þ¤¹¡£XOOPS 2.0.x °Ê³°¤Ç¤ÏÍ­¸ú¤Ë¤Ê¤ê¤Þ¤»¤ó¡£¤Þ¤¿¡¢mainfile.php¤Îcommon.php¹ÔÄ¾¸å¤Ë¡¢<br />include XOOPS_TRUST_PATH.\'/libs/altsys/include/admin_in_theme.inc.php\';<br />¤Î£±¹Ô¤òÁÞÆþ¤¹¤ëÉ¬Í×¤¬¤¢¤ê¤Þ¤¹' ) ;
+define( '_MI_ALTSYS_ADMIN_IN_THEME' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¥Æ¡ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_ADMIN_IN_THEMEDSC' , 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Þ¤ï¿½ï¿½ï¿½XOOPS 2.0.x ï¿½Ê³ï¿½ï¿½Ç¤ï¿½Í­ï¿½ï¿½Ë¤Ê¤ï¿½Þ¤ï¿½ï¿½ó¡£¤Þ¤ï¿½ï¿½ï¿½mainfile.phpï¿½ï¿½common.phpï¿½ï¿½Ä¾ï¿½ï¿½Ë¡ï¿½<br />include XOOPS_TRUST_PATH.\'/libs/altsys/include/admin_in_theme.inc.php\';<br />ï¿½Î£ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¬ï¿½×¤ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½' ) ;
 
-define( '_MI_ALTSYS_ENABLEFORCECLONE' , 'Á´¥Ö¥í¥Ã¥¯¤òÊ£À½²ÄÇ½¤È¤¹¤ë' ) ;
-define( '_MI_ALTSYS_ENABLEFORCECLONEDSC' , 'Á´¤Æ¤Î¥â¥¸¥å¡¼¥ë½êÂ°¥Ö¥í¥Ã¥¯¤òÊ£À½²ÄÇ½¤Ç¤¢¤ë¤È¸«¤Ê¤·¤Þ¤¹¡£Æ±»þ¤ËÊ£¿ô¸ÄÉ½¼¨¤¹¤ë¤È¤ª¤«¤·¤¯¤Ê¤ë¥Ö¥í¥Ã¥¯¤¬¤¢¤ëÅÀ¤Ë¤ÏÃí°Õ¤¬É¬Í×¤Ç¤¹' ) ;
+define( '_MI_ALTSYS_ENABLEFORCECLONE' , 'ï¿½ï¿½ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½Ç½ï¿½È¤ï¿½ï¿½ï¿½' ) ;
+define( '_MI_ALTSYS_ENABLEFORCECLONEDSC' , 'ï¿½ï¿½ï¿½Æ¤Î¥â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½Â°ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½Ç½ï¿½Ç¤ï¿½ï¿½ï¿½È¸ï¿½ï¿½Ê¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½Õ¤ï¿½É¬ï¿½×¤Ç¤ï¿½' ) ;
 
-define('_MI_ALTSYS_IMAGES_DIR','¥¤¥á¡¼¥¸¥Õ¥¡¥¤¥ë¥Ç¥£¥ì¥¯¥È¥ê');
-define('_MI_ALTSYS_IMAGES_DIRDSC','¤³¤Î¥â¥¸¥å¡¼¥ëÍÑ¤Î¥¤¥á¡¼¥¸¤¬³ÊÇ¼¤µ¤ì¤¿¥Ç¥£¥ì¥¯¥È¥ê¤ò¥â¥¸¥å¡¼¥ë¥Ç¥£¥ì¥¯¥È¥ê¤«¤é¤ÎÁêÂÐ¥Ñ¥¹¤Ç»ØÄê¤·¤Þ¤¹¡£¥Ç¥Õ¥©¥ë¥È¤Ïimages¤Ç¤¹¡£');
+define('_MI_ALTSYS_IMAGES_DIR','ï¿½ï¿½ï¿½á¡¼ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½');
+define('_MI_ALTSYS_IMAGES_DIRDSC','ï¿½ï¿½ï¿½Î¥â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½Ñ¤Î¥ï¿½ï¿½á¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ì¤¿ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ê¤«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¥Ñ¥ï¿½ï¿½Ç»ï¿½ï¿½ê¤·ï¿½Þ¤ï¿½ï¿½ï¿½ï¿½Ç¥Õ¥ï¿½ï¿½ï¿½È¤ï¿½imagesï¿½Ç¤ï¿½ï¿½ï¿½');
 
 
 ?>

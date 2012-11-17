@@ -3,7 +3,7 @@
 <div class="confirmInfo" style="text-align:center"><?php echo _INSTALL_L36?></div>
 <br />
 <div style="width:250px; float:right;margin-left:10px;text-align:left;">
-<?php echo '<img src="'.XOOPS_URL.'/install/img/xc_pack2011.png" width="232" height="222" alt="XOOPS Cube Legacy" />';
+<?php echo '<img src="'.XOOPS_URL.'/install/img/xc_pack2011.png" width="232" height="222" alt="KARIMOJI" />';
 ?>
 </div>
 <div style="width:230px;float:left;margin:0 0 24px 10px;text-align:left;">

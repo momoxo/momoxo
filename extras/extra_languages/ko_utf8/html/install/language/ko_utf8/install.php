@@ -30,7 +30,7 @@
 
 
 define("_INSTALL_L0","어서오세요. XOOPS Cube 설치마법사 입니다.");
-define("_INSTALL_L168","XOOPS Cube Legacy requires PHP5 or later");
+define("_INSTALL_L168","KARIMOJI requires PHP5 or later");
 define("_INSTALL_L70","mainfile.php파일을 쓰기가능으로 설정해 주세요!<br />(예: UNIX/LINUX 서버의 경우는 웹서버에 mainfile.php 쓰기권한을 부여, Windows서버의 경우는 혹시 읽기전용으로 되어있는지 확인후 체크를 해제해주세요! ). <br />권한설정 변경후엔 이 페이지를 새로고침(리로드)해 주세요!");
 //define("_INSTALL_L71","Click on the button below to begin the installation.");
 define("_INSTALL_L1","mainfile.php 파일을 여신 후 31번째 줄에 이하의 코드가 존재하는지 확인해주세요!");
@@ -170,7 +170,7 @@ define("_INSTALL_L125","파일 %s 는 파일 %s 로 덮어쓰여졌습니다.");
 define("_INSTALL_L126","파일 %s의 덮어쓰기에 실패하였습니다.");
 
 define("_INSTALL_L130","설치마법사가 데이타베이스에서 XOOPS 1.3.x 의 테이블을 발견하였습니다.<br />설치마법사는 지금부터 XOOPS2 로의 업그레이드를 시도하게 됩니다.");
-define("_INSTALL_L131","XOOPS Cube Legacy의 테이블이 데이타베이스에 이미 존재합니다.");
+define("_INSTALL_L131","KARIMOJI의 테이블이 데이타베이스에 이미 존재합니다.");
 define("_INSTALL_L132","테이블 업그레이드");
 define("_INSTALL_L133","테이블 %s 를 업그레이드했습니다.");
 define("_INSTALL_L134","테이블 %s 의 업그레이드에 실패하였습니다.");

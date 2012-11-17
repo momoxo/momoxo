@@ -58,7 +58,7 @@ class Lecat_AssetPreloadBase extends XCube_ActionFilter
 		$this->mRoot->mDelegateManager->add('Module.'.$this->mDirname.'.Global.Event.GetNormalUri','Lecat_CoolUriDelegate::getNormalUri', $file);
 		$this->mRoot->mDelegateManager->add('Legacy_ImageClient.GetClientList','Lecat_ImageClientDelegate::getClientList', $file);
 	
-		//Legacy Category Delegate
+		//KARIMOJI_LEGALEGACategory Delegate
 		$prefix = 'Legacy_Category.' . $this->mDirname;
 		$this->mRoot->mDelegateManager->add($prefix .'.GetTitle','Lecat_DelegateFunctions::getTitle', $file);
 		$this->mRoot->mDelegateManager->add($prefix .'.GetTree','Lecat_DelegateFunctions::getTree', $file);

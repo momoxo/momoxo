@@ -50,7 +50,7 @@ $modversion['config'][]=array (
 		"description"=>"_MI_LR_META_DESCRIPTION_DESC",
 		"formtype"=>"textarea",
 		"valuetype"=>"text",
-		"default"=>"XOOPS Cube Legacy is a dynamic Object Oriented based open source portal script written in PHP."
+		"default"=>"KARIMOJI is a dynamic Object Oriented based open source portal script written in PHP."
 	);
 
 $modversion['config'][]=array (
@@ -97,7 +97,7 @@ $modversion['config'][]=array (
 		"description"=>"_MI_LR_FOOTER_DESC",
 		"formtype"=>"textarea",
 		"valuetype"=>"text",
-		"default"=>"Powered by <a href=\"http://xoopscube.org/\" rel=\"external\">XOOPS Cube</a> 2.2 &copy; 2001-2012 <a href=\"https://github.com/xoopscube/legacy/\" rel=\"external\">XOOPS Cube Project</a>"
+		"default"=>"Powered by <a href=\"http://xoopscube.org/\" rel=\"external\">XOOPS Cube</a> 2.2 &copy; 2001-2012 <a href=\"https://github.com/momonga-project/momonga/\" rel=\"external\">XOOPS Cube Project</a>"
 	);
 
 $modversion['config'][]=array (

@@ -2,7 +2,7 @@
 // TRANSLATION INFO
 // $Id$
 // ############################################################### //
-// ## XOOPS Cube Legacy 2.2 - Tradução para o Português
+// ## KARIMOJI 2.2 - Tradução para o Português
 // ############################################################### //
 // ## Por............: Mikhail Miguel
 // ## E-mail.........: mikhail.miguel@gmail.com

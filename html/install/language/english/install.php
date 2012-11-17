@@ -1,7 +1,7 @@
 <?php
 // $Id: install.php,v 1.3 2007/06/24 12:39:39 tom_g3x Exp $
 define("_INSTALL_L0","Welcome to the Install Wizard for XOOPS Cube 2.2");
-define("_INSTALL_L168","XOOPS Cube Legacy requires PHP5 or later");
+define("_INSTALL_L168","KARIMOJI requires PHP5 or later");
 define("_INSTALL_L70","Please change the file permission for mainfile.php so that it is writeable by the server (i.e. chmod 777 mainfile.php on a UNIX/LINUX server, or check the properties of the file and make sure the read-only flag is not set on a Windows server ). Reload this page once you have changed the permission setting.");
 //define("_INSTALL_L71","Click on the button below to begin the installation.");
 define("_INSTALL_L1","Open mainfile.php with your text editor and find the following codes on line 31:");
@@ -55,7 +55,7 @@ define("_INSTALL_L58","Virtual path to your main XOOPS Cube directory WITHOUT tr
 define("_INSTALL_L31","Could not create database. Contact the server administrator for details.");
 define("_INSTALL_L32","The 1st Step Installation Complete");
 define("_INSTALL_L33","Click <a href='../index.php'>HERE</a> to see the home page of your site.");
-define("_INSTALL_L35","If you had any errors, please contact the dev team at <a href='https://github.com/xoopscube/legacy/' rel='external'>XOOPS Cube Project</a>");
+define("_INSTALL_L35","If you had any errors, please contact the dev team at <a href='https://github.com/momonga-project/momonga/' rel='external'>XOOPS Cube Project</a>");
 define("_INSTALL_L36","Please choose your site admin's name and password.");
 define("_INSTALL_L37","Admin Name");
 define("_INSTALL_L38","Admin Email");
@@ -142,7 +142,7 @@ define("_INSTALL_L125","File %s overwritten by %s.");
 define("_INSTALL_L126","Could not write to file %s.");
 
 define("_INSTALL_L130","The installer has detected tables for XOOPS 1.3.x in your database.<br />The installer will now attempt to upgrade your database to XOOPS2.");
-define("_INSTALL_L131","Tables for XOOPS Cube Legacy already exist in your database.");
+define("_INSTALL_L131","Tables for KARIMOJI already exist in your database.");
 define("_INSTALL_L132","update tables");
 define("_INSTALL_L133","Table %s updated.");
 define("_INSTALL_L134","Failed updating table %s.");
