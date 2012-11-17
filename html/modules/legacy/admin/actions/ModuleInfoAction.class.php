@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleInfoAction.class.php,v 1.3 2008/09/25 15:11:48 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -13,7 +13,7 @@
 /**
  * This action will show the information of a module specified to user.
  */
-class Legacy_ModuleInfoAction extends Legacy_Action
+class Xcore_ModuleInfoAction extends Xcore_Action
 {
 	/**
 	 * XoopsModule instance specified.
@@ -25,11 +25,11 @@ class Legacy_ModuleInfoAction extends Legacy_Action
 	{
 		$dirname = xoops_getrequest('dirname');
 		if (!preg_match("/^[a-zA-Z_][a-zA-Z0-9_]*$/", $dirname)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		if (!is_dir(XOOPS_MODULE_PATH . "/" . $dirname)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		$moduleHandler =& xoops_gethandler('module');
@@ -49,7 +49,7 @@ class Legacy_ModuleInfoAction extends Legacy_Action
 			$this->mInstalledFlag = false;
 		}
 
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 	
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
@@ -61,7 +61,7 @@ class Legacy_ModuleInfoAction extends Legacy_Action
 
 	function executeViewError(&$controller, &$xoopsUser, &$renderer)
 	{
-		$controller->executeRedirect('./index.php?action=ModuleList', 1, _AD_LEGACY_ERROR_MODULE_NOT_FOUND);
+		$controller->executeRedirect('./index.php?action=ModuleList', 1, _AD_XCORE_ERROR_MODULE_NOT_FOUND);
 	}
 }
 

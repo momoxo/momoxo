@@ -11,13 +11,13 @@ if(!defined('XOOPS_ROOT_PATH'))
 }
 
 define('LECAT_ADMIN_RENDER_TEMPLATE_DIRNAME','templates');
-define('LECAT_ADMIN_RENDER_FALLBACK_PATH',XOOPS_MODULE_PATH . '/legacy/admin/theme');    // TODO will be use other path
-define('LECAT_ADMIN_RENDER_FALLBACK_URL',XOOPS_MODULE_URL . '/legacy/admin/theme');    // TODO will be use other url
+define('LECAT_ADMIN_RENDER_FALLBACK_PATH',XOOPS_MODULE_PATH . '/xcore/admin/theme');    // TODO will be use other path
+define('LECAT_ADMIN_RENDER_FALLBACK_URL',XOOPS_MODULE_URL . '/xcore/admin/theme');    // TODO will be use other url
 
 /**
  * Lecat_AdminRenderSystem
 **/
-class Lecat_AdminRenderSystem extends Legacy_AdminRenderSystem
+class Lecat_AdminRenderSystem extends Xcore_AdminRenderSystem
 {
     /**
      * prepare
@@ -30,7 +30,7 @@ class Lecat_AdminRenderSystem extends Legacy_AdminRenderSystem
     {
         $this->mController =& $controller;
     
-        $this->mSmarty =new Legacy_AdminSmarty();    // TODO will be use other class?
+        $this->mSmarty =new Xcore_AdminSmarty();    // TODO will be use other class?
         $this->mSmarty->register_modifier('theme',array($this,'modifierTheme'));
         $this->mSmarty->register_function('stylesheet',array($this,'functionStylesheet'));
     
@@ -49,7 +49,7 @@ class Lecat_AdminRenderSystem extends Legacy_AdminRenderSystem
         XCube_DelegateUtils::call('XoopsTpl.New',new XCube_Ref($this->mSmarty));
     
         $this->mSmarty->force_compile = (
-            $controller->mRoot->mSiteConfig['Legacy_AdminRenderSystem']['ThemeDevelopmentMode'] ||
+            $controller->mRoot->mSiteConfig['Xcore_AdminRenderSystem']['ThemeDevelopmentMode'] ||
             $controller->mRoot->mContext->getXoopsConfig('theme_fromfile')
         );
     }
@@ -82,14 +82,14 @@ class Lecat_AdminRenderSystem extends Legacy_AdminRenderSystem
             array(
                 'stdout_buffer'    => $this->_mStdoutBuffer,
                 'currentModule'       => $module,
-                'legacy_sitename'  => $context->getAttribute('legacy_sitename'),
-                'legacy_pagetitle' => $context->getAttribute('legacy_pagetitle'),
-                'legacy_slogan'    => $context->getAttribute('legacy_slogan')
+                'xcore_sitename'  => $context->getAttribute('xcore_sitename'),
+                'xcore_pagetitle' => $context->getAttribute('xcore_pagetitle'),
+                'xcore_slogan'    => $context->getAttribute('xcore_slogan')
             )
         );
     
         $blocks = array();
-        foreach($context->mAttributes['legacy_BlockContents'][0] as $block)
+        foreach($context->mAttributes['xcore_BlockContents'][0] as $block)
         {
             $blocks[$block['name']] = $block;
         }
@@ -161,7 +161,7 @@ class Lecat_AdminRenderSystem extends Legacy_AdminRenderSystem
         }
     
         $isModule = is_object($module);
-        $theme = $root->mSiteConfig['Legacy']['Theme'];
+        $theme = $root->mSiteConfig['Xcore']['Theme'];
         $ret['theme'] = $theme;
         $dirName = $isModule ? $module->get('dirname') : null;
         $trustDirName = $isModule ? $module->getInfo('trust_dirname') : null;
@@ -291,7 +291,7 @@ class Lecat_AdminRenderSystem extends Legacy_AdminRenderSystem
     
         // TODO will be use other method
         printf(
-            '<link rel="stylesheet" typw="text/css" media="%s" href="%s/legacy/admin/css.php?file=%s%s%s" />',
+            '<link rel="stylesheet" typw="text/css" media="%s" href="%s/xcore/admin/css.php?file=%s%s%s" />',
             (isset($params['media']) ? $params['media'] : 'all'),
             XOOPS_MODULE_URL,
             $info['file'],

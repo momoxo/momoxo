@@ -18,8 +18,8 @@ function smarty_resource_db_systemTpl($tpl_name)
     static $replacements = null;
     if (!$patterns) {
         $root=&XCube_Root::getSingleton();
-        $systemTemplates = explode(',',$root->getSiteConfig('Legacy_RenderSystem','SystemTemplate',''));
-        $prefix = $root->getSiteConfig('Legacy_RenderSystem','SystemTemplatePrefix','legacy');
+        $systemTemplates = explode(',',$root->getSiteConfig('Xcore_RenderSystem','SystemTemplate',''));
+        $prefix = $root->getSiteConfig('Xcore_RenderSystem','SystemTemplatePrefix','xcore');
         $patterns = preg_replace('/^\s*([^\s]*)\s*$/e', '"/".preg_quote("\1","/")."/"', $systemTemplates);
         $replacements = preg_replace('/^\s*system_([^\s]*)\s*/', $prefix.'_\1', $systemTemplates);
     }
@@ -101,7 +101,7 @@ function smarty_resource_db_tplinfo($tpl_name, $smarty)
 	}
 	
 	@list($dirname , $base_tpl_name) = explode('_' , $tpl_name , 2) ;
-	$mytrustdirname = Legacy_ResourcedbUtils::getTrustPath($dirname);
+	$mytrustdirname = Xcore_ResourcedbUtils::getTrustPath($dirname);
 	
 	foreach($entries as $entry) {
 		switch($entry) {
@@ -167,12 +167,12 @@ function smarty_resource_db_tplinfo($tpl_name, $smarty)
 	}
 	//update template if admin user and new template file exists
 	if(XCube_Root::getSingleton()->mContext->mUser->isInRole('Site.Administrator') && $smarty->xoops_canUpdateFromFile()){
-		Legacy_ResourcedbUtils::updateTemplate($tplObj[0]);
+		Xcore_ResourcedbUtils::updateTemplate($tplObj[0]);
 	}
 	return $cache[$tpl_name] = $tplObj[0];
 }
 
-class Legacy_ResourcedbUtils
+class Xcore_ResourcedbUtils
 {
 	public static function getModuleTemplatePath(XoopsTplfile $tplObj)
 	{

@@ -69,7 +69,7 @@ define( 'ALTSYS_CORE_TYPE_X22' , 8 ) ; // 2.2 from xoops.org
 define( 'ALTSYS_CORE_TYPE_X23P' , 10 ) ; // 2.3 from xoops.org (phppp's P)
 define( 'ALTSYS_CORE_TYPE_X25' , 11 ) ; // 2.5 from xoops.org
 define( 'ALTSYS_CORE_TYPE_ICMS' , 12 ) ; // ImpressCMS
-define( 'ALTSYS_CORE_TYPE_XCL21' , 16 ) ; // XOOPS Cube 2.1 Legacy
+define( 'ALTSYS_CORE_TYPE_XCL21' , 16 ) ; // XOOPS Cube 2.1 Xcore
 
 function altsys_get_core_type()
 {
@@ -77,7 +77,7 @@ function altsys_get_core_type()
 
 	if( empty( $result ) ) {
 		if( defined( 'XOOPS_ORETEKI' ) ) $result = ALTSYS_CORE_TYPE_ORE ;
-		else if( defined( 'XOOPS_CUBE_LEGACY' ) ) $result = ALTSYS_CORE_TYPE_XCL21 ;
+		else if( defined( 'XOOPS_CUBE_XCORE' ) ) $result = ALTSYS_CORE_TYPE_XCL21 ;
 		else if( defined( 'ICMS_VERSION_NAME' ) ) $result = ALTSYS_CORE_TYPE_ICMS ;
 		else if( strstr( XOOPS_VERSION , 'JP' ) ) $result = ALTSYS_CORE_TYPE_X20 ;
 		else {
@@ -111,7 +111,7 @@ function altsys_get_link2modpreferences( $mid , $coretype )
 		default :
 			return XOOPS_URL.'/modules/system/admin.php?fct=preferences&op=showmod&mod='.$mid ;
 		case ALTSYS_CORE_TYPE_XCL21 :
-			return XOOPS_URL.'/modules/legacy/admin/index.php?action=PreferenceEdit&confmod_id='.$mid ;
+			return XOOPS_URL.'/modules/xcore/admin/index.php?action=PreferenceEdit&confmod_id='.$mid ;
 	}
 }
 

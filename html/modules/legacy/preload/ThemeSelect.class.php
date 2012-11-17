@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ThemeSelect.class.php,v 1.3 2008/09/25 15:12:43 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -16,21 +16,21 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * specified theme is selectable. Functions should be added to this delegate in
  * constructor, because the delegate is called in preBlockFilter().
  */
-class Legacy_ThemeSelect extends XCube_ActionFilter
+class Xcore_ThemeSelect extends XCube_ActionFilter
 {
 	/**
 	 * @var XCube_Delegate
 	 */
 	var $mIsSelectableTheme = null;
 	
-	function Legacy_ThemeSelect(&$controller)
+	function Xcore_ThemeSelect(&$controller)
 	{
 		//
 		// TODO remove
 		//
 		parent::XCube_ActionFilter($controller);
 		$this->mIsSelectableTheme =new XCube_Delegate();
-		$this->mIsSelectableTheme->register('Legacy_ThemeSelect.IsSelectableTheme');
+		$this->mIsSelectableTheme->register('Xcore_ThemeSelect.IsSelectableTheme');
 		
 		$controller->mSetupUser->add(array(&$this, 'doChangeTheme'));
 	}

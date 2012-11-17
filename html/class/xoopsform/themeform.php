@@ -82,8 +82,8 @@ class XoopsThemeForm extends XoopsForm
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_themeform.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_themeform.html");
 		$renderTarget->setAttribute("form", $this);
 
 		$renderSystem->render($renderTarget);

@@ -1,28 +1,28 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: TplfileListAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplfileFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplfileSetFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplfileUploadForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileSetFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileUploadForm.class.php";
 
-class LegacyRender_TplfileListAction extends LegacyRender_AbstractListAction
+class XcoreRender_TplfileListAction extends XcoreRender_AbstractListAction
 {
 	/**
 	 * A instance of action form for uploading.
-	 * @var LegacyRender_TplfileUploadForm
+	 * @var XcoreRender_TplfileUploadForm
 	 */
 	var $mActionForm = null;
 	
 	function prepare(&$controller, &$xoopsUser, $moduleConfig)
 	{
-		LegacyRender_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
-		$this->mActionForm =new LegacyRender_TplfileUploadForm();
+		XcoreRender_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
+		$this->mActionForm =new XcoreRender_TplfileUploadForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -34,8 +34,8 @@ class LegacyRender_TplfileListAction extends LegacyRender_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter = isset($_REQUEST['tpl_tplset']) ? new LegacyRender_TplfileSetFilterForm($this->_getPageNavi(), $this->_getHandler())
-		                                         : new LegacyRender_TplfileFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter = isset($_REQUEST['tpl_tplset']) ? new XcoreRender_TplfileSetFilterForm($this->_getPageNavi(), $this->_getHandler())
+		                                         : new XcoreRender_TplfileFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 	
@@ -60,7 +60,7 @@ class LegacyRender_TplfileListAction extends LegacyRender_AbstractListAction
 			$this->mObjects =& $handler->getObjects($criteria);
 		}
 	
-		return LEGACYRENDER_FRAME_VIEW_INDEX;
+		return XCORERENDER_FRAME_VIEW_INDEX;
 	}
 
 	/**
@@ -129,7 +129,7 @@ class LegacyRender_TplfileListAction extends LegacyRender_AbstractListAction
 			unset($formFile);
 		}
 		
-		$errorMessage = $successFlag ? _AD_LEGACYRENDER_MESSAGE_UPLOAD_TEMPLATE_SUCCESS : _AD_LEGACYRENDER_ERROR_DBUPDATE_FAILED;
+		$errorMessage = $successFlag ? _AD_XCORERENDER_MESSAGE_UPLOAD_TEMPLATE_SUCCESS : _AD_XCORERENDER_ERROR_DBUPDATE_FAILED;
 		
 		//
 		// No good exmaple ;)
@@ -140,7 +140,7 @@ class LegacyRender_TplfileListAction extends LegacyRender_AbstractListAction
 
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->mRoot->mDelegateManager->add('Legacy.Event.Explaceholder.Get.LegacyRenderPagenaviHidden', 'LegacyRender_TplfileListAction::renderHiddenControl');
+		$controller->mRoot->mDelegateManager->add('Xcore.Event.Explaceholder.Get.XcoreRenderPagenaviHidden', 'XcoreRender_TplfileListAction::renderHiddenControl');
 		
 		$render->setTemplateName("tplfile_list.html");
 		

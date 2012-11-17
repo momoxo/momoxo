@@ -5,7 +5,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 /**
 * XoopsSimpleObject
 */
-class Xupdate_ModuleStore extends Legacy_AbstractObject {
+class Xupdate_ModuleStore extends Xcore_AbstractObject {
 
 	const PRIMARY = 'id';
 	const DATANAME = 'modulestore';
@@ -95,7 +95,7 @@ class Xupdate_ModuleStore extends Legacy_AbstractObject {
 			$this->modinfo['version'] = sprintf('%01.2f', $this->mModule->getVar('version') / 100);
 			$trust_dirname = $this->mModule->getVar('trust_dirname');
 			
-			// set detaild_version by constat (ex. '_MI_LEGACY_DETAILED_VERSION'
+			// set detaild_version by constat (ex. '_MI_XCORE_DETAILED_VERSION'
 			if (! isset($this->modinfo['detailed_version'])) {
 				if (defined('_MI_'.strtoupper($dirname).'_DETAILED_VERSION')) {
 					$this->modinfo['detailed_version'] = constant('_MI_'.strtoupper($dirname).'_DETAILED_VERSION');
@@ -271,7 +271,7 @@ class Xupdate_ModuleStore extends Legacy_AbstractObject {
 		if (empty($this->modinfo)){
 			return false;
 		}else{
-			return ($this->getVar('version') != Legacy_Utils::convertVersionFromModinfoToInt($this->modinfo['version']));
+			return ($this->getVar('version') != Xcore_Utils::convertVersionFromModinfoToInt($this->modinfo['version']));
 		}
 	}
 
@@ -299,13 +299,13 @@ class Xupdate_ModuleStore extends Legacy_AbstractObject {
 	}
 	public function get_InstallUrl()
 	{
-		$ret = XOOPS_MODULE_URL .'/legacy/admin/index.php?action=ModuleInstall&dirname='
+		$ret = XOOPS_MODULE_URL .'/xcore/admin/index.php?action=ModuleInstall&dirname='
 			.$this->getVar('dirname') ;
 		return $ret;
 	}
 	public function get_UpdateUrl()
 	{
-		$ret = XOOPS_MODULE_URL .'/legacy/admin/index.php?action=ModuleUpdate&dirname='
+		$ret = XOOPS_MODULE_URL .'/xcore/admin/index.php?action=ModuleUpdate&dirname='
 			.$this->getVar('dirname') ;
 		return $ret;
 	}
@@ -409,7 +409,7 @@ class Xupdate_ModuleStore extends Legacy_AbstractObject {
 		static $names = array();
 		static $sHandler = null;
 		if (is_null($sHandler)) {
-			$sHandler = Legacy_Utils::getModuleHandler('Store', 'xupdate');
+			$sHandler = Xcore_Utils::getModuleHandler('Store', 'xupdate');
 		}
 		if (! isset($names[$sid])) {
 			$obj = $sHandler->get($sid);
@@ -423,7 +423,7 @@ class Xupdate_ModuleStore extends Legacy_AbstractObject {
 /**
 * XoopsObjectGenericHandler extends
 */
-class Xupdate_ModuleStoreHandler extends Legacy_AbstractClientObjectHandler
+class Xupdate_ModuleStoreHandler extends Xcore_AbstractClientObjectHandler
 {
 	public $mTable = '{dirname}_modulestore';
 

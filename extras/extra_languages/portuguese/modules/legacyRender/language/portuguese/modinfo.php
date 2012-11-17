@@ -12,14 +12,14 @@
 // Esta tradu��o encontra-se licenciada sob a licen�a Creative Commons Attribution 2.5 Brazil.
 // Para ler uma c�pia da licen�a, visite: http://creativecommons.org/licenses/by/2.5/br/
 // ********************************************************************************* //
-define("_MI_LEGACYRENDER_ADMENU_BANNER_MANAGE","Faixas publicit�rias");
-define("_MI_LEGACYRENDER_ADMENU_HTACCESS_VIEW",".htaccess");
-define("_MI_LEGACYRENDER_ADMENU_TEMPLATE_MANAGE","Conjuntos de modelos");
-define("_MI_LEGACYRENDER_ADMENU_THEME_SETTING","Temas");
-define("_MI_LEGACYRENDER_ADMENU_TPLFILE_MANAGE","Arquivos de modelos");
-define("_MI_LEGACYRENDER_CONF_BANNERS","Habilitar as faixas publicit�rias?");
-define("_MI_LEGACYRENDER_NAME","Renderizador legado");
-define("_MI_LEGACYRENDER_NAME_DESC","SISTEMA RENDERIZADOR LEGADO: este m�dulo prov� a compatibilidade dos antigos formatos de tema e modelos smarty utilizados at� as vers�es 2.0.9 e JP 2.0.x do XOOPS. Traduzido por Mikhail Miguel.");
+define("_MI_XCORERENDER_ADMENU_BANNER_MANAGE","Faixas publicit�rias");
+define("_MI_XCORERENDER_ADMENU_HTACCESS_VIEW",".htaccess");
+define("_MI_XCORERENDER_ADMENU_TEMPLATE_MANAGE","Conjuntos de modelos");
+define("_MI_XCORERENDER_ADMENU_THEME_SETTING","Temas");
+define("_MI_XCORERENDER_ADMENU_TPLFILE_MANAGE","Arquivos de modelos");
+define("_MI_XCORERENDER_CONF_BANNERS","Habilitar as faixas publicit�rias?");
+define("_MI_XCORERENDER_NAME","Renderizador legado");
+define("_MI_XCORERENDER_NAME_DESC","SISTEMA RENDERIZADOR LEGADO: este m�dulo prov� a compatibilidade dos antigos formatos de tema e modelos smarty utilizados at� as vers�es 2.0.9 e JP 2.0.x do XOOPS. Traduzido por Mikhail Miguel.");
 define("_MI_LR_CSS_FILE","Endere�o URL do arquivo jQuery UI CSS");
 define("_MI_LR_CSS_FILE_DESC","Set jQuery UI CSS file url after ".XOOPS_URL);
 define("_MI_LR_FEED_URL","Endere�o do Feed RSS");

@@ -1,12 +1,12 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: BannerFilterForm.class.php,v 1.1 2007/05/15 02:34:40 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractFilterForm.class.php";
 
 define('BANNER_SORT_KEY_BID', 1);
 define('BANNER_SORT_KEY_CID', 2);
@@ -22,7 +22,7 @@ define('BANNER_SORT_KEY_MAXVALUE', 10);
 
 define('BANNER_SORT_KEY_DEFAULT', BANNER_SORT_KEY_BID);
 
-class LegacyRender_BannerFilterForm extends LegacyRender_AbstractFilterForm
+class XcoreRender_BannerFilterForm extends XcoreRender_AbstractFilterForm
 {
 	var $mSortKeys = array(
 		BANNER_SORT_KEY_BID => 'bid',

@@ -10,7 +10,7 @@ class message_DeletePreload extends XCube_ActionFilter
 {
   public function postFilter()
   {
-	$this->mRoot->mDelegateManager->add('Legacypage.Admin.SystemCheck', 'message_DeletePreload::deleteMessage');
+	$this->mRoot->mDelegateManager->add('Xcorepage.Admin.SystemCheck', 'message_DeletePreload::deleteMessage');
   }
   
   public static function deleteMessage()

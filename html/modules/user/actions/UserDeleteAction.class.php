@@ -46,7 +46,7 @@ class User_UserDeleteAction extends User_Action
 	**/
 	protected function _getPagetitle()
 	{
-		return Legacy_Utils::getUserName(Legacy_Utils::getUid());
+		return Xcore_Utils::getUserName(Xcore_Utils::getUid());
 	}
 
 	function prepare(&$controller, &$xoopsUser, $moduleConfig)
@@ -57,7 +57,7 @@ class User_UserDeleteAction extends User_Action
 		$this->mActionForm =new User_UserDeleteForm();
 		$this->mActionForm->prepare();
 		
-		$this->_mDoDelete =new XCube_Delegate('bool &', 'Legacy_Controller', 'XoopsUser');
+		$this->_mDoDelete =new XCube_Delegate('bool &', 'Xcore_Controller', 'XoopsUser');
 		$this->_mDoDelete->register('User_UserDeleteAction._doDelete');
 		
 		$this->_mDoDelete->add(array(&$this, "_doDelete"));
@@ -110,7 +110,7 @@ class User_UserDeleteAction extends User_Action
 		$this->_mDoDelete->call(new XCube_Ref($flag), $controller, $xoopsUser);
 		
 		if ($flag) {
-			XCube_DelegateUtils::call('Legacy.Event.UserDelete', new XCube_Ref($this->mObject));
+			XCube_DelegateUtils::call('Xcore.Event.UserDelete', new XCube_Ref($this->mObject));
 			
 			return USER_FRAME_VIEW_SUCCESS;
 		}

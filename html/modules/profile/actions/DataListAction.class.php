@@ -47,8 +47,8 @@ class Profile_DataListAction extends Profile_AbstractListAction
 		$render->setTemplateName("profile_data_list.html");
 		$render->setAttribute('objects', $this->mObjects);
 		$render->setAttribute('pageNavi', $this->mFilter->mNavi);
-		$handler = Legacy_Utils::getModuleHandler('definitions', 'profile');
-		$render->setAttribute('definitions', $handler->getFields4DataShow(Legacy_Utils::getUid()));
+		$handler = Xcore_Utils::getModuleHandler('definitions', 'profile');
+		$render->setAttribute('definitions', $handler->getFields4DataShow(Xcore_Utils::getUid()));
 	}
 }
 

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: comment.php,v 1.3 2008/09/25 15:11:22 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,13 +10,13 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyCommentObject extends XoopsSimpleObject
+class XcoreCommentObject extends XoopsSimpleObject
 {
 	var $mUser = null;
 	var $mModule = null;
 	var $mStatus = null;
 	
-	function LegacyCommentObject()
+	function XcoreCommentObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -66,7 +66,7 @@ class LegacyCommentObject extends XoopsSimpleObject
 	
 	function loadStatus()
 	{
-		$handler =& xoops_getmodulehandler('commentstatus', 'legacy');
+		$handler =& xoops_getmodulehandler('commentstatus', 'xcore');
 		$this->mStatus =& $handler->get($this->get('com_status'));
 	}
 	
@@ -82,11 +82,11 @@ class LegacyCommentObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyCommentHandler extends XoopsObjectGenericHandler
+class XcoreCommentHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "xoopscomments";
 	var $mPrimary = "com_id";
-	var $mClass = "LegacyCommentObject";
+	var $mClass = "XcoreCommentObject";
 
 	/**
 	 * @var XCube_Delegate
@@ -98,7 +98,7 @@ class LegacyCommentHandler extends XoopsObjectGenericHandler
 	 */	
 	var $mDeleteSuccess;
 	
-	function LegacyCommentHandler(&$db)
+	function XcoreCommentHandler(&$db)
 	{
 		parent::XoopsObjectGenericHandler($db);
 		

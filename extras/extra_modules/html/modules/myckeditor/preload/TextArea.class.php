@@ -28,7 +28,7 @@ class Myckeditor_TextArea extends XCube_ActionFilter
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'myckeditor');
+		$renderTarget->setAttribute('xcore_module', 'myckeditor');
 		$renderTarget->setTemplateName("myckeditor_textarea.html");
 		$renderTarget->setAttribute("element", $params);
 	

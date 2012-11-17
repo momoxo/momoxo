@@ -1,5 +1,5 @@
 <{if $block.isEnableChanger == false}>
-  <{$smarty.const._MB_LEGACY_MESSAGE_CAN_NOT_THEME_CHANGE}>
+  <{$smarty.const._MB_XCORE_MESSAGE_CAN_NOT_THEME_CHANGE}>
 <{else}>
   <div style="text-align: center;">
   <form action="#" method="post">
@@ -16,7 +16,7 @@
   <{if $block.mode==1}>
     <input type="submit" value="<{$smarty.const._GO}>" />
   <{/if}>
-  <p>(<{"<strong>"|cat:$block.count|cat:"</strong>"|string_format:$smarty.const._MB_LEGACY_LANG_NUMTHEME}>)</p>
+  <p>(<{"<strong>"|cat:$block.count|cat:"</strong>"|string_format:$smarty.const._MB_XCORE_LANG_NUMTHEME}>)</p>
   </form>
   </div>
 <{/if}>

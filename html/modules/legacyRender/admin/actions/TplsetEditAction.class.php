@@ -1,15 +1,15 @@
 <?php
 /**
- * @version legacyRender
+ * @version xcoreRender
  * @version $Id: TplsetEditAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplsetEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplsetEditForm.class.php";
 
-class LegacyRender_TplsetEditAction extends LegacyRender_AbstractEditAction
+class XcoreRender_TplsetEditAction extends XcoreRender_AbstractEditAction
 {
 	function _getId()
 	{
@@ -35,7 +35,7 @@ class LegacyRender_TplsetEditAction extends LegacyRender_AbstractEditAction
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new LegacyRender_TplsetEditForm();
+		$this->mActionForm =new XcoreRender_TplsetEditForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -63,7 +63,7 @@ class LegacyRender_TplsetEditAction extends LegacyRender_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_LEGACYRENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

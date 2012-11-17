@@ -3,9 +3,9 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class Legacy_ImageUploadForm extends XCube_ActionForm
+class Xcore_ImageUploadForm extends XCube_ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = null;
@@ -14,7 +14,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 
 	function getTokenName()
 	{
-		return "module.legacy.ImageUploadForm.TOKEN";
+		return "module.xcore.ImageUploadForm.TOKEN";
 	}
 
 	function prepare()
@@ -30,20 +30,20 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 		//
 		$this->mFieldProperties['imgcat_id'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_id']->setDependsByArray(array('required'));
-		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMGCAT_ID);
+		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_ID);
 		$this->mFieldProperties['upload'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['upload']->setDependsByArray(array('required'));
-		$this->mFieldProperties['upload']->addMessage('required', _AD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMAGE_UPLOAD_FILE);
+		$this->mFieldProperties['upload']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_UPLOAD_FILE);
 	
 	}
 	
 	function validateImgcat_id()
 	{
 
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$imgcat_id = $this->get('imgcat_id');
 		if ( !$imgcat_id || !$handler->get($imgcat_id) ) {
-			$this->addErrorMessage(_AD_LEGACY_LANG_IMGCAT_WRONG);
+			$this->addErrorMessage(_AD_XCORE_LANG_IMGCAT_WRONG);
 		}
 		else {
 			$root =& XCube_Root::getSingleton();
@@ -58,7 +58,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 			}
 			$imgcat =& $handler->get($imgcat_id);
 			if (is_object($imgcat) && !$imgcat->hasUploadPerm($groups)) {
-				$this->addErrorMessage(_MD_LEGACY_ERROR_PERMISSION);
+				$this->addErrorMessage(_MD_XCORE_ERROR_PERMISSION);
 			}
 
 		}
@@ -74,7 +74,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 			}
 			
 			if (!$flag) {
-				$this->addErrorMessage(_AD_LEGACY_ERROR_EXTENSION_IS_WRONG);
+				$this->addErrorMessage(_AD_XCORE_ERROR_EXTENSION_IS_WRONG);
 			}
 		}
 	}

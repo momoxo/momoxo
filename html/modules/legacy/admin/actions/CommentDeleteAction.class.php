@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: CommentDeleteAction.class.php,v 1.4 2008/09/25 15:11:33 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,11 +10,11 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractDeleteAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/CommentAdminDeleteForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/actions/CommentEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractDeleteAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/CommentAdminDeleteForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/actions/CommentEditAction.class.php";
 
-class Legacy_CommentDeleteAction extends Legacy_AbstractDeleteAction
+class Xcore_CommentDeleteAction extends Xcore_AbstractDeleteAction
 {
 	function _getId()
 	{
@@ -30,7 +30,7 @@ class Legacy_CommentDeleteAction extends Legacy_AbstractDeleteAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_CommentAdminDeleteForm();
+		$this->mActionForm =new Xcore_CommentAdminDeleteForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -70,7 +70,7 @@ class Legacy_CommentDeleteAction extends Legacy_AbstractDeleteAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=CommentList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=CommentList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 	
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)
@@ -103,7 +103,7 @@ class Legacy_CommentDeleteAction extends Legacy_AbstractDeleteAction
 		//
 		// callback
 		//
-		$comment_config = Legacy_CommentEditAction::loadCallbackFile($comment);
+		$comment_config = Xcore_CommentEditAction::loadCallbackFile($comment);
 		
 		if ($comment_config == false) {
 			return;

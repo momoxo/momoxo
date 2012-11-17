@@ -12,9 +12,9 @@ function altsys_onupdate_base( $module , $mydirname )
 	global $msgs ; // TODO :-D
 
 	// for Cube 2.1
-	if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
+	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
 		$root =& XCube_Root::getSingleton();
-		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleUpdate.' . ucfirst($mydirname) . '.Success', 'altsys_message_append_onupdate' ) ;
+		$root->mDelegateManager->add( 'Xcore.Admin.Event.ModuleUpdate.' . ucfirst($mydirname) . '.Success', 'altsys_message_append_onupdate' ) ;
 		$msgs = array() ;
 	} else {
 		if( ! is_array( $msgs ) ) $msgs = array() ;

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: AbstractFilterForm.class.php,v 1.3 2008/09/25 15:11:30 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Legacy_AbstractFilterForm
+class Xcore_AbstractFilterForm
 {
 	var $mSort = 0;
 	var $mSortKeys = array();
@@ -19,7 +19,7 @@ class Legacy_AbstractFilterForm
 	
 	var $_mHandler = null;
 	
-	function Legacy_AbstractFilterForm(&$navi, &$handler)
+	function Xcore_AbstractFilterForm(&$navi, &$handler)
 	{
 		$this->mNavi =& $navi;
 		$this->_mHandler =& $handler;

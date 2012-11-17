@@ -12,7 +12,7 @@
 if(file_exists('preload/SetupAltsysLangMgr.class.php')){
 	$contents = file_get_contents('preload/SetupAltsysLangMgr.class.php');
 	if(! preg_match('/setting/', $contents)){
-		echo 'Add "$this->_loadLanguage("legacy", "setting");" to (html)/preload/SetupAltsysLangMgr.class.php<p>See also upgrade manual :<ul><li><a href="http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Upgrade22#Upgrade_from_XCL2.1..2A_to_XCL2.2">English</a></li><li><a href="http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Upgrade22;ja">Japanese</a></li></ul></p>';die();
+		echo 'Add "$this->_loadLanguage("xcore", "setting");" to (html)/preload/SetupAltsysLangMgr.class.php<p>See also upgrade manual :<ul><li><a href="http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Upgrade22#Upgrade_from_XCL2.1..2A_to_XCL2.2">English</a></li><li><a href="http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Upgrade22;ja">Japanese</a></li></ul></p>';die();
 	}
 }
 
@@ -21,7 +21,7 @@ if(!file_exists('preload/upgrade22.class.php')){
 }
 
 if(! file_exists('mainfile.php')){
-	echo 'legacy22_check.php should set the same directory of mainfile.php.';
+	echo 'xcore22_check.php should set the same directory of mainfile.php.';
 	die();
 }
 
@@ -83,7 +83,7 @@ foreach($modules as $mod){
 
 
 if(count($messages)===0){
-	$messages[] = 'Congraturation! You are ready for upgrade XCL2.2.<br />Remove '.XOOPS_ROOT_PATH.'/legacy22_check.php file.';
+	$messages[] = 'Congraturation! You are ready for upgrade XCL2.2.<br />Remove '.XOOPS_ROOT_PATH.'/xcore22_check.php file.';
 	if(! checkPreload()){
 		$messages[] = 'You should remove upgrade22.class.php from '.XOOPS_ROOT_PATH.'/preload';
 	}
@@ -115,7 +115,7 @@ function checkTable()
 
 function checkLanguage($lang)
 {
-	return file_exists(XOOPS_ROOT_PATH.'/modules/legacy/language/'.$lang.'/setting.php') ? true : false;
+	return file_exists(XOOPS_ROOT_PATH.'/modules/xcore/language/'.$lang.'/setting.php') ? true : false;
 }
 
 function checkPreload()
@@ -190,11 +190,11 @@ function checkVersion()
 
 	$resultC = $db->queryF($checkSql);
 	while($row = $db->fetchArray($resultC)) {
-		if($row['dirname']=='legacy' && $row['version']<200){
-			$ret[] = 'legacy';
+		if($row['dirname']=='xcore' && $row['version']<200){
+			$ret[] = 'xcore';
 		}
-		if($row['dirname']=='legacyRender' && $row['version']<200){
-			$ret[] = 'legacyRender';
+		if($row['dirname']=='xcoreRender' && $row['version']<200){
+			$ret[] = 'xcoreRender';
 		}
 		if($row['dirname']=='user' && $row['version']<200){
 			$ret[] = 'user';
@@ -233,7 +233,7 @@ function _check_getDB()
 
 	require_once XOOPS_ROOT_PATH.'/class/database/databasefactory.php';
 
-	if ($root->getSiteConfig('Legacy', 'AllowDBProxy') == true) {
+	if ($root->getSiteConfig('Xcore', 'AllowDBProxy') == true) {
 		if (xoops_getenv('REQUEST_METHOD') != 'POST' || !xoops_refcheck(XOOPS_DB_CHKREF)) {
 			define('XOOPS_DB_PROXY', 1);
 		}

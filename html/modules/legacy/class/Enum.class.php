@@ -2,7 +2,7 @@
 
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 

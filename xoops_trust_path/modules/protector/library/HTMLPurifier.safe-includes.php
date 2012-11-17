@@ -143,7 +143,7 @@ require_once $__dir . '/HTMLPurifier/HTMLModule/Edit.php';
 require_once $__dir . '/HTMLPurifier/HTMLModule/Forms.php';
 require_once $__dir . '/HTMLPurifier/HTMLModule/Hypertext.php';
 require_once $__dir . '/HTMLPurifier/HTMLModule/Image.php';
-require_once $__dir . '/HTMLPurifier/HTMLModule/Legacy.php';
+require_once $__dir . '/HTMLPurifier/HTMLModule/Xcore.php';
 require_once $__dir . '/HTMLPurifier/HTMLModule/List.php';
 require_once $__dir . '/HTMLPurifier/HTMLModule/Name.php';
 require_once $__dir . '/HTMLPurifier/HTMLModule/Nofollow.php';

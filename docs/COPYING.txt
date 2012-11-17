@@ -42,6 +42,6 @@ But some special files are licensed under the other license models those can co-
   -The Coolest DHTML Calendar(/html/include/calendar.js, /html/include/calendar-blue.css)
      Copyright Mihai Bazon, 2002
      http://sourceforge.net/projects/jscalendar
-  -NuSOAP modules/legacy/lib/nusoap/ 
+  -NuSOAP modules/xcore/lib/nusoap/
      Copyright (c) 2002 NuSphere Corporation
      http://dietrich.ganx4.com/nusoap

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: block_module_link.php,v 1.3 2008/09/25 15:11:21 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,9 +10,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyBlock_module_linkObject extends XoopsSimpleObject
+class XcoreBlock_module_linkObject extends XoopsSimpleObject
 {
-	function LegacyBlock_module_linkObject()
+	function XcoreBlock_module_linkObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -25,11 +25,11 @@ class LegacyBlock_module_linkObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyBlock_module_linkHandler extends XoopsObjectGenericHandler
+class XcoreBlock_module_linkHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "block_module_link";
 	var $mPrimary = "block_id";
-	var $mClass = "LegacyBlock_module_linkObject";
+	var $mClass = "XcoreBlock_module_linkObject";
 }
 
 ?>

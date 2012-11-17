@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleListAction.class.php,v 1.3 2008/09/25 15:11:49 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH . "/admin/forms/ModuleListFilterForm.class.php";
-require_once XOOPS_LEGACY_PATH . "/admin/forms/ModuleListForm.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/forms/ModuleListFilterForm.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/forms/ModuleListForm.class.php";
 
-class Legacy_ModuleListAction extends Legacy_Action
+class Xcore_ModuleListAction extends Xcore_Action
 {
 	var $mModuleObjects = array();
 	var $mFilter = null;
@@ -22,27 +22,27 @@ class Legacy_ModuleListAction extends Legacy_Action
 
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_ModuleListForm();
+		$this->mActionForm =new Xcore_ModuleListForm();
 		$this->mActionForm->prepare();
 	}
 	
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		$this->mFilter =new Legacy_ModuleListFilterForm();
+		$this->mFilter =new Xcore_ModuleListFilterForm();
 		$this->mFilter->fetch();
 
 		$moduleHandler =& xoops_gethandler('module');
 		$this->mModuleObjects =& $moduleHandler->getObjects($this->mFilter->getCriteria());
 
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 	
 	function execute(&$controller, &$xoopsUser)
 	{
 		$form_cancel = $controller->mRoot->mContext->mRequest->getRequest('_form_control_cancel');
 		if ($form_cancel != null) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		$this->mActionForm->fetch();
@@ -69,7 +69,7 @@ class Legacy_ModuleListAction extends Legacy_Action
 			unset($module);
 		}
 
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 
     function _processSave(&$controller, &$xoopsUser)
@@ -105,7 +105,7 @@ class Legacy_ModuleListAction extends Legacy_Action
             }
         }
 
-        return $successFlag ? LEGACY_FRAME_VIEW_SUCCESS : LEGACY_FRAME_VIEW_ERROR;
+        return $successFlag ? XCORE_FRAME_VIEW_SUCCESS : XCORE_FRAME_VIEW_ERROR;
     }
 
 	/**
@@ -155,7 +155,7 @@ class Legacy_ModuleListAction extends Legacy_Action
 
 	function executeViewError(&$controller, &$xoopsUser, &$renderer)
 	{
-		$controller->executeRedirect('./index.php?action=ModuleList', 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect('./index.php?action=ModuleList', 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller,&$xoopsUser,&$renderer)

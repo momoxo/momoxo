@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImageListAction.class.php,v 1.6 2008/09/25 14:31:45 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,13 +10,13 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/forms/ImageFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/ImageFilterForm.class.php";
 
 /***
  * @internal
  */
-class Legacy_ImageListAction extends Legacy_AbstractListAction
+class Xcore_ImageListAction extends Xcore_AbstractListAction
 {
 	var $mImgcatId = null;
 	
@@ -25,18 +25,18 @@ class Legacy_ImageListAction extends Legacy_AbstractListAction
 		$controller->setDialogMode(true);
 		
 		$root =& $controller->mRoot;
-		$root->mLanguageManager->loadModuleMessageCatalog('legacy');
+		$root->mLanguageManager->loadModuleMessageCatalog('xcore');
 	}
 	
 	function &_getHandler()
 	{
-		$handler =& xoops_getmodulehandler('image', 'legacy');
+		$handler =& xoops_getmodulehandler('image', 'xcore');
 		return $handler;
 	}
 
 	function &_getFilterForm()
 	{
-		$filter =new Legacy_ImageFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new Xcore_ImageFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 
@@ -48,9 +48,9 @@ class Legacy_ImageListAction extends Legacy_AbstractListAction
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		$result = parent::getDefaultView($controller, $xoopsUser);
-		if ($result == LEGACY_FRAME_VIEW_INDEX) {
+		if ($result == XCORE_FRAME_VIEW_INDEX) {
 			$this->mImgcatId = xoops_getrequest('imgcat_id');
-			$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+			$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 			$this->mCategory =& $handler->get($this->mImgcatId );
 		}
 		
@@ -59,7 +59,7 @@ class Legacy_ImageListAction extends Legacy_AbstractListAction
 
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
 	{
-		$render->setTemplateName("legacy_image_list.html");
+		$render->setTemplateName("xcore_image_list.html");
 		
 		foreach (array_keys($this->mObjects) as $key) {
 			$this->mObjects[$key]->loadImagecategory();
@@ -70,7 +70,7 @@ class Legacy_ImageListAction extends Legacy_AbstractListAction
 		
 		$render->setAttribute('imgcatId', $this->mImgcatId);
 		
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		
 		if (is_object($xoopsUser)) {
 			$groups = $xoopsUser->getGroups();

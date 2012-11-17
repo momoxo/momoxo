@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: CustomBlockEditAction.class.php,v 1.3 2008/09/25 15:11:36 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,15 +10,15 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/actions/BlockEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/CustomBlockEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/actions/BlockEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/CustomBlockEditForm.class.php";
 
-class Legacy_CustomBlockEditAction extends Legacy_BlockEditAction
+class Xcore_CustomBlockEditAction extends Xcore_BlockEditAction
 {
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_CustomBlockEditForm();
+		$this->mActionForm =new Xcore_CustomBlockEditForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -50,11 +50,11 @@ class Legacy_CustomBlockEditAction extends Legacy_BlockEditAction
 		$handler =& xoops_gethandler('module');
 		$moduleArr[0] =& $handler->create();
 		$moduleArr[0]->set('mid', -1);
-		$moduleArr[0]->set('name', _AD_LEGACY_LANG_TOPPAGE);
+		$moduleArr[0]->set('name', _AD_XCORE_LANG_TOPPAGE);
 		
 		$moduleArr[1] =& $handler->create();
 		$moduleArr[1]->set('mid', 0);
-		$moduleArr[1]->set('name', _AD_LEGACY_LANG_ALL_MODULES);
+		$moduleArr[1]->set('name', _AD_XCORE_LANG_ALL_MODULES);
 
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('hasmain', 1));

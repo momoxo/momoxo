@@ -16,17 +16,17 @@ class Message_Preload extends XCube_ActionFilter
       if ( $conf['newalert'] == 1 ) {
         $this->mRoot->mDelegateManager->add('Myfriend.NewAlert', 'Message_Preload::getNewMessage');
       }
-      $this->mRoot->mDelegateManager->add('Legacypage.Viewpmsg.Access', 'Message_Preload::accessToReadpmsg');
-      $this->mRoot->mDelegateManager->add('Legacypage.Readpmsg.Access', 'Message_Preload::accessToReadpmsg');
-      $this->mRoot->mDelegateManager->add('Legacypage.Pmlite.Access', 'Message_Preload::accessToReadpmsg');
+      $this->mRoot->mDelegateManager->add('Xcorepage.Viewpmsg.Access', 'Message_Preload::accessToReadpmsg');
+      $this->mRoot->mDelegateManager->add('Xcorepage.Readpmsg.Access', 'Message_Preload::accessToReadpmsg');
+      $this->mRoot->mDelegateManager->add('Xcorepage.Pmlite.Access', 'Message_Preload::accessToReadpmsg');
     }
     /*
     if ( $conf['userinfo'] == 1 ) {
       $this->mRoot->mDelegateManager->add('User_ActionFrame.CreateAction', 'Message_Preload::_createAction', XCUBE_DELEGATE_PRIORITY_FIRST);
     }
     */
-    $this->mRoot->mDelegateManager->add('Legacy.Event.GetHandler', 'Message_Preload::makeHandler');
-    $this->mRoot->mDelegateManager->add('Legacy_RenderSystem.SetupXoopsTpl', 'Message_Preload::addFilter');
+    $this->mRoot->mDelegateManager->add('Xcore.Event.GetHandler', 'Message_Preload::makeHandler');
+    $this->mRoot->mDelegateManager->add('Xcore_RenderSystem.SetupXoopsTpl', 'Message_Preload::addFilter');
   }
   
   public static function addFilter(&$xoopsTpl)

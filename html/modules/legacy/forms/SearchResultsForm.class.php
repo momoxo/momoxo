@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: SearchResultsForm.class.php,v 1.3 2008/09/25 15:12:40 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -11,14 +11,14 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class Legacy_SearchResultsForm extends XCube_ActionForm
+class Xcore_SearchResultsForm extends XCube_ActionForm
 {
 	var $mQueries = array();
 	var $_mKeywordMin = 0;
 	
-	function Legacy_SearchResultsForm($keywordMin)
+	function Xcore_SearchResultsForm($keywordMin)
 	{
 		parent::XCube_ActionForm();
 		$this->_mKeywordMin = intval($keywordMin);
@@ -38,7 +38,7 @@ class Legacy_SearchResultsForm extends XCube_ActionForm
 		//
 		$this->mFieldProperties['andor'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['andor']->setDependsByArray(array('mask'));
-		$this->mFieldProperties['andor']->addMessage('mask', _MD_LEGACY_ERROR_MASK, _MD_LEGACY_LANG_ANDOR);
+		$this->mFieldProperties['andor']->addMessage('mask', _MD_XCORE_ERROR_MASK, _MD_XCORE_LANG_ANDOR);
 		$this->mFieldProperties['andor']->addVar('mask', '/^(AND|OR|exact)$/i');
 	}
 	
@@ -59,8 +59,8 @@ class Legacy_SearchResultsForm extends XCube_ActionForm
 			}
 
 			$separator = '/[\s,]+/';
-			if (defined('_MD_LEGACY_FORMAT_SEARCH_SEPARATOR')) {
-				$separator = _MD_LEGACY_FORMAT_SEARCH_SEPARATOR;
+			if (defined('_MD_XCORE_FORMAT_SEARCH_SEPARATOR')) {
+				$separator = _MD_XCORE_FORMAT_SEARCH_SEPARATOR;
 			}
 		
 			$tmpArr = preg_split($separator, $query);
@@ -86,7 +86,7 @@ class Legacy_SearchResultsForm extends XCube_ActionForm
 		parent::validate();
 		
 		if (!count($this->mQueries)) {
-			$this->addErrorMessage(_MD_LEGACY_ERROR_SEARCH_QUERY_REQUIRED);
+			$this->addErrorMessage(_MD_XCORE_ERROR_SEARCH_QUERY_REQUIRED);
 		}
 	}
 	
@@ -99,7 +99,7 @@ class Legacy_SearchResultsForm extends XCube_ActionForm
 		
 		$params['queries'] = $this->mQueries;
 		$params['andor'] = $this->get('andor');
-		$params['maxhit'] = LEGACY_SEARCH_RESULT_MAXHIT;
+		$params['maxhit'] = XCORE_SEARCH_RESULT_MAXHIT;
 	}
 }
 

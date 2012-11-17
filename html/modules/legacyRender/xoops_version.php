@@ -1,18 +1,18 @@
 <?php
 /**
  * @version $Id: xoops_version.php,v 1.12 2008/10/12 03:55:38 minahito Exp $
- * @package legacyRender
+ * @package xcoreRender
  */
 
-$modversion['name']=_MI_LEGACYRENDER_NAME;
+$modversion['name']=_MI_XCORERENDER_NAME;
 $modversion['version']=2.02;
-$modversion['description']=_MI_LEGACYRENDER_NAME_DESC;
+$modversion['description']=_MI_XCORERENDER_NAME_DESC;
 $modversion['author']="";
 $modversion['credits']="The XOOPS Cube Project";
 $modversion['help'] = "help.html";
 $modversion['license']="GPL see LICENSE";
-$modversion['image']="images/legacyRender.png";
-$modversion['dirname']="legacyRender";
+$modversion['image']="images/xcoreRender.png";
+$modversion['dirname']="xcoreRender";
 
 $modversion['cube_style'] = true;
 
@@ -20,12 +20,12 @@ $modversion['cube_style'] = true;
 // SQL File
 //
 // $modversion['sqlfile']['mysql'] = "sql/mysql.sql";
-// $modversion['tables'][] = "legacyrender_theme";
+// $modversion['tables'][] = "xcorerender_theme";
 
 //
 // Template
 //
-$modversion['templates'][1]['file']="legacy_render_dialog.html";
+$modversion['templates'][1]['file']="xcore_render_dialog.html";
 
 //
 // Admin things
@@ -41,7 +41,7 @@ $modversion['config'][]=array (
 		"description"=>"_MI_LR_META_KEYWORDS_DESC",
 		"formtype"=>"textarea",
 		"valuetype"=>"text",
-		"default"=>"news, technology, headlines, xoops, cube, legacy, social, network, module, plugin, theme, templates, css, web 2.0, ajax, cms, content management, software, blog, download, downloads, free, community, mp3, forum, forums, bulletin, board, boards, bbs, php, survey, poll, polls, kernel, comment, comments, portal, odp, open, source, opensource, FreeSoftware, bsd, gnu, gpl, license, Unix, *nix, mysql, sql, database, databases, web site"
+		"default"=>"news, technology, headlines, xoops, cube, xcore, social, network, module, plugin, theme, templates, css, web 2.0, ajax, cms, content management, software, blog, download, downloads, free, community, mp3, forum, forums, bulletin, board, boards, bbs, php, survey, poll, polls, kernel, comment, comments, portal, odp, open, source, opensource, FreeSoftware, bsd, gnu, gpl, license, Unix, *nix, mysql, sql, database, databases, web site"
 	);
 
 $modversion['config'][]=array (
@@ -102,7 +102,7 @@ $modversion['config'][]=array (
 
 $modversion['config'][]=array (
 		"name"=>"banners",
-		"title"=>"_MI_LEGACYRENDER_CONF_BANNERS",
+		"title"=>"_MI_XCORERENDER_CONF_BANNERS",
 		"formtype"=>"yesno",
 		"valuetype"=>"int",
 		"default"=>0

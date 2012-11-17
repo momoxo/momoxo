@@ -54,7 +54,7 @@ class Lecat_CatListAction extends Lecat_AbstractListAction
 	**/
 	protected function _getBaseUrl()
 	{
-		return Legacy_Utils::renderUri($this->mAsset->mDirname, 'cat');
+		return Xcore_Utils::renderUri($this->mAsset->mDirname, 'cat');
 	}
 
 	/**

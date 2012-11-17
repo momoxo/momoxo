@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -11,9 +11,9 @@ if(!defined('XOOPS_ROOT_PATH'))
 }
 
 /**
- * Legacy_AbstractObject
+ * Xcore_AbstractObject
 **/
-abstract class Legacy_AbstractObject extends XoopsSimpleObject
+abstract class Xcore_AbstractObject extends XoopsSimpleObject
 {
     //const PRIMARY = '';
     //const DATANAME = '';
@@ -27,7 +27,7 @@ abstract class Legacy_AbstractObject extends XoopsSimpleObject
 
     protected /*** bool ***/ $_mIsTagLoaded = false;
     public /*** string[] ***/ $mTag = array();
-    public /*** Legacy_ImageObject[] ***/ $mImage = array();
+    public /*** Xcore_ImageObject[] ***/ $mImage = array();
 
     /**
      * __construct
@@ -76,7 +76,7 @@ abstract class Legacy_AbstractObject extends XoopsSimpleObject
         }
     
         $dirname = isset($dirname) ? $dirname : $this->getDirname();
-        $handler = Legacy_Utils::getModuleHandler($table, $dirname);
+        $handler = Xcore_Utils::getModuleHandler($table, $dirname);
     
         if(in_array($table, $this->mChildList)){
             $this->mTable[$table] = $handler->getObjects(new Criteria($this->getPrimary(), $this->get($this->getPrimary())));
@@ -125,7 +125,7 @@ abstract class Legacy_AbstractObject extends XoopsSimpleObject
     public function renderUri(/*** string **/ $action=null)
     {
         $dataname = ($this->_mMainTable==$this->getDataname()) ? null : $this->getDataname();
-        return Legacy_Utils::renderUri($this->getDirname(), $dataname, $this->get($this->getPrimary()), $action);
+        return Xcore_Utils::renderUri($this->getDirname(), $dataname, $this->get($this->getPrimary()), $action);
     }
 
     /**
@@ -139,7 +139,7 @@ abstract class Legacy_AbstractObject extends XoopsSimpleObject
     {
         $imageObjs = array();
         if($this->get($this->getPrimary())>0){
-	        XCube_DelegateUtils::call('Legacy_Image.GetImageObjects', new XCube_Ref($imageObjs), $this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()));
+	        XCube_DelegateUtils::call('Xcore_Image.GetImageObjects', new XCube_Ref($imageObjs), $this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()));
 	    }
         return $imageObjs;
     }
@@ -166,7 +166,7 @@ abstract class Legacy_AbstractObject extends XoopsSimpleObject
 	public function setupImages($isPost=true)
 	{
 		if(count($this->mImage)>0) return;
-		$handler = Legacy_Utils::getModuleHandler($this->getDataname(), $this->getDirname());
+		$handler = Xcore_Utils::getModuleHandler($this->getDataname(), $this->getDirname());
 	
 		$n = $this->getImageNumber();
 		if($n===0) return;
@@ -174,9 +174,9 @@ abstract class Legacy_AbstractObject extends XoopsSimpleObject
 		$this->mImage = $this->getImages();
 	
 		$originalImage = array();
-		XCube_DelegateUtils::call('Legacy_Image.CreateImageObject', new XCube_Ref($originalImage));
+		XCube_DelegateUtils::call('Xcore_Image.CreateImageObject', new XCube_Ref($originalImage));
 		$originalImage->set('title', $this->get($handler->getClientField('title')));
-		$originalImage->set('uid', Legacy_Utils::getUid());
+		$originalImage->set('uid', Xcore_Utils::getUid());
 		$originalImage->set('dirname', $this->getDirname());
 		$originalImage->set('dataname', $this->getDataname());
 		$originalImage->set('data_id', $this->get($this->getPrimary()));
@@ -207,7 +207,7 @@ abstract class Legacy_AbstractObject extends XoopsSimpleObject
         if($this->_mIsTagLoaded==false && $tagDirname = $configArr['tag_dirname']){
             $tagArr = array();
             if(! $this->isNew()){
-                XCube_DelegateUtils::call('Legacy_Tag.'.$configArr['tag_dirname'].'.GetTags',
+                XCube_DelegateUtils::call('Xcore_Tag.'.$configArr['tag_dirname'].'.GetTags',
                     new XCube_Ref($tagArr),
                     $tagDirname,
                     $this->getDirname(),

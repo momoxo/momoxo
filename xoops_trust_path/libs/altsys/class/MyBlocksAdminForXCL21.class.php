@@ -40,8 +40,8 @@ function renderCell4BlockOptions( $block_data )
 	$block =& $handler->create(false) ;
 	$block->load($bid) ;
 
-	$legacy_block =& Legacy_Utils::createBlockProcedure( $block ) ;
-	return $legacy_block->getOptionForm() ;
+	$xcore_block =& Xcore_Utils::createBlockProcedure( $block ) ;
+	return $xcore_block->getOptionForm() ;
 }
 
 

@@ -39,7 +39,7 @@ class User_UserInfoAction extends User_Action
 	**/
 	protected function _getPagetitle()
 	{
-		return Legacy_Utils::getUserName(Legacy_Utils::getUid());
+		return Xcore_Utils::getUserName(Xcore_Utils::getUid());
 	}
 
 	function prepare(&$controller, &$xoopsUser, $moduleConfig)
@@ -77,7 +77,7 @@ class User_UserInfoAction extends User_Action
 		}
 		unset($service);
 		
-		$service =& $root->mServiceManager->getService("LegacySearch");
+		$service =& $root->mServiceManager->getService("XcoreSearch");
 		if ($service != null) {
 			$this->mSearchResults = array();
 			

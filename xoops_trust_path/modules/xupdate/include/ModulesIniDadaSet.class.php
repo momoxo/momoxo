@@ -510,7 +510,7 @@ class Xupdate_ModulesIniDadaSet
 		  $item = $this->_createItemOptions($item, $caller);
 
 		//インストール済みの同じtrustモージュールのリストを取得
-		$list = Legacy_Utils::getDirnameListByTrustDirname($item['trust_dirname']);
+		$list = Xcore_Utils::getDirnameListByTrustDirname($item['trust_dirname']);
 
 		if (empty($list)){
 			//インストール済みの同じtrustモージュール無し、注意 is_activeはリストされない

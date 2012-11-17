@@ -1,15 +1,15 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: BannerclientListAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/BannerclientFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/BannerclientFilterForm.class.php";
 
-class LegacyRender_BannerclientListAction extends LegacyRender_AbstractListAction
+class XcoreRender_BannerclientListAction extends XcoreRender_AbstractListAction
 {
 	function &_getHandler()
 	{
@@ -19,7 +19,7 @@ class LegacyRender_BannerclientListAction extends LegacyRender_AbstractListActio
 
 	function &_getFilterForm()
 	{
-		$filter =new LegacyRender_BannerclientFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new XcoreRender_BannerclientFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 

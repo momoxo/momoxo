@@ -438,7 +438,7 @@ class XCube_Root
 	function &getTextFilter()
 	{
 	    if (!empty($this->mTextFilter)) return $this->mTextFilter;
-	    if (!empty($this->mController)) { //ToDo: This case is for _LEGACY_PREVENT_EXEC_COMMON_ status;
+	    if (!empty($this->mController)) { //ToDo: This case is for _XCORE_PREVENT_EXEC_COMMON_ status;
     	    $this->mController->mSetupTextFilter->call(new XCube_Ref($this->mTextFilter));
     	    return $this->mTextFilter;
 	    }

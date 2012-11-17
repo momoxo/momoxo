@@ -1,12 +1,12 @@
 <?php
 
-define('_MI_LEGACYRENDER_ADMENU_BANNER_MANAGE', "バナー管理");
-define('_MI_LEGACYRENDER_ADMENU_TEMPLATE_MANAGE', "テンプレート管理");
-define('_MI_LEGACYRENDER_ADMENU_THEME_SETTING', "テーマの設定");
-define('_MI_LEGACYRENDER_ADMENU_TPLFILE_MANAGE', "テンプレートファイル管理");
-define('_MI_LEGACYRENDER_CONF_BANNERS', "バナー広告を有効にする");
-define('_MI_LEGACYRENDER_NAME', "互換レンダーシステム");
-define('_MI_LEGACYRENDER_NAME_DESC', "XOOPS 2.0.9/XOOPS JP 2.0.x のテーマエンジンと互換性のあるレンダーシステムです。XOOPS2テーマを使用可能です。");
+define('_MI_XCORERENDER_ADMENU_BANNER_MANAGE', "バナー管理");
+define('_MI_XCORERENDER_ADMENU_TEMPLATE_MANAGE', "テンプレート管理");
+define('_MI_XCORERENDER_ADMENU_THEME_SETTING', "テーマの設定");
+define('_MI_XCORERENDER_ADMENU_TPLFILE_MANAGE', "テンプレートファイル管理");
+define('_MI_XCORERENDER_CONF_BANNERS', "バナー広告を有効にする");
+define('_MI_XCORERENDER_NAME', "互換レンダーシステム");
+define('_MI_XCORERENDER_NAME_DESC', "XOOPS 2.0.9/XOOPS JP 2.0.x のテーマエンジンと互換性のあるレンダーシステムです。XOOPS2テーマを使用可能です。");
 define('_MI_LR_FOOTER', "フッタ");
 define('_MI_LR_FOOTER_DESC', "リンクを記入する場合は必ずフルパス（http://〜）で入力してください。フルパスで入力しなかった場合、モジュール内ページでうまく表示されないことがあります。");
 define('_MI_LR_META_AUTHOR', "METAタグ(作成者)");
@@ -35,7 +35,7 @@ define('_MI_LR_CSS_FILE', 'jQuery UI CSS ファイルの URL');
 define('_MI_LR_CSS_FILE_DESC', 'jQuery UI CSS ファイルのURL');
 define('_MI_LR_FEED_URL', 'RSS フィードの URL');
 define('_MI_LR_FEED_URL_DESC', 'RSS フィード URL');
-define('_MI_LEGACYRENDER_ADMENU_HTACCESS_VIEW', 'htaccess設定表示');
+define('_MI_XCORERENDER_ADMENU_HTACCESS_VIEW', 'htaccess設定表示');
 define('_MI_LR_JQUERY_CORE', "jQuery コアライブラリ");
 define('_MI_LR_JQUERY_CORE_DESC', "Google Libraries APIを使う場合（推奨）、jQuery のバージョンを入れてください。ローカルの jQuery ファイルを使う場合は、そのURLを入れてください。");
 define('_MI_LR_JQUERY_UI', "jQuery UI ライブラリ");

@@ -17,7 +17,7 @@ require_once XUPDATE_TRUST_PATH . '/admin/class/installer/XupdateInstallUtils.cl
 **/
 class Xupdate_Updater
 {
-    public /*** Legacy_ModuleInstallLog ***/ $mLog = null;
+    public /*** Xcore_ModuleInstallLog ***/ $mLog = null;
 
     private /*** string[] ***/ $_mMileStone = array(
     		'006' => 'update006',
@@ -147,7 +147,7 @@ class Xupdate_Updater
     **/
     public function __construct()
     {
-        $this->mLog = new Legacy_ModuleInstallLog();
+        $this->mLog = new Xcore_ModuleInstallLog();
     }
 
     /**

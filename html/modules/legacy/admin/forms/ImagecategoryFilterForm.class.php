@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImagecategoryFilterForm.class.php,v 1.4 2008/09/25 15:11:17 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractFilterForm.class.php";
 
 define('IMAGECATEGORY_SORT_KEY_IMGCAT_ID', 1);
 define('IMAGECATEGORY_SORT_KEY_IMGCAT_NAME', 2);
@@ -25,7 +25,7 @@ define('IMAGECATEGORY_SORT_KEY_IMGCAT_STORETYPE', 9);
 define('IMAGECATEGORY_SORT_KEY_DEFAULT', IMAGECATEGORY_SORT_KEY_IMGCAT_WEIGHT);
 define('IMAGECATEGORY_SORT_KEY_MAXVALUE', 9);
 
-class Legacy_ImagecategoryFilterForm extends Legacy_AbstractFilterForm
+class Xcore_ImagecategoryFilterForm extends Xcore_AbstractFilterForm
 {
 	var $mSortKeys = array(
 		IMAGECATEGORY_SORT_KEY_IMGCAT_ID => 'imgcat_id',

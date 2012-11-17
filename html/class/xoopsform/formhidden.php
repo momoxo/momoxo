@@ -98,8 +98,8 @@ class XoopsFormHidden extends XoopsFormElement {
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_hidden.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_hidden.html");
 		$renderTarget->setAttribute("element", $this);
 
 		$renderSystem->render($renderTarget);

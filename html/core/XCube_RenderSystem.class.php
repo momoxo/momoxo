@@ -101,7 +101,7 @@ class XCube_RenderTarget
 	function setType($type)
 	{
 		$this->mType = $type;
-		$this->setAttribute('legacy_buffertype', $type);
+		$this->setAttribute('xcore_buffertype', $type);
 	}
 	
 	/**
@@ -111,7 +111,7 @@ class XCube_RenderTarget
 	 */
 	function getType()
 	{
-		return $this->getAttribute('legacy_buffertype', $type);
+		return $this->getAttribute('xcore_buffertype', $type);
 		//return $this->mType;
 	}
 	

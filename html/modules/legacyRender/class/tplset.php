@@ -2,9 +2,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRenderModuletplObject extends XoopsSimpleObject
+class XcoreRenderModuletplObject extends XoopsSimpleObject
 {
-	function LegacyRenderModuletplObject()
+	function XcoreRenderModuletplObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -19,11 +19,11 @@ class LegacyRenderModuletplObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyRenderTplsetObject extends XoopsSimpleObject
+class XcoreRenderTplsetObject extends XoopsSimpleObject
 {
 	var $mModuleTemplates = array();
 	
-	function LegacyRenderTplsetObject()
+	function XcoreRenderTplsetObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -46,10 +46,10 @@ class LegacyRenderTplsetObject extends XoopsSimpleObject
 		$moduleHandler =& xoops_gethandler('module');
 		$modules =& $moduleHandler->getObjects();
 		
-		$tplfileHandler =& xoops_getmodulehandler('tplfile', 'legacyRender');
+		$tplfileHandler =& xoops_getmodulehandler('tplfile', 'xcoreRender');
 		
 		foreach ($modules as $module) {
-			$modtpl =new LegacyRenderModuletplObject();
+			$modtpl =new XcoreRenderModuletplObject();
 			
 			$modtpl->set('mid', $module->get('mid'));
 			$modtpl->set('dirname', $module->get('dirname'));
@@ -68,11 +68,11 @@ class LegacyRenderTplsetObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyRenderTplsetHandler extends XoopsObjectGenericHandler
+class XcoreRenderTplsetHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "tplset";
 	var $mPrimary = "tplset_id";
-	var $mClass = "LegacyRenderTplsetObject";
+	var $mClass = "XcoreRenderTplsetObject";
 	
 	function insertClone($original, $clone)
 	{
@@ -83,7 +83,7 @@ class LegacyRenderTplsetHandler extends XoopsObjectGenericHandler
 		//
 		// fetch all tplfile object and do cloning.
 		//
-		$handler =& xoops_getmodulehandler('tplfile', 'legacyRender');
+		$handler =& xoops_getmodulehandler('tplfile', 'xcoreRender');
 		
 		$files =& $handler->getObjects(new Criteria('tpl_tplset', $original->get('tplset_name')));
 		foreach ($files as $file) {
@@ -96,7 +96,7 @@ class LegacyRenderTplsetHandler extends XoopsObjectGenericHandler
 
 	function delete(&$obj, $force)
 	{
-		$handler =& xoops_getmodulehandler('tplfile', 'legacyRender');
+		$handler =& xoops_getmodulehandler('tplfile', 'xcoreRender');
 		$handler->deleteAll(new Criteria('tpl_tplset', $obj->get('tplset_name')));
 
 		return parent::delete($obj, $force);

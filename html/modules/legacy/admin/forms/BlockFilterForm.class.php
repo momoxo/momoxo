@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: BlockFilterForm.class.php,v 1.3 2008/09/25 15:10:53 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractFilterForm.class.php";
 
 define('NEWBLOCKS_SORT_KEY_BID', 1);
 define('NEWBLOCKS_SORT_KEY_MID', 2);
@@ -36,7 +36,7 @@ define('NEWBLOCKS_SORT_KEY_LAST_MODIFIED', 20);
 define('NEWBLOCKS_SORT_KEY_DEFAULT', NEWBLOCKS_SORT_KEY_SIDE);
 define('NEWBLOCKS_SORT_KEY_MAXVALUE', 20);
 
-class Legacy_BlockFilterForm extends Legacy_AbstractFilterForm
+class Xcore_BlockFilterForm extends Xcore_AbstractFilterForm
 {
 	var $mSortKeys = array(
 		NEWBLOCKS_SORT_KEY_BID => 'bid',

@@ -5,13 +5,13 @@
  */
  if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH.'/modules/legacy/admin/class/ModuleInstaller.class.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcore/admin/class/ModuleInstaller.class.php';
 
-class Message_myInstaller extends Legacy_ModuleInstaller
+class Message_myInstaller extends Xcore_ModuleInstaller
 {
   function Message_myInstaller()
   {
-    parent::Legacy_ModuleInstaller();
+    parent::Xcore_ModuleInstaller();
   }
   
   function executeInstall()

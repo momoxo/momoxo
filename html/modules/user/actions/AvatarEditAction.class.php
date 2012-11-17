@@ -108,7 +108,7 @@ class User_AvatarEditAction extends User_AbstractEditAction
 	**/
 	protected function _getPagetitle()
 	{
-		return Legacy_Utils::getUserName($this->_getId());
+		return Xcore_Utils::getUserName($this->_getId());
 	}
 
 	/**

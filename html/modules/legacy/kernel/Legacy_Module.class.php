@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_Module.class.php,v 1.6 2008/09/25 15:11:59 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_Module.class.php,v 1.6 2008/09/25 15:11:59 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,24 +10,24 @@
 
  /**
   * @public
-  * @brief [Abstract] Represents modules and used for Legacy_Controller
+  * @brief [Abstract] Represents modules and used for Xcore_Controller
   * 
   * This is an abstract class which has interfaces to connect with the controller about
   * the module process. KARIMOJI_LEGALEGAcontroller makes an interface of this class and uses its
   * methods to call module programs.
   * 
   * So modules may define their sub-classes implementing this interface.
-  * The instance is attached to the Legacy_Context after initializing, so modules can
+  * The instance is attached to the Xcore_Context after initializing, so modules can
   * defines members for module's features and can access them. But, most interfaces
-  * defined by this class should be called by only Legacy_Controller.
+  * defined by this class should be called by only Xcore_Controller.
   * 
   * @attention
-  *    This interfaces are initialized by only Legacy_Controller.
+  *    This interfaces are initialized by only Xcore_Controller.
   * 
-  * @see Legacy_Utils::createModule()
+  * @see Xcore_Utils::createModule()
   * @see XoopsModule
   */
-class Legacy_AbstractModule
+class Xcore_AbstractModule
 {
     /**
      * @public
@@ -51,7 +51,7 @@ class Legacy_AbstractModule
     
     /**
      * @private
-     * @brief Legacy_AbstractCacheInformation - The cached instance.
+     * @brief Xcore_AbstractCacheInformation - The cached instance.
      * @see getCacheInfo()
      */
     var $mCacheInfo = null;
@@ -68,10 +68,10 @@ class Legacy_AbstractModule
      * @brief constructor
      * @param $module XoopsModule
      * @attention
-     *     Basically, only Legacy_Controller and its utility functions should call the
+     *     Basically, only Xcore_Controller and its utility functions should call the
      *     constructor.
      */
-    function Legacy_AbstractModule(&$module, $loadConfig=true)
+    function Xcore_AbstractModule(&$module, $loadConfig=true)
     {
         $this->setXoopsModule($module);
         
@@ -168,7 +168,7 @@ class Legacy_AbstractModule
     /**
      * @public
      * @brief Gets the cache information instance.
-     * @return Legacy_ModuleCaceInformation
+     * @return Xcore_ModuleCaceInformation
      * @see _createChaceInfo()
      */ 
     function &getCacheInfo()
@@ -183,7 +183,7 @@ class Legacy_AbstractModule
     /**
      * @protected
      * @brief Creates a cache information instance and returns it.
-     * @return Legacy_ModuleCacheInformation
+     * @return Xcore_ModuleCacheInformation
      * @remarks
      *     This member function sets the created instance to mCacheInfo because this
      *     instance has to keep the instance for many callbacks.
@@ -191,7 +191,7 @@ class Legacy_AbstractModule
      */
     function _createCacheInfo()
     {
-        $this->mCacheInfo = new Legacy_ModuleCacheInformation();
+        $this->mCacheInfo = new Xcore_ModuleCacheInformation();
         $this->mCacheInfo->mURL = xoops_getenv('REQUEST_URI');
         $this->mCacheInfo->setModule($this->mXoopsModule);
     }
@@ -226,7 +226,7 @@ class Legacy_AbstractModule
         
         $this->mRender =& $renderSystem->createRenderTarget('main');
         if ($this->mXoopsModule != null) {
-            $this->mRender->setAttribute('legacy_module', $this->mXoopsModule->get('dirname'));
+            $this->mRender->setAttribute('xcore_module', $this->mXoopsModule->get('dirname'));
         }
     }
     
@@ -235,7 +235,7 @@ class Legacy_AbstractModule
      * @brief Gets a name of the dependency render system.
      * @return string
      * @remarks
-     *     If this module depends on other systems than the main render system  by Legacy,
+     *     If this module depends on other systems than the main render system  by Xcore,
      *     override this.
      * @see getRenderSystem()
      */
@@ -294,11 +294,11 @@ class Legacy_AbstractModule
     /**
      * @public
      * @brief Initializes a cache information object, and returns it.
-     * @return Legacy_ModuleCacheInformation
+     * @return Xcore_ModuleCacheInformation
      */
     function &createCacheInfo()
     {
-        $this->mCacheInfo = new Legacy_ModuleCacheInformation();
+        $this->mCacheInfo = new Xcore_ModuleCacheInformation();
         $this->mCacheInfo->mURL = xoops_getenv('REQUEST_URI');
         $this->mCacheInfo->setModule($this->mXoopsModule);
         
@@ -319,9 +319,9 @@ class Legacy_AbstractModule
      * @public
      * @brief [Abstract] This method is called back by the action search feature in the
      *        control panel.
-     * @param Legacy_ActionSearchArgs $searchArgs
+     * @param Xcore_ActionSearchArgs $searchArgs
      * @return void
-     * @see Legacy_ActionSearchArgs
+     * @see Xcore_ActionSearchArgs
      */
     function doActionSearch(&$searchArgs)
     {
@@ -331,7 +331,7 @@ class Legacy_AbstractModule
      * @public
      * @brief This method is called back by the xoops global search feature.
      */
-    function doLegacyGlobalSearch($queries, $andor, $max_hit, $start, $uid)
+    function doXcoreGlobalSearch($queries, $andor, $max_hit, $start, $uid)
     {
     }
     
@@ -370,7 +370,7 @@ class Legacy_AbstractModule
      * @public
      * @brief Gets an array having menus for the side menu of the control panel.
      * @return Complex Array
-     * @see /modules/legacy/admin/templates/blocks/legacy_admin_block_sidemenu.html
+     * @see /modules/xcore/admin/templates/blocks/xcore_admin_block_sidemenu.html
      */
     function getAdminMenu()
     {
@@ -381,11 +381,11 @@ class Legacy_AbstractModule
  * @public
  * @brief Used for adapting $xoopsModule to imitate XOOPS2 responses.
  * @remarks
- *    This class is the standard class implementing Legacy_AbstractModule, and is helpful
- *    to be used by Legacy_Controller. If a module doesn't define its sub-class of
- *    Legacy_AbstractModule, this class is used as generic Legacy_AbstractModule.
+ *    This class is the standard class implementing Xcore_AbstractModule, and is helpful
+ *    to be used by Xcore_Controller. If a module doesn't define its sub-class of
+ *    Xcore_AbstractModule, this class is used as generic Xcore_AbstractModule.
  */
-class Legacy_ModuleAdapter extends Legacy_AbstractModule
+class Xcore_ModuleAdapter extends Xcore_AbstractModule
 {
     /**
      * @private
@@ -399,18 +399,18 @@ class Legacy_ModuleAdapter extends Legacy_AbstractModule
      */
     var $mAdminMenu = null;
     
-    function Legacy_ModuleAdapter($module, $loadConfig=true)
+    function Xcore_ModuleAdapter($module, $loadConfig=true)
     {
-        parent::Legacy_AbstractModule($module, $loadConfig);
+        parent::Xcore_AbstractModule($module, $loadConfig);
     }
 
     /**
      * @public
      * @brief This method is called back by the action search feature in the control
      *        panel.
-     * @param Legacy_ActionSearchArgs $searchArgs
+     * @param Xcore_ActionSearchArgs $searchArgs
      * @return void
-     * @see Legacy_ActionSearchArgs
+     * @see Xcore_ActionSearchArgs
      */
     function doActionSearch(&$searchArgs)
     {
@@ -458,7 +458,7 @@ class Legacy_ModuleAdapter extends Legacy_AbstractModule
                     
                 if($findFlag) {
                     $searchArgs->addRecord($this->mXoopsModule->getVar('name'),
-                                      XOOPS_URL.'/modules/legacy/admin/index.php?action=PreferenceEdit&amp;confmod_id='.$this->mXoopsModule->getVar('mid'),
+                                      XOOPS_URL.'/modules/xcore/admin/index.php?action=PreferenceEdit&amp;confmod_id='.$this->mXoopsModule->getVar('mid'),
                                       _PREFERENCES );
                 }
             }
@@ -534,7 +534,7 @@ class Legacy_ModuleAdapter extends Legacy_AbstractModule
                 foreach ($lines as $line) {
                     foreach($searchArgs->getKeywords() as $word) {
                         if (stristr($line, $word) !== false) {
-                            $url = XOOPS_MODULE_URL . "/legacy/admin/index.php?action=Help&amp;dirname=" . $this->mXoopsModule->getVar('dirname');
+                            $url = XOOPS_MODULE_URL . "/xcore/admin/index.php?action=Help&amp;dirname=" . $this->mXoopsModule->getVar('dirname');
                             $searchArgs->addRecord($this->mXoopsModule->getVar('name'), $url, _HELP);
                             return;
                         }
@@ -544,7 +544,7 @@ class Legacy_ModuleAdapter extends Legacy_AbstractModule
         }
     }
 
-    function doLegacyGlobalSearch($queries, $andor, $max_hit, $start, $uid)
+    function doXcoreGlobalSearch($queries, $andor, $max_hit, $start, $uid)
     {
         $ret = array();
         $results = $this->mXoopsModule->search($queries, $andor, $max_hit, $start, $uid);

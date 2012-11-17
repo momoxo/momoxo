@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,14 +12,14 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of workflow client delegate
- * Modules which uses Legacy_Workflow must implement this interface.
- * Legacy_Workflow module must be unique.
- * You can get its dirname by constant LEGACY_WORKFLOW_DIRNAME
+ * Modules which uses Xcore_Workflow must implement this interface.
+ * Xcore_Workflow module must be unique.
+ * You can get its dirname by constant XCORE_WORKFLOW_DIRNAME
 **/
-interface Legacy_iWorkflowClientDelegate
+interface Xcore_iWorkflowClientDelegate
 {
 	/**
-	 * getClientList	Legacy_WorkflowClient.GetClientList
+	 * getClientList	Xcore_WorkflowClient.GetClientList
 	 * Get client module's dirname and dataname(tablename)
 	 *
 	 * @param mixed[]	&$list
@@ -31,7 +31,7 @@ interface Legacy_iWorkflowClientDelegate
 	public static function getClientList(/*** mixed[] ***/ &$list);
 
 	/**
-	 * updateStatus Legacy_WorkflowClient.UpdateStatus
+	 * updateStatus Xcore_WorkflowClient.UpdateStatus
 	 * Update client module's status(publish, rejected, etc).
 	 *
 	 * @param string	&$result

@@ -13,7 +13,7 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Lecat_CatObject
 **/
-class Lecat_CatObject extends Legacy_AbstractCategoryObject
+class Lecat_CatObject extends Xcore_AbstractCategoryObject
 {
 	protected $_mPermitLoadedFlag = false;
 	protected $_mPcatLoadedFlag = false;
@@ -29,7 +29,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 	public function loadPermit()
 	{
 		if ($this->_mPermitLoadedFlag == false) {
-			$handler =Legacy_Utils::getModuleHandler('permit', $this->getDirname());
+			$handler =Xcore_Utils::getModuleHandler('permit', $this->getDirname());
 			$this->mPermit =& $handler->getObjects(new Criteria('cat_id', $this->get('cat_id')));
 			$this->_mPermitLoadedFlag = true;
 		}
@@ -42,7 +42,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 	public function loadPcat()
 	{
 		if ($this->_mPcatLoadedFlag == false) {
-			$handler =Legacy_Utils::getModuleHandler('cat', $this->getDirname());
+			$handler =Xcore_Utils::getModuleHandler('cat', $this->getDirname());
 			$this->mPcat =& $handler->get($this->get('p_id'));
 			$this->_mPcatLoadedFlag = true;
 		}
@@ -65,7 +65,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 	public function loadChildren($module=null)
 	{
 		if ($this->_mChildrenLoadedFlag == false) {
-			$handler = Legacy_Utils::getModuleHandler('cat', $this->getDirname());
+			$handler = Xcore_Utils::getModuleHandler('cat', $this->getDirname());
 			$criteria = new CriteriaCompo();
 			$criteria->add(new Criteria('p_id', $this->get('cat_id')));
 			$criteria->setSort('weight', 'ASC');
@@ -88,7 +88,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 	{
 		//set this category's parent cat_id
 		if($this->_mCatPathLoadedFlag==false){
-			$handler = Legacy_Utils::getModuleHandler('cat', $this->getDirname());
+			$handler = Xcore_Utils::getModuleHandler('cat', $this->getDirname());
 			$this->mCatPath['cat_id'] = array();
 			$this->mCatPath['title'] = array();
 			$this->mCatPath['modules'] = array();
@@ -122,7 +122,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
     **/
 	protected function _getPermit($groupid=0)
 	{
-		$handler = Legacy_Utils::getModuleHandler('permit', $this->getDirname());
+		$handler = Xcore_Utils::getModuleHandler('permit', $this->getDirname());
 		$criteria=new CriteriaCompo();
 		$criteria->add(new Criteria('cat_id', $this->get('cat_id')));
 		if(intval($groupid)>0){
@@ -151,7 +151,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 			if(! $permitArr=$this->_getInheritPermission($this->getDirname(), $this->mCatPath['cat_id'], $groupId)){
 				$permissions = $this->getDefaultPermission();
 				if(intval($groupId)>0){
-					$permitArr[0] = Legacy_Utils::getModuleHandler('permit', $this->getDirname())->create();
+					$permitArr[0] = Xcore_Utils::getModuleHandler('permit', $this->getDirname())->create();
 					$permitArr[0]->set('cat_id', $this->get('cat_id'));
 					$permitArr[0]->set('permissions', serialize($permissions));
 					$permitArr[0]->set('groupid', $groupId);
@@ -160,7 +160,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 					$groupHandler =& xoops_gethandler('member');
 					$group =& $groupHandler->getGroups();
 					foreach(array_keys($group) as $keyM){
-						$permitArr[$keyM] = Legacy_Utils::getModuleHandler('permit', $this->getDirname())->create();
+						$permitArr[$keyM] = Xcore_Utils::getModuleHandler('permit', $this->getDirname())->create();
 						$permitArr[$keyM]->set('cat_id', $this->get('cat_id'));
 						$permitArr[$keyM]->set('permissions', serialize($permissions));
 						$permitArr[$keyM]->set('groupid', $group[$keyM]->get('groupid'));
@@ -184,7 +184,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 	**/
 	protected function _getInheritPermission(/*** string ***/ $dirname, /*** int[] ***/$catPath, /*** int ***/ $groupId=0)
 	{
-		$handler = Legacy_Utils::getModuleHandler('permit', $dirname);
+		$handler = Xcore_Utils::getModuleHandler('permit', $dirname);
 		//check if the category has permission in order
 		foreach(array_keys($catPath) as $key){
 			$criteria = new CriteriaCompo();
@@ -309,7 +309,7 @@ class Lecat_CatObject extends Legacy_AbstractCategoryObject
 	**/
 	public function getClientData(/*** mixed[] ***/ $client, /*** mixed ***/ $list)
 	{
-		XCube_DelegateUtils::call('Legacy_CategoryClient.'.$client['dirname'].'.GetClientData', new XCube_Ref($list), $client['dirname'], $client['dataname'], $client['fieldname'], $this->get('cat_id'));
+		XCube_DelegateUtils::call('Xcore_CategoryClient.'.$client['dirname'].'.GetClientData', new XCube_Ref($list), $client['dirname'], $client['dataname'], $client['fieldname'], $this->get('cat_id'));
 		return $list;
 	}
 
@@ -417,7 +417,7 @@ class Lecat_CatHandler extends XoopsObjectGenericHandler
 	**/
 	public function delete(&$obj)
 	{
-		$handler = Legacy_Utils::getModuleHandler('permit', $this->getDirname());
+		$handler = Xcore_Utils::getModuleHandler('permit', $this->getDirname());
 		$handler->deleteAll(new Criteria('cat_id', $obj->get('cat_id')));
 		unset($handler);
 	

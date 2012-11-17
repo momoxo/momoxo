@@ -14,18 +14,18 @@ class User_PrimaryFilter extends XCube_ActionFilter
 		$this->mController->mSetupUser->add("User_Utils::setupUser");
 		$this->mController->_mNotifyRedirectToUser->add("User_Utils::convertUrlToUser");
 
-		$file = XOOPS_ROOT_PATH . "/modules/user/kernel/LegacypageFunctions.class.php";
+		$file = XOOPS_ROOT_PATH . "/modules/user/kernel/XcorepageFunctions.class.php";
 		
-		$root->mDelegateManager->add("Legacypage.Userinfo.Access", "User_LegacypageFunctions::userinfo", $file);
-		$root->mDelegateManager->add("Legacypage.Edituser.Access", "User_LegacypageFunctions::edituser", $file);
-		$root->mDelegateManager->add("Legacypage.Register.Access", "User_LegacypageFunctions::register", $file);
-		$root->mDelegateManager->add("Legacypage.User.Access", "User_LegacypageFunctions::user", $file);
-		$root->mDelegateManager->add("Legacypage.Lostpass.Access", "User_LegacypageFunctions::lostpass", $file);
-		$root->mDelegateManager->add("Site.CheckLogin", "User_LegacypageFunctions::checkLogin", $file);
-		$root->mDelegateManager->add("Site.CheckLogin.Success", "User_LegacypageFunctions::checkLoginSuccess", $file);
-		$root->mDelegateManager->add("Site.Logout", "User_LegacypageFunctions::logout", $file);
+		$root->mDelegateManager->add("Xcorepage.Userinfo.Access", "User_XcorepageFunctions::userinfo", $file);
+		$root->mDelegateManager->add("Xcorepage.Edituser.Access", "User_XcorepageFunctions::edituser", $file);
+		$root->mDelegateManager->add("Xcorepage.Register.Access", "User_XcorepageFunctions::register", $file);
+		$root->mDelegateManager->add("Xcorepage.User.Access", "User_XcorepageFunctions::user", $file);
+		$root->mDelegateManager->add("Xcorepage.Lostpass.Access", "User_XcorepageFunctions::lostpass", $file);
+		$root->mDelegateManager->add("Site.CheckLogin", "User_XcorepageFunctions::checkLogin", $file);
+		$root->mDelegateManager->add("Site.CheckLogin.Success", "User_XcorepageFunctions::checkLoginSuccess", $file);
+		$root->mDelegateManager->add("Site.Logout", "User_XcorepageFunctions::logout", $file);
 		
-		$root->mDelegateManager->add("Legacypage.Misc.Access", "User_LegacypageFunctions::misc", XCUBE_DELEGATE_PRIORITY_NORMAL - 5, $file);
+		$root->mDelegateManager->add("Xcorepage.Misc.Access", "User_XcorepageFunctions::misc", XCUBE_DELEGATE_PRIORITY_NORMAL - 5, $file);
 	}
 }
 
@@ -62,16 +62,16 @@ class User_Utils
 					$roles[] = "Site.Owner";
 				}
 				
-				$identity =new Legacy_Identity($context->mXoopsUser);
-				$principal = new Legacy_GenericPrincipal($identity, $roles);
+				$identity =new Xcore_Identity($context->mXoopsUser);
+				$principal = new Xcore_GenericPrincipal($identity, $roles);
 				return;
 			} else {
 				$context->mXoopsUser = null;
 				$_SESSION = array();
 			}
 		}
-		$identity =new Legacy_AnonymousIdentity();
-		$principal = new Legacy_GenericPrincipal($identity, array("Site.GuestUser"));
+		$identity =new Xcore_AnonymousIdentity();
+		$principal = new Xcore_GenericPrincipal($identity, array("Site.GuestUser"));
 	}
 	
 	function convertUrlToUser(&$url)

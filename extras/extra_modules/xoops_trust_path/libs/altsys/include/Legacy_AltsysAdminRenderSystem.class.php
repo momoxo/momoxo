@@ -1,10 +1,10 @@
 <?php
 
-require_once XOOPS_ROOT_PATH.'/modules/legacyRender/kernel/Legacy_AdminRenderSystem.class.php' ;
+require_once XOOPS_ROOT_PATH.'/modules/xcoreRender/kernel/Xcore_AdminRenderSystem.class.php' ;
 require_once XOOPS_TRUST_PATH.'/libs/altsys/include/altsys_functions.php' ;
 require_once XOOPS_TRUST_PATH.'/libs/altsys/include/admin_in_theme_functions.php' ;
 
-class Legacy_AltsysAdminRenderSystem extends Legacy_AdminRenderSystem
+class Xcore_AltsysAdminRenderSystem extends Xcore_AdminRenderSystem
 {
 	function renderTheme(&$target)
 	{

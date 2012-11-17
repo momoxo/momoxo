@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: LegacySearchService.class.php,v 1.4 2008/09/25 15:12:43 kilica Exp $
+ * @package Xcore
+ * @version $Id: XcoreSearchService.class.php,v 1.4 2008/09/25 15:12:43 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Legacy_SearchModule extends XCube_Object
+class Xcore_SearchModule extends XCube_Object
 {
     function getPropertyDefinition()
     {
@@ -23,16 +23,16 @@ class Legacy_SearchModule extends XCube_Object
     }
 }
 
-class Legacy_SearchModuleArray extends XCube_ObjectArray
+class Xcore_SearchModuleArray extends XCube_ObjectArray
 {
     function getClassName()
     {
-        return "Legacy_SearchModule";
+        return "Xcore_SearchModule";
     }
 }
 
 
-class Legacy_SearchItem extends XCube_Object
+class Xcore_SearchItem extends XCube_Object
 {
     function getPropertyDefinition()
     {
@@ -48,15 +48,15 @@ class Legacy_SearchItem extends XCube_Object
     }
 }
 
-class Legacy_SearchItemArray extends XCube_ObjectArray
+class Xcore_SearchItemArray extends XCube_ObjectArray
 {
     function getClassName()
     {
-        return "Legacy_SearchItem";
+        return "Xcore_SearchItem";
     }
 }
 
-class Legacy_SearchModuleResult extends XCube_Object
+class Xcore_SearchModuleResult extends XCube_Object
 {
     function getPropertyDefinition()
     {
@@ -64,7 +64,7 @@ class Legacy_SearchModuleResult extends XCube_Object
             S_PUBLIC_VAR("int mid"),
             S_PUBLIC_VAR("string name"),
             S_PUBLIC_VAR("int has_more"),
-            S_PUBLIC_VAR("Legacy_SearchItemArray results"),
+            S_PUBLIC_VAR("Xcore_SearchItemArray results"),
             S_PUBLIC_VAR("string showall_link")
         );
         
@@ -72,15 +72,15 @@ class Legacy_SearchModuleResult extends XCube_Object
     }
 }
 
-class Legacy_SearchModuleResultArray extends XCube_ObjectArray
+class Xcore_SearchModuleResultArray extends XCube_ObjectArray
 {
     function getClassName()
     {
-        return "Legacy_SearchModuleResult";
+        return "Xcore_SearchModuleResult";
     }
 }
 
-class Legacy_ArrayOfInt extends XCube_ObjectArray
+class Xcore_ArrayOfInt extends XCube_ObjectArray
 {
     function getClassName()
     {
@@ -88,7 +88,7 @@ class Legacy_ArrayOfInt extends XCube_ObjectArray
     }
 }
 
-class Legacy_ArrayOfString extends XCube_ObjectArray
+class Xcore_ArrayOfString extends XCube_ObjectArray
 {
     function getClassName()
     {
@@ -99,26 +99,26 @@ class Legacy_ArrayOfString extends XCube_ObjectArray
 /**
  * Sample class
  */
-class Legacy_SearchService extends XCube_Service
+class Xcore_SearchService extends XCube_Service
 {
-    var $mServiceName = "Legacy_SearchService";
-    var $mNameSpace = "Legacy";
-    var $mClassName = "Legacy_SearchService";
+    var $mServiceName = "Xcore_SearchService";
+    var $mNameSpace = "Xcore";
+    var $mClassName = "Xcore_SearchService";
     
     function prepare()
     {
-        $this->addType('Legacy_SearchModule');
-        $this->addType('Legacy_SearchModuleArray');
-        $this->addType('Legacy_SearchItem');
-        $this->addType('Legacy_SearchItemArray');
-        $this->addType('Legacy_SearchModuleResult');
-        $this->addType('Legacy_SearchModuleResultArray');
-        $this->addType('Legacy_ArrayOfInt');
-        $this->addType('Legacy_ArrayOfString');
+        $this->addType('Xcore_SearchModule');
+        $this->addType('Xcore_SearchModuleArray');
+        $this->addType('Xcore_SearchItem');
+        $this->addType('Xcore_SearchItemArray');
+        $this->addType('Xcore_SearchModuleResult');
+        $this->addType('Xcore_SearchModuleResultArray');
+        $this->addType('Xcore_ArrayOfInt');
+        $this->addType('Xcore_ArrayOfString');
     
-        $this->addFunction(S_PUBLIC_FUNC('Legacy_SearchItemArray searchItems(int mid, Legacy_ArrayOfString queries, string andor, int maxhit, int start)'));
-        $this->addFunction(S_PUBLIC_FUNC('Legacy_SearchItemArray searchItemsOfUser(int mid, int uid, int maxhit, int start)'));
-        $this->addFunction(S_PUBLIC_FUNC('Legacy_SearchModuleArray getActiveModules()'));
+        $this->addFunction(S_PUBLIC_FUNC('Xcore_SearchItemArray searchItems(int mid, Xcore_ArrayOfString queries, string andor, int maxhit, int start)'));
+        $this->addFunction(S_PUBLIC_FUNC('Xcore_SearchItemArray searchItemsOfUser(int mid, int uid, int maxhit, int start)'));
+        $this->addFunction(S_PUBLIC_FUNC('Xcore_SearchModuleArray getActiveModules()'));
     }
     
     function getActiveModules()
@@ -145,7 +145,7 @@ class Legacy_SearchService extends XCube_Service
 		$result = $db->query($sql);
 
         $handler =& xoops_gethandler('groupperm');
-        $groupArr = Legacy_SearchUtils::getUserGroups();
+        $groupArr = Xcore_SearchUtils::getUserGroups();
 
         $ret = array();
         while (list($mid, $name) = $db->fetchRow($result)) {
@@ -212,8 +212,8 @@ class Legacy_SearchService extends XCube_Service
             return $ret;
         }
 
-        $module =& Legacy_Utils::createModule($xoopsModule, false);
-        $results = $module->doLegacyGlobalSearch($queries, $andor, $max_hit, $start, $uid);
+        $module =& Xcore_Utils::createModule($xoopsModule, false);
+        $results = $module->doXcoreGlobalSearch($queries, $andor, $max_hit, $start, $uid);
                 
         if (is_array($results) && count($results) > 0) {
             foreach (array_keys($results) as $key) {
@@ -230,7 +230,7 @@ class Legacy_SearchService extends XCube_Service
     }
 }
 
-class Legacy_SearchUtils
+class Xcore_SearchUtils
 {
     function getUserGroups()
     {

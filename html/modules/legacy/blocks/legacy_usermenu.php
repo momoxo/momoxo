@@ -2,7 +2,7 @@
 /**
  *
  * @package XOOPS2
- * @version $Id: legacy_usermenu.php,v 1.3 2008/09/25 15:12:13 kilica Exp $
+ * @version $Id: xcore_usermenu.php,v 1.3 2008/09/25 15:12:13 kilica Exp $
  * @copyright Copyright (c) 2000 XOOPS.org  <http://www.xoops.org/>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -29,7 +29,7 @@
   *  $block.inbox_url ... Return url to access inbox of pm.
   *  $block.new_messages ... amount of unread messages.
   */
-function b_legacy_usermenu_show()
+function b_xcore_usermenu_show()
 {
     $root =& XCube_Root::getSingleton();
     $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleUninstaller.class.php,v 1.6 2008/09/25 15:12:41 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,15 +10,15 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 
-class Legacy_ModuleUninstaller
+class Xcore_ModuleUninstaller
 {
 	/**
 	 * This instance is prepared automatically in the constructor.
 	 * 
 	 * @public
-	 * @var Legacy_ModuleInstallLog
+	 * @var Xcore_ModuleInstallLog
 	 */
 	var $mLog = null;
 	
@@ -41,11 +41,11 @@ class Legacy_ModuleUninstaller
 	 */
 	var $m_fireNotifyUninstallTemplateBegun;
 	
-	function Legacy_ModuleUninstaller()
+	function Xcore_ModuleUninstaller()
 	{
-		$this->mLog =new Legacy_ModuleInstallLog();
+		$this->mLog =new Xcore_ModuleInstallLog();
 		$this->m_fireNotifyUninstallTemplateBegun =new XCube_Delegate();
-		$this->m_fireNotifyUninstallTemplateBegun->register("Legacy_ModuleUninstaller._fireNotifyUninstallTemplateBegun");
+		$this->m_fireNotifyUninstallTemplateBegun->register("Xcore_ModuleUninstaller._fireNotifyUninstallTemplateBegun");
 	}
 	
 	/**
@@ -78,10 +78,10 @@ class Legacy_ModuleUninstaller
 	{
 		$moduleHandler =& xoops_gethandler('module');
 		if (!$moduleHandler->delete($this->_mXoopsModule)) {
-			$this->mLog->addError(_AD_LEGACY_ERROR_DELETE_MODULEINFO_FROM_DB);
+			$this->mLog->addError(_AD_XCORE_ERROR_DELETE_MODULEINFO_FROM_DB);
 		}
 		else {
-			$this->mLog->addReport(_AD_LEGACY_MESSAGE_DELETE_MODULEINFO_FROM_DB);
+			$this->mLog->addReport(_AD_XCORE_MESSAGE_DELETE_MODULEINFO_FROM_DB);
 		}
 	}
 
@@ -116,10 +116,10 @@ class Legacy_ModuleUninstaller
 				$sql = "DROP TABLE " . $t_tableName;
 				
 				if ($db->query($sql)) {
-					$this->mLog->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_DROP_TABLE, $t_tableName));
+					$this->mLog->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_DROP_TABLE, $t_tableName));
 				}
 				else {
-					$this->mLog->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_DROP_TABLE, $t_tableName));
+					$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_DROP_TABLE, $t_tableName));
 				}
 			}
 		}
@@ -132,17 +132,17 @@ class Legacy_ModuleUninstaller
 	function _uninstallTemplates()
 	{
 		$this->m_fireNotifyUninstallTemplateBegun->call(new XCube_Ref($this->_mXoopsModule));
-		Legacy_ModuleInstallUtils::uninstallAllOfModuleTemplates($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::uninstallAllOfModuleTemplates($this->_mXoopsModule, $this->mLog);
 	}
 
 	/**
 	 * Delete all of module's blocks.
 	 * 
-	 * @note Templates Delete is move into Legacy_ModuleInstallUtils.
+	 * @note Templates Delete is move into Xcore_ModuleInstallUtils.
 	 */
 	function _uninstallBlocks()
 	{
-		Legacy_ModuleInstallUtils::uninstallAllOfBlocks($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::uninstallAllOfBlocks($this->_mXoopsModule, $this->mLog);
 
 		//
 		// Additional
@@ -150,15 +150,15 @@ class Legacy_ModuleUninstaller
 		$tplHandler =& xoops_gethandler('tplfile');
 		$criteria =new Criteria('tpl_module', $this->_mXoopsModule->get('dirname'));
 		if(!$tplHandler->deleteAll($criteria)) {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_DELETE_BLOCK_TEMPLATES, $tplHandler->db->error()));
+			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_DELETE_BLOCK_TEMPLATES, $tplHandler->db->error()));
 		}
 	}
 
 	function _uninstallPreferences()
 	{
-		Legacy_ModuleInstallUtils::uninstallAllOfConfigs($this->_mXoopsModule, $this->mLog);
-		Legacy_ModuleInstallUtils::deleteAllOfNotifications($this->_mXoopsModule, $this->mLog);
-		Legacy_ModuleInstallUtils::deleteAllOfComments($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::uninstallAllOfConfigs($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::deleteAllOfNotifications($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::deleteAllOfComments($this->_mXoopsModule, $this->mLog);
 	}
 
 	function _processScript()
@@ -169,13 +169,13 @@ class Legacy_ModuleUninstaller
 			$funcName = 'xoops_module_uninstall_' . $this->_mXoopsModule->get('dirname');
 			
 			if (!preg_match("/^[a-zA-Z_][a-zA-Z0-9_]*$/", $funcName)) {
-				$this->mLog->addError(XCUbe_Utils::formatMessage(_AD_LEGACY_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
+				$this->mLog->addError(XCUbe_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
 				return;
 			}
 			
 			if (function_exists($funcName)) {
 				if (!call_user_func($funcName, $this->_mXoopsModule, new XCube_Ref($this->mLog))) {
-					$this->mLog->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
+					$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
 				}
 			}
 		}
@@ -184,10 +184,10 @@ class Legacy_ModuleUninstaller
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_UNINSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
+			$this->mLog->add(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_UNINSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
+			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_UNINSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
 		}
 	}
 

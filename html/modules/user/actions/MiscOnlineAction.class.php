@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Legacy
+ * @package Xcore
  * @version $Id: MiscOnlineAction.class.php,v 1.1 2007/05/15 02:34:31 minahito Exp $
  */
 

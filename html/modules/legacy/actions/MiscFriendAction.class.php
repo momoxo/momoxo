@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: MiscFriendAction.class.php,v 1.4 2008/09/25 15:12:07 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/forms/MiscFriendForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/MiscFriendForm.class.php";
 
-class Legacy_MiscFriendAction extends Legacy_Action
+class Xcore_MiscFriendAction extends Xcore_Action
 {
 	var $mActionForm = null;
 	var $mMailer = null;
@@ -25,14 +25,14 @@ class Legacy_MiscFriendAction extends Legacy_Action
 
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_MiscFriendForm();
+		$this->mActionForm =new Xcore_MiscFriendForm();
 		$this->mActionForm->prepare();
 	}
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		$this->mActionForm->load($xoopsUser);
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 	
 	function execute(&$controller, &$xoopsUser)
@@ -41,7 +41,7 @@ class Legacy_MiscFriendAction extends Legacy_Action
 		$this->mActionForm->validate();
 		
 		if ($this->mActionForm->hasError()) {
-			return LEGACY_FRAME_VIEW_INPUT;
+			return XCORE_FRAME_VIEW_INPUT;
 		}
 		
 		$root =& XCube_Root::getSingleton();
@@ -58,23 +58,23 @@ class Legacy_MiscFriendAction extends Legacy_Action
 		
 		$this->mMailer->setSubject(sprintf(_MSC_INTSITE, $root->mContext->getXoopsConfig('sitename')));
 		
-		return $this->mMailer->send() ? LEGACY_FRAME_VIEW_SUCCESS : LEGACY_FRAME_VIEW_ERROR;
+		return $this->mMailer->send() ? XCORE_FRAME_VIEW_SUCCESS : XCORE_FRAME_VIEW_ERROR;
 	}
 	
 	function executeViewInput(&$controller, &$xoopsUser, &$render)
 	{
-		$render->setTemplateName("legacy_misc_friend.html");
+		$render->setTemplateName("xcore_misc_friend.html");
 		$render->setAttribute('actionForm', $this->mActionForm);
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
 	{
-		$render->setTemplateName("legacy_misc_friend_success.html");
+		$render->setTemplateName("xcore_misc_friend_success.html");
 	}
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$render->setTemplateName("legacy_misc_friend_error.html");
+		$render->setTemplateName("xcore_misc_friend_error.html");
 		$render->setAttribute('xoopsMailer', $this->mMailer);
 	}
 }

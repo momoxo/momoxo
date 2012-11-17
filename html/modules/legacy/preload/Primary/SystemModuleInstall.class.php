@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: SystemModuleInstall.class.php,v 1.5 2008/09/25 15:12:38 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -13,12 +13,12 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 /**
  * The action filter for the site close procedure.
  */
-class Legacy_SystemModuleInstall extends XCube_ActionFilter
+class Xcore_SystemModuleInstall extends XCube_ActionFilter
 {
 	function preBlockFilter()
 	{
-		if (is_array(Legacy_Utils::checkSystemModules())) {
-			$this->mController->mSetupUser->add("Legacy_SystemModuleInstall::callbackSetupUser", XCUBE_DELEGATE_PRIORITY_FINAL-1);
+		if (is_array(Xcore_Utils::checkSystemModules())) {
+			$this->mController->mSetupUser->add("Xcore_SystemModuleInstall::callbackSetupUser", XCUBE_DELEGATE_PRIORITY_FINAL-1);
 			$this->mRoot->mDelegateManager->add("Site.CheckLogin.Success", array(&$this, "callbackCheckLoginSuccess"));
 		}
 	}
@@ -31,7 +31,7 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 	 */
 	function callbackSetupUser(&$principal, &$controller, &$context)
 	{
-		$retArray = Legacy_Utils::checkSystemModules();
+		$retArray = Xcore_Utils::checkSystemModules();
 		$accessAllowFlag = false;
 		$xoopsConfig = $controller->mRoot->mContext->getXoopsConfig();
 		
@@ -49,20 +49,20 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 		if ($accessAllowFlag) {
 			$GLOBALS['xoopsUser'] = $context->mXoopsUser;
 			if (!empty($_POST['cube_module_install'])) { //@todo use Ticket
-				require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstaller.class.php";
-				require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
+				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstaller.class.php";
+				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 				if (isset($_POST['uninstalled_modules']) && is_array($_POST['uninstalled_modules'])){
 					foreach ($_POST['uninstalled_modules'] as $module) {
 						$module = basename($module);
 						if (in_array($module, $retArray['uninstalled'])) {
-							$controller->mRoot->mLanguageManager->loadModuleAdminMessageCatalog('legacy');
+							$controller->mRoot->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 							
 							$handler =& xoops_gethandler('module');
 							$xoopsModule =& $handler->create();
 							$xoopsModule->set('weight', 1);
 							$xoopsModule->loadInfoAsVar($module);
 							
-							$installer =& Legacy_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
+							$installer =& Xcore_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
 							$installer->setForceMode(true);
 							$installer->setCurrentXoopsModule($xoopsModule);
 							$installer->executeInstall();
@@ -85,7 +85,7 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 					}
 				}
 				if (isset($_POST['option_modules']) && is_array($_POST['option_modules']) ){
-					$handler =& xoops_getmodulehandler('non_installation_module', 'legacy');
+					$handler =& xoops_getmodulehandler('non_installation_module', 'xcore');
 					$objects = $handler->getObjects();
 					$optionModules = array();
 					foreach ($objects as $module) {
@@ -96,14 +96,14 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 					foreach ($_POST['option_modules'] as $module) {
 						$module = basename($module);
 						if (in_array($module, $optionModules)) {
-							$controller->mRoot->mLanguageManager->loadModuleAdminMessageCatalog('legacy');
+							$controller->mRoot->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 							
 							$handler =& xoops_gethandler('module');
 							$xoopsModule =& $handler->create();
 							$xoopsModule->set('weight', 1);
 							$xoopsModule->loadInfoAsVar($module);
 							
-							$installer =& Legacy_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
+							$installer =& Xcore_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
 							$installer->setForceMode(true);
 							$installer->setCurrentXoopsModule($xoopsModule);
 							$installer->executeInstall();
@@ -123,20 +123,20 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 							   ));
 				///< @todo filebase template with absolute file path
 				$xoopsTpl->compile_check = true;
-				$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/legacy/templates/legacy_uninstall_modules.html');
+				$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_uninstall_modules.html');
 				exit();
 			}
 			elseif (!empty($_POST['cube_module_uninstallok'])) { //@todo use Ticket
-				require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleUninstaller.class.php";
-				require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
+				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleUninstaller.class.php";
+				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 				$module = basename($_POST['cube_module_uninstallok']);
 				if (in_array($module, $retArray['disabled'])) {
-					$controller->mRoot->mLanguageManager->loadModuleAdminMessageCatalog('legacy');
+					$controller->mRoot->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 							
 					$handler =& xoops_gethandler('module');
 					$xoopsModule =& $handler->getByDirname($module);
 					
-					$uninstaller =& Legacy_ModuleInstallUtils::createUninstaller($xoopsModule->get('dirname'));
+					$uninstaller =& Xcore_ModuleInstallUtils::createUninstaller($xoopsModule->get('dirname'));
 					$uninstaller->setForceMode(true);
 					$uninstaller->setCurrentXoopsModule($xoopsModule);
 					$uninstaller->executeUninstall();
@@ -144,7 +144,7 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 				$controller->executeRedirect(XOOPS_URL . '/',1);
 			}
 			else {
-				$handler =& xoops_getmodulehandler('non_installation_module','legacy');
+				$handler =& xoops_getmodulehandler('non_installation_module','xcore');
 				$objects = $handler->getObjectsFor2ndInstaller();
 				$optionModules = array();
 				foreach ($objects as $module) {
@@ -176,7 +176,7 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 							   ));
 				///< @todo filebase template with absolute file path
 				$xoopsTpl->compile_check = true;
-				$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/legacy/templates/legacy_install_modules.html');
+				$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_install_modules.html');
 				exit();
 			}
 		}
@@ -196,7 +196,7 @@ class Legacy_SystemModuleInstall extends XCube_ActionFilter
 			$xoopsTpl->compile_check = true;
 			
 			// @todo filebase template with absolute file path
-			$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/legacy/templates/legacy_site_closed.html');
+			$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_site_closed.html');
 			exit();
 		}
 	}

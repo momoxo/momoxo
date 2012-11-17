@@ -2,10 +2,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ImageUploadForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ImageUploadForm.class.php";
 
-class Legacy_ImageUploadAction extends Legacy_Action
+class Xcore_ImageUploadAction extends Xcore_Action
 {
 	var $mActionForm = null;
 	var $mCategory = null;
@@ -14,13 +14,13 @@ class Legacy_ImageUploadAction extends Legacy_Action
 	
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_ImageUploadForm();
+		$this->mActionForm =new Xcore_ImageUploadForm();
 		$this->mActionForm->prepare();
 	}
 	
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 	
 	function _addErrorMessage($msg)
@@ -32,7 +32,7 @@ class Legacy_ImageUploadAction extends Legacy_Action
 	{
 		$form_cancel = $controller->mRoot->mContext->mRequest->getRequest('_form_control_cancel');
 		if ($form_cancel != null) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		$this->mActionForm->fetch();
@@ -51,16 +51,16 @@ class Legacy_ImageUploadAction extends Legacy_Action
 
 		if ( strtolower($formFileExt) == "zip" ) {
 		If ( !file_exists(XOOPS_ROOT_PATH . "/class/Archive_Zip.php") ) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		require_once XOOPS_ROOT_PATH . "/class/Archive_Zip.php" ;
 		$zip = new Archive_Zip($formFile->_mTmpFileName) ;
 		$files = $zip->extract( array( 'extract_as_string' => true ) ) ;
 		if( ! is_array( @$files ) ) {
-		return LEGACY_FRAME_VIEW_ERROR;
+		return XCORE_FRAME_VIEW_ERROR;
 		}
 		if (!$this->_fetchZipTargetImages($files, $targetimages)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}		
 		}//if zip end
 		else { 
@@ -68,17 +68,17 @@ class Legacy_ImageUploadAction extends Legacy_Action
 		$tar =new tar();
 		$tar->openTar($formFile->_mTmpFileName);
 		if (!is_array( @$tar->files)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		if (!$this->_fetchTarTargetImages($tar->files, $targetimages)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}		
 		}//end tar
 						
 		if (!$this->_saveTargetImages($targetimages, $t_imgcat_id)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 
 	}
 	
@@ -118,7 +118,7 @@ class Legacy_ImageUploadAction extends Legacy_Action
 			return true;
 		}
 		
-		$imgcathandler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$imgcathandler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$t_category = & $imgcathandler->get($t_imgcat_id);
 		$t_category_type = $t_category->get('imgcat_storetype');
 		$imagehandler =& xoops_getmodulehandler('image');
@@ -133,11 +133,11 @@ class Legacy_ImageUploadAction extends Legacy_Action
 				$save_file_name = uniqid( 'img' ) . '.' . $ext ;
 				$filehandle = fopen( XOOPS_UPLOAD_PATH.'/'.$save_file_name , "w" ) ;
 				if( ! $filehandle ) {
-				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 				continue ;
 				}
 				if ( !@fwrite($filehandle, $targetimages[$i]['content']) ) {
-				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 				@fclose( $filehandle ) ;
 				continue;				
 				};
@@ -151,7 +151,7 @@ class Legacy_ImageUploadAction extends Legacy_Action
 				$image->set('imgcat_id', $t_imgcat_id);
 
 				if (!$imagehandler->insert($image)) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 				}
 				unset($image);
 		} //end of for
@@ -178,7 +178,7 @@ class Legacy_ImageUploadAction extends Legacy_Action
 				$image->mImageBody->set('image_body', $targetimages[$i]['content']);
 
 				if (!$imagehandler->insert($image)) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 				}
 				unset($image);
 		} //end of for
@@ -191,7 +191,7 @@ class Legacy_ImageUploadAction extends Legacy_Action
 		$render->setTemplateName("image_upload.html");
 		$render->setAttribute('actionForm', $this->mActionForm);
 		//image category
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$cat_id = $controller->mRoot->mContext->mRequest->getRequest('imgcat_id');
 		if (isset($cat_id)) {
 		$this->mCategory =& $handler->get($cat_id);
@@ -209,7 +209,7 @@ class Legacy_ImageUploadAction extends Legacy_Action
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
 		if (count($this->mErrorMessages) == 0) {
-			$controller->executeRedirect("./index.php?action=ImageList&imgcat_id=".$this->mActionForm->get('imgcat_id'), 1, _AD_LEGACY_ERROR_DBUPDATE_FAILED);
+			$controller->executeRedirect("./index.php?action=ImageList&imgcat_id=".$this->mActionForm->get('imgcat_id'), 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 		}
 		else {
 			$render->setTemplateName("image_upload_error.html");

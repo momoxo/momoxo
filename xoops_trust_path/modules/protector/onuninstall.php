@@ -12,9 +12,9 @@ function protector_onuninstall_base( $module , $mydirname )
 	global $ret ; // TODO :-D
 
 	// for Cube 2.1
-	if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
+	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
 		$root =& XCube_Root::getSingleton();
-		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleUninstall.' . ucfirst($mydirname) . '.Success' , 'protector_message_append_onuninstall' ) ;
+		$root->mDelegateManager->add( 'Xcore.Admin.Event.ModuleUninstall.' . ucfirst($mydirname) . '.Success' , 'protector_message_append_onuninstall' ) ;
 		$ret = array() ;
 	} else {
 		if( ! is_array( $ret ) ) $ret = array() ;

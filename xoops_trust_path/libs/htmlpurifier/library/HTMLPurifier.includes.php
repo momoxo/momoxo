@@ -149,7 +149,7 @@ require 'HTMLPurifier/HTMLModule/Edit.php';
 require 'HTMLPurifier/HTMLModule/Forms.php';
 require 'HTMLPurifier/HTMLModule/Hypertext.php';
 require 'HTMLPurifier/HTMLModule/Image.php';
-require 'HTMLPurifier/HTMLModule/Legacy.php';
+require 'HTMLPurifier/HTMLModule/Xcore.php';
 require 'HTMLPurifier/HTMLModule/List.php';
 require 'HTMLPurifier/HTMLModule/Name.php';
 require 'HTMLPurifier/HTMLModule/Nofollow.php';

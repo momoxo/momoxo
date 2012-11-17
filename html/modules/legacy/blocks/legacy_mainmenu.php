@@ -2,7 +2,7 @@
 /**
  *
  * @package XOOPS2
- * @version $Id: legacy_mainmenu.php,v 1.3 2008/09/25 15:12:12 kilica Exp $
+ * @version $Id: xcore_mainmenu.php,v 1.3 2008/09/25 15:12:12 kilica Exp $
  * @copyright Copyright (c) 2000 XOOPS.org  <http://www.xoops.org/>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -19,7 +19,7 @@
 //  This file has been modified for KARIMOJI_LEGALEGAfrom XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
-function b_legacy_mainmenu_show( $options ) {
+function b_xcore_mainmenu_show( $options ) {
     $root =& XCube_Root::getSingleton();
     $xoopsModule =& $root->mContext->mXoopsModule;
     $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
@@ -58,14 +58,14 @@ function b_legacy_mainmenu_show( $options ) {
     return $block;
 }
 
-function b_legacy_mainmenu_edit( $options ) {
+function b_xcore_mainmenu_edit( $options ) {
     $off='checked="checked"';
     $on='';
     if ($options[0]) {
 	$on = $off;
 	$off = '';
     }
-    return "<div>"._MB_LEGACY_MAINMENU_EXPAND_SUB.
+    return "<div>"._MB_XCORE_MAINMENU_EXPAND_SUB.
 	"<input type=\"radio\" name=\"options[0]\" value=\"0\" $off>"._NO.
 	" &nbsp; <input type=\"radio\" name=\"options[0]\" value=\"1\" $on>"._YES."</div>";
 }

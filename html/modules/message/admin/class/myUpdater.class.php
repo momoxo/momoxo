@@ -5,13 +5,13 @@
  */
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH.'/modules/legacy/admin/class/ModuleUpdater.class.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcore/admin/class/ModuleUpdater.class.php';
 
-class Message_myUpdater extends Legacy_ModulePhasedUpgrader
+class Message_myUpdater extends Xcore_ModulePhasedUpgrader
 {
   function Message_myUpdater()
   {
-    parent::Legacy_ModulePhasedUpgrader();
+    parent::Xcore_ModulePhasedUpgrader();
     $this->_mMilestone = array(
       '041' => 'update041',
       '060' => 'update060',
@@ -21,8 +21,8 @@ class Message_myUpdater extends Legacy_ModulePhasedUpgrader
   
   function updatemain()
   {
-    Legacy_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetXoopsModule, $this->mLog);
-    Legacy_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetXoopsModule, $this->mLog);
+    Xcore_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetXoopsModule, $this->mLog);
+    Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetXoopsModule, $this->mLog);
     
     $this->saveXoopsModule($this->_mTargetXoopsModule);
     $this->mLog->add('Version'.($this->_mTargetVersion / 100).' for update.');
@@ -31,7 +31,7 @@ class Message_myUpdater extends Legacy_ModulePhasedUpgrader
   
   function update070()
   {
-    $this->mLog->addReport(_AD_LEGACY_MESSAGE_UPDATE_STARTED);
+    $this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
     $root = XCube_Root::getSingleton();
     $db = $root->mController->getDB();
     
@@ -47,7 +47,7 @@ class Message_myUpdater extends Legacy_ModulePhasedUpgrader
   
   function update060()
   {
-    $this->mLog->addReport(_AD_LEGACY_MESSAGE_UPDATE_STARTED);
+    $this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
     $root = XCube_Root::getSingleton();
     $db = $root->mController->getDB();
     
@@ -65,19 +65,19 @@ class Message_myUpdater extends Legacy_ModulePhasedUpgrader
   
   function update041()
   {
-    $this->mLog->addReport(_AD_LEGACY_MESSAGE_UPDATE_STARTED);
+    $this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
     
     //Add Table
     $sqlfileInfo = $this->_mTargetXoopsModule->getInfo('sqlfile');
     $dirname = $this->_mTargetXoopsModule->getVar('dirname');
     $sqlfile = $sqlfileInfo[XOOPS_DB_TYPE];
     $sqlfilepath = XOOPS_MODULE_PATH.'/'.$dirname.'/'.$sqlfile;
-    require_once XOOPS_MODULE_PATH.'/legacy/admin/class/Legacy_SQLScanner.class.php';
-    $scanner = new Legacy_SQLScanner();
+    require_once XOOPS_MODULE_PATH.'/xcore/admin/class/Xcore_SQLScanner.class.php';
+    $scanner = new Xcore_SQLScanner();
     $scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
     $scanner->setDirname($this->_mTargetXoopsModule->get('dirname'));
     if (!$scanner->loadFile($sqlfilepath)) {
-      $this->mLog->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
+      $this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
       return false;
     }
   
@@ -94,7 +94,7 @@ class Message_myUpdater extends Legacy_ModulePhasedUpgrader
         }
       }
     }
-    $this->mLog->addReport(_AD_LEGACY_MESSAGE_DATABASE_SETUP_FINISHED);
+    $this->mLog->addReport(_AD_XCORE_MESSAGE_DATABASE_SETUP_FINISHED);
     //add table
     
     $this->updatemain();

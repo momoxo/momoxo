@@ -1,5 +1,5 @@
 ﻿
-KARIMOJI "Package_Legacy" & "XCube core" Changelog
+KARIMOJI "Package_Xcore" & "XCube core" Changelog
 
 ----------------------------------------
 2012/10/**: Package Revision 2.2.2 Beta1
@@ -15,8 +15,8 @@ https://github.com/momonga-project/momonga
 #30 NOT IN criteria render bug
 #29 module admin anchor error after module install.
 #26 fix xoops_gethandler() for internal class in cube_KARIMOJI_LEGALEGA2.2.1
-#25 legacy: load trust side language file
-#23 legacy: admin theme onload func switch to onready
+#25 xcore: load trust side language file
+#23 xcore: admin theme onload func switch to onready
 #22 Change xc_pack2011.png
 #21 Remove and rename install folder automatially.
 #20 Core pack
@@ -55,7 +55,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3365492 - when xoops2->XCL2 update teable layout not chage
 - Fix Bug #3531835 - Bug in ImageFilterForm.class.php
 - Fix Bug #3539162 - installer reload makes jump back to first page
-- Fix Bug #3540381 - Typo "$reverse" in Legacy_RenderSystem
+- Fix Bug #3540381 - Typo "$reverse" in Xcore_RenderSystem
 - Fix Bug #3545043 - Bad request handling at EventFunctions
 
 [Other Changes/Enhancements]
@@ -115,7 +115,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #3314175 - user module admin UserView error
 - Fix Bug #3317712 - class/module.errorhandler.php bug
 - Fix Bug #3357632 - category path list should contain terminal cat
-- Fix Bug #3362690 - smarty pluigin legacy_category_select missing array key
+- Fix Bug #3362690 - smarty pluigin xcore_category_select missing array key
 - Fix Bug #3366737 - Missing preload file SetupAltsysLangMgr.class.php
 - Fix Bug #3380517 - user module edit error
 - Fix Bug #3387719 - Users can not delete your own account
@@ -138,7 +138,7 @@ https://github.com/momonga-project/momonga
 - Feature Request #3408918 - when no_avatar.gif, 0width modifier.xoops_user_avatarize.php
 - Feature Request #3412833 - array request handling in PageNavi
 - Feature Request #3423505 - Add $xoops_module_header on dialog
-- Feature Request #3423584 - Not to select branch options in function.legacy_category_sel
+- Feature Request #3423584 - Not to select branch options in function.xcore_category_sel
 
 [Other Changes/Enhancements]
 - Update portuguese/pt_utf8 language files
@@ -254,7 +254,7 @@ https://github.com/momonga-project/momonga
 - Fix Bug #2993409 - PHP 5.3.x: fileManager using the deprecated eregi() function
 - Fix Bug #3101119 - I want you to move templates_c to xoops_trust_path
 - Fix Bug #3102808 - Avoid Smarty Debug infinite loop
-- Fix Bug #3104460 - modules/legacy/include/groupperm bug
+- Fix Bug #3104460 - modules/xcore/include/groupperm bug
 - Fix Bug #3104945 - nusoap: class nusoap_base not found errors & path disclosure
 
 [Staff]
@@ -273,8 +273,8 @@ https://github.com/momonga-project/momonga
 - Fix Bug #2993409 - PHP 5.3.x: fileManager using the deprecated eregi() function
 - Fix Bug #3069151 - image file missing: install/img/bg_blockcontent.gif
 - Fix Bug #3101119 - I want you to move templates_c to xoops_trust_path
-- Fix Bug #3104460 - modules/legacy/include/groupperm bug
-- Fix Bug #3104539 - Broken links in /themes/legacy_default/layout.css
+- Fix Bug #3104460 - modules/xcore/include/groupperm bug
+- Fix Bug #3104539 - Broken links in /themes/xcore_default/layout.css
 - Fix Bug #3104945 - nusoap: class nusoap_base not found errors & path disclosure
 
 [Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
@@ -334,7 +334,7 @@ https://github.com/momonga-project/momonga
 [Bug Fix - From Bug Tracker]
 - Fix Bug #3049854 - Invalid link at message
 - Fix Bug #3015916 - missing index.html in templates_c and cache directory
-- Fix Bug #3012550 - missing legacyRender language definition japanese/ja_utf8
+- Fix Bug #3012550 - missing xcoreRender language definition japanese/ja_utf8
 - Fix Bug #3027196 - Lecat with undefined constant _MI_LECAT_KEYWORD_SETTING_EDIT
 
 [Feature Request - From Feature Requests KARIMOJI_LEGALEGATracker]
@@ -354,10 +354,10 @@ https://github.com/momonga-project/momonga
 2010/06/07: Package Revision 2.2.0 Alpha4
 ----------------------------------------
 [Bug Fix - From Bug Tracker]
-- Fix Bug #2837114 - legacy_block_usermenu.html with invalid references
+- Fix Bug #2837114 - xcore_block_usermenu.html with invalid references
 - Fix Bug #2973984 - fix admin page templates mistake
 - Fix Bug #2993383 - DeletePreload.class.php: class not found AND path disclosure
-- Fix Bug #3012550 - missing legacyRender language definition japanese/ja_utf8
+- Fix Bug #3012550 - missing xcoreRender language definition japanese/ja_utf8
 
 [Other Changes/Enhancements]
 - Update french, fr_utf8, pt_utf8, portuguese language files
@@ -411,7 +411,7 @@ https://github.com/momonga-project/momonga
 
 [Other Changes/Enhancements]
 - When installation start, check PHP5 environment.
-- Add purifyHtml() to Legacy_TextFilter
+- Add purifyHtml() to Xcore_TextFilter
 - Add purifyHtml() to XoopsSimpleObject
 
 [Staff]
@@ -450,9 +450,9 @@ https://github.com/momonga-project/momonga
 - Feature Request #2889797 - parse_ini_file() compliant for PHP5.3
 - Feature Request #1718527 - User Profile Extended
 - Feature Request #1721686 - Mailjob API of user module
-- Feature Request #1800087 - style in legacy/langauge/xxx/global.php
+- Feature Request #1800087 - style in xcore/langauge/xxx/global.php
 - Feature Request #1800104 - icon read.gif
-- Feature Request #1872731 - title for legacy_misc_smilies.html
+- Feature Request #1872731 - title for xcore_misc_smilies.html
 - Feature Request #1897507 - $_SERVER variables not defined on CLI
 - Feature Request #1915329 - Allow custom module install functin to reference $mlog
 - Feature Request #1943014 - set LanguageManager's LanguageName in $GLOBALS['xoopsConfig'
@@ -469,7 +469,7 @@ https://github.com/momonga-project/momonga
 - Feature Request #2162017 - Private Message
 - Feature Request #2161286 - Install, XOOPS TRUST PATH
 - Feature Request #2175825 - Javascript Library Handling
-- Feature Request #2682887 - Legacy_Controller::executeRedirect() dose not send header.
+- Feature Request #2682887 - Xcore_Controller::executeRedirect() dose not send header.
 - Feature Request #2746645 - Replace the Smarty files with links
 - Feature Request #2889797 - parse_ini_file() compliant for PHP5.3
 
@@ -477,7 +477,7 @@ https://github.com/momonga-project/momonga
 - Patches #1812761 - Block table checker
 
 [Other Changes/Enhancements]
-- Add Preload AdminLangPlus to catalog, legacy/{language}/admin.php
+- Add Preload AdminLangPlus to catalog, xcore/{language}/admin.php
 - Add Avatar Search filter and display per page
 - Add Block Search filter and display per page
 - Add Images Batch Upload
@@ -490,10 +490,10 @@ https://github.com/momonga-project/momonga
 - Add Module PM to 'extras' (compatible php4)
 - Add Filemanager (Admin side, under development)
 - Change getting script for Dhtmltarea by Delegate
-- Add legacy/class/interface for delegate: category, tag, progress
+- Add xcore/class/interface for delegate: category, tag, progress
 - Add Lecat(KARIMOJI_LEGALEGACategory) module.
 - Add `trust_dirname` to modules table
-- Add Legacy_Utils APIs
+- Add Xcore_Utils APIs
   - getUid()
   - getUserName()
   - getDirnameListByTrustDirname()
@@ -514,7 +514,7 @@ https://github.com/momonga-project/momonga
 - Replacable BB Code/HTML editor
 
 see also wiki page:
-http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOOPS_Cube_Legacy_2.2.0
+http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOOPS_Cube_Xcore_2.2.0
 
 [Staff]
 - GIJOE
@@ -569,9 +569,9 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 [Bug Fix - From Bug Tracker]
 - Fix Bug #2491813 - SmileEditAction include multi byte comment.
 - Fix Bug #2491817 - SmileEditAction cannnot delete old file.
-- Fix Bug #2591041 - Typo Legacy_PublicControllerStrategy.class.php.
+- Fix Bug #2591041 - Typo Xcore_PublicControllerStrategy.class.php.
 - Fix Bug #2642879 - javascript error in admin area.
-- Fix Bug #2642959 - SQL Error in Legacy_Updater.
+- Fix Bug #2642959 - SQL Error in Xcore_Updater.
 - Fix Bug #2658360 - doubtful escaping in quoteString()
 - Fix Bug #2666693 - Error in /XUpgrade/admin/class/UpgradeProcessor.class.php
 - Fix Bug #2686374 - Bugs in class.phpmailer.php v2.0.2 (Updated PHPmailer to v2.0.3)
@@ -593,15 +593,15 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Request #2642992 - exclude extra trim()
 - Request #2662922 - DB Layer can be overridden.
 - Request #2795674 - Update phpmailer from 2.0.3 to 2.0.4
-- Patch #2697022 - Package_Legacy\html\ - new portuguese translations
+- Patch #2697022 - Package_Xcore\html\ - new portuguese translations
 - Patch #2697034 - extra_languages\ - new pt_utf8 translations
 - patch #2697044 - missing: XUpgrade and system pt language files
 - Patch #2701060 - Path disclosure in xoopsmailerlocal.php (pt_utf8)
-- Patch #2701140 - legacyRender: update for Portuguese Files
+- Patch #2701140 - xcoreRender: update for Portuguese Files
 
 [Other Changes/Enhancements]
 - Request #2682887 - MySQL Database Connection should specify the client_flags
-- KARIMOJI_LEGALEGAController class provides LEGACY_MODULE_VERSION constant as phpversion.
+- KARIMOJI_LEGALEGAController class provides XCORE_MODULE_VERSION constant as phpversion.
 
 [Staff]
 - gigamaster
@@ -623,7 +623,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 ----------------------------------------
 [Bug Fix - From Bug Tracker]
 - Fix Bug #1833191 - lisense message of installer
-- Fix Bug #1865695 - XoopsToken Not in use. at legacy_comment_navi.html
+- Fix Bug #1865695 - XoopsToken Not in use. at xcore_comment_navi.html
 - Fix Bug #1978064 - users_group_link doesn't have unique key
 - Fix Bug #2014727 - Removed template variable code that is assigned many times.
 - Fix Bug #2015589 - genId typo in some handlers in kernel.
@@ -638,7 +638,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #2062535 - css.php doesn't work perfectly.
 - Fix Bug #2073613 - Problem of parse_url().
 - Fix Bug #2084802 - Users' posts should not be increased at the control panel
-- Fix Bug #2101729 - Typo comment in Legacy_ModulePhasedUpgrader
+- Fix Bug #2101729 - Typo comment in Xcore_ModulePhasedUpgrader
 - Fix Bug #2115390 - GPL V2 License Link is changed
 - Fix Bug #2115634 - $db->query() cannot handle only limit query.
 - Fix Bug #2121388 - Missing translation in japanese language file.
@@ -696,8 +696,8 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 -------------------------------------
 [Bug Fix - From Bug Tracker]
 - Fix Bug #1950018 - charset Problem in css.php
-- Fix Bug #1950017 - PathDisclo in legacyRender/admin/css.php
-- Fix Bug #1944713 - PATH Disclosure ? in Legacy_Controller::_parseUrl()
+- Fix Bug #1950017 - PathDisclo in xcoreRender/admin/css.php
+- Fix Bug #1944713 - PATH Disclosure ? in Xcore_Controller::_parseUrl()
 - Fix Bug #1939992 - Invalid xhtml templates in KARIMOJI_LEGALEGAmodule.
 - Fix Bug #1938443 - ID is multiple defined in TplsetList
 - Fix Bug #1924223 - The request which includes URL cannot be processed.
@@ -715,7 +715,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #2791554 - phpmailer japanese language file is broken.
 
 [Other Changes/Enhancements]
-- Patch #1868259 - add alt to smaily icons@legacy_xoopsform_opt_smileys.html
+- Patch #1868259 - add alt to smaily icons@xcore_xoopsform_opt_smileys.html
 - Patch #1897607 - html/install/include/functions.php
 - Patch #1961603 - portuguese translations: bug fix and enhancements.
 - Patch #1992777 - xoopsmailerlocal.php for zh-tw.
@@ -824,8 +824,8 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1830755 - Typo in french installer translation
 - Fix Bug #1800075 - ini_set( 'mbstring.func_overload', 0) doesn't give effect
 - Fix Bug #1806969 - Fatal error of User_UserRegister_confirmAction
-- Fix Bug #1852823 - legacy_xoopsform_dhtmltextarea.html missing getExtra
-- Fix Bug #1852239 - Legacy_TextFilter.class.php Escape isn't completed
+- Fix Bug #1852823 - xcore_xoopsform_dhtmltextarea.html missing getExtra
+- Fix Bug #1852239 - Xcore_TextFilter.class.php Escape isn't completed
 - Fix Bug #1852242 - japanese/global.php encode bug
 - Fix Bug #1818803 - EditUser displays PM option, whether PM mod is active
 
@@ -834,7 +834,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1786674 - return value in ArrayProperty of XCube_ActionForm
 - Fix Bug #1807245 - Typo : XCube_Controller.class.php
 - Fix Bug #1807263 - Unreachable Code : XCube_PageNavigator.class.php
-- Fix Bug #1835532 - Namespace of XCube_Session is Legacy?
+- Fix Bug #1835532 - Namespace of XCube_Session is Xcore?
 - Fix Bug #1795564 DOA: set() for String/Text Property
 - Fix Bug #1856634 - Sigunature checker of XCube_Delegate doesn't work completely
 
@@ -865,15 +865,15 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1734677 - Fatal Error in GroupDeleteAction.php
 - Fix Bug #1748531 - Block Weight parameter's max value is 255
 - Fix Bug #1738481 - small typo in notification from X2
-- Fix Bug #1738590 - typo Legacy_ModuleInstallUtils
+- Fix Bug #1738590 - typo Xcore_ModuleInstallUtils
 - Fix Bug #1743994 - Missing ':' in KARIMOJI_LEGALEGAadmin stylesheet
 - Fix Bug #1748531 - Is max of block weight 255 ?
 - Fix Bug #1748545 - The ImgUploader leaves an old file at ImageEdit
 - Fix Bug #1749522 - Bugs Lost your Password
-- Fix Bug #1751030 - Raise notice on Legacy_Controller::_setupConfig()
+- Fix Bug #1751030 - Raise notice on Xcore_Controller::_setupConfig()
 - Fix Bug #1758828 - TYPO UserSearchFilterForm.class.php.
 - Fix Bug #1762017 - Banners at some settings are moved to finishbanner soon
-- Fix Bug #1763398 - Argument miss in Legacy_ModuleInstallUuninstallBlockTemplate. (Patch from tohokuaiki)
+- Fix Bug #1763398 - Argument miss in Xcore_ModuleInstallUuninstallBlockTemplate. (Patch from tohokuaiki)
 - Fix Bug #1766227 - mb_language() receive invalid value
 - Fix Bug #1767396 - XoopsMailer::send() doesn't need flush()
 - Fix Bug #1768449 - FF2.0 could not load CSS in the control panel
@@ -885,7 +885,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1789875 - XoopsDatabaseFactory is not singleton
 - Fix Bug #1797641 - "@include" in mainfile.php hides the cause of bugs
 - Fix Bug #1797651 - Normal users cannot logout when site is closed
-- Fix Bug #1803005 - Session is killed at editing preferences of legacy
+- Fix Bug #1803005 - Session is killed at editing preferences of xcore
 
 - Adjusted Bug #1709886 - Can not login through SSL
 
@@ -905,7 +905,7 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1712718 - Operation when 'class.php' is included in the file name.
 
 [Bug Fix - From Bug Tracker]
-- Fix Bug #1739508 - typo(Legacy_Utils.class.php )
+- Fix Bug #1739508 - typo(Xcore_Utils.class.php )
 - Fix Bug #1736295 - Command injection of phpmailer
 - Fix Bug #1734678 - TYPO ( BlockEditAction.class.php )
 - Fix Bug #1734677 - Fatal Error in GroupDeleteAction.php
@@ -915,19 +915,19 @@ http://sourceforge.net/apps/mediawiki/xoopscube/index.php?title=Release_Logs:XOO
 - Fix Bug #1730013 - Bugs related to image management/manager
 - Fix Bug #1730012 - Some TYPOs in KARIMOJI_LEGALEGAmodules
 - Fix Bug #1730010 - garbage in comment_list.html
-- Fix Bug #1727006 - TYPO in legacy_search_results.html (Duplicate #1723406)
+- Fix Bug #1727006 - TYPO in xcore_search_results.html (Duplicate #1723406)
 - Fix Bug #1725379 - Module Update problem
 - Fix Bug #1724892 - NOT define errorMsg in admin's stylesheet
 - Fix Bug #1723899 - Bug of MailjobEdit Action
 - Fix Bug #1723898 - Bug of UserSearchList Action
-- Fix Bug #1723893 - Legacy_Module.class.php
-- Fix Bug #1723891 - Legacy_TextFilter.class.php
+- Fix Bug #1723893 - Xcore_Module.class.php
+- Fix Bug #1723891 - Xcore_TextFilter.class.php
 - Fix Bug #1723406 - Typo of search template
 - Fix Bug #1722161 - NOT output echo statement
 - Fix Bug #1721051 - Bug of CommentEdit Action
 - Fix Bug #1720139 - Bug of UserView Action of User Management
-- Fix Bug #1720502 - legacy_search_showall.html : link error (Dupticate #1719025)
-- Fix Bug #1719057 - calling $root in legacy/language/*/global.php
+- Fix Bug #1720502 - xcore_search_showall.html : link error (Dupticate #1719025)
+- Fix Bug #1719057 - calling $root in xcore/language/*/global.php
 - Fix Bug #1719026 - TYPO in comment_delete.html
 - Fix Bug #1713629 - TYPO in imagecategory form
 - Fix Bug #1712901 - style.cursor error

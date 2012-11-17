@@ -1,18 +1,18 @@
 <?php
 /**
  * @version $Id: xoops_version.php,v 1.1 2008/03/09 02:26:12 minahito Exp $
- * @package legacyRender
+ * @package xcoreRender
  */
 
-$modversion['name']=_MI_LEGACYRENDER_NAME;
+$modversion['name']=_MI_XCORERENDER_NAME;
 $modversion['version']=1.03;
-$modversion['description']=_MI_LEGACYRENDER_NAME_DESC;
+$modversion['description']=_MI_XCORERENDER_NAME_DESC;
 $modversion['author']="";
 $modversion['credits']="The XOOPS Cube Project";
 $modversion['help'] = "help.html";
 $modversion['license']="GPL see LICENSE";
-$modversion['image']="images/legacyRender.png";
-$modversion['dirname']="legacyRender";
+$modversion['image']="images/xcoreRender.png";
+$modversion['dirname']="xcoreRender";
 
 $modversion['cube_style'] = true;
 
@@ -20,12 +20,12 @@ $modversion['cube_style'] = true;
 // SQL File
 //
 // $modversion['sqlfile']['mysql'] = "sql/mysql.sql";
-// $modversion['tables'][] = "legacyrender_theme";
+// $modversion['tables'][] = "xcorerender_theme";
 
 //
 // Template
 //
-$modversion['templates'][1]['file']="legacy_render_dialog.html";
+$modversion['templates'][1]['file']="xcore_render_dialog.html";
 
 //
 // Admin things
@@ -102,7 +102,7 @@ $modversion['config'][]=array (
 
 $modversion['config'][]=array (
 		"name"=>"banners",
-		"title"=>"_MI_LEGACYRENDER_CONF_BANNERS",
+		"title"=>"_MI_XCORERENDER_CONF_BANNERS",
 		"formtype"=>"yesno",
 		"valuetype"=>"int",
 		"default"=>0

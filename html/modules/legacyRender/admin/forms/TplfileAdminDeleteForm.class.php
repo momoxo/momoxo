@@ -3,13 +3,13 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class LegacyRender_TplfileAdminDeleteForm extends XCube_ActionForm
+class XcoreRender_TplfileAdminDeleteForm extends XCube_ActionForm
 {
 	function getTokenName()
 	{
-		return "module.legacyRender.TplfileAdminDeleteForm.TOKEN";
+		return "module.xcoreRender.TplfileAdminDeleteForm.TOKEN";
 	}
 
 	function prepare()
@@ -25,7 +25,7 @@ class LegacyRender_TplfileAdminDeleteForm extends XCube_ActionForm
 	
 		$this->mFieldProperties['tpl_id'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['tpl_id']->setDependsByArray(array('required'));
-		$this->mFieldProperties['tpl_id']->addMessage('required', _AD_LEGACYRENDER_ERROR_REQUIRED, _AD_LEGACYRENDER_LANG_TPL_ID);
+		$this->mFieldProperties['tpl_id']->addMessage('required', _AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_TPL_ID);
 	}
 
 	function load(&$obj)

@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRender_AbstractEditAction extends LegacyRender_Action
+class XcoreRender_AbstractEditAction extends XcoreRender_Action
 {
 	var $mObject = null;
 	var $mObjectHandler = null;
@@ -47,22 +47,22 @@ class LegacyRender_AbstractEditAction extends LegacyRender_Action
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		if ($this->mObject == null) {
-			return LEGACYRENDER_FRAME_VIEW_ERROR;
+			return XCORERENDER_FRAME_VIEW_ERROR;
 		}
 	
 		$this->mActionForm->load($this->mObject);
 	
-		return LEGACYRENDER_FRAME_VIEW_INPUT;
+		return XCORERENDER_FRAME_VIEW_INPUT;
 	}
 
 	function execute(&$controller, &$xoopsUser)
 	{
 		if ($this->mObject == null) {
-			return LEGACYRENDER_FRAME_VIEW_ERROR;
+			return XCORERENDER_FRAME_VIEW_ERROR;
 		}
 		
 		if (xoops_getrequest('_form_control_cancel') != null) {
-			return LEGACYRENDER_FRAME_VIEW_CANCEL;
+			return XCORERENDER_FRAME_VIEW_CANCEL;
 		}
 	
 		$this->mActionForm->load($this->mObject);
@@ -71,13 +71,13 @@ class LegacyRender_AbstractEditAction extends LegacyRender_Action
 		$this->mActionForm->validate();
 	
 		if($this->mActionForm->hasError()) {
-			return LEGACYRENDER_FRAME_VIEW_INPUT;
+			return XCORERENDER_FRAME_VIEW_INPUT;
 		}
 	
 		$this->mActionForm->update($this->mObject);
 		
-		return $this->_doExecute($this->mObject) ? LEGACYRENDER_FRAME_VIEW_SUCCESS
-		                                         : LEGACYRENDER_FRAME_VIEW_ERROR;
+		return $this->_doExecute($this->mObject) ? XCORERENDER_FRAME_VIEW_SUCCESS
+		                                         : XCORERENDER_FRAME_VIEW_ERROR;
 	}
 
 	function _doExecute()

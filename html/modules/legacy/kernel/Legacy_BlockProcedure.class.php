@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_BlockProcedure.class.php,v 1.4 2008/09/25 15:11:56 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_BlockProcedure.class.php,v 1.4 2008/09/25 15:11:56 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -15,14 +15,14 @@ if (!defined('XOOPS_ROOT_PATH')) die();
  * controller. The sub-class must implement these interfaces with helper
  * functions, to be called back by the controller.
  */
-class Legacy_AbstractBlockProcedure
+class Xcore_AbstractBlockProcedure
 {
     /**
      * @var XCube_RenderTarget
      */
     var $mRender = null;
     
-    function Legacy_AbstractBlockProcedure()
+    function Xcore_AbstractBlockProcedure()
     {
     }
     
@@ -138,7 +138,7 @@ class Legacy_AbstractBlockProcedure
     
     function &createCacheInfo()
     {
-        $cacheInfo = new Legacy_BlockCacheInformation();
+        $cacheInfo = new Xcore_BlockCacheInformation();
         $cacheInfo->setBlock($this);
         return $cacheInfo;
     }
@@ -153,7 +153,7 @@ class Legacy_AbstractBlockProcedure
  * controller. And, it has a XoopsBlock instance, and some public methods for
  * the public side and the control panel side.
  */
-class Legacy_BlockProcedure extends Legacy_AbstractBlockProcedure
+class Xcore_BlockProcedure extends Xcore_AbstractBlockProcedure
 {
     /**
      * @var XoopsBlock
@@ -165,7 +165,7 @@ class Legacy_BlockProcedure extends Legacy_AbstractBlockProcedure
      */
     var $mRender = null;
     
-    function Legacy_BlockProcedure(&$block)
+    function Xcore_BlockProcedure(&$block)
     {
         $this->_mBlock =& $block;
     }
@@ -232,9 +232,9 @@ class Legacy_BlockProcedure extends Legacy_AbstractBlockProcedure
 
 /**
  * The adapter class for XoopsBlock objects of XOOPS2 JP.
- * @see Legacy_AbstractBlockProcedure
+ * @see Xcore_AbstractBlockProcedure
  */
-class Legacy_BlockProcedureAdapter extends Legacy_BlockProcedure
+class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
 {
     var $_mDisplayFlag = true;
     

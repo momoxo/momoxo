@@ -1,6 +1,6 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: RanksFilterForm.class.php,v 1.1 2007/05/15 02:34:39 minahito Exp $
  */
 

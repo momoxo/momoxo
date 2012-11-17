@@ -1,7 +1,7 @@
 <?php
 /**
  * @package user
- * @version $Id: LegacypageFunctions.class.php,v 1.6 2007/12/15 15:18:11 minahito Exp $
+ * @version $Id: XcorepageFunctions.class.php,v 1.6 2007/12/15 15:18:11 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
@@ -10,7 +10,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * @internal
  * This is static functions collection class for KARIMOJI_LEGALEGApages access.
  */
-class User_LegacypageFunctions
+class User_XcorepageFunctions
 {
 	/***
 	 * @internal

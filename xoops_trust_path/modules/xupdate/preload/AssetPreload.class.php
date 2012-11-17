@@ -67,24 +67,24 @@ class Xupdate_AssetPreloadBase extends XCube_ActionFilter
     public function preBlockFilter()
     {
         $this->mRoot->mDelegateManager->add('Module.xupdate.Global.Event.GetAssetManager','Xupdate_AssetPreloadBase::getManager');
-        $this->mRoot->mDelegateManager->add('Legacy_Utils.CreateModule','Xupdate_AssetPreloadBase::getModule');
-        $this->mRoot->mDelegateManager->add('Legacy_Utils.CreateBlockProcedure','Xupdate_AssetPreloadBase::getBlock');
+        $this->mRoot->mDelegateManager->add('Xcore_Utils.CreateModule','Xupdate_AssetPreloadBase::getModule');
+        $this->mRoot->mDelegateManager->add('Xcore_Utils.CreateBlockProcedure','Xupdate_AssetPreloadBase::getBlock');
         
-        $this->mRoot->mDelegateManager->add('Legacy.Admin.Event.ModuleListSave.Success', array(&$this, '_setNeedCacheRemake'));
-        $this->mRoot->mDelegateManager->add('Legacy.Admin.Event.ModuleInstall.Success', array(&$this, '_setNeedCacheRemake'));
-        $this->mRoot->mDelegateManager->add('Legacy.Admin.Event.ModuleUpdate.Success', array(&$this, '_setNeedCacheRemake'));
-        $this->mRoot->mDelegateManager->add('Legacy.Admin.Event.ModuleUninstall.Success', array(&$this, '_setNeedCacheRemake'));
+        $this->mRoot->mDelegateManager->add('Xcore.Admin.Event.ModuleListSave.Success', array(&$this, '_setNeedCacheRemake'));
+        $this->mRoot->mDelegateManager->add('Xcore.Admin.Event.ModuleInstall.Success', array(&$this, '_setNeedCacheRemake'));
+        $this->mRoot->mDelegateManager->add('Xcore.Admin.Event.ModuleUpdate.Success', array(&$this, '_setNeedCacheRemake'));
+        $this->mRoot->mDelegateManager->add('Xcore.Admin.Event.ModuleUninstall.Success', array(&$this, '_setNeedCacheRemake'));
 
-        $this->mRoot->mDelegateManager->add('Legacy_TagClient.GetClientList','Xupdate_TagClientDelegate::getClientList', XUPDATE_TRUST_PATH.'/class/callback/TagClient.class.php');
-        $this->mRoot->mDelegateManager->add('Legacy_TagClient.'.$this->mDirname.'.GetClientData','Xupdate_TagClientDelegate::getClientData', XUPDATE_TRUST_PATH.'/class/callback/TagClient.class.php');
+        $this->mRoot->mDelegateManager->add('Xcore_TagClient.GetClientList','Xupdate_TagClientDelegate::getClientList', XUPDATE_TRUST_PATH.'/class/callback/TagClient.class.php');
+        $this->mRoot->mDelegateManager->add('Xcore_TagClient.'.$this->mDirname.'.GetClientData','Xupdate_TagClientDelegate::getClientData', XUPDATE_TRUST_PATH.'/class/callback/TagClient.class.php');
 
-        $this->mRoot->mDelegateManager->add('Legacyblock.Waiting.Show',array(&$this, 'callbackWaitingShow'));
+        $this->mRoot->mDelegateManager->add('Xcoreblock.Waiting.Show',array(&$this, 'callbackWaitingShow'));
 
-        $this->mRoot->mDelegateManager->add('Legacy_AdminControllerStrategy.SetupBlock', array(&$this, 'onXupdateSetupBlock'));
+        $this->mRoot->mDelegateManager->add('Xcore_AdminControllerStrategy.SetupBlock', array(&$this, 'onXupdateSetupBlock'));
     }
 	
 	public function _setNeedCacheRemake() {
-		$handler = Legacy_Utils::getModuleHandler('store', 'xupdate');
+		$handler = Xcore_Utils::getModuleHandler('store', 'xupdate');
 		$handler->setNeedCacheRemake();
 	}
 
@@ -105,12 +105,12 @@ class Xupdate_AssetPreloadBase extends XCube_ActionFilter
     /**
      * getModule
      *
-     * @param   Legacy_AbstractModule  &$obj
+     * @param   Xcore_AbstractModule  &$obj
      * @param   XoopsModule  $module
      *
      * @return  void
     **/
-    public static function getModule(/*** Legacy_AbstractModule ***/ &$obj,/*** XoopsModule ***/ $module)
+    public static function getModule(/*** Xcore_AbstractModule ***/ &$obj,/*** XoopsModule ***/ $module)
     {
         if($module->getInfo('trust_dirname') == 'xupdate')
         {
@@ -122,12 +122,12 @@ class Xupdate_AssetPreloadBase extends XCube_ActionFilter
     /**
      * getBlock
      *
-     * @param   Legacy_AbstractBlockProcedure  &$obj
+     * @param   Xcore_AbstractBlockProcedure  &$obj
      * @param   XoopsBlock  $block
      *
      * @return  void
     **/
-    public static function getBlock(/*** Legacy_AbstractBlockProcedure ***/ &$obj,/*** XoopsBlock ***/ $block)
+    public static function getBlock(/*** Xcore_AbstractBlockProcedure ***/ &$obj,/*** XoopsBlock ***/ $block)
     {
         $moduleHandler =& Xupdate_Utils::getXoopsHandler('module');
         $module =& $moduleHandler->get($block->get('mid'));
@@ -142,7 +142,7 @@ class Xupdate_AssetPreloadBase extends XCube_ActionFilter
     function callbackWaitingShow(& $modules)
     {
     	if ($this->mRoot->mContext->mUser->isInRole('Site.Administrator')) {
-    		$handler = Legacy_Utils::getModuleHandler('ModuleStore', 'xupdate');
+    		$handler = Xcore_Utils::getModuleHandler('ModuleStore', 'xupdate');
 	    	if ($count = $handler->getCountHasUpdate('module')) {
 	    		$this->mRoot->mLanguageManager->loadBlockMessageCatalog('xupdate');
 	    		$checkimg = '<img src="'.XOOPS_MODULE_URL.'/xupdate/admin/index.php?action=ModuleView&amp;checkonly=1" width="1" height="1" alt="" />';
@@ -189,7 +189,7 @@ class Xupdate_AssetPreloadBase extends XCube_ActionFilter
 
 }//END CLASS
 
-class Xupdate_Block extends Legacy_AbstractBlockProcedure
+class Xupdate_Block extends Xcore_AbstractBlockProcedure
 {
 	function getName()
 	{
@@ -222,7 +222,7 @@ class Xupdate_Block extends Legacy_AbstractBlockProcedure
 		
 		$no_notify_reg = '/action=(?:(?:Module|Theme|Preload)Install|(?:Module|Theme|Preload)Update|(?:Module|Theme|Preload)Store&filter=updated)/';
 		if (!preg_match($no_notify_reg, $_SERVER['QUERY_STRING'])) {
-			$handler = Legacy_Utils::getModuleHandler('ModuleStore', 'xupdate');
+			$handler = Xcore_Utils::getModuleHandler('ModuleStore', 'xupdate');
 			$result = $handler->getNotifyHTML();
 		}
 		
@@ -243,7 +243,7 @@ class Xupdate_Block extends Legacy_AbstractBlockProcedure
 
 	function getRenderSystemName()
 	{
-		return 'Legacy_AdminRenderSystem';
+		return 'Xcore_AdminRenderSystem';
 	}
 }
 ?>

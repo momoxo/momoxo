@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: definition.inc.php,v 1.3 2008/09/25 15:12:47 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -39,7 +39,7 @@ define("XOOPS_MODULE_URL", XOOPS_URL."/modules");
 define("XOOPS_UPLOAD_URL", XOOPS_URL."/uploads");
 define("XOOPS_THEME_URL", XOOPS_URL."/themes");
 
-define("XOOPS_LEGACY_PROC_NAME", "legacy");
+define("XOOPS_XCORE_PROC_NAME", "xcore");
 
 
 // USER
@@ -49,12 +49,12 @@ define("XCUBE_CORE_USER_UTILS_CLASS","UserAccountUtils");	// not use
 
 define("XCUBE_CORE_PM_MODULE_NAME","pm");
 
-define('LEGACY_SYSTEM_COMMENT', 14);
+define('XCORE_SYSTEM_COMMENT', 14);
 
 //
 // A name of the render-system used by the embedded template of XoopsForm.
 //
-define('XOOPSFORM_DEPENDENCE_RENDER_SYSTEM', 'Legacy_RenderSystem');
+define('XOOPSFORM_DEPENDENCE_RENDER_SYSTEM', 'Xcore_RenderSystem');
 
 
 ?>

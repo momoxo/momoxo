@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: NotifyDeleteForm.class.php,v 1.3 2008/09/25 15:12:39 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -11,16 +11,16 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class Legacy_NotifyDeleteForm extends XCube_ActionForm
+class Xcore_NotifyDeleteForm extends XCube_ActionForm
 {
 	var $mNotifiyIds = array();
 	var $mFatalError = false;
 	
 	function getTokenName()
 	{
-		return $_SERVER['REQUEST_METHOD'] == 'POST' ? "module.legacy.NotifyDeleteForm.TOKEN" : null;
+		return $_SERVER['REQUEST_METHOD'] == 'POST' ? "module.xcore.NotifyDeleteForm.TOKEN" : null;
 	}
 
 	function fetch()
@@ -31,14 +31,14 @@ class Legacy_NotifyDeleteForm extends XCube_ActionForm
 		$t_arr = $root->mContext->mRequest->getRequest('del_not');
 		
 		if (!is_array($t_arr)) {
-			$this->addErrorMessage(_MD_LEGACY_LANG_ERROR);
+			$this->addErrorMessage(_MD_XCORE_LANG_ERROR);
 			$this->mFatalError = true;
 			return;
 		}
 		
 		foreach ($t_arr as $t_modid => $t_idArr) {
 			if (!is_array($t_idArr)) {
-				$this->addErrorMessage(_MD_LEGACY_LANG_ERROR);
+				$this->addErrorMessage(_MD_XCORE_LANG_ERROR);
 				$this->mFatalError = true;
 				return;
 			}

@@ -65,8 +65,8 @@ class XoopsFormTextDateSelect extends XoopsFormText
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_textdateselect.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_textdateselect.html");
 		$renderTarget->setAttribute("element", $this);
 		$renderTarget->setAttribute("date", date("Y-m-d", $this->getValue()));
 		

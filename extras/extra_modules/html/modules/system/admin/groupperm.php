@@ -8,7 +8,7 @@ $modid = isset($_POST['modid']) ? intval($_POST['modid']) : 0;
 // Load Message catalog
 //
 $root =& XCube_Root::getSingleton();
-$root->mLanguageManager->loadModuleAdminMessageCatalog('legacy');
+$root->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 
 // we dont want system module permissions to be changed here
 if ($modid <= 1 || !is_object($xoopsUser) || !$xoopsUser->isAdmin($modid)) {

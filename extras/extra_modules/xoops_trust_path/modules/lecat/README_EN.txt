@@ -21,17 +21,17 @@ Main Feature
 Client Module
 -------------
 Modules using this category management functions are called "(category) client (module)".
-Client modules must implement Legacy_iCategoryClientDelegate interface in (html)/modules/legacy/class/interface/CatClientDelegateInterface.class.php
+Client modules must implement Xcore_iCategoryClientDelegate interface in (html)/modules/xcore/class/interface/CatClientDelegateInterface.class.php
 
 Then, they can use this module's delegate functions of Lecat_DelegateFunctions class in (trust_path)/modules/lecat/class/DelegateFunctions.class.php.
-  Legacy_Category.(dirname).GetTitle
-  Legacy_Category.(dirname).GetTree
-  Legacy_Category.(dirname).GetTitleList
-  Legacy_Category.(dirname).HasPermission
-  Legacy_Category.(dirname).GetParent
-  Legacy_Category.(dirname).GetChildren
-  Legacy_Category.(dirname).GetCatPath
-  Legacy_Category.(dirname).GetPermittedIdList
+  Xcore_Category.(dirname).GetTitle
+  Xcore_Category.(dirname).GetTree
+  Xcore_Category.(dirname).GetTitleList
+  Xcore_Category.(dirname).HasPermission
+  Xcore_Category.(dirname).GetParent
+  Xcore_Category.(dirname).GetChildren
+  Xcore_Category.(dirname).GetCatPath
+  Xcore_Category.(dirname).GetPermittedIdList
 
 
 Update History

@@ -3,12 +3,12 @@
 
 [Manifesto]
 Name="Default theme of Cube"
-Depends=Legacy_RenderSystem,legacy
+Depends=Xcore_RenderSystem,xcore
 Url="http://xoopscube.sourceforge.net/"
 Version="1.0.0"
 
 [Theme]
-RenderSystem=Legacy_RenderSystem
+RenderSystem=Xcore_RenderSystem
 Format="XOOPS2 KARIMOJI_LEGALEGAStyle"
 Author=XOOPS Cube Project Team
 ScreenShot="screenshot.png"

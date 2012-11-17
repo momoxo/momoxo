@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: BlockInstallListAction.class.php,v 1.3 2008/09/25 15:11:54 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/BlockInstallFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/BlockInstallFilterForm.class.php";
 
-class Legacy_BlockInstallListAction extends Legacy_AbstractListAction
+class Xcore_BlockInstallListAction extends Xcore_AbstractListAction
 {
 
 	var $mpageArr = array(5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 0);
@@ -39,7 +39,7 @@ class Legacy_BlockInstallListAction extends Legacy_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter =new Legacy_BlockInstallFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new Xcore_BlockInstallFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 

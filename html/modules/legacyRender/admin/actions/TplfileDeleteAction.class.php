@@ -2,10 +2,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractDeleteAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplfileAdminDeleteForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractDeleteAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileAdminDeleteForm.class.php";
 
-class LegacyRender_TplfileDeleteAction extends LegacyRender_AbstractDeleteAction
+class XcoreRender_TplfileDeleteAction extends XcoreRender_AbstractDeleteAction
 {
 	function _getId()
 	{
@@ -28,7 +28,7 @@ class LegacyRender_TplfileDeleteAction extends LegacyRender_AbstractDeleteAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new LegacyRender_TplfileAdminDeleteForm();
+		$this->mActionForm =new XcoreRender_TplfileAdminDeleteForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -55,7 +55,7 @@ class LegacyRender_TplfileDeleteAction extends LegacyRender_AbstractDeleteAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplfileList", 1, _AD_LEGACYRENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplfileList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

@@ -13,7 +13,7 @@ define('_MI_XUPGRADE_ERROR_DELETED_CATEGORY', "{0} 의 삭제에 실패하였습
 define('_MI_XUPGRADE_ERROR_DELETED_CONFIG', "전체 설정에서 '{0}' 설정값을 삭제하는데 실패하였습니다.");
 define('_MI_XUPGRADE_ERROR_FIND_CONFIG', "{1} 모듈에서 '{0}' 설정값을 찾을 수가 없습니다.");
 define('_MI_XUPGRADE_ERROR_PORTED_CONFIG', "'{0}' 설정값을 {1} 모듈의 설정값으로 이전처리하는데 실패하였습니다.");
-define('_MI_XUPGRADE_ERROR_PORTED_TEMPLATE', "'{1}' 템플릿세트의 '{0}' 템플릿을 Legacy로 이전처리하는데 실패하였습니다.");
+define('_MI_XUPGRADE_ERROR_PORTED_TEMPLATE', "'{1}' 템플릿세트의 '{0}' 템플릿을 Xcore로 이전처리하는데 실패하였습니다.");
 define('_MI_XUPGRADE_LANG_GPL', "The GNU General Public License");
 define('_MI_XUPGRADE_LANG_METEFOOTER_CATEGORY', "Meta Tag/Footer 설정");
 define('_MI_XUPGRADE_LANG_USER_CATEGORY', "사용자 정보 설정");
@@ -22,7 +22,7 @@ define('_MI_XUPGRADE_MESSAGE_ADJUST_MODULE_ISACTIVE', "'{0}' 모듈의 'isactive
 define('_MI_XUPGRADE_MESSAGE_DELETED_CATEGORY', "'{0}'을 삭제처리하였습니다.");
 define('_MI_XUPGRADE_MESSAGE_DELETED_CONFIG', "전체설정에서 '{0}' 설정값을 삭제처리하였습니다.");
 define('_MI_XUPGRADE_MESSAGE_PORTED_CONFIG', "전체설정의 '{0}' 설정값을 {1} 모듈로 이전처리하였습니다.");
-define('_MI_XUPGRADE_MESSAGE_PORTED_TEMPLATE', " '{1}' 템플릿세트의 '{0}' 템플릿을 Legacy로 이전처리하였습니다.");
+define('_MI_XUPGRADE_MESSAGE_PORTED_TEMPLATE', " '{1}' 템플릿세트의 '{0}' 템플릿을 Xcore로 이전처리하였습니다.");
 define('_MI_XUPGRADE_MESSAGE_START_PORTING', "설정 및 템플릿 이전작업을 시작합니다......");
 
 ?>

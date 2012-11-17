@@ -1,15 +1,15 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: TplfileCloneAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplfileCloneForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileCloneForm.class.php";
 
-class LegacyRender_TplfileCloneAction extends LegacyRender_AbstractEditAction
+class XcoreRender_TplfileCloneAction extends XcoreRender_AbstractEditAction
 {
 	var $mTargetObject = null;
 	
@@ -47,7 +47,7 @@ class LegacyRender_TplfileCloneAction extends LegacyRender_AbstractEditAction
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new LegacyRender_TplfileCloneForm();
+		$this->mActionForm =new XcoreRender_TplfileCloneForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -68,7 +68,7 @@ class LegacyRender_TplfileCloneAction extends LegacyRender_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_LEGACYRENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
 	}
 }
 

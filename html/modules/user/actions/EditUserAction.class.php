@@ -62,7 +62,7 @@ class User_EditUserAction extends User_AbstractEditAction
 	**/
 	protected function _getPagetitle()
 	{
-		return Legacy_Utils::getUserName($this->_getId());
+		return Xcore_Utils::getUserName($this->_getId());
 	}
 
 	function isEnableCreate()
@@ -104,7 +104,7 @@ class User_EditUserAction extends User_AbstractEditAction
 				setcookie($this->mUserCookie);
 			}
 			$ret = false;
-			XCube_DelegateUtils::call('Legacy_Profile.SaveProfile', new XCube_Ref($ret), $this->mActionForm);
+			XCube_DelegateUtils::call('Xcore_Profile.SaveProfile', new XCube_Ref($ret), $this->mActionForm);
 			return $ret;
 		}
 		else {

@@ -1,10 +1,10 @@
 /**
  * @constructor
  */
-var Legacy_ThemeFinder = function() {
+var Xcore_ThemeFinder = function() {
 };
 
-Legacy_ThemeFinder.prototype = {
+Xcore_ThemeFinder.prototype = {
 
 	/**
 	 * @enum

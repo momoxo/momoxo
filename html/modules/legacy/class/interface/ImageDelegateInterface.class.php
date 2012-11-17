@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,26 +12,26 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of Image delegate
- * Legacy_Image module must be unique.
- * You can get its dirname by constant LEGACY_IMAGE_DIRNAME
+ * Xcore_Image module must be unique.
+ * You can get its dirname by constant XCORE_IMAGE_DIRNAME
 **/
-interface Legacy_iImageDelegate
+interface Xcore_iImageDelegate
 {
 	/**
-	 * createImageObject	Legacy_Image.CreateImageObject
+	 * createImageObject	Xcore_Image.CreateImageObject
 	 * Create new Image Object
 	 * must be 'setNew()'.
 	 *
-	 * @param Legacy_AbstractImageObject	&$obj
+	 * @param Xcore_AbstractImageObject	&$obj
 	 *
 	 * @return	void
 	 */ 
-	public static function createImageObject(/*** Legacy_AbstractImageObject ***/ &$obj);
+	public static function createImageObject(/*** Xcore_AbstractImageObject ***/ &$obj);
 
 	/**
-	 * saveImage	Legacy_Image.SaveImage
-	 * 1) insert Legacy_AbstractImageObject to database
-	 * 2) copy image from upload file($_FILES['legacy_image']) to upload directory
+	 * saveImage	Xcore_Image.SaveImage
+	 * 1) insert Xcore_AbstractImageObject to database
+	 * 2) copy image from upload file($_FILES['xcore_image']) to upload directory
 	 * 3) create thumbnail if needed.
 	 *
 	 * @param bool		&$ret
@@ -39,10 +39,10 @@ interface Legacy_iImageDelegate
 	 *
 	 * @return	void
 	 */ 
-	public static function saveImage(/*** bool ***/ &$ret, /*** Legacy_AbstractImageObject ***/ $obj);
+	public static function saveImage(/*** bool ***/ &$ret, /*** Xcore_AbstractImageObject ***/ $obj);
 
 	/**
-	 * deleteImage	Legacy_Image.DeleteImage
+	 * deleteImage	Xcore_Image.DeleteImage
 	 * 1) delete thumbnails
 	 * 2) delete image file
 	 * 3) delete image data from database
@@ -52,13 +52,13 @@ interface Legacy_iImageDelegate
 	 *
 	 * @return	void
 	 */ 
-	public static function deleteImage(/*** bool ***/ &$ret, /*** Legacy_AbstractImageObject ***/ $obj);
+	public static function deleteImage(/*** bool ***/ &$ret, /*** Xcore_AbstractImageObject ***/ $obj);
 
 	/**
-	 * getImageObjects	Legacy_Image.GetImageObjects
+	 * getImageObjects	Xcore_Image.GetImageObjects
 	 * return requested image objects
 	 *
-	 * @param Legacy_AbstractImageObject[]	&$objects
+	 * @param Xcore_AbstractImageObject[]	&$objects
 	 * @param string	$dirname	client module dirname
 	 * @param string	$dataname	client module dataname
 	 * @param int		$dataId		client module primary key
@@ -68,7 +68,7 @@ interface Legacy_iImageDelegate
 	 *
 	 * @return	void
 	 */ 
-	public static function getImageObjects(/*** Legacy_AbstractImageObject[] ***/ &$objects, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $dataId=0, /*** int ***/ $num=0, /*** int ***/ $limit=10, /*** int ***/ $start=0);
+	public static function getImageObjects(/*** Xcore_AbstractImageObject[] ***/ &$objects, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $dataId=0, /*** int ***/ $num=0, /*** int ***/ $limit=10, /*** int ***/ $start=0);
 }
 
 ?>

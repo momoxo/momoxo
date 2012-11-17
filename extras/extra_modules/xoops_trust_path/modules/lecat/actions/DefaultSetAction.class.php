@@ -40,7 +40,7 @@ class Lecat_DefaultSetAction extends Lecat_CatViewAction
     **/
 	protected function _getPermit($groupid=0)
 	{
-		$handler = Legacy_Utils::getModuleHandler('permit', $this->mAsset->mDirname);
+		$handler = Xcore_Utils::getModuleHandler('permit', $this->mAsset->mDirname);
 		$criteria=new CriteriaCompo();
 		$criteria->add(new Criteria('cat_id', 0));
 		if(intval($groupid)>0){
@@ -58,7 +58,7 @@ class Lecat_DefaultSetAction extends Lecat_CatViewAction
     **/
 	public function prepare()
 	{
-		$this->mPermit =Legacy_Utils::getModuleHandler('permit', $this->mAsset->mDirname)->create();
+		$this->mPermit =Xcore_Utils::getModuleHandler('permit', $this->mAsset->mDirname)->create();
 		//for Permissions
 		$this->mPermit->set('cat_id', 0);
 		$this->_setupActionForm();

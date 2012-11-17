@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: imagecategory.php,v 1.4 2008/09/25 15:11:28 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyImagecategoryObject extends XoopsSimpleObject
+class XcoreImagecategoryObject extends XoopsSimpleObject
 {
 	var $mImage = array();
 	var $_mImageLoadedFlag = false;
@@ -28,7 +28,7 @@ class LegacyImagecategoryObject extends XoopsSimpleObject
 	var $_mUploadGroupsLoadedFlag = false;
 	
 
-	function LegacyImagecategoryObject()
+	function XcoreImagecategoryObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -50,7 +50,7 @@ class LegacyImagecategoryObject extends XoopsSimpleObject
 	function loadImage()
 	{
 		if ($this->_mImageLoadedFlag == false) {
-			$handler =& xoops_getmodulehandler('image', 'legacy');
+			$handler =& xoops_getmodulehandler('image', 'xcore');
 			$this->mImage =& $handler->getObjects(new Criteria('imagecat_id', $this->get('imagecat_id')));
 			$this->_mImageLoadedFlag = true;
 		}
@@ -58,7 +58,7 @@ class LegacyImagecategoryObject extends XoopsSimpleObject
 
 	function &createImage()
 	{
-		$handler =& xoops_getmodulehandler('image', 'legacy');
+		$handler =& xoops_getmodulehandler('image', 'xcore');
 		$obj =& $handler->create();
 		$obj->set('imagecat_id', $this->get('imagecat_id'));
 		return $obj;
@@ -66,7 +66,7 @@ class LegacyImagecategoryObject extends XoopsSimpleObject
 	
 	function getImageCount()
 	{
-		$handler =& xoops_getmodulehandler('image', 'legacy');
+		$handler =& xoops_getmodulehandler('image', 'xcore');
 		return $handler->getCount(new Criteria('imgcat_id', $this->get('imgcat_id')));
 	}
 	
@@ -158,17 +158,17 @@ class LegacyImagecategoryObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyImagecategoryHandler extends XoopsObjectGenericHandler
+class XcoreImagecategoryHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "imagecategory";
 	var $mPrimary = "imgcat_id";
-	var $mClass = "LegacyImagecategoryObject";
+	var $mClass = "XcoreImagecategoryObject";
 
 	function insert(&$obj, $force = false)
 	{
 		$returnFlag = parent::insert($obj, $force);
 		
-		$handler =& xoops_getmodulehandler('group_permission', 'legacy');
+		$handler =& xoops_getmodulehandler('group_permission', 'xcore');
 		
 		//
 		// If the object has groups which are allowed to read.
@@ -237,11 +237,11 @@ class LegacyImagecategoryHandler extends XoopsObjectGenericHandler
 
 	function delete(&$obj, $force = false)
 	{
-		$handler =& xoops_getmodulehandler('image', 'legacy');
+		$handler =& xoops_getmodulehandler('image', 'xcore');
 		$handler->deleteAll(new Criteria('imgcat_id', $obj->get('imgcat_id')));
 		unset($handler);
 	
-		$handler =& xoops_getmodulehandler('group_permission', 'legacy');
+		$handler =& xoops_getmodulehandler('group_permission', 'xcore');
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('gperm_itemid', $obj->get('imgcat_id')));
 		$criteria->add(new Criteria('gperm_modid', 1));

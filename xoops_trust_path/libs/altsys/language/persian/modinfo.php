@@ -42,7 +42,7 @@ define( '_MI_ALTSYS_ADMINMENU_HFT' , 'بازسازی منوی مدیریت' ) ;
 define( '_MI_ALTSYS_ADMINMENU_HFTDSC' , 'اگر شکل منوی مدیریت شما تغییر نکرد پرونده‌ی cache/adminmenu.php را حذف کنید یا با استفاده از ctrl + F5 ذخریه‌های سیستم را خالی کنید. این ویژگی فقط در زوپس 2.0 کار میکند.' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_2COL' , 'نمایش تصویر ماژول‌ها در دو ردیف' ) ;
 define( '_MI_ALTSYS_AMHFT_OPT_NOIMG' , 'نمایش نام ماژول‌ها به جای تصویر آن‌ها' ) ;
-define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'مشابه سیستم XoopsCube Legacy' ) ;
+define( '_MI_ALTSYS_AMHFT_OPT_XCSTY' , 'مشابه سیستم XoopsCube Xcore' ) ;
 
 define( '_MI_ALTSYS_ADMINMENU_IM' , 'کپی کردن لینک‌های ماژول mymenu در منوی مدیریت' ) ;
 define( '_MI_ALTSYS_ADMINMENU_IMDSC' , 'اگر شکل منوی مدیریت شما تغییر نکرد پرونده‌ی cache/adminmenu.php را حذف کنید یا با استفاده از ctrl + F5 ذخریه‌های سیستم را خالی کنید. این ویژگی فقط در زوپس 2.0 کار میکند.' ) ;

@@ -12,7 +12,7 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Xupdate_NotifyBlock
 **/
-class Xupdate_NotifyBlock extends Legacy_BlockProcedure
+class Xupdate_NotifyBlock extends Xcore_BlockProcedure
 {
     /**
      * @var Xupdate_ModuleHandler
@@ -22,7 +22,7 @@ class Xupdate_NotifyBlock extends Legacy_BlockProcedure
     protected $_mHandler = null;
     
     /**
-     * @protected Legacy_AbstractCategoryObject
+     * @protected Xcore_AbstractCategoryObject
      * 
      * @private
     **/
@@ -68,10 +68,10 @@ class Xupdate_NotifyBlock extends Legacy_BlockProcedure
     protected function _setupObject($dirname)
     {
     	$root =& XCube_Root::getSingleton();
-    	$roleManager = new Legacy_RoleManager();
+    	$roleManager = new Xcore_RoleManager();
     	$roleManager->loadRolesByDirname($dirname);
     	if ($root->mContext->mUser->isInRole('Module.'.$dirname.'.Admin')) {
-    		$this->_mHandler = Legacy_Utils::getModuleHandler('ModuleStore', $dirname);
+    		$this->_mHandler = Xcore_Utils::getModuleHandler('ModuleStore', $dirname);
 			return true;
     	} else {
     		return false;

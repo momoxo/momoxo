@@ -67,7 +67,7 @@ class Lecat_Utils
 	{
 		$clients = array();
 		$list = array();
-		XCube_DelegateUtils::call('Legacy_CategoryClient.GetClientList', new XCube_Ref($clients), $dirname);
+		XCube_DelegateUtils::call('Xcore_CategoryClient.GetClientList', new XCube_Ref($clients), $dirname);
 		foreach($clients as $module){
 			$list[] = array('dirname'=>trim($module['dirname']), 'dataname'=>trim($module['dataname']), 'fieldname'=>trim($module['fieldname']));
 		}

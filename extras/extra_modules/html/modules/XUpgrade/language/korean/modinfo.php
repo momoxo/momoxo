@@ -13,7 +13,7 @@ define('_MI_XUPGRADE_ERROR_DELETED_CATEGORY', "{0} �� ������ �
 define('_MI_XUPGRADE_ERROR_DELETED_CONFIG', "��ü �������� '{0}' �������� �����ϴµ� �����Ͽ����ϴ�.");
 define('_MI_XUPGRADE_ERROR_FIND_CONFIG', "{1} ��⿡�� '{0}' �������� ã�� ���� ����ϴ�.");
 define('_MI_XUPGRADE_ERROR_PORTED_CONFIG', "'{0}' �������� {1} ����� ���������� ����ó���ϴµ� �����Ͽ����ϴ�.");
-define('_MI_XUPGRADE_ERROR_PORTED_TEMPLATE', "'{1}' ���ø���Ʈ�� '{0}' ���ø��� Legacy�� ����ó���ϴµ� �����Ͽ����ϴ�.");
+define('_MI_XUPGRADE_ERROR_PORTED_TEMPLATE', "'{1}' ���ø���Ʈ�� '{0}' ���ø��� Xcore�� ����ó���ϴµ� �����Ͽ����ϴ�.");
 define('_MI_XUPGRADE_LANG_GPL', "The GNU General Public License");
 define('_MI_XUPGRADE_LANG_METEFOOTER_CATEGORY', "Meta Tag/Footer ����");
 define('_MI_XUPGRADE_LANG_USER_CATEGORY', "����� ���� ����");
@@ -22,7 +22,7 @@ define('_MI_XUPGRADE_MESSAGE_ADJUST_MODULE_ISACTIVE', "'{0}' ����� 'is
 define('_MI_XUPGRADE_MESSAGE_DELETED_CATEGORY', "'{0}'�� ����ó���Ͽ����ϴ�.");
 define('_MI_XUPGRADE_MESSAGE_DELETED_CONFIG', "��ü�������� '{0}' �������� ����ó���Ͽ����ϴ�.");
 define('_MI_XUPGRADE_MESSAGE_PORTED_CONFIG', "��ü������ '{0}' �������� {1} ���� ����ó���Ͽ����ϴ�.");
-define('_MI_XUPGRADE_MESSAGE_PORTED_TEMPLATE', " '{1}' ���ø���Ʈ�� '{0}' ���ø��� Legacy�� ����ó���Ͽ����ϴ�.");
+define('_MI_XUPGRADE_MESSAGE_PORTED_TEMPLATE', " '{1}' ���ø���Ʈ�� '{0}' ���ø��� Xcore�� ����ó���Ͽ����ϴ�.");
 define('_MI_XUPGRADE_MESSAGE_START_PORTING', "���� �� ���ø� �����۾��� �����մϴ�......");
 
 ?>

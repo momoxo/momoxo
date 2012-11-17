@@ -8,7 +8,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/modules/XUpgrade/admin/class/UpgradeProcessor.class.php";
 
-class XUpgrade_Updater extends Legacy_ModulePhasedUpgrader
+class XUpgrade_Updater extends Xcore_ModulePhasedUpgrader
 {
 	function _processScript()
 	{

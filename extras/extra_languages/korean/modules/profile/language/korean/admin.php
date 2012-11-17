@@ -1,17 +1,17 @@
 <?php
 
-define("_AD_PROFILE_LANG_DEFINITIONS_DELETE","ÇÁ·ÎÇÊ Á¤ÀÇ Á¦°Å");
-define("_AD_PROFILE_LANG_DEFINITIONS_EDIT","ÇÁ·ÎÇÊ Á¤ÀÇ ÆíÁý");
-define("_AD_PROFILE_LANG_DEFINITIONS_VIEW","ÇÁ·ÎÇÊ Á¤ÀÇ Ç¥½Ã");
-define("_AD_PROFILE_TIPS_DATA_DOWNLOAD", "»ç¿ëÀÚID¼øÀ¸·Î Á¤·ÄµÈ µ¥ÀÌÅ¸¸¦ CSVÇü½ÄÀ¸·Î ´Ù¿îÇÏ½Ç¼ö ÀÖ½À´Ï´Ù.");
-define("_AD_PROFILE_DATA_NUM", "%d ¸íÀÇ ÇÁ·ÎÇÊÀÌ µî·ÏµÇ¾î ÀÖ½À´Ï´Ù.");
-define("_AD_PROFILE_DATA_DOWNLOAD_DO", "CSVÆÄÀÏ ´Ù¿î·Îµå");
-define('_AD_PROFILE_DESC_FIELD_SELECTBOX', '¿É¼ÇÀ» | ·Î ±¸ºÐÇØ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.');
-define('_AD_PROFILE_DESC_FIELD_CHECKBOX', '"checked" °æ¿ìÀÇ Ç¥½Ã, "unchecked" °æ¿ìÀÇ Ç¥½Ã¸¦ | ·Î ±¸ºÐÇØ ÀÔ·ÂÇØ ÁÖ¼¼¿ä! ºñ¿öµÎ½Ã¸é "'._YES.'" ¿Í "'._NO.'" °¡ Ç¥½ÃµÇ°Ô µË´Ï´Ù.');
-define('_AD_PROFILE_DESC_FIELD_STRING', 'ÃÊ±â°ªÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!');
-define('_AD_PROFILE_DESC_FIELD_INT', 'ÃÊ±â°ªÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!');
-define('_AD_PROFILE_DESC_FIELD_FLOAT', 'ÃÊ±â°ªÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!');
-define('_AD_PROFILE_DESC_FIELD_TEXT', '"html"À» ¼±ÅÃÇÏ½Ã¸é wysiwyg ¿¡µðÅÍ°¡ µË´Ï´Ù.(wysiwig ¿¡µðÅÍ°¡ ¼³Ä¡µÇ¾î ÀÖ´Â °æ¿ì) "bbcode"¸¦ ¼±ÅÃÇÏ½Ã¸é BBcode ¿¡µðÅÍ°¡ µË´Ï´Ù.');
-define('_AD_PROFILE_DESC_FIELD_CATEGORY', 'LEGACY_CATEGORY ¸ðµâÀÇ µð·ºÅä¸®¸í');
+define("_AD_PROFILE_LANG_DEFINITIONS_DELETE","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+define("_AD_PROFILE_LANG_DEFINITIONS_EDIT","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+define("_AD_PROFILE_LANG_DEFINITIONS_VIEW","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½");
+define("_AD_PROFILE_TIPS_DATA_DOWNLOAD", "ï¿½ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Äµï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ CSVï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½Ï½Ç¼ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
+define("_AD_PROFILE_DATA_NUM", "%d ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
+define("_AD_PROFILE_DATA_DOWNLOAD_DO", "CSVï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½Îµï¿½");
+define('_AD_PROFILE_DESC_FIELD_SELECTBOX', 'ï¿½É¼ï¿½ï¿½ï¿½ | ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½.');
+define('_AD_PROFILE_DESC_FIELD_CHECKBOX', '"checked" ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½, "unchecked" ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½Ã¸ï¿½ | ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½! ï¿½ï¿½ï¿½ï¿½Î½Ã¸ï¿½ "'._YES.'" ï¿½ï¿½ "'._NO.'" ï¿½ï¿½ Ç¥ï¿½ÃµÇ°ï¿½ ï¿½Ë´Ï´ï¿½.');
+define('_AD_PROFILE_DESC_FIELD_STRING', 'ï¿½Ê±â°ªï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!');
+define('_AD_PROFILE_DESC_FIELD_INT', 'ï¿½Ê±â°ªï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!');
+define('_AD_PROFILE_DESC_FIELD_FLOAT', 'ï¿½Ê±â°ªï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!');
+define('_AD_PROFILE_DESC_FIELD_TEXT', '"html"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã¸ï¿½ wysiwyg ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ë´Ï´ï¿½.(wysiwig ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Ä¡ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½) "bbcode"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã¸ï¿½ BBcode ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ë´Ï´ï¿½.');
+define('_AD_PROFILE_DESC_FIELD_CATEGORY', 'XCORE_CATEGORY ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½');
 
 ?>

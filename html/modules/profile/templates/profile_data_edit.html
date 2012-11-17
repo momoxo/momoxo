@@ -33,7 +33,7 @@
         <{elseif $field->get('type')=="checkbox"}>
         <{xoops_input type=checkbox name=$field->get('field_name') value=1 default=$actionForm->get($field->get('field_name'))}>
         <{elseif $field->get('type')=="selectbox"}>
-        <select name="<{$field->get('field_name')}>" id="legacy_xoopsform_<{$field->get('field_name')}>">
+        <select name="<{$field->get('field_name')}>" id="xcore_xoopsform_<{$field->get('field_name')}>">
 	        <{foreach item=option from=$field->getOptions()}>
         	<option value="<{$option}>"<{if $actionForm->get($field->get('field_name'))==$option}> selected="selected"<{/if}>><{$option}></option>
   	      <{/foreach}>

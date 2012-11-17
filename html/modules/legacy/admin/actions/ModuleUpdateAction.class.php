@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleUpdateAction.class.php,v 1.3 2008/09/25 15:11:54 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,9 +10,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH . "/admin/actions/AbstractModuleInstallAction.class.php";
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
-require_once XOOPS_LEGACY_PATH . "/admin/forms/ModuleUpdateForm.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/actions/AbstractModuleInstallAction.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/forms/ModuleUpdateForm.class.php";
 
 /**
  * @brief Module Update function having possibility to extend by module developers.
@@ -22,7 +22,7 @@ require_once XOOPS_LEGACY_PATH . "/admin/forms/ModuleUpdateForm.class.php";
  * @section cupdate The custom-update-installer
  * 
  * Module developers can use their own custom-update-installer in this action.
- * This function uses Legacy_ModulePhasedUpgrader to update moudles. But, this
+ * This function uses Xcore_ModulePhasedUpgrader to update moudles. But, this
  * class can't smart update modules correctly & automatically, because the
  * module updat function bases on XOOPS2 JP spec. We have no rules to declare
  * modules strictly.
@@ -32,20 +32,20 @@ require_once XOOPS_LEGACY_PATH . "/admin/forms/ModuleUpdateForm.class.php";
  * 
  * @subsection convention Convention
  * 
- * See Legacy_ModuleUpdateAction::_getInstaller().
+ * See Xcore_ModuleUpdateAction::_getInstaller().
  * 
- * \li $modversion['legacy_installer']['updater']['class'] = {classname};
- * \li $modversion['legacy_installer']['updater']['namespace'] = {namespace}; (Optional)
- * \li $modversion['legacy_installer']['updater']['filepath'] = {filepath}; (Optional)
+ * \li $modversion['xcore_installer']['updater']['class'] = {classname};
+ * \li $modversion['xcore_installer']['updater']['namespace'] = {namespace}; (Optional)
+ * \li $modversion['xcore_installer']['updater']['filepath'] = {filepath}; (Optional)
  * 
- * You must declare your sub-class of Legacy_ModulePhasedUpgrader as
+ * You must declare your sub-class of Xcore_ModulePhasedUpgrader as
  * {namespace}_{classname} in {filepath}. You must specify classname. Others
  * are decided by the naming convention without your descriptions. Namespace
  * is ucfirst(dirname). Filepath is "admin/class/{classname}.class.php".
  * 
  * For example, "news" module.
  * 
- * $modversion['legacy_installer']['updater']['class'] = "Updater";
+ * $modversion['xcore_installer']['updater']['class'] = "Updater";
  * 
  * You must declare News_Updater in XOOPS_ROOT_PATH . "/modules/news/admin/class/Updater.class.php".
  * 
@@ -54,17 +54,17 @@ require_once XOOPS_LEGACY_PATH . "/admin/forms/ModuleUpdateForm.class.php";
  * 
  * @subsection process Install Process
  * 
- * \li Gets a instance of the update installer class through Legacy_ModuleUpdateAction::_getInstaller().
+ * \li Gets a instance of the update installer class through Xcore_ModuleUpdateAction::_getInstaller().
  * \li Sets the current XoopsModule to the instance.
  * \li Builds the target XoopsModule from xoops_version, and sets it to the instance.
  * \li Sets a value indicating whether an administrator hopes the force-mode, to the instance.
  * \li Calls executeUpgrade().
  * 
- * @see Legacy_ModuleUpdateAction::_getInstaller()
- * @see Legacy_ModulePhasedUpgrader
- * @see Legacy_ModuleInstallUtils
+ * @see Xcore_ModuleUpdateAction::_getInstaller()
+ * @see Xcore_ModulePhasedUpgrader
+ * @see Xcore_ModuleInstallUtils
  */
-class Legacy_ModuleUpdateAction extends Legacy_Action
+class Xcore_ModuleUpdateAction extends Xcore_Action
 {
 	/**
 	 * @var XCube_Delegate
@@ -80,15 +80,15 @@ class Legacy_ModuleUpdateAction extends Legacy_Action
 	
 	var $mInstaller = null;
 	
-	function Legacy_ModuleUpdateAction($flag)
+	function Xcore_ModuleUpdateAction($flag)
 	{
-		parent::Legacy_Action($flag);
+		parent::Xcore_Action($flag);
 		
 		$this->mUpdateSuccess =new XCube_Delegate();
-		$this->mUpdateSuccess->register('Legacy_ModuleUpdateAction.UpdateSuccess');
+		$this->mUpdateSuccess->register('Xcore_ModuleUpdateAction.UpdateSuccess');
 		
 		$this->mUpdateFail =new XCube_Delegate();
-		$this->mUpdateFail->register('Legacy_ModuleUpdateAction.UpdateFail');
+		$this->mUpdateFail->register('Xcore_ModuleUpdateAction.UpdateFail');
 	}
 	
 	function prepare(&$controller, &$xoopsUser)
@@ -124,7 +124,7 @@ class Legacy_ModuleUpdateAction extends Legacy_Action
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_ModuleUpdateForm();
+		$this->mActionForm =new Xcore_ModuleUpdateForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -137,7 +137,7 @@ class Legacy_ModuleUpdateAction extends Legacy_Action
 	function &_getInstaller()
 	{
 		$dirname = $this->mXoopsModule->get('dirname');
-		$installer =& Legacy_ModuleInstallUtils::createUpdater($dirname);
+		$installer =& Xcore_ModuleInstallUtils::createUpdater($dirname);
 		return $installer;
 	}
 	
@@ -145,13 +145,13 @@ class Legacy_ModuleUpdateAction extends Legacy_Action
 	{
 		$this->mActionForm->load($this->mXoopsModule);
 		
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (isset($_REQUEST['_form_control_cancel'])) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 		
 		$this->mActionForm->fetch();
@@ -164,18 +164,18 @@ class Legacy_ModuleUpdateAction extends Legacy_Action
 		$this->mInstaller->setForceMode($this->mActionForm->get('force'));
 		$this->mInstaller->executeUpgrade();
 
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
 			$this->mUpdateSuccess->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Legacy.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
 		}
 		else {
 			$this->mUpdateFail->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Legacy.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
 		}
 		
 		$renderer->setTemplateName("module_update_success.html");

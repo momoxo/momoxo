@@ -89,7 +89,7 @@ if (!is_object($xoopsUser)) {
 } else {
     if (!$xoopsUser->isAdmin($com_modid)) {
         $sysperm_handler =& xoops_gethandler('groupperm');
-        if (!$sysperm_handler->checkRight('system_admin', LEGACY_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
+        if (!$sysperm_handler->checkRight('system_admin', XCORE_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
             $accesserror = true;
         }
     }

@@ -23,13 +23,13 @@ class Profile_AssetPreload extends XCube_ActionFilter
 			$this->mRoot->mContext->setAttribute('module.profile.HasSetAssetManager', true);
 		}
 		$file = XOOPS_MODULE_PATH.'/profile/class/DelegateFunctions.class.php';
-		$this->mRoot->mDelegateManager->add('Legacy_Profile.SaveProfile', 'Profile_Delegate::saveProfile', $file);
-		$this->mRoot->mDelegateManager->add('Legacy_Profile.GetDefinition', 'Profile_Delegate::getDefinition', $file);
-		$this->mRoot->mDelegateManager->add('Legacy_Profile.GetProfile', 'Profile_Delegate::getProfile', $file);
-		$this->mRoot->mDelegateManager->add('Legacy_Profile.SetupActionForm', 'Profile_Delegate::setupActionForm', $file);
-		$this->mRoot->mDelegateManager->add('Legacy_Profile.LoadActionForm', 'Profile_Delegate::loadActionForm', $file);
-		$this->mRoot->mDelegateManager->add('Legacy.Event.UserDelete', 'Profile_AssetPreload::deleteProfile');
-		$this->mRoot->mDelegateManager->add('Legacy.Admin.Event.UserDelete', 'Profile_AssetPreload::deleteProfile');
+		$this->mRoot->mDelegateManager->add('Xcore_Profile.SaveProfile', 'Profile_Delegate::saveProfile', $file);
+		$this->mRoot->mDelegateManager->add('Xcore_Profile.GetDefinition', 'Profile_Delegate::getDefinition', $file);
+		$this->mRoot->mDelegateManager->add('Xcore_Profile.GetProfile', 'Profile_Delegate::getProfile', $file);
+		$this->mRoot->mDelegateManager->add('Xcore_Profile.SetupActionForm', 'Profile_Delegate::setupActionForm', $file);
+		$this->mRoot->mDelegateManager->add('Xcore_Profile.LoadActionForm', 'Profile_Delegate::loadActionForm', $file);
+		$this->mRoot->mDelegateManager->add('Xcore.Event.UserDelete', 'Profile_AssetPreload::deleteProfile');
+		$this->mRoot->mDelegateManager->add('Xcore.Admin.Event.UserDelete', 'Profile_AssetPreload::deleteProfile');
 	}
 
 	/**
@@ -46,7 +46,7 @@ class Profile_AssetPreload extends XCube_ActionFilter
 	 */
 	function deleteProfile(&$user)
 	{
-		$handler = Legacy_Utils::getModuleHandler('data', 'profile');
+		$handler = Xcore_Utils::getModuleHandler('data', 'profile');
 		$handler->deleteAll(new Criteria('uid', $user->get('uid')), true);
 	}
 }

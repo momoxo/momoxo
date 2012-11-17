@@ -1,14 +1,14 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: TplfileDownloadAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplfileEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileEditForm.class.php";
 
-class LegacyRender_TplfileDownloadAction extends LegacyRender_Action
+class XcoreRender_TplfileDownloadAction extends XcoreRender_Action
 {
 	var $mObject = null;
 	
@@ -19,14 +19,14 @@ class LegacyRender_TplfileDownloadAction extends LegacyRender_Action
 		$handler =& xoops_getmodulehandler('tplfile');
 		$this->mObject =& $handler->get($id);
 		
-		return $this->mObject != null ? LEGACYRENDER_FRAME_VIEW_SUCCESS : LEGACYRENDER_FRAME_VIEW_ERROR;
+		return $this->mObject != null ? XCORERENDER_FRAME_VIEW_SUCCESS : XCORERENDER_FRAME_VIEW_ERROR;
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
 	{
 		$this->mObject->loadSource();
 		if ($this->mObject->Source == null) {
-			return LEGACYRENDER_FRAME_VIEW_ERROR;
+			return XCORERENDER_FRAME_VIEW_ERROR;
 		}
 
 		$source = $this->mObject->Source->get('tpl_source');
@@ -49,7 +49,7 @@ class LegacyRender_TplfileDownloadAction extends LegacyRender_Action
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_LEGACYRENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
 	}
 }
 

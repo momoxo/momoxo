@@ -19,8 +19,8 @@ $modversion['dirname'] = "XUpgrade";
 
 $modversion['cube_style'] = true;
 
-$modversion['legacy_installer']['installer']['class'] = "Installer";
-$modversion['legacy_installer']['updater']['class'] = "Updater";
+$modversion['xcore_installer']['installer']['class'] = "Installer";
+$modversion['xcore_installer']['updater']['class'] = "Updater";
 
 //
 // Admin panel setting

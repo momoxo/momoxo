@@ -70,10 +70,10 @@ Almost the same as installing into XOOPS 2.0.x.
 There is just a different with the patching point in mainfile.php.
 Refer this.
 [code]
-    if (!defined('_LEGACY_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
+    if (!defined('_XCORE_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
         include XOOPS_TRUST_PATH.'/modules/protector/include/precheck.inc.php' ;
         @include_once XOOPS_ROOT_PATH.'/include/cubecore_init.php';
-        if (!isset($xoopsOption['nocommon']) && !defined('_LEGACY_PREVENT_EXEC_COMMON_')) {
+        if (!isset($xoopsOption['nocommon']) && !defined('_XCORE_PREVENT_EXEC_COMMON_')) {
             include XOOPS_ROOT_PATH.'/include/common.php';
         }
         include XOOPS_TRUST_PATH.'/modules/protector/include/postcheck.inc.php' ;
@@ -458,10 +458,10 @@ Protector �򥤥󥹥ȡ���塢���Ȥ���XOOPS2�١���CMS�
 ���ʰ㤤�Ϥ���ޤ���
 mainfile.php �ν񤭴����ݥ���Ȥμ��դ��㤦�Τǡ��ѥå������Ƥ���򼨤��Ƥ����ޤ���
 [code]
-    if (!defined('_LEGACY_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
+    if (!defined('_XCORE_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
         include XOOPS_TRUST_PATH.'/modules/protector/include/precheck.inc.php' ;
         @include_once XOOPS_ROOT_PATH.'/include/cubecore_init.php';
-        if (!isset($xoopsOption['nocommon']) && !defined('_LEGACY_PREVENT_EXEC_COMMON_')) {
+        if (!isset($xoopsOption['nocommon']) && !defined('_XCORE_PREVENT_EXEC_COMMON_')) {
             include XOOPS_ROOT_PATH.'/include/common.php';
         }
         include XOOPS_TRUST_PATH.'/modules/protector/include/postcheck.inc.php' ;

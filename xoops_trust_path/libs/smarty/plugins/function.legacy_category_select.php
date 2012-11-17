@@ -4,7 +4,7 @@
  * Smarty plugin
  * -------------------------------------------------------------
  * Type:	 function
- * Name:	 legacy_category_select
+ * Name:	 xcore_category_select
  * Version:  1.0
  * Date:	 May 23, 2008
  * Author:	 HIKAWA Kilica
@@ -12,11 +12,11 @@
  * Input:	 tree: xoopstree array
  *			 selectedValue: selected category id
  *			 show: if 'all', show all categories, even if it were not permitted
- * Examples: {legacy_category_select tree=$cattree selectedValue=$cat_id}
+ * Examples: {xcore_category_select tree=$cattree selectedValue=$cat_id}
  * -------------------------------------------------------------
  */
  
-function smarty_function_legacy_category_select($params, &$smarty)
+function smarty_function_xcore_category_select($params, &$smarty)
 {
 	$selectHtml = '';
 

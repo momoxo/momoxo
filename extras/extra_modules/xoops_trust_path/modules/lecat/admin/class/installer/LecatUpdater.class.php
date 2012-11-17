@@ -18,7 +18,7 @@ require_once LECAT_TRUST_PATH . '/admin/class/installer/LecatInstallUtils.class.
 class Lecat_Updater
 {
     /**
-     * @brief   Legacy_ModuleInstallLog
+     * @brief   Xcore_ModuleInstallLog
     **/
     public $mLog = null;
 
@@ -61,7 +61,7 @@ class Lecat_Updater
     **/
     public function __construct()
     {
-        $this->mLog =new Legacy_ModuleInstallLog();
+        $this->mLog =new Xcore_ModuleInstallLog();
     }
 
     /**

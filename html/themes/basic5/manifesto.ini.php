@@ -3,12 +3,12 @@
 
 [Manifesto]
 Name="basic5"
-Depends=Legacy_RenderSystem,legacy
+Depends=Xcore_RenderSystem,xcore
 Url="http://xoops123.com/"
 Version="0.04"
 
 [Theme]
-RenderSystem=Legacy_RenderSystem
+RenderSystem=Xcore_RenderSystem
 Format="XCL html5 Style"
 Author=marine/mistgreen
 ScreenShot="screenshot.png"

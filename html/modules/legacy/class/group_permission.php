@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: group_permission.php,v 1.3 2008/09/25 15:11:29 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,9 +10,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyGroup_permissionObject extends XoopsSimpleObject
+class XcoreGroup_permissionObject extends XoopsSimpleObject
 {
-	function LegacyGroup_permissionObject()
+	function XcoreGroup_permissionObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -28,11 +28,11 @@ class LegacyGroup_permissionObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyGroup_permissionHandler extends XoopsObjectGenericHandler
+class XcoreGroup_permissionHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "group_permission";
 	var $mPrimary = "gperm_id";
-	var $mClass = "LegacyGroup_permissionObject";
+	var $mClass = "XcoreGroup_permissionObject";
 	
 	/**
 	 * Gets array of roles by array of group ID.

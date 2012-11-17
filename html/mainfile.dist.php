@@ -81,12 +81,12 @@ if ( !defined("XOOPS_MAINFILE_INCLUDED") ) {
 
     // You can select two special module process excuting mode with defining following constants
     //
-    //  define('_LEGACY_PREVENT_LOAD_CORE_', 1);
+    //  define('_XCORE_PREVENT_LOAD_CORE_', 1);
     //    Module process will not load any XOOPS Cube classes.
     //    You cannot use any XOOPS Cube functions and classes.
     //    (eg. It'll be used for reffering only MySQL Database definition.)
     //
-    //  define('_LEGACY_PREVENT_EXEC_COMMON_', 1);
+    //  define('_XCORE_PREVENT_EXEC_COMMON_', 1);
     //    Module process will load XOOPS Cube Root class and initialize Controller class.
     //    You can use some XOOPS Cube functions in this mode.
     //    You can use more XOOPS Cube functions (eg. xoops_gethandler), if you write
@@ -96,9 +96,9 @@ if ( !defined("XOOPS_MAINFILE_INCLUDED") ) {
     //    It is synonym of $xoopsOption['nocommon']=1; 
     //    But $xoopsOption['nocommon'] is deprecated.
     //
-    if (!defined('_LEGACY_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
+    if (!defined('_XCORE_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
         include_once XOOPS_ROOT_PATH.'/include/cubecore_init.php';
-        if (!isset($xoopsOption['nocommon']) && !defined('_LEGACY_PREVENT_EXEC_COMMON_')) {
+        if (!isset($xoopsOption['nocommon']) && !defined('_XCORE_PREVENT_EXEC_COMMON_')) {
             include XOOPS_ROOT_PATH.'/include/common.php';
         }
     }

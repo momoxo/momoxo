@@ -6,7 +6,7 @@ if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 /* ------------------------------------------------- */
 
 $handler =& xoops_gethandler('config');
-$configArr =& $handler->getConfigsByDirname('legacyRender');
+$configArr =& $handler->getConfigsByDirname('xcoreRender');
 if( isset($configArr['feed_url'])){
 	$this->assign( 'xugj_feed_url' , $configArr['feed_url'] ) ;
 }else{

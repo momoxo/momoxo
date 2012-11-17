@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ActionFrame.class.php,v 1.3 2008/09/25 15:11:25 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,27 +10,27 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-define ("LEGACY_FRAME_PERFORM_SUCCESS", 1);
-define ("LEGACY_FRAME_PERFORM_FAIL", 2);
-define ("LEGACY_FRAME_INIT_SUCCESS", 3);
+define ("XCORE_FRAME_PERFORM_SUCCESS", 1);
+define ("XCORE_FRAME_PERFORM_FAIL", 2);
+define ("XCORE_FRAME_INIT_SUCCESS", 3);
 
-define ("LEGACY_FRAME_VIEW_NONE", 1);
-define ("LEGACY_FRAME_VIEW_SUCCESS", 2);
-define ("LEGACY_FRAME_VIEW_ERROR", 3);
-define ("LEGACY_FRAME_VIEW_INDEX", 4);
-define ("LEGACY_FRAME_VIEW_INPUT", 5);
-define ("LEGACY_FRAME_VIEW_PREVIEW", 6);
-define ("LEGACY_FRAME_VIEW_CANCEL", 7);
+define ("XCORE_FRAME_VIEW_NONE", 1);
+define ("XCORE_FRAME_VIEW_SUCCESS", 2);
+define ("XCORE_FRAME_VIEW_ERROR", 3);
+define ("XCORE_FRAME_VIEW_INDEX", 4);
+define ("XCORE_FRAME_VIEW_INPUT", 5);
+define ("XCORE_FRAME_VIEW_PREVIEW", 6);
+define ("XCORE_FRAME_VIEW_CANCEL", 7);
 
 //
 // Constatns for the mode of the frame.
 //
-define ("LEGACY_FRAME_MODE_MISC", "Misc");
-define ("LEGACY_FRAME_MODE_NOTIFY", "Notify");
-define ("LEGACY_FRAME_MODE_IMAGE", "Image");
-define ("LEGACY_FRAME_MODE_SEARCH", "Search");
+define ("XCORE_FRAME_MODE_MISC", "Misc");
+define ("XCORE_FRAME_MODE_NOTIFY", "Notify");
+define ("XCORE_FRAME_MODE_IMAGE", "Image");
+define ("XCORE_FRAME_MODE_SEARCH", "Search");
 
-class Legacy_ActionFrame
+class Xcore_ActionFrame
 {
 	var $mActionName = null;
 	var $mAction = null;
@@ -49,11 +49,11 @@ class Legacy_ActionFrame
 	 */
 	var $mCreateAction = null;
 	
-	function Legacy_ActionFrame($admin)
+	function Xcore_ActionFrame($admin)
 	{
 		$this->mAdminFlag = $admin;
 		$this->mCreateAction =new XCube_Delegate();
-		$this->mCreateAction->register('Legacy_ActionFrame.CreateAction');
+		$this->mCreateAction->register('Xcore_ActionFrame.CreateAction');
 		$this->mCreateAction->add(array(&$this, '_createAction'));
 	}
 
@@ -72,7 +72,7 @@ class Legacy_ActionFrame
 	/**
 	 * Set mode.
 	 * 
-	 * @param string $mode   Use constants (LEGACY_FRAME_MODE_MISC and more...)
+	 * @param string $mode   Use constants (XCORE_FRAME_MODE_MISC and more...)
 	 */
 	function setMode($mode)
 	{
@@ -88,13 +88,13 @@ class Legacy_ActionFrame
 		//
 		// Create action object by mActionName
 		//
-		$className = "Legacy_" . ucfirst($actionFrame->mActionName) . "Action";
+		$className = "Xcore_" . ucfirst($actionFrame->mActionName) . "Action";
 		$fileName = ucfirst($actionFrame->mActionName) . "Action";
 		if ($actionFrame->mAdminFlag) {
-			$fileName = XOOPS_MODULE_PATH . "/legacy/admin/actions/${fileName}.class.php";
+			$fileName = XOOPS_MODULE_PATH . "/xcore/admin/actions/${fileName}.class.php";
 		}
 		else {
-			$fileName = XOOPS_MODULE_PATH . "/legacy/actions/${fileName}.class.php";
+			$fileName = XOOPS_MODULE_PATH . "/xcore/actions/${fileName}.class.php";
 		}
 	
 		if (!file_exists($fileName)) {
@@ -119,7 +119,7 @@ class Legacy_ActionFrame
 		// necessary to load catalog here.
 		//		
 		if (!$this->mAdminFlag) {
-			$controller->mRoot->mLanguageManager->loadModuleMessageCatalog('legacy');
+			$controller->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
 		}
 		
 		//
@@ -132,7 +132,7 @@ class Legacy_ActionFrame
 		//
 		$this->mCreateAction->call(new XCube_Ref($this));
 	
-		if (!(is_object($this->mAction) && is_a($this->mAction, 'Legacy_Action'))) {
+		if (!(is_object($this->mAction) && is_a($this->mAction, 'Xcore_Action'))) {
 			die();	//< TODO
 		}
 		
@@ -157,41 +157,41 @@ class Legacy_ActionFrame
 		}
 	
 		switch($viewStatus) {
-			case LEGACY_FRAME_VIEW_SUCCESS:
+			case XCORE_FRAME_VIEW_SUCCESS:
 				$this->mAction->executeViewSuccess($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACY_FRAME_VIEW_ERROR:
+			case XCORE_FRAME_VIEW_ERROR:
 				$this->mAction->executeViewError($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACY_FRAME_VIEW_INDEX:
+			case XCORE_FRAME_VIEW_INDEX:
 				$this->mAction->executeViewIndex($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACY_FRAME_VIEW_INPUT:
+			case XCORE_FRAME_VIEW_INPUT:
 				$this->mAction->executeViewInput($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 
-			case LEGACY_FRAME_VIEW_PREVIEW:
+			case XCORE_FRAME_VIEW_PREVIEW:
 				$this->mAction->executeViewPreview($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 
-			case LEGACY_FRAME_VIEW_CANCEL:
+			case XCORE_FRAME_VIEW_CANCEL:
 				$this->mAction->executeViewCancel($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		}
 	}
 }
 
-class Legacy_Action
+class Xcore_Action
 {
 	/**
 	 * @access private
 	 */
 	var $_mAdminFlag = false;
 	
-	function Legacy_Action($adminFlag = false)
+	function Xcore_Action($adminFlag = false)
 	{
 		$this->_mAdminFlag = $adminFlag;
 	}
@@ -199,7 +199,7 @@ class Legacy_Action
 	function hasPermission(&$controller, &$xoopsUser)
 	{
 		if ($this->_mAdminFlag) {
-			return $controller->mRoot->mContext->mUser->isInRole('Module.legacy.Admin');
+			return $controller->mRoot->mContext->mUser->isInRole('Module.xcore.Admin');
 		}
 		else {
 			//
@@ -215,12 +215,12 @@ class Legacy_Action
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		return LEGACY_FRAME_VIEW_NONE;
+		return XCORE_FRAME_VIEW_NONE;
 	}
 
 	function execute(&$controller, &$xoopsUser)
 	{
-		return LEGACY_FRAME_VIEW_NONE;
+		return XCORE_FRAME_VIEW_NONE;
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)

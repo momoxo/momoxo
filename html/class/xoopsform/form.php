@@ -389,8 +389,8 @@ class XoopsForm {
 		
 		$renderTarget =& $renderSystem->createRenderTarget();
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_opt_validationjs.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_opt_validationjs.html");
 		$renderTarget->setAttribute('form', $this);
 		$renderTarget->setAttribute('withtags', $withtags);
 		

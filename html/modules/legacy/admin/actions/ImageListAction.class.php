@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImageListAction.class.php,v 1.4 2008/09/25 15:11:51 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,11 +10,11 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ImageFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ImageListForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ImageFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ImageListForm.class.php";
 
-class Legacy_ImageListAction extends Legacy_AbstractListAction
+class Xcore_ImageListAction extends Xcore_AbstractListAction
 {
 	var $mImageObjects = array();
 	var $mCategory = null;
@@ -23,7 +23,7 @@ class Legacy_ImageListAction extends Legacy_AbstractListAction
 
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_ImageListForm();
+		$this->mActionForm =new Xcore_ImageListForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -47,7 +47,7 @@ class Legacy_ImageListAction extends Legacy_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter =new Legacy_ImageFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new Xcore_ImageFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 
@@ -59,13 +59,13 @@ class Legacy_ImageListAction extends Legacy_AbstractListAction
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		$result = parent::getDefaultView($controller, $xoopsUser);
-		if ($result == LEGACY_FRAME_VIEW_INDEX) {
+		if ($result == XCORE_FRAME_VIEW_INDEX) {
 			$cat_id = xoops_getrequest('imgcat_id');
 			$handler =& xoops_getmodulehandler('imagecategory');
 			$this->mCategory =& $handler->get($cat_id);
 			
 			if ($this->mCategory == null) {
-				$result = LEGACY_FRAME_VIEW_ERROR;
+				$result = XCORE_FRAME_VIEW_ERROR;
 			}
 		}
 		

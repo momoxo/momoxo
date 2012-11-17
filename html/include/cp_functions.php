@@ -34,9 +34,9 @@ function xoops_cp_header()
 	// In this case, the controller does not have Admin Module Object.
 	//
 	$root=&XCube_Root::getSingleton();
-	require_once XOOPS_ROOT_PATH . "/modules/legacy/kernel/Legacy_AdminControllerStrategy.class.php";
+	require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/Xcore_AdminControllerStrategy.class.php";
 	
-	$strategy =new Legacy_AdminControllerStrategy($root->mController);
+	$strategy =new Xcore_AdminControllerStrategy($root->mController);
 	
 	$root->mController->setStrategy($strategy);
 	$root->mController->setupModuleContext();

@@ -205,7 +205,7 @@ class Xupdate_AbstractStoreAction extends Xupdate_AbstractListAction
 		
 		$tagCloud = array();
 		if (! empty($this->mod_config['tag_dirname'])) {
-			XCube_DelegateUtils::call('Legacy_Tag.'.$this->mod_config['tag_dirname'].'.GetTagCloudSrc', new XCube_Ref($tagCloud), $this->mod_config['tag_dirname'], 'xupdate', $this->contents . 'store');
+			XCube_DelegateUtils::call('Xcore_Tag.'.$this->mod_config['tag_dirname'].'.GetTagCloudSrc', new XCube_Ref($tagCloud), $this->mod_config['tag_dirname'], 'xupdate', $this->contents . 'store');
 			if ($tagCloud) {
 				$this->Func->setTagCloudSize($tagCloud);
 			}
@@ -369,12 +369,12 @@ jQuery(function($){
 
 	var main = function()
 	{
-		if ( location.href.search('$this->action') == -1 && location.href.search(/legacy\/admin\/index.php$/) == -1 )
+		if ( location.href.search('$this->action') == -1 && location.href.search(/xcore\/admin\/index.php$/) == -1 )
 		{
 			return;
 		}
 
-		if ( $('#legacy_xoopsform_confirm').length > 0 )
+		if ( $('#xcore_xoopsform_confirm').length > 0 )
 		{
 			return;
 		}
@@ -403,8 +403,8 @@ jQuery(function($){
 		$('.rapidInstallCheckbox:checked').each(function()
 		{
 			var storehref = $(this).parent('td').parent('tr').find('a[href*="xupdate/admin/index.php?action={$action_Base}Install"]').attr('href');
-			var installhref = $(this).parent('td').parent('tr').find('a[href*="legacy/admin/index.php?action={$action_Base}"]').attr('href');
-			var updatehref = $(this).parent('td').parent('tr').find('a[href*="legacy/admin/index.php?action={$action_Base}Update"]').attr('href');
+			var installhref = $(this).parent('td').parent('tr').find('a[href*="xcore/admin/index.php?action={$action_Base}"]').attr('href');
+			var updatehref = $(this).parent('td').parent('tr').find('a[href*="xcore/admin/index.php?action={$action_Base}Update"]').attr('href');
 			var td = $(this).parent('td');
 			installationModules.push({'storehref':storehref , 'installhref':installhref , 'td':td , 'status':0, 'isUpdate':(typeof updatehref !== 'undefined')});
 		});
@@ -531,12 +531,12 @@ jQuery(function($){
 
 	var postFormSuccess = function(html)
 	{
-		//var result = $(html).find('li.legacy_module_message:last').text();
+		//var result = $(html).find('li.xcore_module_message:last').text();
 		if (installationModule.isUpdate) {
-			var error_result = $(html).find('li.legacy_module_error:last').text();
+			var error_result = $(html).find('li.xcore_module_error:last').text();
 			var action = '{$message_Update}';
 		} else {
-			var error_result = $(html).find('li.legacy_modinstall_error:last').text();
+			var error_result = $(html).find('li.xcore_modinstall_error:last').text();
 			var action = '{$message_Install}';
 		}
 		if (! error_result) {

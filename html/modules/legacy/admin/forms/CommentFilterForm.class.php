@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: CommentFilterForm.class.php,v 1.3 2008/09/25 15:10:34 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractFilterForm.class.php";
 
 define('COMMENT_SORT_KEY_COM_ID', 1);
 define('COMMENT_SORT_KEY_COM_PID', 2);
@@ -36,7 +36,7 @@ define('COMMENT_SORT_KEY_DOBR', 20);
 define('COMMENT_SORT_KEY_DEFAULT', COMMENT_SORT_KEY_COM_ID);
 define('COMMENT_SORT_KEY_MAXVALUE', 20);
 
-class Legacy_CommentFilterForm extends Legacy_AbstractFilterForm
+class Xcore_CommentFilterForm extends Xcore_AbstractFilterForm
 {
 	var $mSortKeys = array(
 		COMMENT_SORT_KEY_COM_ID => 'com_id',

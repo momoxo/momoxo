@@ -283,7 +283,7 @@ class Xupdate_FtpModuleInstall extends Xupdate_FtpCommonZipArchive {
 			}
 			
 			// for KARIMOJI_LEGALEGAcore extra languages
-			if ($this->dirname === 'legacy') {
+			if ($this->dirname === 'xcore') {
 				// copy extras languages
 				$langs = array();
 				if ($handle = opendir(XOOPS_ROOT_PATH . '/language')) {
@@ -327,18 +327,18 @@ class Xupdate_FtpModuleInstall extends Xupdate_FtpCommonZipArchive {
 			$module =& $hModule->getByDirname($dirname) ;
 			if (is_object($module)){
 				if ($module->getVar('isactive') ) {
-					$ret ='<a href="'.XOOPS_MODULE_URL.'/legacy/admin/index.php?action=ModuleUpdate&dirname='.$dirname.'">'._MI_XUPDATE_ADMENU_MODULE._MI_XUPDATE_UPDATE.'</a>';
+					$ret ='<a href="'.XOOPS_MODULE_URL.'/xcore/admin/index.php?action=ModuleUpdate&dirname='.$dirname.'">'._MI_XUPDATE_ADMENU_MODULE._MI_XUPDATE_UPDATE.'</a>';
 				} else {
-					$ret =_AD_LEGACY_LANG_BLOCK_INACTIVETOTAL;
+					$ret =_AD_XCORE_LANG_BLOCK_INACTIVETOTAL;
 				}
 			} else if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $dirname)) {
-				$ret ='<a href="'.XOOPS_MODULE_URL.'/legacy/admin/index.php?action=ModuleInstall&dirname='.$dirname.'">'._MI_XUPDATE_ADMENU_MODULE._INSTALL.'</a>';
+				$ret ='<a href="'.XOOPS_MODULE_URL.'/xcore/admin/index.php?action=ModuleInstall&dirname='.$dirname.'">'._MI_XUPDATE_ADMENU_MODULE._INSTALL.'</a>';
 			} else {
 				$ret ='<a href="'.XOOPS_MODULE_URL.'/xupdate/admin/index.php?action=ModuleStore">'._AD_XUPDATE_LANG_MESSAGE_GETTING_FILES._AD_XUPDATE_LANG_MESSAGE_SUCCESS.'</a>';
 			}
 
 		} elseif ($caller === 'theme') {
-			$ret ='<a href="'.XOOPS_MODULE_URL.'/legacy/admin/index.php?action=ThemeList">'._MI_XUPDATE_ADMENU_THEME._MI_XUPDATE_MANAGE.'</a>';
+			$ret ='<a href="'.XOOPS_MODULE_URL.'/xcore/admin/index.php?action=ThemeList">'._MI_XUPDATE_ADMENU_THEME._MI_XUPDATE_MANAGE.'</a>';
 		} elseif ($caller === 'preload') {
 			$ret ='<a href="'.XOOPS_MODULE_URL.'/xupdate/admin/index.php?action=PreloadStore">'._AD_XUPDATE_LANG_MESSAGE_GETTING_FILES._AD_XUPDATE_LANG_MESSAGE_SUCCESS.'</a>';
 		}

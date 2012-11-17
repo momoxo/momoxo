@@ -83,10 +83,10 @@ class Lecat_PermitEditAction extends Lecat_AbstractEditAction
 	public function executeViewSuccess(/*** XCube_RenderTarget ***/ &$render)
 	{
 		if($this->mCatId==0){
-			$this->mRoot->mController->executeForward(Legacy_Utils::renderUri($this->mAsset->mDirname, 'Default', 0, 'Set'));
+			$this->mRoot->mController->executeForward(Xcore_Utils::renderUri($this->mAsset->mDirname, 'Default', 0, 'Set'));
 		}
 		else{
-			$this->mRoot->mController->executeForward(Legacy_Utils::renderUri($this->mAsset->mDirname, 'cat', $this->mCatId));
+			$this->mRoot->mController->executeForward(Xcore_Utils::renderUri($this->mAsset->mDirname, 'cat', $this->mCatId));
 		}
 	}
 
@@ -99,7 +99,7 @@ class Lecat_PermitEditAction extends Lecat_AbstractEditAction
 	**/
 	public function executeViewError(/*** XCube_RenderTarget ***/ &$render)
 	{
-		$this->mRoot->mController->executeRedirect(Legacy_Utils::renderUri($this->mAsset->mDirname, 'cat', $this->mCatId), 1, _MD_LECAT_ERROR_DBUPDATE_FAILED);
+		$this->mRoot->mController->executeRedirect(Xcore_Utils::renderUri($this->mAsset->mDirname, 'cat', $this->mCatId), 1, _MD_LECAT_ERROR_DBUPDATE_FAILED);
 	}
 
 	/**
@@ -111,7 +111,7 @@ class Lecat_PermitEditAction extends Lecat_AbstractEditAction
 	**/
 	public function executeViewCancel(/*** XCube_RenderTarget ***/ &$render)
 	{
-		$this->mRoot->mController->executeForward(Legacy_Utils::renderUri($this->mAsset->mDirname, 'cat', $this->mCatId));
+		$this->mRoot->mController->executeForward(Xcore_Utils::renderUri($this->mAsset->mDirname, 'cat', $this->mCatId));
 	}
 
 	function execute()

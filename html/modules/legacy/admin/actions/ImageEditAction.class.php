@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImageEditAction.class.php,v 1.3 2008/09/25 15:11:53 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/admin/actions/ImageCreateAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ImageAdminEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/actions/ImageCreateAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ImageAdminEditForm.class.php";
 
-class Legacy_ImageEditAction extends Legacy_ImageCreateAction
+class Xcore_ImageEditAction extends Xcore_ImageCreateAction
 {
 	function _getId()
 	{
@@ -22,7 +22,7 @@ class Legacy_ImageEditAction extends Legacy_ImageCreateAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_ImageAdminEditForm();
+		$this->mActionForm =new Xcore_ImageAdminEditForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -44,7 +44,7 @@ class Legacy_ImageEditAction extends Legacy_ImageCreateAction
 		$render->setAttribute('actionForm', $this->mActionForm);
 		$render->setAttribute('object', $this->mObject);
 		
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$t_category = $handler->get($this->mObject->get('imgcat_id'));
 		
 		$categoryArr =& $handler->getObjects(new Criteria('imgcat_storetype', $t_category->get('imgcat_storetype')));

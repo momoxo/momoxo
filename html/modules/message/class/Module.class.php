@@ -4,11 +4,11 @@
  * @author Marijuana
  */
 if (!defined('XOOPS_ROOT_PATH')) exit();
-class Message_Module extends Legacy_ModuleAdapter
+class Message_Module extends Xcore_ModuleAdapter
 {
   public function __construct(&$xoopsModule)
   {
-    parent::Legacy_ModuleAdapter($xoopsModule);
+    parent::Xcore_ModuleAdapter($xoopsModule);
   }
   
   public function hasAdminIndex()

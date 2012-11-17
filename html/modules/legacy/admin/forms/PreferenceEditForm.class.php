@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: PreferenceEditForm.class.php,v 1.3 2008/09/25 15:11:12 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -12,12 +12,12 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
 
-class Legacy_PreferenceEditForm extends XCube_ActionForm
+class Xcore_PreferenceEditForm extends XCube_ActionForm
 {
 	var $mKeyName = "confcat_id";
 	var $mKeyValue = 0;
 	
-	function Legacy_PreferenceEditForm(&$category)
+	function Xcore_PreferenceEditForm(&$category)
 	{
 		parent::XCube_ActionForm();
 		$this->mKeyValue = $category->get('confcat_id');
@@ -25,7 +25,7 @@ class Legacy_PreferenceEditForm extends XCube_ActionForm
 	
 	function getTokenName()
 	{
-		return "module.legacy.PreferenceEditForm.TOKEN" . $this->getCategoryId();
+		return "module.xcore.PreferenceEditForm.TOKEN" . $this->getCategoryId();
 	}
 	
 	function getCategoryId()
@@ -62,7 +62,7 @@ class Legacy_PreferenceEditForm extends XCube_ActionForm
 					
 					$this->mFieldProperties[$config->get('conf_name')] =new XCube_FieldProperty($this);
 					$this->mFieldProperties[$config->get('conf_name')]->setDependsByArray(array('required'));
-					$this->mFieldProperties[$config->get('conf_name')]->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, $config->get('conf_title'));
+					$this->mFieldProperties[$config->get('conf_name')]->addMessage('required', _MD_XCORE_ERROR_REQUIRED, $config->get('conf_title'));
 					break;
 
 				case 'int':
@@ -71,7 +71,7 @@ class Legacy_PreferenceEditForm extends XCube_ActionForm
 					
 					$this->mFieldProperties[$config->get('conf_name')] =new XCube_FieldProperty($this);
 					$this->mFieldProperties[$config->get('conf_name')]->setDependsByArray(array('required'));
-					$this->mFieldProperties[$config->get('conf_name')]->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, $config->get('conf_title'));
+					$this->mFieldProperties[$config->get('conf_name')]->addMessage('required', _MD_XCORE_ERROR_REQUIRED, $config->get('conf_title'));
 					break;
 					
 				case 'other':
@@ -124,11 +124,11 @@ class Legacy_PreferenceEditForm extends XCube_ActionForm
 	}
 }
 
-class Legacy_ModulePreferenceEditForm extends Legacy_PreferenceEditForm
+class Xcore_ModulePreferenceEditForm extends Xcore_PreferenceEditForm
 {
 	var $mKeyName = "confmod_id";
 
-	function Legacy_ModulePreferenceEditForm(&$module)
+	function Xcore_ModulePreferenceEditForm(&$module)
 	{
 		parent::XCube_ActionForm();
 		$this->mKeyValue = $module->get('mid');
@@ -136,7 +136,7 @@ class Legacy_ModulePreferenceEditForm extends Legacy_PreferenceEditForm
 	
 	function getTokenName()
 	{
-		return "module.legacy.ModulePreferenceEditForm.TOKEN" . $this->getModuleId();
+		return "module.xcore.ModulePreferenceEditForm.TOKEN" . $this->getModuleId();
 	}
 	
 	function getCategoryId()

@@ -13,9 +13,9 @@ class Pm_Preload extends XCube_ActionFilter
 		$this->mRoot->mServiceManager->addService('privateMessage', $service);
 
 		$root =& XCube_Root::getSingleton();
-		$root->mDelegateManager->add('Legacypage.Viewpmsg.Access', "Pm_Preload::accessToViewpmsg");
-		$root->mDelegateManager->add('Legacypage.Readpmsg.Access', "Pm_Preload::accessToReadpmsg");
-		$root->mDelegateManager->add('Legacypage.Pmlite.Access', "Pm_Preload::accessToPmlite");
+		$root->mDelegateManager->add('Xcorepage.Viewpmsg.Access', "Pm_Preload::accessToViewpmsg");
+		$root->mDelegateManager->add('Xcorepage.Readpmsg.Access', "Pm_Preload::accessToReadpmsg");
+		$root->mDelegateManager->add('Xcorepage.Pmlite.Access', "Pm_Preload::accessToPmlite");
 	}
 	
 	function accessToReadpmsg()

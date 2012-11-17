@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: function.xoops_dhtmltarea.php,v 1.3 2010/02/22 15:12:36 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -38,7 +38,7 @@
  * -------------------------------------------------------------
  */
 
-define ("XOOPS_DHTMLTAREA_DEFID_PREFIX", "legacy_xoopsform_");
+define ("XOOPS_DHTMLTAREA_DEFID_PREFIX", "xcore_xoopsform_");
 define ("XOOPS_DHTMLTAREA_DEFAULT_COLS", "50");
 define ("XOOPS_DHTMLTAREA_DEFAULT_ROWS", "5");
 

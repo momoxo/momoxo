@@ -2,10 +2,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/SmilesUploadForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/SmilesUploadForm.class.php";
 
-class Legacy_SmilesUploadAction extends Legacy_Action
+class Xcore_SmilesUploadAction extends Xcore_Action
 {
 	var $mActionForm = null;
 	var $mErrorMessages = array();
@@ -13,13 +13,13 @@ class Legacy_SmilesUploadAction extends Legacy_Action
 	
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_SmilesUploadForm();
+		$this->mActionForm =new Xcore_SmilesUploadForm();
 		$this->mActionForm->prepare();
 	}
 	
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 	
 	function _addErrorMessage($msg)
@@ -31,7 +31,7 @@ class Legacy_SmilesUploadAction extends Legacy_Action
 	{
 		$form_cancel = $controller->mRoot->mContext->mRequest->getRequest('_form_control_cancel');
 		if ($form_cancel != null) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		$this->mActionForm->fetch();
@@ -48,16 +48,16 @@ class Legacy_SmilesUploadAction extends Legacy_Action
 
 		if ( strtolower($formFileExt) == "zip" ) {
 		If ( !file_exists(XOOPS_ROOT_PATH . "/class/Archive_Zip.php") ) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		require_once XOOPS_ROOT_PATH . "/class/Archive_Zip.php" ;
 		$zip = new Archive_Zip($formFile->_mTmpFileName) ;
 		$files = $zip->extract( array( 'extract_as_string' => true ) ) ;
 		if( ! is_array( @$files ) ) {
-		return LEGACY_FRAME_VIEW_ERROR;
+		return XCORE_FRAME_VIEW_ERROR;
 		}
 		if (!$this->_fetchZipSmilesImages($files, $smilesimages)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}		
 		}//if zip end
 		else { 
@@ -65,17 +65,17 @@ class Legacy_SmilesUploadAction extends Legacy_Action
 		$tar =new tar();
 		$tar->openTar($formFile->_mTmpFileName);
 		if (!is_array( @$tar->files)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		if (!$this->_fetchTarSmilesImages($tar->files, $smilesimages)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}		
 		}//end tar
 						
 		if (!$this->_saveSmilesImages($smilesimages)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 
 	}
 
@@ -126,11 +126,11 @@ class Legacy_SmilesUploadAction extends Legacy_Action
 				$save_file_name = uniqid( 'smil' ) . '.' . $ext ;
 				$filehandle = fopen( XOOPS_UPLOAD_PATH.'/'.$save_file_name , "w" ) ;
 				if( ! $filehandle ) {
-				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
+				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
 				continue ;
 				}
 				if ( !@fwrite($filehandle, $smilesimages[$i]['content']) ) {
-				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
+				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
 				@fclose( $filehandle ) ;
 				continue;				
 				};
@@ -143,7 +143,7 @@ class Legacy_SmilesUploadAction extends Legacy_Action
 				$smiles->set('display', 1);
 
 				if (!$smileshandler->insert($smiles)) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
+					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
 				}
 				unset($smiles);
 		}
@@ -165,7 +165,7 @@ class Legacy_SmilesUploadAction extends Legacy_Action
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
 		if (count($this->mErrorMessages) == 0) {
-			$controller->executeRedirect("./index.php?action=SmilesList", 1, _AD_LEGACY_ERROR_DBUPDATE_FAILED);
+			$controller->executeRedirect("./index.php?action=SmilesList", 1, _AD_XCORE_ERROR_DBUPDATE_FAILED);
 		}
 		else {
 			$render->setTemplateName("smiles_upload_error.html");

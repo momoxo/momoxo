@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: HelpAction.class.php,v 1.5 2008/09/25 15:11:52 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -23,7 +23,7 @@
  * 'helpimage' modify a image URL. These modifiers consider the existence of
  * language files.
  */
-class Legacy_HelpSmarty extends Smarty
+class Xcore_HelpSmarty extends Smarty
 {
 	/**
 	 * @var string
@@ -40,7 +40,7 @@ class Legacy_HelpSmarty extends Smarty
 	 */
 	var $mFilename = null;
 
-	function Legacy_HelpSmarty()
+	function Xcore_HelpSmarty()
 	{
 		parent::Smarty();
 
@@ -53,8 +53,8 @@ class Legacy_HelpSmarty extends Smarty
 		
 		$this->force_compile = true;
 
-		$this->register_modifier("helpurl", "Legacy_modifier_helpurl");
-		$this->register_modifier("helpimage", "Legacy_modifier_helpimage");
+		$this->register_modifier("helpurl", "Xcore_modifier_helpurl");
+		$this->register_modifier("helpimage", "Xcore_modifier_helpimage");
 	}
 	
 	function setDirname($dirname)
@@ -69,12 +69,12 @@ class Legacy_HelpSmarty extends Smarty
 	}
 }
 
-function Legacy_modifier_helpurl($file, $dirname = null )
+function Xcore_modifier_helpurl($file, $dirname = null )
 {
 	$root =& XCube_Root::getSingleton();
 	
 	$language = $root->mContext->getXoopsConfig('language');
-	$dirname = $root->mContext->getAttribute('legacy_help_dirname');
+	$dirname = $root->mContext->getAttribute('xcore_help_dirname');
 
 	if ( $dirname == null ) {
 		$moduleObject =& $root->mContext->mXoopsModule;
@@ -85,17 +85,17 @@ function Legacy_modifier_helpurl($file, $dirname = null )
 	// TODO We should check file_exists.
 	//
 
-	$url = XOOPS_MODULE_URL . "/legacy/admin/index.php?action=Help&amp;dirname=${dirname}&amp;file=${file}";
+	$url = XOOPS_MODULE_URL . "/xcore/admin/index.php?action=Help&amp;dirname=${dirname}&amp;file=${file}";
 
 	return $url;
 }
 
-function Legacy_modifier_helpimage($file)
+function Xcore_modifier_helpimage($file)
 {
 	$root =& XCube_Root::getSingleton();
 	
 	$language = $root->mContext->getXoopsConfig('language');
-	$dirname = $root->mContext->getAttribute('legacy_help_dirname');
+	$dirname = $root->mContext->getAttribute('xcore_help_dirname');
 
 	$path = "/${dirname}/language/${language}/help/images/${file}";
 	if (!file_exists(XOOPS_MODULE_PATH . $path) && $language != "english") {
@@ -109,7 +109,7 @@ function Legacy_modifier_helpimage($file)
  * @internal
  * This action will show the information of a module specified to user.
  */
-class Legacy_HelpAction extends Legacy_Action
+class Xcore_HelpAction extends Xcore_Action
 {
 	var $mModuleObject = null;
 	var $mContents = null;
@@ -126,13 +126,13 @@ class Legacy_HelpAction extends Legacy_Action
 	 */
 	var $mCreateHelpSmarty = null;
 	
-	function Legacy_HelpAction($flag)
+	function Xcore_HelpAction($flag)
 	{
-		parent::Legacy_Action($flag);
+		parent::Xcore_Action($flag);
 		
 		$this->mCreateHelpSmarty =new XCube_Delegate();
 		$this->mCreateHelpSmarty->add(array(&$this, '_createHelpSmarty'));
-		$this->mCreateHelpSmarty->register('Legacy_HelpAction.CreateHelpSmarty');
+		$this->mCreateHelpSmarty->register('Xcore_HelpAction.CreateHelpSmarty');
 	}
 	
 	function prepare(&$controller, &$xoopsUser)
@@ -176,23 +176,23 @@ class Legacy_HelpAction extends Legacy_Action
 		if (!file_exists($template_dir . "/" . $helpfile)) {
 			$template_dir = XOOPS_MODULE_PATH . "/" . $this->_mDirname . "/language/english/help";
 			if (!file_exists($template_dir . "/" . $helpfile)) {
-				$this->mErrorMessage = _AD_LEGACY_ERROR_NO_HELP_FILE;
-				return LEGACY_FRAME_VIEW_ERROR;
+				$this->mErrorMessage = _AD_XCORE_ERROR_NO_HELP_FILE;
+				return XCORE_FRAME_VIEW_ERROR;
 			}
 		}
 		
-		$controller->mRoot->mContext->setAttribute('legacy_help_dirname', $this->_mDirname);
+		$controller->mRoot->mContext->setAttribute('xcore_help_dirname', $this->_mDirname);
 
 		$smarty->template_dir = $template_dir;
 		$this->mContents = $smarty->fetch("file:" . $helpfile);
 
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 
 	function _createHelpSmarty(&$smarty)
 	{
 		if (!is_object($smarty)) {
-			$smarty = new Legacy_HelpSmarty();
+			$smarty = new Xcore_HelpSmarty();
 		}
 	}
 	
@@ -200,7 +200,7 @@ class Legacy_HelpAction extends Legacy_Action
 	{
 		$renderer->setTemplateName("help.html");
 		
-		$module =& Legacy_Utils::createModule($this->mModuleObject);
+		$module =& Xcore_Utils::createModule($this->mModuleObject);
 		
 		$renderer->setAttribute('module', $module);
 		$renderer->setAttribute('contents', $this->mContents);

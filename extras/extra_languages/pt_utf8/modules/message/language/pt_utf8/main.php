@@ -88,9 +88,9 @@ define("_MD_MESSAGE_TEMPLATE6","Enviar");
 define("_MD_MESSAGE_TEMPLATE7","Mensagens enviadas");
 define("_MD_MESSAGE_TEMPLATE8","Nova mensagem");
 define("_MD_MESSAGE_TEMPLATE9","Destinatário");
-if (!defined("LEGACY_MAIL_LANG")) {
-define("LEGACY_MAIL_LANG","pt");
-define("LEGACY_MAIL_CHAR","UTF-8");
-define("LEGACY_MAIL_ENCO","8bit");
+if (!defined("XCORE_MAIL_LANG")) {
+define("XCORE_MAIL_LANG","pt");
+define("XCORE_MAIL_CHAR","UTF-8");
+define("XCORE_MAIL_ENCO","8bit");
 }
 ?>

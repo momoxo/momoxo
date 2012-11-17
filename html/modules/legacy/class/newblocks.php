@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: newblocks.php,v 1.3 2008/09/25 15:11:31 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyNewblocksObject extends XoopsSimpleObject
+class XcoreNewblocksObject extends XoopsSimpleObject
 {
 	var $mModule = null;
 	
@@ -26,7 +26,7 @@ class LegacyNewblocksObject extends XoopsSimpleObject
 	
 	var $mCachetime = null;
 
-	function LegacyNewblocksObject()
+	function XcoreNewblocksObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -85,7 +85,7 @@ class LegacyNewblocksObject extends XoopsSimpleObject
 	
 	function loadBmodule()
 	{
-		$handler =& xoops_getmodulehandler('block_module_link', 'legacy');
+		$handler =& xoops_getmodulehandler('block_module_link', 'xcore');
 		$criteria =new Criteria('block_id', $this->get('bid'));
 		
 		$this->mBmodule =& $handler->getObjects($criteria);
@@ -93,7 +93,7 @@ class LegacyNewblocksObject extends XoopsSimpleObject
 	
 	function loadColumn()
 	{
-		$handler =& xoops_getmodulehandler('columnside', 'legacy');
+		$handler =& xoops_getmodulehandler('columnside', 'xcore');
 		$this->mColumn =& $handler->get($this->get('side'));
 	}
 	
@@ -104,11 +104,11 @@ class LegacyNewblocksObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyNewblocksHandler extends XoopsObjectGenericHandler
+class XcoreNewblocksHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "newblocks";
 	var $mPrimary = "bid";
-	var $mClass = "LegacyNewblocksObject";
+	var $mClass = "XcoreNewblocksObject";
 	
 	function delete(&$obj, $force = false)
 	{
@@ -116,7 +116,7 @@ class LegacyNewblocksHandler extends XoopsObjectGenericHandler
 			//
 			// Delete related data from block_module_link.
 			//
-			$handler =& xoops_getmodulehandler('block_module_link', 'legacy');
+			$handler =& xoops_getmodulehandler('block_module_link', 'xcore');
 			$handler->deleteAll(new Criteria('block_id'), $obj->get('bid'));
 			
 			//

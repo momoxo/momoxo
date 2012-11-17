@@ -29,42 +29,42 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
 
-define("_MB_LEGACY_HOME",  "홈");
+define("_MB_XCORE_HOME",  "홈");
 
-define("_MB_LEGACY_VACNT", "계정정보보기");
-define("_MB_LEGACY_EACNT", "계정정보편집");
-define("_MB_LEGACY_NOTIF", "이벤트통지기능");
-define("_MB_LEGACY_INBOX", "수신박스");
-define("_MB_LEGACY_LOUT",  "로그아웃");
-define("_MB_LEGACY_ADMENU","관리자메뉴");
+define("_MB_XCORE_VACNT", "계정정보보기");
+define("_MB_XCORE_EACNT", "계정정보편집");
+define("_MB_XCORE_NOTIF", "이벤트통지기능");
+define("_MB_XCORE_INBOX", "수신박스");
+define("_MB_XCORE_LOUT",  "로그아웃");
+define("_MB_XCORE_ADMENU","관리자메뉴");
 
-define("_MB_LEGACY_SEARCH","검색");
-define("_MB_LEGACY_ADVS",  "상세 검색");
+define("_MB_XCORE_SEARCH","검색");
+define("_MB_XCORE_ADVS",  "상세 검색");
 
-define("_MB_LEGACY_SUBMS", "신규투고뉴스");
-define("_MB_LEGACY_WLNKS", "신규투고링크");
-define("_MB_LEGACY_BLNK",  "잘못된 링크신고");
-define("_MB_LEGACY_MLNKS", "변경된 링크");
-define("_MB_LEGACY_WDLS",  "신규투고다운로드정보");
-define("_MB_LEGACY_BFLS",  "잘못된 파일신고");
-define("_MB_LEGACY_MFLS",  "변경된 다운로드정보");
-define("_MB_LEGACY_COMPEND", "코멘트");
+define("_MB_XCORE_SUBMS", "신규투고뉴스");
+define("_MB_XCORE_WLNKS", "신규투고링크");
+define("_MB_XCORE_BLNK",  "잘못된 링크신고");
+define("_MB_XCORE_MLNKS", "변경된 링크");
+define("_MB_XCORE_WDLS",  "신규투고다운로드정보");
+define("_MB_XCORE_BFLS",  "잘못된 파일신고");
+define("_MB_XCORE_MFLS",  "변경된 다운로드정보");
+define("_MB_XCORE_COMPEND", "코멘트");
 
-define("_MB_LEGACY_RECO",  "이 사이트를 추천!");
-define("_MB_LEGACY_PWWIDTH", "팝업윈도우 폭");
-define("_MB_LEGACY_PWHEIGHT","팝업윈도우 높이");
-define("_MB_LEGACY_LOGO",    "%s 디렉토리안의 로고파일이름");  // %s is your root image directory name
-define("_MB_LEGACY_SADMIN",  "관리자그룹을 표시함");
-define("_MB_LEGACY_DISPLAYC"," %s 개의 코멘트를 표시");
+define("_MB_XCORE_RECO",  "이 사이트를 추천!");
+define("_MB_XCORE_PWWIDTH", "팝업윈도우 폭");
+define("_MB_XCORE_PWHEIGHT","팝업윈도우 높이");
+define("_MB_XCORE_LOGO",    "%s 디렉토리안의 로고파일이름");  // %s is your root image directory name
+define("_MB_XCORE_SADMIN",  "관리자그룹을 표시함");
+define("_MB_XCORE_DISPLAYC"," %s 개의 코멘트를 표시");
 
-define("_MB_LEGACY_LANG_NUMTHEME", "%s 테마");
-define('_MB_LEGACY_LANG_THSHOW', "스크린샷 그림파일의 표시");
-define('_MB_LEGACY_LANG_THWIDTH', "스크린샷 그림파일의 폭");
+define("_MB_XCORE_LANG_NUMTHEME", "%s 테마");
+define('_MB_XCORE_LANG_THSHOW', "스크린샷 그림파일의 표시");
+define('_MB_XCORE_LANG_THWIDTH', "스크린샷 그림파일의 폭");
 
-define('_MB_LEGACY_LANG_RECOMMENDSITE', "친구에게 이 사이트를 추천");
+define('_MB_XCORE_LANG_RECOMMENDSITE', "친구에게 이 사이트를 추천");
 
-define('_MB_LEGACY_MESSAGE_CAN_NOT_THEME_CHANGE', "지금은 테마를 변경하실 수 없습니다.");
+define('_MB_XCORE_MESSAGE_CAN_NOT_THEME_CHANGE', "지금은 테마를 변경하실 수 없습니다.");
 
-define('_MB_LEGACY_MAINMENU_EXPAND_SUB', "모든 하위 메뉴를 표시");
+define('_MB_XCORE_MAINMENU_EXPAND_SUB', "모든 하위 메뉴를 표시");
 
 ?>

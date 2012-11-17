@@ -27,7 +27,7 @@ define('XUPDATE_FRAME_VIEW_CANCEL','cancel');
 /**
  * Xupdate_Module
 **/
-class Xupdate_Module extends Legacy_ModuleAdapter
+class Xupdate_Module extends Xcore_ModuleAdapter
 {
     public /*** string ***/ $mActionName = null;
 

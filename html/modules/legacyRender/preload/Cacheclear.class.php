@@ -1,6 +1,6 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: Cacheclear.class.php,v 1.2 2007/06/18 07:41:55 minahito Exp $
  */
 
@@ -11,17 +11,17 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * @todo
  *    This may have to be admin-preload.
  */
-class LegacyRender_Cacheclear extends XCube_ActionFilter {
+class XcoreRender_Cacheclear extends XCube_ActionFilter {
     function preBlockFilter()
     {
-		$this->mRoot->mDelegateManager->add('Legacy_ModuleInstallAction.InstallSuccess', 'LegacyRender_Cacheclear::cacheClear');
-		$this->mRoot->mDelegateManager->add('Legacy_ModuleUpdateAction.UpdateSuccess', 'LegacyRender_Cacheclear::cacheClear');
-		$this->mRoot->mDelegateManager->add('Legacy_ModuleUninstaller._fireNotifyUninstallTemplateBegun', 'LegacyRender_Cacheclear::cacheClear');
+		$this->mRoot->mDelegateManager->add('Xcore_ModuleInstallAction.InstallSuccess', 'XcoreRender_Cacheclear::cacheClear');
+		$this->mRoot->mDelegateManager->add('Xcore_ModuleUpdateAction.UpdateSuccess', 'XcoreRender_Cacheclear::cacheClear');
+		$this->mRoot->mDelegateManager->add('Xcore_ModuleUninstaller._fireNotifyUninstallTemplateBegun', 'XcoreRender_Cacheclear::cacheClear');
     }
     
     function cacheClear(&$module)
 	{
-		$handler =& xoops_getmodulehandler('tplfile', 'legacyRender');
+		$handler =& xoops_getmodulehandler('tplfile', 'xcoreRender');
 		
 		$criteria =new Criteria('tpl_module', $module->get('dirname'));
 		$tplfileArr = $handler->getObjects($criteria);

@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_ActionForm.class.php,v 1.4 2008/09/25 15:11:58 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_ActionForm.class.php,v 1.4 2008/09/25 15:11:58 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -22,13 +22,13 @@ require_once XCUBE_CORE_PATH . '/XCube_ActionForm.class.php';
  * 
  * @todo All actionforms of Package_KARIMOJI_LEGALEGAhave to Inheritance this class.
  */
-class Legacy_ActionForm extends XCube_ActionForm
+class Xcore_ActionForm extends XCube_ActionForm
 {
 	/**
 	 * @public
 	 * @brief Constructor.
 	 */
-	function Legacy_ActionForm()
+	function Xcore_ActionForm()
 	{
 		parent::XCube_ActionForm();
 	}

@@ -55,7 +55,7 @@
 <li><{$smarty.const._MD_USER_LANG_LAST_LOGIN}> <{$thisUser->get('last_login')|xoops_formattimestamp:l}></li>
 <li><{$smarty.const._MD_USER_LANG_USER_SIG}> <{$thisUser->getShow('user_sig')}></li>
 
-<{legacy_profile uid=$thisUser->getShow('uid')}>
+<{xcore_profile uid=$thisUser->getShow('uid')}>
 
 </ul>
 

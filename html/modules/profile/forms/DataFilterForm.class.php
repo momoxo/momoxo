@@ -52,7 +52,7 @@ class Profile_DataFilterForm extends Profile_AbstractFilterForm
     **/
     public function prepare(/*** XCube_PageNavigator ***/ &$navi,/*** XoopsObjectGenericHandler ***/ &$handler)
     {
-        $this->mFields = xoops_getmodulehandler('definitions', 'profile')->getFields4DataShow(Legacy_Utils::getUid());
+        $this->mFields = xoops_getmodulehandler('definitions', 'profile')->getFields4DataShow(Xcore_Utils::getUid());
     
         $this->_addSortKeys();
         parent::prepare($navi,$handler);

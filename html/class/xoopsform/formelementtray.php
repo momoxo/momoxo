@@ -172,8 +172,8 @@ class XoopsFormElementTray extends XoopsFormElement {
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_elementtray.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_elementtray.html");
 		$renderTarget->setAttribute("tray", $this);
 
 		$renderSystem->render($renderTarget);

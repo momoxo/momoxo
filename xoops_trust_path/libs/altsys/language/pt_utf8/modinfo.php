@@ -25,5 +25,5 @@ define("_MI_ALTSYS_MENU_MYSMILEY","Ícones emotivos");
 define("_MI_ALTSYS_MENU_MYTPLSADMIN","Modelos");
 define("_MI_ALTSYS_MENU_NEWCUSTOMBLOCK","Criar um novo bloco");
 define("_MI_ALTSYS_MODULEDESC","Módulo complementar para administração do sistema cuja instalação é necessária para o funcionamento de diversos módulos.");
-define("_MI_ALTSYS_MODULENAME","Altsys legacy");
+define("_MI_ALTSYS_MODULENAME","Altsys xcore");
 ?>

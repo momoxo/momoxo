@@ -156,8 +156,8 @@ class XoopsFormCheckBox extends XoopsFormElement {
 			$this->setName($newname);
 		}
 		
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_checkbox.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_checkbox.html");
 		$renderTarget->setAttribute("element", $this);
 
 		$renderSystem->render($renderTarget);

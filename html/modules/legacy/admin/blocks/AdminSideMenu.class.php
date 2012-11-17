@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: AdminSideMenu.class.php,v 1.3 2008/09/25 15:12:44 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-define('LEGACY_ADMINMENU_CACHEPREFIX', XOOPS_CACHE_PATH.'/'.urlencode(XOOPS_URL).'_admin_menu_');
+define('XCORE_ADMINMENU_CACHEPREFIX', XOOPS_CACHE_PATH.'/'.urlencode(XOOPS_URL).'_admin_menu_');
 
 /**
  * This is test menu block for control panel of KARIMOJI_LEGALEGAmodule.
@@ -20,9 +20,9 @@ define('LEGACY_ADMINMENU_CACHEPREFIX', XOOPS_CACHE_PATH.'/'.urlencode(XOOPS_URL)
  * [ASSIGN]
  *	Array of module objects.
  * 
- * @package legacy
+ * @package xcore
  */
-class Legacy_AdminSideMenu extends Legacy_AbstractBlockProcedure
+class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 {
 	var $mModules = array();
 	
@@ -57,26 +57,26 @@ class Legacy_AdminSideMenu extends Legacy_AbstractBlockProcedure
 	{
 		$root =& XCube_Root::getSingleton();
 		
-		// load message catalog of KARIMOJI_LEGALEGAfor _AD_LEGACY_LANG_NO_SETTING, even if the current module is not Legacy.
+		// load message catalog of KARIMOJI_LEGALEGAfor _AD_XCORE_LANG_NO_SETTING, even if the current module is not Xcore.
 		$langMgr =& $root->mLanguageManager;
-		$langMgr->loadModuleAdminMessageCatalog('legacy'); 
+		$langMgr->loadModuleAdminMessageCatalog('xcore');
 		//
-		$langMgr->loadModinfoMessageCatalog('legacy');
+		$langMgr->loadModinfoMessageCatalog('xcore');
 		
 		$controller =& $root->mController;
 		$user =& $root->mContext->mXoopsUser;
 		$groups = implode(",", $user->getGroups());
-		$cachePath = LEGACY_ADMINMENU_CACHEPREFIX . md5(XOOPS_SALT . "($groups)". $langMgr->mLanguageName).'.html';
+		$cachePath = XCORE_ADMINMENU_CACHEPREFIX . md5(XOOPS_SALT . "($groups)". $langMgr->mLanguageName).'.html';
 		$render =& $this->getRenderTarget();
 		if (file_exists($cachePath)) {
 			$render->mRenderBuffer = file_get_contents($cachePath);
 			return;
 		}
-		$render->setAttribute('legacy_module', 'legacy');
+		$render->setAttribute('xcore_module', 'xcore');
 		
 		$this->mCurrentModule =& $controller->mRoot->mContext->mXoopsModule;
 		
-		if ($this->mCurrentModule->get('dirname') == 'legacy') {
+		if ($this->mCurrentModule->get('dirname') == 'xcore') {
 			if (xoops_getrequest('action') == "help") {
 				$moduleHandler =& xoops_gethandler('module');
 				$t_module =& $moduleHandler->getByDirname(xoops_gethandler('dirname'));
@@ -111,7 +111,7 @@ class Legacy_AdminSideMenu extends Legacy_AbstractBlockProcedure
 		
 		while(list($mid) = $db->fetchRow($result)) {
 			$xoopsModule = & $handler->get($mid);
-			$module =& Legacy_Utils::createModule($xoopsModule, false);
+			$module =& Xcore_Utils::createModule($xoopsModule, false);
 
 			$this->mModules[] =& $module;
 			unset($module);
@@ -127,7 +127,7 @@ class Legacy_AdminSideMenu extends Legacy_AbstractBlockProcedure
 		$render->setAttribute('tplmodules', $tpl_modules);
 		//
 
-		$render->setTemplateName('legacy_admin_block_sidemenu.html');
+		$render->setTemplateName('xcore_admin_block_sidemenu.html');
 		$render->setAttribute('modules', $this->mModules);
 		$render->setAttribute('currentModule', $this->mCurrentModule);
 		
@@ -139,7 +139,7 @@ class Legacy_AdminSideMenu extends Legacy_AbstractBlockProcedure
 
 	static function clearCache()
 	{
-		$adminMenucache = glob(LEGACY_ADMINMENU_CACHEPREFIX . '*.html');
+		$adminMenucache = glob(XCORE_ADMINMENU_CACHEPREFIX . '*.html');
 		if ($adminMenucache) {
 			foreach ($adminMenucache as $file) {
 				unlink($file);

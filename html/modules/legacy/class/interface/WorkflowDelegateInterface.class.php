@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,13 +12,13 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of workflow delegate
- * Legacy_Workflow module must be unique.
- * You can get its dirname by constant LEGACY_WORKFLOW_DIRNAME
+ * Xcore_Workflow module must be unique.
+ * You can get its dirname by constant XCORE_WORKFLOW_DIRNAME
 **/
-interface Legacy_iWorkflowDelegate
+interface Xcore_iWorkflowDelegate
 {
 	/**
-	 * addItem	Legacy_Workflow.AddItem
+	 * addItem	Xcore_Workflow.AddItem
 	 *
 	 * @param string $title
 	 * @param string $dirname	client module dirname
@@ -31,7 +31,7 @@ interface Legacy_iWorkflowDelegate
 	public static function addItem(/*** string ***/ $title, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $data_id, /*** string ***/ $url);
 
 	/**
-	 * deleteItem	Legacy_Workflow.DeleteItem
+	 * deleteItem	Xcore_Workflow.DeleteItem
 	 *
 	 * @param string $dirname	client module dirname
 	 * @param string $dataname	client module dataname
@@ -42,7 +42,7 @@ interface Legacy_iWorkflowDelegate
 	public static function deleteItem(/*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $data_id);
 
 	/**
-	 * getHistory	Legacy_Workflow.GetHistory
+	 * getHistory	Xcore_Workflow.GetHistory
 	 *
 	 * @param mix[] &$historyArr
 	 *	$hisotryArr['step']

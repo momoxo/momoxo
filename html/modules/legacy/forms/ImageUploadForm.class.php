@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImageUploadForm.class.php,v 1.4 2008/09/25 15:12:40 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -11,9 +11,9 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class Legacy_ImageUploadForm extends XCube_ActionForm
+class Xcore_ImageUploadForm extends XCube_ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = null;
@@ -21,7 +21,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 
 	function getTokenName()
 	{
-		return "module.legacy.ImageUploadForm.TOKEN" . $this->get('imgcat_id');
+		return "module.xcore.ImageUploadForm.TOKEN" . $this->get('imgcat_id');
 	}
 
 	function prepare()
@@ -42,14 +42,14 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 	
 		$this->mFieldProperties['image_nicename'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['image_nicename']->setDependsByArray(array('required'));
-		$this->mFieldProperties['image_nicename']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _MD_LEGACY_LANG_IMAGE_NICENAME);
+		$this->mFieldProperties['image_nicename']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_IMAGE_NICENAME);
 		
 		$this->mFieldProperties['imgcat_id'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_id']->setDependsByArray(array('required','objectExist'));
-		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _MD_LEGACY_LANG_IMGCAT_ID);
-		$this->mFieldProperties['imgcat_id']->addMessage('objectExist', _MD_LEGACY_ERROR_OBJECTEXIST, _MD_LEGACY_LANG_IMGCAT_ID);
+		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_IMGCAT_ID);
+		$this->mFieldProperties['imgcat_id']->addMessage('objectExist', _MD_XCORE_ERROR_OBJECTEXIST, _MD_XCORE_LANG_IMGCAT_ID);
 		$this->mFieldProperties['imgcat_id']->addVar('handler', 'imagecategory');
-		$this->mFieldProperties['imgcat_id']->addVar('module', 'legacy');
+		$this->mFieldProperties['imgcat_id']->addVar('module', 'xcore');
 		
 		// Fix the bug #1769768
 		// https://sourceforge.net/tracker/?func=detail&aid=1769768&group_id=159211&atid=943471
@@ -58,7 +58,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 		// including code which I can not edit. So I put the following code as an
 		// exception.
 		$root =& XCube_Root::getSingleton();
-		$root->mLanguageManager->loadModuleAdminMessageCatalog('legacy');
+		$root->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 	}
 	
 	/**
@@ -79,10 +79,10 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 				$groups = array(XOOPS_GROUP_ANONYMOUS);
 			}
 			
-			$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+			$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 			$imgcat =& $handler->get($imgcat_id);
 			if (is_object($imgcat) && !$imgcat->hasUploadPerm($groups)) {
-				$this->addErrorMessage(_MD_LEGACY_ERROR_PERMISSION);
+				$this->addErrorMessage(_MD_XCORE_ERROR_PERMISSION);
 			}
 		}
 	}
@@ -92,7 +92,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 		$formFile = $this->get('image_name');
 		
 		if ($formFile == null && $this->_mIsNew ) {
-			$this->addErrorMessage(_MD_LEGACY_ERROR_YOU_MUST_UPLOAD);
+			$this->addErrorMessage(_MD_XCORE_ERROR_YOU_MUST_UPLOAD);
 		}
 	}
 	
@@ -100,7 +100,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 	{
 		parent::validate();
 		
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$category =& $handler->get($this->get('imgcat_id'));
 		
 		$formFile = $this->get('image_name');
@@ -110,14 +110,14 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 			// Imagefile width & height check.
 			//
 			if ($formFile->getWidth() > $category->get('imgcat_maxwidth') || $formFile->getHeight() > $category->get('imgcat_maxheight')) {
-				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_IMG_SIZE, $category->get('imgcat_maxwidth'), $category->get('imgcat_maxheight')));
+				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_IMG_SIZE, $category->get('imgcat_maxwidth'), $category->get('imgcat_maxheight')));
 			}
 			
 			//
 			// Check file size
 			//
 			if ($formFile->getFilesize() > $category->get('imgcat_maxsize')) {
-				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_IMG_FILESIZE, $category->get('imgcat_maxsize')));
+				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_IMG_FILESIZE, $category->get('imgcat_maxsize')));
 			}
 		}
 	}
@@ -137,7 +137,7 @@ class Legacy_ImageUploadForm extends XCube_ActionForm
 		$obj->set('image_display', true);
 		$obj->set('imgcat_id', $this->get('imgcat_id'));
 		
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$category =& $handler->get($this->get('imgcat_id'));
 
 		$this->mFormFile = $this->get('image_name');

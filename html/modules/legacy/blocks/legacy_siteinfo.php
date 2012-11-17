@@ -2,7 +2,7 @@
 /**
  *
  * @package XOOPS2
- * @version $Id: legacy_siteinfo.php,v 1.3 2008/09/25 15:12:15 kilica Exp $
+ * @version $Id: xcore_siteinfo.php,v 1.3 2008/09/25 15:12:15 kilica Exp $
  * @copyright Copyright (c) 2000 XOOPS.org  <http://www.xoops.org/>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -19,7 +19,7 @@
 //  This file has been modified for KARIMOJI_LEGALEGAfrom XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
-function b_legacy_siteinfo_show($options) {
+function b_xcore_siteinfo_show($options) {
     global $xoopsConfig, $xoopsUser;
     $xoopsDB =& Database::getInstance();
     $myts =& MyTextSanitizer::getInstance();
@@ -61,15 +61,15 @@ function b_legacy_siteinfo_show($options) {
     return $block;
 }
 
-function b_legacy_siteinfo_edit($options) {
-    $form = _MB_LEGACY_PWWIDTH."&nbsp;";
+function b_xcore_siteinfo_edit($options) {
+    $form = _MB_XCORE_PWWIDTH."&nbsp;";
     $form .= "<input type='text' name='options[]' value='".$options[0]."' />";
-    $form .= "<br />"._MB_LEGACY_PWHEIGHT."&nbsp;";
+    $form .= "<br />"._MB_XCORE_PWHEIGHT."&nbsp;";
     $form .= "<input type='text' name='options[]' value='".$options[1]."' />";
-    $form .= "<br />".sprintf(_MB_LEGACY_LOGO,XOOPS_URL."/images/")."&nbsp;";
+    $form .= "<br />".sprintf(_MB_XCORE_LOGO,XOOPS_URL."/images/")."&nbsp;";
     $form .= "<input type='text' name='options[]' value='".$options[2]."' />";
     $chk = "";
-    $form .= "<br />"._MB_LEGACY_SADMIN."&nbsp;";
+    $form .= "<br />"._MB_XCORE_SADMIN."&nbsp;";
     if ( $options[3] == 1 ) {
         $chk = " checked='checked'";
     }

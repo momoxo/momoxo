@@ -75,7 +75,7 @@ $menu_cache_file = XOOPS_TRUST_PATH.'/cache/theme_'.$theme_name.'_menus_'.SITE_S
 
 // PM
 if( is_object( @$xoopsUser ) ) {
-	if (defined('XOOPS_CUBE_LEGACY')) {
+	if (defined('XOOPS_CUBE_XCORE')) {
 		$url = null;
 		$root = XCube_Root::getSingleton();
 		$service =& $root->mServiceManager->getService('privateMessage');

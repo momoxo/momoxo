@@ -30,7 +30,7 @@ class newAction extends AbstractAction
           $this->errMsg = $this->mActionForm->getErrorMessages();
         } elseif ( !$this->chk_use($this->mActionForm->fuid) || !$this->chk_deny($this->mActionForm->fuid) ) {
           $this->errMsg = _MD_MESSAGE_SETTINGS_MSG6;
-        } elseif ( $this->mActionForm->get('Legacy_Event_User_Submit') != "" ) {
+        } elseif ( $this->mActionForm->get('Xcore_Event_User_Submit') != "" ) {
           $this->isError = true;
           $modHand = xoops_getmodulehandler('inbox', _MY_DIRNAME);
           $modObj = $modHand->create();

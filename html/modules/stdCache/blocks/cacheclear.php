@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Stdcache_CacheclearBlock extends Legacy_BlockProcedure
+class Stdcache_CacheclearBlock extends Xcore_BlockProcedure
 {
 	var $_mFilePath = null;
 	
@@ -58,10 +58,10 @@ class Stdcache_CacheclearBlock extends Legacy_BlockProcedure
 		$options = explode('|', $this->_mBlock->get('options'));
 		
 		$root =& XCube_Root::getSingleton();
-		$renderSystem =& $root->getRenderSystem('Legacy_AdminRenderSystem');
+		$renderSystem =& $root->getRenderSystem('Xcore_AdminRenderSystem');
 		$renderTarget =& $renderSystem->createRenderTarget();
 		
-		$renderTarget->setAttribute('legacy_module', 'stdCache');
+		$renderTarget->setAttribute('xcore_module', 'stdCache');
 		$renderTarget->setTemplateName('block_cacheclear_option.html');
 		$renderTarget->setAttribute('timer', $options[0]);
 

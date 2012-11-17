@@ -2,9 +2,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRenderTplsourceObject extends XoopsSimpleObject
+class XcoreRenderTplsourceObject extends XoopsSimpleObject
 {
-	function LegacyRenderTplsourceObject()
+	function XcoreRenderTplsourceObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -17,11 +17,11 @@ class LegacyRenderTplsourceObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyRenderTplsourceHandler extends XoopsObjectGenericHandler
+class XcoreRenderTplsourceHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "tplsource";
 	var $mPrimary = "tpl_id";
-	var $mClass = "LegacyRenderTplsourceObject";
+	var $mClass = "XcoreRenderTplsourceObject";
 }
 
 ?>

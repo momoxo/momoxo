@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: modifier.xoops_user.php,v 1.3 2008/09/25 15:12:36 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -28,14 +28,14 @@ function smarty_modifier_xoops_user($uid, $key, $flag=2)
 	$user= $handler->getUser(intval($uid));
 	if(in_array($key, Profile_DefinitionsHandler::getReservedNameList())){
 		if($key=='user_name'){
-			return Legacy_Utils::getUserName($uid);
+			return Xcore_Utils::getUserName($uid);
 		}
 		if(is_object($user) && $user->isActive()) {
 			return ($flag==2) ? $user->getShow($key) : $user->get($key);
 		}
 	}
 	else{
-		$profileHandler = Legacy_Utils::getModuleHandler('data', 'profile');
+		$profileHandler = Xcore_Utils::getModuleHandler('data', 'profile');
 		$profile = $profileHandler->get($uid);
 		if(is_object($profile) && is_object($user) && $user->isActive()) {
 			return $profile->showField($key, $flag);

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleInstallUtils.class.php,v 1.11 2008/10/26 04:07:23 minahito Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallInformation.class.php";
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstaller.class.php";
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleUpdater.class.php";
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleUninstaller.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallInformation.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstaller.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleUpdater.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleUninstaller.class.php";
 
 require_once XOOPS_ROOT_PATH."/class/template.php";
 
@@ -24,7 +24,7 @@ define("MODINSTALL_LOGTYPE_ERROR", "error");
 /**
  * A temporary log class.
  */
-class Legacy_ModuleInstallLog
+class Xcore_ModuleInstallLog
 {
 	var $mFetalErrorFlag = false;
 	var $mMessages = array();
@@ -64,9 +64,9 @@ class Legacy_ModuleInstallLog
  * 
  * For more attentions, see base classes for the custom-installer.
  * 
- * @see Legacy_PhasedUpgrader
+ * @see Xcore_PhasedUpgrader
  */
-class Legacy_ModuleInstallUtils
+class Xcore_ModuleInstallUtils
 {
 	/**
 	 * This is factory for the installer. The factory reads xoops_version
@@ -74,7 +74,7 @@ class Legacy_ModuleInstallUtils
 	 */
 	function &createInstaller($dirname)
 	{
-		$installer =& Legacy_ModuleInstallUtils::_createInstaller($dirname, 'installer', 'Legacy_ModuleInstaller');
+		$installer =& Xcore_ModuleInstallUtils::_createInstaller($dirname, 'installer', 'Xcore_ModuleInstaller');
         return $installer;
 	}
 	
@@ -84,7 +84,7 @@ class Legacy_ModuleInstallUtils
 	 */
 	function &createUpdater($dirname)
 	{
-		$updater =& Legacy_ModuleInstallUtils::_createInstaller($dirname, 'updater', 'Legacy_ModulePhasedUpgrader');
+		$updater =& Xcore_ModuleInstallUtils::_createInstaller($dirname, 'updater', 'Xcore_ModulePhasedUpgrader');
 		return $updater;
 	}
 	
@@ -94,7 +94,7 @@ class Legacy_ModuleInstallUtils
 	 */
 	function &createUninstaller($dirname)
 	{
-		$uninstaller =& Legacy_ModuleInstallUtils::_createInstaller($dirname, 'uninstaller', 'Legacy_ModuleUninstaller');
+		$uninstaller =& Xcore_ModuleInstallUtils::_createInstaller($dirname, 'uninstaller', 'Xcore_ModuleUninstaller');
 		return $uninstaller;
 	}
 	
@@ -115,8 +115,8 @@ class Legacy_ModuleInstallUtils
 			$info = $modversion;
 		}
 
-		if (isset($info['legacy_installer']) && is_array($info['legacy_installer']) && isset($info['legacy_installer'][$mode])) {
-			$updateInfo = $info['legacy_installer'][$mode];
+		if (isset($info['xcore_installer']) && is_array($info['xcore_installer']) && isset($info['xcore_installer'][$mode])) {
+			$updateInfo = $info['xcore_installer'][$mode];
 				
 			$className = $updateInfo['class'];
 			$filePath = isset($updateInfo['filepath']) ? $updateInfo['filepath'] : XOOPS_MODULE_PATH . "/${dirname}/admin/class/${className}.class.php";
@@ -148,7 +148,7 @@ class Legacy_ModuleInstallUtils
 	 * 
 	 * @static
 	 * @param XoopsModule $module
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
 	 */
 	function installSQLAutomatically(&$module, &$log)
@@ -164,13 +164,13 @@ class Legacy_ModuleInstallUtils
 		$sqlfilepath = XOOPS_MODULE_PATH . "/${dirname}/${sqlfile}";
 		
 		if (isset($module->modinfo['cube_style']) && $module->modinfo['cube_style'] == true) {
-			require_once XOOPS_MODULE_PATH . "/legacy/admin/class/Legacy_SQLScanner.class.php";
-			$scanner =new Legacy_SQLScanner();
+			require_once XOOPS_MODULE_PATH . "/xcore/admin/class/Xcore_SQLScanner.class.php";
+			$scanner =new Xcore_SQLScanner();
 			$scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
 			$scanner->setDirname($module->get('dirname'));
 			
 			if (!$scanner->loadFile($sqlfilepath)) {
-				$log->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
+				$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
 				return false;
 			}
 	
@@ -190,7 +190,7 @@ class Legacy_ModuleInstallUtils
 				}
 			}
 			
-			$log->addReport(_AD_LEGACY_MESSAGE_DATABASE_SETUP_FINISHED);
+			$log->addReport(_AD_XCORE_MESSAGE_DATABASE_SETUP_FINISHED);
 		}
 		else {
 			require_once XOOPS_ROOT_PATH.'/class/database/sqlutility.php';
@@ -248,21 +248,21 @@ class Legacy_ModuleInstallUtils
 	 * 
 	 * @warning
 	 * 
-	 * This function depends the specific spec of Legacy_RenderSystem, but this
+	 * This function depends the specific spec of Xcore_RenderSystem, but this
 	 * static function is needed by the 2nd installer of KARIMOJI_LEGALEGASystem.
 	 * 
 	 * @static
 	 * @param XoopsModule $module
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
-	 * @see Legacy_ModuleInstallUtils::uninstallAllOfModuleTemplates()
+	 * @see Xcore_ModuleInstallUtils::uninstallAllOfModuleTemplates()
 	 */	
 	function installAllOfModuleTemplates(&$module, &$log)
 	{
         $templates = $module->getInfo('templates');
         if ($templates != false) {
             foreach ($templates as $template) {
-                Legacy_ModuleInstallUtils::installModuleTemplate($module, $template, $log);
+                Xcore_ModuleInstallUtils::installModuleTemplate($module, $template, $log);
             }
         }
 	}
@@ -272,13 +272,13 @@ class Legacy_ModuleInstallUtils
 	 * 
 	 * @warning
 	 * 
-	 * This function depends the specific spec of Legacy_RenderSystem, but this
+	 * This function depends the specific spec of Xcore_RenderSystem, but this
 	 * static function is needed by the 2nd installer of KARIMOJI_LEGALEGASystem.
 	 * 
 	 * @static
 	 * @param XoopsModule $module
 	 * @param string[][] $template
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 * @return bool
 	 * 
 	 * @note This is not usefull a litte for custom-installers.
@@ -290,7 +290,7 @@ class Legacy_ModuleInstallUtils
 
 		$fileName = trim($template['file']);
 
-		$tpldata = Legacy_ModuleInstallUtils::readTemplateFile($module->get('dirname'), $fileName);
+		$tpldata = Xcore_ModuleInstallUtils::readTemplateFile($module->get('dirname'), $fileName);
 		if ($tpldata == false)
 			return false;
 
@@ -318,10 +318,10 @@ class Legacy_ModuleInstallUtils
 		$tplfile->setVar('tpl_desc', $description, true);
 		
 		if ($tplHandler->insert($tplfile)) {
-			$log->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_TEMPLATE_INSTALLED, $fileName));
+			$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_TEMPLATE_INSTALLED, $fileName));
 		}
 		else {
-			$log->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_INSTALL_TEMPLATE, $fileName));
+			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_TEMPLATE, $fileName));
 			return false;
 		}
 	}
@@ -336,20 +336,20 @@ class Legacy_ModuleInstallUtils
 	 * 
 	 * @warning
 	 * 
-	 * This function depends the specific spec of Legacy_RenderSystem, but this
+	 * This function depends the specific spec of Xcore_RenderSystem, but this
 	 * static function is needed by the 2nd installer of KARIMOJI_LEGALEGASystem.
 	 * 
 	 * @static
 	 * @param XoopsModule $module
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 * @param bool $defaultOnly Indicates whether this function deletes templates from all of tplsets.
 	 * @note FOR THE CUSTOM-INSTALLER
-	 * @see Legacy_ModuleInstallUtils::installAllOfModuleTemplates()
+	 * @see Xcore_ModuleInstallUtils::installAllOfModuleTemplates()
 	 */	
 	function _uninstallAllOfModuleTemplates(&$module, $tplset, &$log)
 	{
 		//
-		// The following processing depends on the structure of Legacy_RenderSystem.
+		// The following processing depends on the structure of Xcore_RenderSystem.
 		//
 		$tplHandler =& xoops_gethandler('tplfile');
 		$delTemplates = null;
@@ -365,7 +365,7 @@ class Legacy_ModuleInstallUtils
 			
 			foreach ($delTemplates as $tpl) {
 				if (!$tplHandler->delete($tpl)) {
-					$log->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_TEMPLATE_UNINSTALLED, $tpl->get('tpl_file')));
+					$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_TEMPLATE_UNINSTALLED, $tpl->get('tpl_file')));
 				}
 			}
 		}
@@ -373,12 +373,12 @@ class Legacy_ModuleInstallUtils
 	
 	function uninstallAllOfModuleTemplates(&$module, &$log)
 	{
-		Legacy_ModuleInstallUtils::_uninstallAllOfModuleTemplates($module, null, $log);
+		Xcore_ModuleInstallUtils::_uninstallAllOfModuleTemplates($module, null, $log);
 	}
 
 	function clearAllOfModuleTemplatesForUpdate(&$module, &$log)
 	{
-		Legacy_ModuleInstallUtils::_uninstallAllOfModuleTemplates($module, 'default', $log);
+		Xcore_ModuleInstallUtils::_uninstallAllOfModuleTemplates($module, 'default', $log);
 	}
 	
 	/**
@@ -388,9 +388,9 @@ class Legacy_ModuleInstallUtils
 	 * 
 	 * @static
 	 * @param XoopsModule $module
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
-	 * @see Legacy_ModuleInstallUtils::uninstallAllOfBlocks()
+	 * @see Xcore_ModuleInstallUtils::uninstallAllOfBlocks()
 	 */	
 	function installAllOfBlocks(&$module, &$log)
 	{
@@ -443,8 +443,8 @@ class Legacy_ModuleInstallUtils
 		}
 		
 		foreach ($updateblocks as $block) {
-			$newBlock =& Legacy_ModuleInstallUtils::createBlockByInfo($module, $block, $block['func_num']);
-			Legacy_ModuleInstallUtils::installBlock($module, $newBlock, $block, $log);
+			$newBlock =& Xcore_ModuleInstallUtils::createBlockByInfo($module, $block, $block['func_num']);
+			Xcore_ModuleInstallUtils::installBlock($module, $newBlock, $block, $log);
 		}
 	}
 
@@ -455,12 +455,12 @@ class Legacy_ModuleInstallUtils
 	 * 
 	 * @static
 	 * @param XoopsModule $module
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 * @return bool
 	 * 
 	 * @note FOR THE CUSTOM-INSTALLER
-	 * @see Legacy_ModuleInstallUtils::installAllOfBlocks()
-	 * @see Legacy_ModuleInstallUtils::uninstallBlock()
+	 * @see Xcore_ModuleInstallUtils::installAllOfBlocks()
+	 * @see Xcore_ModuleInstallUtils::uninstallBlock()
 	 */	
 	function uninstallAllOfBlocks(&$module, &$log)
 	{
@@ -472,7 +472,7 @@ class Legacy_ModuleInstallUtils
 		$successFlag = true;
 		
 		foreach (array_keys($blockArr) as $idx) {
-			$successFlag &= Legacy_ModuleInstallUtils::uninstallBlock($blockArr[$idx], $log);
+			$successFlag &= Xcore_ModuleInstallUtils::uninstallBlock($blockArr[$idx], $log);
 		}
 		
 		return $successFlag;
@@ -544,16 +544,16 @@ class Legacy_ModuleInstallUtils
             $autolink = true;
         }
 		if (!$blockHandler->insert($blockObj, $autolink)) {
-			$log->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_INSTALL_BLOCK, $blockObj->getVar('name')));
+			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_BLOCK, $blockObj->getVar('name')));
 
 			return false;
 		}
 		else {
-			$log->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_BLOCK_INSTALLED, $blockObj->getVar('name')));
+			$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_INSTALLED, $blockObj->getVar('name')));
 
 			$tplHandler =& xoops_gethandler('tplfile');
 
-			Legacy_ModuleInstallUtils::installBlockTemplate($blockObj, $module, $log);
+			Xcore_ModuleInstallUtils::installBlockTemplate($blockObj, $module, $log);
 			
 			//
 			// Process of a permission.
@@ -562,7 +562,7 @@ class Legacy_ModuleInstallUtils
                 if (!empty($block['show_all_module'])) {
         			$link_sql = "INSERT INTO " . $blockHandler->db->prefix('block_module_link') . " (block_id, module_id) VALUES (".$blockObj->getVar('bid').", 0)";
 		        	if (!$blockHandler->db->query($link_sql)) {
-       					$log->addWarning(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SET_LINK, $blockObj->getVar('name')));
+       					$log->addWarning(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_LINK, $blockObj->getVar('name')));
 		        	}
     			}
    				$gpermHandler =& xoops_gethandler('groupperm');
@@ -578,7 +578,7 @@ class Legacy_ModuleInstallUtils
         				$bperm->setVar('gperm_groupid', $group->getVar('groupid'));
         				$bperm->setNew();
         				if (!$gpermHandler->insert($bperm)) {
-        					$log->addWarning(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
+        					$log->addWarning(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
         				}
         			}
 				} else {
@@ -588,7 +588,7 @@ class Legacy_ModuleInstallUtils
         				$bperm->setVar('gperm_groupid', $mygroup);
         				$bperm->setNew();
         				if (!$gpermHandler->insert($bperm)) {
-        					$log->addWarning(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
+        					$log->addWarning(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
     				    }
     				}
 				}
@@ -603,7 +603,7 @@ class Legacy_ModuleInstallUtils
 	 * permissions for the block.
 	 * 
 	 * @param XoopsBlock $block
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
 	 * 
 	 * @todo error handling & delete the block's template.
@@ -612,7 +612,7 @@ class Legacy_ModuleInstallUtils
 	{
 		$blockHandler =& xoops_gethandler('block');
 		$blockHandler->delete($block);
-		$log->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $block->get('name')));
+		$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $block->get('name')));
 		
 		//
 		// Deletes permissions
@@ -659,16 +659,16 @@ class Legacy_ModuleInstallUtils
 			$tplfile->set('tpl_lastimported', 0);
 		}
 		
-		$tplSource = Legacy_ModuleInstallUtils::readTemplateFile($module->get('dirname'), $block->get('template'), true);
+		$tplSource = Xcore_ModuleInstallUtils::readTemplateFile($module->get('dirname'), $block->get('template'), true);
 		$tplfile->set('tpl_source', $tplSource);
 		$tplfile->set('tpl_lastmodified', time());
 
 		if ($tplHandler->insert($tplfile)) {
-		    $log->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_BLOCK_TEMPLATE_INSTALLED, $block->get('template')));
+		    $log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_TEMPLATE_INSTALLED, $block->get('template')));
 			return true;
 		}
 		else {
-			$log->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_BLOCK_TEMPLATE_INSTALL, $block->get('name')));
+			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_BLOCK_TEMPLATE_INSTALL, $block->get('name')));
 			return false;
 		}
 	}
@@ -714,28 +714,28 @@ class Legacy_ModuleInstallUtils
 	{
 		$dirname = $module->get('dirname');
 		
-		$fileReader =new Legacy_ModinfoX2FileReader($dirname);
+		$fileReader =new Xcore_ModinfoX2FileReader($dirname);
 		$preferences =& $fileReader->loadPreferenceInformations();
 		
 		//
 		// Preferences
 		//
 		foreach (array_keys($preferences->mPreferences) as $idx) {
-			Legacy_ModuleInstallUtils::installPreferenceByInfo($preferences->mPreferences[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::installPreferenceByInfo($preferences->mPreferences[$idx], $module, $log);
 		}
 		
 		//
 		// Comments
 		//
 		foreach (array_keys($preferences->mComments) as $idx) {
-			Legacy_ModuleInstallUtils::installPreferenceByInfo($preferences->mComments[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::installPreferenceByInfo($preferences->mComments[$idx], $module, $log);
 		}
 		
 		//
 		// Notifications
 		//
 		foreach (array_keys($preferences->mNotifications) as $idx) {
-			Legacy_ModuleInstallUtils::installPreferenceByInfo($preferences->mNotifications[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::installPreferenceByInfo($preferences->mNotifications[$idx], $module, $log);
 		}
 	}
 	
@@ -764,10 +764,10 @@ class Legacy_ModuleInstallUtils
 		}
 		
 		if ($handler->insertConfig($config)) {
-			$log->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_INSERT_CONFIG, $config->get('conf_name')));
+			$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_INSERT_CONFIG, $config->get('conf_name')));
 		}
 		else {
-			$log->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_INSERT_CONFIG, $config->get('conf_name')));
+			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSERT_CONFIG, $config->get('conf_name')));
 		}
 	}
 	
@@ -886,30 +886,30 @@ class Legacy_ModuleInstallUtils
 	{
 		$dirname = $module->get('dirname');
 		
-		$fileReader =new Legacy_ModinfoX2FileReader($dirname);
+		$fileReader =new Xcore_ModinfoX2FileReader($dirname);
 		$latestBlocks =& $fileReader->loadBlockInformations();
 		
-		$dbReader =new Legacy_ModinfoX2DBReader($dirname);
+		$dbReader =new Xcore_ModinfoX2DBReader($dirname);
 		$currentBlocks =& $dbReader->loadBlockInformations();
 		
 		$currentBlocks->update($latestBlocks);
 
 		foreach (array_keys($currentBlocks->mBlocks) as $idx) {
 			switch ($currentBlocks->mBlocks[$idx]->mStatus) {
-				case LEGACY_INSTALLINFO_STATUS_LOADED:
-					Legacy_ModuleInstallUtils::updateBlockTemplateByInfo($currentBlocks->mBlocks[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_LOADED:
+					Xcore_ModuleInstallUtils::updateBlockTemplateByInfo($currentBlocks->mBlocks[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_UPDATED:
-					Legacy_ModuleInstallUtils::updateBlockByInfo($currentBlocks->mBlocks[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_UPDATED:
+					Xcore_ModuleInstallUtils::updateBlockByInfo($currentBlocks->mBlocks[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_NEW:
-					Legacy_ModuleInstallUtils::installBlockByInfo($currentBlocks->mBlocks[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_NEW:
+					Xcore_ModuleInstallUtils::installBlockByInfo($currentBlocks->mBlocks[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_DELETED:
-					Legacy_ModuleInstallUtils::uninstallBlockByFuncNum($currentBlocks->mBlocks[$idx]->mFuncNum, $module, $log);
+				case XCORE_INSTALLINFO_STATUS_DELETED:
+					Xcore_ModuleInstallUtils::uninstallBlockByFuncNum($currentBlocks->mBlocks[$idx]->mFuncNum, $module, $log);
 					break;
 			}
 		}
@@ -919,10 +919,10 @@ class Legacy_ModuleInstallUtils
 	{
 		$dirname = $module->get('dirname');
 		
-		$fileReader =new Legacy_ModinfoX2FileReader($dirname);
+		$fileReader =new Xcore_ModinfoX2FileReader($dirname);
 		$latestPreferences =& $fileReader->loadPreferenceInformations();
 		
-		$dbReader =new Legacy_ModinfoX2DBReader($dirname);
+		$dbReader =new Xcore_ModinfoX2DBReader($dirname);
 		$currentPreferences =& $dbReader->loadPreferenceInformations();
 		
 		$currentPreferences->update($latestPreferences);
@@ -932,20 +932,20 @@ class Legacy_ModuleInstallUtils
 		//
 		foreach (array_keys($currentPreferences->mPreferences) as $idx) {
 			switch ($currentPreferences->mPreferences[$idx]->mStatus) {
-				case LEGACY_INSTALLINFO_STATUS_UPDATED:
-					Legacy_ModuleInstallUtils::updatePreferenceByInfo($currentPreferences->mPreferences[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_UPDATED:
+					Xcore_ModuleInstallUtils::updatePreferenceByInfo($currentPreferences->mPreferences[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED:
-					Legacy_ModuleInstallUtils::updatePreferenceOrderByInfo($currentPreferences->mPreferences[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_ORDER_UPDATED:
+					Xcore_ModuleInstallUtils::updatePreferenceOrderByInfo($currentPreferences->mPreferences[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_NEW:
-					Legacy_ModuleInstallUtils::installPreferenceByInfo($currentPreferences->mPreferences[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_NEW:
+					Xcore_ModuleInstallUtils::installPreferenceByInfo($currentPreferences->mPreferences[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_DELETED:
-					Legacy_ModuleInstallUtils::uninstallPreferenceByOrder($currentPreferences->mPreferences[$idx]->mOrder, $module, $log);
+				case XCORE_INSTALLINFO_STATUS_DELETED:
+					Xcore_ModuleInstallUtils::uninstallPreferenceByOrder($currentPreferences->mPreferences[$idx]->mOrder, $module, $log);
 					break;
 			}
 		}
@@ -955,20 +955,20 @@ class Legacy_ModuleInstallUtils
 		//
 		foreach (array_keys($currentPreferences->mComments) as $idx) {
 			switch ($currentPreferences->mComments[$idx]->mStatus) {
-				case LEGACY_INSTALLINFO_STATUS_UPDATED:
-					Legacy_ModuleInstallUtils::updatePreferenceByInfo($currentPreferences->mComments[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_UPDATED:
+					Xcore_ModuleInstallUtils::updatePreferenceByInfo($currentPreferences->mComments[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED:
-					Legacy_ModuleInstallUtils::updatePreferenceOrderByInfo($currentPreferences->mComments[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_ORDER_UPDATED:
+					Xcore_ModuleInstallUtils::updatePreferenceOrderByInfo($currentPreferences->mComments[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_NEW:
-					Legacy_ModuleInstallUtils::installPreferenceByInfo($currentPreferences->mComments[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_NEW:
+					Xcore_ModuleInstallUtils::installPreferenceByInfo($currentPreferences->mComments[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_DELETED:
-					Legacy_ModuleInstallUtils::uninstallPreferenceByOrder($currentPreferences->mComments[$idx]->mOrder, $module, $log);
+				case XCORE_INSTALLINFO_STATUS_DELETED:
+					Xcore_ModuleInstallUtils::uninstallPreferenceByOrder($currentPreferences->mComments[$idx]->mOrder, $module, $log);
 					break;
 			}
 		}
@@ -978,20 +978,20 @@ class Legacy_ModuleInstallUtils
 		//
 		foreach (array_keys($currentPreferences->mNotifications) as $idx) {
 			switch ($currentPreferences->mNotifications[$idx]->mStatus) {
-				case LEGACY_INSTALLINFO_STATUS_UPDATED:
-					Legacy_ModuleInstallUtils::updatePreferenceByInfo($currentPreferences->mNotifications[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_UPDATED:
+					Xcore_ModuleInstallUtils::updatePreferenceByInfo($currentPreferences->mNotifications[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED:
-					Legacy_ModuleInstallUtils::updatePreferenceOrderByInfo($currentPreferences->mNotifications[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_ORDER_UPDATED:
+					Xcore_ModuleInstallUtils::updatePreferenceOrderByInfo($currentPreferences->mNotifications[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_NEW:
-					Legacy_ModuleInstallUtils::installPreferenceByInfo($currentPreferences->mNotifications[$idx], $module, $log);
+				case XCORE_INSTALLINFO_STATUS_NEW:
+					Xcore_ModuleInstallUtils::installPreferenceByInfo($currentPreferences->mNotifications[$idx], $module, $log);
 					break;
 					
-				case LEGACY_INSTALLINFO_STATUS_DELETED:
-					Legacy_ModuleInstallUtils::uninstallPreferenceByOrder($currentPreferences->mNotifications[$idx]->mOrder, $module, $log);
+				case XCORE_INSTALLINFO_STATUS_DELETED:
+					Xcore_ModuleInstallUtils::uninstallPreferenceByOrder($currentPreferences->mNotifications[$idx]->mOrder, $module, $log);
 					break;
 			}
 		}
@@ -999,7 +999,7 @@ class Legacy_ModuleInstallUtils
 	
 	function updateBlockTemplateByInfo(&$info, &$module, &$log)
 	{
-		$handler =& xoops_getmodulehandler('newblocks', 'legacy');
+		$handler =& xoops_getmodulehandler('newblocks', 'xcore');
 		
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('dirname', $module->get('dirname')));
@@ -1007,14 +1007,14 @@ class Legacy_ModuleInstallUtils
 		
 		$blockArr =& $handler->getObjects($criteria);
 		foreach (array_keys($blockArr) as $idx) {
-			Legacy_ModuleInstallUtils::clearBlockTemplateForUpdate($blockArr[$idx], $module, $log);
-			Legacy_ModuleInstallUtils::installBlockTemplate($blockArr[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::clearBlockTemplateForUpdate($blockArr[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::installBlockTemplate($blockArr[$idx], $module, $log);
 		}
 	}
 	
 	function updateBlockByInfo(&$info, &$module, &$log)
 	{
-		$handler =& xoops_getmodulehandler('newblocks', 'legacy');
+		$handler =& xoops_getmodulehandler('newblocks', 'xcore');
 		
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('dirname', $module->get('dirname')));
@@ -1036,8 +1036,8 @@ class Legacy_ModuleInstallUtils
 				$log->addError(XCube_Utils::formatMessage('Could not update {0} block.', $blockArr[$idx]->get('name')));
 			}
 			
-			Legacy_ModuleInstallUtils::clearBlockTemplateForUpdate($blockArr[$idx], $module, $log);
-			Legacy_ModuleInstallUtils::installBlockTemplate($blockArr[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::clearBlockTemplateForUpdate($blockArr[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::installBlockTemplate($blockArr[$idx], $module, $log);
 		}
 	}
 	
@@ -1147,13 +1147,13 @@ class Legacy_ModuleInstallUtils
         $block->set('c_type', 1);
 
         if (!$handler->insert($block)) {
-            $log->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_COULD_NOT_INSTALL_BLOCK, $block->get('name')));
+            $log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_BLOCK, $block->get('name')));
             return false;
         }
         else {
-            $log->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_BLOCK_INSTALLED, $block->get('name')));
+            $log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_INSTALLED, $block->get('name')));
 
-            Legacy_ModuleInstallUtils::installBlockTemplate($block, $module, $log);
+            Xcore_ModuleInstallUtils::installBlockTemplate($block, $module, $log);
 
             return true;
         }
@@ -1164,7 +1164,7 @@ class Legacy_ModuleInstallUtils
 	 */
 	function uninstallBlockByFuncNum($func_num, &$module, &$log)
 	{
-		$handler =& xoops_getmodulehandler('newblocks', 'legacy');
+		$handler =& xoops_getmodulehandler('newblocks', 'xcore');
 		
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('dirname', $module->get('dirname')));
@@ -1173,13 +1173,13 @@ class Legacy_ModuleInstallUtils
 		$blockArr =& $handler->getObjects($criteria);
 		foreach (array_keys($blockArr) as $idx) {
 			if ($handler->delete($blockArr[$idx])) {
-				$log->addReport(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $blockArr[$idx]->get('name')));
+				$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $blockArr[$idx]->get('name')));
 			}
 			else {
 				// Uninstall fail
 			}
 			
-			Legacy_ModuleInstallUtils::uninstallBlockTemplate($blockArr[$idx], $module, $log);
+			Xcore_ModuleInstallUtils::uninstallBlockTemplate($blockArr[$idx], $module, $log);
 		}
 	}
 	
@@ -1214,7 +1214,7 @@ class Legacy_ModuleInstallUtils
 	
 	function uninstallBlockTemplate(&$block, &$module, &$log)
 	{
-		Legacy_ModuleInstallUtils::_uninstallBlockTemplate($block, $module, null, $log);
+		Xcore_ModuleInstallUtils::_uninstallBlockTemplate($block, $module, null, $log);
 	}
 	
 	/**
@@ -1223,7 +1223,7 @@ class Legacy_ModuleInstallUtils
 	 */
 	function clearBlockTemplateForUpdate(&$block, &$module, &$log)
 	{
-		Legacy_ModuleInstallUtils::_uninstallBlockTemplate($block, $module, 'default', $log);
+		Xcore_ModuleInstallUtils::_uninstallBlockTemplate($block, $module, 'default', $log);
 	}
 
 	function uninstallPreferenceByOrder($order, &$module, &$log)
@@ -1252,11 +1252,11 @@ class Legacy_ModuleInstallUtils
 	 */
 	function DBquery($query, &$module, $log)
 	{
-		require_once XOOPS_MODULE_PATH . "/legacy/admin/class/Legacy_SQLScanner.class.php";
+		require_once XOOPS_MODULE_PATH . "/xcore/admin/class/Xcore_SQLScanner.class.php";
 		
 		$successFlag = true;
 		
-		$scanner =new Legacy_SQLScanner();
+		$scanner =new Xcore_SQLScanner();
 		$scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
 		$scanner->setDirname($module->get('dirname'));
 		$scanner->setBuffer($query);

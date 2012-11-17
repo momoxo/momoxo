@@ -178,7 +178,7 @@ function renderCell4BlockOptions( $block_data )
 	$bid = intval( $block_data['bid'] ) ;
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
@@ -365,13 +365,13 @@ function list_blocks()
 	$result = $this->db->query( $sql ) ;
 	$block_arr = array() ;
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');//add
 	}
 	while( $myrow = $this->db->fetchArray( $result ) ) {
 
 //HACK by domifara
-		if (defined( 'XOOPS_CUBE_LEGACY' )){
+		if (defined( 'XOOPS_CUBE_XCORE' )){
 			$block_one =& $handler->create(false) ;
 			$block_one->assignVars($myrow);
 			$block_arr[] =& $block_one ;
@@ -439,12 +439,12 @@ function list_groups()
 	$result = $this->db->query( $sql ) ;
 	$block_arr = array() ;
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');//add
 	}
 	while( $myrow = $this->db->fetchArray( $result ) ) {
 //HACK by domifara
-		if (defined( 'XOOPS_CUBE_LEGACY' )){
+		if (defined( 'XOOPS_CUBE_XCORE' )){
 			$block_one =& $handler->create(false) ;
 			$block_one->assignVars($myrow);
 			$block_arr[] =& $block_one ;
@@ -476,7 +476,7 @@ function update_block($bid, $bside, $bweight, $bvisible, $btitle, $bcontent, $bc
 	global $xoopsConfig;
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
@@ -624,7 +624,7 @@ function do_delete( $bid )
 	$bid = intval( $bid ) ;
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
@@ -654,7 +654,7 @@ function form_delete( $bid )
 
 //HACK by domifara
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
@@ -680,7 +680,7 @@ function do_clone( $bid )
 	$request = $this->fetchRequest4Block( $bid ) ;
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
@@ -699,7 +699,7 @@ function do_clone( $bid )
 	// $cblock =& $block->clone(); or $cblock =& $block->xoopsClone();
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$cblock =& $handler->create(false) ;
 	}else{
 		$cblock = new XoopsBlock() ;
@@ -751,7 +751,7 @@ function do_edit( $bid )
 		// new custom block
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$new_block =& $handler->create(false) ;
 	}else{
@@ -791,7 +791,7 @@ function form_edit( $bid , $mode = 'edit' )
 	$bid = intval( $bid ) ;
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
@@ -884,11 +884,11 @@ function form_edit( $bid , $mode = 'edit' )
 	$tpl = new D3Tpl() ;
 
 	//HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
-		$tpl->assign( 'xoops_cube_legacy' , true ) ;
+	if (defined( 'XOOPS_CUBE_XCORE' )){
+		$tpl->assign( 'xoops_cube_xcore' , true ) ;
 		include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
 	}else{
-		$tpl->assign( 'xoops_cube_legacy' , false ) ;
+		$tpl->assign( 'xoops_cube_xcore' , false ) ;
 	}
 
 	$tpl->assign( array(
@@ -905,8 +905,8 @@ function form_edit( $bid , $mode = 'edit' )
 		'gticket_hidden' => $GLOBALS['xoopsGTicket']->getTicketHtml( __LINE__ , 1800 , 'myblocksadmin') ,
 	) ) ;
 
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
-		$tpl->display( 'db:altsys_main_myblocksadmin_edit_4legacy.html' ) ;
+	if (defined( 'XOOPS_CUBE_XCORE' )){
+		$tpl->display( 'db:altsys_main_myblocksadmin_edit_4xcore.html' ) ;
 	}else{
 		$tpl->display( 'db:altsys_main_myblocksadmin_edit.html' ) ;
 	}

@@ -3,9 +3,9 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class Legacy_SmilesUploadForm extends XCube_ActionForm
+class Xcore_SmilesUploadForm extends XCube_ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = null;
@@ -14,7 +14,7 @@ class Legacy_SmilesUploadForm extends XCube_ActionForm
 
 	function getTokenName()
 	{
-		return "module.legacy.SmilesUploadForm.TOKEN";
+		return "module.xcore.SmilesUploadForm.TOKEN";
 	}
 
 	function prepare()
@@ -29,7 +29,7 @@ class Legacy_SmilesUploadForm extends XCube_ActionForm
 		//
 		$this->mFieldProperties['upload'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['upload']->setDependsByArray(array('required'));
-		$this->mFieldProperties['upload']->addMessage('required', _AD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_SMILES_UPLOAD_FILE);
+		$this->mFieldProperties['upload']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_SMILES_UPLOAD_FILE);
 	
 	}
 	
@@ -43,7 +43,7 @@ class Legacy_SmilesUploadForm extends XCube_ActionForm
 			}
 			
 			if (!$flag) {
-				$this->addErrorMessage(_AD_LEGACY_ERROR_EXTENSION_IS_WRONG);
+				$this->addErrorMessage(_AD_XCORE_ERROR_EXTENSION_IS_WRONG);
 			}
 		}
 	}

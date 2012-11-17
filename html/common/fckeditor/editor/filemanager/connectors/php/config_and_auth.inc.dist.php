@@ -41,10 +41,10 @@ if( ! is_object( $xoopsUser ) ) {
 	// users
 	$uid = $xoopsUser->getVar( 'uid' ) ;
 	// check isadmin
-	if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
+	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
 		// for Cube 2.1 (check if KARIMOJI_LEGALEGAmodule admin)
 		$module_handler =& xoops_gethandler( 'module' ) ;
-		$module =& $module_handler->getByDirname( 'legacy' ) ;
+		$module =& $module_handler->getByDirname( 'xcore' ) ;
 		$fck_isadmin = $xoopsUser->isAdmin( $module->getVar('mid') ) ;
 	} else {
 		$fck_isadmin = $xoopsUser->isAdmin(1) ; // system module admin

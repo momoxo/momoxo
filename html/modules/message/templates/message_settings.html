@@ -5,22 +5,22 @@
 <tr>
 <th width="30%"><{$smarty.const._MD_MESSAGE_SETTINGS_MSG1}></th>
 <td class="odd">
-<{xoops_input type=radio name=usepm default=$mActionForm->get('usepm') value=1}><label for="legacy_xoopsform_usepm_1"><{$smarty.const._YES}></label>
-<{xoops_input type=radio name=usepm default=$mActionForm->get('usepm') value=0}><label for="legacy_xoopsform_usepm_0"><{$smarty.const._NO}></label>
+<{xoops_input type=radio name=usepm default=$mActionForm->get('usepm') value=1}><label for="xcore_xoopsform_usepm_1"><{$smarty.const._YES}></label>
+<{xoops_input type=radio name=usepm default=$mActionForm->get('usepm') value=0}><label for="xcore_xoopsform_usepm_0"><{$smarty.const._NO}></label>
 </td>
 </tr>
 <tr>
 <th><{$smarty.const._MD_MESSAGE_SETTINGS_MSG2}></th>
 <td class="even">
-<{xoops_input type=radio name=tomail default=$mActionForm->get('tomail') value=1}><label for="legacy_xoopsform_tomail_1"><{$smarty.const._YES}></label>
-<{xoops_input type=radio name=tomail default=$mActionForm->get('tomail') value=0}><label for="legacy_xoopsform_tomail_0"><{$smarty.const._NO}></label>
+<{xoops_input type=radio name=tomail default=$mActionForm->get('tomail') value=1}><label for="xcore_xoopsform_tomail_1"><{$smarty.const._YES}></label>
+<{xoops_input type=radio name=tomail default=$mActionForm->get('tomail') value=0}><label for="xcore_xoopsform_tomail_0"><{$smarty.const._NO}></label>
 </td>
 </tr>
 <tr>
 <th><{$smarty.const._MD_MESSAGE_SETTINGS_MSG7}></th>
 <td class="odd">
-<{xoops_input type=radio name=viewmsm default=$mActionForm->get('viewmsm') value=1}><label for="legacy_xoopsform_viewmsm_1"><{$smarty.const._YES}></label>
-<{xoops_input type=radio name=viewmsm default=$mActionForm->get('viewmsm') value=0}><label for="legacy_xoopsform_viewmsm_0"><{$smarty.const._NO}></label>
+<{xoops_input type=radio name=viewmsm default=$mActionForm->get('viewmsm') value=1}><label for="xcore_xoopsform_viewmsm_1"><{$smarty.const._YES}></label>
+<{xoops_input type=radio name=viewmsm default=$mActionForm->get('viewmsm') value=0}><label for="xcore_xoopsform_viewmsm_0"><{$smarty.const._NO}></label>
 </td>
 </tr>
 <tr>
@@ -39,7 +39,7 @@
 </td>
 </tr>
 
-<tr><td colspan="2" class="foot" align="center"><{legacy_button id=Submit Text=$smarty.const._SUBMIT}></td></tr>
+<tr><td colspan="2" class="foot" align="center"><{xcore_button id=Submit Text=$smarty.const._SUBMIT}></td></tr>
 </table>
 <{xoops_token form=$mActionForm}>
 </form>

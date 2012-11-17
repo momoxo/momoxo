@@ -24,11 +24,11 @@ class Xupdate_InstallUtils
      * installSQLAutomatically
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installSQLAutomatically(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installSQLAutomatically(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $sqlFileInfo =& $module->getInfo('sqlfile');
         if(!isset($sqlFileInfo[XOOPS_DB_TYPE]))
@@ -49,8 +49,8 @@ class Xupdate_InstallUtils
             );
         }
     
-        require_once XOOPS_MODULE_PATH . '/legacy/admin/class/Legacy_SQLScanner.class.php';    // TODO will be use other class?
-        $scanner = new Legacy_SQLScanner();
+        require_once XOOPS_MODULE_PATH . '/xcore/admin/class/Xcore_SQLScanner.class.php';    // TODO will be use other class?
+        $scanner = new Xcore_SQLScanner();
         $scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
         $scanner->setDirname($dirname);
         if(!$scanner->loadFile($sqlFilePath))
@@ -85,14 +85,14 @@ class Xupdate_InstallUtils
      * 
      * @param   string  $query
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function DBquery(/*** string ***/ $query,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function DBquery(/*** string ***/ $query,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
-        require_once XOOPS_MODULE_PATH . '/legacy/admin/class/Legacy_SQLScanner.class.php';    // TODO will be use other class?
-        $scanner = new Legacy_SQLScanner();
+        require_once XOOPS_MODULE_PATH . '/xcore/admin/class/Xcore_SQLScanner.class.php';    // TODO will be use other class?
+        $scanner = new Xcore_SQLScanner();
         $scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
         $scanner->setDirname($module->get('dirname'));
         $scanner->setBuffer($query);
@@ -197,11 +197,11 @@ class Xupdate_InstallUtils
      * installAllOfModuleTemplates
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function installAllOfModuleTemplates(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installAllOfModuleTemplates(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $templates =& $module->getInfo('templates');
         if(is_array($templates) && count($templates) > 0)
@@ -218,11 +218,11 @@ class Xupdate_InstallUtils
      * 
      * @param   XoopsModule  &$module
      * @param   string[]  $template
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installModuleTemplate(/*** XoopsModule ***/ &$module,/*** string[] ***/ $template,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installModuleTemplate(/*** XoopsModule ***/ &$module,/*** string[] ***/ $template,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $dirname = $module->getVar('dirname');
         $trustDirname =& $module->getInfo('trust_dirname');
@@ -273,12 +273,12 @@ class Xupdate_InstallUtils
      * uninstallAllOfModuleTemplates
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * @param   bool  $defaultOnly
      * 
      * @return  void
     **/
-    public static function uninstallAllOfModuleTemplates(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = true)
+    public static function uninstallAllOfModuleTemplates(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = true)
     {
         $tplHandler   =& Xupdate_Utils::getXoopsHandler('tplfile');
     
@@ -307,11 +307,11 @@ class Xupdate_InstallUtils
      * installAllOfBlocks
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $blocks =& $module->getInfo('blocks');
         if(is_array($blocks) && count($blocks) > 0)
@@ -368,11 +368,11 @@ class Xupdate_InstallUtils
      * @param   XoopsModule  &$module
      * @param   XoopsBlock  &$blockObj
      * @param   string[]  &$block
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installBlock(/*** XoopsModule ***/ &$module,/*** XoopsBlock ***/ &$blockObj,/*** string[] ***/ &$block,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installBlock(/*** XoopsModule ***/ &$module,/*** XoopsBlock ***/ &$blockObj,/*** string[] ***/ &$block,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $isNew = $blockObj->isNew();
         $blockHandler =& Xupdate_Utils::getXoopsHandler('block');
@@ -471,11 +471,11 @@ class Xupdate_InstallUtils
      * 
      * @param   XoopsBlock  &$block
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installBlockTemplate(/*** XoopsBlock ***/ &$block,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installBlockTemplate(/*** XoopsBlock ***/ &$block,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         if($block->get('template') == null)
         {
@@ -547,11 +547,11 @@ class Xupdate_InstallUtils
      * uninstallAllOfBlocks
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function uninstallAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function uninstallAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $successFlag = true;
     
@@ -605,16 +605,16 @@ class Xupdate_InstallUtils
      * smartUpdateAllOfBlocks
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function smartUpdateAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function smartUpdateAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $dirname = $module->get('dirname');
     
-        $fileReader = new Legacy_ModinfoX2FileReader($dirname);
-        $dbReader = new Legacy_ModinfoX2DBReader($dirname);
+        $fileReader = new Xcore_ModinfoX2FileReader($dirname);
+        $dbReader = new Xcore_ModinfoX2DBReader($dirname);
     
         $blocks =& $dbReader->loadBlockInformations();
         $blocks->update($fileReader->loadBlockInformations());
@@ -623,16 +623,16 @@ class Xupdate_InstallUtils
         {
             switch($block->mStatus)
             {
-                case LEGACY_INSTALLINFO_STATUS_LOADED:
+                case XCORE_INSTALLINFO_STATUS_LOADED:
                     Xupdate_InstallUtils::updateBlockTemplateByInfo($block,$module,$log);
                     break;
-                case LEGACY_INSTALLINFO_STATUS_UPDATED:
+                case XCORE_INSTALLINFO_STATUS_UPDATED:
                     Xupdate_InstallUtils::updateBlockByInfo($block,$module,$log);
                     break;
-                case LEGACY_INSTALLINFO_STATUS_NEW:
+                case XCORE_INSTALLINFO_STATUS_NEW:
                     Xupdate_InstallUtils::installBlockByInfo($block,$module,$log);
                     break;
-                case LEGACY_INSTALLINFO_STATUS_DELETED:
+                case XCORE_INSTALLINFO_STATUS_DELETED:
                     Xupdate_InstallUtils::uninstallBlockByFuncNum($block->mFuncNum,$module,$log);
                     break;
                 default:
@@ -644,15 +644,15 @@ class Xupdate_InstallUtils
     /**
      * updateBlockTemplateByInfo
      * 
-     * @param   Legacy_BlockInformation  &$info
+     * @param   Xcore_BlockInformation  &$info
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function updateBlockTemplateByInfo(/*** Legacy_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function updateBlockTemplateByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
-        $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','legacy');
+        $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','xcore');
         $cri = new CriteriaCompo();
         $cri->add(new Criteria('dirname',$module->get('dirname')));
         $cri->add(new Criteria('func_num',$info->mFuncNum));
@@ -668,15 +668,15 @@ class Xupdate_InstallUtils
     /**
      * updateBlockByInfo
      * 
-     * @param   Legacy_BlockInformation  &$info
+     * @param   Xcore_BlockInformation  &$info
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function updateBlockByInfo(/*** Legacy_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function updateBlockByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
-        $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','legacy');
+        $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','xcore');
         $cri = new CriteriaCompo();
         $cri->add(new Criteria('dirname',$module->get('dirname')));
         $cri->add(new Criteria('func_num',$info->mFuncNum));
@@ -721,13 +721,13 @@ class Xupdate_InstallUtils
     /**
      * installBlockByInfo
      * 
-     * @param   Legacy_BlockInformation  &$info
+     * @param   Xcore_BlockInformation  &$info
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installBlockByInfo(/*** Legacy_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installBlockByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $filename = Xupdate_InstallUtils::replaceDirname(
             $info->mTemplate,
@@ -778,13 +778,13 @@ class Xupdate_InstallUtils
      * 
      * @param   int  $func_num
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function uninstallBlockByFuncNum(/*** int ***/ $func_num,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function uninstallBlockByFuncNum(/*** int ***/ $func_num,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
-        $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','legacy');
+        $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','xcore');
         $cri = new CriteriaCompo();
         $cri->add(new Criteria('dirname',$module->get('dirname')));
         $cri->add(new Criteria('func_num',$func_num));
@@ -821,12 +821,12 @@ class Xupdate_InstallUtils
      * 
      * @param   XoopsBlock  &$block
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * @param   bool  $defaultOnly
      * 
      * @return  bool
     **/
-    public static function uninstallBlockTemplate(/*** XoopsBlock ***/ &$block,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = false)
+    public static function uninstallBlockTemplate(/*** XoopsBlock ***/ &$block,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = false)
     {
         $tplHandler =& Xupdate_Utils::getXoopsHandler('tplfile');
         $delTemplates =& $tplHandler->find($defaultOnly ? 'default' : null,'block',$module->get('mid'),$module->get('dirname'),$block->get('template'));
@@ -860,15 +860,15 @@ class Xupdate_InstallUtils
      * installAllOfConfigs
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $successFlag = true;
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
-        $fileReader = new Legacy_ModinfoX2FileReader($module->get('dirname'));    // TODO will be use other class?
+        $fileReader = new Xcore_ModinfoX2FileReader($module->get('dirname'));    // TODO will be use other class?
         $preferences = $fileReader->loadPreferenceInformations();
     
         foreach($preferences->mPreferences as $info)
@@ -923,13 +923,13 @@ class Xupdate_InstallUtils
     /**
      * installConfigByInfo
      * 
-     * @param   Legacy_PreferenceInformation  &$info
+     * @param   Xcore_PreferenceInformation  &$info
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function installConfigByInfo(/*** Legacy_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function installConfigByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
         $config =& $configHandler->createConfig();
@@ -980,11 +980,11 @@ class Xupdate_InstallUtils
      * uninstallAllOfConfigs
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function uninstallAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function uninstallAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         if($module->get('hasconfig') == 0)
         {
@@ -1030,11 +1030,11 @@ class Xupdate_InstallUtils
      * 
      * @param   int  $order
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function uninstallConfigByOrder(/*** int ***/ $order,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function uninstallConfigByOrder(/*** int ***/ $order,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
     
@@ -1071,16 +1071,16 @@ class Xupdate_InstallUtils
      * smartUpdateAllOfConfigs
      * 
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function smartUpdateAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function smartUpdateAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $dirname = $module->get('dirname');
     
-        $fileReader = new Legacy_ModinfoX2FileReader($dirname);
-        $dbReader = new Legacy_ModinfoX2DBReader($dirname);
+        $fileReader = new Xcore_ModinfoX2FileReader($dirname);
+        $dbReader = new Xcore_ModinfoX2DBReader($dirname);
     
         $configs  =& $dbReader->loadPreferenceInformations();
         $configs->update($fileReader->loadPreferenceInformations());
@@ -1089,16 +1089,16 @@ class Xupdate_InstallUtils
         {
             switch($config->mStatus)
             {
-                case LEGACY_INSTALLINFO_STATUS_UPDATED:
+                case XCORE_INSTALLINFO_STATUS_UPDATED:
                     Xupdate_InstallUtils::updateConfigByInfo($config,$module,$log);
                     break;
-                case LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED:
+                case XCORE_INSTALLINFO_STATUS_ORDER_UPDATED:
                     Xupdate_InstallUtils::updateConfigOrderByInfo($config,$module,$log);
                     break;
-                case LEGACY_INSTALLINFO_STATUS_NEW:
+                case XCORE_INSTALLINFO_STATUS_NEW:
                     Xupdate_InstallUtils::installConfigByInfo($config,$module,$log);
                     break;
-                case LEGACY_INSTALLINFO_STATUS_DELETED:
+                case XCORE_INSTALLINFO_STATUS_DELETED:
                     Xupdate_InstallUtils::uninstallConfigByOrder($config->mOrder,$module,$log);
                     break;
                 default:
@@ -1110,13 +1110,13 @@ class Xupdate_InstallUtils
     /**
      * updateConfigByInfo
      * 
-     * @param   Legacy_PreferenceInformation  &$info
+     * @param   Xcore_PreferenceInformation  &$info
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function updateConfigByInfo(/*** Legacy_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function updateConfigByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
         $cri = new CriteriaCompo();
@@ -1192,13 +1192,13 @@ class Xupdate_InstallUtils
     /**
      * updateConfigOrderByInfo
      * 
-     * @param   Legacy_PreferenceInformation  &$info
+     * @param   Xcore_PreferenceInformation  &$info
      * @param   XoopsModule  &$module
-     * @param   Legacy_ModuleInstallLog  &$log
+     * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function updateConfigOrderByInfo(/*** Legacy_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
+    public static function updateConfigOrderByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
         $cri = new CriteriaCompo();

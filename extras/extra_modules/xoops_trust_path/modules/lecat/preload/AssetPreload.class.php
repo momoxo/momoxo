@@ -53,13 +53,13 @@ class Lecat_AssetPreloadBase extends XCube_ActionFilter
 		$file = LECAT_TRUST_PATH . '/class/DelegateFunctions.class.php';
 	
 		$this->mRoot->mDelegateManager->add('Module.lecat.Global.Event.GetAssetManager','Lecat_AssetPreloadBase::getManager');
-		$this->mRoot->mDelegateManager->add('Legacy_Utils.CreateModule','Lecat_AssetPreloadBase::getModule');
-		$this->mRoot->mDelegateManager->add('Legacy_Utils.CreateBlockProcedure','Lecat_AssetPreloadBase::getBlock');
+		$this->mRoot->mDelegateManager->add('Xcore_Utils.CreateModule','Lecat_AssetPreloadBase::getModule');
+		$this->mRoot->mDelegateManager->add('Xcore_Utils.CreateBlockProcedure','Lecat_AssetPreloadBase::getBlock');
 		$this->mRoot->mDelegateManager->add('Module.'.$this->mDirname.'.Global.Event.GetNormalUri','Lecat_CoolUriDelegate::getNormalUri', $file);
-		$this->mRoot->mDelegateManager->add('Legacy_ImageClient.GetClientList','Lecat_ImageClientDelegate::getClientList', $file);
+		$this->mRoot->mDelegateManager->add('Xcore_ImageClient.GetClientList','Lecat_ImageClientDelegate::getClientList', $file);
 	
 		//KARIMOJI_LEGALEGACategory Delegate
-		$prefix = 'Legacy_Category.' . $this->mDirname;
+		$prefix = 'Xcore_Category.' . $this->mDirname;
 		$this->mRoot->mDelegateManager->add($prefix .'.GetTitle','Lecat_DelegateFunctions::getTitle', $file);
 		$this->mRoot->mDelegateManager->add($prefix .'.GetTree','Lecat_DelegateFunctions::getTree', $file);
 		$this->mRoot->mDelegateManager->add($prefix .'.GetTitleList','Lecat_DelegateFunctions::getTitleList', $file);
@@ -87,12 +87,12 @@ class Lecat_AssetPreloadBase extends XCube_ActionFilter
 	/**
 	 * getModule
 	 * 
-	 * @param	Legacy_AbstractModule  &$obj
+	 * @param	Xcore_AbstractModule  &$obj
 	 * @param	XoopsModule  $module
 	 * 
 	 * @return	void
 	**/
-	public static function getModule(/*** Legacy_AbstractModule ***/ &$obj,/*** XoopsModule ***/ $module)
+	public static function getModule(/*** Xcore_AbstractModule ***/ &$obj,/*** XoopsModule ***/ $module)
 	{
 		if($module->getInfo('trust_dirname') == 'lecat')
 		{
@@ -104,12 +104,12 @@ class Lecat_AssetPreloadBase extends XCube_ActionFilter
 	/**
 	 * getBlock
 	 * 
-	 * @param	Legacy_AbstractBlockProcedure  &$obj
+	 * @param	Xcore_AbstractBlockProcedure  &$obj
 	 * @param	XoopsBlock	$block
 	 * 
 	 * @return	void
 	**/
-	public static function getBlock(/*** Legacy_AbstractBlockProcedure ***/ &$obj,/*** XoopsBlock ***/ $block)
+	public static function getBlock(/*** Xcore_AbstractBlockProcedure ***/ &$obj,/*** XoopsBlock ***/ $block)
 	{
 		$moduleHandler =& Lecat_Utils::getXoopsHandler('module');
 		$module =& $moduleHandler->get($block->get('mid'));

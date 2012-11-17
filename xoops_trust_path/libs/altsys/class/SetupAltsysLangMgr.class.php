@@ -25,9 +25,9 @@ class SetupAltsysLangMgr extends XCube_ActionFilter
 
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_LanguageManager.class.php";
-require_once XOOPS_ROOT_PATH . "/modules/legacy/kernel/Legacy_LanguageManager.class.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/Xcore_LanguageManager.class.php";
 
-class AltsysLangMgr_LanguageManager extends Legacy_LanguageManager
+class AltsysLangMgr_LanguageManager extends Xcore_LanguageManager
 {
 	var $langman = null ;
 	var $theme_lang_checked = false ;
@@ -81,10 +81,10 @@ class AltsysLangMgr_LanguageManager extends Legacy_LanguageManager
 
 	function loadGlobalMessageCatalog()
 	{
-		/* if (!$this->_loadFile(XOOPS_ROOT_PATH . "/modules/legacy/language/" . $this->mLanguageName . "/global.php")) {
-			$this->_loadFile(XOOPS_ROOT_PATH . "/modules/legacy/language/english/global.php");
+		/* if (!$this->_loadFile(XOOPS_ROOT_PATH . "/modules/xcore/language/" . $this->mLanguageName . "/global.php")) {
+			$this->_loadFile(XOOPS_ROOT_PATH . "/modules/xcore/language/english/global.php");
 		} */
-		$this->_loadLanguage( 'legacy' , 'global' ) ;
+		$this->_loadLanguage( 'xcore' , 'global' ) ;
 
 		//
 		// Now, if XOOPS_USE_MULTIBYTES isn't defined, set zero to it.

@@ -2,11 +2,11 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class User_Module extends Legacy_ModuleAdapter
+class User_Module extends Xcore_ModuleAdapter
 {
 	function User_Module(&$xoopsModule)
 	{
-		parent::Legacy_ModuleAdapter($xoopsModule);
+		parent::Xcore_ModuleAdapter($xoopsModule);
 		$this->mGetAdminMenu =new XCube_Delegate();
 		$this->mGetAdminMenu->register('User_Module.getAdminMenu');
 	}

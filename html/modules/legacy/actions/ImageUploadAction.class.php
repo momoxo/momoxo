@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImageUploadAction.class.php,v 1.4 2008/09/25 15:36:30 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,13 +10,13 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/admin/actions/ImageEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/forms/ImageUploadForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/actions/ImageEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/ImageUploadForm.class.php";
 
 /***
  * @internal
  */
-class Legacy_ImageUploadAction extends Legacy_ImageEditAction
+class Xcore_ImageUploadAction extends Xcore_ImageEditAction
 {
 	var $mCategory = null;
 
@@ -26,12 +26,12 @@ class Legacy_ImageUploadAction extends Legacy_ImageEditAction
 		$controller->setDialogMode(true);
 		
 		$root =& $controller->mRoot;
-		$root->mLanguageManager->loadModuleMessageCatalog('legacy');
+		$root->mLanguageManager->loadModuleMessageCatalog('xcore');
 	}
 	
 	function &_getHandler()
 	{
-		$handler =& xoops_getmodulehandler('image', 'legacy');
+		$handler =& xoops_getmodulehandler('image', 'xcore');
 		return $handler;
 	}
 
@@ -44,7 +44,7 @@ class Legacy_ImageUploadAction extends Legacy_ImageEditAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_ImageUploadForm();
+		$this->mActionForm =new Xcore_ImageUploadForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -58,7 +58,7 @@ class Legacy_ImageUploadAction extends Legacy_ImageEditAction
 			$groups = array(XOOPS_GROUP_ANONYMOUS);
 		}
 			
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$this->mCategory =& $handler->get(xoops_getrequest('imgcat_id'));
 		if (!is_object($this->mCategory ) || (is_object($this->mCategory) && !$this->mCategory->hasUploadPerm($groups))) {
 			return false;
@@ -69,7 +69,7 @@ class Legacy_ImageUploadAction extends Legacy_ImageEditAction
 
 	function executeViewInput(&$controller, &$xoopsUser, &$render)
 	{
-		$render->setTemplateName("legacy_image_upload.html");
+		$render->setTemplateName("xcore_image_upload.html");
 		$render->setAttribute('actionForm', $this->mActionForm);
 		$render->setAttribute('object', $this->mObject);
 		
@@ -84,7 +84,7 @@ class Legacy_ImageUploadAction extends Legacy_ImageEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		redirect_header(XOOPS_URL . "/imagemanager.php", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		redirect_header(XOOPS_URL . "/imagemanager.php", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 }
 

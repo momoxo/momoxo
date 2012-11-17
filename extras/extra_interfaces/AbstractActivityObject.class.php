@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -13,7 +13,7 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Abstract Activity Class
 **/
-abstract class Legacy_AbstractActivityObject extends XoopsSimpleObject
+abstract class Xcore_AbstractActivityObject extends XoopsSimpleObject
 {
 	public function __construct()
 	{
@@ -22,7 +22,7 @@ abstract class Legacy_AbstractActivityObject extends XoopsSimpleObject
 		$this->initVar('dataname', XOBJ_DTYPE_STRING, '', false, 32);
 		$this->initVar('data_id', XOBJ_DTYPE_INT, '0', false);
 		$this->initVar('uid', XOBJ_DTYPE_INT, '0', false);
-		//cat_id is field in Legacy_AbstractCategoryObject
+		//cat_id is field in Xcore_AbstractCategoryObject
 		$this->initVar('cat_id', XOBJ_DTYPE_INT, 0, false);
 		$this->initVar('title', XOBJ_DTYPE_STRING, '', false, 255);
 		$this->initVar('description', XOBJ_DTYPE_TEXT, '', false);
@@ -39,7 +39,7 @@ abstract class Legacy_AbstractActivityObject extends XoopsSimpleObject
 /**
  * Abstract Group Activity Class
 **/
-abstract class Legacy_AbstractGroupActivityObject extends Legacy_AbstractActivityObject
+abstract class Xcore_AbstractGroupActivityObject extends Xcore_AbstractActivityObject
 {
 	public function __construct()
 	{
@@ -51,7 +51,7 @@ abstract class Legacy_AbstractGroupActivityObject extends Legacy_AbstractActivit
 /**
  * Abstract User Activity Class
 **/
-abstract class Legacy_AbstractUserActivityObject extends Legacy_AbstractActivityObject
+abstract class Xcore_AbstractUserActivityObject extends Xcore_AbstractActivityObject
 {
 	public function __construct()
 	{
@@ -63,7 +63,7 @@ abstract class Legacy_AbstractUserActivityObject extends Legacy_AbstractActivity
 /**
  * Abstract Calendar Activity Class
 **/
-abstract class Legacy_AbstractCalendarObject extends Legacy_AbstractActivityObject{
+abstract class Xcore_AbstractCalendarObject extends Xcore_AbstractActivityObject{
 	public function __construct()
 	{
 		parent::__construct();
@@ -73,7 +73,7 @@ abstract class Legacy_AbstractCalendarObject extends Legacy_AbstractActivityObje
 	}
 }
 
-abstract class Legacy_AbstractActivityHandler extends XoopsObjectGenericHandler
+abstract class Xcore_AbstractActivityHandler extends XoopsObjectGenericHandler
 {
 	abstract public function getActivities(/*** int ***/ $data_id, /*** int ***/ $limit=20, /*** int ***/ $start=0);
 	abstract public function getMyActivities(/*** int ***/ $uid, /*** int ***/ $limit=20, /*** int ***/ $start=0);

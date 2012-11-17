@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: image.php,v 1.3 2008/09/25 15:11:33 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,14 +10,14 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyImageObject extends XoopsSimpleObject
+class XcoreImageObject extends XoopsSimpleObject
 {
 	var $mImageCategory = null;
 	var $_mImageCategoryLoadedFlag = false;
 	var $mImageBody = null;
 	var $_mImageBodyLoadedFlag = false;
 
-	function LegacyImageObject()
+	function XcoreImageObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -38,7 +38,7 @@ class LegacyImageObject extends XoopsSimpleObject
 	function loadImagecategory()
 	{
 		if ($this->_mImageCategoryLoadedFlag == false) {
-			$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+			$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 			$this->mImageCategory =& $handler->get($this->get('imgcat_id'));
 			$this->_mImageCategoryLoadedFlag = true;
 		}
@@ -47,7 +47,7 @@ class LegacyImageObject extends XoopsSimpleObject
 	function loadImagebody()
 	{
 		if ($this->_mImageBodyLoadedFlag == false) {
-			$handler =& xoops_getmodulehandler('imagebody', 'legacy');
+			$handler =& xoops_getmodulehandler('imagebody', 'xcore');
 			$this->mImageBody =& $handler->get($this->get('image_id'));
 			$this->_mImageBodyLoadedFlag = true;
 		}
@@ -55,25 +55,25 @@ class LegacyImageObject extends XoopsSimpleObject
 
 	function &createImagebody()
 	{
-		$handler =& xoops_getmodulehandler('imagebody', 'legacy');
+		$handler =& xoops_getmodulehandler('imagebody', 'xcore');
 		$obj =& $handler->create();
 		$obj->set('image_id', $this->get('image_id'));
 		return $obj;
 	}
 }
 
-class LegacyImageHandler extends XoopsObjectGenericHandler
+class XcoreImageHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "image";
 	var $mPrimary = "image_id";
-	var $mClass = "LegacyImageObject";
+	var $mClass = "XcoreImageObject";
 
 	function insert(&$obj, $force = false)
 	{
 		if (parent::insert($obj, $force)) {
 			if (is_object($obj->mImageBody)) {
 				$obj->mImageBody->set('image_id', $obj->get('image_id'));
-				$handler =& xoops_getmodulehandler('imagebody', 'legacy');
+				$handler =& xoops_getmodulehandler('imagebody', 'xcore');
 				return $handler->insert($obj->mImageBody, $force);
 			}
 			
@@ -87,7 +87,7 @@ class LegacyImageHandler extends XoopsObjectGenericHandler
 	 *
 	 * Delete object and image file.
 	 *
-	 * @param $obj    LegacyImageObject
+	 * @param $obj    XcoreImageObject
 	 * @param $force  boolean
 	 * @return boolean
 	 */	
@@ -102,7 +102,7 @@ class LegacyImageHandler extends XoopsObjectGenericHandler
 			}
 			
 			if (is_object($obj->mImageBody)) {
-				$handler =& xoops_getmodulehandler('imagebody', 'legacy');
+				$handler =& xoops_getmodulehandler('imagebody', 'xcore');
 				$handler->delete($obj->mImageBody, $force);
 			}
 			

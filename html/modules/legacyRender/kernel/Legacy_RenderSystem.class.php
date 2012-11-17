@@ -1,25 +1,25 @@
 <?php
 /**
- * @version $Id: Legacy_RenderSystem.class.php,v 1.4 2008/08/26 15:58:41 minahito Exp $
+ * @version $Id: Xcore_RenderSystem.class.php,v 1.4 2008/08/26 15:58:41 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH.'/modules/legacyRender/kernel/Legacy_RenderTarget.class.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcoreRender/kernel/Xcore_RenderTarget.class.php';
 require_once XOOPS_ROOT_PATH . '/class/template.php';
 
 /**
  * If a module handling banners can not work perfectly in your site, change the following
  * "false" to "true". (For Bug#1786123)
  */
-define('LEGACY_RENDERSYSTEM_BANNERSETUP_BEFORE', false);
+define('XCORE_RENDERSYSTEM_BANNERSETUP_BEFORE', false);
 
 /**
- * @brief The sub-class for Legacy_RenderSystem. 
+ * @brief The sub-class for Xcore_RenderSystem.
  * 
  * Because XoopsTpl class may be used without Cube's boot, this is declared.
  */
-class Legacy_XoopsTpl extends XoopsTpl
+class Xcore_XoopsTpl extends XoopsTpl
 {
 	/**
 	 * @private
@@ -28,9 +28,9 @@ class Legacy_XoopsTpl extends XoopsTpl
 	 */
 	var $_mContextReserve = array();
 	
-	function Legacy_XoopsTpl()
+	function Xcore_XoopsTpl()
 	{
-		$this->_mContextReserve = array ('xoops_pagetitle' => 'legacy_pagetitle');
+		$this->_mContextReserve = array ('xoops_pagetitle' => 'xcore_pagetitle');
 		parent::XoopsTpl();
 	}
 	
@@ -98,7 +98,7 @@ class Legacy_XoopsTpl extends XoopsTpl
  * This manages theme and main render-target directly. And, this realizes
  * variable-sharing-mechanism with using smarty.
  */
-class Legacy_RenderSystem extends XCube_RenderSystem
+class Xcore_RenderSystem extends XCube_RenderSystem
 {
 	var $mXoopsTpl;
 
@@ -126,14 +126,14 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 
 	var $mBeginRender = null;
 	
-	function Legacy_RenderSystem()
+	function Xcore_RenderSystem()
 	{
 		parent::XCube_RenderSystem();
 		$this->mSetupXoopsTpl =new XCube_Delegate();
-		$this->mSetupXoopsTpl->register('Legacy_RenderSystem.SetupXoopsTpl');
+		$this->mSetupXoopsTpl->register('Xcore_RenderSystem.SetupXoopsTpl');
 
 		$this->mBeginRender =new XCube_Delegate();
-		$this->mBeginRender->register('Legacy_RenderSystem.BeginRender');
+		$this->mBeginRender->register('Xcore_RenderSystem.BeginRender');
 	}
 	
 	function prepare(&$controller)
@@ -148,10 +148,10 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 		if ( isset($GLOBALS['xoopsTpl']) ) {
 			$this->mXoopsTpl =& $GLOBALS['xoopsTpl'];
 		} else {
-			$this->mXoopsTpl =new Legacy_XoopsTpl();
+			$this->mXoopsTpl =new Xcore_XoopsTpl();
 		}
 		$mTpl = $this->mXoopsTpl;
-		$mTpl->register_function('legacy_notifications_select', 'LegacyRender_smartyfunction_notifications_select');
+		$mTpl->register_function('xcore_notifications_select', 'XcoreRender_smartyfunction_notifications_select');
 		$this->mSetupXoopsTpl->call(new XCube_Ref($mTpl));
 
 		// compatible
@@ -169,26 +169,26 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 							'xoops_js' => '//--></script><script type="text/javascript" src="'.XOOPS_URL.'/include/xoops.js"></script><script type="text/javascript"><!--'
 						));
 	
-		$mTpl->assign('xoops_sitename', $textFilter->toShow($context->getAttribute('legacy_sitename')));
-		$mTpl->assign('xoops_pagetitle', $textFilter->toShow($context->getAttribute('legacy_pagetitle')));
-		$mTpl->assign('xoops_slogan', $textFilter->toShow($context->getAttribute('legacy_slogan')));
+		$mTpl->assign('xoops_sitename', $textFilter->toShow($context->getAttribute('xcore_sitename')));
+		$mTpl->assign('xoops_pagetitle', $textFilter->toShow($context->getAttribute('xcore_pagetitle')));
+		$mTpl->assign('xoops_slogan', $textFilter->toShow($context->getAttribute('xcore_slogan')));
 
 		// --------------------------------------
 		// Meta tags
 		// --------------------------------------
 		$moduleHandler = xoops_gethandler('module');
-		$legacyRender =& $moduleHandler->getByDirname('legacyRender');
+		$xcoreRender =& $moduleHandler->getByDirname('xcoreRender');
 		
-		if (is_object($legacyRender)) {
+		if (is_object($xcoreRender)) {
 			$configHandler = xoops_gethandler('config');
-			$configs =& $configHandler->getConfigsByCat(0, $legacyRender->get('mid'));
+			$configs =& $configHandler->getConfigsByCat(0, $xcoreRender->get('mid'));
 			
 			//
 			// If this site has the setting of banner.
 			// TODO this process depends on XOOPS 2.0.x.
 			//
 			$this->_mIsActiveBanner = $configs['banners'];
-			if (LEGACY_RENDERSYSTEM_BANNERSETUP_BEFORE == true) {
+			if (XCORE_RENDERSYSTEM_BANNERSETUP_BEFORE == true) {
 				if ($configs['banners'] == 1) {
 					$mTpl->assign('xoops_banner',xoops_getbanner());
 				}
@@ -245,9 +245,9 @@ class Legacy_RenderSystem extends XCube_RenderSystem
    		$vars = array('xoops_theme'=>$themeName,
 					  'xoops_imageurl'=>XOOPS_THEME_URL . "/${themeName}/",
 					  'xoops_themecss'=>xoops_getcss($themeName),
-					  'xoops_sitename'=>$textFilter->toShow($context->getAttribute('legacy_sitename')),
-					  'xoops_pagetitle'=>$textFilter->toShow($context->getAttribute('legacy_pagetitle')),
-					  'xoops_slogan'=>$textFilter->toShow($context->getAttribute('legacy_slogan')));
+					  'xoops_sitename'=>$textFilter->toShow($context->getAttribute('xcore_sitename')),
+					  'xoops_pagetitle'=>$textFilter->toShow($context->getAttribute('xcore_pagetitle')),
+					  'xoops_slogan'=>$textFilter->toShow($context->getAttribute('xcore_slogan')));
 
 		//
 		// Assign module informations.
@@ -293,7 +293,7 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 			$this->mXoopsTpl->assign($key,$value);
 		}
 
-		$this->mBeginRender->call(new XCube_Ref($this->mXoopsTpl), $target->getAttribute('legacy_buffertype'));
+		$this->mBeginRender->call(new XCube_Ref($this->mXoopsTpl), $target->getAttribute('xcore_buffertype'));
 		$result=$this->mXoopsTpl->fetch('db:'.$target->getTemplateName());
 		$target->setResult($result);
 
@@ -307,7 +307,7 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 		//
 		// The following lines are temporary until we will finish changing the style!
 		//
-		switch ($target->getAttribute('legacy_buffertype')) {
+		switch ($target->getAttribute('xcore_buffertype')) {
 			case XCUBE_RENDER_TARGET_TYPE_BLOCK:
 				$this->renderBlock($target);
 				break;
@@ -374,9 +374,9 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 		$vars['xoops_module_header'] = $moduleHeader;
 		
 		$moduleHandler = xoops_gethandler('module');
-		$legacyRender =& $moduleHandler->getByDirname('legacyRender');
+		$xcoreRender =& $moduleHandler->getByDirname('xcoreRender');
 		$configHandler = xoops_gethandler('config');
-		$configs =& $configHandler->getConfigsByCat(0, $legacyRender->get('mid'));
+		$configs =& $configHandler->getConfigsByCat(0, $xcoreRender->get('mid'));
 	
 		$textFilter =& $mRoot->getTextFilter();
 		$headerScript = $mContext->getAttribute('headerScript');
@@ -392,7 +392,7 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 		// If this site has the setting of banner.
 		// TODO this process depends on XOOPS 2.0.x.
 		//
-		if (LEGACY_RENDERSYSTEM_BANNERSETUP_BEFORE == false) {
+		if (XCORE_RENDERSYSTEM_BANNERSETUP_BEFORE == false) {
 			$vars['xoops_banner'] = ($this->_mIsActiveBanner == 1)?xoops_getbanner():'&nbsp;';
 		}
 
@@ -402,7 +402,7 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 		// [TODO]
 		// We must implement with a render-target.
 		//
-		// $this->_processLegacyTemplate();
+		// $this->_processXcoreTemplate();
 
 		// assing
 		/// @todo I must move these to somewhere.
@@ -416,8 +416,8 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 
 		foreach($assignNameMap as $key=>$val) {
 			$mTpl->assign($val['showflag'],$this->_getBlockShowFlag($val['showflag']));
-			if(isset($mContext->mAttributes['legacy_BlockContents'][$key])) {
-				foreach($mContext->mAttributes['legacy_BlockContents'][$key] as $result) {
+			if(isset($mContext->mAttributes['xcore_BlockContents'][$key])) {
+				foreach($mContext->mAttributes['xcore_BlockContents'][$key] as $result) {
 					$mTpl->append($val['block'], $result);
 				}
 			}
@@ -445,17 +445,17 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 		switch($area) {
 			case 'xoops_showrblock' :
 				if (isset($GLOBALS['show_rblock']) && empty($GLOBALS['show_rblock'])) return 0;
-				return (!empty($this->mController->mRoot->mContext->mAttributes['legacy_BlockShowFlags'][XOOPS_SIDEBLOCK_RIGHT])) ? 1 : 0;
+				return (!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_SIDEBLOCK_RIGHT])) ? 1 : 0;
 				break;
 			case 'xoops_showlblock' :
 				if (isset($GLOBALS['show_lblock']) && empty($GLOBALS['show_lblock'])) return 0;
-				return (!empty($this->mController->mRoot->mContext->mAttributes['legacy_BlockShowFlags'][XOOPS_SIDEBLOCK_LEFT])) ? 1 : 0;
+				return (!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_SIDEBLOCK_LEFT])) ? 1 : 0;
 				break;
 			case 'xoops_showcblock' :
 				if (isset($GLOBALS['show_cblock']) && empty($GLOBALS['show_cblock'])) return 0;
-				return (!empty($this->mController->mRoot->mContext->mAttributes['legacy_BlockShowFlags'][XOOPS_CENTERBLOCK_LEFT])||
-						!empty($this->mController->mRoot->mContext->mAttributes['legacy_BlockShowFlags'][XOOPS_CENTERBLOCK_RIGHT])||
-						!empty($this->mController->mRoot->mContext->mAttributes['legacy_BlockShowFlags'][XOOPS_CENTERBLOCK_CENTER])) ? 1 : 0;
+				return (!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_CENTERBLOCK_LEFT])||
+						!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_CENTERBLOCK_RIGHT])||
+						!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_CENTERBLOCK_CENTER])) ? 1 : 0;
 				break;
 			default :
 				return 0;
@@ -548,17 +548,17 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 		$this->_renderFooter();
 	}
 
-	function &createRenderTarget($type = LEGACY_RENDER_TARGET_TYPE_MAIN, $option = null)
+	function &createRenderTarget($type = XCORE_RENDER_TARGET_TYPE_MAIN, $option = null)
 	{
 		$renderTarget = null;
 		switch ($type) {
 			case XCUBE_RENDER_TARGET_TYPE_MAIN:
-				$renderTarget =new Legacy_RenderTargetMain();
+				$renderTarget =new Xcore_RenderTargetMain();
 				break;
 				
-			case LEGACY_RENDER_TARGET_TYPE_BLOCK:
+			case XCORE_RENDER_TARGET_TYPE_BLOCK:
 				$renderTarget =new XCube_RenderTarget();
-				$renderTarget->setAttribute('legacy_buffertype', LEGACY_RENDER_TARGET_TYPE_BLOCK);
+				$renderTarget->setAttribute('xcore_buffertype', XCORE_RENDER_TARGET_TYPE_BLOCK);
 				break;
 				
 			default:
@@ -574,20 +574,20 @@ class Legacy_RenderSystem extends XCube_RenderSystem
 	 */
 	function &getThemeRenderTarget($isDialog = false)
 	{
-		$screenTarget = $isDialog ? new Legacy_DialogRenderTarget() : new Legacy_ThemeRenderTarget();
+		$screenTarget = $isDialog ? new Xcore_DialogRenderTarget() : new Xcore_ThemeRenderTarget();
 		return $screenTarget;
 	}
 }
 
-function LegacyRender_smartyfunction_notifications_select($params, &$smarty)
+function XcoreRender_smartyfunction_notifications_select($params, &$smarty)
 {
 	$root =& XCube_Root::getSingleton();
-	$renderSystem =& $root->getRenderSystem('Legacy_RenderSystem');
+	$renderSystem =& $root->getRenderSystem('Xcore_RenderSystem');
 	
 	$renderTarget =& $renderSystem->createRenderTarget('main');
-	$renderTarget->setTemplateName('legacy_notification_select_form.html');
+	$renderTarget->setTemplateName('xcore_notification_select_form.html');
 
-	XCube_DelegateUtils::call('Legacyfunction.Notifications.Select', new XCube_Ref($renderTarget));
+	XCube_DelegateUtils::call('Xcorefunction.Notifications.Select', new XCube_Ref($renderTarget));
 
 	$renderSystem->render($renderTarget);
 	

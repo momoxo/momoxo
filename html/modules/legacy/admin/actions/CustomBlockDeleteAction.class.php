@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: CustomBlockDeleteAction.class.php,v 1.3 2008/09/25 15:11:54 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractDeleteAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/CustomBlockDeleteForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractDeleteAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/CustomBlockDeleteForm.class.php";
 
-class Legacy_CustomBlockDeleteAction extends Legacy_AbstractDeleteAction
+class Xcore_CustomBlockDeleteAction extends Xcore_AbstractDeleteAction
 {
 	function _getId()
 	{
@@ -28,7 +28,7 @@ class Legacy_CustomBlockDeleteAction extends Legacy_AbstractDeleteAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_CustomBlockDeleteForm();
+		$this->mActionForm =new Xcore_CustomBlockDeleteForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -45,7 +45,7 @@ class Legacy_CustomBlockDeleteAction extends Legacy_AbstractDeleteAction
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		if (!$this->_isDeletable()) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		return parent::getDefaultView($controller, $xoopsUser);
@@ -54,7 +54,7 @@ class Legacy_CustomBlockDeleteAction extends Legacy_AbstractDeleteAction
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (!$this->_isDeletable()) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		return parent::execute($controller, $xoopsUser);
@@ -82,7 +82,7 @@ class Legacy_CustomBlockDeleteAction extends Legacy_AbstractDeleteAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=BlockInstallList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=BlockInstallList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

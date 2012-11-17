@@ -27,13 +27,13 @@ if (!defined('XC_ADMINSYSTEMCHECK_WAITING')) define('XC_ADMINSYSTEMCHECK_WAITING
 //display(1) or not display(0): Full PHP Info!
 if (!defined('XC_ADMINSYSTEMCHECK_PHPINFO')) define('XC_ADMINSYSTEMCHECK_PHPINFO', 0);
 
-class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
+class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 {
 	function preBlockFilter()
 	{
 
 	$root=&XCube_Root::getSingleton();
-	$root->mDelegateManager->add("Legacypage.Admin.SystemCheck", "Legacy_AdminSystemCheckPlusPreload::SystemCheckPlus", XCUBE_DELEGATE_PRIORITY_NORMAL+1);
+	$root->mDelegateManager->add("Xcorepage.Admin.SystemCheck", "Xcore_AdminSystemCheckPlusPreload::SystemCheckPlus", XCUBE_DELEGATE_PRIORITY_NORMAL+1);
 
 	}
 
@@ -43,7 +43,7 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		////////////////////////////////////////////////
 		if(XC_ADMINSYSTEMCHECK_WELCOME) {
 		//ex) 
-		//direct output(0), output with legacy_dummy.html(1), output with legacy_admin_welcome.html(2)   
+		//direct output(0), output with xcore_dummy.html(1), output with xcore_admin_welcome.html(2)
 		$type = 2;
 		//Umm...Just example!!
 		//please customize it to design/decorate your html/admin.php
@@ -59,14 +59,14 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		$welcome = '<b>Welcome to KARIMOJI!!</b><br />Have a nice and happy time!!';
 		$attributes = array();
 		$attributes['dummy_content'] = $welcome;
-		$template = XOOPS_LEGACY_PATH."/templates/legacy_dummy.html";
-		Legacy_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = false);
+		$template = XOOPS_XCORE_PATH."/templates/xcore_dummy.html";
+		Xcore_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = false);
 		}//type1 if
 		
 		elseif ( $type == 2 ) {
 		
-		//you must prepare your own legacy_admin_welcome.html
-		if ( file_exists(XOOPS_LEGACY_PATH . "/admin/templates/legacy_admin_welcome.html") ) {
+		//you must prepare your own xcore_admin_welcome.html
+		if ( file_exists(XOOPS_XCORE_PATH . "/admin/templates/xcore_admin_welcome.html") ) {
 		//it's just a example! please customize it!
 		$welcome_title = 'Welcome Message!';
 		$welcome_msg = array();
@@ -75,8 +75,8 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		$attributes = array();
 		$attributes['title'] = $welcome_title;
 		$attributes['messages'] = $welcome_msg;
-		$template = XOOPS_LEGACY_PATH."/admin/templates/legacy_admin_welcome.html";
-		Legacy_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = false);
+		$template = XOOPS_XCORE_PATH."/admin/templates/xcore_admin_welcome.html";
+		Xcore_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = false);
 		}//file_exists if
 		}//type2 if
 
@@ -86,7 +86,7 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 
 		$systeminfo_message = array();
 
-		$systeminfo_message[] = _AD_LEGACY_XCLEGACYVERSION." : ".XOOPS_VERSION;
+		$systeminfo_message[] = _AD_XCORE_XCXCOREVERSION." : ".XOOPS_VERSION;
 		$systeminfo_message[] = _MD_AM_DTHEME." : ".$root->mContext->mXoopsConfig['theme_set'];
 		$systeminfo_message[] = _MD_AM_DTPLSET." : ".$root->mContext->mXoopsConfig['template_set'];
 		$systeminfo_message[] = _MD_AM_LANGUAGE." : ".$root->mContext->mXoopsConfig['language'];
@@ -115,13 +115,13 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		$systemconfig['server'] = xoops_getenv('SERVER_SOFTWARE');
 		$systemconfig['useragent'] = xoops_getenv('HTTP_USER_AGENT');
 
-		$systeminfo_message[] = _AD_LEGACY_OS." : ".$systemconfig['os'];
-		$systeminfo_message[] = _AD_LEGACY_SERVER." : ".$systemconfig['server'];
-		$systeminfo_message[] = _AD_LEGACY_USERAGENT." : ".$systemconfig['useragent'];
-		$systeminfo_message[] = _AD_LEGACY_PHPVERSION." : ".$systemconfig['phpversion'];
-		$systeminfo_message[] = _AD_LEGACY_MYSQLVERSION." : ".$systemconfig['mysqlversion'];
+		$systeminfo_message[] = _AD_XCORE_OS." : ".$systemconfig['os'];
+		$systeminfo_message[] = _AD_XCORE_SERVER." : ".$systemconfig['server'];
+		$systeminfo_message[] = _AD_XCORE_USERAGENT." : ".$systemconfig['useragent'];
+		$systeminfo_message[] = _AD_XCORE_PHPVERSION." : ".$systemconfig['phpversion'];
+		$systeminfo_message[] = _AD_XCORE_MYSQLVERSION." : ".$systemconfig['mysqlversion'];
 
-		xoops_result($systeminfo_message,_AD_LEGACY_SYSTEMINFO,'tips');
+		xoops_result($systeminfo_message,_AD_XCORE_SYSTEMINFO,'tips');
 
 		}//systeminfo if
 		
@@ -131,29 +131,29 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 
 		$phpsetting_message = array();
 
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_SM." : ".(ini_get('safe_mode')? "<span style=color:red>" ._AD_LEGACY_PHPSETTING_ON."</span>" : "<span style=color:green>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_MET." : ".(ini_get('max_execution_time')? ini_get('max_execution_time')." sec." : _AD_LEGACY_PHPSETTING_OFF);
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_ML." : ".(ini_get('memory_limit')? ini_get('memory_limit')."b" : _AD_LEGACY_PHPSETTING_OFF);
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_DE." : ".(ini_get('display_errors')? "<span style=color:green>" ._AD_LEGACY_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_SOT." : ".(ini_get('short_open_tag')? "<span style=color:green>" ._AD_LEGACY_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_FU." : ".(ini_get('file_uploads')? _AD_LEGACY_PHPSETTING_ON." ( "._AD_LEGACY_PHPSETTING_FU_UMAX.ini_get('upload_max_filesize').", "._AD_LEGACY_PHPSETTING_FU_PMAX.ini_get('post_max_size')." )" : _AD_LEGACY_PHPSETTING_OFF);
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_MQ." : ".(ini_get('magic_quotes_gpc')? "<span style=color:green>" ._AD_LEGACY_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_RG." : ".(ini_get('register_globals')? "<span style=color:red>" ._AD_LEGACY_PHPSETTING_ON." (recommended OFF)</span>" : "<span style=color:green>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_OB." : ".(ini_get('output_buffering')? "<span style=color:red>" ._AD_LEGACY_PHPSETTING_ON."</span>" : "<span style=color:green>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_OBD." : ".(ini_get('open_basedir')? "<span style=color:green>" ._AD_LEGACY_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_UFO." : ".(ini_get('allow_url_fopen')? "<span style=color:red>" ._AD_LEGACY_PHPSETTING_ON." (recommended OFF)</span>" : "<span style=color:green>" ._AD_LEGACY_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_SM." : ".(ini_get('safe_mode')? "<span style=color:red>" ._AD_XCORE_PHPSETTING_ON."</span>" : "<span style=color:green>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_MET." : ".(ini_get('max_execution_time')? ini_get('max_execution_time')." sec." : _AD_XCORE_PHPSETTING_OFF);
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_ML." : ".(ini_get('memory_limit')? ini_get('memory_limit')."b" : _AD_XCORE_PHPSETTING_OFF);
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_DE." : ".(ini_get('display_errors')? "<span style=color:green>" ._AD_XCORE_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_SOT." : ".(ini_get('short_open_tag')? "<span style=color:green>" ._AD_XCORE_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_FU." : ".(ini_get('file_uploads')? _AD_XCORE_PHPSETTING_ON." ( "._AD_XCORE_PHPSETTING_FU_UMAX.ini_get('upload_max_filesize').", "._AD_XCORE_PHPSETTING_FU_PMAX.ini_get('post_max_size')." )" : _AD_XCORE_PHPSETTING_OFF);
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_MQ." : ".(ini_get('magic_quotes_gpc')? "<span style=color:green>" ._AD_XCORE_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_RG." : ".(ini_get('register_globals')? "<span style=color:red>" ._AD_XCORE_PHPSETTING_ON." (recommended OFF)</span>" : "<span style=color:green>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_OB." : ".(ini_get('output_buffering')? "<span style=color:red>" ._AD_XCORE_PHPSETTING_ON."</span>" : "<span style=color:green>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_OBD." : ".(ini_get('open_basedir')? "<span style=color:green>" ._AD_XCORE_PHPSETTING_ON."</span>" : "<span style=color:red>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_UFO." : ".(ini_get('allow_url_fopen')? "<span style=color:red>" ._AD_XCORE_PHPSETTING_ON." (recommended OFF)</span>" : "<span style=color:green>" ._AD_XCORE_PHPSETTING_OFF. "</span>");
 		
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_DOM." : ".(extension_loaded('dom')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_EXIF." : ".(extension_loaded('exif')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_GTXT." : ".(extension_loaded('gettext')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_JSON." : ".(extension_loaded('json')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_XML." : ".(extension_loaded('xml')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_CRL." : ".(extension_loaded('curl')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_ZLIB." : ".(extension_loaded('zlib')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_SOAP." : ".(extension_loaded('soap')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_MB." : ".(extension_loaded('mbstring')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_ICONV." : ".(function_exists('iconv')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_GD." : ".(function_exists('gd_info')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_DOM." : ".(extension_loaded('dom')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_EXIF." : ".(extension_loaded('exif')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_GTXT." : ".(extension_loaded('gettext')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_JSON." : ".(extension_loaded('json')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_XML." : ".(extension_loaded('xml')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_CRL." : ".(extension_loaded('curl')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_ZLIB." : ".(extension_loaded('zlib')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_SOAP." : ".(extension_loaded('soap')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_MB." : ".(extension_loaded('mbstring')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_ICONV." : ".(function_exists('iconv')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_GD." : ".(function_exists('gd_info')? "<span style=color:green>" ._YES. "</span>" : "<span style=color:red>" ._NO. " (required by recent modules)</span>" );
 	
 
 		if( function_exists( 'gd_info' ) ) {
@@ -162,10 +162,10 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		}
 	
 		if(function_exists('imagecreatetruecolor')) {
-		$phpsetting_message[] = _AD_LEGACY_PHPSETTING_GD." Image create Truecolor" ;
+		$phpsetting_message[] = _AD_XCORE_PHPSETTING_GD." Image create Truecolor" ;
 		}
 
-		xoops_result($phpsetting_message,_AD_LEGACY_PHPSETTING,'tips');
+		xoops_result($phpsetting_message,_AD_XCORE_PHPSETTING,'tips');
 
 		}
 		
@@ -173,12 +173,12 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		/////////////////////////////////////////
 		if(XC_ADMINSYSTEMCHECK_WAITING) {
 		$modules = array();
-    		XCube_DelegateUtils::call('Legacyblock.Waiting.Show', new XCube_Ref($modules));
+    		XCube_DelegateUtils::call('Xcoreblock.Waiting.Show', new XCube_Ref($modules));
 		$attributes = array();
 		$attributes['block']['modules'] = $modules;
-		$template = XOOPS_ROOT_PATH."/modules/legacy/templates/blocks/legacy_block_waiting.html";
-		$result = Legacy_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = true);
-		xoops_result($result, _MI_LEGACY_BLOCK_WAITING_NAME);
+		$template = XOOPS_ROOT_PATH."/modules/xcore/templates/blocks/xcore_block_waiting.html";
+		$result = Xcore_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = true);
+		xoops_result($result, _MI_XCORE_BLOCK_WAITING_NAME);
 		}//waiting if
 		
 		
@@ -202,8 +202,8 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		$output = str_replace('</div>', '', $output);	
 		$attributes = array();
 		$attributes['dummy_content'] = $output;
-		$template = XOOPS_ROOT_PATH."/modules/legacy/templates/legacy_dummy.html";
-		Legacy_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = false);
+		$template = XOOPS_ROOT_PATH."/modules/xcore/templates/xcore_dummy.html";
+		Xcore_AdminSystemCheckPlusPreload::display_message($attributes, $template, $return = false);
 		}//phpinfo if
 		/////////////////////////////////
 	}
@@ -213,7 +213,7 @@ class Legacy_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		$root =& XCube_Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem($root->mContext->mBaseRenderSystemName);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
-		$renderTarget->setAttribute('legacy_module', 'legacy');
+		$renderTarget->setAttribute('xcore_module', 'xcore');
 		$renderTarget->setTemplateName($template);
 		foreach (array_keys($attributes) as $attribute) {
 		$renderTarget->setAttribute($attribute, $attributes[$attribute]);

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -13,19 +13,19 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Interface of acitivity delegate
 **/
-interface Legacy_iActivityDelegate
+interface Xcore_iActivityDelegate
 {
 	/**
-	 * addUserActivity	 Legacy_Activity.AddUserActivity
+	 * addUserActivity	 Xcore_Activity.AddUserActivity
 	 *
-	 * @param Legacy_AbstractUserActivityObject &$activity
+	 * @param Xcore_AbstractUserActivityObject &$activity
 	 *
 	 * @return	void
 	 */ 
-	public static function addUserActivity(/*** Legacy_AbstractUserActivityObject ***/ &$activity);
+	public static function addUserActivity(/*** Xcore_AbstractUserActivityObject ***/ &$activity);
 
 	/**
-	 * deleteUserActivity	Legacy_Activity.DeleteUserActivity
+	 * deleteUserActivity	Xcore_Activity.DeleteUserActivity
 	 *
 	 * @param bool &$result
 	 * @param CriteriaElement $cri ex)$cri=new CriteriaCompo();$cri->add(new Criteria('dirname',$dirname);$cri->add(new Criteria('dataname',$dataname);$cri->add(new Criteria('data_id',$data_id);
@@ -35,28 +35,28 @@ interface Legacy_iActivityDelegate
 	public static function deleteUserActivity(/*** bool ***/ &$result, /*** CriteriaElement ***/ $cri);
 
 	/**
-	 * getUsersActivities	Legacy_Activity.GetUsersAcitivities
+	 * getUsersActivities	Xcore_Activity.GetUsersAcitivities
 	 *
-	 * @param Legacy_AbstractActivityObject[]	&$activityList
+	 * @param Xcore_AbstractActivityObject[]	&$activityList
 	 * @param int[]	$uids
 	 * @param int	$limit
 	 * @param int	$start
 	 *
 	 * @return	void
 	 */ 
-	public static function getUsersActivities(/*** Legacy_AbstractUserActivityObject[] ***/ &$activityList, /*** int[] ***/ $uids, /*** int ***/ $limit=20, /*** int ***/ $start=0);
+	public static function getUsersActivities(/*** Xcore_AbstractUserActivityObject[] ***/ &$activityList, /*** int[] ***/ $uids, /*** int ***/ $limit=20, /*** int ***/ $start=0);
 
 	/**
-	 * addGroupActivity	 Legacy_Activity.AddGroupActivity
+	 * addGroupActivity	 Xcore_Activity.AddGroupActivity
 	 *
-	 * @param Legacy_AbstractUserActivityObject &$activity
+	 * @param Xcore_AbstractUserActivityObject &$activity
 	 *
 	 * @return	void
 	 */ 
-	public static function addGroupActivity(/*** Legacy_AbstractGroupActivityObject ***/ &$activity);
+	public static function addGroupActivity(/*** Xcore_AbstractGroupActivityObject ***/ &$activity);
 
 	/**
-	 * deleteGroupActivity	Legacy_Activity.deleteGroupActivity
+	 * deleteGroupActivity	Xcore_Activity.deleteGroupActivity
 	 *
 	 * @param bool &$result
 	 * @param CriteriaElement $cri ex)$cri=new CriteriaCompo();$cri->add(new Criteria('dirname',$dirname);$cri->add(new Criteria('dataname',$dataname);$cri->add(new Criteria('data_id',$data_id);
@@ -66,16 +66,16 @@ interface Legacy_iActivityDelegate
 	public static function deleteGroupActivity(/*** bool ***/ &$result, /*** CriteriaElement ***/ $cri);
 
 	/**
-	 * getGroupsActivities	 Legacy_Activity.GetGroupsAcitivities
+	 * getGroupsActivities	 Xcore_Activity.GetGroupsAcitivities
 	 *
-	 * @param Legacy_AbstractActivityObject[]	&$activityList
+	 * @param Xcore_AbstractActivityObject[]	&$activityList
 	 * @param int[]	$groupIds
 	 * @param int	$limit
 	 * @param int	$start
 	 *
 	 * @return	void
 	 */ 
-	public static function getGroupsActivities(/*** Legacy_AbstractGroupActivityObject[] ***/ &$activityList, /*** int[] ***/ $groupIds, /*** int ***/ $limit=20, /*** int ***/ $start=0);
+	public static function getGroupsActivities(/*** Xcore_AbstractGroupActivityObject[] ***/ &$activityList, /*** int[] ***/ $groupIds, /*** int ***/ $limit=20, /*** int ***/ $start=0);
 
 }
 

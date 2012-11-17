@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ThemeListAction.class.php,v 1.5 2008/09/25 15:11:47 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ThemeSelectForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ThemeSelectForm.class.php";
 
 /***
  * @internal
@@ -20,14 +20,14 @@ require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ThemeSelectForm.class.php"
  * In KARIMOJI which can have many themes with different render-
  * systems, that one render-system has the control to change themes is wrong,
  * because this action can't list up themes of other render-systems.
- * The action to change themes should be in Legacy. And, each render-systems
+ * The action to change themes should be in Xcore. And, each render-systems
  * should send theme informations through delegate-mechanism.
  * 
  * Therefore, this class is test for that we may move this action from
- * LegacyRender module. If you want to check the concept of this strategy, see 
+ * XcoreRender module. If you want to check the concept of this strategy, see
  * ThemeSelect preload in KARIMOJI_LEGALEGAmodule.
  */
-class Legacy_ThemeListAction extends Legacy_Action
+class Xcore_ThemeListAction extends Xcore_Action
 {
 	var $mThemes = null;
 	var $mObjectHandler = null;
@@ -57,7 +57,7 @@ class Legacy_ThemeListAction extends Legacy_Action
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_ThemeSelectForm();
+		$this->mActionForm =new Xcore_ThemeSelectForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -74,7 +74,7 @@ class Legacy_ThemeListAction extends Legacy_Action
 		
 		$this->mActionForm->load($selectedThemeArr);
 		
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 	
 	function execute(&$controller, &$xoopsUser)
@@ -121,7 +121,7 @@ class Legacy_ThemeListAction extends Legacy_Action
 			}
 		}
 		
-		XCube_DelegateUtils::call('Legacy.Event.ThemeSettingChanged', $this->mMainTheme, $t_themeArr);
+		XCube_DelegateUtils::call('Xcore.Event.ThemeSettingChanged', $this->mMainTheme, $t_themeArr);
 
 		return $this->getDefaultView($controller, $xoopsUser);
 	}

@@ -69,7 +69,7 @@ abstract class Xupdate_AbstractAction
     public function getPagetitle()
     {
     	//XCL 2.2 only
-        //return Legacy_Utils::formatPagetitle($this->mRoot->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getActionName());
+        //return Xcore_Utils::formatPagetitle($this->mRoot->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getActionName());
         return $this->mRoot->mContext->mModule->mXoopsModule->get('name') .':'. $this->_getPagetitle();
     }
 

@@ -22,12 +22,12 @@ class Profile_Delegate
      */ 
     public static function saveProfile(/*** bool ***/ &$ret, XCube_ActionForm $actionForm)
     {
-        $handler = Legacy_Utils::getModuleHandler('data', 'profile');
+        $handler = Xcore_Utils::getModuleHandler('data', 'profile');
         if(! $obj = $handler->get($actionForm->get('uid'))){
             $obj = $handler->create();
             $obj->set('uid', $actionForm->get('uid'));
         }
-        $defHandler = Legacy_Utils::getModuleHandler('definitions', 'profile');
+        $defHandler = Xcore_Utils::getModuleHandler('definitions', 'profile');
         $defObjs = $defHandler->getFields4DataEdit();
         foreach($defObjs as $def){
         	$obj->setField($def->get('field_name'), $actionForm->get($def->get('field_name')));
@@ -45,7 +45,7 @@ class Profile_Delegate
      */ 
     public static function getProfile(/*** mixed ***/ &$profile, /*** int ***/ $uid)
     {
-        $handler = Legacy_Utils::getModuleHandler('data', 'profile');
+        $handler = Xcore_Utils::getModuleHandler('data', 'profile');
         $profile = $handler->get($uid);
         if(! $profile){
             $profile = $handler->create();
@@ -62,7 +62,7 @@ class Profile_Delegate
      */ 
     public static function getDefinition(/*** mixed ***/ &$defArr, /*** string ***/ $action)
     {
-        $handler = Legacy_Utils::getModuleHandler('definitions', 'profile');
+        $handler = Xcore_Utils::getModuleHandler('definitions', 'profile');
         switch($action){
         case 'edit':
             $defArr = $handler->getFields4DataEdit();
@@ -83,7 +83,7 @@ class Profile_Delegate
      */ 
     public static function setupActionForm(XCube_ActionForm $actionForm)
     {
-        $handler = Legacy_Utils::getModuleHandler('definitions', 'profile');
+        $handler = Xcore_Utils::getModuleHandler('definitions', 'profile');
         $definitions = $handler->getFields4DataEdit();
         foreach($definitions as $def){
             $className = $def->mFieldType->getFormPropertyClass();
@@ -119,9 +119,9 @@ class Profile_Delegate
      */ 
     public static function loadActionForm(XCube_ActionForm $actionForm)
     {
-        $defHandler = Legacy_Utils::getModuleHandler('definitions', 'profile');
+        $defHandler = Xcore_Utils::getModuleHandler('definitions', 'profile');
         $definitions = $defHandler->getFields4DataEdit();
-        $dataHandler = Legacy_Utils::getModuleHandler('data', 'profile');
+        $dataHandler = Xcore_Utils::getModuleHandler('data', 'profile');
         $profile = $dataHandler->get($actionForm->get('uid'));
         if(! $profile){
             $profile = $dataHandler->create();
@@ -182,7 +182,7 @@ class Profile_CoolUriDelegate
                     die('invalid uri');
                 }
                 else{
-                    $handler = Legacy_Utils::getModuleHandler($table, $dirname);
+                    $handler = Xcore_Utils::getModuleHandler($table, $dirname);
                     $key = $handler->mPrimary;
                     $uri = sprintf($lUri, $dirname, ucfirst($table), 'View', $key, $data_id);
                 }

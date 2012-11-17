@@ -14,7 +14,7 @@ require_once XOOPS_MODULE_PATH . "/pm/forms/PmDeleteForm.class.php";
  * [Notice]
  * This class has been checked in Alpha4. But, this class doesn't go along the
  * latest cubson style. And some problems (using core handler, naming rule and
- * etc) are there. Pm module is one of the most old code in Legacy.
+ * etc) are there. Pm module is one of the most old code in Xcore.
  * 
  * [ToDo]
  * This class should use Action_FilterForm as well as other latest modules.

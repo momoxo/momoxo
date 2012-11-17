@@ -66,10 +66,10 @@ class HTMLPurifier_HTMLModuleManager
             'StyleAttribute',
             // Unsafe:
             'Scripting', 'Object',  'Forms',
-            // Sorta legacy, but present in strict:
+            // Sorta xcore, but present in strict:
             'Name',
         );
-        $transitional = array('Legacy', 'Target');
+        $transitional = array('Xcore', 'Target');
         $xml = array('XMLCommonAttributes');
         $non_xml = array('NonXMLCommonAttributes');
 

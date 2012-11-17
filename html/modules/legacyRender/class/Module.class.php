@@ -2,13 +2,13 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRender_Module extends Legacy_ModuleAdapter
+class XcoreRender_Module extends Xcore_ModuleAdapter
 {
-	function LegacyRender_Module(&$xoopsModule)
+	function XcoreRender_Module(&$xoopsModule)
 	{
-		parent::Legacy_ModuleAdapter($xoopsModule);
+		parent::Xcore_ModuleAdapter($xoopsModule);
 		$this->mGetAdminMenu =new XCube_Delegate();
-		$this->mGetAdminMenu->register('LegacyRender_Module.getAdminMenu');
+		$this->mGetAdminMenu->register('XcoreRender_Module.getAdminMenu');
 	}
 	
 	function getAdminMenu()

@@ -1,12 +1,12 @@
 <?php
 // $Id: modinfo.php,v 1.1 2008/03/09 02:25:59 minahito Exp $
-define('_MI_LEGACYRENDER_ADMENU_BANNER_MANAGE', "廣告管理");
-define('_MI_LEGACYRENDER_ADMENU_TEMPLATE_MANAGE', "樣板管理");
-define('_MI_LEGACYRENDER_ADMENU_THEME_SETTING', "佈景設置");
-define('_MI_LEGACYRENDER_ADMENU_TPLFILE_MANAGE', "樣版檔管理");
-define('_MI_LEGACYRENDER_CONF_BANNERS', "啟用廣告嗎??");
-define('_MI_LEGACYRENDER_NAME', "KARIMOJI_LEGALEGA佈局");
-define('_MI_LEGACYRENDER_NAME_DESC', "這個佈局引擎相容於 XOOPS 2.0.9 及 XOOPS JP 2.0.x. 您也可以在這個系統使用符合 XOOPS2 標準規範的佈景，但可能須做局部修改。");
+define('_MI_XCORERENDER_ADMENU_BANNER_MANAGE', "廣告管理");
+define('_MI_XCORERENDER_ADMENU_TEMPLATE_MANAGE', "樣板管理");
+define('_MI_XCORERENDER_ADMENU_THEME_SETTING', "佈景設置");
+define('_MI_XCORERENDER_ADMENU_TPLFILE_MANAGE', "樣版檔管理");
+define('_MI_XCORERENDER_CONF_BANNERS', "啟用廣告嗎??");
+define('_MI_XCORERENDER_NAME', "KARIMOJI_LEGALEGA佈局");
+define('_MI_XCORERENDER_NAME_DESC', "這個佈局引擎相容於 XOOPS 2.0.9 及 XOOPS JP 2.0.x. 您也可以在這個系統使用符合 XOOPS2 標準規範的佈景，但可能須做局部修改。");
 define('_MI_LR_FOOTER', "頁腳");
 define('_MI_LR_FOOTER_DESC', "頁尾資訊，確定網址有包含 http://, 如果沒有就不能連結");
 define('_MI_LR_META_AUTHOR', "Meta作者");

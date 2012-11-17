@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: AbstractModuleInstallAction.class.php,v 1.3 2008/09/25 15:11:35 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -14,7 +14,7 @@
  * This is abstract class for 3 action classes that are Install, Update and
  * Uninstall.
  */
-class Legacy_AbstractModuleInstallAction extends Legacy_Action
+class Xcore_AbstractModuleInstallAction extends Xcore_Action
 {
 	/**
 	 * XoopsModule instance specified.
@@ -43,7 +43,7 @@ class Legacy_AbstractModuleInstallAction extends Legacy_Action
 
 		if (!is_object($this->mModuleObject)) {
 			$this->mLog =& $installer->getLog();
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		$this->mActionForm->load($this->mModuleObject);
@@ -51,13 +51,13 @@ class Legacy_AbstractModuleInstallAction extends Legacy_Action
 		$this->mModuleObject->loadAdminMenu();
 		$this->mModuleObject->loadInfo($dirname);
 		
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (isset($_REQUEST['_form_control_cancel'])) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 		
 		$this->mActionForm->fetch();
@@ -76,15 +76,15 @@ class Legacy_AbstractModuleInstallAction extends Legacy_Action
 			// return 'INPUT' view.
 			//
 			if ($installer->hasAgree()) {
-				return LEGACY_FRAME_VIEW_INPUT;
+				return XCORE_FRAME_VIEW_INPUT;
 			}
 			else {
-				return LEGACY_FRAME_VIEW_INDEX;
+				return XCORE_FRAME_VIEW_INDEX;
 			}
 		}
 		
 		if (!is_object($this->mModuleObject)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		$installer->setForceMode($this->mActionForm->get('force'));
@@ -92,7 +92,7 @@ class Legacy_AbstractModuleInstallAction extends Legacy_Action
 
 		$this->mLog =& $installer->getLog();
 		
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 
 	/**

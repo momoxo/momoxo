@@ -5,6 +5,6 @@
  * @version $Id: AntiInstallerChecker.class.php,v 1.1 2007/05/15 02:35:01 minahito Exp $
  */
 
-define ("LEGACY_INSTALLERCHECKER_ACTIVE", false);
+define ("XCORE_INSTALLERCHECKER_ACTIVE", false);
 
 ?>

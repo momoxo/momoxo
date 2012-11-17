@@ -1,15 +1,15 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: TplfileEditAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplfileEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplfileEditForm.class.php";
 
-class LegacyRender_TplfileEditAction extends LegacyRender_AbstractEditAction
+class XcoreRender_TplfileEditAction extends XcoreRender_AbstractEditAction
 {
 	function _getId()
 	{
@@ -33,7 +33,7 @@ class LegacyRender_TplfileEditAction extends LegacyRender_AbstractEditAction
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new LegacyRender_TplfileEditForm();
+		$this->mActionForm =new XcoreRender_TplfileEditForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -53,7 +53,7 @@ class LegacyRender_TplfileEditAction extends LegacyRender_AbstractEditAction
 	{
 		//
 		// This class knows the db template mechanism, because this is in
-		// LegacyRender.
+		// XcoreRender.
 		//
 		require_once XOOPS_ROOT_PATH . "/class/template.php";
 
@@ -68,7 +68,7 @@ class LegacyRender_TplfileEditAction extends LegacyRender_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_LEGACYRENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

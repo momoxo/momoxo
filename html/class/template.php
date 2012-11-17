@@ -90,11 +90,11 @@ class XoopsTpl extends Smarty
 
 	    if(empty($this->debug_tpl)) {
 	        // set path to debug template from SMARTY_DIR
-	        $this->debug_tpl = XOOPS_ROOT_PATH.'/modules/legacy/templates/xoops_debug.tpl';
+	        $this->debug_tpl = XOOPS_ROOT_PATH.'/modules/xcore/templates/xoops_debug.tpl';
 	        if($this->security && is_file($this->debug_tpl)) {
 	            $this->secure_dir[] = realpath($this->debug_tpl);
 	        }
-	        $this->debug_tpl = 'file:' . XOOPS_ROOT_PATH.'/modules/legacy/templates/xoops_debug.tpl';
+	        $this->debug_tpl = 'file:' . XOOPS_ROOT_PATH.'/modules/xcore/templates/xoops_debug.tpl';
 	    }
 
         // Delegate 'XoopsTpl.New'
@@ -270,12 +270,12 @@ function xoops_template_touch($tpl_id, $clear_old = true)
 {
 	$result = null;
 	
-    // RaiseEvent 'Legacy.XoopsTpl.TemplateTouch' 
+    // RaiseEvent 'Xcore.XoopsTpl.TemplateTouch'
     //  Delegate may define new template touch logic (with XC21, only for clear cache & compiled template)
     //  varArgs : 
     //      'xoopsTpl'     [I/O] : $this
     //
-    XCube_DelegateUtils::call('Legacy.XoopsTpl.TemplateTouch', $tpl_id, $clear_old, new XCube_Ref($result));
+    XCube_DelegateUtils::call('Xcore.XoopsTpl.TemplateTouch', $tpl_id, $clear_old, new XCube_Ref($result));
 	
 	if ($result === null) {
 		$tpl = new XoopsTpl();

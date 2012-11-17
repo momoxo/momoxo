@@ -24,8 +24,8 @@ $modversion['tables'][] = '{prefix}_{dirname}_inbox';
 $modversion['tables'][] = '{prefix}_{dirname}_outbox';
 $modversion['tables'][] = '{prefix}_{dirname}_users';
 
-$modversion['legacy_installer']['installer']['class'] = 'myInstaller';
-$modversion['legacy_installer']['updater']['class'] = 'myUpdater';
+$modversion['xcore_installer']['installer']['class'] = 'myInstaller';
+$modversion['xcore_installer']['updater']['class'] = 'myUpdater';
 
 $modversion['templates'][] = array('file' => 'message_inboxlist.html');
 $modversion['templates'][] = array('file' => 'message_inboxview.html');

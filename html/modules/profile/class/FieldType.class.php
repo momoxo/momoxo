@@ -326,7 +326,7 @@ class Profile_FieldTypeCheckbox implements Profile_iFieldType
             $value = $obj->get($key);
         }
         elseif($option==Profile_ActionType::VIEW){
-            $handler = Legacy_Utils::getModuleHandler('definitions', 'profile');
+            $handler = Xcore_Utils::getModuleHandler('definitions', 'profile');
             $objs = $handler->getObjects(new Criteria('field_name', $key));
             if(count($objs)>0){
                 $def = array_shift($objs);

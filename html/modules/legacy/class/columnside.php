@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: columnside.php,v 1.3 2008/09/25 15:11:23 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -12,9 +12,9 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . '/include/comment_constants.php';
 
-class LegacyColumnsideObject extends XoopsSimpleObject
+class XcoreColumnsideObject extends XoopsSimpleObject
 {
-	function LegacyColumnsideObject()
+	function XcoreColumnsideObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -27,18 +27,18 @@ class LegacyColumnsideObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyColumnsideHandler extends XoopsObjectHandler
+class XcoreColumnsideHandler extends XoopsObjectHandler
 {
 	var $_mResults = array();
 	
-	function LegacyColumnsideHandler(&$db)
+	function XcoreColumnsideHandler(&$db)
 	{
 		$t_arr = array (
-				0 => _AD_LEGACY_LANG_SIDE_BLOCK_LEFT,
-				1 => _AD_LEGACY_LANG_SIDE_BLOCK_RIGHT,
-				3 => _AD_LEGACY_LANG_CENTER_BLOCK_LEFT,
-				4 => _AD_LEGACY_LANG_CENTER_BLOCK_RIGHT,
-				5 => _AD_LEGACY_LANG_CENTER_BLOCK_CENTER
+				0 => _AD_XCORE_LANG_SIDE_BLOCK_LEFT,
+				1 => _AD_XCORE_LANG_SIDE_BLOCK_RIGHT,
+				3 => _AD_XCORE_LANG_CENTER_BLOCK_LEFT,
+				4 => _AD_XCORE_LANG_CENTER_BLOCK_RIGHT,
+				5 => _AD_XCORE_LANG_CENTER_BLOCK_CENTER
 			);
 			
 		foreach ($t_arr as $id => $name) {
@@ -50,7 +50,7 @@ class LegacyColumnsideHandler extends XoopsObjectHandler
 	
 	function &create()
 	{
-		$ret =new LegacyColumnsideObject();
+		$ret =new XcoreColumnsideObject();
 		return $ret;
 	}
 	

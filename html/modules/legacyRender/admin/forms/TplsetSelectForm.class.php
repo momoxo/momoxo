@@ -1,6 +1,6 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: TplsetSelectForm.class.php,v 1.2 2007/06/07 02:57:21 minahito Exp $
  */
 
@@ -8,11 +8,11 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
 
-class LegacyRender_TplsetSelectForm extends XCube_ActionForm
+class XcoreRender_TplsetSelectForm extends XCube_ActionForm
 {
 	function getTokenName()
 	{
-		return "module.legacyRender.TemplatesetSelectForm.TOKEN";
+		return "module.xcoreRender.TemplatesetSelectForm.TOKEN";
 	}
 
 	function prepare()
@@ -27,7 +27,7 @@ class LegacyRender_TplsetSelectForm extends XCube_ActionForm
 	{
 		$handler =& xoops_getmodulehandler('tplset');
 		if ($handler->getCount(new Criteria('tplset_name', $this->get('tplset_name'))) == 0) {
-			$this->addErrorMessage(_AD_LEGACYRENDER_ERROR_TPLSET_NO_EXIST);
+			$this->addErrorMessage(_AD_XCORERENDER_ERROR_TPLSET_NO_EXIST);
 		}
 	}
 }

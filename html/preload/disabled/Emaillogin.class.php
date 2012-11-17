@@ -10,7 +10,7 @@ class Emaillogin extends XCube_ActionFilter
   
   function preBlockFilter()
   {
-    $this->mRoot->mDelegateManager->delete('Site.CheckLogin', 'User_LegacypageFunctions::checkLogin');
+    $this->mRoot->mDelegateManager->delete('Site.CheckLogin', 'User_XcorepageFunctions::checkLogin');
   }
   
   function checkLogin(&$xoopsUser)

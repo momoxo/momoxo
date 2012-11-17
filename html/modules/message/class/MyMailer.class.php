@@ -1,9 +1,9 @@
 <?php
 if (!defined('XOOPS_ROOT_PATH')) exit();
-if ( !defined('LEGACY_MAIL_LANG') ) {
-  define('LEGACY_MAIL_LANG', _LANGCODE);
-  define('LEGACY_MAIL_CHAR', _CHARSET);
-  define('LEGACY_MAIL_ENCO', '7bit');
+if ( !defined('XCORE_MAIL_LANG') ) {
+  define('XCORE_MAIL_LANG', _LANGCODE);
+  define('XCORE_MAIL_CHAR', _CHARSET);
+  define('XCORE_MAIL_ENCO', '7bit');
 }
 
 class My_Mailer extends PHPMailer
@@ -13,7 +13,7 @@ class My_Mailer extends PHPMailer
   public function __construct()
   {
     $this->mConvertLocal = new XCube_Delegate();
-    $this->mConvertLocal->register('Legacy_Mailer.ConvertLocal');
+    $this->mConvertLocal->register('Xcore_Mailer.ConvertLocal');
     $this->LE ="\n";
     $this->prepare();
   }
@@ -32,9 +32,9 @@ class My_Mailer extends PHPMailer
     }
     
     $this->Sender = $root->mContext->mXoopsConfig['adminmail'];
-    $this->SetLanguage(LEGACY_MAIL_LANG, XOOPS_ROOT_PATH.'/class/mail/phpmailer/language/');
-    $this->CharSet = LEGACY_MAIL_CHAR;
-    $this->Encoding = LEGACY_MAIL_ENCO;
+    $this->SetLanguage(XCORE_MAIL_LANG, XOOPS_ROOT_PATH.'/class/mail/phpmailer/language/');
+    $this->CharSet = XCORE_MAIL_CHAR;
+    $this->Encoding = XCORE_MAIL_ENCO;
     
     switch ($xoopsMailerConfig['mailmethod']) {
       case 'smtpauth':
@@ -127,7 +127,7 @@ class My_Mailer extends PHPMailer
   private function _Japanese_convLocal($text, $mime)
   {
     if ( $mime ) {
-      $text = mb_encode_mimeheader($text, LEGACY_MAIL_CHAR, 'B', $this->LE);
+      $text = mb_encode_mimeheader($text, XCORE_MAIL_CHAR, 'B', $this->LE);
     } else {
       $text = mb_convert_encoding($text, 'JIS', _CHARSET);
     }

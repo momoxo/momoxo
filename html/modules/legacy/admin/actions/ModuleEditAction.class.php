@@ -2,10 +2,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ModuleEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ModuleEditForm.class.php";
 
-class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
+class Xcore_ModuleEditAction extends Xcore_AbstractEditAction
 {
 
 	var $mReadGroups = array();
@@ -29,7 +29,7 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_ModuleEditForm();
+		$this->mActionForm =new Xcore_ModuleEditForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -46,25 +46,25 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		if (!$this->_isEditable()) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		if ($this->mObject == null) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 	
 		$this->mActionForm->load($this->mObject);
-		return LEGACY_FRAME_VIEW_INPUT;				
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (!$this->_isEditable()) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		$ret = parent::execute($controller, $xoopsUser);
 		
-		if ($ret == LEGACY_FRAME_VIEW_SUCCESS) {
+		if ($ret == XCORE_FRAME_VIEW_SUCCESS) {
 
 			$handler =& xoops_gethandler('group');
 			$permHandler =& xoops_gethandler('groupperm');
@@ -97,7 +97,7 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 			foreach ($gpermArr as $gperm) {
 				if (!in_array($gperm->get('gperm_groupid'), $currentReadGroupid)) {
 					if (!$permHandler->delete($gperm) ) {
-					return LEGACY_FRAME_VIEW_ERROR;
+					return XCORE_FRAME_VIEW_ERROR;
 					}
 				}
 			}
@@ -117,7 +117,7 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 					$gperm->set('gperm_itemid', $this->mObject->get('mid'));
 					$gperm->set('gperm_name', 'module_read');
 					if ( !$permHandler->insert($gperm) ) {
-					return LEGACY_FRAME_VIEW_ERROR;
+					return XCORE_FRAME_VIEW_ERROR;
 					}
 				}
 			}
@@ -131,7 +131,7 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 			foreach ($gpermArr as $gperm) {
 				if (!in_array($gperm->get('gperm_groupid'), $currentAdminGroupid)) {
 					if ( !$permHandler->delete($gperm) ) {
-					return LEGACY_FRAME_VIEW_ERROR;
+					return XCORE_FRAME_VIEW_ERROR;
 					}
 				}
 			}
@@ -151,7 +151,7 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 					$gperm->set('gperm_itemid', $this->mObject->get('mid'));
 					$gperm->set('gperm_name', 'module_admin');
 					if ( !$permHandler->insert($gperm) ) {
-					return LEGACY_FRAME_VIEW_ERROR;
+					return XCORE_FRAME_VIEW_ERROR;
 					}
 				}
 			}
@@ -169,15 +169,15 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 			$t_arr[$this->mObject->get('mid')] = $this->mActionForm->get('module_cache');
 			$configObjects[0]->set('conf_value', serialize($t_arr));
 			if ( !$confighandler->insertConfig($configObjects[0]) ) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 			}
 			}//is_array
 			else {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 			}
 			}//is_object
 			else {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 			}
 
 		}
@@ -233,7 +233,7 @@ class Legacy_ModuleEditAction extends Legacy_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=ModuleList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=ModuleList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 	
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

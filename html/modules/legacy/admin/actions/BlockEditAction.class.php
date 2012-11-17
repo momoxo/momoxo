@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: BlockEditAction.class.php,v 1.4 2008/09/25 15:11:37 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/BlockEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/BlockEditForm.class.php";
 
-class Legacy_BlockEditAction extends Legacy_AbstractEditAction
+class Xcore_BlockEditAction extends Xcore_AbstractEditAction
 {
 	/**
 	 * @var string
@@ -51,7 +51,7 @@ class Legacy_BlockEditAction extends Legacy_AbstractEditAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_BlockEditForm();
+		$this->mActionForm =new Xcore_BlockEditForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -74,7 +74,7 @@ class Legacy_BlockEditAction extends Legacy_AbstractEditAction
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		if (!$this->_isEditable()) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		$this->mObject->loadGroup();
@@ -86,16 +86,16 @@ class Legacy_BlockEditAction extends Legacy_AbstractEditAction
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (!$this->_isEditable()) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
 		$ret = parent::execute($controller, $xoopsUser);
 		
-		if ($ret == LEGACY_FRAME_VIEW_SUCCESS) {
+		if ($ret == XCORE_FRAME_VIEW_SUCCESS) {
 			//
 			// Reset block_module_link.
 			//
-			$handler =& xoops_getmodulehandler('block_module_link', 'legacy');
+			$handler =& xoops_getmodulehandler('block_module_link', 'xcore');
 			$handler->deleteAll(new Criteria('block_id', $this->mObject->get('bid')));
 			foreach ($this->mObject->mBmodule as $bmodule) {
 				//
@@ -167,11 +167,11 @@ class Legacy_BlockEditAction extends Legacy_AbstractEditAction
 		$handler =& xoops_gethandler('module');
 		$moduleArr[0] =& $handler->create();
 		$moduleArr[0]->set('mid', -1);
-		$moduleArr[0]->set('name', _AD_LEGACY_LANG_TOPPAGE);
+		$moduleArr[0]->set('name', _AD_XCORE_LANG_TOPPAGE);
 		
 		$moduleArr[1] =& $handler->create();
 		$moduleArr[1]->set('mid', 0);
-		$moduleArr[1]->set('name', _AD_LEGACY_LANG_ALL_MODULES);
+		$moduleArr[1]->set('name', _AD_XCORE_LANG_ALL_MODULES);
 
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('hasmain', 1));
@@ -212,7 +212,7 @@ class Legacy_BlockEditAction extends Legacy_AbstractEditAction
 	 */	
 	function _hasVisibleOptionForm()
 	{
-		$block =& Legacy_Utils::createBlockProcedure($this->mObject);
+		$block =& Xcore_Utils::createBlockProcedure($this->mObject);
 		return $block->_hasVisibleOptionForm();
 	}
 	
@@ -221,7 +221,7 @@ class Legacy_BlockEditAction extends Legacy_AbstractEditAction
 	 */
 	function _getOptionForm()
 	{
-		$block =& Legacy_Utils::createBlockProcedure($this->mObject);
+		$block =& Xcore_Utils::createBlockProcedure($this->mObject);
 		return $block->getOptionForm();
 	}
 
@@ -232,7 +232,7 @@ class Legacy_BlockEditAction extends Legacy_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=BlockList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=BlockList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 	
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

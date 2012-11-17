@@ -3,12 +3,12 @@
 
 [Manifesto]
 Name="Pack2011_default"
-Depends="Legacy_RenderSystem,legacy"
+Depends="Xcore_RenderSystem,xcore"
 Url="http://sourceforge.jp/projects/xoopscube22x/"
 Version="0.5"
 
 [Theme]
-RenderSystem="Legacy_RenderSystem"
+RenderSystem="Xcore_RenderSystem"
 Format="XOOPS2 KARIMOJI_LEGALEGAStyle"
 Author="XOOPS Cube 2.2 Distribution Pack 2011 Team"
 ScreenShot="screenshot.png"

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: cubecore_init.php,v 1.3 2008/09/25 15:12:45 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -18,14 +18,14 @@ if (!defined('XOOPS_TRUST_PATH')){
  * This constant is the sign which this system is XOOPS Cube, for module
  * developers.
  */
-define('XOOPS_CUBE_LEGACY', true);
+define('XOOPS_CUBE_XCORE', true);
 
 /**
  * This constant is the sign which this system is XOOPS Cube, for module
  * developers.
- * ex) if(defined('LEGACY_BASE_VERSION') && version_compare(LEGACY_BASE_VERSION, '2.2.0.0', '>='))
+ * ex) if(defined('XCORE_BASE_VERSION') && version_compare(XCORE_BASE_VERSION, '2.2.0.0', '>='))
  */
-define('LEGACY_BASE_VERSION', '2.2.2.0');
+define('XCORE_BASE_VERSION', '2.2.2.0');
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_Root.class.php";
 require_once XOOPS_ROOT_PATH . "/core/XCube_Controller.class.php";

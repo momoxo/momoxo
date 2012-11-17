@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Legacy_HeaderScript
+class Xcore_HeaderScript
 {
 	protected $_mType = 'google';
 	protected $_mCore = "1";
@@ -332,7 +332,7 @@ google.load("jqueryui", "'. $this->_mUi .'");
 	protected function _getRenderConfig($key)
 	{
 		$handler =& xoops_gethandler('config');
-		$configArr =& $handler->getConfigsByDirname('legacyRender');
+		$configArr =& $handler->getConfigsByDirname('xcoreRender');
 		return $configArr[$key];
 	}
 

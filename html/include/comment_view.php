@@ -42,7 +42,7 @@ if (XOOPS_COMMENT_APPROVENONE != $xoopsModuleConfig['com_rule']) {
 
 	$gperm_handler = & xoops_gethandler( 'groupperm' );
 	$groups = ( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-	$xoopsTpl->assign( 'xoops_iscommentadmin', $gperm_handler->checkRight( 'system_admin', LEGACY_SYSTEM_COMMENT, $groups) );
+	$xoopsTpl->assign( 'xoops_iscommentadmin', $gperm_handler->checkRight( 'system_admin', XCORE_SYSTEM_COMMENT, $groups) );
 
 	$t_root =& XCube_Root::getSingleton();
 	$t_root->mLanguageManager->loadPageTypeMessageCatalog('comment');
@@ -157,7 +157,7 @@ if (XOOPS_COMMENT_APPROVENONE != $xoopsModuleConfig['com_rule']) {
 		$renderSystem =& $t_root->getRenderSystem($t_root->mContext->mBaseRenderSystemName);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 
-		$renderTarget->setTemplateName("legacy_comment_navi.html");
+		$renderTarget->setTemplateName("xcore_comment_navi.html");
 		$renderTarget->setAttribute("pageName", $comment_config['pageName']);
 		
 		$modeOptions = array("nest" => _NESTED, "flat" => _FLAT, "thread" => _THREADED);

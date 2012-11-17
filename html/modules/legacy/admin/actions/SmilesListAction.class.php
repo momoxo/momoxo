@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: SmilesListAction.class.php,v 1.3 2008/09/25 15:11:50 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,11 +10,11 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/SmilesFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/SmilesListForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/SmilesFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/SmilesListForm.class.php";
 
-class Legacy_SmilesListAction extends Legacy_AbstractListAction
+class Xcore_SmilesListAction extends Xcore_AbstractListAction
 {
 	var $mSmilesObjects = array();
 	var $mActionForm = null;
@@ -22,7 +22,7 @@ class Legacy_SmilesListAction extends Legacy_AbstractListAction
 
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_SmilesListForm();
+		$this->mActionForm =new Xcore_SmilesListForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -47,7 +47,7 @@ class Legacy_SmilesListAction extends Legacy_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter =new Legacy_SmilesFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new Xcore_SmilesFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 
@@ -77,7 +77,7 @@ class Legacy_SmilesListAction extends Legacy_AbstractListAction
 	{
 		$form_cancel = $controller->mRoot->mContext->mRequest->getRequest('_form_control_cancel');
 		if ($form_cancel != null) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		$this->mActionForm->fetch();
@@ -106,7 +106,7 @@ class Legacy_SmilesListAction extends Legacy_AbstractListAction
 			unset($smiles);
 		}
 
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 
     function _processSave(&$controller, &$xoopsUser)
@@ -128,7 +128,7 @@ class Legacy_SmilesListAction extends Legacy_AbstractListAction
                 		$smiles->set('emotion', $this->mActionForm->get('emotion', $sid));
                 		$smiles->set('display', $this->mActionForm->get('display', $sid));
                 		if (!$smilesHandler->insert($smiles)) {
-				return LEGACY_FRAME_VIEW_ERROR;
+				return XCORE_FRAME_VIEW_ERROR;
                 		}
             		}//count if
 			}//object if
@@ -139,12 +139,12 @@ class Legacy_SmilesListAction extends Legacy_AbstractListAction
 			$smiles =& $smilesHandler->get($sid);
 			if (is_object($smiles)) {
 				if( !$smilesHandler->delete($smiles) ) {
-				return LEGACY_FRAME_VIEW_ERROR;
+				return XCORE_FRAME_VIEW_ERROR;
 				}
 			}
 		}
 		}
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 
     }
 
@@ -173,7 +173,7 @@ class Legacy_SmilesListAction extends Legacy_AbstractListAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$renderer)
 	{
-		$controller->executeRedirect('./index.php?action=SmilesList', 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect('./index.php?action=SmilesList', 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller,&$xoopsUser,&$renderer)

@@ -2,7 +2,7 @@
 /**
  *
  * @package XOOPS2
- * @version $Id: legacy_notification.php,v 1.3 2008/09/25 15:12:15 kilica Exp $
+ * @version $Id: xcore_notification.php,v 1.3 2008/09/25 15:12:15 kilica Exp $
  * @copyright Copyright (c) 2000 XOOPS.org  <http://www.xoops.org/>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -19,7 +19,7 @@
 //  This file has been modified for KARIMOJI_LEGALEGAfrom XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
-function b_legacy_notification_show()
+function b_xcore_notification_show()
 {
     global $xoopsConfig, $xoopsUser, $xoopsModule;
     include_once XOOPS_ROOT_PATH . '/include/notification_functions.php';

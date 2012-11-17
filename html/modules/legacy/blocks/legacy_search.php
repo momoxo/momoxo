@@ -2,7 +2,7 @@
 /**
  *
  * @package XOOPS2
- * @version $Id: legacy_search.php,v 1.3 2008/09/25 15:12:14 kilica Exp $
+ * @version $Id: xcore_search.php,v 1.3 2008/09/25 15:12:14 kilica Exp $
  * @copyright Copyright (c) 2000 XOOPS.org  <http://www.xoops.org/>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -19,7 +19,7 @@
 //  This file has been modified for KARIMOJI_LEGALEGAfrom XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
-function b_legacy_search_show()
+function b_xcore_search_show()
 {
     $block = array(1);
     return $block;

@@ -180,9 +180,9 @@ define("_YOURHOME","Inicial");
 define("XOOPS_USE_MULTIBYTES","0");
 
 //%%%%% LANGUAGE SPECIFIC SETTINGS %%%%%
-@define("LEGACY_MAIL_CHAR","UTF-8");
-@define("LEGACY_MAIL_ENCO","UTF-8");
-@define("LEGACY_MAIL_LANG","pt");
+@define("XCORE_MAIL_CHAR","UTF-8");
+@define("XCORE_MAIL_ENCO","UTF-8");
+@define("XCORE_MAIL_LANG","pt");
 @define("_CHARSET","UTF-8");
 @define("_LANGCODE","pt");
 // mb_language( 'uni');

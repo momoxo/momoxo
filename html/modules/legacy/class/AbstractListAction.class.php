@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: AbstractListAction.class.php,v 1.3 2008/09/25 15:11:30 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -12,7 +12,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_PageNavigator.class.php";
 
-class Legacy_AbstractListAction extends Legacy_Action
+class Xcore_AbstractListAction extends Xcore_Action
 {
 	var $mObjects = array();
 	
@@ -44,7 +44,7 @@ class Legacy_AbstractListAction extends Legacy_Action
 		$handler =& $this->_getHandler();
 		$this->mObjects =& $handler->getObjects($this->mFilter->getCriteria());
 		
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 }
 

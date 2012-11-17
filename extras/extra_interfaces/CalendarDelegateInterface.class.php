@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -13,12 +13,12 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Interface of calendar delegate
 **/
-interface Legacy_iCalendarDelegate
+interface Xcore_iCalendarDelegate
 {
 	/**
-	 * getCalendarEvents	Legacy_Calendar.GetCalendarEvents
+	 * getCalendarEvents	Xcore_Calendar.GetCalendarEvents
 	 *
-	 * @param Legacy_AbstractCalendarObject[] &$event
+	 * @param Xcore_AbstractCalendarObject[] &$event
 	 * @param int $start
 	 * @param int $end
 	 * @param int $uid

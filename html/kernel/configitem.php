@@ -131,7 +131,7 @@ class XoopsConfigItem extends XoopsObject
 				$list[] = '';
 			}
 			else{
-				$list = array_merge($list, Legacy_Utils::getCommonModuleList($opt->get('confop_value')));
+				$list = array_merge($list, Xcore_Utils::getCommonModuleList($opt->get('confop_value')));
 			}
 		}
 		return $list;

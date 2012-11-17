@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: CommentViewAction.class.php,v 1.3 2008/09/25 15:11:48 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/CommentFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/CommentFilterForm.class.php";
 
-class Legacy_CommentViewAction extends Legacy_Action
+class Xcore_CommentViewAction extends Xcore_Action
 {
 	var $mObject = null;
 	
@@ -23,10 +23,10 @@ class Legacy_CommentViewAction extends Legacy_Action
 		$this->mObject =& $handler->get(xoops_getrequest('com_id'));
 		
 		if ($this->mObject == null) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 		
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)

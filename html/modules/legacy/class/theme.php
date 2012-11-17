@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: theme.php,v 1.4 2008/09/25 15:11:21 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -12,9 +12,9 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . '/include/comment_constants.php';
 
-class LegacyThemeObject extends XoopsSimpleObject
+class XcoreThemeObject extends XoopsSimpleObject
 {
-	function LegacyThemeObject()
+	function XcoreThemeObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -38,7 +38,7 @@ class LegacyThemeObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyThemeHandler extends XoopsObjectHandler
+class XcoreThemeHandler extends XoopsObjectHandler
 {
 	var $_mResults = array();
 	
@@ -47,15 +47,15 @@ class LegacyThemeHandler extends XoopsObjectHandler
 	 */
 	var $mGetInstalledThemes = null;
 	
-	function LegacyThemeHandler(&$db)
+	function XcoreThemeHandler(&$db)
 	{
 		$this->mGetInstalledThemes =new XCube_Delegate();
-		$this->mGetInstalledThemes->register('LegacyThemeHandler.GetInstalledThemes');
+		$this->mGetInstalledThemes->register('XcoreThemeHandler.GetInstalledThemes');
 	}
 	
 	function &create()
 	{
-		$ret =new LegacyThemeObject();
+		$ret =new XcoreThemeObject();
 		return $ret;
 	}
 	

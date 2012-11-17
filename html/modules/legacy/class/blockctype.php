@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: blockctype.php,v 1.3 2008/09/25 15:11:21 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,26 +10,26 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyBlockctypeObject extends XoopsSimpleObject
+class XcoreBlockctypeObject extends XoopsSimpleObject
 {
-	function LegacyBlockctypeObject()
+	function XcoreBlockctypeObject()
 	{
 		$this->initVar('type', XOBJ_DTYPE_STRING, '', true);
 		$this->initVar('label', XOBJ_DTYPE_STRING, '', true, 255);
 	}
 }
 
-class LegacyBlockctypeHandler extends XoopsObjectHandler
+class XcoreBlockctypeHandler extends XoopsObjectHandler
 {
 	var $_mResults = array();
 	
-	function LegacyBlockctypeHandler(&$db)
+	function XcoreBlockctypeHandler(&$db)
 	{
 		$t_arr = array (
-				'H' => _AD_LEGACY_LANG_CTYPE_HTML,
-				'P' => _AD_LEGACY_LANG_CTYPE_PHP,
-				'S' => _AD_LEGACY_LANG_CTYPE_WITH_SMILIES,
-				'T' => _AD_LEGACY_LANG_CTYPE_WITHOUT_SMILIES
+				'H' => _AD_XCORE_LANG_CTYPE_HTML,
+				'P' => _AD_XCORE_LANG_CTYPE_PHP,
+				'S' => _AD_XCORE_LANG_CTYPE_WITH_SMILIES,
+				'T' => _AD_XCORE_LANG_CTYPE_WITHOUT_SMILIES
 			);
 			
 		foreach ($t_arr as $id => $name) {
@@ -41,7 +41,7 @@ class LegacyBlockctypeHandler extends XoopsObjectHandler
 	
 	function &create()
 	{
-		$ret =new LegacyBlockctypeObject();
+		$ret =new XcoreBlockctypeObject();
 		return $ret;
 	}
 	

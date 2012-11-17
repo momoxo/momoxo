@@ -145,8 +145,8 @@ class XoopsFormRadio extends XoopsFormElement {
 		
 		$renderTarget =& $renderSystem->createRenderTarget();
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_radio.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_radio.html");
 		$renderTarget->setAttribute("element", $this);
 
 		$renderSystem->render($renderTarget);

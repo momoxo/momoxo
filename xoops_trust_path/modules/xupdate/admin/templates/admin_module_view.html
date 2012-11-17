@@ -47,7 +47,7 @@
 							<a href="index.php?action=ModuleStore&amp;sid=<{$data.storeobj->get('sid')}>"><{$data.storeobj->getShow('name')}></a>
 						</dt>
 						<dd>
-							<div class="module_count">(<{$smarty.const._AD_LEGACY_LANG_MOD_TOTAL}>: <{$data.items_count}>)</div>
+							<div class="module_count">(<{$smarty.const._AD_XCORE_LANG_MOD_TOTAL}>: <{$data.items_count}>)</div>
 							<ul>
 							<{foreach item=itemsobj from=$data.itemsobj}>
 								<li><a href="index.php?action=ModuleInstall&amp;id=<{$itemsobj.id}>" class="isactive_<{$itemsobj.isactive}>" title="<{$itemsobj.title}>"><{$itemsobj.dirname}><{if $itemsobj.hasupdate}> <img src="<{$smarty.const.XOOPS_MODULE_URL}>/xupdate/images/new.png" alt="New!" style="vertical-align:middle;" width="16" height="16"><{/if}></a></li>

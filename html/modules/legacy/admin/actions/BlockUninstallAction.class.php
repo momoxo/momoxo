@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: BlockUninstallAction.class.php,v 1.3 2008/09/25 15:11:53 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/BlockUninstallForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/BlockUninstallForm.class.php";
 
-class Legacy_BlockUninstallAction extends Legacy_AbstractEditAction
+class Xcore_BlockUninstallAction extends Xcore_AbstractEditAction
 {
 	function _getId()
 	{
@@ -28,7 +28,7 @@ class Legacy_BlockUninstallAction extends Legacy_AbstractEditAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_BlockUninstallForm();
+		$this->mActionForm =new Xcore_BlockUninstallForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -64,7 +64,7 @@ class Legacy_BlockUninstallAction extends Legacy_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=BlockList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=BlockList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 	
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

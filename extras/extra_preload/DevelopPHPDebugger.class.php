@@ -5,7 +5,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH . "/modules/legacy/class/Legacy_Debugger.class.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/class/Xcore_Debugger.class.php";
 
 class DevelopPHPDebugger extends XCube_ActionFilter
 {
@@ -31,13 +31,13 @@ class DevelopPHPDebugger extends XCube_ActionFilter
 			
 			case XOOPS_DEBUG_OFF:
 			default:
-				$instance = new Legacy_NonDebugger();
+				$instance = new Xcore_NonDebugger();
 				break;
 		}
 	}
 }
 
-class My_PHPDebugger extends Legacy_PHPDebugger
+class My_PHPDebugger extends Xcore_PHPDebugger
 {
 	function prepare()
 	{
@@ -45,14 +45,14 @@ class My_PHPDebugger extends Legacy_PHPDebugger
 	}
 }
 
-class My_MysqlDebugger extends Legacy_MysqlDebugger
+class My_MysqlDebugger extends Xcore_MysqlDebugger
 {
 	function prepare()
 	{
 	}
 }
 
-class My_SmartyDebugger extends Legacy_SmartyDebugger
+class My_SmartyDebugger extends Xcore_SmartyDebugger
 {
 	function prepare()
 	{

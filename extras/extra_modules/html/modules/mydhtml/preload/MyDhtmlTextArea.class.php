@@ -40,7 +40,7 @@ class Mydhtml_MyDhtmlTextArea extends XCube_ActionFilter
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'mydhtml');
+		$renderTarget->setAttribute('xcore_module', 'mydhtml');
 		$renderTarget->setTemplateName("mydhtml_textarea.html");
 		$renderTarget->setAttribute("element", $params);
 	

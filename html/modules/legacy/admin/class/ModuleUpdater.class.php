@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleUpdater.class.php,v 1.5 2008/09/25 15:12:41 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 
 /**
  * @brief The framework for the phased update.
@@ -26,7 +26,7 @@ require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
  * custom-update-install have to update module templates & block templates,
  * because users expect that the module-update function does it.
  * 
- * For the custom-update-install, Legacy_ModuleInstallUtils is good for you.
+ * For the custom-update-install, Xcore_ModuleInstallUtils is good for you.
  * Plus, this class has some usefull static methods for upgrade. Such functions
  * have notes as "The utility method for the custom-update-installer".
  * 
@@ -41,9 +41,9 @@ require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
  * target-$xoopsModule from xoops_version, and then set it to this class through
  * setTargetXoopsModule(). Also you can access it by $this->_mTargetXoopsModule.
  * 
- * @see Legacy_ModuleInstallUtils
+ * @see Xcore_ModuleInstallUtils
  */
-class Legacy_ModulePhasedUpgrader
+class Xcore_ModulePhasedUpgrader
 {
 	/**
 	 * This is an array of milestone version informations. Key is a version
@@ -63,7 +63,7 @@ class Legacy_ModulePhasedUpgrader
 	 * This instance is prepared automatically in the constructor.
 	 * 
 	 * @public
-	 * @var Legacy_ModuleInstallLog
+	 * @var Xcore_ModuleInstallLog
 	 */
 	var $mLog = null;
 	
@@ -94,9 +94,9 @@ class Legacy_ModulePhasedUpgrader
 	 */
 	var $_mForceMode = false;
 	
-	function Legacy_ModulePhasedUpgrader()
+	function Xcore_ModulePhasedUpgrader()
 	{
-		$this->mLog =new Legacy_ModuleInstallLog();
+		$this->mLog =new Xcore_ModuleInstallLog();
 	}
 	
 	/**
@@ -284,10 +284,10 @@ class Legacy_ModulePhasedUpgrader
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_UPDATING_MODULE_SUCCESSFUL, $this->_mCurrentXoopsModule->get('name')));
+			$this->mLog->add(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UPDATING_MODULE_SUCCESSFUL, $this->_mCurrentXoopsModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_UPDATING_MODULE_FAILURE, $this->_mCurrentXoopsModule->get('name')));
+			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_UPDATING_MODULE_FAILURE, $this->_mCurrentXoopsModule->get('name')));
 		}
 	}
 	
@@ -299,8 +299,8 @@ class Legacy_ModulePhasedUpgrader
 	 */
 	function _updateModuleTemplates()
 	{
-		Legacy_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetXoopsModule, $this->mLog);
-		Legacy_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetXoopsModule, $this->mLog);
 	}
 	
 	/**
@@ -311,7 +311,7 @@ class Legacy_ModulePhasedUpgrader
 	 */
 	function _updateBlocks()
 	{
-		Legacy_ModuleInstallUtils::smartUpdateAllOfBlocks($this->_mTargetXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::smartUpdateAllOfBlocks($this->_mTargetXoopsModule, $this->mLog);
 	}
 	
 	/**
@@ -322,7 +322,7 @@ class Legacy_ModulePhasedUpgrader
 	 */
 	function _updatePreferences()
 	{
-		Legacy_ModuleInstallUtils::smartUpdateAllOfPreferences($this->_mTargetXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::smartUpdateAllOfPreferences($this->_mTargetXoopsModule, $this->mLog);
 	}
 	
 	/**
@@ -336,7 +336,7 @@ class Legacy_ModulePhasedUpgrader
 	 */
 	function executeAutomaticUpgrade()
 	{
-		$this->mLog->addReport(_AD_LEGACY_MESSAGE_UPDATE_STARTED);
+		$this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
 		
 		//
 		// Updates all of module templates

@@ -40,15 +40,15 @@ window.top.opener.focus() ;
 </form>
 
 <{if $hasUploadPerm}>
-  <div style="text-align:right; margin:5px;">[ <a href="<{$smarty.const.XOOPS_URL}>/imagemanager.php?op=upload&amp;imgcat_id=<{$category->getShow('imgcat_id')}>&amp;target=<{$target|xoops_escape}>"><{$smarty.const._MD_LEGACY_LANG_IMAGE_UPLOAD}></a> ]</div>
+  <div style="text-align:right; margin:5px;">[ <a href="<{$smarty.const.XOOPS_URL}>/imagemanager.php?op=upload&amp;imgcat_id=<{$category->getShow('imgcat_id')}>&amp;target=<{$target|xoops_escape}>"><{$smarty.const._MD_XCORE_LANG_IMAGE_UPLOAD}></a> ]</div>
 <{/if}>
 
 <table class="outer" cellspacing="1">
   <tr>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE_NICENAME}>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE}>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE_MIMETYPE}>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE_POSITION}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE_NICENAME}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE_MIMETYPE}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE_POSITION}>
   </tr>
   <{foreach item=obj from=$objects}>
     <tr class="<{cycle values='odd,even'}>" style="text-align:center;">
@@ -127,15 +127,15 @@ function appendCode(addCode) {
 </form>
 
 <{if $hasUploadPerm}>
-  <div style="text-align:right; margin:5px;">[ <a href="<{$smarty.const.XOOPS_URL}>/imagemanager.php?op=upload&amp;imgcat_id=<{$category->getShow('imgcat_id')}>&amp;target=<{$target|xoops_escape}>"><{$smarty.const._MD_LEGACY_LANG_IMAGE_UPLOAD}></a> ]</div>
+  <div style="text-align:right; margin:5px;">[ <a href="<{$smarty.const.XOOPS_URL}>/imagemanager.php?op=upload&amp;imgcat_id=<{$category->getShow('imgcat_id')}>&amp;target=<{$target|xoops_escape}>"><{$smarty.const._MD_XCORE_LANG_IMAGE_UPLOAD}></a> ]</div>
 <{/if}>
 
 <table class="outer" cellspacing="1">
   <tr>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE_NICENAME}>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE}>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE_MIMETYPE}>
-    <th><{$smarty.const._MD_LEGACY_LANG_IMAGE_POSITION}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE_NICENAME}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE_MIMETYPE}>
+    <th><{$smarty.const._MD_XCORE_LANG_IMAGE_POSITION}>
   </tr>
   <{foreach item=obj from=$objects}>
     <tr class="<{cycle values='odd,even'}>" style="text-align:center;">

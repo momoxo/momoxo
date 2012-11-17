@@ -38,7 +38,7 @@ if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
 require_once XOOPS_ROOT_PATH . '/header.php';
 require_once XOOPS_ROOT_PATH . "/include/comment_constants.php";
 
-require_once XOOPS_MODULE_PATH . "/legacy/forms/CommentEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/CommentEditForm.class.php";
 
 //
 // Load message resource
@@ -46,7 +46,7 @@ require_once XOOPS_MODULE_PATH . "/legacy/forms/CommentEditForm.class.php";
 $t_root =& XCube_Root::getSingleton();
 
 $langManager =& $t_root->getLanguageManager();
-$langManager->loadModuleMessageCatalog("legacy");
+$langManager->loadModuleMessageCatalog("xcore");
 
 if ('system' != $xoopsModule->getVar('dirname') && XOOPS_COMMENT_APPROVENONE == $xoopsModuleConfig['com_rule']) {
 	exit();
@@ -94,21 +94,21 @@ $subjectIcons =& $handler->getObjects();
 
 if ($xoopsModule->getVar('dirname') != 'system') {
 	if (is_object($xoopsUser) && $xoopsUser->isAdmin()) {
-		$actionForm =new Legacy_CommentEditForm_Admin();
+		$actionForm =new Xcore_CommentEditForm_Admin();
 	}
 	else {
-		$actionForm =new Legacy_CommentEditForm();
+		$actionForm =new Xcore_CommentEditForm();
 	}
 	$actionForm->prepare();
 	$actionForm->load($comment);
 
 	//
-	// Render comment-form to render buffer with using Legacy_RenderSystem.
+	// Render comment-form to render buffer with using Xcore_RenderSystem.
 	//
 	$renderSystem =& $t_root->getRenderSystem($t_root->mContext->mBaseRenderSystemName);
 	$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-	$renderTarget->setTemplateName("legacy_comment_edit.html");
+	$renderTarget->setTemplateName("xcore_comment_edit.html");
 
 	$renderTarget->setAttribute("actionForm", $actionForm);
 	$renderTarget->setAttribute("subjectIcons", $subjectIcons);

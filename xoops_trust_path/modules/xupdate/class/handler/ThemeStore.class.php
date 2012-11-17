@@ -21,13 +21,13 @@ class Xupdate_ThemeStore extends Xupdate_ModuleStore {
 	}
 	public function get_InstallUrl()
 	{
-		$ret = XOOPS_MODULE_URL .'/legacy/admin/index.php?action=ThemeInstall&dirname='
+		$ret = XOOPS_MODULE_URL .'/xcore/admin/index.php?action=ThemeInstall&dirname='
 			.$this->getVar('dirname') ;
 		return $ret;
 	}
 	public function get_UpdateUrl()
 	{
-		$ret = XOOPS_MODULE_URL .'/legacy/admin/index.php?action=ThemeUpdate&dirname='
+		$ret = XOOPS_MODULE_URL .'/xcore/admin/index.php?action=ThemeUpdate&dirname='
 			.$this->getVar('dirname') ;
 		return $ret;
 	}

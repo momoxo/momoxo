@@ -16,8 +16,8 @@
   <!-- end results item loop -->
 
   <{if $module.has_more}>
-    <a href="<{$smarty.const.XOOPS_URL}>/search.php?action=showall&amp;query=<{$actionForm->get('query')|escape:url}>&amp;mid=<{$module.mid}>&amp;andor=<{$actionForm->get('andor')|xoops_escape}>"><{$smarty.const._MD_LEGACY_LANG_SHOW_ALL}></a>
+    <a href="<{$smarty.const.XOOPS_URL}>/search.php?action=showall&amp;query=<{$actionForm->get('query')|escape:url}>&amp;mid=<{$module.mid}>&amp;andor=<{$actionForm->get('andor')|xoops_escape}>"><{$smarty.const._MD_XCORE_LANG_SHOW_ALL}></a>
   <{/if}>
 <{/foreach}>
 
-<{include file=db:legacy_search_form.html}>
+<{include file=db:xcore_search_form.html}>

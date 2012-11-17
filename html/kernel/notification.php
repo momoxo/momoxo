@@ -627,7 +627,7 @@ class XoopsNotificationHandler extends XoopsObjectHandler
 				break;
 			}
 		}
-        // RaiseEvent 'XoopsNotificationHandler.Trigger' ('Legacy.Notify.Trigger')
+        // RaiseEvent 'XoopsNotificationHandler.Trigger' ('Xcore.Notify.Trigger')
         //  Delegate may hanldle notified event
 		//  varArgs :
 		//      'category'     [I] : Paramater $category of triggerEvent()

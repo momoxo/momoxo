@@ -719,7 +719,7 @@ class XoopsBlockHandler extends XoopsObjectHandler
 
 	/**
 	 * Gets block objects by groups & modules.
-	 * @remark This is the special API for base modules like Legacy.
+	 * @remark This is the special API for base modules like Xcore.
 	 */
     function &getAllByGroupModule($groupid, $module_id=0, $toponlyblock=false, $visible=null, $orderby='b.weight,b.bid', $isactive=1)
     {
@@ -774,7 +774,7 @@ class XoopsBlockHandler extends XoopsObjectHandler
 	/**
 	 * Return block instance array by $groupid, $mid and $blockFlag.
 	 * This function is new function of Cube and used from controller.
-	 * @remark This is the special API for base modules like Legacy.
+	 * @remark This is the special API for base modules like Xcore.
 	 **/
 	function &getBlocks($groupid, $mid=false, $blockFlag=SHOW_BLOCK_ALL, $orderby='b.weight,b.bid')
     {
@@ -842,7 +842,7 @@ class XoopsBlockHandler extends XoopsObjectHandler
     }
 
 	/**
-	 * @remark This is the special API for base modules like Legacy.
+	 * @remark This is the special API for base modules like Xcore.
 	 */
     function &getNonGroupedBlocks($module_id=0, $toponlyblock=false, $visible=null, $orderby='b.weight,b.bid', $isactive=1)
     {
@@ -916,7 +916,7 @@ class XoopsBlockHandler extends XoopsObjectHandler
     
     /**
      * Changes 'isactive' value of the module specified by $moduleId.
-     * @remark This method should be called by only the base modules like Legacy.
+     * @remark This method should be called by only the base modules like Xcore.
      */
     function syncIsActive($moduleId, $isActive, $force = false)
     {

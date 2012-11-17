@@ -11,7 +11,7 @@
 <{/if}>
 
 <ul>
-<{if $mActionForm->get('Legacy_Event_User_Preview')!=""}>
+<{if $mActionForm->get('Xcore_Event_User_Preview')!=""}>
 <li><{$smarty.const._MD_MESSAGE_TEMPLATE2}> <{$mActionForm->getShow('uname')}></li>
 <li><{$smarty.const._MD_MESSAGE_TEMPLATE3}></td><td class="even"><{$mActionForm->getShow('title')}></li>
 <li><{$smarty.const._MD_MESSAGE_TEMPLATE4}></td><td class="even"><{$mActionForm->getShow('note', 'toShowTarea')}></li>
@@ -25,8 +25,8 @@
 <li><{$smarty.const._MD_MESSAGE_TEMPLATE2}><br><{xoops_input name=uname size=30 maxlength=50 value=$mActionForm->get('uname')}></li>
 <li><{$smarty.const._MD_MESSAGE_TEMPLATE3}><br><{xoops_input name=title size=50 maxlength=100 value=$mActionForm->get('title')}></li>
 <li><{$smarty.const._MD_MESSAGE_TEMPLATE4}><br><{xoops_textarea cols=60 rows=7 name=note value=$mActionForm->get('note')}></li>
-<{legacy_button id=Preview Text=$smarty.const._MD_MESSAGE_TEMPLATE5}>
-<{legacy_button id=Submit Text=$smarty.const._MD_MESSAGE_TEMPLATE6}>
+<{xcore_button id=Preview Text=$smarty.const._MD_MESSAGE_TEMPLATE5}>
+<{xcore_button id=Submit Text=$smarty.const._MD_MESSAGE_TEMPLATE6}>
 </ul>
 </form>
 

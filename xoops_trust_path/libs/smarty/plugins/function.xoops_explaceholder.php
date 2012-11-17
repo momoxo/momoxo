@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: function.xoops_explaceholder.php,v 1.3 2008/09/25 15:12:36 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -27,10 +27,10 @@ function smarty_function_xoops_explaceholder($params, &$smarty)
 	$buf = null;
 	
 	if (isset($params['control'])) {
-		XCube_DelegateUtils::call('Legacy.Event.Explaceholder.Get.' . $params['control'], new XCube_Ref($buf), $params);
+		XCube_DelegateUtils::call('Xcore.Event.Explaceholder.Get.' . $params['control'], new XCube_Ref($buf), $params);
 		
 		if ($buf === null) {
-			XCube_DelegateUtils::call('Legacy.Event.Explaceholder.Get', new XCube_Ref($buf), $params['control'], $params);
+			XCube_DelegateUtils::call('Xcore.Event.Explaceholder.Get', new XCube_Ref($buf), $params['control'], $params);
 		}
 	}
 	

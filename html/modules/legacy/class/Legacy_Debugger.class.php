@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_Debugger.class.php,v 1.4 2008/09/25 15:11:30 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_Debugger.class.php,v 1.4 2008/09/25 15:11:30 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -17,7 +17,7 @@ define("XOOPS_DEBUG_PHP",1);
 define("XOOPS_DEBUG_MYSQL",2);
 define("XOOPS_DEBUG_SMARTY",3);
 
-class Legacy_DebuggerManager
+class Xcore_DebuggerManager
 {
 	/***
 	Create XoopsDebugger instance.
@@ -31,28 +31,28 @@ class Legacy_DebuggerManager
 		
 		switch($debug_mode) {
 			case XOOPS_DEBUG_PHP:
-				$instance = new Legacy_PHPDebugger();
+				$instance = new Xcore_PHPDebugger();
 				break;
 
 			case XOOPS_DEBUG_MYSQL:
-				$instance = new Legacy_MysqlDebugger();
+				$instance = new Xcore_MysqlDebugger();
 				break;
 
 			case XOOPS_DEBUG_SMARTY:
-				$instance = new Legacy_SmartyDebugger();
+				$instance = new Xcore_SmartyDebugger();
 				break;
 			
 			case XOOPS_DEBUG_OFF:
 			default:
-				$instance = new Legacy_NonDebugger();
+				$instance = new Xcore_NonDebugger();
 				break;
 		}
 	}
 }
 
-class Legacy_AbstractDebugger
+class Xcore_AbstractDebugger
 {
-	function Legacy_AbstractDebugger()
+	function Xcore_AbstractDebugger()
 	{
 	}
 
@@ -77,7 +77,7 @@ class Legacy_AbstractDebugger
 	}
 }
 
-class Legacy_NonDebugger extends Legacy_AbstractDebugger
+class Xcore_NonDebugger extends Xcore_AbstractDebugger
 {
 }
 
@@ -85,7 +85,7 @@ class Legacy_NonDebugger extends Legacy_AbstractDebugger
  * @internal
 This class works for "PHP debugging mode".
 */
-class Legacy_PHPDebugger extends Legacy_AbstractDebugger
+class Xcore_PHPDebugger extends Xcore_AbstractDebugger
 {
 	function prepare()
 	{
@@ -99,7 +99,7 @@ class Legacy_PHPDebugger extends Legacy_AbstractDebugger
  * @internal
 This class works for "Mysql debugging mode".
 */
-class Legacy_MysqlDebugger extends Legacy_AbstractDebugger
+class Xcore_MysqlDebugger extends Xcore_AbstractDebugger
 {
 	function prepare()
 	{
@@ -135,7 +135,7 @@ class Legacy_MysqlDebugger extends Legacy_AbstractDebugger
  * @internal
 This class works for "Smarty debugging mode".
 */
-class Legacy_SmartyDebugger extends Legacy_AbstractDebugger
+class Xcore_SmartyDebugger extends Xcore_AbstractDebugger
 {
 	function prepare()
 	{

@@ -1,6 +1,6 @@
 <?php
 // *************************************************************************
-// **	XOOPS	Cube Legacy	-	versão em	português	por	Mikhail	Miguel
+// **	XOOPS	Cube Xcore	-	versão em	português	por	Mikhail	Miguel
 // **	$Id: calendar.php	980	2009-04-12 18:45:51Z mikhail.miguel	$
 // **	License: http://creativecommons.org/licenses/by/2.5/br/
 // **	http://sf.net/users/mikhail	|	http://code.google.com/u/mikhail.miguel

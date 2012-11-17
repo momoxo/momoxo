@@ -14,7 +14,7 @@ define('_AD_PROFILE_DESC_FIELD_STRING', 'Set the default value.');
 define('_AD_PROFILE_DESC_FIELD_INT', 'Set the default value.');
 define('_AD_PROFILE_DESC_FIELD_FLOAT', 'Set the default value.');
 define('_AD_PROFILE_DESC_FIELD_TEXT', 'Select "html" if you use wysiwyg editor(required wysiwig editor module).');
-define('_AD_PROFILE_DESC_FIELD_CATEGORY', 'Select LEGACY_CATEGORY module\'s dirname.');
+define('_AD_PROFILE_DESC_FIELD_CATEGORY', 'Select XCORE_CATEGORY module\'s dirname.');
 
 define('_AD_PROFILE_TIPS1_DATA_UPLOAD', 'The profile batch registration with CSV file is possible.');
 define('_AD_PROFILE_TIPS2_DATA_UPLOAD', 'Use CSV file downloaded from <a href="?action=UserDataDownload" style="color:#941d55;font-weight:bold;">'._MI_PROFILE_DATA_DOWNLOAD.'</a> Do not increase and decrease columns.');

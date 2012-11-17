@@ -17,28 +17,28 @@
           <{/if}>
         <{/foreach}>
 
-          <{if $module->mXoopsModule->getInfo('blocks') && $dirname != "legacy" && $dirname != "altsys"  && $dirname != "system"}>
+          <{if $module->mXoopsModule->getInfo('blocks') && $dirname != "xcore" && $dirname != "altsys"  && $dirname != "system"}>
           <li>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=BlockList&amp;dirname=<{$dirname}>">
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=BlockList&amp;dirname=<{$dirname}>">
           <img src="<{"icons/blocks.png"|theme}>" alt="" title="" />&nbsp;
-          <{$smarty.const._MI_LEGACY_MENU_BLOCKLIST}>
+          <{$smarty.const._MI_XCORE_MENU_BLOCKLIST}>
           </a>
           </li>
           <li>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=BlockInstallList&amp;dirname=<{$dirname}>">
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=BlockInstallList&amp;dirname=<{$dirname}>">
           <img src="<{"icons/block_add.png"|theme}>" alt="" title="" />&nbsp;
-          <{$smarty.const._MI_LEGACY_MENU_BLOCKINSTALL}>
+          <{$smarty.const._MI_XCORE_MENU_BLOCKINSTALL}>
           </a>
           </li>
           <{/if}>
           
-          <{if $dirname != "legacyRender" && $dirname != "altsys"  && $dirname != "system"}>
+          <{if $dirname != "xcoreRender" && $dirname != "altsys"  && $dirname != "system"}>
           <{foreach item=tplmodule from=$tplmodules}>
           <{if $dirname == $tplmodule}>			
           <li>
-          <a href="<{$xoops_url}>/modules/legacyRender/admin/index.php?action=TplfileList&amp;tpl_module=<{$dirname}>&amp;sort=-9">
+          <a href="<{$xoops_url}>/modules/xcoreRender/admin/index.php?action=TplfileList&amp;tpl_module=<{$dirname}>&amp;sort=-9">
           <img src="<{"icons/templates.png"|theme}>" alt="" title="" />&nbsp;
-          <{$smarty.const._AD_LEGACY_LANG_TEMPLATE_INFO}>
+          <{$smarty.const._AD_XCORE_LANG_TEMPLATE_INFO}>
           </a>
           </li>
           <{/if}>
@@ -47,47 +47,47 @@
           
           <{if $module->mXoopsModule->getInfo('hasComments')}>
           <li>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=CommentList&amp;com_modid=<{$mid}>&amp;sort=-8">
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=CommentList&amp;com_modid=<{$mid}>&amp;sort=-8">
           <img src="<{"icons/comments.png"|theme}>" alt="" title="" />&nbsp;
-          <{$smarty.const._MI_LEGACY_MENU_COMMENT_MANAGE}>
+          <{$smarty.const._MI_XCORE_MENU_COMMENT_MANAGE}>
           </a>
           </li>
           <{/if}>
           
           <{if $module->mXoopsModule->hasNeedUpdate()}>
           <li>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=ModuleUpdate&amp;dirname=<{$dirname}>">
-          <img src="<{"icons/upgrade.png"|theme}>" alt="<{$smarty.const._AD_LEGACY_LANG_UPGRADE}>" title="<{$smarty.const._AD_LEGACY_LANG_UPGRADE}>" />&nbsp;
-          <{$smarty.const._AD_LEGACY_LANG_UPGRADE}>
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleUpdate&amp;dirname=<{$dirname}>">
+          <img src="<{"icons/upgrade.png"|theme}>" alt="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" title="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" />&nbsp;
+          <{$smarty.const._AD_XCORE_LANG_UPGRADE}>
           </a>
           </li>
           
           <{else}>
           
           <li>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=ModuleUpdate&amp;dirname=<{$dirname}>">
-          <img src="<{"icons/update.png"|theme}>" alt="<{$smarty.const._AD_LEGACY_LANG_UPGRADE}>" title="<{$smarty.const._AD_LEGACY_LANG_UPGRADE}>" />&nbsp;
-          <{$smarty.const._AD_LEGACY_LANG_UPGRADE}>
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleUpdate&amp;dirname=<{$dirname}>">
+          <img src="<{"icons/update.png"|theme}>" alt="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" title="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" />&nbsp;
+          <{$smarty.const._AD_XCORE_LANG_UPGRADE}>
           </a>
           </li>
           <{/if}>
           
-          <li><a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=ModuleEdit&amp;mid=<{$mid}>">
+          <li><a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleEdit&amp;mid=<{$mid}>">
           <img src="<{"icons/module_edit.png"|theme}>" alt="" title="" />&nbsp;
           <{$smarty.const._EDIT}>
           </a>
           </li>
           <li>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=ModuleInfo&amp;dirname=<{$dirname}>">
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleInfo&amp;dirname=<{$dirname}>">
           <img src="<{"icons/info.png"|theme}>" alt="" title="" />&nbsp;
-          <{$smarty.const._AD_LEGACY_LANG_INFORMATION}>
+          <{$smarty.const._AD_XCORE_LANG_INFORMATION}>
           </a>
           </li>
 
 		  <{else}>
         
           <li>
-          <{$smarty.const._AD_LEGACY_LANG_NO_SETTING}>
+          <{$smarty.const._AD_XCORE_LANG_NO_SETTING}>
           </li>
       <{/if}>
       </ul>

@@ -18,7 +18,7 @@ class XUpgrade_UpgradeProcessor
 	var $mConfigHandler = null;
 	
 	/**
-	 * @var Legacy_ModuleInstallLog
+	 * @var Xcore_ModuleInstallLog
 	 */
 	var $mLog = null;
 	
@@ -38,7 +38,7 @@ class XUpgrade_UpgradeProcessor
 	 * 
 	 * @access public
 	 * @param XoopsModule $module
-	 * @param Legacy_ModuleInstallLog $log
+	 * @param Xcore_ModuleInstallLog $log
 	 */
 	function execute(&$module, &$log)
 	{
@@ -110,7 +110,7 @@ class XUpgrade_UpgradeProcessor
 
 		require_once XOOPS_ROOT_PATH.'/class/database/databasefactory.php';
 
-		if ($root->getSiteConfig('Legacy', 'AllowDBProxy') == true) {
+		if ($root->getSiteConfig('Xcore', 'AllowDBProxy') == true) {
 			if (xoops_getenv('REQUEST_METHOD') != 'POST' || !xoops_refcheck(XOOPS_DB_CHKREF)) {
 				if(!defined('XOOPS_DB_PROXY'))
 					define('XOOPS_DB_PROXY', 1);
@@ -133,7 +133,7 @@ class XUpgrade_UpgradeProcessor
 
 	/**
 	 * Execute porting configs items. Config items of XOOPS_CONF_USER and
-	 * XOOPS_CONF_METAFOOTER are ported to the user module and the legacyRender
+	 * XOOPS_CONF_METAFOOTER are ported to the user module and the xcoreRender
 	 * module. Plus, some config items of XOOPS_CONF are ported to some modules.
 	 * Then, deleted original config items.
 	 * 
@@ -160,13 +160,13 @@ class XUpgrade_UpgradeProcessor
 		}
 		
 		//
-		// legacyRender
+		// xcoreRender
 		//
 		$oldConfigs =& $this->_getOldConfigs(XOOPS_CONF_METAFOOTER);
-		$cubeConfigs =& $this->_getCubeConfigs('legacyRender');
-		$this->_fullCopy($oldConfigs, $cubeConfigs, 'legacyRender');
+		$cubeConfigs =& $this->_getCubeConfigs('xcoreRender');
+		$this->_fullCopy($oldConfigs, $cubeConfigs, 'xcoreRender');
 		if (isset($generalConfigs['banners'])) {
-			$this->_copy($generalConfigs['banners'], $cubeConfigs['banners'], 'legacyRender');
+			$this->_copy($generalConfigs['banners'], $cubeConfigs['banners'], 'xcoreRender');
 		}
 		
 		//
@@ -204,20 +204,20 @@ class XUpgrade_UpgradeProcessor
 	function _portTemplates()
 	{
 		$targetTemplates = array(
-			'system_comment.html' => 'legacy_comment.html',
-			'system_comments_flats.html' => 'legacy_comments_flats.html',
-			'system_comments_next.html' => 'legacy_comments_next.html',
+			'system_comment.html' => 'xcore_comment.html',
+			'system_comments_flats.html' => 'xcore_comments_flats.html',
+			'system_comments_next.html' => 'xcore_comments_next.html',
 			'system_comments_thread.html' => 'system_comments_thread.html',
-			'system_dummy.html' => 'legacy_dummy.html',
-			'system_notification_list.html' => 'legacy_notification_list.html',
+			'system_dummy.html' => 'xcore_dummy.html',
+			'system_notification_list.html' => 'xcore_notification_list.html',
 			'system_notification_select.html' => 'system_notification_select_form.html',
-			'system_redirect.html' => 'legacy_redirect.html',
-			'system_rss.html' => 'legacy_rss.html',
-			'system_siteclosed.html' => 'legacy_site_closed.html'
-			//, 'system_siteclosed.html' => 'legacy_site_closed.html'
+			'system_redirect.html' => 'xcore_redirect.html',
+			'system_rss.html' => 'xcore_rss.html',
+			'system_siteclosed.html' => 'xcore_site_closed.html'
+			//, 'system_siteclosed.html' => 'xcore_site_closed.html'
 		);
 		
-		$handler =& xoops_getmodulehandler('tplfile', 'legacyRender');
+		$handler =& xoops_getmodulehandler('tplfile', 'xcoreRender');
 			
 		foreach ($targetTemplates as $srcName => $descName) {
 			$criteria =& new CriteriaCompo();

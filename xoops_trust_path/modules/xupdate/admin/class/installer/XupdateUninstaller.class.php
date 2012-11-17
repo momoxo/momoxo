@@ -17,7 +17,7 @@ require_once XUPDATE_TRUST_PATH . '/admin/class/installer/XupdateInstallUtils.cl
 **/
 class Xupdate_Uninstaller
 {
-    public /*** Legacy_ModuleInstallLog ***/ $mLog = null;
+    public /*** Xcore_ModuleInstallLog ***/ $mLog = null;
 
     private /*** bool ***/ $_mForceMode = false;
 
@@ -32,7 +32,7 @@ class Xupdate_Uninstaller
     **/
     public function __construct()
     {
-        $this->mLog = new Legacy_ModuleInstallLog();
+        $this->mLog = new Xcore_ModuleInstallLog();
     }
 
     /**

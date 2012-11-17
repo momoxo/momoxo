@@ -54,7 +54,7 @@ class Lecat_CoolUriDelegate
 					die('invalid uri');
 				}
 				else{
-					$handler = Legacy_Utils::getModuleHandler($table, $dirname);
+					$handler = Xcore_Utils::getModuleHandler($table, $dirname);
 					$key = $handler->mPrimary;
 					$uri = sprintf($lUri, $dirname, ucfirst($table).'View', ucfirst($authType), $key, $data_id);
 				}
@@ -87,7 +87,7 @@ class Lecat_ImageClientDelegate
 	 */ 
 	public static function getClientList(/*** mixed[] ***/ &$list, /*** string ***/ $dirname)
 	{
-		$dirnames = Legacy_Utils::getDirnameListByTrustDirname('lecat');
+		$dirnames = Xcore_Utils::getDirnameListByTrustDirname('lecat');
 	
 		//don't call this method multiple times when site owner duplicate.
 		static $isCalled = false;
@@ -104,7 +104,7 @@ class Lecat_ImageClientDelegate
 }
 
 
-class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
+class Lecat_DelegateFunctions implements Xcore_iCategoryDelegate
 {
 	/**
 	 * getTitle
@@ -117,7 +117,7 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	 */ 
 	public static function getTitle(/*** string ***/ &$title, /*** string ***/ $catDir, /*** int ***/ $catId)
 	{
-		$cat = Legacy_Utils::getModuleHandler('cat', $catDir)->get($catId);
+		$cat = Xcore_Utils::getModuleHandler('cat', $catDir)->get($catId);
 		if(is_object($cat)){
 			$title = $cat->get('title');
 		}
@@ -125,9 +125,9 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 
 	/**
 	 * getTree
-	 * Get category Legacy_AbstractCategoryObject array in parent-child tree order
+	 * Get category Xcore_AbstractCategoryObject array in parent-child tree order
 	 *
-	 * @param Legacy_AbstractCategoryObject[] $tree
+	 * @param Xcore_AbstractCategoryObject[] $tree
 	 * @param string $catDir	category module's directory name
 	 * @param string 	$authType	ex) viewer, editor, manager
 	 * @param int 		$catId	get tree under this cat_id
@@ -135,12 +135,12 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	 *
 	 * @return	void
 	 */ 
-	public static function getTree(/*** Legacy_AbstractCategoryObject[] ***/ &$tree, /*** string ***/ $catDir, /*** string ***/ $authType, /*** int ***/ $catId=0, /*** string ***/ $module=null)
+	public static function getTree(/*** Xcore_AbstractCategoryObject[] ***/ &$tree, /*** string ***/ $catDir, /*** string ***/ $authType, /*** int ***/ $catId=0, /*** string ***/ $module=null)
 	{
-		$handler = Legacy_Utils::getModuleHandler('cat', $catDir);
+		$handler = Xcore_Utils::getModuleHandler('cat', $catDir);
 		if($handler){
 			$tree = $handler->getTree(intval($catId));
-			$tree = $handler->filterCategory($tree, $authType, Legacy_Utils::getUid(), false);
+			$tree = $handler->filterCategory($tree, $authType, Xcore_Utils::getUid(), false);
 		}
 	}
 
@@ -154,7 +154,7 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	 */ 
 	public static function getTitleList(/*** string[] ***/ &$titleList, /*** string ***/ $catDir)
 	{
-		$catObjs = Legacy_Utils::getModuleHandler('cat', $catDir)->getObjects();
+		$catObjs = Xcore_Utils::getModuleHandler('cat', $catDir)->getObjects();
 		foreach(array_keys($catObjs) as $key){
 			if($catObjs[$key]->checkModule()){
 				$titleList[$catObjs[$key]->get('cat_id')] = $catObjs[$key]->get('title');
@@ -176,34 +176,34 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	public static function hasPermission(/*** bool ***/ &$check, /*** string ***/ $catDir, /*** int ***/ $catId, /*** string ***/ $authType, /*** string ***/ $module=null)
 	{
 		$check = false;
-		$obj = Legacy_Utils::getModuleHandler('cat', $catDir)->get($catId);
+		$obj = Xcore_Utils::getModuleHandler('cat', $catDir)->get($catId);
 		if($obj){
-			$check = $obj->checkPermitByUid($authType, Legacy_Utils::getUid(), $module);
+			$check = $obj->checkPermitByUid($authType, Xcore_Utils::getUid(), $module);
 		}
 	}
 
 	/**
-	 * getParent		Legacy_Category.GetParent
+	 * getParent		Xcore_Category.GetParent
 	 * get the parent category object.
 	 *
-	 * @param Legacy_AbstractCategoryObject &$parent
+	 * @param Xcore_AbstractCategoryObject &$parent
 	 * @param string 	$catDir	category module's directory name
 	 * @param int 		$catId
 	 *
 	 * @return	void
 	 */ 
-	public static function getParent(/*** Legacy_AbstractCategoryObject ***/ &$parent, /*** string ***/ $catDir, /*** int ***/ $catId)
+	public static function getParent(/*** Xcore_AbstractCategoryObject ***/ &$parent, /*** string ***/ $catDir, /*** int ***/ $catId)
 	{
-		$handler = Legacy_Utils::getModuleHandler('cat', $catDir);
+		$handler = Xcore_Utils::getModuleHandler('cat', $catDir);
 		$pId = $handler->get($catId)->get('p_id');
 		$parent = $handler->get($pId);
 	}
 
 	/**
-	 * getChildren		Legacy_Category.GetChildren
+	 * getChildren		Xcore_Category.GetChildren
 	 * get the child category objects. Be careful that you can get only children objects, excluded the given category itself.
 	 *
-	 * @param Legacy_AbstractCategoryObject[] &$children
+	 * @param Xcore_AbstractCategoryObject[] &$children
 	 * @param string	$catDir	category module's directory name
 	 * @param int		$catId	the parent's category id
 	 * @param string	$authType	ex) viewer, editor, manager
@@ -211,16 +211,16 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	 *
 	 * @return	void
 	 */ 
-	public static function getChildren(/*** Legacy_AbstractCategoryObject[] ***/ &$children, /*** string ***/ $catDir, /*** int ***/ $catId, /*** string ***/ $authType, /*** string ***/ $module=null)
+	public static function getChildren(/*** Xcore_AbstractCategoryObject[] ***/ &$children, /*** string ***/ $catDir, /*** int ***/ $catId, /*** string ***/ $authType, /*** string ***/ $module=null)
 	{
-		$handler = Legacy_Utils::getModuleHandler('cat', $catDir);
+		$handler = Xcore_Utils::getModuleHandler('cat', $catDir);
 		$cat = $handler->get($catId);
 		if($cat){
 			$cat->loadChildren($module);
 			foreach(array_keys($cat->mChildren) as $key){
 				$children['catObj'][$key] = $cat->mChildren[$key];
 				if($authType){
-					if($cat->mChildren[$key]->checkPermitByUserId($authType, Legacy_Utils::getUid()=='true')){
+					if($cat->mChildren[$key]->checkPermitByUserId($authType, Xcore_Utils::getUid()=='true')){
 						$children['permit'][$key] = 1;
 					}
 					else{
@@ -235,7 +235,7 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	}
 
 	/**
-	 * getCatPath		Legacy_Category.GetCatPath
+	 * getCatPath		Xcore_Category.GetCatPath
 	 * get category path array from top to the given category.
 	 *
 	 * @param string[] &$catPath
@@ -249,7 +249,7 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	 */ 
 	public static function getCatPath(/*** array ***/ &$catPath, /*** string ***/ $catDir, /*** int ***/ $catId, /*** string ***/ $order='ASC')
 	{
-		$cat = Legacy_Utils::getModuleHandler('cat', $catDir)->get($catId);
+		$cat = Xcore_Utils::getModuleHandler('cat', $catDir)->get($catId);
 		if(is_object($cat)){
 			$cat->loadCatPath();
 			//add current category
@@ -268,7 +268,7 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	}
 
 	/**
-	 * getPermittedIdList		Legacy_Category.GetPermittedIdList
+	 * getPermittedIdList		Xcore_Category.GetPermittedIdList
 	 * get category ids of permission.
 	 *
 	 * @param int[]		&$idList
@@ -282,7 +282,7 @@ class Lecat_DelegateFunctions implements Legacy_iCategoryDelegate
 	 */ 
 	public static function getPermittedIdList(/*** int[] ***/ &$idList, /*** string ***/ $catDir, /*** string ***/ $authType, /*** int ***/ $uid, /*** int ***/ $catId=0, /*** string ***/ $module=null)
 	{
-		$handler = Legacy_Utils::getModuleHandler('cat', $catDir);
+		$handler = Xcore_Utils::getModuleHandler('cat', $catDir);
 		$tree = $handler->getTree(intval($catId), $module);
 		$tree = $handler->filterCategory($tree, $authType, $uid, true);
 		foreach(array_keys($tree) as $key){

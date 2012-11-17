@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_SQLScanner.class.php,v 1.3 2008/09/25 15:12:41 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_SQLScanner.class.php,v 1.3 2008/09/25 15:12:41 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,9 +10,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH . "/modules/legacy/lib/EasyLex/EasyLex_SQLScanner.class.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/lib/EasyLex/EasyLex_SQLScanner.class.php";
 
-class Legacy_SQLScanner extends EasyLex_SQLScanner
+class Xcore_SQLScanner extends EasyLex_SQLScanner
 {
 	var $mDB_PREFIX = "";
 	var $mDirname = "";

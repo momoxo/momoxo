@@ -58,7 +58,7 @@ $(".optionField input, .optionField select, .optionField textarea").attr("disabl
 $(".optionField").addClass("hideOption");
 $("#fieldtype_'. $type .'").removeClass("hideOption");
 $("#fieldtype_'. $type .' input, #fieldtype_'. $type .' select, #fieldtype_'. $type .' textarea").removeAttr("disabled");
-$("#legacy_xoopsform_type").change(function(){
+$("#xcore_xoopsform_type").change(function(){
   $(".optionField").addClass("hideOption");
   $("#fieldtype_"+$(this).val()).removeClass("hideOption");
   $("#fieldtype_"+$(this).val()+" input, #fieldtype_"+$(this).val()+" select, #fieldtype_"+$(this).val()+" textarea").removeAttr("disabled");

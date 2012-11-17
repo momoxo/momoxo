@@ -28,51 +28,51 @@
 if ( !defined("XOOPS_MAINFILE_INCLUDED") ) {
     define("XOOPS_MAINFILE_INCLUDED",1);
 
-	// XOOPS ¹êÅé¸ô®|
-	// XOOPS¦w¸Ëªº¹êÅé¸ô®|³Ì«á¤Å¥[±×½u¡C
-	// ½d¨Ò: define('XOOPS_ROOT_PATH', '/path/to/xoops/directory');
+	// XOOPS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|
+	// XOOPSï¿½wï¿½Ëªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Ì«ï¿½Å¥[ï¿½×½uï¿½C
+	// ï¿½dï¿½ï¿½: define('XOOPS_ROOT_PATH', '/path/to/xoops/directory');
     	define('XOOPS_ROOT_PATH', '');
 	
-    	// XOOPS ¦w¥þ¸ô®|
-    	// ³o¬O¿ï¾Ü©Êªº¶µ¥Ø¡A¦pªG±z»Ý­n¥Î¨ì½Ð¿é¤J¡A
-    	// ³o­Ó¸ô®|¥²¶·¦¡¦w¥þ¦ÓÂsÄý¾¹µLªkª½±µ³s±µªº¡C
+    	// XOOPS ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½|
+    	// ï¿½oï¿½Oï¿½ï¿½Ü©Êªï¿½ï¿½ï¿½ï¿½Ø¡Aï¿½pï¿½Gï¿½zï¿½Ý­nï¿½Î¨ï¿½Ð¿ï¿½Jï¿½A
+    	// ï¿½oï¿½Ó¸ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½Lï¿½kï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½C
     	define('XOOPS_TRUST_PATH', '');
 
-	// XOOPS ºô§} (URL)
-	// ¦w¸ËXOOPSªººô§}³Ì«á¤Å¥[±×½u¡C
-	// ½d¨Ò: define('XOOPS_URL', 'http://url_to_xoops_directory');
+	// XOOPS ï¿½ï¿½ï¿½} (URL)
+	// ï¿½wï¿½ï¿½XOOPSï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½Ì«ï¿½Å¥[ï¿½×½uï¿½C
+	// ï¿½dï¿½ï¿½: define('XOOPS_URL', 'http://url_to_xoops_directory');
     	define('XOOPS_URL', 'http://');
 
-	// ¸ê®Æ®w«¬¦¡
-	// ¸ê®Æ®wªº¨Ï¥ÎÃþ«¬
+	// ï¿½ï¿½Æ®wï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½Æ®wï¿½ï¿½ï¿½Ï¥ï¿½ï¿½ï¿½ï¿½ï¿½
 	define('XOOPS_DB_TYPE', 'mysql');
 
-	// ¸ê®Æªí«e¸mµü
-	// ¦b¨C­ÓXOOPS¨Ï¥Îªº¸ê®Æªí«e©Ò¨Ï¥Îªº«e¸mÃÑ§O¥Nµü.¦pªG¨S¦³¯S®í³]©w.¥i¨Ï¥Î¹w³]ªº 'xoopscube'.
+	// ï¿½ï¿½Æªï¿½eï¿½mï¿½ï¿½
+	// ï¿½bï¿½Cï¿½ï¿½XOOPSï¿½Ï¥Îªï¿½ï¿½ï¿½Æªï¿½eï¿½Ò¨Ï¥Îªï¿½ï¿½eï¿½mï¿½Ñ§Oï¿½Nï¿½ï¿½.ï¿½pï¿½Gï¿½Sï¿½ï¿½ï¿½Sï¿½ï¿½]ï¿½w.ï¿½iï¿½Ï¥Î¹wï¿½]ï¿½ï¿½ 'xoopscube'.
 	define('XOOPS_DB_PREFIX', 'xoopscube');
 
-	// ÁY¼g
-	// ³o­Ó¬O¬°¤F¸É¥R§@¥Î¨Ó¥Í¦¨½s½X©M¼Ð°O¡A ±z¤£»Ý§ïÅÜ¹w³]­È
+	// ï¿½Yï¿½g
+	// ï¿½oï¿½Ó¬Oï¿½ï¿½ï¿½Fï¿½É¥Rï¿½@ï¿½Î¨Ó¥Í¦ï¿½ï¿½sï¿½Xï¿½Mï¿½Ð°Oï¿½A ï¿½zï¿½ï¿½ï¿½Ý§ï¿½ï¿½Ü¹wï¿½]ï¿½ï¿½
     	define('XOOPS_SALT', '');
 
-	// ¸ê®Æ®w¦øªA¾¹¦ì§}
-	// XOOPS©Ò¨Ï¥Îªº¸ê®Æ®w¦øªA¾¹¦ì§},¦pªG¤£½T©w¥i¨Ï¥Î 'localhost' ¤j¦h¼Æªºª¬ªp¤UÀ³¸Ó¥i¥H¨Ï¥Î.
+	// ï¿½ï¿½Æ®wï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½}
+	// XOOPSï¿½Ò¨Ï¥Îªï¿½ï¿½ï¿½Æ®wï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½},ï¿½pï¿½Gï¿½ï¿½ï¿½Tï¿½wï¿½iï¿½Ï¥ï¿½ 'localhost' ï¿½jï¿½hï¿½Æªï¿½ï¿½ï¿½ï¿½pï¿½Uï¿½ï¿½ï¿½Ó¥iï¿½Hï¿½Ï¥ï¿½.
 	define('XOOPS_DB_HOST', 'localhost');
 
-	// ¸ê®Æ®w±b¸¹
-	// ¨Ï¥Î¸ê®Æ®wªº±b¸¹
+	// ï¿½ï¿½Æ®wï¿½bï¿½ï¿½
+	// ï¿½Ï¥Î¸ï¿½Æ®wï¿½ï¿½ï¿½bï¿½ï¿½
 	define('XOOPS_DB_USER', '');
 
-	// ¸ê®Æ®w±K½X
-	// ¸ê®Æ®w±b¸¹©Ò¨Ï¥Îªº±K½X
+	// ï¿½ï¿½Æ®wï¿½Kï¿½X
+	// ï¿½ï¿½Æ®wï¿½bï¿½ï¿½ï¿½Ò¨Ï¥Îªï¿½ï¿½Kï¿½X
 	define('XOOPS_DB_PASS', '');
 
-	// ¸ê®Æ®w¦WºÙ
-	// XOOPS©Ò¨Ï¥Îªº¸ê®Æ®w¦WºÙ.¦pªG¨S¦³¥ý«Ø¥ß.¦w¸Ëµ{¦¡·|À°±z«Ø¥ß(­n¦³«Ø¥ß¸ê®Æ®wÅv­­ªº±b¸¹±K½X)
+	// ï¿½ï¿½Æ®wï¿½Wï¿½ï¿½
+	// XOOPSï¿½Ò¨Ï¥Îªï¿½ï¿½ï¿½Æ®wï¿½Wï¿½ï¿½.ï¿½pï¿½Gï¿½Sï¿½ï¿½ï¿½ï¿½Ø¥ï¿½.ï¿½wï¿½Ëµ{ï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½zï¿½Ø¥ï¿½(ï¿½nï¿½ï¿½ï¿½Ø¥ß¸ï¿½Æ®wï¿½vï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½Kï¿½X)
 	define('XOOPS_DB_NAME', '');
 
-	// ¸ê®Æ®w¨Ï¥ÎPconnect¼Ò¦¡? (¬O=1 §_=0)
-	// ¹w³]¬°§_.¦pªG¤£ª¾¹D½Ð¿ï§_
+	// ï¿½ï¿½Æ®wï¿½Ï¥ï¿½Pconnectï¿½Ò¦ï¿½? (ï¿½O=1 ï¿½_=0)
+	// ï¿½wï¿½]ï¿½ï¿½ï¿½_.ï¿½pï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½Ð¿ï¿½_
 	define('XOOPS_DB_PCONNECT', 0);
 
 	define("XOOPS_GROUP_ADMIN", "1");
@@ -81,12 +81,12 @@ if ( !defined("XOOPS_MAINFILE_INCLUDED") ) {
 
     // You can select two special module process excuting mode with defining following constants
     //
-    //  define('_LEGACY_PREVENT_LOAD_CORE_', 1);
+    //  define('_XCORE_PREVENT_LOAD_CORE_', 1);
     //    Module process will not load any XOOPS Cube classes.
     //    You cannot use any XOOPS Cube functions and classes.
     //    (eg. It'll be used for reffering only MySQL Database definition.)
     //
-    //  define('_LEGACY_PREVENT_EXEC_COMMON_', 1);
+    //  define('_XCORE_PREVENT_EXEC_COMMON_', 1);
     //    Module process will load XOOPS Cube Root class and initialize Controller class.
     //    You can use some XOOPS Cube functions in this mode.
     //    You can use more XOOPS Cube functions (eg. xoops_gethandler), if you write
@@ -96,9 +96,9 @@ if ( !defined("XOOPS_MAINFILE_INCLUDED") ) {
     //    It is synonym of $xoopsOption['nocommon']=1; 
     //    But $xoopsOption['nocommon'] is deprecated.
     //
-    if (!defined('_LEGACY_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
+    if (!defined('_XCORE_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
         include_once XOOPS_ROOT_PATH.'/include/cubecore_init.php';
-        if (!isset($xoopsOption['nocommon']) && !defined('_LEGACY_PREVENT_EXEC_COMMON_')) {
+        if (!isset($xoopsOption['nocommon']) && !defined('_XCORE_PREVENT_EXEC_COMMON_')) {
             include XOOPS_ROOT_PATH.'/include/common.php';
         }
     }

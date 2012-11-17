@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: SearchShowallbyuserAction.class.php,v 1.4 2008/09/25 15:12:06 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,20 +10,20 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/actions/SearchShowallAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/forms/SearchShowallbyuserForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/actions/SearchShowallAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/SearchShowallbyuserForm.class.php";
 
-class Legacy_SearchShowallbyuserAction extends Legacy_SearchShowallAction
+class Xcore_SearchShowallbyuserAction extends Xcore_SearchShowallAction
 {
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_SearchShowallbyuserForm(0);
+		$this->mActionForm =new Xcore_SearchShowallbyuserForm(0);
 		$this->mActionForm->prepare();
 	}
 	
 	function _getTemplateName()
 	{
-		return "legacy_search_showallbyuser.html";
+		return "xcore_search_showallbyuser.html";
 	}
 	
 	function _getSelectedMids()
@@ -41,7 +41,7 @@ class Legacy_SearchShowallbyuserAction extends Legacy_SearchShowallAction
 
 	function _getMaxHit()
 	{
-		return LEGACY_SEARCH_SHOWALL_MAXHIT;
+		return XCORE_SEARCH_SHOWALL_MAXHIT;
 	}
 	
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
@@ -53,13 +53,13 @@ class Legacy_SearchShowallbyuserAction extends Legacy_SearchShowallAction
 		
 		$render->setAttribute('targetUser', $user);
 		
-		$prevStart = $this->mActionForm->get('start') - LEGACY_SEARCH_SHOWALL_MAXHIT;
+		$prevStart = $this->mActionForm->get('start') - XCORE_SEARCH_SHOWALL_MAXHIT;
 		if ($prevStart < 0) {
 			$prevStart = 0;
 		}
 
 		$render->setAttribute('prevStart', $prevStart);
-		$render->setAttribute('nextStart', $this->mActionForm->get('start') + LEGACY_SEARCH_SHOWALL_MAXHIT);
+		$render->setAttribute('nextStart', $this->mActionForm->get('start') + XCORE_SEARCH_SHOWALL_MAXHIT);
 	}
 }
 

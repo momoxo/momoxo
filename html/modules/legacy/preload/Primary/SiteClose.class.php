@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: SiteClose.class.php,v 1.5 2008/09/25 15:12:38 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -13,12 +13,12 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 /***
  * The action filter for the site close procedure.
  */
-class Legacy_SiteClose extends XCube_ActionFilter
+class Xcore_SiteClose extends XCube_ActionFilter
 {
 	function preBlockFilter()
 	{
 		if ($this->mRoot->mContext->getXoopsConfig('closesite') == 1) {
-			$this->mController->mSetupUser->add("Legacy_SiteClose::callbackSetupUser", XCUBE_DELEGATE_PRIORITY_FINAL);
+			$this->mController->mSetupUser->add("Xcore_SiteClose::callbackSetupUser", XCUBE_DELEGATE_PRIORITY_FINAL);
 			$this->mRoot->mDelegateManager->add("Site.CheckLogin.Success", array(&$this, "callbackCheckLoginSuccess"));
 		}
 	}
@@ -65,7 +65,7 @@ class Legacy_SiteClose extends XCube_ActionFilter
 			$xoopsTpl->compile_check = true;
 			
 			// @todo filebase template with absolute file path
-			$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/legacy/templates/legacy_site_closed.html');
+			$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_site_closed.html');
 			exit();
 		}
 	}

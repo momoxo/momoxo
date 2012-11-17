@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_Updater.class.php,v 1.3 2008/10/26 04:00:40 minahito Exp $
+ * @package Xcore
+ * @version $Id: Xcore_Updater.class.php,v 1.3 2008/10/26 04:00:40 minahito Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,9 +10,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH . '/admin/class/ModuleUpdater.class.php';
+require_once XOOPS_XCORE_PATH . '/admin/class/ModuleUpdater.class.php';
 
-class Legacy_ModuleUpdater extends Legacy_ModulePhasedUpgrader
+class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 {
 	var $_mMilestone = array(
 		'106' => 'update106',
@@ -21,7 +21,7 @@ class Legacy_ModuleUpdater extends Legacy_ModulePhasedUpgrader
 	
 	function update200()
 	{
-		$this->mLog->addReport(_AD_LEGACY_MESSAGE_UPDATE_STARTED);
+		$this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
 	
 		// Update database table index.
 		$this->_extendConfigTitleSize();
@@ -74,7 +74,7 @@ class Legacy_ModuleUpdater extends Legacy_ModulePhasedUpgrader
 	
 	function update106()
 	{
-		$this->mLog->addReport(_AD_LEGACY_MESSAGE_UPDATE_STARTED);
+		$this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
 		
 		// Update database table index.
 		$this->_setUniqueToGroupUserLink();
@@ -140,11 +140,11 @@ class Legacy_ModuleUpdater extends Legacy_ModulePhasedUpgrader
 
 		if ($db->query($sql))
 		{
-			$this->mLog->addReport(XCube_Utils::formatString(_AD_LEGACY_MESSAGE_EXTEND_CONFIG_TITLE_SIZE_SUCCESSFUL, $table));
+			$this->mLog->addReport(XCube_Utils::formatString(_AD_XCORE_MESSAGE_EXTEND_CONFIG_TITLE_SIZE_SUCCESSFUL, $table));
 		}
 		else
 		{
-			$this->mLog->addError(XCube_Utils::formatString(_AD_LEGACY_ERROR_COULD_NOT_EXTEND_CONFIG_TITLE_SIZE, $table));
+			$this->mLog->addError(XCube_Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_EXTEND_CONFIG_TITLE_SIZE, $table));
 		}
 	}
 
@@ -163,7 +163,7 @@ class Legacy_ModuleUpdater extends Legacy_ModulePhasedUpgrader
 				$sql = sprintf('DELETE FROM `%s` WHERE `uid` = %d AND `groupid` = %d ORDER BY `linkid` DESC', $table, $row['uid'], $row['groupid']);
 				if (!$db->query($sql, $row['c'] - 1))
 				{
-					$this->mLog->addError(XCube_Utils::formatString(_AD_LEGACY_ERROR_COULD_NOT_DELETE_DUPLICATE_DATA, $table));
+					$this->mLog->addError(XCube_Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_DELETE_DUPLICATE_DATA, $table));
 					return;
 				}
 			}
@@ -175,11 +175,11 @@ class Legacy_ModuleUpdater extends Legacy_ModulePhasedUpgrader
 		$sql = 'ALTER TABLE `' . $table . '` ADD UNIQUE `uid_groupid` (`uid`,`groupid`)';
 		if ($db->query($sql))
 		{
-			$this->mLog->addReport(XCube_Utils::formatString(_AD_LEGACY_MESSAGE_SET_UNIQUE_KEY_SUCCESSFUL, $table));
+			$this->mLog->addReport(XCube_Utils::formatString(_AD_XCORE_MESSAGE_SET_UNIQUE_KEY_SUCCESSFUL, $table));
 		}
 		else
 		{
-			$this->mLog->addError(XCube_Utils::formatString(_AD_LEGACY_ERROR_COULD_NOT_SET_UNIQUE_KEY, $table));
+			$this->mLog->addError(XCube_Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_SET_UNIQUE_KEY, $table));
 		}
 	}
 

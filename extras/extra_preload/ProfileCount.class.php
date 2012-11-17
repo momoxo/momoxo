@@ -29,7 +29,7 @@ class Profile_ProfileCount extends XCube_ActionFilter
 	public function count(&$obj)
 	{
 		$handler = xoops_gethandler('member');
-		$user = $handler->getUser(Legacy_Utils::getUid());
+		$user = $handler->getUser(Xcore_Utils::getUid());
 		$user->incrementPost();
 	}
 }

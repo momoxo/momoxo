@@ -1,7 +1,7 @@
 <{section name=i loop=$comments}>
 <br />
 
-  <{include file="db:legacy_comment.html" comment=$comments[i]}>
+  <{include file="db:xcore_comment.html" comment=$comments[i]}>
 
 <!-- start comment replies -->
 <{foreach item=reply from=$comments[i].replies}>

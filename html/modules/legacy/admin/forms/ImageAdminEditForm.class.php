@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImageAdminEditForm.class.php,v 1.3 2008/09/25 15:11:09 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -11,16 +11,16 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/forms/ImageUploadForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/ImageUploadForm.class.php";
 
-class Legacy_ImageAdminCreateForm extends Legacy_ImageUploadForm
+class Xcore_ImageAdminCreateForm extends Xcore_ImageUploadForm
 {
 	var $_mImgcatId = 0;
 	
 	function getTokenName()
 	{
-		return "module.legacy.ImageAdminEditForm.TOKEN" . $this->get('image_id');
+		return "module.xcore.ImageAdminEditForm.TOKEN" . $this->get('image_id');
 	}
 
 	function prepare()
@@ -39,11 +39,11 @@ class Legacy_ImageAdminCreateForm extends Legacy_ImageUploadForm
 		//
 		$this->mFieldProperties['image_id'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['image_id']->setDependsByArray(array('required'));
-		$this->mFieldProperties['image_id']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMAGE_ID);
+		$this->mFieldProperties['image_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_ID);
 	
 		$this->mFieldProperties['image_weight'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['image_weight']->setDependsByArray(array('required'));
-		$this->mFieldProperties['image_weight']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMAGE_WEIGHT);
+		$this->mFieldProperties['image_weight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_WEIGHT);
 	}
 	
 	function load(&$obj)
@@ -65,13 +65,13 @@ class Legacy_ImageAdminCreateForm extends Legacy_ImageUploadForm
 	}
 }
 
-class Legacy_ImageAdminEditForm extends Legacy_ImageAdminCreateForm
+class Xcore_ImageAdminEditForm extends Xcore_ImageAdminCreateForm
 {
 	function validateImgcat_id()
 	{
 		parent::validateImgcat_id();
 		
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$currentCategory =& $handler->get($this->_mImgcatId);
 		
 		$specificCategory =& $handler->get($this->get('imgcat_id'));

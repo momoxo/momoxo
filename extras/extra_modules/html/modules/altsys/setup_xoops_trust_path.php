@@ -1,7 +1,7 @@
 <?php
 
 $xoopsOption['nocommon'] = 1 ;
-define('_LEGACY_PREVENT_LOAD_CORE_',1) ;
+define('_XCORE_PREVENT_LOAD_CORE_',1) ;
 
 include '../../mainfile.php' ;
 

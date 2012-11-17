@@ -93,8 +93,8 @@ class XoopsFormDhtmlTextArea extends XoopsFormTextArea
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_dhtmltextarea.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_dhtmltextarea.html");
 		$renderTarget->setAttribute("element", $this);
 		$renderTarget->setAttribute("class", $this->getClass());
 
@@ -113,15 +113,15 @@ class XoopsFormDhtmlTextArea extends XoopsFormTextArea
      */
     function _renderSmileys()
     {
-		$handler =& xoops_getmodulehandler('smiles', 'legacy');
+		$handler =& xoops_getmodulehandler('smiles', 'xcore');
 		$smilesArr =& $handler->getObjects(new Criteria('display', 1));
 		
 		$root =& XCube_Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_opt_smileys.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_opt_smileys.html");
 		$renderTarget->setAttribute("element", $this);
 		$renderTarget->setAttribute("smilesArr", $smilesArr);
 

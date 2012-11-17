@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: NuSoapLoader.class.php,v 1.3 2008/09/25 15:12:38 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,12 +10,12 @@
 
 if (!defined("XOOPS_ROOT_PATH")) exit();
 
-class Legacy_NuSoapLoader extends XCube_ActionFilter
+class Xcore_NuSoapLoader extends XCube_ActionFilter
 {
 	function preFilter()
 	{
-		$this->mRoot->mDelegateManager->add('XCube_ServiceManager.CreateClient', 'Legacy_NuSoapLoader::createClient');
-		$this->mRoot->mDelegateManager->add('XCube_ServiceManager.CreateServer', 'Legacy_NuSoapLoader::createServer');
+		$this->mRoot->mDelegateManager->add('XCube_ServiceManager.CreateClient', 'Xcore_NuSoapLoader::createClient');
+		$this->mRoot->mDelegateManager->add('XCube_ServiceManager.CreateServer', 'Xcore_NuSoapLoader::createServer');
 	}
 	
 	/**
@@ -33,8 +33,8 @@ class Legacy_NuSoapLoader extends XCube_ActionFilter
 			$client = new XCube_ServiceClient($service);
 		}
 		else {
-			require_once XOOPS_ROOT_PATH . "/modules/legacy/lib/nusoap/nusoap.php";
-			require_once XOOPS_ROOT_PATH . "/modules/legacy/lib/ShadePlus/SoapClient.class.php";
+			require_once XOOPS_ROOT_PATH . "/modules/xcore/lib/nusoap/nusoap.php";
+			require_once XOOPS_ROOT_PATH . "/modules/xcore/lib/ShadePlus/SoapClient.class.php";
 			
 			$client = new ShadePlus_SoapClient($service);
 		}
@@ -49,9 +49,9 @@ class Legacy_NuSoapLoader extends XCube_ActionFilter
 			return;
 		}
 		
-		require_once XOOPS_ROOT_PATH . "/modules/legacy/lib/nusoap/nusoap.php";
-		require_once XOOPS_ROOT_PATH . "/modules/legacy/lib/ShadePlus/ServiceServer.class.php";
-		require_once XOOPS_ROOT_PATH . "/modules/legacy/lib/ShadeSoap/NusoapServer.class.php";
+		require_once XOOPS_ROOT_PATH . "/modules/xcore/lib/nusoap/nusoap.php";
+		require_once XOOPS_ROOT_PATH . "/modules/xcore/lib/ShadePlus/ServiceServer.class.php";
+		require_once XOOPS_ROOT_PATH . "/modules/xcore/lib/ShadeSoap/NusoapServer.class.php";
 		
 		$server = new ShadePlus_ServiceServer($service);
 		$server->prepare();

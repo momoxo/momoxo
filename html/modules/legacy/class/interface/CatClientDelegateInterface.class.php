@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,25 +12,25 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of cat client delegate
- * Modules which uses LEGACY_CATEGORY must implement this interface.
+ * Modules which uses XCORE_CATEGORY must implement this interface.
 **/
-interface Legacy_iCategoryClientDelegate
+interface Xcore_iCategoryClientDelegate
 {
 	/**
-	 * getClientList	Legacy_CategoryClient.{dirname}.GetClientList
+	 * getClientList	Xcore_CategoryClient.{dirname}.GetClientList
 	 *
 	 * @param mixed[]	&$list
 	 *  list[]['dirname']	client module's dirname
 	 *  list[]['dataname']	client module's dataname(tablename)
-	 * @param string	$dirname	Legacy_Category's dirname
+	 * @param string	$dirname	Xcore_Category's dirname
 	 *
 	 * @return	void
 	 */ 
 	public static function getClientList(/*** mixed[] ***/ &$list, /*** string ***/ $dirname);
 
 	/**
-	 * getClientData	Legacy_CategoryClient.{dirname}.GetClientData
-	 * Get client modules' data to show them inside LEGACY_CATEGORY module
+	 * getClientData	Xcore_CategoryClient.{dirname}.GetClientData
+	 * Get client modules' data to show them inside XCORE_CATEGORY module
 	 *
 	 * @param mixed[]	&$list
 	 *  list[]['dirname']	string	client module's dirname

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -10,7 +10,7 @@ if(!defined('XOOPS_ROOT_PATH'))
 	exit();
 }
 
-abstract class Legacy_AbstractImageObject extends XoopsSimpleObject
+abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
 {
 	const IMAGE_TAG = '<img src="%s" width="%d" height="%d" alt="%s" />';
 	const SWF_TAG = '<object data="%s" type="application/x-shockwave-flash" width="%d" height="%d"><param name="movie" value="%s" /><param name=loop value=false>
@@ -56,14 +56,14 @@ abstract class Legacy_AbstractImageObject extends XoopsSimpleObject
 	public function setupPostData(/*** int ***/ $num=1)
 	{
 		//set uploaded image file path
-		$uploaded = @$_FILES['legacy_image']['tmp_name'] ? $_FILES['legacy_image'] : null;
+		$uploaded = @$_FILES['xcore_image']['tmp_name'] ? $_FILES['xcore_image'] : null;
 		if(isset($uploaded) && file_exists($uploaded['tmp_name'][$num]) && @exif_imagetype($uploaded['tmp_name'][$num])!==false){
 	        $this->_mTemporaryPath = $uploaded['tmp_name'][$num];
 	        $this->_mFilename = $uploaded['name'][$num];
 	    }
 	
 		//set image id
-	    $idName = XCube_Root::getSingleton()->mContext->mRequest->getRequest('legacy_image_id');
+	    $idName = XCube_Root::getSingleton()->mContext->mRequest->getRequest('xcore_image_id');
 	    if(! $this->get('image_id') && isset($idName[$num])){
 		    $this->set('image_id', $idName[$num]);
 		}
@@ -71,7 +71,7 @@ abstract class Legacy_AbstractImageObject extends XoopsSimpleObject
 		$this->set('num', $num);
 	
 		//Should be delete ?
-		$isDeleted = XCube_Root::getSingleton()->mContext->mRequest->getRequest('legacy_image_delete');
+		$isDeleted = XCube_Root::getSingleton()->mContext->mRequest->getRequest('xcore_image_delete');
 		if($isDeleted[$num]){
 			$this->_mIsDeleted = true;
 		}

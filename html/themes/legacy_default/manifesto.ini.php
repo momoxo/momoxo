@@ -3,12 +3,12 @@
 
 [Manifesto]
 Name="KARIMOJI 2.2"
-Depends=Legacy_RenderSystem,legacy
+Depends=Xcore_RenderSystem,xcore
 Url="https://github.com/momonga-project/momonga/"
 Version="2.2"
 
 [Theme]
-RenderSystem=Legacy_RenderSystem
+RenderSystem=Xcore_RenderSystem
 Format="XOOPS2 KARIMOJI_LEGALEGAStyle"
 Author=XOOPS Cube Project Team
 ScreenShot="screenshot.png"

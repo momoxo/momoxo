@@ -96,7 +96,7 @@ function _getDB()
 
 	require_once XOOPS_ROOT_PATH.'/class/database/databasefactory.php';
 
-	if ($root->getSiteConfig('Legacy', 'AllowDBProxy') == true) {
+	if ($root->getSiteConfig('Xcore', 'AllowDBProxy') == true) {
 		if (xoops_getenv('REQUEST_METHOD') != 'POST' || !xoops_refcheck(XOOPS_DB_CHKREF)) {
 			if(!defined('XOOPS_DB_PROXY'))
 				define('XOOPS_DB_PROXY', 1);

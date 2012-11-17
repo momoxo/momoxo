@@ -182,7 +182,7 @@ class User_Action
 
 	public function getPageTitle()
 	{
-		return Legacy_Utils::formatPagetitle(XCube_Root::getSingleton()->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getPageAction());
+		return Xcore_Utils::formatPagetitle(XCube_Root::getSingleton()->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getPageAction());
 	}
 
 	function hasPermission(&$controller, &$xoopsUser, $moduleConfig)

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,14 +12,14 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of group client delegate
- * Modules which uses Legacy_Activity must implement this interface.
- * Legacy_Activity module must be unique.
- * You can get its dirname by constant LEGACY_ACTIVITY_DIRNAME
+ * Modules which uses Xcore_Activity must implement this interface.
+ * Xcore_Activity module must be unique.
+ * You can get its dirname by constant XCORE_ACTIVITY_DIRNAME
 **/
-interface Legacy_iActivityClientDelegate
+interface Xcore_iActivityClientDelegate
 {
 	/**
-	 * getClientList	Legacy_ActivityClient.GetClientList
+	 * getClientList	Xcore_ActivityClient.GetClientList
 	 *
 	 * @param mixed[]	&$list
 	 *  @list[]['dirname']	client module's dirname
@@ -31,7 +31,7 @@ interface Legacy_iActivityClientDelegate
 	public static function getClientList(/*** mixed[] ***/ &$list);
 
 	/**
-	 * getClientData	Legacy_ActivityClient.{dirname}.GetClientData
+	 * getClientData	Xcore_ActivityClient.{dirname}.GetClientData
 	 *
 	 * @param mixed		&$list
 	 *  string	$list['dirname']	client module's dirname
@@ -49,7 +49,7 @@ interface Legacy_iActivityClientDelegate
 	public static function getClientData(/*** mixed ***/ &$list, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $dataId);
 
 	/**
-	 * getClientFeed	Legacy_ActivityClient.{dirname}.GetClientFeed
+	 * getClientFeed	Xcore_ActivityClient.{dirname}.GetClientFeed
 	 *
 	 * @param mixed		&$list
 	 *  string[]	$list['title']	entry's title

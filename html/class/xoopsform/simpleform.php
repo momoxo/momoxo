@@ -68,8 +68,8 @@ class XoopsSimpleForm extends XoopsForm
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_simpleform.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_simpleform.html");
 		$renderTarget->setAttribute("form", $this);
 
 		$renderSystem->render($renderTarget);

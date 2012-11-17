@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,13 +12,13 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of module's acitivity delegate
- * Legacy_Activity module must be unique.
- * You can get its dirname by constant LEGACY_ACTIVITY_DIRNAME
+ * Xcore_Activity module must be unique.
+ * You can get its dirname by constant XCORE_ACTIVITY_DIRNAME
 **/
-interface Legacy_iActivityDelegate
+interface Xcore_iActivityDelegate
 {
 	/**
-	 * addActivity	Legacy_Activity.AddActivity
+	 * addActivity	Xcore_Activity.AddActivity
 	 *
 	 * @param bool		&$result
 	 * @param int		$uid		poster's user id
@@ -33,7 +33,7 @@ interface Legacy_iActivityDelegate
 	public static function addActivity(/*** bool ***/ &$result, /*** int ***/ $uid, /*** int ***/ $categoryId, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $dataId, /*** int ***/ $pubdate);
 
 	/**
-	 * deleteActivity	Legacy_Activity.DeleteActivity
+	 * deleteActivity	Xcore_Activity.DeleteActivity
 	 *
 	 * @param bool		&$result
 	 * @param string	$dirname	client module's dirname
@@ -45,7 +45,7 @@ interface Legacy_iActivityDelegate
 	public static function deleteActivity(/*** bool ***/ &$result, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $dataId);
 
 	/**
-	 * getActivities	Legacy_Activity.GetActivity
+	 * getActivities	Xcore_Activity.GetActivity
 	 *
 	 * @param mixed[]	&$list
 	 *  string	$list['dirname']	client module's dirname

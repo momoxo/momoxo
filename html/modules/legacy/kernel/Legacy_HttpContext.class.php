@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_HttpContext.class.php,v 1.4 2008/09/25 15:12:00 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_HttpContext.class.php,v 1.4 2008/09/25 15:12:00 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,16 +10,16 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH . "/modules/legacy/kernel/Legacy_Module.class.php";
+require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/Xcore_Module.class.php";
 
 /**
  * @public
  * @brief [Secret Agreement] The context class for KARIMOJI_LEGALEGAwhich extends to keep
- *        Legacy-module-specific informations.
+ *        Xcore-module-specific informations.
  * @attention
- *     Only Legacy_Controller or its sub-classes calls this constructor.
+ *     Only Xcore_Controller or its sub-classes calls this constructor.
  */
-class Legacy_HttpContext extends XCube_HttpContext
+class Xcore_HttpContext extends XCube_HttpContext
 {
 	/**
 	 * @public
@@ -29,7 +29,7 @@ class Legacy_HttpContext extends XCube_HttpContext
 
 	/**
 	 * @public
-	 * @brief [READ ONLY] Legacy_AbstractModule - The current module instance.
+	 * @brief [READ ONLY] Xcore_AbstractModule - The current module instance.
 	 */	
 	var $mModule = null;
 	
@@ -67,7 +67,7 @@ class Legacy_HttpContext extends XCube_HttpContext
 	 * @internal
 	 * @brief [Secret Agreement] A name of the render system used by the controller strategy.
 	 * @attention
-	 *     This member is used for only Legacy_Controller.
+	 *     This member is used for only Xcore_Controller.
 	 */
 	var $mBaseRenderSystemName = "";
 	

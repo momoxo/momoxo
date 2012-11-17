@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -11,9 +11,9 @@ if(!defined('XOOPS_ROOT_PATH'))
 }
 
 /**
- * Legacy_AbstractClientObjectHandler
+ * Xcore_AbstractClientObjectHandler
 **/
-abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHandler
+abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandler
 {
 	protected $_mClientField = array('title'=>'title', 'category'=>'category_id', 'posttime'=>'posttime');
 	protected $_mClientConfig = array('tag'=>'tag_dirname', 'image'=>'use_image', 'workflow'=>'use_workflow', 'activity'=>'use_activity', 'map'=>'use_map');
@@ -153,7 +153,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	{
 		$ret = false;
 		XCube_DelegateUtils::call(
-			'Legacy_Activity.AddActivity', 
+			'Xcore_Activity.AddActivity',
 			new XCube_Ref($ret),
 			$obj->get('uid'),
 			$obj->get($this->_mClientField['category']),
@@ -176,7 +176,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	protected function _saveTags(/*** XoopsSimpleObject ***/ $obj, /*** string ***/ $tagDirname)
 	{
 		$ret = false;
-		XCube_DelegateUtils::call('Legacy_Tag.'.$tagDirname.'.SetTags', 
+		XCube_DelegateUtils::call('Xcore_Tag.'.$tagDirname.'.SetTags',
 			new XCube_Ref($ret), 
 			$tagDirname, 
 			$obj->getDirname(),
@@ -195,17 +195,17 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	 *
 	 * @return	bool
 	 */
-	protected function _saveImages(/*** Legacy_AbstractObject ***/ $obj)
+	protected function _saveImages(/*** Xcore_AbstractObject ***/ $obj)
 	{
 		$ret = true;
 		$obj->setupImages();
 		foreach($obj->mImage as $image){
 			$result = false;
 			if($image->isDeleted()===true){	//delete image
-	        	XCube_DelegateUtils::call('Legacy_Image.DeleteImage', new XCube_Ref($result), $image);
+	        	XCube_DelegateUtils::call('Xcore_Image.DeleteImage', new XCube_Ref($result), $image);
 			}
 			else{	//save image
-				XCube_DelegateUtils::call('Legacy_Image.SaveImage', new XCube_Ref($result), $image);
+				XCube_DelegateUtils::call('Xcore_Image.SaveImage', new XCube_Ref($result), $image);
 			}
 			if($result===false){
 				$ret = false;
@@ -226,7 +226,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
     {
         $result = array();
         XCube_DelegateUtils::call(
-        	'Legacy_Map.SetPlace', 
+        	'Xcore_Map.SetPlace',
         	new XCube_Ref($result), 
         	$obj->getDirname(), 
         	$obj->getDataname(), 
@@ -248,7 +248,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	protected function _deleteActivity(/*** XoopsSimpleObject ***/ $obj)
 	{
 		$ret = false;
-		XCube_DelegateUtils::call('Legacy_Activity.DeleteActivity', new XCube_Ref($ret), $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
+		XCube_DelegateUtils::call('Xcore_Activity.DeleteActivity', new XCube_Ref($ret), $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
 		return $ret;
 	}
 
@@ -264,7 +264,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	{
 		$ret = false;
 		XCube_DelegateUtils::call(
-			'Legacy_Tag.'.$tagDirname.'.SetTags',
+			'Xcore_Tag.'.$tagDirname.'.SetTags',
 			new XCube_Ref($ret),
 			$tagDirname,
 			$obj->getDirname(),
@@ -285,7 +285,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	 */
 	protected function _deleteWorkflow(/*** XoopsSimpleObject ***/ $obj)
 	{
-		XCube_DelegateUtils::call('Legacy_Workflow.DeleteItem', $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
+		XCube_DelegateUtils::call('Xcore_Workflow.DeleteItem', $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
 	}
 
 	/**
@@ -301,11 +301,11 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 		$isPost = false;
 		$obj->setupImages($isPost);
 		foreach($obj->mImage as $image){
-			if(!($image instanceof Legacy_AbstractImageObject)){
+			if(!($image instanceof Xcore_AbstractImageObject)){
 				continue;
 			}
 			$result = false;
-			XCube_DelegateUtils::call('Legacy_Image.DeleteImage', new XCube_Ref($result), $image);
+			XCube_DelegateUtils::call('Xcore_Image.DeleteImage', new XCube_Ref($result), $image);
 			if($result===false){
 				$ret = false;
 			}
@@ -314,7 +314,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	}
 
 	/**
-	 * check if use Legacy_Activity
+	 * check if use Xcore_Activity
 	 *
 	 * @param mixed[]	$conf
 	 *
@@ -333,7 +333,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	}
 
 	/**
-	 * check if use Legacy_Tag
+	 * check if use Xcore_Tag
 	 *
 	 * @param mixed[]	$conf
 	 *
@@ -352,7 +352,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	}
 
 	/**
-	 * check if use Legacy_Workflow
+	 * check if use Xcore_Workflow
 	 *
 	 * @param mixed[]	$conf
 	 *
@@ -371,7 +371,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	}
 
 	/**
-	 * check if use Legacy_Image
+	 * check if use Xcore_Image
 	 *
 	 * @param mixed[]	$conf
 	 *
@@ -390,7 +390,7 @@ abstract class Legacy_AbstractClientObjectHandler extends XoopsObjectGenericHand
 	}
 
     /**
-     * check if use Legacy_Map
+     * check if use Xcore_Map
      *
      * @param mixed[]   $conf
      *

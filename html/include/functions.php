@@ -42,7 +42,7 @@ function xoops_getrequest($name)
 function xoops_header($closehead = true)
 {
     $root =& XCube_Root::getSingleton();
-    $renderSystem =& $root->getRenderSystem('Legacy_RenderSystem');
+    $renderSystem =& $root->getRenderSystem('Xcore_RenderSystem');
     if ($renderSystem != null) {
         $renderSystem->showXoopsHeader($closehead);
     }
@@ -54,7 +54,7 @@ function xoops_header($closehead = true)
 function xoops_footer()
 {
     $root =& XCube_Root::getSingleton();
-    $renderSystem =& $root->getRenderSystem('Legacy_RenderSystem');
+    $renderSystem =& $root->getRenderSystem('Xcore_RenderSystem');
     if ($renderSystem != null) {
         $renderSystem->showXoopsFooter();
     }
@@ -67,8 +67,8 @@ function xoops_error($message, $title='', $style='errorMsg')
 
     $renderTarget =& $renderSystem->createRenderTarget('main');
     
-    $renderTarget->setAttribute('legacy_module', 'legacy');
-    $renderTarget->setTemplateName('legacy_xoops_error.html');
+    $renderTarget->setAttribute('xcore_module', 'xcore');
+    $renderTarget->setTemplateName('xcore_xoops_error.html');
     
     $renderTarget->setAttribute('style', $style);
     $renderTarget->setAttribute('title', $title);
@@ -89,8 +89,8 @@ function xoops_result($message, $title='')
     
     $renderTarget =& $renderSystem->createRenderTarget('main');
     
-    $renderTarget->setAttribute('legacy_module', 'legacy');
-    $renderTarget->setTemplateName('legacy_xoops_result.html');
+    $renderTarget->setAttribute('xcore_module', 'xcore');
+    $renderTarget->setTemplateName('xcore_xoops_result.html');
     
     $renderTarget->setAttribute('title', $title);
     $renderTarget->setAttribute('message', $message);
@@ -118,8 +118,8 @@ function xoops_confirm($hiddens, $action, $message, $submit = '', $addToken = tr
     
     $renderTarget =& $renderSystem->createRenderTarget('main');
     
-    $renderTarget->setAttribute('legacy_module', 'legacy');
-    $renderTarget->setTemplateName('legacy_xoops_confirm.html');
+    $renderTarget->setAttribute('xcore_module', 'xcore');
+    $renderTarget->setTemplateName('xcore_xoops_confirm.html');
 
     $renderTarget->setAttribute('action', $action);
     $renderTarget->setAttribute('message', $message);
@@ -563,7 +563,7 @@ function &getMailer()
 }
 
 /**
- * This function is Fly-Weight to get an instance of XoopsObject in Legacy
+ * This function is Fly-Weight to get an instance of XoopsObject in Xcore
  * Kernel.
  */
 function &xoops_gethandler($name, $optional = false )
@@ -576,7 +576,7 @@ function &xoops_gethandler($name, $optional = false )
         // The following delegate is test at Alpha4-c.
         //
         $handler = null;
-        XCube_DelegateUtils::call('Legacy.Event.GetHandler', new XCube_Ref($handler), $name, $optional);
+        XCube_DelegateUtils::call('Xcore.Event.GetHandler', new XCube_Ref($handler), $name, $optional);
         if ($handler) return $handlers[$name] =& $handler;
 
 	// internal Class handler exist

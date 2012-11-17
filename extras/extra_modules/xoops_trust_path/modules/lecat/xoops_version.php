@@ -34,7 +34,7 @@ $modversion['trust_dirname'] = 'lecat';
 $modversion['role'] = 'cat';
 
 $modversion['cube_style'] = true;
-$modversion['legacy_installer'] = array(
+$modversion['xcore_installer'] = array(
 	'installer'   => array(
 		'class' 	=> 'Installer',
 		'namespace' => 'Lecat',
@@ -51,7 +51,7 @@ $modversion['legacy_installer'] = array(
 		'filepath'	=> LECAT_TRUST_PATH . '/admin/class/installer/LecatUpdater.class.php'
 	)
 );
-$modversion['disable_legacy_2nd_installer'] = false;
+$modversion['disable_xcore_2nd_installer'] = false;
 
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 $modversion['tables'] = array(

@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_CacheInformation.class.php,v 1.4 2008/09/25 15:12:00 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_CacheInformation.class.php,v 1.4 2008/09/25 15:12:00 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -12,12 +12,12 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /**
  * The structure which have a policy and an information of a module, which
- * Legacy_Controller must know. In the later version, this class may be
+ * Xcore_Controller must know. In the later version, this class may be
  * replaced with just array.
  * 
  * For a performance, this class has reset() to reuse a object.
  */
-class Legacy_AbstractCacheInformation
+class Xcore_AbstractCacheInformation
 {
     /**
      * Array of uid. This is an information for cache store program to generate
@@ -54,7 +54,7 @@ class Legacy_AbstractCacheInformation
      */
     var $mAttributes = array();
     
-    function Legacy_AbstractCacheInformation()
+    function Xcore_AbstractCacheInformation()
     {
     }
     
@@ -101,7 +101,7 @@ class Legacy_AbstractCacheInformation
     }
 }
 
-class Legacy_ModuleCacheInformation extends Legacy_AbstractCacheInformation
+class Xcore_ModuleCacheInformation extends Xcore_AbstractCacheInformation
 {
     /**
      * [READ ONLY] Xoops Module Object.
@@ -125,11 +125,11 @@ class Legacy_ModuleCacheInformation extends Legacy_AbstractCacheInformation
       */
      var $mGetCacheFilePath = null;
      
-     function Legacy_ModuleCacheInformation()
+     function Xcore_ModuleCacheInformation()
      {
-         parent::Legacy_AbstractCacheInformation();
+         parent::Xcore_AbstractCacheInformation();
          $this->mGetCacheFilePath = new XCube_Delegate();
-         $this->mGetCacheFilePath->register('Legacy_ModuleCacheInformation.GetCacheFilePath');
+         $this->mGetCacheFilePath->register('Xcore_ModuleCacheInformation.GetCacheFilePath');
      }
      
     /**
@@ -150,7 +150,7 @@ class Legacy_ModuleCacheInformation extends Legacy_AbstractCacheInformation
     
     /**
      * Gets a file path of a cache file for module contents.
-     * @param Legacy_ModuleCacheInformation $cacheInfo
+     * @param Xcore_ModuleCacheInformation $cacheInfo
      * @return string
      */
     function getCacheFilePath()
@@ -167,7 +167,7 @@ class Legacy_ModuleCacheInformation extends Legacy_AbstractCacheInformation
     }
 }
 
-class Legacy_BlockCacheInformation extends Legacy_AbstractCacheInformation
+class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
 {
     /**
      * [READ ONLY] Xoops Block Object.
@@ -182,17 +182,17 @@ class Legacy_BlockCacheInformation extends Legacy_AbstractCacheInformation
       */
      var $mGetCacheFilePath = null;
      
-     function Legacy_BlockCacheInformation()
+     function Xcore_BlockCacheInformation()
      {
-         parent::Legacy_AbstractCacheInformation();
+         parent::Xcore_AbstractCacheInformation();
          $this->mGetCacheFilePath = new XCube_Delegate();
-         $this->mGetCacheFilePath->register('Legacy_BlockCachInformation.getCacheFilePath');
+         $this->mGetCacheFilePath->register('Xcore_BlockCachInformation.getCacheFilePath');
      }
      
      /**
       * Sets a block object.
       * 
-      * @param Legacy_AbstractBlockProcedure $blockProcedure
+      * @param Xcore_AbstractBlockProcedure $blockProcedure
       */
      function setBlock(&$blockProcedure)
      {
@@ -207,7 +207,7 @@ class Legacy_BlockCacheInformation extends Legacy_AbstractCacheInformation
 
     /**
      * Gets a file path of a cache file for module contents.
-     * @param Legacy_BlockCacheInformation $cacheInfo
+     * @param Xcore_BlockCacheInformation $cacheInfo
      * @return string
      */
     function getCacheFilePath()

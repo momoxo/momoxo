@@ -2,14 +2,14 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyTheme
+class XcoreTheme
 {
 	var $mDirName=null;
 	var $mFileName=null;
 	var $ScreenShot=null;
 	var $mManifesto=null;
 	
-	function LegacyTheme($dirName,$manifesto=null)
+	function XcoreTheme($dirName,$manifesto=null)
 	{
 		$this->mDirName=$dirName;
 		if($manifesto!=null) {
@@ -27,11 +27,11 @@ class LegacyTheme
 	}
 }
 
-class LegacyThemeHandler
+class XcoreThemeHandler
 {
 	var $_mThemeList;
 
-	function LegacyThemeHandler()
+	function XcoreThemeHandler()
 	{
 		$this->_mThemeList=array();
 
@@ -53,14 +53,14 @@ class LegacyThemeHandler
 						//
 						// If this system can use this theme, add this to list.
 						//
-						if(isset($manifesto['Manifesto']) && isset($manifesto['Manifesto']['Depends']) && $manifesto['Manifesto']['Depends'] == "Legacy_RenderSystem") {
-							$this->_mThemeList[]=new LegacyTheme($dir,$manifesto);
+						if(isset($manifesto['Manifesto']) && isset($manifesto['Manifesto']['Depends']) && $manifesto['Manifesto']['Depends'] == "Xcore_RenderSystem") {
+							$this->_mThemeList[]=new XcoreTheme($dir,$manifesto);
 						}
 					}
 					else {
 						$file=$themeDir."/theme.html";
 						if(file_exists($file)) {
-							$this->_mThemeList[]=new LegacyTheme($dir);
+							$this->_mThemeList[]=new XcoreTheme($dir);
 						}
 					}
 				}

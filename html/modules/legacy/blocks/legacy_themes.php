@@ -2,7 +2,7 @@
 /**
  *
  * @package XOOPS2
- * @version $Id: legacy_themes.php,v 1.3 2008/09/25 15:12:13 kilica Exp $
+ * @version $Id: xcore_themes.php,v 1.3 2008/09/25 15:12:13 kilica Exp $
  * @copyright Copyright (c) 2000 XOOPS.org  <http://www.xoops.org/>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -19,7 +19,7 @@
 //  This file has been modified for KARIMOJI_LEGALEGAfrom XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
-function b_legacy_themes_show($options)
+function b_xcore_themes_show($options)
 {
     global $xoopsConfig;
 	
@@ -36,7 +36,7 @@ function b_legacy_themes_show($options)
 	$block['isEnableChanger'] = 1;
 	
     $theme_options = array();
-	$handler =& xoops_getmodulehandler('theme', 'legacy');
+	$handler =& xoops_getmodulehandler('theme', 'xcore');
     foreach ($xoopsConfig['theme_set_allowed'] as $name) {
 		$theme =& $handler->get($name);
 		if ($theme != null) {
@@ -60,11 +60,11 @@ function b_legacy_themes_show($options)
     return $block;
 }
 
-function b_legacy_themes_edit($options)
+function b_xcore_themes_edit($options)
 {
 
     $chk = "";
-    $form = _MB_LEGACY_LANG_THSHOW."&nbsp;";
+    $form = _MB_XCORE_LANG_THSHOW."&nbsp;";
     if ( $options[0] == 1 ) {
         $chk = ' checked="checked"';
     }
@@ -74,7 +74,7 @@ function b_legacy_themes_edit($options)
         $chk = ' checked="checked"';
     }
     $form .= '&nbsp;<input type="radio" name="options[0]" value="0"'.$chk.' />'._NO;
-    $form .= '<br />'._MB_LEGACY_LANG_THWIDTH.'&nbsp;';
+    $form .= '<br />'._MB_XCORE_LANG_THWIDTH.'&nbsp;';
     $form .= '<input type="text" name="options[1]" value="'.$options[1].'" />';
     return $form;
 }

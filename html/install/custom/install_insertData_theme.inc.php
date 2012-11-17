@@ -1,5 +1,5 @@
 <?php
-// to replace main_theme legacy_default => pack2011_default
+// to replace main_theme xcore_default => pack2011_default
 require_once dirname(dirname(__FILE__))."/wizards/install_insertData.inc.php";
 
 $available_themes = array();
@@ -9,7 +9,7 @@ foreach ($_POST as $key=>$value){
 	}
 }
 if (empty($available_themes)){
-	$available_themes = array('basic5','legacy_default', 'pack2011_default');
+	$available_themes = array('basic5','xcore_default', 'pack2011_default');
 }
 
 $default_theme = 'pack2011_default';

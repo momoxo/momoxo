@@ -110,9 +110,9 @@
     <td class="head" style="width:35%;">&nbsp;
       <{if $perm->mItem->isActive()}>
         <{if $perm->mItem->mBlock->get('block_type') == 'C'}>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=CustomBlockEdit&amp;bid=<{$perm->mItem->mBlock->getShow('bid')}>"><{$perm->mItem->getName()|xoops_escape}></a>
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=CustomBlockEdit&amp;bid=<{$perm->mItem->mBlock->getShow('bid')}>"><{$perm->mItem->getName()|xoops_escape}></a>
         <{else}>
-          <a href="<{$xoops_url}>/modules/legacy/admin/index.php?action=BlockEdit&amp;bid=<{$perm->mItem->mBlock->getShow('bid')}>"><{$perm->mItem->getName()|xoops_escape}></a>
+          <a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=BlockEdit&amp;bid=<{$perm->mItem->mBlock->getShow('bid')}>"><{$perm->mItem->getName()|xoops_escape}></a>
         <{/if}>
       <{else}>
         <span class="inactive"><{$perm->mItem->getName()|xoops_escape}></span>

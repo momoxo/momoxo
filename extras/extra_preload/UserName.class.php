@@ -13,7 +13,7 @@ class UserName extends XCube_ActionFilter
 	 */
 	public function preBlockFilter()
 	{
-		$this->mRoot->mDelegateManager->add('Legacy_User.GetUserName',array(&$this, 'get'));
+		$this->mRoot->mDelegateManager->add('Xcore_User.GetUserName',array(&$this, 'get'));
 	}
 
 	/**

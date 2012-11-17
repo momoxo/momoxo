@@ -5,11 +5,11 @@
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
-class Message_Block extends Legacy_BlockProcedure
+class Message_Block extends Xcore_BlockProcedure
 {
   public function __construct(&$block)
   {
-    parent::Legacy_BlockProcedure($block);
+    parent::Xcore_BlockProcedure($block);
   }
   
   public function prepare()

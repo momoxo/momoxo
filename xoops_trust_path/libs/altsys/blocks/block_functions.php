@@ -63,10 +63,10 @@ function b_altsys_admin_menu_show( $options )
 		}
 
 		// for modules overriding Module.class.php (eg. Analyzer for XC)
-		if( empty( $submenus4assign ) && defined( 'XOOPS_CUBE_LEGACY' ) && ! empty( $modinfo['cube_style'] ) ) {
+		if( empty( $submenus4assign ) && defined( 'XOOPS_CUBE_XCORE' ) && ! empty( $modinfo['cube_style'] ) ) {
 			$module_handler =& xoops_gethandler('module');
 			$module =& $module_handler->get($mid);
-			$moduleObj =& Legacy_Utils::createModule($module);
+			$moduleObj =& Xcore_Utils::createModule($module);
 			$modinfo['adminindex'] = $moduleObj->getAdminIndex() ;
 			$modinfo['adminindex_absolute'] = true ;
 			foreach( $moduleObj->getAdminMenu() as $sub ) {
@@ -79,7 +79,7 @@ function b_altsys_admin_menu_show( $options )
 		} else if( empty( $adminmenu4altsys ) ) {
 
 			// add preferences
-			if( $mod->getVar('hasconfig') && ! in_array( $mod->getVar('dirname') , array( 'system' , 'legacy' ) ) ) {
+			if( $mod->getVar('hasconfig') && ! in_array( $mod->getVar('dirname') , array( 'system' , 'xcore' ) ) ) {
 				$submenus4assign[] = array(
 					'title' => _PREFERENCES ,
 					'url' => htmlspecialchars( altsys_get_link2modpreferences( $mid , $coretype ) , ENT_QUOTES ) ,
@@ -87,10 +87,10 @@ function b_altsys_admin_menu_show( $options )
 			}
 
 			// add help
-			if( defined( 'XOOPS_CUBE_LEGACY' ) && ! empty( $modinfo['help'] ) ) {
+			if( defined( 'XOOPS_CUBE_XCORE' ) && ! empty( $modinfo['help'] ) ) {
 				$submenus4assign[] = array(
 					'title' => _HELP ,
-					'url' => XOOPS_URL.'/modules/legacy/admin/index.php?action=Help&amp;dirname='.$dirname ,
+					'url' => XOOPS_URL.'/modules/xcore/admin/index.php?action=Help&amp;dirname='.$dirname ,
 				) ;
 			}
 		}

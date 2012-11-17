@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRender_AbstractFilterForm
+class XcoreRender_AbstractFilterForm
 {
 	var $mSort = 0;
 	var $mSortKeys = array();
@@ -11,7 +11,7 @@ class LegacyRender_AbstractFilterForm
 	
 	var $_mHandler = null;
 	
-	function LegacyRender_AbstractFilterForm(&$navi, &$handler)
+	function XcoreRender_AbstractFilterForm(&$navi, &$handler)
 	{
 		$this->mNavi =& $navi;
 		$this->_mHandler =& $handler;

@@ -95,7 +95,7 @@ ul#privatemessages li a:hover
 	}
 	
 
-input#legacy_xoopsform_block_submit
+input#xcore_xoopsform_block_submit
 	{
 	float: left;
 	width: 100px;
@@ -221,5 +221,5 @@ input#legacy_xoopsform_block_submit
 	}
 	
 	
-#legacy_xoopsform_block_uname { background:url(images/admin.png) center left no-repeat; padding-left:17px;}
-#legacy_xoopsform_block_pass {background:url(images/pass.png) center left no-repeat; padding-left:17px;}
+#xcore_xoopsform_block_uname { background:url(images/admin.png) center left no-repeat; padding-left:17px;}
+#xcore_xoopsform_block_pass {background:url(images/pass.png) center left no-repeat; padding-left:17px;}

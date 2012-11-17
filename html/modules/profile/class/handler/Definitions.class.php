@@ -77,7 +77,7 @@ class Profile_DefinitionsHandler extends XoopsObjectGenericHandler
 	 */
 	public function getFields4DataShow($uid=0)
 	{
-		$uid = ($uid>0) ? $uid : Legacy_Utils::getUid();
+		$uid = ($uid>0) ? $uid : Xcore_Utils::getUid();
 		$lHandler =& xoops_getmodulehandler('groups_users_link', 'user');
 	
 		$criteria = new CriteriaCompo();

@@ -5,7 +5,7 @@ define('_MI_XUPGRADE_DESC_INSTALLER_2', "あなたが既にアップグレード
 define('_MI_XUPGRADE_DESC_INSTALLER_3', "このモジュールをインストールするときに、サイトはアップグレードされます。ですから、モジュール・インストールの後に、このモジュールで何か操作する必要はありません。もちろん、このモジュールをアンインストールしても構いません。");
 define('_MI_XUPGRADE_DESC_INSTALLER_4', "このモジュールは、XOOPS2ユーザーのヘルプとしてマイグレーション・ガイドを備えています。このヘルプを目当てに KARIMOJI 2.1 にこのモジュールをインストールすることもできます。ゼロから KARIMOJI 2.1 をインストールしていたとしても、このアップグレードモジュールはあなたのサイトに一切影響を与えません。");
 define('_MI_XUPGRADE_DESC_INSTALLER_5', "このモジュールは、全体のコンフィグを KARIMOJI の新しいモジュールのコンフィグへコピーして、これらの古いコンフィグ項目を削除します。");
-define('_MI_XUPGRADE_DESC_INSTALLER_6', "同様に、もしカスタムテンプレートがあれば、Legacyモジュールのテンプレートにシステム・モジュールの旧テンプレートをコピーします。");
+define('_MI_XUPGRADE_DESC_INSTALLER_6', "同様に、もしカスタムテンプレートがあれば、Xcoreモジュールのテンプレートにシステム・モジュールの旧テンプレートをコピーします。");
 define('_MI_XUPGRADE_DESC_INSTALLER_7', "このモジュールのステータスはアルファです！　試して、バグをレポートしてくださいね！");
 define('_MI_XUPGRADE_DESC_XUPGRADE', "XOOPS2 から KARIMOJI 2.1 へのアップグレードを支援します");
 define('_MI_XUPGRADE_ERROR_CONFIGS_WRONG', "コンフィグが不正です");

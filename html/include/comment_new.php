@@ -36,14 +36,14 @@ if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
 	exit();
 }
 
-require_once XOOPS_MODULE_PATH . "/legacy/forms/CommentEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/CommentEditForm.class.php";
 
 //
 // Load message resource
 //
 $t_root =& XCube_Root::getSingleton();
 
-$t_root->mLanguageManager->loadModuleMessageCatalog("legacy");
+$t_root->mLanguageManager->loadModuleMessageCatalog("xcore");
 
 
 require_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
@@ -110,10 +110,10 @@ else {
 // Create action form instance and load from a comment object.
 //
 if (is_object($xoopsUser) && $xoopsUser->isAdmin()) {
-	$actionForm =new Legacy_CommentEditForm_Admin();
+	$actionForm =new Xcore_CommentEditForm_Admin();
 }
 else {
-	$actionForm =new Legacy_CommentEditForm();
+	$actionForm =new Xcore_CommentEditForm();
 }
 $actionForm->prepare();
 $actionForm->load($comment);
@@ -125,12 +125,12 @@ $handler =& xoops_gethandler('subjecticon');
 $subjectIcons =& $handler->getObjects();
 
 //
-// Render comment-form to render buffer with using Legacy_RenderSystem.
+// Render comment-form to render buffer with using Xcore_RenderSystem.
 //
 $renderSystem =& $t_root->getRenderSystem($t_root->mContext->mBaseRenderSystemName);
 $renderTarget =& $renderSystem->createRenderTarget('main');
 
-$renderTarget->setTemplateName("legacy_comment_edit.html");
+$renderTarget->setTemplateName("xcore_comment_edit.html");
 
 $renderTarget->setAttribute("actionForm", $actionForm);
 $renderTarget->setAttribute("subjectIcons", $subjectIcons);

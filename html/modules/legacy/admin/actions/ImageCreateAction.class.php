@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImageCreateAction.class.php,v 1.4 2008/09/25 15:11:49 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/ImageAdminEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ImageAdminEditForm.class.php";
 
-class Legacy_ImageCreateAction extends Legacy_AbstractEditAction
+class Xcore_ImageCreateAction extends Xcore_AbstractEditAction
 {
 	function _getId()
 	{
@@ -22,13 +22,13 @@ class Legacy_ImageCreateAction extends Legacy_AbstractEditAction
 
 	function &_getHandler()
 	{
-		$handler =& xoops_getmodulehandler('image', 'legacy');
+		$handler =& xoops_getmodulehandler('image', 'xcore');
 		return $handler;
 	}
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_ImageAdminCreateForm();
+		$this->mActionForm =new Xcore_ImageAdminCreateForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -36,7 +36,7 @@ class Legacy_ImageCreateAction extends Legacy_AbstractEditAction
 	{
 		$flag = parent::getDefaultView($controller, $xoopsUser);
 		
-		if ($flag == LEGACY_FRAME_VIEW_INPUT && $this->_enableCatchImgcat()) {
+		if ($flag == XCORE_FRAME_VIEW_INPUT && $this->_enableCatchImgcat()) {
 			$this->mActionForm->set('imgcat_id', xoops_getrequest('imgcat_id'));
 		}
 		
@@ -50,7 +50,7 @@ class Legacy_ImageCreateAction extends Legacy_AbstractEditAction
 
 	function _doExecute()
 	{
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$category =& $handler->get($this->mActionForm->get('imgcat_id'));
 		
 		//
@@ -104,7 +104,7 @@ class Legacy_ImageCreateAction extends Legacy_AbstractEditAction
 		$render->setAttribute('actionForm', $this->mActionForm);
 		$render->setAttribute('object', $this->mObject);
 		
-		$handler =& xoops_getmodulehandler('imagecategory', 'legacy');
+		$handler =& xoops_getmodulehandler('imagecategory', 'xcore');
 		$categoryArr =& $handler->getObjects();
 		$render->setAttribute('categoryArr', $categoryArr);
 	}
@@ -116,7 +116,7 @@ class Legacy_ImageCreateAction extends Legacy_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=ImagecategoryList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=ImagecategoryList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 	
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

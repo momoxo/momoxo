@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,12 +12,12 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of group client delegate
- * Modules which uses Legacy_Comment must implement this interface.
+ * Modules which uses Xcore_Comment must implement this interface.
 **/
-interface Legacy_iCommentClientDelegate
+interface Xcore_iCommentClientDelegate
 {
 	/**
-	 * getClientList	Legacy_CommentClient.{dirname}.GetClientList
+	 * getClientList	Xcore_CommentClient.{dirname}.GetClientList
 	 *
 	 * @param mixed[]	&$list
 	 *  string	$list[]['dirname']	client module's dirname

@@ -1,6 +1,6 @@
 <?php
 // $Id$
-// $HeadURL: https://xoopscube.svn.sourceforge.net/svnroot/xoopscube/Package_Legacy/trunk/extras/extra_languages/pt_utf8/install/language/pt_utf8/welcome.php $
+// $HeadURL: https://xoopscube.svn.sourceforge.net/svnroot/xoopscube/Package_Xcore/trunk/extras/extra_languages/pt_utf8/install/language/pt_utf8/welcome.php $
 // License http://creativecommons.org/licenses/by/2.5/br/
 // ############################################################### //
 // ## KARIMOJI - Versão em Português

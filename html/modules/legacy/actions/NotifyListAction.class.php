@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: NotifyListAction.class.php,v 1.6 2008/09/25 15:12:07 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -12,14 +12,14 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/include/notification_functions.php";
 
-require_once XOOPS_MODULE_PATH . "/legacy/forms/NotifyDeleteForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/NotifyDeleteForm.class.php";
 
 /***
  * @internal
  * List up notifications. This action is like notifications.php (when $op is
  * 'list').
  */
-class Legacy_NotifyListAction extends Legacy_Action
+class Xcore_NotifyListAction extends Xcore_Action
 {
 	var $mModules = array();
 	var $mActionForm = null;
@@ -28,9 +28,9 @@ class Legacy_NotifyListAction extends Legacy_Action
 	{
 		$root =& $controller->mRoot;
 		$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
-		$root->mLanguageManager->loadModuleMessageCatalog('legacy');
+		$root->mLanguageManager->loadModuleMessageCatalog('xcore');
 		
-		$this->mActionForm =new Legacy_NotifyDeleteForm();
+		$this->mActionForm =new Xcore_NotifyDeleteForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -136,12 +136,12 @@ class Legacy_NotifyListAction extends Legacy_Action
 			);
 		}
 		
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
 	{
-		$render->setTemplateName("legacy_notification_list.html");
+		$render->setTemplateName("xcore_notification_list.html");
 		
 		$render->setAttribute('modules', $this->mModules);
 		$render->setAttribute('currentUser', $xoopsUser);

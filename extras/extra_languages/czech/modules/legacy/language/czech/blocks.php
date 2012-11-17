@@ -1,40 +1,40 @@
 <?php
-define("_MB_LEGACY_HOME",  "Titulní strana");
+define("_MB_XCORE_HOME",  "Titulnï¿½ strana");
 
-define("_MB_LEGACY_VACNT", "Zobrazit úèet");
-define("_MB_LEGACY_EACNT", "Upravit úèet");
-define("_MB_LEGACY_NOTIF", "Upozornìní");
-define("_MB_LEGACY_INBOX", "Pøijaté zprávy");
-define("_MB_LEGACY_LOUT",  "Odhlásit");
-define("_MB_LEGACY_ADMENU","Administrace");
+define("_MB_XCORE_VACNT", "Zobrazit ï¿½ï¿½et");
+define("_MB_XCORE_EACNT", "Upravit ï¿½ï¿½et");
+define("_MB_XCORE_NOTIF", "Upozornï¿½nï¿½");
+define("_MB_XCORE_INBOX", "Pï¿½ijatï¿½ zprï¿½vy");
+define("_MB_XCORE_LOUT",  "Odhlï¿½sit");
+define("_MB_XCORE_ADMENU","Administrace");
 
-define("_MB_LEGACY_SEARCH","Hledání");
-define("_MB_LEGACY_ADVS",  "Rozšíøené hledání");
+define("_MB_XCORE_SEARCH","Hledï¿½nï¿½");
+define("_MB_XCORE_ADVS",  "Rozï¿½ï¿½ï¿½enï¿½ hledï¿½nï¿½");
 
-define("_MB_LEGACY_SUBMS", "Vložené èlánky");
-define("_MB_LEGACY_WLNKS", "Èekající odkazy");
-define("_MB_LEGACY_BLNK",  "Neplatné odkazy");
-define("_MB_LEGACY_MLNKS", "Upravené odkazy");
-define("_MB_LEGACY_WDLS",  "Èekající soubory");
-define("_MB_LEGACY_BFLS",  "Neplatné soubory");
-define("_MB_LEGACY_MFLS",  "Upravené soubory");
-define("_MB_LEGACY_COMPEND", "Komentáøe");
+define("_MB_XCORE_SUBMS", "Vloï¿½enï¿½ ï¿½lï¿½nky");
+define("_MB_XCORE_WLNKS", "ï¿½ekajï¿½cï¿½ odkazy");
+define("_MB_XCORE_BLNK",  "Neplatnï¿½ odkazy");
+define("_MB_XCORE_MLNKS", "Upravenï¿½ odkazy");
+define("_MB_XCORE_WDLS",  "ï¿½ekajï¿½cï¿½ soubory");
+define("_MB_XCORE_BFLS",  "Neplatnï¿½ soubory");
+define("_MB_XCORE_MFLS",  "Upravenï¿½ soubory");
+define("_MB_XCORE_COMPEND", "Komentï¿½ï¿½e");
 
-define("_MB_LEGACY_RECO",  "Doporuète nás");
-define("_MB_LEGACY_PWWIDTH", "Šíøka pop-up okna");
-define("_MB_LEGACY_PWHEIGHT","Výška pop-up okna");
-define("_MB_LEGACY_LOGO",    "Obrázek loga je v adresáøi <b>%s</b>");  // %s is your root image directory name
-define("_MB_LEGACY_SADMIN",  "Zobrazení administrátorské skupiny");
-define("_MB_LEGACY_DISPLAYC","Zobrazení <b>%s</b> komentáøù");
+define("_MB_XCORE_RECO",  "Doporuï¿½te nï¿½s");
+define("_MB_XCORE_PWWIDTH", "ï¿½ï¿½ï¿½ka pop-up okna");
+define("_MB_XCORE_PWHEIGHT","Vï¿½ka pop-up okna");
+define("_MB_XCORE_LOGO",    "Obrï¿½zek loga je v adresï¿½ï¿½i <b>%s</b>");  // %s is your root image directory name
+define("_MB_XCORE_SADMIN",  "Zobrazenï¿½ administrï¿½torskï¿½ skupiny");
+define("_MB_XCORE_DISPLAYC","Zobrazenï¿½ <b>%s</b> komentï¿½ï¿½ï¿½");
 
-define("_MB_LEGACY_LANG_NUMTHEME", "%s vzhledù");
-define('_MB_LEGACY_LANG_THSHOW', "Zobrazit náhled");
-define('_MB_LEGACY_LANG_THWIDTH', "Výška náhledu");
+define("_MB_XCORE_LANG_NUMTHEME", "%s vzhledï¿½");
+define('_MB_XCORE_LANG_THSHOW', "Zobrazit nï¿½hled");
+define('_MB_XCORE_LANG_THWIDTH', "Vï¿½ka nï¿½hledu");
 
-define('_MB_LEGACY_LANG_RECOMMENDSITE', "Doporuète tento web pøátelùm");
+define('_MB_XCORE_LANG_RECOMMENDSITE', "Doporuï¿½te tento web pï¿½ï¿½telï¿½m");
 
-define('_MB_LEGACY_MESSAGE_CAN_NOT_THEME_CHANGE', "Promiòte, nyní nelze šablonu mìnit.");
+define('_MB_XCORE_MESSAGE_CAN_NOT_THEME_CHANGE', "Promiï¿½te, nynï¿½ nelze ï¿½ablonu mï¿½nit.");
 
-define('_MB_LEGACY_MAINMENU_EXPAND_SUB', "Show all submenus");
+define('_MB_XCORE_MAINMENU_EXPAND_SUB', "Show all submenus");
 
 ?>

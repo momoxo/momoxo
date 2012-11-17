@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_Utils.class.php,v 1.5 2008/09/25 15:11:21 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_Utils.class.php,v 1.5 2008/09/25 15:11:21 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -11,9 +11,9 @@
 /***
  * @internal
  * @public
- * @brief The collection of static utility functions for Legacy.
+ * @brief The collection of static utility functions for Xcore.
  */
-class Legacy_Utils
+class Xcore_Utils
 {
 	/***
 	 * Checks whether must modules have been installed.
@@ -52,7 +52,7 @@ class Legacy_Utils
 	 * Creates a instance of the module with the generating convention. And,
 	 * returns it.
 	 * @param XoopsModule $module
-	 * @return Legacy_Module
+	 * @return Xcore_Module
 	 */
 	function &createModule($module, $loadConfig=true)
 	{
@@ -61,9 +61,9 @@ class Legacy_Utils
 		//
 		// TODO need cache here?
 		//
-		XCube_DelegateUtils::call('Legacy_Utils.CreateModule', new XCube_Ref($instance), $module, $loadConfig);
+		XCube_DelegateUtils::call('Xcore_Utils.CreateModule', new XCube_Ref($instance), $module, $loadConfig);
 		
-		if (is_object($instance) && is_a($instance, 'Legacy_AbstractModule')) {
+		if (is_object($instance) && is_a($instance, 'Xcore_AbstractModule')) {
 			return $instance;
 		}
 		
@@ -84,7 +84,7 @@ class Legacy_Utils
 			$instance = new $className($module, $loadConfig);
 		}
 		else {
-			$instance = new Legacy_ModuleAdapter($module, $loadConfig);
+			$instance = new Xcore_ModuleAdapter($module, $loadConfig);
 		}
 		
 		return $instance;
@@ -94,7 +94,7 @@ class Legacy_Utils
 	 * Creates a instance of the block procedure with the generating convention.
 	 * And, returns it.
 	 * @static
-	 * @return Legacy_BlockProcedure
+	 * @return Xcore_BlockProcedure
 	 */
 	function &createBlockProcedure(&$block)
 	{
@@ -106,9 +106,9 @@ class Legacy_Utils
 		//
 		// TODO need cache here?
 		//
-		XCube_DelegateUtils::call('Legacy_Utils.CreateBlockProcedure', new XCube_Ref($retBlock), $block);
+		XCube_DelegateUtils::call('Xcore_Utils.CreateBlockProcedure', new XCube_Ref($retBlock), $block);
 		
-		if (is_object($retBlock) && is_a($retBlock, 'Legacy_AbstractBlockProcedure')) {
+		if (is_object($retBlock) && is_a($retBlock, 'Xcore_AbstractBlockProcedure')) {
 			return $retBlock;
 		}
 		
@@ -118,14 +118,14 @@ class Legacy_Utils
 			if (!XC_CLASS_EXISTS($className)) {
 				$filePath = XOOPS_ROOT_PATH . '/modules/' . $block->get('dirname') . '/blocks/' . $block->get('func_file');
 				if (!file_exists($filePath)) {
-					$retBlock = new Legacy_BlockProcedureAdapter($block);
+					$retBlock = new Xcore_BlockProcedureAdapter($block);
 					return $retBlock;
 				}
 				
 				require_once $filePath;
 				
 				if (!XC_CLASS_EXISTS($className)) {
-					$retBlock = new Legacy_BlockProcedureAdapter($block);
+					$retBlock = new Xcore_BlockProcedureAdapter($block);
 					return $retBlock;
 				}
 			}
@@ -133,7 +133,7 @@ class Legacy_Utils
 			$retBlock = new $className($block);
 		}
 		else {
-			$retBlock = new Legacy_BlockProcedureAdapter($block);
+			$retBlock = new Xcore_BlockProcedureAdapter($block);
 		}
 		
 		return $retBlock;
@@ -146,9 +146,9 @@ class Legacy_Utils
 	{
 		$root =& XCube_Root::getSingleton();
 		foreach (array_keys($_REQUEST) as $key) {
-			if (strpos($key, 'Legacy_Event_User_') === 0) {
+			if (strpos($key, 'Xcore_Event_User_') === 0) {
 				$eventName = substr($key, 18);
-				XCube_DelegateUtils::call('Legacy.Event.User.' . $eventName);
+				XCube_DelegateUtils::call('Xcore.Event.User.' . $eventName);
 				$root->mContext->mAttributes['userEvent'][$eventName] = true;
 			}
 		}
@@ -198,7 +198,7 @@ class Legacy_Utils
 	public static function getUserName(/*** int ***/ $uid)
 	{
 		$name = null;
-		XCube_DelegateUtils::call('Legacy_User.GetUserName', new XCube_Ref($name), $uid);
+		XCube_DelegateUtils::call('Xcore_User.GetUserName', new XCube_Ref($name), $uid);
 		if(! $name){
 			$handler =& xoops_gethandler('member');
 			$user =& $handler->getUser(intval($uid));
@@ -259,7 +259,7 @@ class Legacy_Utils
 	public static function formatPagetitle(/*** string ***/ $modulename, /*** string ***/ $pagetitle, /*** string ***/ $action)
 	{
 		$handler = xoops_gethandler('config');
-		$configArr = $handler->getConfigsByDirname('legacyRender');
+		$configArr = $handler->getConfigsByDirname('xcoreRender');
 	
 		$replace = array($modulename, $pagetitle, $action);
 		$search = array('{modulename}', '{pagetitle}', '{action}');

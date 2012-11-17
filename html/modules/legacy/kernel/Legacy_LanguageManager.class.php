@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_LanguageManager.class.php,v 1.6 2008/09/25 15:11:57 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_LanguageManager.class.php,v 1.6 2008/09/25 15:11:57 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -12,7 +12,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_LanguageManager.class.php";
 
-class Legacy_LanguageManager extends XCube_LanguageManager
+class Xcore_LanguageManager extends XCube_LanguageManager
 {
 	function prepare()
 	{
@@ -29,7 +29,7 @@ class Legacy_LanguageManager extends XCube_LanguageManager
 	 */
 	function _setupDatabase()
 	{
-		$filename = XOOPS_MODULE_PATH . '/legacy/language/' . $this->mLanguageName . '/charset_' . XOOPS_DB_TYPE . '.php';
+		$filename = XOOPS_MODULE_PATH . '/xcore/language/' . $this->mLanguageName . '/charset_' . XOOPS_DB_TYPE . '.php';
 		if (file_exists($filename)) {
 			require_once($filename);
 		}
@@ -67,12 +67,12 @@ class Legacy_LanguageManager extends XCube_LanguageManager
 
 	function loadGlobalMessageCatalog()
 	{
-		$lpath = XOOPS_ROOT_PATH . '/modules/legacy/language/' . $this->mLanguageName;
+		$lpath = XOOPS_ROOT_PATH . '/modules/xcore/language/' . $this->mLanguageName;
 		if (!$this->_loadFile($lpath . '/global.php')) {
-			$this->_loadFile(XOOPS_ROOT_PATH . '/modules/legacy/language/' . $this->getFallbackLanguage() . '/global.php');
+			$this->_loadFile(XOOPS_ROOT_PATH . '/modules/xcore/language/' . $this->getFallbackLanguage() . '/global.php');
 		}
 		if (!$this->_loadFile($lpath . '/setting.php')) {
-			$this->_loadFile(XOOPS_ROOT_PATH . '/modules/legacy/language/' . $this->getFallbackLanguage() . '/setting.php');
+			$this->_loadFile(XOOPS_ROOT_PATH . '/modules/xcore/language/' . $this->getFallbackLanguage() . '/setting.php');
 		}
 
 		//
@@ -152,7 +152,7 @@ class Legacy_LanguageManager extends XCube_LanguageManager
 	{
 		static $trust_dirnames = array();
 		if (!isset($trust_dirnames[$dirname])) {
-			$trust_dirnames[$dirname] = Legacy_Utils::getTrustDirnameByDirname($dirname);
+			$trust_dirnames[$dirname] = Xcore_Utils::getTrustDirnameByDirname($dirname);
 		}
 		(
 			$this->_loadFile(XOOPS_MODULE_PATH . '/' . $dirname . '/language/' . $this->mLanguageName . '/' . $fileBodyName . '.php')

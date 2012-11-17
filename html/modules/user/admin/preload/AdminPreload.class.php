@@ -10,7 +10,7 @@ class User_AdminPreload extends XCube_ActionFilter
 {
 	function preBlockFilter()
 	{
-		$this->mRoot->mDelegateManager->add('Legacy.Event.ThemeSettingChanged', 'User_AdminPreload::doThemeSettingChanged');
+		$this->mRoot->mDelegateManager->add('Xcore.Event.ThemeSettingChanged', 'User_AdminPreload::doThemeSettingChanged');
 	}
 	
 	function doThemeSettingChanged($mainTheme, $selectableThemes)

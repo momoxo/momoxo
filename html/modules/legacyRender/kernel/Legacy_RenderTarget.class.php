@@ -1,23 +1,23 @@
 <?php
 /**
- * @version $Id: Legacy_RenderTarget.class.php,v 1.1 2007/05/15 02:35:07 minahito Exp $
+ * @version $Id: Xcore_RenderTarget.class.php,v 1.1 2007/05/15 02:35:07 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-define("LEGACY_RENDER_TARGET_TYPE_BUFFER", null);
-define("LEGACY_RENDER_TARGET_TYPE_THEME", 'theme');
-define("LEGACY_RENDER_TARGET_TYPE_BLOCK", 'block');
-define("LEGACY_RENDER_TARGET_TYPE_MAIN", 'main');
+define("XCORE_RENDER_TARGET_TYPE_BUFFER", null);
+define("XCORE_RENDER_TARGET_TYPE_THEME", 'theme');
+define("XCORE_RENDER_TARGET_TYPE_BLOCK", 'block');
+define("XCORE_RENDER_TARGET_TYPE_MAIN", 'main');
 
-class Legacy_AbstractThemeRenderTarget extends XCube_RenderTarget
+class Xcore_AbstractThemeRenderTarget extends XCube_RenderTarget
 {
 	var $mSendHeaderFlag=false;
 
-	function Legacy_AbstractThemeRenderTarget()
+	function Xcore_AbstractThemeRenderTarget()
 	{
 		parent::XCube_RenderTarget();
-		$this->setAttribute('legacy_buffertype', LEGACY_RENDER_TARGET_TYPE_THEME);
+		$this->setAttribute('xcore_buffertype', XCORE_RENDER_TARGET_TYPE_THEME);
 	}
 
 	function sendHeader()
@@ -42,36 +42,36 @@ class Legacy_AbstractThemeRenderTarget extends XCube_RenderTarget
 	}
 }
 
-class Legacy_ThemeRenderTarget extends Legacy_AbstractThemeRenderTarget
+class Xcore_ThemeRenderTarget extends Xcore_AbstractThemeRenderTarget
 {
-	function Legacy_ThemeRenderTarget()
+	function Xcore_ThemeRenderTarget()
 	{
-		parent::Legacy_AbstractThemeRenderTarget();
+		parent::Xcore_AbstractThemeRenderTarget();
 		$this->setAttribute("isFileTheme",true);
 	}
 }
 
-class Legacy_DialogRenderTarget extends Legacy_AbstractThemeRenderTarget
+class Xcore_DialogRenderTarget extends Xcore_AbstractThemeRenderTarget
 {
-	function Legacy_DialogRenderTarget()
+	function Xcore_DialogRenderTarget()
 	{
-		parent::Legacy_AbstractThemeRenderTarget();
+		parent::Xcore_AbstractThemeRenderTarget();
 		$this->setAttribute("isFileTheme",false);
 	}
 	
 	function getTemplateName()
 	{
-		return "legacy_render_dialog.html";
+		return "xcore_render_dialog.html";
 	}
 
 }
 
-class Legacy_RenderTargetMain extends XCube_RenderTarget
+class Xcore_RenderTargetMain extends XCube_RenderTarget
 {
-	function Legacy_RenderTargetMain()
+	function Xcore_RenderTargetMain()
 	{
 		parent::XCube_RenderTarget();
-		$this->setAttribute('legacy_buffertype', LEGACY_RENDER_TARGET_TYPE_MAIN);
+		$this->setAttribute('xcore_buffertype', XCORE_RENDER_TARGET_TYPE_MAIN);
 	}
 }
 

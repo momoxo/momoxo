@@ -2,7 +2,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRenderTplfileObject extends XoopsSimpleObject
+class XcoreRenderTplfileObject extends XoopsSimpleObject
 {
 	/**
 	 * @access public
@@ -12,7 +12,7 @@ class LegacyRenderTplfileObject extends XoopsSimpleObject
 	
 	var $mOverride = null;
 	
-	function LegacyRenderTplfileObject()
+	function XcoreRenderTplfileObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -34,7 +34,7 @@ class LegacyRenderTplfileObject extends XoopsSimpleObject
 	function loadSource()
 	{
 		if (!is_object($this->Source)) {
-			$handler =& xoops_getmodulehandler('tplsource', 'legacyRender');
+			$handler =& xoops_getmodulehandler('tplsource', 'xcoreRender');
 			$this->Source =& $handler->get($this->get('tpl_id'));
 			if (!is_object($this->Source)) {
 				$this->Source =& $handler->create();
@@ -46,13 +46,13 @@ class LegacyRenderTplfileObject extends XoopsSimpleObject
 	 * Create the clone with source for the template set that is specified by $tplsetName.
 	 * 
 	 * @param $tplsetName string
-	 * @return object LegacyRenderTplfileObject
+	 * @return object XcoreRenderTplfileObject
 	 */
 	function &createClone($tplsetName)
 	{
 		$this->loadSource();
 		
-		$obj =new LegacyRenderTplfileObject();
+		$obj =new XcoreRenderTplfileObject();
 
 		$obj->set('tpl_refid', $this->get('tpl_refid'));
 		$obj->set('tpl_module', $this->get('tpl_module'));
@@ -65,7 +65,7 @@ class LegacyRenderTplfileObject extends XoopsSimpleObject
 		$obj->set('tpl_lastimported', $this->get('tpl_lastimported'));
 		$obj->set('tpl_type', $this->get('tpl_type'));
 		
-		$handler =& xoops_getmodulehandler('tplsource', 'legacyRender');
+		$handler =& xoops_getmodulehandler('tplsource', 'xcoreRender');
 		$obj->Source =& $handler->create();
 		
 		$obj->Source->set('tpl_source', $this->Source->get('tpl_source'));
@@ -83,7 +83,7 @@ class LegacyRenderTplfileObject extends XoopsSimpleObject
 			return;
 		}
 		
-		$handler =& xoops_getmodulehandler('tplfile', 'legacyRender');
+		$handler =& xoops_getmodulehandler('tplfile', 'xcoreRender');
 		
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('tpl_tplset', $tplset));
@@ -96,11 +96,11 @@ class LegacyRenderTplfileObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyRenderTplfileHandler extends XoopsObjectGenericHandler
+class XcoreRenderTplfileHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "tplfile";
 	var $mPrimary = "tpl_id";
-	var $mClass = "LegacyRenderTplfileObject";
+	var $mClass = "XcoreRenderTplfileObject";
 	
 	function insert(&$obj, $force = false)
 	{
@@ -114,7 +114,7 @@ class LegacyRenderTplfileHandler extends XoopsObjectGenericHandler
 			return true;
 		}
 		else {
-			$handler =& xoops_getmodulehandler('tplsource', 'legacyRender');
+			$handler =& xoops_getmodulehandler('tplsource', 'xcoreRender');
 
 			if ($obj->Source->isNew()) {
 				$obj->Source->set('tpl_id', $obj->get('tpl_id'));
@@ -153,7 +153,7 @@ class LegacyRenderTplfileHandler extends XoopsObjectGenericHandler
 		$obj->loadSource();
 		
 		if (is_object($obj->Source)) {
-			$handler =& xoops_getmodulehandler('tplsource', 'legacyRender');
+			$handler =& xoops_getmodulehandler('tplsource', 'xcoreRender');
 			if (!$handler->delete($obj->Source, $force)) {
 				return false;
 			}

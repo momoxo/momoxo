@@ -338,7 +338,7 @@ class XoopsMySQLDatabase extends XoopsDatabase
 
 	/**
 	 * Emulates prepare(), but this is TEST API.
-	 * @remark This is TEST API. This method should be called by only Legacy.
+	 * @remark This is TEST API. This method should be called by only Xcore.
 	 */
 	function prepare($query)
 	{
@@ -357,7 +357,7 @@ class XoopsMySQLDatabase extends XoopsDatabase
 
 	/**
 	 * Emulates bind_param(), but this is TEST API.
-	 * @remark This is TEST API. This method should be called by only Legacy.
+	 * @remark This is TEST API. This method should be called by only Xcore.
 	 */
 	function bind_param()
 	{
@@ -397,7 +397,7 @@ class XoopsMySQLDatabase extends XoopsDatabase
 
 	/**
 	 * Executes prepared SQL with query(), but this is TEST API.
-	 * @remark This is TEST API. This method should be called by only Legacy.
+	 * @remark This is TEST API. This method should be called by only Xcore.
 	 */
 	function &execute()
 	{
@@ -408,7 +408,7 @@ class XoopsMySQLDatabase extends XoopsDatabase
 
 	/**
 	 * Executes prepared SQL with queryF(), but this is TEST API.
-	 * @remark This is TEST API. This method should be called by only Legacy.
+	 * @remark This is TEST API. This method should be called by only Xcore.
 	 */
 	function &executeF()
 	{

@@ -9,7 +9,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 /**
  * tag client delegate
 **/
-class Xupdate_TagClientDelegate implements Legacy_iTagClientDelegate
+class Xupdate_TagClientDelegate implements Xcore_iTagClientDelegate
 {
     /**
      * getClientList
@@ -17,7 +17,7 @@ class Xupdate_TagClientDelegate implements Legacy_iTagClientDelegate
      * @param mixed[]   &$list
      *  @list[]['dirname']
      *  @list[]['dataname']
-     * @param string    $tDirname   Legacy_Tag module's dirname
+     * @param string    $tDirname   Xcore_Tag module's dirname
      *
      * @return  void
      */ 
@@ -30,7 +30,7 @@ class Xupdate_TagClientDelegate implements Legacy_iTagClientDelegate
         }
     
         //get dirname list of Xupdate
-        $dirnames = Legacy_Utils::getDirnameListByTrustDirname(basename(dirname(dirname(dirname(__FILE__)))));
+        $dirnames = Xcore_Utils::getDirnameListByTrustDirname(basename(dirname(dirname(dirname(__FILE__)))));
     
         foreach($dirnames as $dir){
             //setup client module info
@@ -61,7 +61,7 @@ class Xupdate_TagClientDelegate implements Legacy_iTagClientDelegate
         $limit = 30;
         $start =0;
     
-        $handler = Legacy_Utils::getModuleHandler($dataname, $dirname);
+        $handler = Xcore_Utils::getModuleHandler($dataname, $dirname);
         if(! $handler){
             return;
         }

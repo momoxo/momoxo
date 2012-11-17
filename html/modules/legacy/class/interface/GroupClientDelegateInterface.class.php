@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,12 +12,12 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of group client delegate
- * Modules which uses Legacy_Group must implement this interface.
+ * Modules which uses Xcore_Group must implement this interface.
 **/
-interface Legacy_iGroupClientDelegate
+interface Xcore_iGroupClientDelegate
 {
 	/**
-	 * getClientList	Legacy_GroupClient.{dirname}.GetClientList
+	 * getClientList	Xcore_GroupClient.{dirname}.GetClientList
 	 *
 	 * @param mixed[]	&$list
 	 *  list[]['dirname']
@@ -29,8 +29,8 @@ interface Legacy_iGroupClientDelegate
 	public static function getClientList(/*** mixed[] ***/ &$list, /*** string ***/ $dirname);
 
 	/**
-	 * getClientData	Legacy_GroupClient.{dirname}.GetClientData
-	 * Get client modules' data to show them inside Legacy_Group module
+	 * getClientData	Xcore_GroupClient.{dirname}.GetClientData
+	 * Get client modules' data to show them inside Xcore_Group module
 	 *
 	 * @param mixed[]	&$list
 	 *  list[]['dirname']	string	client module's dirname
@@ -48,7 +48,7 @@ interface Legacy_iGroupClientDelegate
 	public static function getClientData(/*** mixed ***/ &$list, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** string ***/ $fieldname, /*** int ***/ $groupId);
 
 	/**
-	 * getActionList	Legacy_GroupClient.{dirname}.GetActionList
+	 * getActionList	Xcore_GroupClient.{dirname}.GetActionList
 	 * Get client module's actions(view, edit, etc) to set their permission
 	 * by member's group rank.
 	 *

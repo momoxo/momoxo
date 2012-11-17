@@ -11,5 +11,5 @@ At the beginning, remove the following directory & file from the archive.
 
 Next, upload all files to your server.
 
-Lastly, in the module management of Legacy's control panels, update all modules
+Lastly, in the module management of Xcore's control panels, update all modules
 which show red-color update icons.

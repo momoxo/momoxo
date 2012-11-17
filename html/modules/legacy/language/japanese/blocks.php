@@ -1,40 +1,40 @@
 <?php
-define("_MB_LEGACY_HOME",  "¥Û¡¼¥à");
+define("_MB_XCORE_HOME",  "ï¿½Û¡ï¿½ï¿½ï¿½");
 
-define("_MB_LEGACY_VACNT", "¥¢¥«¥¦¥ó¥È¾ðÊó");
-define("_MB_LEGACY_EACNT", "¥¢¥«¥¦¥ó¥ÈÊÔ½¸");
-define("_MB_LEGACY_NOTIF", "¥¤¥Ù¥ó¥ÈÄÌÃÎµ¡Ç½");
-define("_MB_LEGACY_INBOX", "¼õ¿®È¢");
-define("_MB_LEGACY_LOUT",  "¥í¥°¥¢¥¦¥È");
-define("_MB_LEGACY_ADMENU","´ÉÍý¼Ô¥á¥Ë¥å¡¼");
+define("_MB_XCORE_VACNT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½");
+define("_MB_XCORE_EACNT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½");
+define("_MB_XCORE_NOTIF", "ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ç½");
+define("_MB_XCORE_INBOX", "ï¿½ï¿½ï¿½ï¿½È¢");
+define("_MB_XCORE_LOUT",  "ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_ADMENU","ï¿½ï¿½ï¿½ï¿½Ô¥ï¿½Ë¥å¡¼");
 
-define("_MB_LEGACY_SEARCH","¸¡º÷");
-define("_MB_LEGACY_ADVS",  "¹âÅÙ¤Ê¸¡º÷");
+define("_MB_XCORE_SEARCH","ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_ADVS",  "ï¿½ï¿½ï¿½Ù¤Ê¸ï¿½ï¿½ï¿½");
 
-define("_MB_LEGACY_SUBMS", "¿·µ¬Åê¹Æ¥Ë¥å¡¼¥¹µ­»ö");
-define("_MB_LEGACY_WLNKS", "¿·µ¬Åê¹Æ¥ê¥ó¥¯");
-define("_MB_LEGACY_BLNK",  "ÇËÂ»¥ê¥ó¥¯Êó¹ð");
-define("_MB_LEGACY_MLNKS", "½¤Àµ¥ê¥ó¥¯");
-define("_MB_LEGACY_WDLS",  "¿·µ¬Åê¹Æ¥À¥¦¥ó¥í¡¼¥É¾ðÊó");
-define("_MB_LEGACY_BFLS",  "ÇËÂ»¥Õ¥¡¥¤¥ëÊó¹ð");
-define("_MB_LEGACY_MFLS",  "½¤Àµ¥À¥¦¥ó¥í¡¼¥É¾ðÊó");
-define("_MB_LEGACY_COMPEND", "¥³¥á¥ó¥È");
+define("_MB_XCORE_SUBMS", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥Ë¥å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_WLNKS", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½");
+define("_MB_XCORE_BLNK",  "ï¿½ï¿½Â»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_MLNKS", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_WDLS",  "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½É¾ï¿½ï¿½ï¿½");
+define("_MB_XCORE_BFLS",  "ï¿½ï¿½Â»ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_MFLS",  "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½É¾ï¿½ï¿½ï¿½");
+define("_MB_XCORE_COMPEND", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-define("_MB_LEGACY_RECO",  "Åö¥µ¥¤¥È¤ò¿äÁ¦¤¹¤ë");
-define("_MB_LEGACY_PWWIDTH", "¥Ý¥Ã¥×¥¢¥Ã¥×¥¦¥£¥ó¥É¥¦¤Î²£Éý");
-define("_MB_LEGACY_PWHEIGHT","¥Ý¥Ã¥×¥¢¥Ã¥×¥¦¥£¥ó¥É¥¦¤Î¹â¤µ");
-define("_MB_LEGACY_LOGO",    "%s ¥Ç¥£¥ì¥¯¥È¥êÆâ¤Î¥í¥´¥Õ¥¡¥¤¥ëÌ¾");  // %s is your root image directory name
-define("_MB_LEGACY_SADMIN",  "´ÉÍý¼Ô¥°¥ë¡¼¥×¤òÉ½¼¨¤¹¤ë");
-define("_MB_LEGACY_DISPLAYC","%s ·ïÉ½¼¨¤¹¤ë");
+define("_MB_XCORE_RECO",  "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_PWWIDTH", "ï¿½Ý¥Ã¥×¥ï¿½ï¿½Ã¥×¥ï¿½ï¿½ï¿½ï¿½ï¿½É¥ï¿½ï¿½Î²ï¿½ï¿½ï¿½");
+define("_MB_XCORE_PWHEIGHT","ï¿½Ý¥Ã¥×¥ï¿½ï¿½Ã¥×¥ï¿½ï¿½ï¿½ï¿½ï¿½É¥ï¿½ï¿½Î¹â¤µ");
+define("_MB_XCORE_LOGO",    "%s ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½ï¿½ï¿½Î¥?ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾");  // %s is your root image directory name
+define("_MB_XCORE_SADMIN",  "ï¿½ï¿½ï¿½ï¿½Ô¥ï¿½ï¿½ë¡¼ï¿½×¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_DISPLAYC","%s ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-define("_MB_LEGACY_LANG_NUMTHEME", "%s ¥Æ¡¼¥Þ");
-define("_MB_LEGACY_LANG_THSHOW", "¥¹¥¯¥ê¡¼¥ó¥·¥ç¥Ã¥È²èÁü¤ÎÉ½¼¨");
-define("_MB_LEGACY_LANG_THWIDTH", "¥¹¥¯¥ê¡¼¥ó¥·¥ç¥Ã¥È²èÁü¤Î¥Ô¥¯¥»¥ëÉý");
+define("_MB_XCORE_LANG_NUMTHEME", "%s ï¿½Æ¡ï¿½ï¿½ï¿½");
+define("_MB_XCORE_LANG_THSHOW", "ï¿½ï¿½ï¿½ï¿½ï¿½ê¡¼ï¿½ó¥·¥ï¿½Ã¥È²ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½");
+define("_MB_XCORE_LANG_THWIDTH", "ï¿½ï¿½ï¿½ï¿½ï¿½ê¡¼ï¿½ó¥·¥ï¿½Ã¥È²ï¿½ï¿½ï¿½Î¥Ô¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-define('_MB_LEGACY_LANG_RECOMMENDSITE', "Åö¥µ¥¤¥È¤òÍ§Ã£¤ËÁ¦¤á¤ë");
+define('_MB_XCORE_LANG_RECOMMENDSITE', "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½Í§Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-define('_MB_LEGACY_MESSAGE_CAN_NOT_THEME_CHANGE', "¤¿¤À¤¤¤Þ¥Æ¡¼¥Þ¥Á¥§¥ó¥¸¥ã¡¼¤Ï¤´ÍøÍÑ¤Ë¤Ê¤ì¤Þ¤»¤ó");
+define('_MB_XCORE_MESSAGE_CAN_NOT_THEME_CHANGE', "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¥Æ¡ï¿½ï¿½Þ¥ï¿½ï¿½ï¿½ï¿½ó¥¸¥ã¡¼ï¿½Ï¤ï¿½ï¿½ï¿½ï¿½Ñ¤Ë¤Ê¤ï¿½Þ¤ï¿½ï¿½ï¿½");
 
-define('_MB_LEGACY_MAINMENU_EXPAND_SUB', "Á´¤Æ¤Î¥µ¥Ö¥á¥Ë¥å¡¼¤òÉ½¼¨¤¹¤ë");
+define('_MB_XCORE_MAINMENU_EXPAND_SUB', "ï¿½ï¿½ï¿½Æ¤Î¥ï¿½ï¿½Ö¥ï¿½Ë¥å¡¼ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 ?>

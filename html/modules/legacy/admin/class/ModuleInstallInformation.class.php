@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleInstallInformation.class.php,v 1.4 2008/09/25 15:12:41 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -9,19 +9,19 @@
  * @brief This file declare some structure-class and stored-system readers for the installer.
  */
 
-define('LEGACY_INSTALLINFO_STATUS_LOADED', "loaded");
-define('LEGACY_INSTALLINFO_STATUS_UPDATED', "updated");
-define('LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED', "order_updated");
-define('LEGACY_INSTALLINFO_STATUS_NEW', "new");
-define('LEGACY_INSTALLINFO_STATUS_DELETED', "deleted");
+define('XCORE_INSTALLINFO_STATUS_LOADED', "loaded");
+define('XCORE_INSTALLINFO_STATUS_UPDATED', "updated");
+define('XCORE_INSTALLINFO_STATUS_ORDER_UPDATED', "order_updated");
+define('XCORE_INSTALLINFO_STATUS_NEW', "new");
+define('XCORE_INSTALLINFO_STATUS_DELETED', "deleted");
 
 /**
  * The structure which is able to keep block's informations without DB. This
  * is installer only.
  */
-class Legacy_BlockInformation
+class Xcore_BlockInformation
 {
-	var $mStatus = LEGACY_INSTALLINFO_STATUS_LOADED;
+	var $mStatus = XCORE_INSTALLINFO_STATUS_LOADED;
 	
 	var $mFuncNum = 0;
 	
@@ -34,7 +34,7 @@ class Legacy_BlockInformation
 	var $mEditFunc = "";
 	var $mTemplate = "";
 	
-	function Legacy_BlockInformation($funcNum, $name, $funcFile, $showFunc, $editFunc, $template, $options = null)
+	function Xcore_BlockInformation($funcNum, $name, $funcFile, $showFunc, $editFunc, $template, $options = null)
 	{
 		$this->mFuncNum = intval($funcNum);
 		$this->mName = $name;
@@ -79,7 +79,7 @@ class Legacy_BlockInformation
 
 	function update(&$block)
 	{
-		$this->mStatus = LEGACY_INSTALLINFO_STATUS_UPDATED;
+		$this->mStatus = XCORE_INSTALLINFO_STATUS_UPDATED;
 		
 		$this->mName = $block->mName;
 		$this->mFuncFile = $block->mFuncFile;
@@ -89,7 +89,7 @@ class Legacy_BlockInformation
 	}
 }
 
-class Legacy_BlockInfoCollection
+class Xcore_BlockInfoCollection
 {
 	var $mBlocks = array();
 	var $mShowFuncs = array();
@@ -133,9 +133,9 @@ class Legacy_BlockInfoCollection
 			$t_block =& $collection->get($this->mBlocks[$idx]->mFuncNum);
 			if ($t_block == null) {
 			    if (!$collection->funcExists($this->mBlocks[$idx])) {
-				    $this->mBlocks[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_DELETED;
+				    $this->mBlocks[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_DELETED;
 				} else {
-				    $this->mBlocks[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_UPDATED; // No Action.
+				    $this->mBlocks[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_UPDATED; // No Action.
 				}
 			}
 			elseif (!$this->mBlocks[$idx]->isEqual($t_block)) {
@@ -147,7 +147,7 @@ class Legacy_BlockInfoCollection
 			$func_num = $collection->mBlocks[$idx]->mFuncNum;
 			if (!isset($this->mBlocks[$func_num])) {
 				$this->add($collection->mBlocks[$idx]);
-				$this->mBlocks[$func_num]->mStatus = LEGACY_INSTALLINFO_STATUS_NEW;
+				$this->mBlocks[$func_num]->mStatus = XCORE_INSTALLINFO_STATUS_NEW;
 			}
 		}
 	}
@@ -163,9 +163,9 @@ class Legacy_BlockInfoCollection
  * The structure which is able to keep preference's informations without DB.
  * This is installer only.
  */
-class Legacy_PreferenceInformation
+class Xcore_PreferenceInformation
 {
-	var $mStatus = LEGACY_INSTALLINFO_STATUS_LOADED;
+	var $mStatus = XCORE_INSTALLINFO_STATUS_LOADED;
 	
 	var $mOrder = 0;
 	
@@ -183,7 +183,7 @@ class Legacy_PreferenceInformation
 	
 	var $mOption = null;
 	
-	function Legacy_PreferenceInformation($name, $title, $description, $formType, $valueType, $default, $order = 0)
+	function Xcore_PreferenceInformation($name, $title, $description, $formType, $valueType, $default, $order = 0)
 	{
 		$this->mName = $name;
 		$this->mTitle = $title;
@@ -193,7 +193,7 @@ class Legacy_PreferenceInformation
 		$this->mDefault = $default;
 		$this->mOrder = intval($order);
 		
-		$this->mOption =new Legacy_PreferenceOptionInfoCollection();
+		$this->mOption =new Xcore_PreferenceOptionInfoCollection();
 	}
 	
 	/**
@@ -234,7 +234,7 @@ class Legacy_PreferenceInformation
 
 	function update(&$preference)
 	{
-		$this->mStatus = LEGACY_INSTALLINFO_STATUS_UPDATED;
+		$this->mStatus = XCORE_INSTALLINFO_STATUS_UPDATED;
 		
 		$this->mName = $preference->mName;
 		$this->mTitle = $preference->mTitle;
@@ -249,7 +249,7 @@ class Legacy_PreferenceInformation
 	}
 }
 
-class Legacy_PreferenceInfoCollection
+class Xcore_PreferenceInfoCollection
 {
 	var $mPreferences = array();
 	
@@ -257,7 +257,7 @@ class Legacy_PreferenceInfoCollection
 	
 	var $mNotifications = array();
 	
-	function Legacy_PreferenceInfoCollection()
+	function Xcore_PreferenceInfoCollection()
 	{
 	}
 	
@@ -300,7 +300,7 @@ class Legacy_PreferenceInfoCollection
 		$currentOrder = 0;
 		foreach (array_keys($this->mPreferences) as $idx) {
 			if ($this->mPreferences[$idx]->mOrder != $currentOrder) {
-				$this->mPreferences[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED;
+				$this->mPreferences[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_ORDER_UPDATED;
 				$this->mPreferences[$idx]->mOrder = $currentOrder;
 			}
 			
@@ -309,7 +309,7 @@ class Legacy_PreferenceInfoCollection
 		
 		foreach (array_keys($this->mComments) as $idx) {
 			if ($this->mComments[$idx]->mOrder != $currentOrder) {
-				$this->mComments[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED;
+				$this->mComments[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_ORDER_UPDATED;
 				$this->mComments[$idx]->mOrder = $currentOrder;
 			}
 			
@@ -318,7 +318,7 @@ class Legacy_PreferenceInfoCollection
 		
 		foreach (array_keys($this->mNotifications) as $idx) {
 			if ($this->mNotifications[$idx]->mOrder != $currentOrder) {
-				$this->mNotifications[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_ORDER_UPDATED;
+				$this->mNotifications[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_ORDER_UPDATED;
 				$this->mNotifications[$idx]->mOrder = $currentOrder;
 			}
 			
@@ -361,7 +361,7 @@ class Legacy_PreferenceInfoCollection
 		foreach (array_keys($this->mPreferences) as $idx) {
 			$t_preference =& $collection->get($this->mPreferences[$idx]->mName);
 			if ($t_preference == null) {
-				$this->mPreferences[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_DELETED;
+				$this->mPreferences[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_DELETED;
 			}
 			elseif (!$this->mPreferences[$idx]->isEqual($t_preference)) {
 				$this->mPreferences[$idx]->update($t_preference);
@@ -372,7 +372,7 @@ class Legacy_PreferenceInfoCollection
 			$name = $collection->mPreferences[$idx]->mName;
 			if (!isset($this->mPreferences[$name])) {
 				$this->add($collection->mPreferences[$name]);
-				$this->mPreferences[$name]->mStatus = LEGACY_INSTALLINFO_STATUS_NEW;
+				$this->mPreferences[$name]->mStatus = XCORE_INSTALLINFO_STATUS_NEW;
 			}
 		}
 		
@@ -381,13 +381,13 @@ class Legacy_PreferenceInfoCollection
 		//
 		if (count($this->mComments) > 0 && count($collection->mComments) == 0) {
 			foreach (array_keys($this->mComments) as $idx) {
-				$this->mComments[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_DELETED;
+				$this->mComments[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_DELETED;
 			}
 		}
 		elseif (count($this->mComments) == 0 && count($collection->mComments) > 0) {
 			$this->mComments =& $collection->mComments;
 			foreach (array_keys($this->mComments) as $idx) {
-				$this->mComments[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_NEW;
+				$this->mComments[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_NEW;
 			}
 		}
 		
@@ -397,7 +397,7 @@ class Legacy_PreferenceInfoCollection
 		foreach (array_keys($this->mNotifications) as $idx) {
 			$t_preference =& $collection->getNotify($this->mNotifications[$idx]->mName);
 			if ($t_preference == null) {
-				$this->mNotifications[$idx]->mStatus = LEGACY_INSTALLINFO_STATUS_DELETED;
+				$this->mNotifications[$idx]->mStatus = XCORE_INSTALLINFO_STATUS_DELETED;
 			}
 			elseif (!$this->mNotifications[$idx]->isEqual($t_preference)) {
 				$this->mNotifications[$idx]->update($t_preference);
@@ -408,7 +408,7 @@ class Legacy_PreferenceInfoCollection
 			$name = $collection->mNotifications[$idx]->mName;
 			if (!isset($this->mNotifications[$name])) {
 				$this->add($collection->mNotifications[$name]);
-				$this->mNotifications[$name]->mStatus = LEGACY_INSTALLINFO_STATUS_NEW;
+				$this->mNotifications[$name]->mStatus = XCORE_INSTALLINFO_STATUS_NEW;
 			}
 		}
 	}
@@ -420,12 +420,12 @@ class Legacy_PreferenceInfoCollection
 	}
 }
 
-class Legacy_PreferenceOptionInformation
+class Xcore_PreferenceOptionInformation
 {
 	var $mName = "";
 	var $mValue = "";
 	
-	function Legacy_PreferenceOptionInformation($name, $value)
+	function Xcore_PreferenceOptionInformation($name, $value)
 	{
 		$this->mName = $name;
 		$this->mValue = $value;
@@ -437,11 +437,11 @@ class Legacy_PreferenceOptionInformation
 	}
 }
 
-class Legacy_PreferenceOptionInfoCollection
+class Xcore_PreferenceOptionInfoCollection
 {
 	var $mOptions = array();
 	
-	function Legacy_PreferenceOptionInfoCollection()
+	function Xcore_PreferenceOptionInfoCollection()
 	{
 	}
 	
@@ -473,21 +473,21 @@ class Legacy_PreferenceOptionInfoCollection
 	}
 }
 
-class Legacy_AbstractModinfoReader
+class Xcore_AbstractModinfoReader
 {
-	function Legacy_AbstractModinfoReader()
+	function Xcore_AbstractModinfoReader()
 	{
 	}
 
 	/**
-	 * @return Legacy_BlockInfoCollection
+	 * @return Xcore_BlockInfoCollection
 	 */	
 	function &loadBlockInformations()
 	{
 	}
 
 	/**
-	 * @return Legacy_PreferenceInfoCollection
+	 * @return Xcore_PreferenceInfoCollection
 	 */	
 	function &loadPreferenceInformations()
 	{
@@ -497,14 +497,14 @@ class Legacy_AbstractModinfoReader
 /**
  * @note final class
  */
-class Legacy_ModinfoX2FileReader extends Legacy_AbstractModinfoReader
+class Xcore_ModinfoX2FileReader extends Xcore_AbstractModinfoReader
 {
 	/**
 	 * @protected
 	 */
 	var $_mDirname = null;
 	
-	function Legacy_ModinfoX2FileReader($dirname)
+	function Xcore_ModinfoX2FileReader($dirname)
 	{
 		$this->_mDirname = $dirname;
 	}
@@ -526,7 +526,7 @@ class Legacy_ModinfoX2FileReader extends Legacy_AbstractModinfoReader
 		$template = isset($arr['template']) ? $arr['template'] : null;
 		$options = isset($arr['options']) ? $arr['options'] : null;
 		
-		$info =new Legacy_BlockInformation($funcNum, $arr['name'], $arr['file'], $showFunc, $editFunc, $template, $options);
+		$info =new Xcore_BlockInformation($funcNum, $arr['name'], $arr['file'], $showFunc, $editFunc, $template, $options);
 		
 		return $info;
 	}
@@ -536,7 +536,7 @@ class Legacy_ModinfoX2FileReader extends Legacy_AbstractModinfoReader
 	 */
 	function &loadBlockInformations()
 	{
-		$collection =new Legacy_BlockInfoCollection();
+		$collection =new Xcore_BlockInfoCollection();
 		
 		$t_filePath = XOOPS_ROOT_PATH . '/modules/' . $this->_mDirname . '/xoops_version.php';
 		if (!file_exists($t_filePath)) {
@@ -611,10 +611,10 @@ class Legacy_ModinfoX2FileReader extends Legacy_AbstractModinfoReader
 	function &_createPreferenceInformation($arr)
 	{
 		$arr['description'] = isset($arr['description']) ? $arr['description'] : null;
-		$info =new Legacy_PreferenceInformation($arr['name'], $arr['title'], $arr['description'], $arr['formtype'], $arr['valuetype'], $arr['default']);
+		$info =new Xcore_PreferenceInformation($arr['name'], $arr['title'], $arr['description'], $arr['formtype'], $arr['valuetype'], $arr['default']);
 		if (isset($arr['options'])) {
 			foreach ($arr['options'] as $name => $value) {
-				$option =new Legacy_PreferenceOptionInformation($name, $value);
+				$option =new Xcore_PreferenceOptionInformation($name, $value);
 				$info->mOption->add($option);
 				unset($option);
 			}
@@ -726,7 +726,7 @@ class Legacy_ModinfoX2FileReader extends Legacy_AbstractModinfoReader
 	 */
 	function &loadPreferenceInformations()
 	{
-		$collection =new Legacy_PreferenceInfoCollection();
+		$collection =new Xcore_PreferenceInfoCollection();
 		
 		$t_filePath = XOOPS_ROOT_PATH . '/modules/' . $this->_mDirname . '/xoops_version.php';
 		if (!file_exists($t_filePath)) {
@@ -786,29 +786,29 @@ class Legacy_ModinfoX2FileReader extends Legacy_AbstractModinfoReader
 	}
 }
 
-class Legacy_ModinfoX2DBReader extends Legacy_AbstractModinfoReader
+class Xcore_ModinfoX2DBReader extends Xcore_AbstractModinfoReader
 {
 	/**
 	 * @protected
 	 */
 	var $_mDirname = null;
 	
-	function Legacy_ModinfoX2DBReader($dirname)
+	function Xcore_ModinfoX2DBReader($dirname)
 	{
 		$this->_mDirname = $dirname;
 	}
 	
 	function &_createBlockInformation(&$block)
 	{
-		$info =new Legacy_BlockInformation($block->get('func_num'), $block->get('name'), $block->get('func_file'), $block->get('show_func'), $block->get('edit_func'), $block->get('template'), $block->get('options'));
+		$info =new Xcore_BlockInformation($block->get('func_num'), $block->get('name'), $block->get('func_file'), $block->get('show_func'), $block->get('edit_func'), $block->get('template'), $block->get('options'));
 		return $info;
 	}
 	
 	function &loadBlockInformations()
 	{
-		$collection =new Legacy_BlockInfoCollection();
+		$collection =new Xcore_BlockInfoCollection();
 		
-		$handler =& xoops_getmodulehandler('newblocks', 'legacy');
+		$handler =& xoops_getmodulehandler('newblocks', 'xcore');
 		
 		$criteria =new CriteriaCompo();
 		$criteria->add(new Criteria('dirname', $this->_mDirname));
@@ -828,12 +828,12 @@ class Legacy_ModinfoX2DBReader extends Legacy_AbstractModinfoReader
 	
 	function &_createPreferenceInformation(&$config)
 	{
-		$info =new Legacy_PreferenceInformation($config->get('conf_name'), $config->get('conf_title'), $config->get('conf_desc'), $config->get('conf_formtype'), $config->get('conf_valuetype'), $config->get('conf_value'));
+		$info =new Xcore_PreferenceInformation($config->get('conf_name'), $config->get('conf_title'), $config->get('conf_desc'), $config->get('conf_formtype'), $config->get('conf_valuetype'), $config->get('conf_value'));
 		
 		$configOptionArr =& $config->getOptionItems();
 		
 		foreach (array_keys($configOptionArr) as $idx) {
-			$option =new Legacy_PreferenceOptionInformation($configOptionArr[$idx]->get('confop_name'), $configOptionArr[$idx]->get('confop_value'));
+			$option =new Xcore_PreferenceOptionInformation($configOptionArr[$idx]->get('confop_name'), $configOptionArr[$idx]->get('confop_value'));
 			$info->mOption->add($option);
 			unset($option);
 		}
@@ -843,7 +843,7 @@ class Legacy_ModinfoX2DBReader extends Legacy_AbstractModinfoReader
 	
 	function &loadPreferenceInformations()
 	{
-		$collection =new Legacy_PreferenceInfoCollection();
+		$collection =new Xcore_PreferenceInfoCollection();
 
 		$handler =& xoops_gethandler('module');
 		$module =& $handler->getByDirname($this->_mDirname);

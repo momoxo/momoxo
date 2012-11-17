@@ -35,8 +35,8 @@
     <th colspan="2"><{$target_key|xoops_escape:show}></th>
   </tr>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select"><{$smarty.const._MI_XUPDATE_ADMENU_ADDONSTORE}></td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select"><{$smarty.const._MI_XUPDATE_ADMENU_ADDONSTORE}></td>
+    <td class="xcore_list_select">
         <a href="index.php?action=<{$action}>&amp;sid=<{$sid}>"><{$store_name|xoops_escape:show}></a>
         <{if $detail_url}>
         ( <a href="<{$detail_url|xoops_escape:show}>" target="_blank"><{$target_key|xoops_escape:show}></a> )
@@ -44,42 +44,42 @@
     </td>
   </tr>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select"><{$smarty.const._MI_XUPDATE_FTP_ADDON_URL}></td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select"><{$smarty.const._MI_XUPDATE_FTP_ADDON_URL}></td>
+    <td class="xcore_list_select">
         <{$addon_url|xoops_escape:show}>
     </td>
   </tr>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select"><{$smarty.const._AD_XUPDATE_LANG_TYPE}></td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select"><{$smarty.const._AD_XUPDATE_LANG_TYPE}></td>
+    <td class="xcore_list_select">
         <{$target_type|xoops_escape:show}>
     </td>
   </tr>
   <{if $trust_dirname}>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select">TRUST or <{$smarty.const._AD_LEGACY_LANG_MOD_NAME}></td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select">TRUST or <{$smarty.const._AD_XCORE_LANG_MOD_NAME}></td>
+    <td class="xcore_list_select">
         <{$trust_dirname|xoops_escape:show}>
     </td>
   </tr>
   <{/if}>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select"><{$smarty.const._AD_LEGACY_LANG_VERSION}></td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select"><{$smarty.const._AD_XCORE_LANG_VERSION}></td>
+    <td class="xcore_list_select">
         <{$version}><{if $detailed_version}> ( <{$detailed_version}> )<{/if}>
         <{if $options.changes_url}><a href="<{$options.changes_url|escape:'html'}>" target="_blank"><{$smarty.const._AD_XUPDATE_RECENTCHANGES}></a><{/if}>
     </td>
   </tr>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select"><{$smarty.const._AD_XUPDATE_DESCRIPTION}></td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select"><{$smarty.const._AD_XUPDATE_DESCRIPTION}></td>
+    <td class="xcore_list_select">
         <{$description}>
     </td>
   </tr>
   <{if $target_type == 'TrustModule'}>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select"><{$smarty.const._AD_XUPDATE_HTML_ONLY}></td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select"><{$smarty.const._AD_XUPDATE_HTML_ONLY}></td>
+    <td class="xcore_list_select">
       <table>
         <tr>
           <td class='even'><label for="<{$smarty.const.XOOPS_INPUT_DEFID_PREFIX}>html_only_1"><{$smarty.const._AD_XUPDATE_HTML_ONLY_DESC}></label></td>
@@ -91,8 +91,8 @@
   <{/if}>
   <{if $options.writable_dir || $options.writable_file || $options.install_only || $options.delete_dir || $options.delete_file}>
   <tr class="<{cycle values='odd,even'}>">
-    <td class="legacy_list_select">options</td>
-    <td class="legacy_list_select">
+    <td class="xcore_list_select">options</td>
+    <td class="xcore_list_select">
     <table>
        <{if $options.writable_dir}>
         <tr><th class="ehad" colspan="2"><{$smarty.const._AD_XUPDATE_LANG_WRITABLE_DIR}></th></tr>

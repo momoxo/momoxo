@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_RoleManager.class.php,v 1.3 2008/09/25 15:11:56 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_RoleManager.class.php,v 1.3 2008/09/25 15:11:56 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -11,7 +11,7 @@
 /**
  * @note draft
  */
-class Legacy_RoleManager
+class Xcore_RoleManager
 {
 	/**
 	 * Loads roles of the specific module with $module, and set loaded roles to
@@ -45,7 +45,7 @@ class Legacy_RoleManager
 			$context->mUser->addRole('Module.' . $module->get('dirname') . '.Admin');
 		}
 		
-		$handler =& xoops_getmodulehandler('group_permission', 'legacy');
+		$handler =& xoops_getmodulehandler('group_permission', 'xcore');
 		$roleArr = $handler->getRolesByModule($module->get('mid'), $groups);
 		foreach ($roleArr as $role) {
 			$context->mUser->addRole('Module.' . $module->get('dirname') . '.' . $role);

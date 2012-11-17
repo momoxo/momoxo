@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_TextFilter.class.php,v 1.9 2008/09/25 15:11:57 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_TextFilter.class.php,v 1.9 2008/09/25 15:11:57 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -12,9 +12,9 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /**
  * @public
- * @brief The text filter for Legacy.
+ * @brief The text filter for Xcore.
  */
-class Legacy_TextFilter extends XCube_TextFilter
+class Xcore_TextFilter extends XCube_TextFilter
 {
 	/**
 	 * @var XCube_Delegate
@@ -72,27 +72,27 @@ class Legacy_TextFilter extends XCube_TextFilter
 	 * @todo
 	 *	  This method keeps a deprecated delegate.
 	 */
-	function Legacy_TextFilter()
+	function Xcore_TextFilter()
 	{
 		$obj = $this->mMakeClickableConvertTable = new XCube_Delegate;
-		$obj->register('Legacy_TextFilter.MakeClickableConvertTable');
-		$obj->add('Legacy_TextFilter::makeClickableConvertTable', XCUBE_DELEGATE_PRIORITY_2);
+		$obj->register('Xcore_TextFilter.MakeClickableConvertTable');
+		$obj->add('Xcore_TextFilter::makeClickableConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
 		$obj = $this->mMakeXCodeConvertTable = new XCube_Delegate;
-		$obj->register('Legacy_TextFilter.MakeXCodeConvertTable');
-		$obj->add('Legacy_TextFilter::makeXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
+		$obj->register('Xcore_TextFilter.MakeXCodeConvertTable');
+		$obj->add('Xcore_TextFilter::makeXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
 		$obj = $this->mMakeXCodeCheckImgPatterns = new XCube_Delegate;
-		$obj->register('Legacy_TextFilter.MakeXCodeCheckImgPatterns');
-		$obj->add('Legacy_TextFilter::makeXCodeCheckImgPatterns', XCUBE_DELEGATE_PRIORITY_2);
+		$obj->register('Xcore_TextFilter.MakeXCodeCheckImgPatterns');
+		$obj->add('Xcore_TextFilter::makeXCodeCheckImgPatterns', XCUBE_DELEGATE_PRIORITY_2);
 
 		$obj = $this->mMakePreXCodeConvertTable = new XCube_Delegate;
-		$obj->register('Legacy_TextFilter.MakePreXCodeConvertTable');
-		$obj->add('Legacy_TextFilter::makePreXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
+		$obj->register('Xcore_TextFilter.MakePreXCodeConvertTable');
+		$obj->add('Xcore_TextFilter::makePreXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
 		$obj = $this->mMakePostXCodeConvertTable = new XCube_Delegate;
-		$obj->register('Legacy_TextFilter.MakePostXCodeConvertTable');
-		$obj->add('Legacy_TextFilter::makePostXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
+		$obj->register('Xcore_TextFilter.MakePostXCodeConvertTable');
+		$obj->add('Xcore_TextFilter::makePostXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
 		//@deprecated
 		//Todo: For keeping compatible with XC2.1 Beta3
@@ -105,7 +105,7 @@ class Legacy_TextFilter extends XCube_TextFilter
 	
 	function getInstance(&$instance) {
 		if (empty($instance)) {
-			$instance = new Legacy_TextFilter();
+			$instance = new Xcore_TextFilter();
 		}
 	}
 	
@@ -248,7 +248,7 @@ class Legacy_TextFilter extends XCube_TextFilter
 	 **/
 	function makeClickable($text) {
 		if (empty($this->mClickablePatterns)) {
-			// Delegate Call 'Legacy_TextFilter.MakeClickableConvertTable'
+			// Delegate Call 'Xcore_TextFilter.MakeClickableConvertTable'
 			//	Delegate may replace makeClickable conversion table
 			//	Args : 
 			//		'patterns'	   [I/O] : &Array of pattern RegExp
@@ -293,7 +293,7 @@ class Legacy_TextFilter extends XCube_TextFilter
 	 **/
 	function convertXCode($text, $allowimage = 1) {
 		if (empty($this->mXCodePatterns)) {
-			// Delegate Call 'Legacy_TextFilter.MakeXCodeConvertTable'
+			// Delegate Call 'Xcore_TextFilter.MakeXCodeConvertTable'
 			//	Delegate may replace makeClickable conversion table
 			//	Args : 
 			//		'patterns'	   [I/O] : &Array of pattern RegExp
@@ -316,7 +316,7 @@ class Legacy_TextFilter extends XCube_TextFilter
 			$this->mXCodePre->call(new XCube_Ref($dummy), new XCube_Ref($this->mXCodeReplacements[1]), 1);
 		}
 		if (empty($this->mXCodeCheckImgPatterns)) {
-			// RaiseEvent 'Legacy_TextFilter.MakeXCodeCheckImgPatterns'
+			// RaiseEvent 'Xcore_TextFilter.MakeXCodeCheckImgPatterns'
 			//	Delegate may replace conversion table
 			//	Args : 
 			//		'patterns'	   [I/O] : &Array of pattern RegExp
@@ -436,7 +436,7 @@ class Legacy_TextFilter extends XCube_TextFilter
 	function preConvertXCode($text, $xcode = 1) {
 		if($xcode != 0){
 			if (empty($this->mPreXCodePatterns)) {
-				// RaiseEvent 'Legacy_TextFilter.MakePreXCodeConvertTable'
+				// RaiseEvent 'Xcore_TextFilter.MakePreXCodeConvertTable'
 				//	Delegate may replace conversion table
 				//	Args : 
 				//		'patterns'	   [I/O] : &Array of pattern RegExp
@@ -467,7 +467,7 @@ class Legacy_TextFilter extends XCube_TextFilter
 	function postConvertXCode($text, $xcode=1, $image=1){
 		if($xcode != 0){
 			if (empty($this->mPostXCodePatterns)) {
-				// RaiseEvent 'Legacy_TextFilter.MakePostXCodeConvertTable'
+				// RaiseEvent 'Xcore_TextFilter.MakePostXCodeConvertTable'
 				//	Delegate may replace conversion table
 				//	Args : 
 				//		'patterns'	   [I/O] : &Array of pattern RegExp
@@ -489,8 +489,8 @@ class Legacy_TextFilter extends XCube_TextFilter
 
 	function makePostXCodeConvertTable(&$patterns, &$replacements) {
 		$patterns[] = "/\[code\](.*)\[\/code\]/esU";
-		$replacements[0][] = "'<div class=\"xoopsCode\"><pre><code>'.Legacy_TextFilter::codeSanitizer('$1', 0).'</code></pre></div>'";
-		$replacements[1][] = "'<div class=\"xoopsCode\"><pre><code>'.Legacy_TextFilter::codeSanitizer('$1', 1).'</code></pre></div>'"; 
+		$replacements[0][] = "'<div class=\"xoopsCode\"><pre><code>'.Xcore_TextFilter::codeSanitizer('$1', 0).'</code></pre></div>'";
+		$replacements[1][] = "'<div class=\"xoopsCode\"><pre><code>'.Xcore_TextFilter::codeSanitizer('$1', 1).'</code></pre></div>'";
 	}
 
 	function codeSanitizer($text, $image = 1){

@@ -151,7 +151,7 @@ class User_EditUserForm extends User_AbstractUserEditForm
 		$this->mFieldProperties['bio']->addMessage('maxlength', _MD_USER_ERROR_MAXLENGTH, _MD_USER_LANG_BIO, '250');
 		$this->mFieldProperties['bio']->addVar('maxlength', 250);
 	
-		XCube_DelegateUtils::call('Legacy_Profile.SetupActionForm', $this);
+		XCube_DelegateUtils::call('Xcore_Profile.SetupActionForm', $this);
 	}
 	
 	function load(&$obj)
@@ -189,7 +189,7 @@ class User_EditUserForm extends User_AbstractUserEditForm
 		$root =& XCube_Root::getSingleton();
 		$this->set('usercookie', empty($_COOKIE[$this->mConfig['usercookie']]) ? 0 : 1);
 	
-		XCube_DelegateUtils::call('Legacy_Profile.LoadActionForm', $this);
+		XCube_DelegateUtils::call('Xcore_Profile.LoadActionForm', $this);
 	}
 	
 	function update(&$obj)

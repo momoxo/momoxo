@@ -120,7 +120,7 @@ class Lecat_ActorEditAction extends Lecat_AbstractEditAction
 		$headerScript->addStylesheet($this->_getStylesheet());
 		$actors = $this->_getActors();
 		$headerScript->addScript('actorsCounter='. count($actors['key']). ';',false);
-		$headerScript->addScript('function addActorKeyForm() {$("#permitOptions").append("<tr><td><input type=\'text\' id=\'legacy_xoopsform_key["+actorsCounter+"]\' value=\'\' name=\'key["+actorsCounter+"]\'></td><td><input type=\'text\' id=\'legacy_xoopsform_title["+actorsCounter+"]\' value=\'\' name=\'title["+actorsCounter+"]\'></td><td><input type=\'checkbox\' id=\'legacy_xoopsform_default["+actorsCounter+"]\' value=\'1\' name=\'default["+actorsCounter+"]\'></td></tr>");actorsCounter++;}', false);
+		$headerScript->addScript('function addActorKeyForm() {$("#permitOptions").append("<tr><td><input type=\'text\' id=\'xcore_xoopsform_key["+actorsCounter+"]\' value=\'\' name=\'key["+actorsCounter+"]\'></td><td><input type=\'text\' id=\'xcore_xoopsform_title["+actorsCounter+"]\' value=\'\' name=\'title["+actorsCounter+"]\'></td><td><input type=\'checkbox\' id=\'xcore_xoopsform_default["+actorsCounter+"]\' value=\'1\' name=\'default["+actorsCounter+"]\'></td></tr>");actorsCounter++;}', false);
 	}
 
 	/**
@@ -183,7 +183,7 @@ class Lecat_ActorEditAction extends Lecat_AbstractEditAction
 	**/
 	protected function _getForwardUrl()
 	{
-		return Legacy_Utils::renderUri($this->mAsset->mDirname);
+		return Xcore_Utils::renderUri($this->mAsset->mDirname);
 	}
 }
 

@@ -174,7 +174,7 @@ class User_UserAdminEditForm extends XCube_ActionForm
 		$this->mFieldProperties['user_intrest']->addVar('maxlength', 150);
 	
 		//profile
-		XCube_DelegateUtils::call('Legacy_Profile.SetupActionForm', $this);
+		XCube_DelegateUtils::call('Xcore_Profile.SetupActionForm', $this);
 	}
 	
 	function validateUname()
@@ -316,7 +316,7 @@ class User_UserAdminEditForm extends XCube_ActionForm
 		}
 	
 		//profile
-		XCube_DelegateUtils::call('Legacy_Profile.LoadActionForm', $this);
+		XCube_DelegateUtils::call('Xcore_Profile.LoadActionForm', $this);
 	}
 
 	function update(&$obj)

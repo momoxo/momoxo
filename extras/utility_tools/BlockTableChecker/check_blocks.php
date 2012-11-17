@@ -260,7 +260,7 @@ function _highlight( $msg )
 function _build_url_module_update( $dirname )
 {
 	if ( $this->_xoops_version == '2.1' ) {
-		$url = XOOPS_URL.'/modules/legacy/admin/index.php?action=ModuleUpdate&dirname='.$dirname;
+		$url = XOOPS_URL.'/modules/xcore/admin/index.php?action=ModuleUpdate&dirname='.$dirname;
 	} else {
 		$url = XOOPS_URL.'/modules/system/admin.php?fct=modulesadmin&op=update&module='.$dirname;
 	}

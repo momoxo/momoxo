@@ -2,19 +2,19 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-define ("LEGACYRENDER_FRAME_PERFORM_SUCCESS", 1);
-define ("LEGACYRENDER_FRAME_PERFORM_FAIL", 2);
-define ("LEGACYRENDER_FRAME_INIT_SUCCESS", 3);
+define ("XCORERENDER_FRAME_PERFORM_SUCCESS", 1);
+define ("XCORERENDER_FRAME_PERFORM_FAIL", 2);
+define ("XCORERENDER_FRAME_INIT_SUCCESS", 3);
 
-define ("LEGACYRENDER_FRAME_VIEW_NONE", 1);
-define ("LEGACYRENDER_FRAME_VIEW_SUCCESS", 2);
-define ("LEGACYRENDER_FRAME_VIEW_ERROR", 3);
-define ("LEGACYRENDER_FRAME_VIEW_INDEX", 4);
-define ("LEGACYRENDER_FRAME_VIEW_INPUT", 5);
-define ("LEGACYRENDER_FRAME_VIEW_PREVIEW", 6);
-define ("LEGACYRENDER_FRAME_VIEW_CANCEL", 7);
+define ("XCORERENDER_FRAME_VIEW_NONE", 1);
+define ("XCORERENDER_FRAME_VIEW_SUCCESS", 2);
+define ("XCORERENDER_FRAME_VIEW_ERROR", 3);
+define ("XCORERENDER_FRAME_VIEW_INDEX", 4);
+define ("XCORERENDER_FRAME_VIEW_INPUT", 5);
+define ("XCORERENDER_FRAME_VIEW_PREVIEW", 6);
+define ("XCORERENDER_FRAME_VIEW_CANCEL", 7);
 
-class LegacyRender_ActionFrame
+class XcoreRender_ActionFrame
 {
 	var $mActionName = null;
 	var $mAction = null;
@@ -25,11 +25,11 @@ class LegacyRender_ActionFrame
 	 */
 	var $mCreateAction = null;
 
-	function LegacyRender_ActionFrame($admin)
+	function XcoreRender_ActionFrame($admin)
 	{
 		$this->mAdminFlag = $admin;
 		$this->mCreateAction =new XCube_Delegate();
-		$this->mCreateAction->register('LegacyRender_ActionFrame.CreateAction');
+		$this->mCreateAction->register('XcoreRender_ActionFrame.CreateAction');
 		$this->mCreateAction->add(array(&$this, '_createAction'));
 	}
 
@@ -54,13 +54,13 @@ class LegacyRender_ActionFrame
 		//
 		// Create action object by mActionName
 		//
-		$className = "LegacyRender_" . ucfirst($actionFrame->mActionName) . "Action";
+		$className = "XcoreRender_" . ucfirst($actionFrame->mActionName) . "Action";
 		$fileName = ucfirst($actionFrame->mActionName) . "Action";
 		if ($actionFrame->mAdminFlag) {
-			$fileName = XOOPS_MODULE_PATH . "/legacyRender/admin/actions/${fileName}.class.php";
+			$fileName = XOOPS_MODULE_PATH . "/xcoreRender/admin/actions/${fileName}.class.php";
 		}
 		else {
-			$fileName = XOOPS_MODULE_PATH . "/legacyRender/actions/${fileName}.class.php";
+			$fileName = XOOPS_MODULE_PATH . "/xcoreRender/actions/${fileName}.class.php";
 		}
 	
 		if (!file_exists($fileName)) {
@@ -85,12 +85,12 @@ class LegacyRender_ActionFrame
 		//
 		$this->mCreateAction->call(new XCube_Ref($this));
 	
-		if (!(is_object($this->mAction) && is_a($this->mAction, 'LegacyRender_Action'))) {
+		if (!(is_object($this->mAction) && is_a($this->mAction, 'XcoreRender_Action'))) {
 			die();	//< TODO
 		}
 
 		$handler =& xoops_gethandler('config');
-		$moduleConfig =& $handler->getConfigsByDirname('legacyRender');
+		$moduleConfig =& $handler->getConfigsByDirname('xcoreRender');
 	
 		$this->mAction->prepare($controller, $controller->mRoot->mContext->mXoopsUser, $moduleConfig);
 
@@ -111,41 +111,41 @@ class LegacyRender_ActionFrame
 		}
 	
 		switch($viewStatus) {
-			case LEGACYRENDER_FRAME_VIEW_SUCCESS:
+			case XCORERENDER_FRAME_VIEW_SUCCESS:
 				$this->mAction->executeViewSuccess($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACYRENDER_FRAME_VIEW_ERROR:
+			case XCORERENDER_FRAME_VIEW_ERROR:
 				$this->mAction->executeViewError($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACYRENDER_FRAME_VIEW_INDEX:
+			case XCORERENDER_FRAME_VIEW_INDEX:
 				$this->mAction->executeViewIndex($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACYRENDER_FRAME_VIEW_INPUT:
+			case XCORERENDER_FRAME_VIEW_INPUT:
 				$this->mAction->executeViewInput($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACYRENDER_FRAME_VIEW_PREVIEW:
+			case XCORERENDER_FRAME_VIEW_PREVIEW:
 				$this->mAction->executeViewPreview($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
-			case LEGACYRENDER_FRAME_VIEW_CANCEL:
+			case XCORERENDER_FRAME_VIEW_CANCEL:
 				$this->mAction->executeViewCancel($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		}
 	}
 }
 
-class LegacyRender_Action
+class XcoreRender_Action
 {
 	/**
 	 * @access private
 	 */
 	var $_mAdminFlag = false;
 	
-	function LegacyRender_Action($adminFlag = false)
+	function XcoreRender_Action($adminFlag = false)
 	{
 		$this->_mAdminFlag = $adminFlag;
 	}
@@ -161,12 +161,12 @@ class LegacyRender_Action
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		return LEGACYRENDER_FRAME_VIEW_NONE;
+		return XCORERENDER_FRAME_VIEW_NONE;
 	}
 
 	function execute(&$controller, &$xoopsUser)
 	{
-		return LEGACYRENDER_FRAME_VIEW_NONE;
+		return XCORERENDER_FRAME_VIEW_NONE;
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)

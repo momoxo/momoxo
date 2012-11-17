@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -36,7 +36,7 @@ function smarty_function_xoops_cooluri($params, &$smarty)
 	$action = isset($params['action']) ? $params['action'] : null;
 	$query = isset($params['query']) ? $params['query'] : null;
 
-	echo htmlspecialchars(Legacy_Utils::renderUri($dirname, $dataname, $dataId, $action, $query), ENT_QUOTES);
+	echo htmlspecialchars(Xcore_Utils::renderUri($dirname, $dataname, $dataId, $action, $query), ENT_QUOTES);
 }
 
 ?>

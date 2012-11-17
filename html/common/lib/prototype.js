@@ -5354,15 +5354,15 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
 
 
 
-  var isIELegacyEvent = function(event) { return false; };
+  var isIEXcoreEvent = function(event) { return false; };
 
   if (window.attachEvent) {
     if (window.addEventListener) {
-      isIELegacyEvent = function(event) {
+      isIEXcoreEvent = function(event) {
         return !(event instanceof window.Event);
       };
     } else {
-      isIELegacyEvent = function(event) { return true; };
+      isIEXcoreEvent = function(event) { return true; };
     }
   }
 
@@ -5372,9 +5372,9 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
     return event.which ? (event.which === code + 1) : (event.button === code);
   }
 
-  var legacyButtonMap = { 0: 1, 1: 4, 2: 2 };
-  function _isButtonForLegacyEvents(event, code) {
-    return event.button === legacyButtonMap[code];
+  var xcoreButtonMap = { 0: 1, 1: 4, 2: 2 };
+  function _isButtonForXcoreEvents(event, code) {
+    return event.button === xcoreButtonMap[code];
   }
 
   function _isButtonForWebKit(event, code) {
@@ -5388,10 +5388,10 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
 
   if (window.attachEvent) {
     if (!window.addEventListener) {
-      _isButton = _isButtonForLegacyEvents;
+      _isButton = _isButtonForXcoreEvents;
     } else {
       _isButton = function(event, code) {
-        return isIELegacyEvent(event) ? _isButtonForLegacyEvents(event, code) :
+        return isIEXcoreEvent(event) ? _isButtonForXcoreEvents(event, code) :
          _isButtonForDOMEvents(event, code);
       }
     }
@@ -5517,7 +5517,7 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
     Event.extend = function(event, element) {
       if (!event) return false;
 
-      if (!isIELegacyEvent(event)) return event;
+      if (!isIEXcoreEvent(event)) return event;
 
       if (event._extendedByPrototype) return event;
       event._extendedByPrototype = Prototype.emptyFunction;

@@ -1,12 +1,12 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: TplfileViewAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRender_TplfileViewAction extends LegacyRender_Action
+class XcoreRender_TplfileViewAction extends XcoreRender_Action
 {
 	var $mObject = null;
 	
@@ -18,10 +18,10 @@ class LegacyRender_TplfileViewAction extends LegacyRender_Action
 		$this->mObject =& $handler->get($id);
 		
 		if (!is_object($this->mObject)) {
-			return LEGACYRENDER_FRAME_VIEW_ERROR;
+			return XCORERENDER_FRAME_VIEW_ERROR;
 		}
 		
-		return LEGACYRENDER_FRAME_VIEW_SUCCESS;
+		return XCORERENDER_FRAME_VIEW_SUCCESS;
 	}
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
@@ -34,7 +34,7 @@ class LegacyRender_TplfileViewAction extends LegacyRender_Action
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_LEGACYRENDER_ERROR_OBJECT_IS_NOT_EXIST);
+		$controller->executeRedirect("./index.php?action=TplsetList", 1, _AD_XCORERENDER_ERROR_OBJECT_IS_NOT_EXIST);
 	}
 }
 

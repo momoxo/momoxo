@@ -22,8 +22,8 @@ class QuickManageBlock extends XCube_ActionFilter
 
 	public function preBlockFilter()
 	{
-		$this->mRoot->mDelegateManager->add('Legacy_RenderSystem.BeginRender', array(&$this, 'beginRender'));  
-		$this->mRoot->mDelegateManager->add('Legacy_ActionFrame.CreateAction', array(&$this, 'createAction'));  
+		$this->mRoot->mDelegateManager->add('Xcore_RenderSystem.BeginRender', array(&$this, 'beginRender'));
+		$this->mRoot->mDelegateManager->add('Xcore_ActionFrame.CreateAction', array(&$this, 'createAction'));
 	}
 
 	public function createAction(&$action)
@@ -74,7 +74,7 @@ class QuickManageBlock extends XCube_ActionFilter
 			return;
 		}
 
-		$baseUrluninstall = XOOPS_URL.'/modules/legacy/admin/index.php?action=BlockUninstall&bid=%s';
+		$baseUrluninstall = XOOPS_URL.'/modules/xcore/admin/index.php?action=BlockUninstall&bid=%s';
 
 		$asides = array('xoops_lblocks', 'xoops_rblocks', 'xoops_clblocks', 'xoops_crblocks', 'xoops_ccblocks');
 		$blockIds = array();
@@ -96,8 +96,8 @@ class QuickManageBlock extends XCube_ActionFilter
 				$urluninstall = sprintf($baseUrluninstall, $block['id']);
 
 				$block_control = '<span style="float:right;" class="block_controller">';
-				$block_control .= '<a href="'.$urlBlockEdit.'" ><img src="'.XOOPS_URL.'/modules/legacy/admin/theme/icons/edit.png" /></a>';
-				$block_control .= '<a href="'.$urluninstall.'"><img src="'.XOOPS_URL.'/modules/legacy/admin/theme/icons/uninstall.png" /></a>';
+				$block_control .= '<a href="'.$urlBlockEdit.'" ><img src="'.XOOPS_URL.'/modules/xcore/admin/theme/icons/edit.png" /></a>';
+				$block_control .= '<a href="'.$urluninstall.'"><img src="'.XOOPS_URL.'/modules/xcore/admin/theme/icons/uninstall.png" /></a>';
 				$block_control .= '</span>';
 				if( strstr( $block['title'], 'none' ) ==true ) {
 					$block['content'] = $block_control . $block['content'];
@@ -194,7 +194,7 @@ class QuickManageBlock extends XCube_ActionFilter
 		$dirname = basename(dirname(dirname(__FILE__)));
 
 		$moduleHandler =& xoops_gethandler('module');
-		$moduleModel   = $moduleHandler->getByDirname('legacy');
+		$moduleModel   = $moduleHandler->getByDirname('xcore');
 		$moduleId      = $moduleModel->getVar('mid');
 
 		return $xoopsUser->isAdmin($moduleId);
@@ -251,8 +251,8 @@ class QuickManageBlock extends XCube_ActionFilter
 
 	protected function _getBlockEditUrl($blockId, $blockTypes)
 	{
-		$baseUrlBlockEdit       = XOOPS_URL.'/modules/legacy/admin/index.php?action=BlockEdit&bid=%s';
-		$baseUrlCustomBlockEdit = XOOPS_URL.'/modules/legacy/admin/index.php?action=CustomBlockEdit&bid=%s';
+		$baseUrlBlockEdit       = XOOPS_URL.'/modules/xcore/admin/index.php?action=BlockEdit&bid=%s';
+		$baseUrlCustomBlockEdit = XOOPS_URL.'/modules/xcore/admin/index.php?action=CustomBlockEdit&bid=%s';
 
 		if ( $blockTypes[$blockId] === 'C' )
 		{

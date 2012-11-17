@@ -1,23 +1,23 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: BannerAdminEditForm.class.php,v 1.2 2007/06/07 05:27:56 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
 /***
  * @internal
  * @todo This form doesn't validate the format of URL. Isn't OK?
  */
-class LegacyRender_BannerAdminEditForm extends XCube_ActionForm
+class XcoreRender_BannerAdminEditForm extends XCube_ActionForm
 {
 	function getTokenName()
 	{
-		return "module.legacyRender.BannerAdminEditForm.TOKEN" . $this->get('bid');
+		return "module.xcoreRender.BannerAdminEditForm.TOKEN" . $this->get('bid');
 	}
 
 	function prepare()
@@ -38,27 +38,27 @@ class LegacyRender_BannerAdminEditForm extends XCube_ActionForm
 		//
 		$this->mFieldProperties['bid'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['bid']->setDependsByArray(array('required'));
-		$this->mFieldProperties['bid']->addMessage('required', _AD_LEGACYRENDER_ERROR_REQUIRED, _AD_LEGACYRENDER_LANG_BID);
+		$this->mFieldProperties['bid']->addMessage('required', _AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_BID);
 	
 		$this->mFieldProperties['cid'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['cid']->setDependsByArray(array('required','objectExist'));
-		$this->mFieldProperties['cid']->addMessage('required', _AD_LEGACYRENDER_ERROR_REQUIRED, _AD_LEGACYRENDER_LANG_CID);
-		$this->mFieldProperties['cid']->addMessage('objectExist', _AD_LEGACYRENDER_ERROR_OBJECT_EXIST, _AD_LEGACYRENDER_LANG_CID);
+		$this->mFieldProperties['cid']->addMessage('required', _AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_CID);
+		$this->mFieldProperties['cid']->addMessage('objectExist', _AD_XCORERENDER_ERROR_OBJECT_EXIST, _AD_XCORERENDER_LANG_CID);
 		$this->mFieldProperties['cid']->addVar('handler', 'bannerclient');
-		$this->mFieldProperties['cid']->addVar('module', 'legacyRender');
+		$this->mFieldProperties['cid']->addVar('module', 'xcoreRender');
 	
 		$this->mFieldProperties['imptotal'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imptotal']->setDependsByArray(array('required'));
-		$this->mFieldProperties['imptotal']->addMessage('required', _AD_LEGACYRENDER_ERROR_REQUIRED, _AD_LEGACYRENDER_LANG_IMPTOTAL);
+		$this->mFieldProperties['imptotal']->addMessage('required', _AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_IMPTOTAL);
 	
 		$this->mFieldProperties['imageurl'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imageurl']->setDependsByArray(array('maxlength'));
-		$this->mFieldProperties['imageurl']->addMessage('maxlength', _AD_LEGACYRENDER_ERROR_MAXLENGTH, _AD_LEGACYRENDER_LANG_IMAGEURL, '255');
+		$this->mFieldProperties['imageurl']->addMessage('maxlength', _AD_XCORERENDER_ERROR_MAXLENGTH, _AD_XCORERENDER_LANG_IMAGEURL, '255');
 		$this->mFieldProperties['imageurl']->addVar('maxlength', '255');
 	
 		$this->mFieldProperties['clickurl'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['clickurl']->setDependsByArray(array('maxlength'));
-		$this->mFieldProperties['clickurl']->addMessage('maxlength', _AD_LEGACYRENDER_ERROR_MAXLENGTH, _AD_LEGACYRENDER_LANG_CLICKURL, '255');
+		$this->mFieldProperties['clickurl']->addMessage('maxlength', _AD_XCORERENDER_ERROR_MAXLENGTH, _AD_XCORERENDER_LANG_CLICKURL, '255');
 		$this->mFieldProperties['clickurl']->addVar('maxlength', '255');
 	}
 
@@ -71,15 +71,15 @@ class LegacyRender_BannerAdminEditForm extends XCube_ActionForm
 		//
 		if ($this->get('htmlbanner')) {
 			if (strlen($this->get('htmlcode')) == 0) {
-				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACYRENDER_ERROR_REQUIRED, _AD_LEGACYRENDER_LANG_HTMLCODE));
+				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_HTMLCODE));
 			}
 		}
 		else {
 			if (strlen($this->get('imageurl')) == 0) {
-				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACYRENDER_ERROR_REQUIRED, _AD_LEGACYRENDER_LANG_IMAGEURL));
+				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_IMAGEURL));
 			}
 			if (strlen($this->get('clickurl')) == 0) {
-				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_LEGACYRENDER_ERROR_REQUIRED, _AD_LEGACYRENDER_LANG_CLICKURL));
+				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORERENDER_ERROR_REQUIRED, _AD_XCORERENDER_LANG_CLICKURL));
 			}
 		}
 	}

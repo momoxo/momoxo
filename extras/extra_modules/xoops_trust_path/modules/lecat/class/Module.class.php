@@ -27,7 +27,7 @@ define('LECAT_FRAME_VIEW_CANCEL','cancel');
 /**
  * Lecat_Module
 **/
-class Lecat_Module extends Legacy_ModuleAdapter
+class Lecat_Module extends Xcore_ModuleAdapter
 {
 	/**
 	 * @brief	string

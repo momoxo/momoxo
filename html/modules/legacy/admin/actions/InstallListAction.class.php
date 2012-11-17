@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: InstallListAction.class.php,v 1.4 2008/09/25 15:11:45 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -15,7 +15,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * @internal
  * List up non-installation modules.
  */
-class Legacy_InstallListAction extends Legacy_Action
+class Xcore_InstallListAction extends Xcore_Action
 {
 	var $mModuleObjects = null;
 	
@@ -25,7 +25,7 @@ class Legacy_InstallListAction extends Legacy_Action
 
 		$this->mModuleObjects =& $handler->getObjects();
 		
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 	
 	function executeViewIndex(&$controller, &$xoopsUser, &$renderer)

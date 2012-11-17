@@ -2,10 +2,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/BannerfinishFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/BannerfinishFilterForm.class.php";
 
-class LegacyRender_BannerfinishListAction extends LegacyRender_AbstractListAction
+class XcoreRender_BannerfinishListAction extends XcoreRender_AbstractListAction
 {
 	function &_getHandler()
 	{
@@ -15,7 +15,7 @@ class LegacyRender_BannerfinishListAction extends LegacyRender_AbstractListActio
 
 	function &_getFilterForm()
 	{
-		$filter =new LegacyRender_BannerfinishFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new XcoreRender_BannerfinishFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 

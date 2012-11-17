@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleInstaller.class.php,v 1.4 2008/10/26 04:00:40 minahito Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,7 +10,7 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 
 /**
  * This class extends a base class for the process of install module. This is added
@@ -18,11 +18,11 @@ require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
  * 
  * @todo It seems possibility to abstract with other installer classes.
  */
-class Legacy_ModuleInstaller
+class Xcore_ModuleInstaller
 {
 	/**
 	 * @public
-	 * @var Legacy_ModuleInstallLog
+	 * @var Xcore_ModuleInstallLog
 	 */
 	var $mLog = null;
 	
@@ -34,9 +34,9 @@ class Legacy_ModuleInstaller
 	 */
 	var $_mXoopsModule = null;
 	
-	function Legacy_ModuleInstaller()
+	function Xcore_ModuleInstaller()
 	{
-		$this->mLog =new Legacy_ModuleInstallLog();
+		$this->mLog =new Xcore_ModuleInstallLog();
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Legacy_ModuleInstaller
 	
 	function _installTables()
 	{
-		Legacy_ModuleInstallUtils::installSQLAutomatically($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installSQLAutomatically($this->_mXoopsModule, $this->mLog);
 	}
 	
 	/**
@@ -85,7 +85,7 @@ class Legacy_ModuleInstaller
             $adminPerm->setVar('gperm_name', 'module_admin');
 
             if (!$gpermHandler->insert($adminPerm)) {
-                $this->mLog->addError(_AD_LEGACY_ERROR_COULD_NOT_SET_ADMIN_PERMISSION);
+                $this->mLog->addError(_AD_XCORE_ERROR_COULD_NOT_SET_ADMIN_PERMISSION);
             }
         }
 
@@ -108,7 +108,7 @@ class Legacy_ModuleInstaller
                         $adminPerm->setVar('gperm_itemid', $modversion['category']);
                         $adminPerm->setVar('gperm_name', 'system_admin');
                         if (!$gpermHandler->insert($adminPerm)) {
-                            $this->mLog->addError(_AD_LEGACY_ERROR_COULD_NOT_SET_SYSTEM_PERMISSION);
+                            $this->mLog->addError(_AD_XCORE_ERROR_COULD_NOT_SET_SYSTEM_PERMISSION);
                         }
                         unset($sysAdminPerm);
                     }
@@ -130,7 +130,7 @@ class Legacy_ModuleInstaller
                     $readPerm->setVar('gperm_name', 'module_read');
 
                     if (!$gpermHandler->insert($readPerm)) {
-                        $this->mLog->addError(_AD_LEGACY_ERROR_COULD_NOT_SET_READ_PERMISSION);
+                        $this->mLog->addError(_AD_XCORE_ERROR_COULD_NOT_SET_READ_PERMISSION);
                     }
                 }
             } else {
@@ -144,7 +144,7 @@ class Legacy_ModuleInstaller
                     $readPerm->setVar('gperm_name', 'module_read');
 
                     if (!$gpermHandler->insert($readPerm)) {
-                        $this->mLog->addError(_AD_LEGACY_ERROR_COULD_NOT_SET_READ_PERMISSION);
+                        $this->mLog->addError(_AD_XCORE_ERROR_COULD_NOT_SET_READ_PERMISSION);
                     }
                 }
             }
@@ -175,17 +175,17 @@ class Legacy_ModuleInstaller
 	 */
 	function _installTemplates()
 	{
-		Legacy_ModuleInstallUtils::installAllOfModuleTemplates($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mXoopsModule, $this->mLog);
 	}
 
     function _installBlocks()
     {
-		Legacy_ModuleInstallUtils::installAllOfBlocks($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installAllOfBlocks($this->_mXoopsModule, $this->mLog);
     }
 
     function _installPreferences()
     {
-        Legacy_ModuleInstallUtils::installAllOfConfigs($this->_mXoopsModule, $this->mLog);
+        Xcore_ModuleInstallUtils::installAllOfConfigs($this->_mXoopsModule, $this->mLog);
     }
     
     function _processScript()
@@ -196,7 +196,7 @@ class Legacy_ModuleInstaller
             $funcName = 'xoops_module_install_' . $this->_mXoopsModule->get('dirname');
 			
 			if (!preg_match("/^[a-zA-Z_][a-zA-Z0-9_]*$/", $funcName)) {
-				$this->mLog->addError(XCUbe_Utils::formatMessage(_AD_LEGACY_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
+				$this->mLog->addError(XCUbe_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
 				return;
 			}
 			
@@ -206,7 +206,7 @@ class Legacy_ModuleInstaller
 
 				$result = $funcName($this->_mXoopsModule, new XCube_Ref($this->mLog));                	
 				if (!$result) {
-                    $this->mLog->addError(XCUbe_Utils::formatMessage(_AD_LEGACY_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
+                    $this->mLog->addError(XCUbe_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
                 }
             }
         }
@@ -215,10 +215,10 @@ class Legacy_ModuleInstaller
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(XCube_Utils::formatMessage(_AD_LEGACY_MESSAGE_INSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
+			$this->mLog->add(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_INSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_LEGACY_ERROR_INSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
+			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_INSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
 		}
 	}
 

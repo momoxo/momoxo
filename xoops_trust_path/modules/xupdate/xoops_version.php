@@ -35,7 +35,7 @@ $modversion['dirname'] = $myDirName;
 $modversion['trust_dirname'] = $basename;
 
 $modversion['cube_style'] = true;
-$modversion['legacy_installer'] = array(
+$modversion['xcore_installer'] = array(
 	'installer'   => array(
 		'class' 	=> 'Installer',
 		'namespace' => 'Xupdate',
@@ -52,7 +52,7 @@ $modversion['legacy_installer'] = array(
 		'filepath'	=> XUPDATE_TRUST_PATH . '/admin/class/installer/XupdateUpdater.class.php'
 	)
 );
-$modversion['disable_legacy_2nd_installer'] = false;
+$modversion['disable_xcore_2nd_installer'] = false;
 
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 $modversion['tables'] = array(
@@ -189,7 +189,7 @@ $modversion['config'] = array(
 		'name'		=> 'ftp_method' ,
 		'title'		=> '_MI_XUPDATE_FTP_METHOD',
 		'description'	=> '_MI_XUPDATE_FTP_METHODDSC',
-		'formtype'	=> ((defined('_MI_LEGACY_DETAILED_VERSION') && version_compare(_MI_LEGACY_DETAILED_VERSION, 'CorePack 20120825', '>='))? 'radio_br' : 'select'),
+		'formtype'	=> ((defined('_MI_XCORE_DETAILED_VERSION') && version_compare(_MI_XCORE_DETAILED_VERSION, 'CorePack 20120825', '>='))? 'radio_br' : 'select'),
 		'valuetype'	=> 'int',
 		'default'	=> '4',
 		'options'	=> array( '_MI_XUPDATE_DIRECT' => 4,

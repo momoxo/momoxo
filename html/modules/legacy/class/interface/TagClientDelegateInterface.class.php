@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,24 +12,24 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of group client delegate
- * Modules which uses Legacy_Tag must implement this interface.
+ * Modules which uses Xcore_Tag must implement this interface.
 **/
-interface Legacy_iTagClientDelegate
+interface Xcore_iTagClientDelegate
 {
 	/**
-	 * getClientList	Legacy_TagClient.{dirname}.GetClientList
+	 * getClientList	Xcore_TagClient.{dirname}.GetClientList
 	 *
 	 * @param mixed[]	&$list
 	 *  @list[]['dirname']		client module dirname
 	 *  @list[]['dataname']		client module dataname(tablename)
-	 * @param string	$tDirname	Legacy_Tag module's dirname
+	 * @param string	$tDirname	Xcore_Tag module's dirname
 	 *
 	 * @return	void
 	 */ 
 	public static function getClientList(/*** mixed[] ***/ &$list, /*** string ***/ $tDirname);
 
 	/**
-	 * getClientData	Legacy_TagClient.{dirname}.GetClientData
+	 * getClientData	Xcore_TagClient.{dirname}.GetClientData
 	 *
 	 * @param mixed		&$list
 	 *	string	$list['dirname'][]	client module dirname

@@ -2,12 +2,12 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRenderBannerObject extends XoopsSimpleObject
+class XcoreRenderBannerObject extends XoopsSimpleObject
 {
 	var $mClient = null;
 	var $_mClientLoadedFlag = false;
 
-	function LegacyRenderBannerObject()
+	function XcoreRenderBannerObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -30,18 +30,18 @@ class LegacyRenderBannerObject extends XoopsSimpleObject
 	function loadBannerclient()
 	{
 		if ($this->_mClientLoadedFlag == false) {
-			$handler =& xoops_getmodulehandler('bannerclient', 'legacyRender');
+			$handler =& xoops_getmodulehandler('bannerclient', 'xcoreRender');
 			$this->mClient =& $handler->get($this->get('cid'));
 			$this->_mClientLoadedFlag = true;
 		}
 	}
 }
 
-class LegacyRenderBannerHandler extends XoopsObjectGenericHandler
+class XcoreRenderBannerHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "banner";
 	var $mPrimary = "bid";
-	var $mClass = "LegacyRenderBannerObject";
+	var $mClass = "XcoreRenderBannerObject";
 }
 
 ?>

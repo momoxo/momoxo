@@ -146,10 +146,10 @@ function make_data(&$dbm, &$cm, $adminname, $adminpass, $adminmail, $language, $
     $dbm->insert("group_permission", " VALUES(0,".$gruops['XOOPS_GROUP_ADMIN'].",14,1,'system_admin')");
     $dbm->insert("group_permission", " VALUES(0,".$gruops['XOOPS_GROUP_ADMIN'].",15,1,'system_admin')");
 
-    installModule($dbm, 2, "legacy", _MI_LEGACY_NAME, $language, $gruops, true);
+    installModule($dbm, 2, "xcore", _MI_XCORE_NAME, $language, $gruops, true);
     $dbm->insert("group_permission", " VALUES (0, ".$gruops['XOOPS_GROUP_ADMIN'].", 2, 1, 'module_admin')");
 
-    installModule($dbm, 3, "legacyRender", _MI_LEGACYRENDER_NAME, $language, $gruops, true);
+    installModule($dbm, 3, "xcoreRender", _MI_XCORERENDER_NAME, $language, $gruops, true);
     $dbm->insert("group_permission", " VALUES (0, ".$gruops['XOOPS_GROUP_ADMIN'].", 3, 1, 'module_admin')");
 
     installModule($dbm, 4, "user", _MI_USER_NAME, $language, $gruops, true);

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: BackendAction.class.php,v 1.4 2008/09/25 14:31:58 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -13,7 +13,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 /***
  * @internal
  */
-class Legacy_BackendAction extends Legacy_Action
+class Xcore_BackendAction extends Xcore_Action
 {
 	var $mItems = array();
 	
@@ -33,12 +33,12 @@ class Legacy_BackendAction extends Legacy_Action
 	 */
 	var $mGetRSSItems = null;
 	
-	function Legacy_BackendAction($flag)
+	function Xcore_BackendAction($flag)
 	{
-		parent::Legacy_Action($flag);
+		parent::Xcore_Action($flag);
 		
 		$this->mGetRSSItems =new XCube_Delegate();
-		$this->mGetRSSItems->register('Legacy_BackendAction.GetRSSItems');
+		$this->mGetRSSItems->register('Xcore_BackendAction.GetRSSItems');
 	}
 	
 	function getDefaultView(&$controll, &$xoopsUser)
@@ -55,7 +55,7 @@ class Legacy_BackendAction extends Legacy_Action
 		}
 		krsort($sortArr);
 	    $this->mItems = $sortArr;
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 	
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
@@ -65,11 +65,11 @@ class Legacy_BackendAction extends Legacy_Action
 		//
 		// Set up the render buffer.
 		//
-		$renderSystem =& $controller->mRoot->getRenderSystem('Legacy_RenderSystem');
+		$renderSystem =& $controller->mRoot->getRenderSystem('Xcore_RenderSystem');
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 
-		$renderTarget->setTemplateName("legacy_rss.html");
+		$renderTarget->setTemplateName("xcore_rss.html");
 		
 		$renderTarget->setAttribute('channel_title', $xoopsConfig['sitename']);
 		$renderTarget->setAttribute('channel_link', XOOPS_URL . '/');

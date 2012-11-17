@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_Controller.class.php,v 1.22 2008/11/14 09:45:23 mumincacao Exp $
+ * @package Xcore
+ * @version $Id: Xcore_Controller.class.php,v 1.22 2008/11/14 09:45:23 mumincacao Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -13,23 +13,23 @@ if (!defined('XOOPS_TRUST_PATH')){
 	echo 'XOOPS_TRUST_PATH is required after KARIMOJI 2.2 in mainfile.php';exit();
 }
 
-define('LEGACY_MODULE_VERSION', '2.2');
+define('XCORE_MODULE_VERSION', '2.2');
 
-define('LEGACY_CONTROLLER_STATE_PUBLIC', 1);
-define('LEGACY_CONTROLLER_STATE_ADMIN', 2);
+define('XCORE_CONTROLLER_STATE_PUBLIC', 1);
+define('XCORE_CONTROLLER_STATE_ADMIN', 2);
 
-define('LEGACY_XOOPS_MODULE_MANIFESTO_FILENAME', 'xoops_version.php');
+define('XCORE_XOOPS_MODULE_MANIFESTO_FILENAME', 'xoops_version.php');
 
-require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_BlockProcedure.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/legacy/class/Legacy_Utils.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/legacy/class/Enum.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_Identity.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_RoleManager.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_BlockProcedure.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/class/Xcore_Utils.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/class/Enum.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_Identity.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_RoleManager.class.php';
 
-require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_CacheInformation.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_PublicControllerStrategy.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_TextFilter.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/legacy/class/Legacy_Debugger.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_CacheInformation.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_PublicControllerStrategy.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_TextFilter.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcore/class/Xcore_Debugger.class.php';
 
 /**
  * This class is a virtual controller that has the compatibility with XOOPS 2.0.x.
@@ -43,7 +43,7 @@ require_once XOOPS_ROOT_PATH . '/modules/legacy/class/Legacy_Debugger.class.php'
  * XCube_Controller keeps a process that set up instances of some KARIMOJI_LEGALEGAclasses,
  * yet. We should move its process to this controller.
  */
-class Legacy_Controller extends XCube_Controller
+class Xcore_Controller extends XCube_Controller
 {
 	var $_mAdminModeFlag = false;
 	var $_mStrategy = null;
@@ -103,14 +103,14 @@ class Legacy_Controller extends XCube_Controller
 	 */
 	var $mLogger = null;
 	
-	function Legacy_Controller()
+	function Xcore_Controller()
 	{
 		parent::XCube_Controller();
 		
 		//
 		// Setup member properties as member delegates.
 		//
-		$this->mSetupUser->register('Legacy_Controller.SetupUser');
+		$this->mSetupUser->register('Xcore_Controller.SetupUser');
 		
 		$this->mCheckLogin =new XCube_Delegate();
 		$this->mCheckLogin->register('Site.CheckLogin');
@@ -119,18 +119,18 @@ class Legacy_Controller extends XCube_Controller
 		$this->mLogout->register('Site.Logout');
 		
 		$this->mCreateLanguageManager = new XCube_Delegate();
-		$this->mCreateLanguageManager->register('Legacy_Controller.CreateLanguageManager');
+		$this->mCreateLanguageManager->register('Xcore_Controller.CreateLanguageManager');
 		
 		$this->mGetLanguageName = new XCube_Delegate();
-		$this->mGetLanguageName->register('Legacy_Controller.GetLanguageName');
+		$this->mGetLanguageName->register('Xcore_Controller.GetLanguageName');
 		
 		$this->mSetBlockCachePolicy = new XCube_Delegate();
 		$this->mSetModuleCachePolicy = new XCube_Delegate();
 		
 		$this->mSetupDebugger = new XCube_Delegate();
-		$this->mSetupDebugger->add('Legacy_DebuggerManager::createInstance');
+		$this->mSetupDebugger->add('Xcore_DebuggerManager::createInstance');
 
-		$this->mSetupTextFilter->add('Legacy_TextFilter::getInstance',XCUBE_DELEGATE_PRIORITY_FINAL-1);
+		$this->mSetupTextFilter->add('Xcore_TextFilter::getInstance',XCUBE_DELEGATE_PRIORITY_FINAL-1);
 
 		$this->_mNotifyRedirectToUser = new XCube_Delegate();
 		if(get_magic_quotes_runtime()) {
@@ -153,17 +153,17 @@ class Legacy_Controller extends XCube_Controller
 		if (count($urlInfo) >= 3) {
 			if (strtolower($urlInfo[0]) == 'modules') {
 				if (strtolower($urlInfo[2]) == 'admin')	$adminStateFlag = true;
-				elseif ($urlInfo[1] == 'legacy' && $urlInfo[2] == 'include') $adminStateFlag = true;
+				elseif ($urlInfo[1] == 'xcore' && $urlInfo[2] == 'include') $adminStateFlag = true;
 				elseif ($urlInfo[1] == 'system' && substr($urlInfo[2], 0, 9) == 'admin.php') $adminStateFlag = true;
 			}
 		} elseif (substr($urlInfo[0], 0, 9) == 'admin.php') $adminStateFlag = true;
 
 		if ($adminStateFlag) {
-			require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_AdminControllerStrategy.class.php';
-			$this->_mStrategy = new Legacy_AdminControllerStrategy($this);
+			require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_AdminControllerStrategy.class.php';
+			$this->_mStrategy = new Xcore_AdminControllerStrategy($this);
 		}
 		else {
-			$this->_mStrategy = new Legacy_PublicControllerStrategy($this);
+			$this->_mStrategy = new Xcore_PublicControllerStrategy($this);
 		}
 	}
 	
@@ -314,7 +314,7 @@ class Legacy_Controller extends XCube_Controller
 		require_once XOOPS_ROOT_PATH.'/include/version.php';
 		
 		require_once XOOPS_TRUST_PATH.'/settings/definition.inc.php';
-		define('XOOPS_LEGACY_PATH',XOOPS_MODULE_PATH.'/'.XOOPS_LEGACY_PROC_NAME);
+		define('XOOPS_XCORE_PATH',XOOPS_MODULE_PATH.'/'.XOOPS_XCORE_PROC_NAME);
 
 		require_once XOOPS_ROOT_PATH.'/include/functions.php';
 
@@ -323,8 +323,8 @@ class Legacy_Controller extends XCube_Controller
 		require_once XOOPS_ROOT_PATH.'/class/token.php';
 		require_once XOOPS_ROOT_PATH.'/class/module.textsanitizer.php';
 
-		require_once XOOPS_LEGACY_PATH.'/kernel/object.php';				// ToDo (here?)
-		require_once XOOPS_LEGACY_PATH.'/kernel/handler.php';				// ToDo
+		require_once XOOPS_XCORE_PATH.'/kernel/object.php';				// ToDo (here?)
+		require_once XOOPS_XCORE_PATH.'/kernel/handler.php';				// ToDo
 		require_once XOOPS_ROOT_PATH.'/core/XCube_Utils.class.php'; // ToDo
 
 		require_once XOOPS_ROOT_PATH.'/class/xoopssecurity.php';
@@ -341,7 +341,7 @@ class Legacy_Controller extends XCube_Controller
 	 * in site_custom.ini.php.
 	 * 
 	 * site_custom.ini.php:
-	 *	[Legacy]
+	 *	[Xcore]
 	 *	AutoPreload = 1
 	 *
 	 */
@@ -400,8 +400,8 @@ class Legacy_Controller extends XCube_Controller
 				if ($cacheInfo->isEnableCache() && $this->existActiveCacheFile($filepath, $blockProcedure->getCacheTime())) {
 					$content = $this->loadCache($filepath);
 					if ($blockProcedure->isDisplay() && !empty($content)) {
-						$context->mAttributes['legacy_BlockShowFlags'][$blockProcedure->getEntryIndex()] = true;
-						$context->mAttributes['legacy_BlockContents'][$blockProcedure->getEntryIndex()][] = array(
+						$context->mAttributes['xcore_BlockShowFlags'][$blockProcedure->getEntryIndex()] = true;
+						$context->mAttributes['xcore_BlockContents'][$blockProcedure->getEntryIndex()][] = array(
 							'id' => $blockProcedure->getId(),
 							'name' => $blockProcedure->getName(),
 							'title'   => $blockProcedure->getTitle(),
@@ -421,8 +421,8 @@ class Legacy_Controller extends XCube_Controller
 				if ($blockProcedure->isDisplay()) {
 					$renderBuffer =& $blockProcedure->getRenderTarget();
 					
-					$context->mAttributes['legacy_BlockShowFlags'][$blockProcedure->getEntryIndex()] = true;
-					$context->mAttributes['legacy_BlockContents'][$blockProcedure->getEntryIndex()][] = array(
+					$context->mAttributes['xcore_BlockShowFlags'][$blockProcedure->getEntryIndex()] = true;
+					$context->mAttributes['xcore_BlockContents'][$blockProcedure->getEntryIndex()][] = array(
 							'name' => $blockProcedure->getName(),
 							'title'=>$blockProcedure->getTitle(),
 							'content'=>$renderBuffer->getResult(),
@@ -480,7 +480,7 @@ class Legacy_Controller extends XCube_Controller
 				}
 			}
 			if (substr($urlInfo[0], 0, 9) == 'admin.php') {
-				$dirname = 'legacy';
+				$dirname = 'xcore';
 			}
 		}
 		
@@ -488,14 +488,14 @@ class Legacy_Controller extends XCube_Controller
 			return;
 		}
 		
-		if (!file_exists(XOOPS_ROOT_PATH . '/modules/' . $dirname . '/' . LEGACY_XOOPS_MODULE_MANIFESTO_FILENAME)) {
+		if (!file_exists(XOOPS_ROOT_PATH . '/modules/' . $dirname . '/' . XCORE_XOOPS_MODULE_MANIFESTO_FILENAME)) {
 			return;
 		}
 		
 		$this->_mStrategy->setupModuleContext($this->mRoot->mContext, $dirname);
 		
 		if ($this->mRoot->mContext->mModule != null) {
-			$this->mRoot->mContext->setAttribute('legacy_pagetitle', $this->mRoot->mContext->mModule->mXoopsModule->get('name'));
+			$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mModule->mXoopsModule->get('name'));
 		}
 	}
 	
@@ -508,13 +508,13 @@ class Legacy_Controller extends XCube_Controller
 				 * Notify that the current user accesses none-activate module
 				 * controller.
 				 */
-				XCube_DelegateUtils::call('Legacy.Event.Exception.ModuleNotActive', $module);
+				XCube_DelegateUtils::call('Xcore.Event.Exception.ModuleNotActive', $module);
 				$this->executeForward(XOOPS_URL . '/');
 				die();
 			}
 			
 			if (!$this->_mStrategy->enableAccess()) {
-				XCube_DelegateUtils::call('Legacy.Event.Exception.ModuleSecurity', $module);
+				XCube_DelegateUtils::call('Xcore.Event.Exception.ModuleSecurity', $module);
 				$this->executeRedirect(XOOPS_URL . '/user.php', 1, _NOPERM);	// TODO Depens on const message catalog.
 				die();
 			}
@@ -526,7 +526,7 @@ class Legacy_Controller extends XCube_Controller
 			$GLOBALS['xoopsModuleConfig'] =& $module->mModuleConfig;
 		}
 		
-		Legacy_Utils::raiseUserControlEvent();
+		Xcore_Utils::raiseUserControlEvent();
 	}
 	
 	// @todo change to refer settings ini file for HostAbstractLayer.
@@ -597,7 +597,7 @@ class Legacy_Controller extends XCube_Controller
 
 		require_once XOOPS_ROOT_PATH.'/class/database/databasefactory.php';
 
-		if ($this->mRoot->getSiteConfig('Legacy', 'AllowDBProxy') == true) {
+		if ($this->mRoot->getSiteConfig('Xcore', 'AllowDBProxy') == true) {
 			if (xoops_getenv('REQUEST_METHOD') != 'POST' || !xoops_refcheck(XOOPS_DB_CHKREF)) {
 				define('XOOPS_DB_PROXY', 1);
 			}
@@ -612,7 +612,7 @@ class Legacy_Controller extends XCube_Controller
 	}
 	
 	/**
-	 * Create a instance of Legacy_LanguageManager by the specified language,
+	 * Create a instance of Xcore_LanguageManager by the specified language,
 	 * and set it to member properties.
 	 * 
 	 * [Notice]
@@ -621,7 +621,7 @@ class Legacy_Controller extends XCube_Controller
 	 */
 	function _setupLanguage()
 	{
-		require_once XOOPS_LEGACY_PATH.'/kernel/Legacy_LanguageManager.class.php';
+		require_once XOOPS_XCORE_PATH.'/kernel/Xcore_LanguageManager.class.php';
 		
 		$language = null;
 		
@@ -654,28 +654,28 @@ class Legacy_Controller extends XCube_Controller
 	 * delegates to get a instance of LanguageManager. If it can't get it, do
 	 * the following process: 
 	 * 
-	 * 1) Try creating a instance of 'Legacy_LanguageManager_' . ucfirst($language)
+	 * 1) Try creating a instance of 'Xcore_LanguageManager_' . ucfirst($language)
 	 * 2) If the class doesn't exist, try loading  'LanguageManager.class.php' 
 	 *	  in the specified language.
 	 * 3) Re-try creating the instance.
 	 * 
 	 * If it can't create any instances, create a instance of
-	 * Legacy_LanguageManager as default.
+	 * Xcore_LanguageManager as default.
 	 * 
 	 * @access protected
 	 * @param string $language 
-	 * @return Legacy_LanguageManager
+	 * @return Xcore_LanguageManager
 	 */ 
 	function &_createLanguageManager($language)
 	{
-		require_once XOOPS_LEGACY_PATH . '/kernel/Legacy_LanguageManager.class.php';
+		require_once XOOPS_XCORE_PATH . '/kernel/Xcore_LanguageManager.class.php';
 
 		$languageManager = null;
 		
 		$this->mCreateLanguageManager->call(new XCube_Ref($languageManager), $language);
 		
 		if (!is_object($languageManager)) {
-			$className = 'Legacy_LanguageManager_' . ucfirst(strtolower($language));
+			$className = 'Xcore_LanguageManager_' . ucfirst(strtolower($language));
 			
 			//
 			// If the class exists, create a instance. Else, load the file, and
@@ -697,7 +697,7 @@ class Legacy_Controller extends XCube_Controller
 					//
 					// Default
 					//
-					$languageManager = new Legacy_LanguageManager();
+					$languageManager = new Xcore_LanguageManager();
 				}
 			}
 		}
@@ -722,15 +722,15 @@ class Legacy_Controller extends XCube_Controller
 
 		$this->mRoot->mContext->setThemeName($this->mRoot->mContext->mXoopsConfig['theme_set']);
 		
-		$this->mRoot->mContext->setAttribute('legacy_sitename', $this->mRoot->mContext->mXoopsConfig['sitename']);
-		$this->mRoot->mContext->setAttribute('legacy_pagetitle', $this->mRoot->mContext->mXoopsConfig['slogan']);
-		$this->mRoot->mContext->setAttribute('legacy_slogan', $this->mRoot->mContext->mXoopsConfig['slogan']);
+		$this->mRoot->mContext->setAttribute('xcore_sitename', $this->mRoot->mContext->mXoopsConfig['sitename']);
+		$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mXoopsConfig['slogan']);
+		$this->mRoot->mContext->setAttribute('xcore_slogan', $this->mRoot->mContext->mXoopsConfig['slogan']);
 	}
 
 	function _setupScript()
 	{
-		require_once XOOPS_MODULE_PATH.'/legacy/class/Legacy_HeaderScript.class.php';
-		$headerScript = new Legacy_HeaderScript();
+		require_once XOOPS_MODULE_PATH.'/xcore/class/Xcore_HeaderScript.class.php';
+		$headerScript = new Xcore_HeaderScript();
 		$this->mRoot->mContext->setAttribute('headerScript', $headerScript);
 	}
 
@@ -764,7 +764,7 @@ class Legacy_Controller extends XCube_Controller
 		//
 		// Auto pre-loading for Module.
 		//
-		if ($this->mRoot->getSiteConfig('Legacy', 'AutoPreload') == 1) {
+		if ($this->mRoot->getSiteConfig('Xcore', 'AutoPreload') == 1) {
 			if ($this->mActiveModules) $moduleObjects = $this->mActiveModules;
 			else {
 			$moduleHandler = xoops_gethandler('module');
@@ -807,7 +807,7 @@ class Legacy_Controller extends XCube_Controller
 
 	protected function _loadInterfaceFiles()
 	{
-		$dir = XOOPS_MODULE_PATH.'/legacy/class/interface/';
+		$dir = XOOPS_MODULE_PATH.'/xcore/class/interface/';
 		$interfaces = glob($dir.'*.php');
 		foreach($interfaces as $file){
 			require_once($file);
@@ -964,15 +964,15 @@ class Legacy_Controller extends XCube_Controller
 	{
 		$delegateManager =& parent::_createDelegateManager();
 		
-		$file = XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_EventFunctions.class.php';
+		$file = XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_EventFunctions.class.php';
 		
-		$delegateManager->add('Legacypage.Notifications.Access', 'Legacy_EventFunction::notifications', $file);
-		$delegateManager->add('Legacyfunction.Notifications.Select', 'Legacy_EventFunction::notifications_select', $file);
-		$delegateManager->add('Legacypage.Search.Access', 'Legacy_EventFunction::search', $file);
-		$delegateManager->add('Legacypage.Imagemanager.Access', 'Legacy_EventFunction::imageManager', $file);
-		$delegateManager->add('Legacypage.Backend.Access', 'Legacy_EventFunction::backend', $file);
-		$delegateManager->add('Legacypage.Misc.Access', 'Legacy_EventFunction::misc', $file);
-		$delegateManager->add('User_UserViewAction.GetUserPosts', 'Legacy_EventFunction::recountPost', $file);
+		$delegateManager->add('Xcorepage.Notifications.Access', 'Xcore_EventFunction::notifications', $file);
+		$delegateManager->add('Xcorefunction.Notifications.Select', 'Xcore_EventFunction::notifications_select', $file);
+		$delegateManager->add('Xcorepage.Search.Access', 'Xcore_EventFunction::search', $file);
+		$delegateManager->add('Xcorepage.Imagemanager.Access', 'Xcore_EventFunction::imageManager', $file);
+		$delegateManager->add('Xcorepage.Backend.Access', 'Xcore_EventFunction::backend', $file);
+		$delegateManager->add('Xcorepage.Misc.Access', 'Xcore_EventFunction::misc', $file);
+		$delegateManager->add('User_UserViewAction.GetUserPosts', 'Xcore_EventFunction::recountPost', $file);
 		
 		return $delegateManager;
 	}
@@ -981,11 +981,11 @@ class Legacy_Controller extends XCube_Controller
 	{
 		$serviceManager =& parent::_createServiceManager();
 		
-		require_once XOOPS_ROOT_PATH . '/modules/legacy/service/LegacySearchService.class.php';
-		$searchService = new Legacy_SearchService();
+		require_once XOOPS_ROOT_PATH . '/modules/xcore/service/XcoreSearchService.class.php';
+		$searchService = new Xcore_SearchService();
 		$searchService->prepare();
 		
-		$serviceManager->addService('LegacySearch', $searchService);
+		$serviceManager->addService('XcoreSearch', $searchService);
 
 		return $serviceManager;
 	}
@@ -1001,7 +1001,7 @@ class Legacy_Controller extends XCube_Controller
 		if (!is_object($this->mRoot->mContext->mXoopsUser)) {
 			$this->mCheckLogin->call(new XCube_Ref($this->mRoot->mContext->mXoopsUser));
 			
-			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('legacy');
+			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
 
 			if (is_object($this->mRoot->mContext->mXoopsUser)) {
 				// If the current user doesn't bring to any groups, kick out him for XCL's security.
@@ -1039,7 +1039,7 @@ class Legacy_Controller extends XCube_Controller
 					}
 				}
 				
-				$this->executeRedirect($url, 1, XCube_Utils::formatMessage(_MD_LEGACY_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
+				$this->executeRedirect($url, 1, XCube_Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
 			}
 			else {
 				XCube_DelegateUtils::call('Site.CheckLogin.Fail', new XCube_Ref($this->mRoot->mContext->mXoopsUser));
@@ -1047,7 +1047,7 @@ class Legacy_Controller extends XCube_Controller
 				//
 				// Fall back process for login fail.
 				//
-				$this->executeRedirect(XOOPS_URL . '/user.php', 1, _MD_LEGACY_ERROR_INCORRECTLOGIN);
+				$this->executeRedirect(XOOPS_URL . '/user.php', 1, _MD_XCORE_ERROR_INCORRECTLOGIN);
 			}
 		}
 		else {
@@ -1067,12 +1067,12 @@ class Legacy_Controller extends XCube_Controller
 		
 		
 		if (is_object($xoopsUser)) {
-			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('legacy');
+			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
 			
 			$this->mLogout->call(new XCube_Ref($successFlag), $xoopsUser);
 			if ($successFlag) {
 				XCube_DelegateUtils::call('Site.Logout.Success', $xoopsUser);
-				$this->executeRedirect(XOOPS_URL . '/', 1, array(_MD_LEGACY_MESSAGE_LOGGEDOUT, _MD_LEGACY_MESSAGE_THANKYOUFORVISIT));
+				$this->executeRedirect(XOOPS_URL . '/', 1, array(_MD_XCORE_MESSAGE_LOGGEDOUT, _MD_XCORE_MESSAGE_THANKYOUFORVISIT));
 			}
 			else {
 				XCube_DelegateUtils::call('Site.Logout.Fail', $xoopsUser);
@@ -1098,7 +1098,7 @@ class Legacy_Controller extends XCube_Controller
 	 * Because this method changes state after executeCommon, this resets now property.
 	 * It depends on XCube_Controller steps.
 	 *
-	 * @param Legacy_AbstractControllerStrategy $strategy
+	 * @param Xcore_AbstractControllerStrategy $strategy
 	 */
 	function setStrategy(&$strategy)
 	{
@@ -1116,7 +1116,7 @@ class Legacy_Controller extends XCube_Controller
 
 	/**
 	 * Set bool flag to dialog mode flag.
-	 * If you set true, executeView() will use Legacy_DialogRenderTarget class as
+	 * If you set true, executeView() will use Xcore_DialogRenderTarget class as
 	 * render target.
 	 * @param $flag bool
 	 */
@@ -1317,9 +1317,9 @@ class Legacy_Controller extends XCube_Controller
 	
 	function &_createContext()
 	{
-		require_once XOOPS_ROOT_PATH . '/modules/legacy/kernel/Legacy_HttpContext.class.php';
+		require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_HttpContext.class.php';
 		
-		$context = new Legacy_HttpContext();
+		$context = new Xcore_HttpContext();
 		$request = new XCube_HttpRequest();
 		$context->setRequest($request);
 		
@@ -1335,7 +1335,7 @@ class Legacy_Controller extends XCube_Controller
 	function getPreferenceEditUrl(&$module)
 	{
 		if (is_object($module)) {
-			return XOOPS_MODULE_URL . '/legacy/admin/index.php?action=PreferenceEdit&confmod_id=' . $module->get('mid');
+			return XOOPS_MODULE_URL . '/xcore/admin/index.php?action=PreferenceEdit&confmod_id=' . $module->get('mid');
 		}
 
 		return null;
@@ -1350,7 +1350,7 @@ class Legacy_Controller extends XCube_Controller
 	function getHelpViewUrl(&$module)
 	{
 		if (is_object($module)) {
-			return XOOPS_MODULE_URL . '/legacy/admin/index.php?action=Help&dirname=' . $module->get('dirname');
+			return XOOPS_MODULE_URL . '/xcore/admin/index.php?action=Help&dirname=' . $module->get('dirname');
 		}
 
 		return null;
@@ -1360,23 +1360,23 @@ class Legacy_Controller extends XCube_Controller
 /**
  * @internal
  */
-class Legacy_AbstractControllerStrategy
+class Xcore_AbstractControllerStrategy
 {
 	/**
-	 * @var Legacy_Controller
+	 * @var Xcore_Controller
 	 */
 	var $mController = null;
 	
 	var $mStatusFlag;
 	
-	function Legacy_AbstractControllerStrategy(&$controller)
+	function Xcore_AbstractControllerStrategy(&$controller)
 	{
 		$this->mController =& $controller;
 	}
 	
 	function _setupFilterChain()
 	{
-		$primaryPreloads = $this->mController->mRoot->getSiteConfig('Legacy.PrimaryPreloads');
+		$primaryPreloads = $this->mController->mRoot->getSiteConfig('Xcore.PrimaryPreloads');
 		foreach ($primaryPreloads as $className => $classPath) {
 			if (file_exists(XOOPS_ROOT_PATH . $classPath)) {
 				require_once XOOPS_ROOT_PATH . $classPath;
@@ -1392,18 +1392,18 @@ class Legacy_AbstractControllerStrategy
 		//
 		// Auto pre-loading.
 		//
-		if($this->mController->mRoot->getSiteConfig('Legacy', 'AutoPreload') == 1) {
+		if($this->mController->mRoot->getSiteConfig('Xcore', 'AutoPreload') == 1) {
 			$this->mController->_processPreload(XOOPS_ROOT_PATH . '/preload');
 		}
 	}
 
 	/**
 	 * Create some instances for the module process.
-	 * Because Legacy_ModuleContext needs XoopsModule instance, this function
+	 * Because Xcore_ModuleContext needs XoopsModule instance, this function
 	 * kills the process if XoopsModule instance can't be found. Plus, in the
-	 * case, raises 'Legacy.Event.Exception.XoopsModuleNotFound'.
+	 * case, raises 'Xcore.Event.Exception.XoopsModuleNotFound'.
 	 * 
-	 * @param Legacy_HttpContext $context
+	 * @param Xcore_HttpContext $context
 	 * @param string $dirname
 	 */ 
 	function setupModuleContext(&$context, $dirname)
@@ -1412,12 +1412,12 @@ class Legacy_AbstractControllerStrategy
 		$module =& $handler->getByDirname($dirname);
 
 		if (!is_object($module)) {
-			XCube_DelegateUtils::call('Legacy.Event.Exception.XoopsModuleNotFound', $dirname);
+			XCube_DelegateUtils::call('Xcore.Event.Exception.XoopsModuleNotFound', $dirname);
 			$this->mController->executeRedirect(XOOPS_URL . '/', 1, 'You can\'t access this URL.');	// TODO need message catalog.
 			die();
 		}
 		
-		$context->mModule =& Legacy_Utils::createModule($module);
+		$context->mModule =& Xcore_Utils::createModule($module);
 		$context->mXoopsModule =& $context->mModule->getXoopsModule();
 		$context->mModuleConfig = $context->mModule->getModuleConfig();
 		
@@ -1438,7 +1438,7 @@ class Legacy_AbstractControllerStrategy
 
 	/**
 	 * @return XoopsModule
-	 * @see Legacy_Controller::getVirtualCurrentModule()
+	 * @see Xcore_Controller::getVirtualCurrentModule()
 	 */ 
 	function &getVirtualCurrentModule()
 	{

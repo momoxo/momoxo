@@ -5,7 +5,7 @@
  */
 if (!defined('XOOPS_ROOT_PATH')) exit();
 require_once XOOPS_ROOT_PATH.'/core/XCube_ActionForm.class.php';
-require_once XOOPS_MODULE_PATH.'/legacy/class/Legacy_Validator.class.php';
+require_once XOOPS_MODULE_PATH.'/xcore/class/Xcore_Validator.class.php';
 
 class MessageForm extends XCube_ActionForm
 {
@@ -30,8 +30,8 @@ class MessageForm extends XCube_ActionForm
   {
     $this->set_Property('uname');
     $this->set_Property('title');
-    $this->set_Property('Legacy_Event_User_Preview');
-    $this->set_Property('Legacy_Event_User_Submit');
+    $this->set_Property('Xcore_Event_User_Preview');
+    $this->set_Property('Xcore_Event_User_Submit');
     $this->set_Property('note', 'XCube_TextProperty');
     
     $this->mFieldProperties['uname'] = new XCube_FieldProperty($this);

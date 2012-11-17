@@ -1,15 +1,15 @@
 <?php
 /**
- * @package legacyRender
+ * @package xcoreRender
  * @version $Id: BannerEditAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/BannerAdminEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/BannerAdminEditForm.class.php";
 
-class LegacyRender_BannerEditAction extends LegacyRender_AbstractEditAction
+class XcoreRender_BannerEditAction extends XcoreRender_AbstractEditAction
 {
 	function _getId()
 	{
@@ -32,7 +32,7 @@ class LegacyRender_BannerEditAction extends LegacyRender_AbstractEditAction
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new LegacyRender_BannerAdminEditForm();
+		$this->mActionForm =new XcoreRender_BannerAdminEditForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -58,7 +58,7 @@ class LegacyRender_BannerEditAction extends LegacyRender_AbstractEditAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=BannerList", 1, _AD_LEGACYRENDER_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=BannerList", 1, _AD_XCORERENDER_ERROR_DBUPDATE_FAILED);
 	}
 	
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

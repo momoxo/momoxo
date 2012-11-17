@@ -4,7 +4,7 @@
  * Smarty plugin
  * -------------------------------------------------------------
  * Type:	 function
- * Name:	 legacy_profile
+ * Name:	 xcore_profile
  * Version:  1.0
  * Date:	 Feb 01, 2011
  * Author:	 HIKAWA Kilica
@@ -13,12 +13,12 @@
  * 			 int	uid: user id
  *			 string	action: 'view', 'edit', etc
  *			 string	template:	template name
- * Examples: {legacy_profile uid=3 action=edit actionForm=$actionForm}
+ * Examples: {xcore_profile uid=3 action=edit actionForm=$actionForm}
  * -------------------------------------------------------------
  */
-function smarty_function_legacy_profile($params, &$smarty)
+function smarty_function_xcore_profile($params, &$smarty)
 {
-	$uid = isset($params['uid']) ? intval($params['uid']) : Legacy_Utils::getUid();
+	$uid = isset($params['uid']) ? intval($params['uid']) : Xcore_Utils::getUid();
 	if($uid===0){
 		return;
 	}
@@ -28,14 +28,14 @@ function smarty_function_legacy_profile($params, &$smarty)
 
 	$defArr = null;
 	XCube_DelegateUtils::call(
-		'Legacy_Profile.GetDefinition',
+		'Xcore_Profile.GetDefinition',
 		new XCube_Ref($defArr),
 		$action
 	);
 
 	$profile = null;
 	XCube_DelegateUtils::call(
-		'Legacy_Profile.GetProfile',
+		'Xcore_Profile.GetProfile',
 		new XCube_Ref($profile),
 		$uid
 	);
@@ -43,11 +43,11 @@ function smarty_function_legacy_profile($params, &$smarty)
 	//render template
 	$render = new XCube_RenderTarget();
 	$render->setTemplateName($template);
-	$render->setAttribute('legacy_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
+	$render->setAttribute('xcore_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
 	$render->setAttribute('profileForm', $profileActionForm);
 	$render->setAttribute('profile', $profile);
 	$render->setAttribute('defArr', $defArr);
-	XCube_Root::getSingleton()->getRenderSystem('Legacy_RenderSystem')->render($render);
+	XCube_Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
 
 	echo $render->getResult();
 }

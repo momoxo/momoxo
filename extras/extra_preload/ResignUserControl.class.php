@@ -45,7 +45,7 @@ class ResignUserControl extends XCube_ActionFilter
 		$handler->addUserToGroup(RESIGN_USER_GROUP_ID, $xoopsUser->get('uid'));
 		xoops_notification_deletebyuser($xoopsUser->get('uid'));
 		
-		XCube_DelegateUtils::call('Legacy.Event.UserDelete', new XCube_Ref($xoopsUser));
+		XCube_DelegateUtils::call('Xcore.Event.UserDelete', new XCube_Ref($xoopsUser));
 		
 		$flag = true;
 		

@@ -67,7 +67,7 @@ class Lecat_CatViewAction extends Lecat_AbstractViewAction
 	function _setupObject()
 	{
 		parent::_setupObject();
-		$this->mPermit =Legacy_Utils::getModuleHandler('permit', $this->mAsset->mDirname)->create();
+		$this->mPermit =Xcore_Utils::getModuleHandler('permit', $this->mAsset->mDirname)->create();
 	}
 
     /**

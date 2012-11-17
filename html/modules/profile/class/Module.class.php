@@ -21,7 +21,7 @@ define('PROFILE_FRAME_VIEW_INPUT', "input");
 define('PROFILE_FRAME_VIEW_PREVIEW', "preview");
 define('PROFILE_FRAME_VIEW_CANCEL', "cancel");
 
-class Profile_Module extends Legacy_ModuleAdapter
+class Profile_Module extends Xcore_ModuleAdapter
 {
 	var $mActionName = null;
 	var $mAction = null;

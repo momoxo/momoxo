@@ -4,7 +4,7 @@
  * Smarty plugin
  * -------------------------------------------------------------
  * Type:	 function
- * Name:	 legacy_comment
+ * Name:	 xcore_comment
  * Version:  1.0
  * Date:	 Dec 14, 2010
  * Author:	 HIKAWA Kilica
@@ -14,10 +14,10 @@
  *			 string	dataname: client module's dataname
  *			 int	data_id: client module's primary key
  *			 string	template:	template name
- * Examples: {legacy_comment cDirname=tag dirname=news dataname=story data_id=3}
+ * Examples: {xcore_comment cDirname=tag dirname=news dataname=story data_id=3}
  * -------------------------------------------------------------
  */
-function smarty_function_legacy_comment($params, &$smarty)
+function smarty_function_xcore_comment($params, &$smarty)
 {
 	$cDirname = $params['cDirname'];
 	$dirname = isset($params['dirname']) ? $params['dirname'] : null;
@@ -26,7 +26,7 @@ function smarty_function_legacy_comment($params, &$smarty)
 	$categoryId = isset($params['category_id']) ? $params['category_id'] : 0;
 	$comments = null;
 
-	XCube_DelegateUtils::call('Legacy_Comment.'.$cDirname.'.GetComments',
+	XCube_DelegateUtils::call('Xcore_Comment.'.$cDirname.'.GetComments',
 		new XCube_Ref($comments),
 		$cDirname,
 		$dirname,
@@ -41,9 +41,9 @@ function smarty_function_legacy_comment($params, &$smarty)
 	//render template
 	$render = new XCube_RenderTarget();
 	$render->setTemplateName($template);
-	$render->setAttribute('legacy_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
+	$render->setAttribute('xcore_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
 	$render->setAttribute('comments', $comments);
-	XCube_Root::getSingleton()->getRenderSystem('Legacy_RenderSystem')->render($render);
+	XCube_Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
 
 	echo $render->getResult();
 }

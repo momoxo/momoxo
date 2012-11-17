@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -11,9 +11,9 @@ if(!defined('XOOPS_ROOT_PATH'))
 }
 
 /**
- * Legacy_AbstractGroupObject
+ * Xcore_AbstractGroupObject
 **/
-abstract class Legacy_AbstractGroupObject extends XoopsSimpleObject
+abstract class Xcore_AbstractGroupObject extends XoopsSimpleObject
 {
 	const PRIMARY = 'group_id';
 	const DATANAME = 'group';
@@ -85,7 +85,7 @@ abstract class Legacy_AbstractGroupObject extends XoopsSimpleObject
 	 */
 	public function renderUri($action=null)
 	{
-		return Legacy_Utils::renderUri($this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()), $action);
+		return Xcore_Utils::renderUri($this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()), $action);
 	}
 }
 

@@ -1,22 +1,22 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Legacy_TextareaEditor extends XCube_ActionFilter
+class Xcore_TextareaEditor extends XCube_ActionFilter
 {
     /**
      * @public
      */
     function preBlockFilter()
     {
-        $this->mRoot->mDelegateManager->add('Site.TextareaEditor.BBCode.Show','Legacy_TextareaEditor::renderBBCode',XCUBE_DELEGATE_PRIORITY_FINAL);
-        $this->mRoot->mDelegateManager->add('Site.TextareaEditor.HTML.Show','Legacy_TextareaEditor::renderHTML',XCUBE_DELEGATE_PRIORITY_FINAL);
-        $this->mRoot->mDelegateManager->add('Site.TextareaEditor.None.Show','Legacy_TextareaEditor::renderNone',XCUBE_DELEGATE_PRIORITY_FINAL);
+        $this->mRoot->mDelegateManager->add('Site.TextareaEditor.BBCode.Show','Xcore_TextareaEditor::renderBBCode',XCUBE_DELEGATE_PRIORITY_FINAL);
+        $this->mRoot->mDelegateManager->add('Site.TextareaEditor.HTML.Show','Xcore_TextareaEditor::renderHTML',XCUBE_DELEGATE_PRIORITY_FINAL);
+        $this->mRoot->mDelegateManager->add('Site.TextareaEditor.None.Show','Xcore_TextareaEditor::renderNone',XCUBE_DELEGATE_PRIORITY_FINAL);
     }
 
     /**

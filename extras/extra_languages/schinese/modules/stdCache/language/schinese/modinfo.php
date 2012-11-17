@@ -1,8 +1,8 @@
 <?php
 // $Id$
-define("_MI_STDCACHE_NAME","»º´æ");
-define("_MI_STDCACHE_NAME_DESC","¼ÓÈë»ù±¾»º´æ²ßÂÔµ½LegacyÏµÍ³");
+define("_MI_STDCACHE_NAME","ï¿½ï¿½ï¿½ï¿½");
+define("_MI_STDCACHE_NAME_DESC","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½XcoreÏµÍ³");
 
-define("_MI_STDCACHE_BLOCK_CACHECLEAR", "Çå³ýÇø¿é»º´æ");
+define("_MI_STDCACHE_BLOCK_CACHECLEAR", "ï¿½ï¿½ï¿½ï¿½ï¿½é»ºï¿½ï¿½");
 
 ?>

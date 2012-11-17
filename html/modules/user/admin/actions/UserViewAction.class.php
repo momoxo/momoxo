@@ -125,8 +125,8 @@ class User_UserViewAction extends User_AbstractViewAction
 	
 		$definitions = array();
 		$profile = null;
-		XCube_DelegateUtils::call('Legacy_Profile.GetDefinition', new XCube_Ref($definitions), 'view');
-		XCube_DelegateUtils::call('Legacy_Profile.GetProfile', new XCube_Ref($profile), $this->mObject->get('uid'));
+		XCube_DelegateUtils::call('Xcore_Profile.GetDefinition', new XCube_Ref($definitions), 'view');
+		XCube_DelegateUtils::call('Xcore_Profile.GetProfile', new XCube_Ref($profile), $this->mObject->get('uid'));
 		$render->setAttribute('definitions', $definitions);
 		$render->setAttribute('data', $profile);
 	}

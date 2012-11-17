@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: SmilesDeleteAction.class.php,v 1.3 2008/09/25 15:11:46 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,10 +10,10 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractDeleteAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/SmilesAdminDeleteForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractDeleteAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/SmilesAdminDeleteForm.class.php";
 
-class Legacy_SmilesDeleteAction extends Legacy_AbstractDeleteAction
+class Xcore_SmilesDeleteAction extends Xcore_AbstractDeleteAction
 {
 	function _getId()
 	{
@@ -28,7 +28,7 @@ class Legacy_SmilesDeleteAction extends Legacy_AbstractDeleteAction
 
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_SmilesAdminDeleteForm();
+		$this->mActionForm =new Xcore_SmilesAdminDeleteForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -46,7 +46,7 @@ class Legacy_SmilesDeleteAction extends Legacy_AbstractDeleteAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=SmilesList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=SmilesList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

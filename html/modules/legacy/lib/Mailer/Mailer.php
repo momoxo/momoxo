@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: Mailer.php,v 1.4 2008/09/25 15:12:43 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -13,17 +13,17 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 /**
  * This is an exmine class for mail.
  */
-class Legacy_Mailer extends PHPMailer
+class Xcore_Mailer extends PHPMailer
 {
 	/**
 	 * @type XCube_Delegate
 	 */
 	var $mConvertLocal = null;
 	
-	function Legacy_Mailer()
+	function Xcore_Mailer()
 	{
 		$this->mConvertLocal =new XCube_Delegate();
-		$this->mConvertLocal->register('Legacy_Mailer.ConvertLocal');
+		$this->mConvertLocal->register('Xcore_Mailer.ConvertLocal');
 	}
 	
 	function prepare()
@@ -43,9 +43,9 @@ class Legacy_Mailer extends PHPMailer
 		
 		$this->Sender = $root->mContext->mXoopsConfig['adminmail'];
 		
-		$this->SetLanguage = LEGACY_MAIL_LANG;
-		$this->CharSet = LEGACY_MAIL_CHAR;
-		$this->Encoding = LEGACY_MAIL_ENCO;
+		$this->SetLanguage = XCORE_MAIL_LANG;
+		$this->CharSet = XCORE_MAIL_CHAR;
+		$this->Encoding = XCORE_MAIL_ENCO;
 		
 		switch ($xoopsMailerConfig['mailmethod']) {
 			case 'smtpauth':

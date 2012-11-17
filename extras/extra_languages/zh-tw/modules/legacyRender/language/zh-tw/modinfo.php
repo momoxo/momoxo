@@ -1,12 +1,12 @@
 <?php
 
-define('_MI_LEGACYRENDER_ADMENU_BANNER_MANAGE', '廣告管理');
-define('_MI_LEGACYRENDER_ADMENU_TEMPLATE_MANAGE', '樣版管理');
-define('_MI_LEGACYRENDER_ADMENU_THEME_SETTING', '佈景設定');
-define('_MI_LEGACYRENDER_ADMENU_TPLFILE_MANAGE', '樣版檔案管理');
-define('_MI_LEGACYRENDER_CONF_BANNERS', '啟用廣告？');
-define('_MI_LEGACYRENDER_NAME', '佈景樣版引擎');
-define('_MI_LEGACYRENDER_NAME_DESC', '這個描繪處理引擎相容於 XOOPS 2.0.9 和 XOOPS JP 2.0.x. 因此您可以直接使用 XOOPS2 佈景在這套系統上.');
+define('_MI_XCORERENDER_ADMENU_BANNER_MANAGE', '廣告管理');
+define('_MI_XCORERENDER_ADMENU_TEMPLATE_MANAGE', '樣版管理');
+define('_MI_XCORERENDER_ADMENU_THEME_SETTING', '佈景設定');
+define('_MI_XCORERENDER_ADMENU_TPLFILE_MANAGE', '樣版檔案管理');
+define('_MI_XCORERENDER_CONF_BANNERS', '啟用廣告？');
+define('_MI_XCORERENDER_NAME', '佈景樣版引擎');
+define('_MI_XCORERENDER_NAME_DESC', '這個描繪處理引擎相容於 XOOPS 2.0.9 和 XOOPS JP 2.0.x. 因此您可以直接使用 XOOPS2 佈景在這套系統上.');
 define('_MI_LR_FOOTER', '頁尾');
 define('_MI_LR_FOOTER_DESC', 'Be sure to type full links with the path starting from http:
 define(\'_MI_LR_META_AUTHOR\', "Meta Author');

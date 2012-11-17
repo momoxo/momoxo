@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: CommentListAction.class.php,v 1.3 2008/09/25 15:11:46 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,12 +10,12 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/CommentFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/CommentListForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/actions/CommentEditAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/CommentFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/CommentListForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/actions/CommentEditAction.class.php";
 
-class Legacy_CommentListAction extends Legacy_AbstractListAction
+class Xcore_CommentListAction extends Xcore_AbstractListAction
 {
 	var $mCommentObjects = array();
 	var $mActionForm = null;
@@ -23,7 +23,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
 
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_CommentListForm();
+		$this->mActionForm =new Xcore_CommentListForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -44,7 +44,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter =new Legacy_CommentFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new Xcore_CommentFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 
@@ -103,7 +103,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (xoops_getrequest('_form_control_cancel') != null) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		$this->mActionForm->fetch();
@@ -132,7 +132,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
 			unset($comment);
 		}
 
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 
     function _processSave(&$controller, &$xoopsUser)
@@ -149,7 +149,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
             		if (count(array_diff_assoc($olddata, $newdata)) > 0 ) {
                 		$comment->set('com_status', $this->mActionForm->get('status', $cid));
                 		if (!$comment_handler->insert($comment)) {
-				return LEGACY_FRAME_VIEW_ERROR;
+				return XCORE_FRAME_VIEW_ERROR;
                 		}
 
     			$add_userpost = false;
@@ -172,7 +172,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
  		                   }
     		            }
 
-				$comment_config = Legacy_CommentEditAction::loadCallbackFile($comment);
+				$comment_config = Xcore_CommentEditAction::loadCallbackFile($comment);
 
 				if ($comment_config && $call_approvefunc != false ) {
 				$function = $comment_config['callback']['approve'];		
@@ -233,7 +233,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
 			$comment =& $comment_handler->get($cid);
 			if (is_object($comment)) {
 				if( !$comment_handler->delete($comment) ) {
-				return LEGACY_FRAME_VIEW_ERROR;
+				return XCORE_FRAME_VIEW_ERROR;
 				}
 
 				if ($comment->get('com_status') != 1 && $comment->get('com_uid') > 0) {
@@ -280,13 +280,13 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
        				}
 				}
 				if (count($errs) > 0) {
-				return LEGACY_FRAME_VIEW_ERROR;
+				return XCORE_FRAME_VIEW_ERROR;
 				}
 
 				//
 				// callback
 				//
-				$comment_config = Legacy_CommentEditAction::loadCallbackFile($comment);
+				$comment_config = Xcore_CommentEditAction::loadCallbackFile($comment);
 		
 				if ($comment_config ) {
 				$function = $comment_config['callback']['update'];		
@@ -301,7 +301,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
 			}//if object
 		}//if
 		}//foreach
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 
     }
 
@@ -334,7 +334,7 @@ class Legacy_CommentListAction extends Legacy_AbstractListAction
 
 	function executeViewError(&$controller, &$xoopsUser, &$renderer)
 	{
-		$controller->executeRedirect('./index.php?action=CommentList', 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect('./index.php?action=CommentList', 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller,&$xoopsUser,&$renderer)

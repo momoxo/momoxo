@@ -19,7 +19,7 @@
 class HTMLPurifier_HTMLModule_KARIMOJI_LEGALEGAextends HTMLPurifier_HTMLModule
 {
 
-    public $name = 'Legacy';
+    public $name = 'Xcore';
 
     public function setup($config) {
 

@@ -77,7 +77,7 @@ abstract class Lecat_AbstractAction
     **/
     public function getPagetitle()
     {
-        return Legacy_Utils::formatPagetitle($this->mRoot->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getActionTitle());
+        return Xcore_Utils::formatPagetitle($this->mRoot->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getActionTitle());
     }
 
     /**
@@ -230,10 +230,10 @@ abstract class Lecat_AbstractAction
 	{
 		$handler = $this->_getHandler();
 		if($this->mObject->get($handler->mPrimary)>0){
-			return Legacy_Utils::renderUri($this->mAsset->mDirname, $tableName, $this->mObject->get($handler->mPrimary), $actionName);
+			return Xcore_Utils::renderUri($this->mAsset->mDirname, $tableName, $this->mObject->get($handler->mPrimary), $actionName);
 		}
 		else{
-			return Legacy_Utils::renderUri($this->mAsset->mDirname, $tableName, 0, $actionName);
+			return Xcore_Utils::renderUri($this->mAsset->mDirname, $tableName, 0, $actionName);
 		}
 	}
 

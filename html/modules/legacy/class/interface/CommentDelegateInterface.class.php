@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -13,11 +13,11 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Interface of module's comment delegate
 **/
-interface Legacy_iCommentDelegate
+interface Xcore_iCommentDelegate
 {
 	/**
-	 * getComments	Legacy_Comment.{dirname}.GetComments
-	 * This delegate point is used by smarty plugin smarty_function_legacy_comment.
+	 * getComments	Xcore_Comment.{dirname}.GetComments
+	 * This delegate point is used by smarty plugin smarty_function_xcore_comment.
 	 * $comments is passed to the template of the comment module right away.
 	 *
 	 * @param mixed[]	&$comments
@@ -34,7 +34,7 @@ interface Legacy_iCommentDelegate
 	public static function getComments(/*** mixed[] ***/ &$comments, /*** string ***/ $cDirname, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $dataId, /*** int ***/ $categoryId, /*** mixed[] ***/ $params);
 
 	/**
-	 * count	Legacy_Comment.{dirname}.Count
+	 * count	Xcore_Comment.{dirname}.Count
 	 *
 	 * @param int		&$count
 	 * @param int		$cDirname	comment module's dirname

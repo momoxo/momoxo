@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ModuleInstallAction.class.php,v 1.4 2008/09/25 15:11:33 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,9 +10,9 @@
 
  if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_LEGACY_PATH."/admin/actions/AbstractModuleInstallAction.class.php";
-require_once XOOPS_LEGACY_PATH . "/admin/class/ModuleInstallUtils.class.php";
-require_once XOOPS_LEGACY_PATH."/admin/forms/ModuleInstallForm.class.php";
+require_once XOOPS_XCORE_PATH."/admin/actions/AbstractModuleInstallAction.class.php";
+require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
+require_once XOOPS_XCORE_PATH."/admin/forms/ModuleInstallForm.class.php";
 
 /**
  * 
@@ -29,20 +29,20 @@ require_once XOOPS_LEGACY_PATH."/admin/forms/ModuleInstallForm.class.php";
  * 
  * @subsection convention Convention
  * 
- * See Legacy_ModuleInstallAction::_getInstaller().
+ * See Xcore_ModuleInstallAction::_getInstaller().
  * 
- * \li $modversion['legacy_installer']['installer']['class'] = {classname};
- * \li $modversion['legacy_installer']['installer']['namespace'] = {namespace}; (Optional)
- * \li $modversion['legacy_installer']['installer']['filepath'] = {filepath}; (Optional)
+ * \li $modversion['xcore_installer']['installer']['class'] = {classname};
+ * \li $modversion['xcore_installer']['installer']['namespace'] = {namespace}; (Optional)
+ * \li $modversion['xcore_installer']['installer']['filepath'] = {filepath}; (Optional)
  * 
- * You must declare your sub-class of Legacy_ModuleInstaller as
+ * You must declare your sub-class of Xcore_ModuleInstaller as
  * {namespace}_{classname} in {filepath}. You must specify classname. Others
  * are decided by the naming convention without your descriptions. Namespace
  * is ucfirst(dirname). Filepath is "admin/class/{classname}.class.php".
  * 
  * For example, "news" module.
  * 
- * $modversion['legacy_installer']['installer']['class'] = "Installer";
+ * $modversion['xcore_installer']['installer']['class'] = "Installer";
  * 
  * You must declare News_Installer in XOOPS_ROOT_PATH . "/modules/news/admin/class/Installerr.class.php".
  * 
@@ -51,18 +51,18 @@ require_once XOOPS_LEGACY_PATH."/admin/forms/ModuleInstallForm.class.php";
  * 
  * @subsection process Install Process
  * 
- * \li Gets a instance of the installer class through Legacy_ModuleInstallAction::_getInstaller().
+ * \li Gets a instance of the installer class through Xcore_ModuleInstallAction::_getInstaller().
  * \li Sets the new XoopsModule built from xoops_version, to the instance.
  * \li Sets a value indicating whether an administrator hopes the force-mode, to the instance.
  * \li Calls executeInstall().
  * 
- * @see Legacy_ModuleInstallAction::_getInstaller()
- * @see Legacy_ModuleInstaller
- * @see Legacy_ModuleInstallUtils
+ * @see Xcore_ModuleInstallAction::_getInstaller()
+ * @see Xcore_ModuleInstaller
+ * @see Xcore_ModuleInstallUtils
  * 
  * @todo These classes are good to abstract again.
  */
-class Legacy_ModuleInstallAction extends Legacy_Action
+class Xcore_ModuleInstallAction extends Xcore_Action
 {
 	/**
 	 * @var XCube_Delegate
@@ -82,19 +82,19 @@ class Legacy_ModuleInstallAction extends Legacy_Action
 	
 	/**
 	 * @private
-	 * @var Legacy_ModuleUinstaller
+	 * @var Xcore_ModuleUinstaller
 	 */
 	var $mInstaller = null;
 	
-	function Legacy_ModuleInstallAction($flag)
+	function Xcore_ModuleInstallAction($flag)
 	{
-		parent::Legacy_Action($flag);
+		parent::Xcore_Action($flag);
 		
 		$this->mInstallSuccess =new XCube_Delegate();
-		$this->mInstallSuccess->register('Legacy_ModuleInstallAction.InstallSuccess');
+		$this->mInstallSuccess->register('Xcore_ModuleInstallAction.InstallSuccess');
 		
 		$this->mInstallFail =new XCube_Delegate();
-		$this->mInstallFail->register('Legacy_ModuleInstallAction.InstallFail');
+		$this->mInstallFail->register('Xcore_ModuleInstallAction.InstallFail');
 	}
 	
 	function prepare(&$controller, &$xoopsUser)
@@ -136,13 +136,13 @@ class Legacy_ModuleInstallAction extends Legacy_Action
 	function &_getInstaller()
 	{
 		$dirname = $this->mXoopsModule->get('dirname');
-		$installer =& Legacy_ModuleInstallUtils::createInstaller($dirname);
+		$installer =& Xcore_ModuleInstallUtils::createInstaller($dirname);
 		return $installer;
 	}
 		
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_ModuleInstallForm();
+		$this->mActionForm =new Xcore_ModuleInstallForm();
 		$this->mActionForm->prepare();
 	}
 
@@ -150,13 +150,13 @@ class Legacy_ModuleInstallAction extends Legacy_Action
 	{
 		$this->mActionForm->load($this->mXoopsModule);
 		
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (isset($_REQUEST['_form_control_cancel'])) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 		
 		$this->mActionForm->fetch();
@@ -170,7 +170,7 @@ class Legacy_ModuleInstallAction extends Legacy_Action
 		if (!$this->mInstaller->executeInstall()) {
 			$this->mInstaller->mLog->addReport('Force Uninstallation is started.');
 			$dirname = $this->mXoopsModule->get('dirname');
-			$uninstaller =& Legacy_ModuleInstallUtils::createUninstaller($dirname);
+			$uninstaller =& Xcore_ModuleInstallUtils::createUninstaller($dirname);
 			
 			$uninstaller->setForceMode(true);
 			$uninstaller->setCurrentXoopsModule($this->mXoopsModule);
@@ -178,7 +178,7 @@ class Legacy_ModuleInstallAction extends Legacy_Action
 			$uninstaller->executeUninstall();
 		}
 
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 	
 	/**
@@ -188,11 +188,11 @@ class Legacy_ModuleInstallAction extends Legacy_Action
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
 			$this->mInstallSuccess->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Legacy.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
 		}
 		else {
 			$this->mInstallFail->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Legacy.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
 		}
 
 		$renderer->setTemplateName("module_install_success.html");

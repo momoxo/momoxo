@@ -1,6 +1,6 @@
 <?php
 /**
- * @package legacy
+ * @package xcore
  * @version $Id: DefaultAction.class.php,v 1.3 2008/03/13 12:52:43 nobunobu Exp $
  */
 

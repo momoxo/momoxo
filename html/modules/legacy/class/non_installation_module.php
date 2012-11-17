@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: non_installation_module.php,v 1.4 2008/09/25 15:11:22 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -15,7 +15,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * This handler handles XoopsModule objects without DB. So it doesn't implement
  * some methods for difficult query. Only override methods are usable.
  */
-class LegacyNon_installation_moduleHandler extends XoopsObjectHandler
+class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 {
 	/***
 	 * object cache.
@@ -28,7 +28,7 @@ class LegacyNon_installation_moduleHandler extends XoopsObjectHandler
 	 */
 	var $_mExclusions = array(".", "..", "CVS");
 	
-	function LegacyNon_installation_moduleHandler(&$db)
+	function XcoreNon_installation_moduleHandler(&$db)
 	{
 		parent::XoopsObjectHandler($db);
 		$this->_setupObjects();
@@ -91,7 +91,7 @@ class LegacyNon_installation_moduleHandler extends XoopsObjectHandler
 		$ret = array();
 		
 		foreach (array_keys($this->_mXoopsModules) as $key) {
-			if (empty($this->_mXoopsModules[$key]->modinfo['disable_legacy_2nd_installer'])) {
+			if (empty($this->_mXoopsModules[$key]->modinfo['disable_xcore_2nd_installer'])) {
 				$ret[] =& $this->_mXoopsModules[$key];
 			}
 		}

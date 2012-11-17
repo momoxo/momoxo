@@ -1,13 +1,13 @@
 <?php
 
-define('_MI_LEGACYRENDER_ADMENU_BANNER_MANAGE', "Gestion des Banni�res");
-define('_MI_LEGACYRENDER_ADMENU_TEMPLATE_MANAGE', "Gestion des Templates");
-define('_MI_LEGACYRENDER_ADMENU_THEME_SETTING', "Param�tres Theme");
-define('_MI_LEGACYRENDER_ADMENU_TPLFILE_MANAGE', "Fichiers Templates");
-define('_MI_LEGACYRENDER_ADMENU_HTACCESS_VIEW', "Param�tres htaccess");
-define('_MI_LEGACYRENDER_CONF_BANNERS', "Activer les banni�res?");
-define('_MI_LEGACYRENDER_NAME', "KARIMOJI_LEGALEGARenderer");
-define('_MI_LEGACYRENDER_NAME_DESC', "Ce module de rendu (renderer) est compatible avec XOOPS 2.0.9 et XOOPS JP 2.0.x. Vous pouvez utiliser vos themes favoris de XOOPS2 avec ce syst�me.");
+define('_MI_XCORERENDER_ADMENU_BANNER_MANAGE', "Gestion des Banni�res");
+define('_MI_XCORERENDER_ADMENU_TEMPLATE_MANAGE', "Gestion des Templates");
+define('_MI_XCORERENDER_ADMENU_THEME_SETTING', "Param�tres Theme");
+define('_MI_XCORERENDER_ADMENU_TPLFILE_MANAGE', "Fichiers Templates");
+define('_MI_XCORERENDER_ADMENU_HTACCESS_VIEW', "Param�tres htaccess");
+define('_MI_XCORERENDER_CONF_BANNERS', "Activer les banni�res?");
+define('_MI_XCORERENDER_NAME', "KARIMOJI_LEGALEGARenderer");
+define('_MI_XCORERENDER_NAME_DESC', "Ce module de rendu (renderer) est compatible avec XOOPS 2.0.9 et XOOPS JP 2.0.x. Vous pouvez utiliser vos themes favoris de XOOPS2 avec ce syst�me.");
 define('_MI_LR_FOOTER', "Pied de page");
 define('_MI_LR_FOOTER_DESC', "Veuillez indiquer des liens complets avec http://, autrement les liens ne fonctionneront pas correctement dans les pages des modules");
 define('_MI_LR_META_AUTHOR', "Meta Auteur");

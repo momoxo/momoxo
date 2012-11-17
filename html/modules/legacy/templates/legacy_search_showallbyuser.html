@@ -16,12 +16,12 @@
   <!-- end results item loop -->
 
   <{if $actionForm->get('start') > 0}>
-    <a href="<{$smarty.const.XOOPS_URL}>/search.php?action=showallbyuser&amp;uid=<{$targetUser->getShow('uid')}>&amp;mid=<{$searchResults.0.mid}>&amp;start=<{$prevStart}>"><{$smarty.const._MD_LEGACY_LANG_PREV_PAGE}></a>
+    <a href="<{$smarty.const.XOOPS_URL}>/search.php?action=showallbyuser&amp;uid=<{$targetUser->getShow('uid')}>&amp;mid=<{$searchResults.0.mid}>&amp;start=<{$prevStart}>"><{$smarty.const._MD_XCORE_LANG_PREV_PAGE}></a>
   <{/if}>
 
   <{if $searchResults.0.has_more}>
-    <a href="<{$smarty.const.XOOPS_URL}>/search.php?action=showallbyuser&amp;uid=<{$targetUser->getShow('uid')}>&amp;mid=<{$searchResults.0.mid}>&amp;start=<{$nextStart}>"><{$smarty.const._MD_LEGACY_LANG_NEXT_PAGE}></a>
+    <a href="<{$smarty.const.XOOPS_URL}>/search.php?action=showallbyuser&amp;uid=<{$targetUser->getShow('uid')}>&amp;mid=<{$searchResults.0.mid}>&amp;start=<{$nextStart}>"><{$smarty.const._MD_XCORE_LANG_NEXT_PAGE}></a>
   <{/if}>
 <{/if}>
 
-<{include file=db:legacy_search_form.html}>
+<{include file=db:xcore_search_form.html}>

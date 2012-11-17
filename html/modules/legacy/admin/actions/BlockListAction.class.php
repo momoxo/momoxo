@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: BlockListAction.class.php,v 1.3 2008/09/25 15:11:47 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,11 +10,11 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/BlockFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/BlockListForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/BlockFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/BlockListForm.class.php";
 
-class Legacy_BlockListAction extends Legacy_AbstractListAction
+class Xcore_BlockListAction extends Xcore_AbstractListAction
 {
 	var $mBlockObjects = array();
 	var $mActionForm = null;
@@ -22,7 +22,7 @@ class Legacy_BlockListAction extends Legacy_AbstractListAction
 	
 	function prepare(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm =new Legacy_BlockListForm();
+		$this->mActionForm =new Xcore_BlockListForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -34,7 +34,7 @@ class Legacy_BlockListAction extends Legacy_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter =new Legacy_BlockFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new Xcore_BlockFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 	
@@ -109,7 +109,7 @@ class Legacy_BlockListAction extends Legacy_AbstractListAction
 	{
 		$form_cancel = $controller->mRoot->mContext->mRequest->getRequest('_form_control_cancel');
 		if ($form_cancel != null) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 
 		$this->mActionForm->fetch();
@@ -140,7 +140,7 @@ class Legacy_BlockListAction extends Legacy_AbstractListAction
 			unset($block);
 		}
 
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 
 	function _processSave(&$controller, &$xoopsUser)
@@ -166,7 +166,7 @@ class Legacy_BlockListAction extends Legacy_AbstractListAction
 			$block->set('bcachetime', $this->mActionForm->get('bcachetime', $bid));
 			$block->set('last_modified', time());
 			if (!$blockHandler->insert($block)) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 			}
 				}//count if
 			}//object if
@@ -179,13 +179,13 @@ class Legacy_BlockListAction extends Legacy_AbstractListAction
 			if (is_object($block) && $block->get('isactive') == 1 && $block->get('visible') == 1) {
 				$block->set('visible', 0);
 				if( !$blockHandler->insert($block) ) {
-				return LEGACY_FRAME_VIEW_ERROR;
+				return XCORE_FRAME_VIEW_ERROR;
 				}
 			}//object if
 		}//if
 		}
 
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 
 
@@ -214,7 +214,7 @@ class Legacy_BlockListAction extends Legacy_AbstractListAction
 	
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=BlockInstallList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=BlockInstallList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 
 	function executeViewCancel(&$controller,&$xoopsUser,&$renderer)

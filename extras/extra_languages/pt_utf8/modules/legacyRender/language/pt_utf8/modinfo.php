@@ -12,14 +12,14 @@
 // Esta tradução encontra-se licenciada sob a licença Creative Commons Attribution 2.5 Brazil.
 // Para ler uma cópia da licença, visite: http://creativecommons.org/licenses/by/2.5/br/
 // ********************************************************************************* //
-define("_MI_LEGACYRENDER_ADMENU_BANNER_MANAGE","Faixas publicitárias");
-define("_MI_LEGACYRENDER_ADMENU_HTACCESS_VIEW",".htaccess");
-define("_MI_LEGACYRENDER_ADMENU_TEMPLATE_MANAGE","Conjuntos de modelos");
-define("_MI_LEGACYRENDER_ADMENU_THEME_SETTING","Temas");
-define("_MI_LEGACYRENDER_ADMENU_TPLFILE_MANAGE","Arquivos de modelos");
-define("_MI_LEGACYRENDER_CONF_BANNERS","Habilitar as faixas publicitárias?");
-define("_MI_LEGACYRENDER_NAME","Renderizador legado");
-define("_MI_LEGACYRENDER_NAME_DESC","SISTEMA RENDERIZADOR LEGADO: este módulo provê a compatibilidade dos antigos formatos de tema e modelos smarty utilizados até as versões 2.0.9 e JP 2.0.x do XOOPS. Traduzido por Mikhail Miguel.");
+define("_MI_XCORERENDER_ADMENU_BANNER_MANAGE","Faixas publicitárias");
+define("_MI_XCORERENDER_ADMENU_HTACCESS_VIEW",".htaccess");
+define("_MI_XCORERENDER_ADMENU_TEMPLATE_MANAGE","Conjuntos de modelos");
+define("_MI_XCORERENDER_ADMENU_THEME_SETTING","Temas");
+define("_MI_XCORERENDER_ADMENU_TPLFILE_MANAGE","Arquivos de modelos");
+define("_MI_XCORERENDER_CONF_BANNERS","Habilitar as faixas publicitárias?");
+define("_MI_XCORERENDER_NAME","Renderizador legado");
+define("_MI_XCORERENDER_NAME_DESC","SISTEMA RENDERIZADOR LEGADO: este módulo provê a compatibilidade dos antigos formatos de tema e modelos smarty utilizados até as versões 2.0.9 e JP 2.0.x do XOOPS. Traduzido por Mikhail Miguel.");
 define("_MI_LR_CSS_FILE","Endereço URL do arquivo CSS do <i>jQuery UI</i>");
 define("_MI_LR_CSS_FILE_DESC","Set jQuery UI CSS file url after ".XOOPS_URL);
 define("_MI_LR_FEED_URL","Endereço do Feed RSS");

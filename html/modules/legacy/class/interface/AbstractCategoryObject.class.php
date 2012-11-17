@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -13,11 +13,11 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Abstract Category Class
 **/
-abstract class Legacy_AbstractCategoryObject extends XoopsSimpleObject
+abstract class Xcore_AbstractCategoryObject extends XoopsSimpleObject
 {
 	const PRIMARY = 'cat_id';
 	const DATANAME = 'cat';
-	public $mChildren = array();	//Legacy_AbstractCategoryObject[]
+	public $mChildren = array();	//Xcore_AbstractCategoryObject[]
 
 	public function __construct()
 	{
@@ -94,7 +94,7 @@ abstract class Legacy_AbstractCategoryObject extends XoopsSimpleObject
 	 */
 	public function renderUri($action=null)
 	{
-		return Legacy_Utils::renderUri($this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()), $action);
+		return Xcore_Utils::renderUri($this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()), $action);
 	}
 
 }

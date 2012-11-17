@@ -94,7 +94,7 @@ class XoopsModule extends XoopsObject
 			$this->loadInfo($dirname, $verbose);
 		}
 		$this->setVar('name', $this->modinfo['name'], true);
-		$this->setVar('version', Legacy_Utils::convertVersionFromModinfoToInt($this->modinfo['version']));
+		$this->setVar('version', Xcore_Utils::convertVersionFromModinfoToInt($this->modinfo['version']));
 		$this->setVar('dirname', $this->modinfo['dirname'], true);
 		$trustDirname = isset($this->modinfo['trust_dirname']) ? $this->modinfo['trust_dirname'] : null;
 		$this->setVar('trust_dirname', $trustDirname , true);
@@ -302,7 +302,7 @@ class XoopsModule extends XoopsObject
 	function hasNeedUpdate()
 	{
 		$info =& $this->getInfo();
-		return ($this->getVar('version') < Legacy_Utils::convertVersionFromModinfoToInt($info['version']));
+		return ($this->getVar('version') < Xcore_Utils::convertVersionFromModinfoToInt($info['version']));
 	}
 	
 	/**#@+
@@ -493,8 +493,8 @@ class XoopsModuleHandler extends XoopsObjectHandler
 		$this->_cachedModule_dirname[$dirname] = $module;
 		$this->_cachedModule_mid[$mid] =& $this->_cachedModule_dirname[$dirname];
 
-		if (XC_CLASS_EXISTS('Legacy_AdminSideMenu')) {
-			Legacy_AdminSideMenu::clearCache();
+		if (XC_CLASS_EXISTS('Xcore_AdminSideMenu')) {
+			Xcore_AdminSideMenu::clearCache();
 		}
 
 		return true;

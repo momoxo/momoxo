@@ -29,42 +29,42 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
 
-define("_MB_LEGACY_HOME",  "È¨");
+define("_MB_XCORE_HOME",  "È¨");
 
-define("_MB_LEGACY_VACNT", "°èÁ¤Á¤º¸º¸±â");
-define("_MB_LEGACY_EACNT", "°èÁ¤Á¤º¸ÆíÁý");
-define("_MB_LEGACY_NOTIF", "ÀÌº¥Æ®ÅëÁö±â´É");
-define("_MB_LEGACY_INBOX", "¼ö½Å¹Ú½º");
-define("_MB_LEGACY_LOUT",  "·Î±×¾Æ¿ô");
-define("_MB_LEGACY_ADMENU","°ü¸®ÀÚ¸Þ´º");
+define("_MB_XCORE_VACNT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_EACNT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_NOTIF", "ï¿½Ìºï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_INBOX", "ï¿½ï¿½ï¿½Å¹Ú½ï¿½");
+define("_MB_XCORE_LOUT",  "ï¿½Î±×¾Æ¿ï¿½");
+define("_MB_XCORE_ADMENU","ï¿½ï¿½ï¿½Ú¸Þ´ï¿½");
 
-define("_MB_LEGACY_SEARCH","°Ë»ö");
-define("_MB_LEGACY_ADVS",  "»ó¼¼ °Ë»ö");
+define("_MB_XCORE_SEARCH","ï¿½Ë»ï¿½");
+define("_MB_XCORE_ADVS",  "ï¿½ï¿½ ï¿½Ë»ï¿½");
 
-define("_MB_LEGACY_SUBMS", "½Å±ÔÅõ°í´º½º");
-define("_MB_LEGACY_WLNKS", "½Å±ÔÅõ°í¸µÅ©");
-define("_MB_LEGACY_BLNK",  "Àß¸øµÈ ¸µÅ©½Å°í");
-define("_MB_LEGACY_MLNKS", "º¯°æµÈ ¸µÅ©");
-define("_MB_LEGACY_WDLS",  "½Å±ÔÅõ°í´Ù¿î·ÎµåÁ¤º¸");
-define("_MB_LEGACY_BFLS",  "Àß¸øµÈ ÆÄÀÏ½Å°í");
-define("_MB_LEGACY_MFLS",  "º¯°æµÈ ´Ù¿î·ÎµåÁ¤º¸");
-define("_MB_LEGACY_COMPEND", "ÄÚ¸àÆ®");
+define("_MB_XCORE_SUBMS", "ï¿½Å±ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½");
+define("_MB_XCORE_WLNKS", "ï¿½Å±ï¿½ï¿½ï¿½ï¿½?Å©");
+define("_MB_XCORE_BLNK",  "ï¿½ß¸ï¿½ï¿½ ï¿½ï¿½Å©ï¿½Å°ï¿½");
+define("_MB_XCORE_MLNKS", "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©");
+define("_MB_XCORE_WDLS",  "ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½Ù¿ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_BFLS",  "ï¿½ß¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½Å°ï¿½");
+define("_MB_XCORE_MFLS",  "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_COMPEND", "ï¿½Ú¸ï¿½Æ®");
 
-define("_MB_LEGACY_RECO",  "ÀÌ »çÀÌÆ®¸¦ ÃßÃµ!");
-define("_MB_LEGACY_PWWIDTH", "ÆË¾÷À©µµ¿ì Æø");
-define("_MB_LEGACY_PWHEIGHT","ÆË¾÷À©µµ¿ì ³ôÀÌ");
-define("_MB_LEGACY_LOGO",    "%s µð·ºÅä¸®¾ÈÀÇ ·Î°íÆÄÀÏÀÌ¸§");  // %s is your root image directory name
-define("_MB_LEGACY_SADMIN",  "°ü¸®ÀÚ±×·ìÀ» Ç¥½ÃÇÔ");
-define("_MB_LEGACY_DISPLAYC"," %s °³ÀÇ ÄÚ¸àÆ®¸¦ Ç¥½Ã");
+define("_MB_XCORE_RECO",  "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ãµ!");
+define("_MB_XCORE_PWWIDTH", "ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
+define("_MB_XCORE_PWHEIGHT","ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_LOGO",    "%s ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½");  // %s is your root image directory name
+define("_MB_XCORE_SADMIN",  "ï¿½ï¿½ï¿½Ú±×·ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½");
+define("_MB_XCORE_DISPLAYC"," %s ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½Æ®ï¿½ï¿½ Ç¥ï¿½ï¿½");
 
-define("_MB_LEGACY_LANG_NUMTHEME", "%s Å×¸¶");
-define('_MB_LEGACY_LANG_THSHOW', "½ºÅ©¸°¼¦ ±×¸²ÆÄÀÏÀÇ Ç¥½Ã");
-define('_MB_LEGACY_LANG_THWIDTH', "½ºÅ©¸°¼¦ ±×¸²ÆÄÀÏÀÇ Æø");
+define("_MB_XCORE_LANG_NUMTHEME", "%s ï¿½×¸ï¿½");
+define('_MB_XCORE_LANG_THSHOW', "ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½");
+define('_MB_XCORE_LANG_THWIDTH', "ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
 
-define('_MB_LEGACY_LANG_RECOMMENDSITE', "Ä£±¸¿¡°Ô ÀÌ »çÀÌÆ®¸¦ ÃßÃµ");
+define('_MB_XCORE_LANG_RECOMMENDSITE', "Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ãµ");
 
-define('_MB_LEGACY_MESSAGE_CAN_NOT_THEME_CHANGE', "Áö±ÝÀº Å×¸¶¸¦ º¯°æÇÏ½Ç ¼ö ¾ø½À´Ï´Ù.");
+define('_MB_XCORE_MESSAGE_CAN_NOT_THEME_CHANGE', "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 
-define('_MB_LEGACY_MAINMENU_EXPAND_SUB', "¸ðµç ÇÏÀ§ ¸Þ´º¸¦ Ç¥½Ã");
+define('_MB_XCORE_MAINMENU_EXPAND_SUB', "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½");
 
 ?>

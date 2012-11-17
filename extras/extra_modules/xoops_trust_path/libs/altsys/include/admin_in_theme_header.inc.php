@@ -56,7 +56,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 	// get all blocks and assign to smarty
 
 //HACK by domifara
-	if (defined( 'XOOPS_CUBE_LEGACY' )){
+	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$handler =& xoops_gethandler('block');
 		$xoopsblock =& $handler->create(false) ;
 	}else{
@@ -144,7 +144,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 		while( $myrow = $db->fetchArray( $result ) ) {
 
 //HACK by domifara
-			if (defined( 'XOOPS_CUBE_LEGACY' )){
+			if (defined( 'XOOPS_CUBE_XCORE' )){
 				$block =& $handler->create(false) ;
 				$block->assignVars($myrow);
 			}else{

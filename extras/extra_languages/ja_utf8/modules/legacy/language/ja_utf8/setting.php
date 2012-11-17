@@ -23,7 +23,7 @@ mb_language( 'ja' ) ;
 // change 0 to 1 if this language is a multi-bytes language
 if (!defined('XOOPS_USE_MULTIBYTES')) define("XOOPS_USE_MULTIBYTES", "1");
 
-// If _MBSTRING_LANGUAGE is defined, the Legacy_LanguageManager class initializes mb functions.
+// If _MBSTRING_LANGUAGE is defined, the Xcore_LanguageManager class initializes mb functions.
 // This mechanism exists for CJK --- Chinese, Japanese, Korean ---
 define("_MBSTRING_LANGUAGE", "japanese");
 
@@ -34,24 +34,24 @@ define("_MBSTRING_LANGUAGE", "japanese");
 
 if ( class_exists( 'XCube_Root' ) && function_exists('mb_convert_encoding') && function_exists('mb_convert_kana')) {
 	$root =& XCube_Root::getSingleton();
-	$root->mDelegateManager->add('Legacy_Mailer.ConvertLocal', 'Legacy_JapaneseUtf8_convLocal');
+	$root->mDelegateManager->add('Xcore_Mailer.ConvertLocal', 'Xcore_JapaneseUtf8_convLocal');
 }
 
-@define('LEGACY_MAIL_LANG','ja');
-@define('LEGACY_MAIL_CHAR','iso-2022-jp');
-@define('LEGACY_MAIL_ENCO','7bit');
+@define('XCORE_MAIL_LANG','ja');
+@define('XCORE_MAIL_CHAR','iso-2022-jp');
+@define('XCORE_MAIL_ENCO','7bit');
 
 if(! defined('FOR_XOOPS_LANG_CHECKER')) {
 
-function Legacy_JapaneseUtf8_convLocal(&$text, $mime)
+function Xcore_JapaneseUtf8_convLocal(&$text, $mime)
 {
 	if ($mime) {
 		switch ($mime) {
 			case '1':
-				$text = mb_encode_mimeheader($text, LEGACY_MAIL_CHAR, 'B', "\n");
+				$text = mb_encode_mimeheader($text, XCORE_MAIL_CHAR, 'B', "\n");
 				break;
 			case '2':
-				$text = mb_encode_mimeheader($text, LEGACY_MAIL_CHAR, 'B', "");
+				$text = mb_encode_mimeheader($text, XCORE_MAIL_CHAR, 'B', "");
 				break;
 		}
 	}

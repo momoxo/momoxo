@@ -1,7 +1,7 @@
 <?php
-// override Legacy_ActionFrame::_createAction()
+// override Xcore_ActionFrame::_createAction()
 // if XCL supports delegate "Module(Install|Update|Uninstall).Success" can remove this file
-// and can remove a file xupdate/admin/class/Legacy_ModuleActions.class.php
+// and can remove a file xupdate/admin/class/Xcore_ModuleActions.class.php
 
 class Xupdate_ModuleActionOverride extends XCube_ActionFilter
 {
@@ -14,10 +14,10 @@ class Xupdate_ModuleActionOverride extends XCube_ActionFilter
     **/
     public function preBlockFilter()
     {
-        $this->mRoot->mDelegateManager->add('Legacy_ActionFrame.CreateAction', array(&$this, '_createAction'), XCUBE_DELEGATE_PRIORITY_FIRST);
+        $this->mRoot->mDelegateManager->add('Xcore_ActionFrame.CreateAction', array(&$this, '_createAction'), XCUBE_DELEGATE_PRIORITY_FIRST);
     }
 
-	// override Legacy_ActionFrame::_createAction()
+	// override Xcore_ActionFrame::_createAction()
 	// if XCL supports delegate "Module(Install|Update|Uninstall).Success" can remove this function
 	public function _createAction(&$actionFrame)
 	{
@@ -33,8 +33,8 @@ class Xupdate_ModuleActionOverride extends XCube_ActionFilter
 			return;
 		}
 
-		require_once XOOPS_LEGACY_PATH . '/admin/actions/' . $actionName . 'Action.class.php';
-		require_once XOOPS_TRUST_PATH . '/modules/xupdate/admin/class/Legacy_ModuleActions.class.php';
+		require_once XOOPS_XCORE_PATH . '/admin/actions/' . $actionName . 'Action.class.php';
+		require_once XOOPS_TRUST_PATH . '/modules/xupdate/admin/class/Xcore_ModuleActions.class.php';
 
 		$className = 'Xupdate_'.$actionName.'Action';
 		

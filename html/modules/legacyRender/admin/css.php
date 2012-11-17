@@ -3,19 +3,19 @@
 // The next line is special fix for IE6.
 session_cache_limiter('private_no_expire');
 
-define ('_LEGACY_ALLOW_ACCESS_FROM_ANY_ADMINS_', true);
+define ('_XCORE_ALLOW_ACCESS_FROM_ANY_ADMINS_', true);
 
 require_once "../../../mainfile.php";
 $root =& XCube_Root::getSingleton();
 unset($root->mContext->mXoopsModule);
 
 //
-// @todo Why does this file know Legacy_RenderSystem?
+// @todo Why does this file know Xcore_RenderSystem?
 //
 
-function Legacy_modifier_css_theme($string)
+function Xcore_modifier_css_theme($string)
 {
-	$infoArr = Legacy_get_override_file($string, null, true);
+	$infoArr = Xcore_get_override_file($string, null, true);
 	
 	if (!empty($infoArr['theme']) && !empty($infoArr['dirname'])) {
 		return XOOPS_THEME_URL . "/" . $infoArr['theme'] . "/modules/" . $infoArr['dirname'] . "/" . $string;
@@ -27,7 +27,7 @@ function Legacy_modifier_css_theme($string)
 		return XOOPS_MODULE_URL . "/" . $infoArr['dirname'] . "/admin/templates/" . $string;
 	}
 	
-	return LEGACY_ADMIN_RENDER_FALLBACK_URL . "/" . $string;
+	return XCORE_ADMIN_RENDER_FALLBACK_URL . "/" . $string;
 }
 
 $theme = isset($_GET['theme']) ? trim($_GET['theme']) : null;
@@ -38,11 +38,11 @@ $file = "stylesheets/" . trim(@$_GET['file']);
 if (strstr($theme, "..") !== false || strstr($dirname, "..") !== false || strstr($file, "..") !== false) {
 	exit();
 }
-require_once XOOPS_ROOT_PATH.'/modules/legacyRender/kernel/Legacy_AdminRenderSystem.class.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcoreRender/kernel/Xcore_AdminRenderSystem.class.php';
 
-$smarty =new Legacy_AdminSmarty();
-$smarty->register_modifier("theme", "Legacy_modifier_css_theme");
-$smarty->register_function("stylesheet", "Legacy_function_stylesheet");
+$smarty =new Xcore_AdminSmarty();
+$smarty->register_modifier("theme", "Xcore_modifier_css_theme");
+$smarty->register_function("stylesheet", "Xcore_function_stylesheet");
 
 //
 // TODO Emergency WORK AROUND for compile cache problem.
@@ -59,7 +59,7 @@ elseif ($dirname != null) {
 	$path = XOOPS_MODULE_PATH . "/${dirname}/admin/templates";
 }
 else {
-	$path = LEGACY_ADMIN_RENDER_FALLBACK_PATH;
+	$path = XCORE_ADMIN_RENDER_FALLBACK_PATH;
 }
 
 $smarty->template_dir = $path;

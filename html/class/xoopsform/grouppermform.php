@@ -72,7 +72,7 @@ class XoopsGroupPermForm extends XoopsForm
      */
     function XoopsGroupPermForm($title, $modid, $permname, $permdesc, $url = "")
     {
-        $this->XoopsForm($title, 'groupperm_form', XOOPS_URL . '/modules/legacy/include/groupperm.php', 'post');
+        $this->XoopsForm($title, 'groupperm_form', XOOPS_URL . '/modules/xcore/include/groupperm.php', 'post');
         $this->_modid = intval($modid);
         $this->_permName = $permname;
         $this->_permDesc = $permdesc;
@@ -155,8 +155,8 @@ class XoopsGroupPermForm extends XoopsForm
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	
-		$renderTarget->setAttribute('legacy_module', 'legacy');
-		$renderTarget->setTemplateName("legacy_xoopsform_grouppermform.html");
+		$renderTarget->setAttribute('xcore_module', 'xcore');
+		$renderTarget->setTemplateName("xcore_xoopsform_grouppermform.html");
 		
 		$renderTarget->setAttribute("form", $this);
 

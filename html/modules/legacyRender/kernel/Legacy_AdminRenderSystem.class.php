@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Legacy
+ * @package Xcore
  */
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
@@ -8,22 +8,22 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 //
 // TODO
 //
-require_once XOOPS_ROOT_PATH . '/modules/legacyRender/kernel/Legacy_RenderSystem.class.php';
+require_once XOOPS_ROOT_PATH . '/modules/xcoreRender/kernel/Xcore_RenderSystem.class.php';
 
-define('LEGACY_ADMIN_RENDER_TEMPLATE_DIRNAME', 'templates');
+define('XCORE_ADMIN_RENDER_TEMPLATE_DIRNAME', 'templates');
 
-define('LEGACY_ADMIN_RENDER_FALLBACK_PATH', XOOPS_MODULE_PATH . '/legacy/admin/theme');
-define('LEGACY_ADMIN_RENDER_FALLBACK_URL', XOOPS_MODULE_URL . '/legacy/admin/theme');
+define('XCORE_ADMIN_RENDER_FALLBACK_PATH', XOOPS_MODULE_PATH . '/xcore/admin/theme');
+define('XCORE_ADMIN_RENDER_FALLBACK_URL', XOOPS_MODULE_URL . '/xcore/admin/theme');
 
 require_once SMARTY_DIR.'/Smarty.class.php';
 
 /**
  * @internal
  * @public
- * @brief The special extended smarty class for Legacy_AdminRenderSystem.
+ * @brief The special extended smarty class for Xcore_AdminRenderSystem.
  * This class extends Smarty to mediate the collision compiled file name.
  */
-class Legacy_AdminSmarty extends Smarty
+class Xcore_AdminSmarty extends Smarty
 {
 	var $mModulePrefix = null;
 
@@ -32,7 +32,7 @@ class Legacy_AdminSmarty extends Smarty
 	//
 	var $overrideMode = true;
 	
-	function Legacy_AdminSmarty()
+	function Xcore_AdminSmarty()
 	{
 		parent::Smarty();
 
@@ -69,7 +69,7 @@ class Legacy_AdminSmarty extends Smarty
 		$_return = false;
 
 		$root =& XCube_Root::getSingleton();
-		$theme = $root->mSiteConfig['Legacy']['Theme'];
+		$theme = $root->mSiteConfig['Xcore']['Theme'];
 		$dirname = $this->mModulePrefix;
 		
 		if ($dirname != null) {
@@ -93,9 +93,9 @@ class Legacy_AdminSmarty extends Smarty
 
 /**
  * @brief The specific FILE-TYPE render-system.
- * @todo We depends on Legacy_RenderSystem that a add-in module defines. We must stop this situation.
+ * @todo We depends on Xcore_RenderSystem that a add-in module defines. We must stop this situation.
  */
-class Legacy_AdminRenderSystem extends Legacy_RenderSystem
+class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 {
 	var $mController;
 	var $mSmarty;
@@ -113,9 +113,9 @@ class Legacy_AdminRenderSystem extends Legacy_RenderSystem
 	{
 		$this->mController =& $controller;
 		
-		$this->mSmarty =new Legacy_AdminSmarty();
-		$this->mSmarty->register_modifier('theme', 'Legacy_modifier_theme');
-		$this->mSmarty->register_function('stylesheet', 'Legacy_function_stylesheet');
+		$this->mSmarty =new Xcore_AdminSmarty();
+		$this->mSmarty->register_modifier('theme', 'Xcore_modifier_theme');
+		$this->mSmarty->register_function('stylesheet', 'Xcore_function_stylesheet');
 
 		$this->mSmarty->assign(array(
 			'xoops_url' 	   => XOOPS_URL,
@@ -126,20 +126,20 @@ class Legacy_AdminRenderSystem extends Legacy_RenderSystem
 			'xoops_upload_url' => XOOPS_UPLOAD_URL)
 		);
 
-		if ($controller->mRoot->mSiteConfig['Legacy_AdminRenderSystem']['ThemeDevelopmentMode'] == true) {
+		if ($controller->mRoot->mSiteConfig['Xcore_AdminRenderSystem']['ThemeDevelopmentMode'] == true) {
 			$this->mSmarty->force_compile = true;
 		}
 	}
 	
 	function renderBlock(&$target)
 	{
-		$this->mSmarty->template_dir = XOOPS_ROOT_PATH . '/modules/legacy/admin/templates';
+		$this->mSmarty->template_dir = XOOPS_ROOT_PATH . '/modules/xcore/admin/templates';
 
 		foreach ($target->getAttributes() as $key => $value) {
 			$this->mSmarty->assign($key, $value);
 		}
 		
-		$this->mSmarty->setModulePrefix($target->getAttribute('legacy_module'));
+		$this->mSmarty->setModulePrefix($target->getAttribute('xcore_module'));
 		$result = $this->mSmarty->fetch('blocks/' . $target->getTemplateName());
 		$target->setResult($result);
 
@@ -178,15 +178,15 @@ class Legacy_AdminRenderSystem extends Legacy_RenderSystem
 		//
 		// Other attributes
 		//
-		$vars['legacy_sitename'] = $context->getAttribute('legacy_sitename');
-		$vars['legacy_pagetitle'] = $context->getAttribute('legacy_pagetitle');
-		$vars['legacy_slogan'] = $context->getAttribute('legacy_slogan');
+		$vars['xcore_sitename'] = $context->getAttribute('xcore_sitename');
+		$vars['xcore_pagetitle'] = $context->getAttribute('xcore_pagetitle');
+		$vars['xcore_slogan'] = $context->getAttribute('xcore_slogan');
 		
 		//
 		// Theme rendering
 		//
 		$blocks = array();
-		foreach($context->mAttributes['legacy_BlockContents'][0] as $key => $result) {
+		foreach($context->mAttributes['xcore_BlockContents'][0] as $key => $result) {
 			// $smarty->append('xoops_lblocks', $result);
 			$blocks[$result['name']] = $result;
 		}
@@ -198,13 +198,13 @@ class Legacy_AdminRenderSystem extends Legacy_RenderSystem
 		// Check Theme or Fallback
 		//
 		$root =& XCube_Root::getSingleton();
-		$theme = $root->mSiteConfig['Legacy']['Theme'];
+		$theme = $root->mSiteConfig['Xcore']['Theme'];
 		
 		if (file_exists(XOOPS_ROOT_PATH.'/themes/'.$theme.'/admin_theme.html')) {
 			$smarty->template_dir=XOOPS_THEME_PATH.'/'.$theme;
 		}
 		else {
-			$smarty->template_dir=LEGACY_ADMIN_RENDER_FALLBACK_PATH;
+			$smarty->template_dir=XCORE_ADMIN_RENDER_FALLBACK_PATH;
 		}
 
 		$smarty->setModulePrefix('');
@@ -225,9 +225,9 @@ class Legacy_AdminRenderSystem extends Legacy_RenderSystem
 		$result = null;
 		
 		if ($target->getTemplateName()) {
-			if ($target->getAttribute('legacy_module') != null) {
-				$this->mSmarty->setModulePrefix($target->getAttribute('legacy_module'));
-				$this->mSmarty->template_dir = XOOPS_MODULE_PATH . '/' . $target->getAttribute('legacy_module') . '/admin/'. LEGACY_ADMIN_RENDER_TEMPLATE_DIRNAME;
+			if ($target->getAttribute('xcore_module') != null) {
+				$this->mSmarty->setModulePrefix($target->getAttribute('xcore_module'));
+				$this->mSmarty->template_dir = XOOPS_MODULE_PATH . '/' . $target->getAttribute('xcore_module') . '/admin/'. XCORE_ADMIN_RENDER_TEMPLATE_DIRNAME;
 			}
 			
 			$result=$this->mSmarty->fetch('file:'.$target->getTemplateName());
@@ -258,9 +258,9 @@ class Legacy_AdminRenderSystem extends Legacy_RenderSystem
  * 2) Search file in current module template directory.
  * 3) Search file in fallback theme directory.
  */
-function Legacy_modifier_theme($string)
+function Xcore_modifier_theme($string)
 {
-	$infoArr = Legacy_get_override_file($string);
+	$infoArr = Xcore_get_override_file($string);
 	
 	if ($infoArr['theme'] != null && $infoArr['dirname'] != null) {
 		return XOOPS_THEME_URL . '/' . $infoArr['theme'] . '/modules/' . $infoArr['dirname'] . '/' . $string;
@@ -272,10 +272,10 @@ function Legacy_modifier_theme($string)
 		return XOOPS_MODULE_URL . '/' . $infoArr['dirname'] . '/admin/templates/' . $string;
 	}
 	
-	return LEGACY_ADMIN_RENDER_FALLBACK_URL . '/' . $string;
+	return XCORE_ADMIN_RENDER_FALLBACK_URL . '/' . $string;
 }
 
-function Legacy_function_stylesheet($params, &$smarty)
+function Xcore_function_stylesheet($params, &$smarty)
 {
 	if (!isset($params['file'])) {
 		$smarty->trigger_error('stylesheet: missing file parameter.');
@@ -291,7 +291,7 @@ function Legacy_function_stylesheet($params, &$smarty)
 	
 	$media = (isset($params['media'])) ? $params['media'] : 'all';
 
-	$infoArr = Legacy_get_override_file($file, 'stylesheets/');
+	$infoArr = Xcore_get_override_file($file, 'stylesheets/');
 
 	// TEMP
 	// TODO We must return FALLBACK_URL here.
@@ -308,7 +308,7 @@ function Legacy_function_stylesheet($params, &$smarty)
 			elseif (!empty($infoArr['dirname'])) {
 				$url = XOOPS_MODULE_URL . "/$dirname/admin/templates/$file";
 			} else {
-				$url = LEGACY_ADMIN_RENDER_FALLBACK_URL . "/$file";
+				$url = XCORE_ADMIN_RENDER_FALLBACK_URL . "/$file";
 			}
 		} else {
 			if ($infoArr['file'] != null) {
@@ -319,19 +319,19 @@ function Legacy_function_stylesheet($params, &$smarty)
 					}
 				}
 			}
-			$url = XOOPS_MODULE_URL . '/legacyRender/admin/css.php?' . implode('&amp;', $request);
+			$url = XOOPS_MODULE_URL . '/xcoreRender/admin/css.php?' . implode('&amp;', $request);
 		}
 
 		return '<link rel="stylesheet" type="text/css" media="'. $media .'" href="' . $url . '" />';
 	}
 }
 
-function Legacy_get_override_file($file, $prefix = null, $isSpDirname = false)
+function Xcore_get_override_file($file, $prefix = null, $isSpDirname = false)
 {
 	$root =& XCube_Root::getSingleton();
 	$moduleObject =& $root->mContext->mXoopsModule;
 
-	if ($isSpDirname && is_object($moduleObject) && $moduleObject->get('dirname') == 'legacy' && isset($_REQUEST['dirname'])) {
+	if ($isSpDirname && is_object($moduleObject) && $moduleObject->get('dirname') == 'xcore' && isset($_REQUEST['dirname'])) {
 		$dirname = xoops_getrequest('dirname');
 		if (preg_match('/^[a-z0-9_]+$/i', $dirname)) {
 			$handler = xoops_gethandler('module');
@@ -339,7 +339,7 @@ function Legacy_get_override_file($file, $prefix = null, $isSpDirname = false)
 		}
 	}
 
-	$theme = $root->mSiteConfig['Legacy']['Theme'];
+	$theme = $root->mSiteConfig['Xcore']['Theme'];
 
 	$ret = array();
 	$ret['theme'] = $theme;
@@ -381,7 +381,7 @@ function Legacy_get_override_file($file, $prefix = null, $isSpDirname = false)
 		
 		$ret['dirname'] = null;
 
-		if (file_exists(LEGACY_ADMIN_RENDER_FALLBACK_PATH . '/' . $file)) {
+		if (file_exists(XCORE_ADMIN_RENDER_FALLBACK_PATH . '/' . $file)) {
 			return $checkCache[$mfile] = &$ret;
 		}
 		

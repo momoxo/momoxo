@@ -11,7 +11,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * [Notice]
  * This class has been checked in Alpha4. But, this class doesn't go along the
  * latest cubson style. And some problems (using core handler, naming rule and
- * etc) are there. Pm module is one of the most old code in Legacy.
+ * etc) are there. Pm module is one of the most old code in Xcore.
  */
 class Pm_ReadAction extends Pm_AbstractAction
 {

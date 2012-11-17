@@ -4,7 +4,7 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_PageNavigator.class.php";
 
-class LegacyRender_AbstractListAction extends LegacyRender_Action
+class XcoreRender_AbstractListAction extends XcoreRender_Action
 {
 	var $mObjects = array();
 	var $mFilter = null;
@@ -35,7 +35,7 @@ class LegacyRender_AbstractListAction extends LegacyRender_Action
 		$handler =& $this->_getHandler();
 		$this->mObjects =& $handler->getObjects($this->mFilter->getCriteria());
 		
-		return LEGACYRENDER_FRAME_VIEW_INDEX;
+		return XCORERENDER_FRAME_VIEW_INDEX;
 	}
 }
 

@@ -467,7 +467,7 @@ function _dblayertrap_check_recursive( $val )
 
 function dblayertrap_init( $force_override = false )
 {
-	if( ! empty( $GLOBALS['xoopsOption']['nocommon'] ) || defined( '_LEGACY_PREVENT_EXEC_COMMON_' ) || defined( '_LEGACY_PREVENT_LOAD_CORE_' ) ) return ; // skip
+	if( ! empty( $GLOBALS['xoopsOption']['nocommon'] ) || defined( '_XCORE_PREVENT_EXEC_COMMON_' ) || defined( '_XCORE_PREVENT_LOAD_CORE_' ) ) return ; // skip
 
 	$this->_dblayertrap_doubtfuls = array() ;
 	$this->_dblayertrap_check_recursive( $_GET ) ;
@@ -650,15 +650,15 @@ function replace_doubtful( $key , $val )
 	switch( $base_array ) {
 		case 'G' :
 			$main_ref =& $this->get_ref_from_base64index( $_GET , $indexes ) ;
-			$legacy_ref =& $this->get_ref_from_base64index( $HTTP_GET_VARS , $indexes ) ;
+			$xcore_ref =& $this->get_ref_from_base64index( $HTTP_GET_VARS , $indexes ) ;
 			break ;
 		case 'P' :
 			$main_ref =& $this->get_ref_from_base64index( $_POST , $indexes ) ;
-			$legacy_ref =& $this->get_ref_from_base64index( $HTTP_POST_VARS , $indexes ) ;
+			$xcore_ref =& $this->get_ref_from_base64index( $HTTP_POST_VARS , $indexes ) ;
 			break ;
 		case 'C' :
 			$main_ref =& $this->get_ref_from_base64index( $_COOKIE , $indexes ) ;
-			$legacy_ref =& $this->get_ref_from_base64index( $HTTP_COOKIE_VARS , $indexes ) ;
+			$xcore_ref =& $this->get_ref_from_base64index( $HTTP_COOKIE_VARS , $indexes ) ;
 			break ;
 		default :
 			exit ;
@@ -669,7 +669,7 @@ function replace_doubtful( $key , $val )
 		$request_ref = $val ;
 	}
 	$main_ref = $val ;
-	$legacy_ref = $val ;
+	$xcore_ref = $val ;
 }
 
 

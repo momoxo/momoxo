@@ -169,7 +169,7 @@ class Xupdate_FtpThemeFinderInstall extends Xupdate_FtpCommonZipArchive {
 	 **/
 	private function _get_nextlink()
 	{
-		$ret ='<a href="'.XOOPS_MODULE_URL.'/legacy/admin/index.php?action=ThemeList">'._MI_XUPDATE_ADMENU_THEME._MI_XUPDATE_MANAGE.'</a>';
+		$ret ='<a href="'.XOOPS_MODULE_URL.'/xcore/admin/index.php?action=ThemeList">'._MI_XUPDATE_ADMENU_THEME._MI_XUPDATE_MANAGE.'</a>';
 		return $ret;
 	}
 

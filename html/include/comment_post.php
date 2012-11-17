@@ -119,7 +119,7 @@ case "preview":
         if (is_object($xoopsUser)) {
             if (!$xoopsUser->isAdmin($com_modid)) {
                 $sysperm_handler =& xoops_gethandler('groupperm');
-                if (!$sysperm_handler->checkRight('system_admin', LEGACY_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
+                if (!$sysperm_handler->checkRight('system_admin', XCORE_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
                     $dohtml = 0;
                 }
             }
@@ -155,7 +155,7 @@ case "post":
 
         if (is_object($xoopsUser)) {
             $sysperm_handler =& xoops_gethandler('groupperm');
-            if ($xoopsUser->isAdmin($com_modid) || $sysperm_handler->checkRight('system_admin', LEGACY_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
+            if ($xoopsUser->isAdmin($com_modid) || $sysperm_handler->checkRight('system_admin', XCORE_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
                 if (!empty($com_status) && $com_status != XOOPS_COMMENT_PENDING) {
                     $old_com_status = $comment->getVar('com_status');
                     $comment->setVar('com_status', $com_status);
@@ -199,7 +199,7 @@ case "post":
         $comment->setVar('com_ip', xoops_getenv('REMOTE_ADDR'));
         if (is_object($xoopsUser)) {
             $sysperm_handler =& xoops_gethandler('groupperm');
-            if ($xoopsUser->isAdmin($com_modid) || $sysperm_handler->checkRight('system_admin', LEGACY_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
+            if ($xoopsUser->isAdmin($com_modid) || $sysperm_handler->checkRight('system_admin', XCORE_SYSTEM_COMMENT, $xoopsUser->getGroups())) {
                 $comment->setVar('com_status', XOOPS_COMMENT_ACTIVE);
                 $add_userpost = true;
                 $call_approvefunc = true;

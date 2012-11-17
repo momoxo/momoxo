@@ -68,7 +68,7 @@
 		<tr>
 			<td class="head"><{$smarty.const._MD_A_MYBLOCKSADMIN_CONTENT}></td>
 			<td class="even">
-				<{if $xoops_cube_legacy}>
+				<{if $xoops_cube_xcore}>
 					<{if $block.ctype == 'P'}>
 						<textarea name="contents[<{$block.bid}>]" id="textarea_content" cols="80" rows="20"><{$block.content_raw|escape}></textarea>
 						<{if ! $common_fck_installed}><br /><{$smarty.const._MD_A_MYBLOCKSADMIN_NOTICE4COMMONFCK}><{/if}>

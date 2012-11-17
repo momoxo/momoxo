@@ -68,7 +68,7 @@ class User_UserRegister_confirmAction extends User_Action
 		$this->_processMail($controller);
 		$this->_eventNotifyMail($controller);
 		
-		XCube_DelegateUtils::call('Legacy.Event.RegistUser.Success', new XCube_Ref($this->mNewUser));
+		XCube_DelegateUtils::call('Xcore.Event.RegistUser.Success', new XCube_Ref($this->mNewUser));
 		
 		return USER_FRAME_VIEW_SUCCESS;
 	}

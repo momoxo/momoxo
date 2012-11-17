@@ -1,24 +1,24 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: criteria.class.php,v 1.4 2008/09/25 15:11:59 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
 
-define("LEGACY_EXPRESSION_EQ", "=");
-define("LEGACY_EXPRESSION_NE", "<>");
-define("LEGACY_EXPRESSION_LT", "<");
-define("LEGACY_EXPRESSION_LE", "<=");
-define("LEGACY_EXPRESSION_GT", ">");
-define("LEGACY_EXPRESSION_GE", ">=");
-define("LEGACY_EXPRESSION_LIKE", "like");
-define("LEGACY_EXPRESSION_IN", "in");
+define("XCORE_EXPRESSION_EQ", "=");
+define("XCORE_EXPRESSION_NE", "<>");
+define("XCORE_EXPRESSION_LT", "<");
+define("XCORE_EXPRESSION_LE", "<=");
+define("XCORE_EXPRESSION_GT", ">");
+define("XCORE_EXPRESSION_GE", ">=");
+define("XCORE_EXPRESSION_LIKE", "like");
+define("XCORE_EXPRESSION_IN", "in");
  
-define("LEGACY_EXPRESSION_AND", "and");
-define("LEGACY_EXPRESSION_OR", "or");
+define("XCORE_EXPRESSION_AND", "and");
+define("XCORE_EXPRESSION_OR", "or");
 
  /**
   * @internal
@@ -26,9 +26,9 @@ define("LEGACY_EXPRESSION_OR", "or");
   * 
   * This class is expression of criterion for handlers and useful for dynamic
   * SQL. This class group doesn't have CriteriaCompo. There is add() member
-  * function to append conditions. For expression of nest, cast Legacy_Criteria
+  * function to append conditions. For expression of nest, cast Xcore_Criteria
   * instance into the member function. In this case, developers should get the
-  * instance by createCriteria() because Legacy_Criteria has to have Type
+  * instance by createCriteria() because Xcore_Criteria has to have Type
   * Information for Type Safety. createCriteria() returns $criteria that has
   * the same information.
   * 
@@ -59,7 +59,7 @@ define("LEGACY_EXPRESSION_OR", "or");
   *   make new Criteria that is like old Criteria.
   *   (Perhaps, old Criteria was created as Torque like)
   */
-class Legacy_Criteria
+class Xcore_Criteria
 {
 	var $mTypeInfoArr = array();
 	
@@ -68,7 +68,7 @@ class Legacy_Criteria
 	 */
 	var $mChildlen = array();
 	
-	function Legacy_Criteria($typeInfoArr)
+	function Xcore_Criteria($typeInfoArr)
 	{
 		$this->mTypeInfoArr = $typeInfoArr;
 	}
@@ -76,7 +76,7 @@ class Legacy_Criteria
 	/**
 	 * This is alias for addAnd().
 	 */
-	function add($column, $value = null, $comparison = LEGACY_EXPRESSION_EQ)
+	function add($column, $value = null, $comparison = XCORE_EXPRESSION_EQ)
 	{
 		$this->addAnd($column, $value, $comparison);
 	}
@@ -84,11 +84,11 @@ class Legacy_Criteria
 	/**
 	 * Add $criteria to childlen with AND condition.
 	 */	
-	function addAnd($column, $value = null, $comparison = LEGACY_EXPRESSION_EQ)
+	function addAnd($column, $value = null, $comparison = XCORE_EXPRESSION_EQ)
 	{
 		$t_arr = array();
-		$t_arr['condition'] = LEGACY_EXPRESSION_AND;
-		if (is_object($column) && is_a($column, 'Legacy_Criteria')) {
+		$t_arr['condition'] = XCORE_EXPRESSION_AND;
+		if (is_object($column) && is_a($column, 'Xcore_Criteria')) {
 			$t_arr['value'] = $column;
 			$this->mChildlen[] = $t_arr;
 		}
@@ -104,11 +104,11 @@ class Legacy_Criteria
 	/**
 	 * Add $criteria to childlen with OR condition.
 	 */	
-	function addOr($column, $value = null, $comparison = LEGACY_EXPRESSION_EQ)
+	function addOr($column, $value = null, $comparison = XCORE_EXPRESSION_EQ)
 	{
 		$t_arr = array();
-		$t_arr['condition'] = LEGACY_EXPRESSION_OR;
-		if (is_object($column) && is_a($column, 'Legacy_Criteria')) {
+		$t_arr['condition'] = XCORE_EXPRESSION_OR;
+		if (is_object($column) && is_a($column, 'Xcore_Criteria')) {
 			$t_arr['value'] = $column;
 			$this->mChildlen[] = $t_arr;
 		}
@@ -125,11 +125,11 @@ class Legacy_Criteria
 	 * Create the instance of this class which has the same type information,
 	 * and return it.
 	 * 
-	 * @return object Legacy_Criterion
+	 * @return object Xcore_Criterion
 	 */
 	function &createCriterion()
 	{
-		$criteria =new Legacy_Criteria($this->mTypeInfoArr);
+		$criteria =new Xcore_Criteria($this->mTypeInfoArr);
 		return $criteria;
 	}
 	

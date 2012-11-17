@@ -19,11 +19,11 @@ require_once XUPDATE_TRUST_PATH . '/class/AbstractAction.class.php';
  * In KARIMOJI which can have many themes with different render-
  * systems, that one render-system has the control to change themes is wrong,
  * because this action can't list up themes of other render-systems.
- * The action to change themes should be in Legacy. And, each render-systems
+ * The action to change themes should be in Xcore. And, each render-systems
  * should send theme informations through delegate-mechanism.
  *
  * Therefore, this class is test for that we may move this action from
- * LegacyRender module. If you want to check the concept of this strategy, see
+ * XcoreRender module. If you want to check the concept of this strategy, see
  * ThemeSelect preload in KARIMOJI_LEGALEGAmodule.
  */
 class Xupdate_Admin_ThemeFinderAction extends Xupdate_AbstractAction

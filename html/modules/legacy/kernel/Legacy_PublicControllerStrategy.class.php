@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_PublicControllerStrategy.class.php,v 1.7 2008/11/14 09:45:23 mumincacao Exp $
+ * @package Xcore
+ * @version $Id: Xcore_PublicControllerStrategy.class.php,v 1.7 2008/11/14 09:45:23 mumincacao Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,18 +10,18 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Legacy_PublicControllerStrategy extends Legacy_AbstractControllerStrategy
+class Xcore_PublicControllerStrategy extends Xcore_AbstractControllerStrategy
 {
-	var $mStatusFlag = LEGACY_CONTROLLER_STATE_PUBLIC;
+	var $mStatusFlag = XCORE_CONTROLLER_STATE_PUBLIC;
 	
-	function Legacy_PublicControllerStrategy(&$controller)
+	function Xcore_PublicControllerStrategy(&$controller)
 	{
-		parent::Legacy_AbstractControllerStrategy($controller);
+		parent::Xcore_AbstractControllerStrategy($controller);
 		
-		$controller->mRoot->mContext->mBaseRenderSystemName = "Legacy_RenderSystem";
+		$controller->mRoot->mContext->mBaseRenderSystemName = "Xcore_RenderSystem";
 		
-		if (!defined("LEGACY_DEPENDENCE_RENDERER")) {
-			define("LEGACY_DEPENDENCE_RENDERER", "Legacy_RenderSystem");
+		if (!defined("XCORE_DEPENDENCE_RENDERER")) {
+			define("XCORE_DEPENDENCE_RENDERER", "Xcore_RenderSystem");
 		}
 	}
 
@@ -52,7 +52,7 @@ class Legacy_PublicControllerStrategy extends Legacy_AbstractControllerStrategy
 
 		$blockObjects =& $blockHandler->getBlocks($groups, $mid, $showFlag);
 		foreach($blockObjects as $blockObject) {
-			$block =& Legacy_Utils::createBlockProcedure($blockObject);
+			$block =& Xcore_Utils::createBlockProcedure($blockObject);
 
 			if ($block->prepare() !== false) {
 				$this->mController->_mBlockChain[] =& $block;
@@ -68,7 +68,7 @@ class Legacy_PublicControllerStrategy extends Legacy_AbstractControllerStrategy
 		// Because get() of the virtual handler is heavy, we have to consider
 		// the new solution about this process.
 		//
-		$handler =& xoops_getmodulehandler('theme', 'legacy');
+		$handler =& xoops_getmodulehandler('theme', 'xcore');
 		$theme =& $handler->get($this->mController->mRoot->mContext->getThemeName());
 		if (is_object($theme)) {
 			return $theme;

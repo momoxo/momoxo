@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: SearchResultsAction.class.php,v 1.3 2008/09/25 15:12:06 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,12 +10,12 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/forms/SearchResultsForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/forms/SearchResultsForm.class.php";
 
-define('LEGACY_SEARCH_RESULT_MAXHIT', 5);
-define('LEGACY_SEARCH_SHOWALL_MAXHIT', 20);
+define('XCORE_SEARCH_RESULT_MAXHIT', 5);
+define('XCORE_SEARCH_SHOWALL_MAXHIT', 20);
 
-class Legacy_SearchResultsAction extends Legacy_Action
+class Xcore_SearchResultsAction extends Xcore_Action
 {
 	var $mActionForm = null;
 	var $mSearchResults = array();
@@ -27,7 +27,7 @@ class Legacy_SearchResultsAction extends Legacy_Action
 	{
 		$root =& $controller->mRoot;
 		$root->mLanguageManager->loadPageTypeMessageCatalog('search');
-		$root->mLanguageManager->loadModuleMessageCatalog('legacy');
+		$root->mLanguageManager->loadModuleMessageCatalog('xcore');
 		
 		$handler =& xoops_gethandler('config');
 		$this->mConfig =& $handler->getConfigsByCat(XOOPS_CONF_SEARCH);
@@ -37,14 +37,14 @@ class Legacy_SearchResultsAction extends Legacy_Action
 	
 	function _setupActionForm()
 	{
-		$this->mActionForm =new Legacy_SearchResultsForm($this->mConfig['keyword_min']);
+		$this->mActionForm =new Xcore_SearchResultsForm($this->mConfig['keyword_min']);
 		$this->mActionForm->prepare();
 	}
 	
 	function hasPermission(&$controller, &$xoopsUser)
 	{
 		if ($this->mConfig['enable_search'] != 1) {
-			$controller->executeRedirect(XOOPS_URL . '/', 3, _MD_LEGACY_ERROR_SEARCH_NOT_ENABLED);
+			$controller->executeRedirect(XOOPS_URL . '/', 3, _MD_XCORE_ERROR_SEARCH_NOT_ENABLED);
 			return false;
 		}
 		return true;
@@ -52,13 +52,13 @@ class Legacy_SearchResultsAction extends Legacy_Action
 	
 	function _getMaxHit()
 	{
-		return LEGACY_SEARCH_RESULT_MAXHIT;
+		return XCORE_SEARCH_RESULT_MAXHIT;
 	}
 	
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		$root =& $controller->mRoot;
-		$service =& $root->mServiceManager->getService("LegacySearch");
+		$service =& $root->mServiceManager->getService("XcoreSearch");
 		
 		if (is_object($service)) {
 			$client =& $root->mServiceManager->createClient($service);
@@ -69,7 +69,7 @@ class Legacy_SearchResultsAction extends Legacy_Action
 		$this->mActionForm->validate();
 		
 		if ($this->mActionForm->hasError()) {
-			return LEGACY_FRAME_VIEW_INDEX;
+			return XCORE_FRAME_VIEW_INDEX;
 		}
 
 		//
@@ -98,10 +98,10 @@ class Legacy_SearchResultsAction extends Legacy_Action
 			}
 		}
 		else {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 	
 	function _doSearch(&$client, &$xoopsUser, &$params)
@@ -138,7 +138,7 @@ class Legacy_SearchResultsAction extends Legacy_Action
 	
 	function _getTemplateName()
 	{
-		return "legacy_search_results.html";
+		return "xcore_search_results.html";
 	}
 	
 	function _getSelectedMids()

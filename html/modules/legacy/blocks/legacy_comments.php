@@ -2,7 +2,7 @@
 /**
  *
  * @package XOOPS2
- * @version $Id: legacy_comments.php,v 1.3 2008/09/25 15:12:13 kilica Exp $
+ * @version $Id: xcore_comments.php,v 1.3 2008/09/25 15:12:13 kilica Exp $
  * @copyright Copyright (c) 2000 XOOPS.org  <http://www.xoops.org/>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -19,7 +19,7 @@
 //  This file has been modified for KARIMOJI_LEGALEGAfrom XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
-function b_legacy_comments_show($options) {
+function b_xcore_comments_show($options) {
     $block = array();
     include_once XOOPS_ROOT_PATH.'/include/comment_constants.php';
     $comment_handler =& xoops_gethandler('comment');
@@ -59,9 +59,9 @@ function b_legacy_comments_show($options) {
     return $block;
 }
 
-function b_legacy_comments_edit($options) {
+function b_xcore_comments_edit($options) {
     $inputtag = "<input type='text' name='options[]' value='".intval($options[0])."' />";
-    $form = sprintf(_MB_LEGACY_DISPLAYC, $inputtag);
+    $form = sprintf(_MB_XCORE_DISPLAYC, $inputtag);
     return $form;
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -13,10 +13,10 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Interface of friend delegate
 **/
-interface Legacy_iFriendDelegate
+interface Xcore_iFriendDelegate
 {
 	/**
-	 * getFriendIdList Legacy_Friend.GetFriendIdList
+	 * getFriendIdList Xcore_Friend.GetFriendIdList
 	 * @comment $list should be sorted by recent friends.
 	 *
 	 * @param int[] &$list
@@ -27,7 +27,7 @@ interface Legacy_iFriendDelegate
 	public static function getFriendIdList(/*** int[] ***/ &$list, /*** int ***/ $uid);
 
 	/**
-	 * isFriend 	Legacy_Friend.IsFriend
+	 * isFriend 	Xcore_Friend.IsFriend
 	 * check she is a friend
 	 *
 	 * @param bool	&$check
@@ -39,17 +39,17 @@ interface Legacy_iFriendDelegate
 	public static function isFriend(/*** bool ***/ &$check, /*** int ***/ $uid, /*** int ***/ $friend_uid);
 
 	/**
-	 * getMyFriendsActivitiesList 	Legacy_Friend.GetFriendsActivitiesList
+	 * getMyFriendsActivitiesList 	Xcore_Friend.GetFriendsActivitiesList
 	 * get friends recent action list
 	 *
-	 * @param Legacy_AbstractUserActivityObject[] &$actionList
+	 * @param Xcore_AbstractUserActivityObject[] &$actionList
 	 * @param int	$uid
 	 * @param int	$limit
 	 * @param int	$start
 	 *
 	 * @return	void
 	 */ 
-	public static function getMyFriendsActivitiesList(/*** Legacy_AbstractUserActivityObject[] ***/ &$actionList, /*** int ***/ $uid, /*** int ***/ $limit=20, /*** int ***/ $start=0);
+	public static function getMyFriendsActivitiesList(/*** Xcore_AbstractUserActivityObject[] ***/ &$actionList, /*** int ***/ $uid, /*** int ***/ $limit=20, /*** int ***/ $start=0);
 
 
 }

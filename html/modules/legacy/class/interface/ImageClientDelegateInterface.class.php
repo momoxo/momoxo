@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -12,14 +12,14 @@ if(!defined('XOOPS_ROOT_PATH'))
 
 /**
  * Interface of image client delegate
- * Modules which uses Legacy_Image must implement this interface.
- * Legacy_Image module must be unique.
- * You can get its dirname by constant LEGACY_IMAGE_DIRNAME
+ * Modules which uses Xcore_Image must implement this interface.
+ * Xcore_Image module must be unique.
+ * You can get its dirname by constant XCORE_IMAGE_DIRNAME
 */
-interface Legacy_iImageClientDelegate
+interface Xcore_iImageClientDelegate
 {
 	/**
-	 * getClientList	Legacy_Image.{dirname}.GetClientList
+	 * getClientList	Xcore_Image.{dirname}.GetClientList
 	 * Get client module's dirname and dataname(tablename)
 	 *
 	 * @param mixed[] &$list

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * @package legacy
+ * @package xcore
  * @version $Id$
 **/
 
@@ -13,10 +13,10 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Interface of group delegate
 **/
-interface Legacy_iGroupDelegate
+interface Xcore_iGroupDelegate
 {
 	/**
-	 * getTitle 	Legacy_Group.{dirname}.GetTitle
+	 * getTitle 	Xcore_Group.{dirname}.GetTitle
 	 * get the group title by group id.
 	 *
 	 * @param string 	&$title
@@ -28,7 +28,7 @@ interface Legacy_iGroupDelegate
 	public static function getTitle(/*** string ***/ &$title, /*** string ***/ $gDirname, /*** int ***/ $groupId);
 
 	/**
-	 * getTitleList 	Legacy_Group.{dirname}.GetTitleList
+	 * getTitleList 	Xcore_Group.{dirname}.GetTitleList
 	 * get group titles.
 	 *
 	 * @param string[]	&$titleList
@@ -39,7 +39,7 @@ interface Legacy_iGroupDelegate
 	public static function getTitleList(/*** string[] ***/ &$titleList, /*** string ***/ $gDirname);
 
 	/**
-	 * hasPermission	Legacy_Group.{dirname}.HasPermission
+	 * hasPermission	Xcore_Group.{dirname}.HasPermission
 	 *
 	 * @param bool	 &$check
 	 * @param string $gDirname
@@ -53,7 +53,7 @@ interface Legacy_iGroupDelegate
 	public static function hasPermission(/*** bool ***/ &$check, /*** string ***/ $gDirname, /*** int ***/ $groupId, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** string ***/ $action);
 
 	/**
-	 * getGroupIdList Legacy_Group.{dirname}.GetMyGroupIdList
+	 * getGroupIdList Xcore_Group.{dirname}.GetMyGroupIdList
 	 *
 	 * @param int[] 	&$list
 	 * @param string	$gDirname	Group Module Dirname
@@ -66,9 +66,9 @@ interface Legacy_iGroupDelegate
 	public static function getGroupIdList(/*** int[] ***/ &$list, /*** string ***/ $gDirname, /*** Enum ***/ $rank, /*** int ***/ $limit=null, /*** int ***/ $start=null);
 
 	/**
-	 * getGroupList Legacy_Group.{dirname}.GetMyGroupList
+	 * getGroupList Xcore_Group.{dirname}.GetMyGroupList
 	 *
-	 * @param Legacy_AbstractGroupObject[] &$list
+	 * @param Xcore_AbstractGroupObject[] &$list
 	 * @param string	$gDirname	Group Module Dirname
 	 * @param Enum		$rank	Lenum_GroupRank
 	 * @param int		$limit
@@ -79,7 +79,7 @@ interface Legacy_iGroupDelegate
 	public static function getGroupList(/*** mixed[] ***/ &$list, /*** string ***/ $gDirname, /*** Enum ***/ $rank, /*** int ***/ $limit=null, /*** int ***/ $start=null);
 
 	/**
-	 * getGroupIdListByAction Legacy_Group.{dirname}.GetGroupIdListByAction
+	 * getGroupIdListByAction Xcore_Group.{dirname}.GetGroupIdListByAction
 	 *
 	 * @param int[] 	&$list
 	 * @param string	$gDirname	Group Module Dirname
@@ -94,9 +94,9 @@ interface Legacy_iGroupDelegate
 	public static function getGroupIdListByAction(/*** int[] ***/ &$list, /*** string ***/ $gDirname, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** string ***/ $action, /*** int ***/ $limit=null, /*** int ***/ $start=null);
 
 	/**
-	 * getGroupListByAction Legacy_Group.{dirname}.GetGroupListByAction
+	 * getGroupListByAction Xcore_Group.{dirname}.GetGroupListByAction
 	 *
-	 * @param Legacy_AbstractGroupObject[] &$list
+	 * @param Xcore_AbstractGroupObject[] &$list
 	 * @param string	$gDirname	Group Module Dirname
 	 * @param string	$dirname
 	 * @param string 	$dataname
@@ -109,7 +109,7 @@ interface Legacy_iGroupDelegate
 	public static function getGroupListByAction(/*** mixed[] ***/ &$list, /*** string ***/ $gDirname, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** string ***/ $action, /*** int ***/ $limit=null, /*** int ***/ $start=null);
 
 	/**
-	 * getMemberList	  Legacy_Group.{dirname}.GetMemberList
+	 * getMemberList	  Xcore_Group.{dirname}.GetMemberList
 	 * get member list in the given group
 	 *
 	 * @param mixed $list
@@ -124,7 +124,7 @@ interface Legacy_iGroupDelegate
 	public static function getMemberList(/*** int[] ***/ &$list, /*** string ***/ $gDirname, /*** int ***/ $groupId, /*** Enum ***/ $rank);
 
 	/**
-	 * isMember 	 Legacy_Group.{dirname}.IsMember
+	 * isMember 	 Xcore_Group.{dirname}.IsMember
 	 * check the user's belonging and rank in the given group
 	 *
 	 * @param string	$gDirname	Group Module Dirname

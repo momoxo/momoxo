@@ -39,7 +39,7 @@ class User_MailjobEditAction extends User_AbstractEditAction
 		$this->mFilter->fetch();
 
 		$root =& XCube_Root::getSingleton();
-		$root->mDelegateManager->add('Legacy.Event.Explaceholder.Get.UserPagenaviHidden', 'User_MailjobEditAction::renderHiddenControl');
+		$root->mDelegateManager->add('Xcore.Event.Explaceholder.Get.UserPagenaviHidden', 'User_MailjobEditAction::renderHiddenControl');
 	}
 	
 	function execute(&$controller, &$xoopsUser)

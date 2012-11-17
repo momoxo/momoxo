@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_Identity.class.php,v 1.3 2008/09/25 15:12:02 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_Identity.class.php,v 1.3 2008/09/25 15:12:02 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,9 +10,9 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Legacy_Identity extends XCube_Identity
+class Xcore_Identity extends XCube_Identity
 {
-	function Legacy_Identity(&$xoopsUser)
+	function Xcore_Identity(&$xoopsUser)
 	{
 		parent::XCube_Identity();
 		
@@ -29,7 +29,7 @@ class Legacy_Identity extends XCube_Identity
 	}
 }
 
-class Legacy_AnonymousIdentity extends XCube_Identity
+class Xcore_AnonymousIdentity extends XCube_Identity
 {
 	function isAuthenticated()
 	{
@@ -39,14 +39,14 @@ class Legacy_AnonymousIdentity extends XCube_Identity
 
 /**
  * This principal is free to add roles. And, this is also an interface, because
- * addRole() is used as a common interface in Legacy. Therefore, the dev team
+ * addRole() is used as a common interface in Xcore. Therefore, the dev team
  * may add the interface class to this file.
  * 
  * [Role Naming Convention]
  * Module.{dirname}.Visitor is 'module_read'.
  * Module.{dirname}.Admin is 'module_admin'.
  */
-class Legacy_GenericPrincipal extends XCube_Principal
+class Xcore_GenericPrincipal extends XCube_Principal
 {
 	/**
 	 * Adds a role to this object.

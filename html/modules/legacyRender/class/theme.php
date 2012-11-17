@@ -2,12 +2,12 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class LegacyRenderThemeObject extends XoopsSimpleObject
+class XcoreRenderThemeObject extends XoopsSimpleObject
 {
 	var $mPackage = array();
 	var $mActiveResource = true;
 	
-	function LegacyRenderThemeObject()
+	function XcoreRenderThemeObject()
 	{
 		static $initVars;
 		if (isset($initVars)) {
@@ -35,7 +35,7 @@ class LegacyRenderThemeObject extends XoopsSimpleObject
 			// If this system can use this theme, add this to list.
 			//
 			if (isset($this->mPackage['Manifesto']) && isset($this->mPackage['Manifesto']['Depends'])) {
-				$this->mActiveResource = ($this->mPackage['Manifesto']['Depends'] == "Legacy_RenderSystem");
+				$this->mActiveResource = ($this->mPackage['Manifesto']['Depends'] == "Xcore_RenderSystem");
 			}
 		}
 		else {
@@ -50,11 +50,11 @@ class LegacyRenderThemeObject extends XoopsSimpleObject
 	}
 }
 
-class LegacyRenderThemeHandler extends XoopsObjectGenericHandler
+class XcoreRenderThemeHandler extends XoopsObjectGenericHandler
 {
-	var $mTable = "legacyrender_theme";
+	var $mTable = "xcorerender_theme";
 	var $mPrimary = "id";
-	var $mClass = "LegacyRenderThemeObject";
+	var $mClass = "XcoreRenderThemeObject";
 	
 	function &getByName($themeName)
 	{
@@ -70,7 +70,7 @@ class LegacyRenderThemeHandler extends XoopsObjectGenericHandler
 	}
 
 	/**
-	 * Search themes that Legacy_RenderSystem can render in file system, then register by handler.
+	 * Search themes that Xcore_RenderSystem can render in file system, then register by handler.
 	 */	
 	function searchThemes()
 	{
@@ -94,7 +94,7 @@ class LegacyRenderThemeHandler extends XoopsObjectGenericHandler
 						//
 						// If this system can use this theme, add this to list.
 						//
-						if(isset($manifesto['Manifesto']) && isset($manifesto['Manifesto']['Depends']) && preg_match('/Legacy_RenderSystem(\s|,|$)/', $manifesto['Manifesto']['Depends'])) {
+						if(isset($manifesto['Manifesto']) && isset($manifesto['Manifesto']['Depends']) && preg_match('/Xcore_RenderSystem(\s|,|$)/', $manifesto['Manifesto']['Depends'])) {
 							$themeList[]=$dir;
 						}
 					}

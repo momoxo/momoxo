@@ -13,7 +13,7 @@ define('_MI_XUPGRADE_ERROR_DELETED_CATEGORY', "Could not deleted {0}.");
 define('_MI_XUPGRADE_ERROR_DELETED_CONFIG', "Could not delete the '{0}' config in the global.");
 define('_MI_XUPGRADE_ERROR_FIND_CONFIG', "Could not find the '{0}' config in {1} module.");
 define('_MI_XUPGRADE_ERROR_PORTED_CONFIG', "Could not Ported the '{0}' config to the config of {1} module.");
-define('_MI_XUPGRADE_ERROR_PORTED_TEMPLATE', "Cound not port '{0}' template of the '{1}' tplset to Legacy.");
+define('_MI_XUPGRADE_ERROR_PORTED_TEMPLATE', "Cound not port '{0}' template of the '{1}' tplset to Xcore.");
 define('_MI_XUPGRADE_LANG_GPL', "The GNU General Public License");
 define('_MI_XUPGRADE_LANG_METEFOOTER_CATEGORY', "Meta Tags and Footer");
 define('_MI_XUPGRADE_LANG_USER_CATEGORY', "User Info Settings");
@@ -22,7 +22,7 @@ define('_MI_XUPGRADE_MESSAGE_ADJUST_MODULE_ISACTIVE', "Adjusted the 'isactive' v
 define('_MI_XUPGRADE_MESSAGE_DELETED_CATEGORY', "Deleted '{0}'.");
 define('_MI_XUPGRADE_MESSAGE_DELETED_CONFIG', "Deleted the '{0}' config in the global.");
 define('_MI_XUPGRADE_MESSAGE_PORTED_CONFIG', "Ported the '{0}' config to the config of {1} module.");
-define('_MI_XUPGRADE_MESSAGE_PORTED_TEMPLATE', "Ported '{0}' template of the '{1}' tplset to Legacy.");
+define('_MI_XUPGRADE_MESSAGE_PORTED_TEMPLATE', "Ported '{0}' template of the '{1}' tplset to Xcore.");
 define('_MI_XUPGRADE_MESSAGE_START_PORTING', "Start porting configs & templates...");
 
 ?>

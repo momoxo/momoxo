@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: MiscSslloginAction.class.php,v 1.5 2008/09/25 15:12:07 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -15,11 +15,11 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
  * @public
  * @todo This action should be implemented by base. We must move it to user.
  */
-class Legacy_MiscSslloginAction extends Legacy_Action
+class Xcore_MiscSslloginAction extends Xcore_Action
 {
 	function execute(&$controller, &$xoopsUser)
 	{
-		return LEGACY_FRAME_VIEW_INDEX;
+		return XCORE_FRAME_VIEW_INDEX;
 	}
 	
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
@@ -36,8 +36,8 @@ class Legacy_MiscSslloginAction extends Legacy_Action
 			session_id($_POST[$moduleConfigUser['sslpost_name']]);
 		}
 	
-		$render->setTemplateName("legacy_misc_ssllogin.html");
-		$render->setAttribute("message", XCube_Utils::formatMessage(_MD_LEGACY_MESSAGE_LOGIN_SUCCESS, $xoopsUser->get('uname')));
+		$render->setTemplateName("xcore_misc_ssllogin.html");
+		$render->setAttribute("message", XCube_Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $xoopsUser->get('uname')));
 	}
 }
 

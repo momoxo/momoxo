@@ -41,14 +41,14 @@ class User_UserDeleteAction extends User_AbstractDeleteAction
 
 	function _doExecute()
 	{
-		XCube_DelegateUtils::call('Legacy.Admin.Event.UserDelete', new XCube_Ref($this->mObject));
+		XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete', new XCube_Ref($this->mObject));
 		$handler =& xoops_gethandler('member');
 		if ($handler->delete($this->mObject)) {
-			XCube_DelegateUtils::call('Legacy.Admin.Event.UserDelete.Success', new XCube_Ref($this->mObject));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Success', new XCube_Ref($this->mObject));
 			return USER_FRAME_VIEW_SUCCESS;
 		}
 		else {
-			XCube_DelegateUtils::call('Legacy.Admin.Event.UserDelete.Fail', new XCube_Ref($this->mObject));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Fail', new XCube_Ref($this->mObject));
 			return USER_FRAME_VIEW_ERROR;
 		}
 	}

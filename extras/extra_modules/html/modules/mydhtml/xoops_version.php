@@ -22,7 +22,7 @@ $modversion['image'] = "images/module_icon.png";
 $modversion['dirname'] = "mydhtml";
 
 $modversion['cube_style'] = true;
-$modversion['disable_legacy_2nd_installer'] = false;
+$modversion['disable_xcore_2nd_installer'] = false;
 
 // TODO After you made your SQL, remove the following comment-out.
 // $modversion['sqlfile']['mysql'] = "sql/mysql.sql";

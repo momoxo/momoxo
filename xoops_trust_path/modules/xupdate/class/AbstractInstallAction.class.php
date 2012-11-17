@@ -159,12 +159,12 @@ class Xupdate_AbstractInstallAction extends Xupdate_AbstractAction
 			$this->addon_url = $this->Func->_getDownloadUrl( $this->target_key, $mobj->get('addon_url') );
 			$this->detail_url = $mobj->get('detail_url');
 			if ($mobj->hasNeedUpdate()) {
-				$this->version = $mobj->mModule->getRenderedVersion()  . ' &rarr; <strong class="legacy_module_versionMsg">' . $mobj->getRenderedVersion() . '</strong>';
+				$this->version = $mobj->mModule->getRenderedVersion()  . ' &rarr; <strong class="xcore_module_versionMsg">' . $mobj->getRenderedVersion() . '</strong>';
 			} else {
 				$this->version = $mobj->getRenderedVersion();
 			}
 			if ($mobj->hasNeedUpdateDetail()) {
-				$this->detailed_version = $mobj->modinfo['detailed_version']  . ' &rarr; <strong class="legacy_module_versionMsg">' . $mobj->options['detailed_version'] . '</strong>';
+				$this->detailed_version = $mobj->modinfo['detailed_version']  . ' &rarr; <strong class="xcore_module_versionMsg">' . $mobj->options['detailed_version'] . '</strong>';
 			} else {
 				$this->detailed_version = $mobj->options['detailed_version'];
 			}

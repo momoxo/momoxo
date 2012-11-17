@@ -2,19 +2,19 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacyRender/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplsetFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacyRender/admin/forms/TplsetSelectForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/class/AbstractListAction.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplsetFilterForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcoreRender/admin/forms/TplsetSelectForm.class.php";
 
-class LegacyRender_TplsetListAction extends LegacyRender_AbstractListAction
+class XcoreRender_TplsetListAction extends XcoreRender_AbstractListAction
 {
 	var $mActionForm = null;
 	var $mActiveTemplateSet = null;
 	
 	function prepare(&$controller, &$xoopsUser, $moduleConfig)
 	{
-		LegacyRender_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
-		$this->mActionForm =new LegacyRender_TplsetSelectForm();
+		XcoreRender_AbstractListAction::prepare($controller, $xoopsUser, $moduleConfig);
+		$this->mActionForm =new XcoreRender_TplsetSelectForm();
 		$this->mActionForm->prepare();
 	}
 	
@@ -26,7 +26,7 @@ class LegacyRender_TplsetListAction extends LegacyRender_AbstractListAction
 
 	function &_getFilterForm()
 	{
-		$filter =new LegacyRender_TplsetFilterForm($this->_getPageNavi(), $this->_getHandler());
+		$filter =new XcoreRender_TplsetFilterForm($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
 	

@@ -24,8 +24,8 @@ Disallow: /install/
 Disallow: /kernel/
 Disallow: /language/
 Disallow: /modules/fileManager/
-Disallow: /modules/legacy/
-Disallow: /modules/legacyRender/
+Disallow: /modules/xcore/
+Disallow: /modules/xcoreRender/
 Disallow: /modules/message/
 Disallow: /modules/pm/
 Disallow: /modules/profile/

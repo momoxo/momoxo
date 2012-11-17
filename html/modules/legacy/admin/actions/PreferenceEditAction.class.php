@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: PreferenceEditAction.class.php,v 1.11 2008/09/25 15:11:54 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -10,11 +10,11 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_MODULE_PATH . "/legacy/admin/forms/PreferenceEditForm.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/PreferenceEditForm.class.php";
 
-define("LEGACY_PEREFERENCE_ID_GENERAL", 1);
+define("XCORE_PEREFERENCE_ID_GENERAL", 1);
 
-class Legacy_PreferenceEditAction extends Legacy_Action
+class Xcore_PreferenceEditAction extends Xcore_Action
 {
 	var $mPreparedFlag = false;
 	
@@ -31,7 +31,7 @@ class Legacy_PreferenceEditAction extends Legacy_Action
 		$controller->mRoot->mLanguageManager->loadPageTypeMessageCatalog('comment');
 		$controller->mRoot->mLanguageManager->loadPageTypeMessageCatalog('notification');
 
-		$this->mState = (xoops_getrequest('confmod_id') > 0) ? new Legacy_ModulePreferenceEditState($this) : new Legacy_PreferenceEditState($this);
+		$this->mState = (xoops_getrequest('confmod_id') > 0) ? new Xcore_ModulePreferenceEditState($this) : new Xcore_PreferenceEditState($this);
 		$this->mState->prepare($controller, $xoopsUser);
 		
 		if ($this->mPreparedFlag) {
@@ -49,10 +49,10 @@ class Legacy_PreferenceEditAction extends Legacy_Action
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		if (!$this->mPreparedFlag) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
-		return LEGACY_FRAME_VIEW_INPUT;
+		return XCORE_FRAME_VIEW_INPUT;
 	}
 	
 	function hasPermission(&$controller, &$xoopsUser)
@@ -63,11 +63,11 @@ class Legacy_PreferenceEditAction extends Legacy_Action
 	function execute(&$controller, &$xoopsUser)
 	{
 		if (!$this->mPreparedFlag) {
-			return LEGACY_FRAME_VIEW_ERROR;
+			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
 		if (xoops_getrequest('_form_control_cancel') != null) {
-			return LEGACY_FRAME_VIEW_CANCEL;
+			return XCORE_FRAME_VIEW_CANCEL;
 		}
 		
 		$this->mActionForm->fetch();
@@ -88,7 +88,7 @@ class Legacy_PreferenceEditAction extends Legacy_Action
 		
 		$this->mState->postFilter($this->mObjects, $this->mActionForm);
 		
-		return LEGACY_FRAME_VIEW_SUCCESS;
+		return XCORE_FRAME_VIEW_SUCCESS;
 	}
 
 	function executeViewInput(&$controller, &$xoopsUser, &$render)
@@ -195,7 +195,7 @@ class Legacy_PreferenceEditAction extends Legacy_Action
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)
 	{
-		$controller->executeRedirect("./index.php?action=PreferenceList", 1, _MD_LEGACY_ERROR_DBUPDATE_FAILED);
+		$controller->executeRedirect("./index.php?action=PreferenceList", 1, _MD_XCORE_ERROR_DBUPDATE_FAILED);
 	}
 	
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)
@@ -204,11 +204,11 @@ class Legacy_PreferenceEditAction extends Legacy_Action
 	}
 }
 
-class Legacy_AbstractPreferenceEditState
+class Xcore_AbstractPreferenceEditState
 {
 	var $_mMaster = null;
 
-	function Legacy_AbstractPreferenceEditState(&$master)
+	function Xcore_AbstractPreferenceEditState(&$master)
 	{
 		$this->_mMaster =& $master;
 	}
@@ -234,7 +234,7 @@ class Legacy_AbstractPreferenceEditState
 	}
 }
 
-class Legacy_PreferenceEditState extends Legacy_AbstractPreferenceEditState
+class Xcore_PreferenceEditState extends Xcore_AbstractPreferenceEditState
 {
 	function prepare(&$controller, &$xoopsUser)
 	{
@@ -247,7 +247,7 @@ class Legacy_PreferenceEditState extends Legacy_AbstractPreferenceEditState
 			return;
 		}
 
-		$this->_mMaster->mActionForm =new Legacy_PreferenceEditForm($this->_mMaster->mCategory);
+		$this->_mMaster->mActionForm =new Xcore_PreferenceEditForm($this->_mMaster->mCategory);
 		
 		$this->_mMaster->mPreparedFlag = true;
 	}
@@ -255,7 +255,7 @@ class Legacy_PreferenceEditState extends Legacy_AbstractPreferenceEditState
 	function hasPermission(&$controller, &$xoopsUser)
 	{
 		$moduleHandler =& xoops_gethandler('module');
-		$module =& $moduleHandler->getByDirname('legacy');
+		$module =& $moduleHandler->getByDirname('xcore');
 		
 		$permHandler =& xoops_gethandler('groupperm');
 		return $permHandler->checkRight('module_admin', $module->get('mid'), $xoopsUser->getGroups());
@@ -285,10 +285,10 @@ class Legacy_PreferenceEditState extends Legacy_AbstractPreferenceEditState
 		}
 		
 		if ($name != null && $allowedThemes != null) {
-			XCube_DelegateUtils::call('Legacy.Event.ThemeSettingChanged', $themeName, $allowedThemes);
+			XCube_DelegateUtils::call('Xcore.Event.ThemeSettingChanged', $themeName, $allowedThemes);
 		}
 		
-		if( $this->_mMaster->mCategory->get('confcat_id') == LEGACY_PEREFERENCE_ID_GENERAL) { //GIJ
+		if( $this->_mMaster->mCategory->get('confcat_id') == XCORE_PEREFERENCE_ID_GENERAL) { //GIJ
 			$root =& XCube_Root::getSingleton();
 			if ($useMysession) {
 				$root->mSession->setParam($sessionName, $sessionExpire);
@@ -310,7 +310,7 @@ class Legacy_PreferenceEditState extends Legacy_AbstractPreferenceEditState
 	}
 }
 
-class Legacy_ModulePreferenceEditState extends Legacy_AbstractPreferenceEditState
+class Xcore_ModulePreferenceEditState extends Xcore_AbstractPreferenceEditState
 {
 	function prepare(&$controller, &$xoopsUser)
 	{
@@ -327,7 +327,7 @@ class Legacy_ModulePreferenceEditState extends Legacy_AbstractPreferenceEditStat
 			$controller->executeForward(XOOPS_URL . '/admin.php');
 		}
 
-		$this->_mMaster->mActionForm =new Legacy_ModulePreferenceEditForm($this->_mMaster->mModule);
+		$this->_mMaster->mActionForm =new Xcore_ModulePreferenceEditForm($this->_mMaster->mModule);
 		
 		//
 		// Load constants
@@ -346,13 +346,13 @@ class Legacy_ModulePreferenceEditState extends Legacy_AbstractPreferenceEditStat
 	
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
 	{
-		$module = Legacy_Utils::createModule($this->_mMaster->mModule);
+		$module = Xcore_Utils::createModule($this->_mMaster->mModule);
 		$controller->executeForward($module->getAdminIndex());
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)
 	{
-		$module = Legacy_Utils::createModule($this->_mMaster->mModule);
+		$module = Xcore_Utils::createModule($this->_mMaster->mModule);
 		$controller->executeForward($module->getAdminIndex());
 	}
 }

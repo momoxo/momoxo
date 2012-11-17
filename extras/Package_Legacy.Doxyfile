@@ -4,7 +4,7 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = Package_Legacy
+PROJECT_NAME           = Package_Xcore
 PROJECT_NUMBER         = 2.1.1
 OUTPUT_DIRECTORY       = "../Doxygen"
 CREATE_SUBDIRS         = NO
@@ -113,7 +113,7 @@ FILE_PATTERNS          = *.c \
                          *.dox \
                          *.py
 RECURSIVE              = YES
-EXCLUDE                = "./html/modules/legacy/lib/nusoap" \
+EXCLUDE                = "./html/modules/xcore/lib/nusoap" \
                          "./html/class/smarty" \
                          "./html/class/mail/phpmailer" \
                          "./html/install"

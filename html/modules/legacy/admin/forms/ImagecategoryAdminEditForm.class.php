@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Legacy
+ * @package Xcore
  * @version $Id: ImagecategoryAdminEditForm.class.php,v 1.3 2008/09/25 15:11:08 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
@@ -11,13 +11,13 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
+require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
-class Legacy_ImagecategoryAdminEditForm extends XCube_ActionForm
+class Xcore_ImagecategoryAdminEditForm extends XCube_ActionForm
 {
 	function getTokenName()
 	{
-		return "module.legacy.ImagecategoryAdminEditForm.TOKEN" . $this->get('imgcat_id');
+		return "module.xcore.ImagecategoryAdminEditForm.TOKEN" . $this->get('imgcat_id');
 	}
 
 	function prepare()
@@ -40,38 +40,38 @@ class Legacy_ImagecategoryAdminEditForm extends XCube_ActionForm
 		//
 		$this->mFieldProperties['imgcat_id'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_id']->setDependsByArray(array('required'));
-		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMGCAT_ID);
+		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_ID);
 	
 		$this->mFieldProperties['imgcat_name'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_name']->setDependsByArray(array('required','maxlength'));
-		$this->mFieldProperties['imgcat_name']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMGCAT_NAME, '100');
-		$this->mFieldProperties['imgcat_name']->addMessage('maxlength', _MD_LEGACY_ERROR_MAXLENGTH, _AD_LEGACY_LANG_IMGCAT_NAME, '100');
+		$this->mFieldProperties['imgcat_name']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_NAME, '100');
+		$this->mFieldProperties['imgcat_name']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_IMGCAT_NAME, '100');
 		$this->mFieldProperties['imgcat_name']->addVar('maxlength', '100');
 	
 		$this->mFieldProperties['imgcat_maxsize'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_maxsize']->setDependsByArray(array('required'));
-		$this->mFieldProperties['imgcat_maxsize']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMGCAT_MAXSIZE);
+		$this->mFieldProperties['imgcat_maxsize']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXSIZE);
 	
 		$this->mFieldProperties['imgcat_maxwidth'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_maxwidth']->setDependsByArray(array('required'));
-		$this->mFieldProperties['imgcat_maxwidth']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMGCAT_MAXWIDTH);
+		$this->mFieldProperties['imgcat_maxwidth']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXWIDTH);
 	
 		$this->mFieldProperties['imgcat_maxheight'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_maxheight']->setDependsByArray(array('required'));
-		$this->mFieldProperties['imgcat_maxheight']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMGCAT_MAXHEIGHT);
+		$this->mFieldProperties['imgcat_maxheight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXHEIGHT);
 	
 		$this->mFieldProperties['imgcat_weight'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['imgcat_weight']->setDependsByArray(array('required'));
-		$this->mFieldProperties['imgcat_weight']->addMessage('required', _MD_LEGACY_ERROR_REQUIRED, _AD_LEGACY_LANG_IMGCAT_WEIGHT);
+		$this->mFieldProperties['imgcat_weight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_WEIGHT);
 	
 		$this->mFieldProperties['readgroups'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['readgroups']->setDependsByArray(array('objectExist'));
-		$this->mFieldProperties['readgroups']->addMessage('objectExist', _AD_LEGACY_ERROR_OBJECTEXIST, _AD_LEGACY_LANG_IMGCAT_READ_GROUPS);
+		$this->mFieldProperties['readgroups']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_IMGCAT_READ_GROUPS);
 		$this->mFieldProperties['readgroups']->addVar('handler', 'group');
 	
 		$this->mFieldProperties['uploadgroups'] =new XCube_FieldProperty($this);
 		$this->mFieldProperties['uploadgroups']->setDependsByArray(array('objectExist'));
-		$this->mFieldProperties['uploadgroups']->addMessage('objectExist', _AD_LEGACY_ERROR_OBJECTEXIST, _AD_LEGACY_LANG_IMGCAT_UPLOAD_GROUPS);
+		$this->mFieldProperties['uploadgroups']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_IMGCAT_UPLOAD_GROUPS);
 		$this->mFieldProperties['uploadgroups']->addVar('handler', 'group');
 	}
 
@@ -79,7 +79,7 @@ class Legacy_ImagecategoryAdminEditForm extends XCube_ActionForm
 	{
 		$readgroups = $this->get('readgroups');
 		if (count($readgroups) == 0) {
-			$this->addErrorMessage(_AD_LEGACY_ERROR_READGROUPS);
+			$this->addErrorMessage(_AD_XCORE_ERROR_READGROUPS);
 		}
 	}
 	
@@ -87,7 +87,7 @@ class Legacy_ImagecategoryAdminEditForm extends XCube_ActionForm
 	{
 		$uploadgroups = $this->get('uploadgroups');
 		if (count($uploadgroups) == 0) {
-			$this->addErrorMessage(_AD_LEGACY_ERROR_UPLOADGROUPS);
+			$this->addErrorMessage(_AD_XCORE_ERROR_UPLOADGROUPS);
 		}
 	}
 	

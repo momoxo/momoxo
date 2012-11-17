@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @package Legacy
- * @version $Id: Legacy_EventFunctions.class.php,v 1.3 2008/09/25 15:12:01 kilica Exp $
+ * @package Xcore
+ * @version $Id: Xcore_EventFunctions.class.php,v 1.3 2008/09/25 15:12:01 kilica Exp $
  * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
  * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
@@ -10,19 +10,19 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Legacy_EventFunction
+class Xcore_EventFunction
 {
 	function imageManager()
 	{
-		require_once XOOPS_MODULE_PATH . "/legacy/class/ActionFrame.class.php";
+		require_once XOOPS_MODULE_PATH . "/xcore/class/ActionFrame.class.php";
 		
 		$root =& XCube_Root::getSingleton();
-		$root->mController->setupModuleContext('legacy');
+		$root->mController->setupModuleContext('xcore');
 	
-		$moduleRunner =new Legacy_ActionFrame(false);
+		$moduleRunner =new Xcore_ActionFrame(false);
 		
 		$action = isset($_REQUEST['op']) ? ucfirst(xoops_getrequest('op')) : "List";
-		$moduleRunner->setMode(LEGACY_FRAME_MODE_IMAGE);
+		$moduleRunner->setMode(XCORE_FRAME_MODE_IMAGE);
 		$moduleRunner->setActionName($action);
 		
 		$root->mController->mExecute->add(array(&$moduleRunner, 'execute'));
@@ -34,12 +34,12 @@ class Legacy_EventFunction
 
 	function backend()
 	{
-		require_once XOOPS_MODULE_PATH . "/legacy/class/ActionFrame.class.php";
+		require_once XOOPS_MODULE_PATH . "/xcore/class/ActionFrame.class.php";
 		
 		$root =& XCube_Root::getSingleton();
-		$root->mController->setupModuleContext('legacy');
+		$root->mController->setupModuleContext('xcore');
 		
-		$moduleRunner =new Legacy_ActionFrame(false);
+		$moduleRunner =new Xcore_ActionFrame(false);
 		$moduleRunner->setActionName('Backend');
 
 		$root->mController->mExecute->add(array(&$moduleRunner, 'execute'));
@@ -51,13 +51,13 @@ class Legacy_EventFunction
 
 	function search()
 	{
-		require_once XOOPS_MODULE_PATH . "/legacy/class/ActionFrame.class.php";
+		require_once XOOPS_MODULE_PATH . "/xcore/class/ActionFrame.class.php";
 		
 		$root =& XCube_Root::getSingleton();
-		$root->mController->setupModuleContext('legacy');
+		$root->mController->setupModuleContext('xcore');
 		
-		$moduleRunner =new Legacy_ActionFrame(false);
-		$moduleRunner->setMode(LEGACY_FRAME_MODE_SEARCH);
+		$moduleRunner =new Xcore_ActionFrame(false);
+		$moduleRunner->setMode(XCORE_FRAME_MODE_SEARCH);
 		$moduleRunner->setActionName(ucfirst(xoops_getrequest('action')));
 
 		$root->mController->mExecute->add(array(&$moduleRunner, 'execute'));
@@ -70,15 +70,15 @@ class Legacy_EventFunction
 	
 	function misc()
 	{
-		require_once XOOPS_LEGACY_PATH . "/class/ActionFrame.class.php";
+		require_once XOOPS_XCORE_PATH . "/class/ActionFrame.class.php";
 
 		$root =& XCube_Root::getSingleton();
-		$root->mController->setupModuleContext('legacy');
+		$root->mController->setupModuleContext('xcore');
 		
 		$actionName = isset($_REQUEST['type']) ? ucfirst(xoops_getrequest('type')) : "Smilies";
 
-		$moduleRunner = new Legacy_ActionFrame(false);
-		$moduleRunner->setMode(LEGACY_FRAME_MODE_MISC);
+		$moduleRunner = new Xcore_ActionFrame(false);
+		$moduleRunner->setMode(XCORE_FRAME_MODE_MISC);
 		$moduleRunner->setActionName($actionName);
 
 		$root->mController->mExecute->add(array(&$moduleRunner, 'execute'));
@@ -92,10 +92,10 @@ class Legacy_EventFunction
 
 	function notifications()
 	{
-		require_once XOOPS_LEGACY_PATH . "/class/ActionFrame.class.php";
+		require_once XOOPS_XCORE_PATH . "/class/ActionFrame.class.php";
 		
 		$root =& XCube_Root::getSingleton();
-		$root->mController->setupModuleContext('legacy');
+		$root->mController->setupModuleContext('xcore');
 		
 		//
 		// 'Notify' is prefix to guard accessing from misc.php.
@@ -110,8 +110,8 @@ class Legacy_EventFunction
 			$actionName = "Cancel";
 		}
 
-		$moduleRunner = new Legacy_ActionFrame(false);
-		$moduleRunner->setMode(LEGACY_FRAME_MODE_NOTIFY);
+		$moduleRunner = new Xcore_ActionFrame(false);
+		$moduleRunner->setMode(XCORE_FRAME_MODE_NOTIFY);
 		$moduleRunner->setActionName($actionName);
 
 		$root->mController->mExecute->add(array(&$moduleRunner, 'execute'));
@@ -122,7 +122,7 @@ class Legacy_EventFunction
 	}
 	
 	/**
-	 * This functions is add to 'Legacyfunction.Notifications.Select'.
+	 * This functions is add to 'Xcorefunction.Notifications.Select'.
 	 * 
 	 * @param XCube_RenderBuffer $render
 	 */

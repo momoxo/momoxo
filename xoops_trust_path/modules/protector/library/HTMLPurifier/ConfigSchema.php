@@ -84,7 +84,7 @@ class HTMLPurifier_ConfigSchema {
     /**
      * Defines a directive for configuration
      * @warning Will fail of directive's namespace is defined.
-     * @warning This method's signature is slightly different from the legacy
+     * @warning This method's signature is slightly different from the xcore
      *          define() static method! Beware!
      * @param $namespace Namespace the directive is in
      * @param $name Key of directive
