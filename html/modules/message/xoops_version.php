@@ -50,6 +50,11 @@ $modversion['sub'][] = array('name' => _MI_MESSAGE_SUB_SETTINGS, 'url' => 'index
 
 $modversion['hasAdmin'] = 1;
 
+
+// System Module
+$modversion['issystem'] = 1;
+
+
 $modversion['config'][0]['name']		= 'pagenum';
 $modversion['config'][0]['title']		= '_MI_MESSAGE_PAGENUM';
 $modversion['config'][0]['description'] = '_MI_MESSAGE_PAGENUM_DESC';

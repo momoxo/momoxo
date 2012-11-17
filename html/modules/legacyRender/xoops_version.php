@@ -16,6 +16,9 @@ $modversion['dirname']="legacyRender";
 
 $modversion['cube_style'] = true;
 
+// System Module
+$modversion['issystem'] = 1;
+
 //
 // SQL File
 //

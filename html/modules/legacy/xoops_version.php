@@ -20,6 +20,9 @@ $modversion['dirname'] = "legacy";
 
 $modversion['cube_style'] = true;
 
+// System Module
+$modversion['issystem'] = 1;
+
 // Custom installer
 $modversion['legacy_installer']['updater']['class'] = 'ModuleUpdater';
 $modversion['legacy_installer']['updater']['filepath'] = XOOPS_LEGACY_PATH . '/admin/class/Legacy_Updater.class.php';

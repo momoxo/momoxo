@@ -48,6 +48,11 @@ $modversion['hasAdmin'] = 1;
 $modversion['adminindex'] = "admin/index.php";
 $modversion['adminmenu'] = "admin/menu.php";
 
+
+// System Module
+$modversion['issystem'] = 1;
+
+
 // Templates
 $modversion['templates'][1]['file'] = 'user_userinfo.html';
 $modversion['templates'][1]['description'] = 'Display a user information in userinfo.php';

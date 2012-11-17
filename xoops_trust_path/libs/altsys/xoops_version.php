@@ -20,6 +20,10 @@ $modversion['hasAdmin'] = 1;
 $modversion['adminindex'] = "admin/index.php" ;
 $modversion['adminmenu'] = "admin/admin_menu.php";
 
+// System Module
+$modversion['issystem'] = 1;
+
+
 // All Templates can't be touched by modulesadmin.
 $modversion['templates'] = array() ;
 
