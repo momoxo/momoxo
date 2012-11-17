@@ -179,21 +179,20 @@ class Xcore_Controller extends XCube_Controller
 		$this->_processFilter();
 
 		if (!defined('OH_MY_GOD_HELP_ME')) {
-			error_reporting(0);
+//			error_reporting(0);
 		}
 	
 		// ^^;
 		$this->_setupErrorHandler();
-	
 		//function date_default_timezone_set() is added on PHP5.1.0
 		if(function_exists('date_default_timezone_set')){
 			date_default_timezone_set($this->_getLocalTimezone());
 		}
-	
+
 		$this->_setupEnvironment();
-	
+
 		$this->_setupLogger();
-	
+//
 		$this->_setupDB();
 	
 		$this->_setupLanguage();
@@ -203,7 +202,8 @@ class Xcore_Controller extends XCube_Controller
 		$this->_setupConfig();
 	
 		$this->_setupScript();
-	
+//
+
 		$this->_setupDebugger();
 	
 		$this->_loadInterfaceFiles();
@@ -318,7 +318,7 @@ class Xcore_Controller extends XCube_Controller
 
 		require_once XOOPS_ROOT_PATH.'/include/functions.php';
 
-		require_once XOOPS_ROOT_PATH.'/kernel/object.php';
+		require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/object.php';
 		require_once XOOPS_ROOT_PATH.'/class/criteria.php';
 		require_once XOOPS_ROOT_PATH.'/class/token.php';
 		require_once XOOPS_ROOT_PATH.'/class/module.textsanitizer.php';

@@ -172,7 +172,7 @@ class XUpgrade_UpgradeProcessor
 		//
 		// Delete category
 		//
-		require_once XOOPS_ROOT_PATH . "/kernel/configcategory.php";
+		require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/configcategory.php";
 		$root =& XCube_Root::getSingleton();
 		$handler =& new XoopsConfigCategoryHandler($root->mController->mDB);
 		$category =& $handler->get(XOOPS_CONF_USER);

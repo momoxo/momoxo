@@ -33,8 +33,8 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	exit();
 }
 
-require_once XOOPS_ROOT_PATH.'/kernel/configoption.php';
-require_once XOOPS_ROOT_PATH.'/kernel/configitem.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/configoption.php';
+require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/configitem.php';
 
 /**
  * @package     kernel

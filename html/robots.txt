@@ -21,7 +21,7 @@ Disallow: /cache/
 Disallow: /class/
 Disallow: /include/
 Disallow: /install/
-Disallow: /kernel/
+Disallow: /modules/xcore/kernel/
 Disallow: /language/
 Disallow: /modules/fileManager/
 Disallow: /modules/xcore/
