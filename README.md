@@ -141,17 +141,13 @@ XOOPS Cube functionality can also be easily extended with Preloads - one file cl
 ***
 
 Modules
-====
 
-***
 
 Themes
-====
 
-***
 
 Documentation
-====
+
 
 Site and Support
 ====
