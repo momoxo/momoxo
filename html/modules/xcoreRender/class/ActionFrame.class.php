@@ -90,7 +90,7 @@ class XcoreRender_ActionFrame
 		}
 
 		$handler =& xoops_gethandler('config');
-		$moduleConfig =& $handler->getConfigsByDirname('xcoreRender');
+		$moduleConfig =& $handler->getConfigsByCat(XOOPS_CONF_METAFOOTER);
 	
 		$this->mAction->prepare($controller, $controller->mRoot->mContext->mXoopsUser, $moduleConfig);
 

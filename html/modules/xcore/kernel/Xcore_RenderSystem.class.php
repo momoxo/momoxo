@@ -181,7 +181,7 @@ class Xcore_RenderSystem extends XCube_RenderSystem
 		
 		if (is_object($xcoreRender)) {
 			$configHandler = xoops_gethandler('config');
-			$configs =& $configHandler->getConfigsByCat(0, $xcoreRender->get('mid'));
+			$configs =& $configHandler->getConfigsByCat(XOOPS_CONF_METAFOOTER);
 			
 			//
 			// If this site has the setting of banner.
@@ -376,7 +376,7 @@ class Xcore_RenderSystem extends XCube_RenderSystem
 		$moduleHandler = xoops_gethandler('module');
 		$xcoreRender =& $moduleHandler->getByDirname('xcoreRender');
 		$configHandler = xoops_gethandler('config');
-		$configs =& $configHandler->getConfigsByCat(0, $xcoreRender->get('mid'));
+		$configs =& $configHandler->getConfigsByCat(XOOPS_CONF_METAFOOTER);
 	
 		$textFilter =& $mRoot->getTextFilter();
 		$headerScript = $mContext->getAttribute('headerScript');

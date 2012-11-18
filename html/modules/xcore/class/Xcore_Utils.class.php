@@ -259,7 +259,7 @@ class Xcore_Utils
 	public static function formatPagetitle(/*** string ***/ $modulename, /*** string ***/ $pagetitle, /*** string ***/ $action)
 	{
 		$handler = xoops_gethandler('config');
-		$configArr = $handler->getConfigsByDirname('xcoreRender');
+		$configArr = $handler->getConfigsByCat(XOOPS_CONF_METAFOOTER);
 	
 		$replace = array($modulename, $pagetitle, $action);
 		$search = array('{modulename}', '{pagetitle}', '{action}');

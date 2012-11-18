@@ -21,7 +21,7 @@ class Xcore_Cacheclear extends XCube_ActionFilter {
     
     function cacheClear(&$module)
 	{
-		$handler =& xoops_getmodulehandler('tplfile', 'xcoreRender');
+		$handler =& xoops_getmodulehandler('tplfile', 'xcore');
 		
 		$criteria =new Criteria('tpl_module', $module->get('dirname'));
 		$tplfileArr = $handler->getObjects($criteria);
