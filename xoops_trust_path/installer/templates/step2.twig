@@ -1,0 +1,29 @@
+{% extends layout %}
+
+{% block content %}
+  <div class="container-fluid">
+		<div class="row-fluid">
+			<h1>インストールしています</h1>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="{{ xoops_url }}/js/vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$.post('{{ xoops_url }}/user.php', {
+			uname: '{{ admin_uname }}',
+			pass: '{{ admin_password }}',
+			xoops_login: 1
+		}).success(function() {
+			$.post('{{ xoops_url }}', {
+				cube_module_install: 1,
+				uninstalled_modules: [
+					'xcore', 'user', 'profile', 'altsys', 'xupdate', 'message', 'protector'
+				]
+			}).success(function() {
+				location.href = '{{ xoops_url }}';
+			});
+		});
+	});
+	</script>
+{% endblock %}
