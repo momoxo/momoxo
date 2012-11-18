@@ -61,7 +61,7 @@ class Xcore_DialogRenderTarget extends Xcore_AbstractThemeRenderTarget
 	
 	function getTemplateName()
 	{
-		return "xcore_render_dialog.html";
+		return "xcore_dialog.html";
 	}
 
 }

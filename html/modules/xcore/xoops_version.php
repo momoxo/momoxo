@@ -133,6 +133,9 @@ $modversion['templates'][48]['description'] = 'xcore_tag_select default template
 $modversion['templates'][49]['file'] = 'xcore_inc_tag_cloud.html';
 $modversion['templates'][49]['description'] = 'xcore_tag_cloud default template';
 
+$modversion['templates'][50]['file']="xcore_dialog.html";
+
+
 // Menu
 $modversion['hasMain'] = 0;
 
