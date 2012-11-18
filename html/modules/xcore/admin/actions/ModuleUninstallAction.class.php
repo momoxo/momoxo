@@ -105,12 +105,14 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 		
 		$handler =& xoops_gethandler('module');
 		$this->mXoopsModule =& $handler->getByDirname($dirname);
-		
+
+
+
 		if (!(is_object($this->mXoopsModule) && $this->mXoopsModule->get('isactive') == 0)) {
 			return false;
 		}
 		$this->mXoopsModule->loadInfoAsVar($dirname);
-		
+
 		$this->_setupActionForm();
 		
 		$this->mInstaller =& $this->_getInstaller();
@@ -119,7 +121,6 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 		// Set the current object.
 		//
 		$this->mInstaller->setCurrentXoopsModule($this->mXoopsModule);
-		
 		return true;
 	}
 	

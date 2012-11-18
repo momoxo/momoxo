@@ -62,4 +62,17 @@ $adminmenu[120]['title']=_MI_XCORE_MENU_XOOPS_CONFIG;
 $adminmenu[120]['link']="admin/index.php?action=PreferenceList";
 $adminmenu[120]['show']=true;
 
+$adminmenu[130]['title']=_MI_XCORE_ADMENU_TEMPLATE_MANAGE;
+$adminmenu[130]['link']="admin/index.php?action=TplsetList";
+$adminmenu[130]['show']=true;
+
+$adminmenu[140]['title']=_MI_XCORE_ADMENU_TPLFILE_MANAGE;
+$adminmenu[140]['link']="admin/index.php?action=TplfileList";
+$adminmenu[140]['show']=true;
+
+
+$adminmenu[150]['title']=_MI_XCORE_ADMENU_HTACCESS_VIEW;
+$adminmenu[150]['link']="admin/index.php?action=HtaccessView";
+$adminmenu[150]['show']=true;
+
 ?>

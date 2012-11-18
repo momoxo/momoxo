@@ -23,7 +23,9 @@ class Xcore_PreferenceListAction extends Xcore_Action
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
 		$handler =& xoops_gethandler('configcategory');
-		$this->mObjects =& $handler->getObjects();
+        $criteria = new CriteriaCompo();
+        $criteria->addSort('confcat_id', 'ASC');
+		$this->mObjects =& $handler->getObjects($criteria);
 		
 		return XCORE_FRAME_VIEW_INDEX;
 	}

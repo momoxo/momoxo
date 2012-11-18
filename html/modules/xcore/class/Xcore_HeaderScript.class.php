@@ -332,7 +332,8 @@ google.load("jqueryui", "'. $this->_mUi .'");
 	protected function _getRenderConfig($key)
 	{
 		$handler =& xoops_gethandler('config');
-		$configArr =& $handler->getConfigsByDirname('xcoreRender');
+        $configArr =& $handler->getConfigsByCat(XOOPS_CONF_METAFOOTER);
+
 		return $configArr[$key];
 	}
 
