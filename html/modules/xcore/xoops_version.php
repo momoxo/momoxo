@@ -18,6 +18,9 @@ $modversion['license'] = "GPL see LICENSE";
 $modversion['image'] = "images/xcore.png";
 $modversion['dirname'] = "xcore";
 
+// System Module
+$modversion['issystem'] = 1;
+
 $modversion['cube_style'] = true;
 
 // Custom installer

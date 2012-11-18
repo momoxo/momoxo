@@ -17,54 +17,59 @@
 var cid = <{if $smarty.get.fct == "preferences" && $smarty.get.mod > 0}><{$smarty.get.mod}><{else}><{$currentModule->mXoopsModule->get('mid')}><{/if}>;
 function ccToggle(id)
 {
-	var el = xoopsGetElementById('c'+id).style;
-	if (el.display == 'block') {
-		el.display = 'none';
-		xoopsGetElementById('t'+id).className = 'head';
-		xoopsGetElementById('i'+id).src = '<{"design/max.png"|theme}>';
-	} else {
-		el.display = 'block';
-		xoopsGetElementById('t'+id).className = 'head2';
-		xoopsGetElementById('i'+id).src = '<{"design/min.png"|theme}>';
-	}
+    var el = xoopsGetElementById('c'+id).style;
+    if (el.display == 'block') {
+        el.display = 'none';
+        xoopsGetElementById('t'+id).className = xoopsGetElementById('t'+id).className.replace(/(^|\s)head2(_|$)/, "$1head$2");
+        xoopsGetElementById('i'+id).src = '<{"design/max.png"|theme}>';
+    } else {
+        el.display = 'block';
+        xoopsGetElementById('t'+id).className = xoopsGetElementById('t'+id).className.replace(/(^|\s)head(_|$)/, "$1head2$2");
+        xoopsGetElementById('i'+id).src = '<{"design/min.png"|theme}>';
+    }
 }
 
 
 function ccOpenAll()
 {
-       var divs = document.getElementsByTagName('div');
-       for (var i=0;i<divs.length;i++) {
-	if (divs[i].className == 'head') {
-	var divid = divs[i].id; 
-	var divcid = divid.replace(/t/i, 'c');
-	var cidel = xoopsGetElementById(divcid); 
-	if ( cidel.className == 'submenu' ) {
-		cidel.style.display = 'block';
-		divs[i].className = 'head2';
-		var imgid = divid.replace(/t/i, 'i');
-		xoopsGetElementById(imgid).src = '<{"design/min.png"|theme}>';	
-	}
-	}
-	}
+    var divs = document.getElementsByTagName('div');
+    for (var i=0;i<divs.length;i++) {
+        //if (divs[i].className == 'head') {
+        if (divs[i].className.match(/(^|\s)head(_|$)/)) {
+            var divid = divs[i].id;
+            var divcid = divid.replace(/t/i, 'c');
+            var cidel = xoopsGetElementById(divcid);
+            if ( cidel.className.match(/submenu/) ) {
+                cidel.style.display = 'block';
+//		divs[i].className = divs[i].className;
+                divs[i].className = divs[i].className.replace(/(^|\s)head(_|$)/, "$1head2$2");
+                var imgid = divid.replace(/t/i, 'i');
+                xoopsGetElementById(imgid).src = '<{"design/min.png"|theme}>';
+            }
+        }
+    }
 }
 
 
 function ccCloseAll()
 {
-       var divs = document.getElementsByTagName('div');
-       for (var i=0;i<divs.length;i++) {
-	if (divs[i].className == 'head2') {
-	var divid = divs[i].id; 
-	var divcid = divid.replace(/t/i, 'c');
-	var cidel = xoopsGetElementById(divcid); 
-	if ( cidel.className == 'submenu' ) {
-		cidel.style.display = 'none';
-		divs[i].className = 'head';
-		var imgid = divid.replace(/t/i, 'i');
-		xoopsGetElementById(imgid).src = '<{"design/max.png"|theme}>';	
-	}
-	}
-	}
+    var divs = document.getElementsByTagName('div');
+    for (var i=0;i<divs.length;i++) {
+//	if (divs[i].className == 'head2') {
+        if (divs[i].className.match(/(^|\s)head2(_|$)/)) {
+            var divid = divs[i].id;
+            var divcid = divid.replace(/t/i, 'c');
+            var cidel = xoopsGetElementById(divcid);
+//	if ( cidel.className == 'submenu' ) {
+            if ( cidel.className.match(/submenu/) ) {
+                cidel.style.display = 'none';
+//		divs[i].className = 'head';
+                divs[i].className = divs[i].className.replace(/(^|\s)head2(_|$)/, "$1head$2");
+                var imgid = divid.replace(/t/i, 'i');
+                xoopsGetElementById(imgid).src = '<{"design/max.png"|theme}>';
+            }
+        }
+    }
 }
 
 function ccOpenCid()

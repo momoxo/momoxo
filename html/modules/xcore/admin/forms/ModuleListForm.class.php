@@ -45,6 +45,7 @@ class Xcore_ModuleListForm extends XCube_ActionForm
 		$this->mFormProperties['name']=new XCube_StringArrayProperty('name');
 		$this->mFormProperties['weight']=new XCube_IntArrayProperty('weight');
 		$this->mFormProperties['isactive']=new XCube_BoolArrayProperty('isactive');
+        $this->mFormProperties['issystem']=new XCube_BoolArrayProperty('issystem');
 
 		// set fields
 		$this->mFieldProperties['name']=new XCube_FieldProperty($this);

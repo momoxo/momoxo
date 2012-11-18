@@ -14,6 +14,8 @@ $modversion['license'] = "GPL see LICENSE";
 $modversion['official'] = 0;
 $modversion['image'] = "images/module_icon.png";
 $modversion['dirname'] = "altsys";
+// System Module
+$modversion['issystem'] = 1;
 
 // Admin things
 $modversion['hasAdmin'] = 1;

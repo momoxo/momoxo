@@ -18,6 +18,10 @@ $modversion['license'] = "MIT LICENSE";
 $modversion['image']	   = 'images/module_icon.png';
 $modversion['mcl_update'] = 'message';
 
+// System Module
+$modversion['issystem'] = 1;
+
+
 $modversion['cube_style'] = true;
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 $modversion['tables'][] = '{prefix}_{dirname}_inbox';

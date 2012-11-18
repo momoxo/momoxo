@@ -35,6 +35,9 @@ $modversion['license'] = "GPL see LICENSE";
 $modversion['image'] = "images/user.png";
 $modversion['dirname'] = "user";
 
+// System Module
+$modversion['issystem'] = 1;
+
 $modversion['cube_style'] = true;
 
 // SQL

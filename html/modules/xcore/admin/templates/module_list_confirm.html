@@ -30,7 +30,7 @@
       <{/if}>
     </td>
     <td class="xcore_list_order">
-      <{if $actionForm->get('weight',$mid) == $moduleObjects[$mid]->get('weight')}>
+      <{if $actionForm->get('weight',$mid) == $moduleObjects[$mid]->getShow('weight')}>
         <{$actionForm->get('weight',$mid)|xoops_escape}>
       <{else}>
          (<{$moduleObjects[$mid]->getShow('weight')}>) &raquo; <b  class="xcore_module_error"><{$actionForm->get('weight',$mid)|xoops_escape}></b>
@@ -62,6 +62,11 @@
       <{else}>
         <input type="hidden" name="isactive[<{$mid}>]" value="0" />
       <{/if}>
+        <{if $actionForm->get('issystem',$mid)}>
+        <input type="hidden" name="issystem[<{$mid}>]" value="1" />
+        <{else}>
+        <input type="hidden" name="issystem[<{$mid}>]" value="0" />
+        <{/if}>
     </td>
   </tr>
 <{/foreach}>
