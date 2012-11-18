@@ -418,29 +418,25 @@ class XoopsModuleHandler extends XoopsObjectHandler
 	 */
 	function &getByDirname($dirname)
 	{
-		$ret = false;
 		$dirname =	trim($dirname);
-		$cache = &$this->_cachedModule_dirname;
-		if (!empty($cache[$dirname])) {
-			$ret = $cache[$dirname];
+		if (isset($this->_cachedModule_dirname[$dirname])) {
+			return $this->_cachedModule_dirname[$dirname];
 		}
-		elseif (count($cache)==0) {
-			$db = $this->db;
-			$sql = "SELECT * FROM ".$db->prefix('modules');
-			if ($result = $db->query($sql)) {
-				while ($myrow = $db->fetchArray($result)) {
-					 $module = new XoopsModule();
-					 $module->assignVars($myrow);
-					 $cache[$myrow['dirname']] =& $module;
-					 $this->_cachedModule_mid[$myrow['mid']] =& $module;
-					 unset($module);
-				}
-			}
-			if (!empty($cache[$dirname])) {
-				$ret = $cache[$dirname];
-			}
-		}
-		return $ret;
+
+        $this->_cachedModule_dirname[$dirname] = false;
+
+        $db = $this->db;
+        $sql = "SELECT * FROM ".$db->prefix('modules');
+        if ($result = $db->query($sql)) {
+            while ($myrow = $db->fetchArray($result)) {
+                 $module = new XoopsModule();
+                 $module->assignVars($myrow);
+                 $this->_cachedModule_dirname[$myrow['dirname']] =& $module;
+                 $this->_cachedModule_mid[$myrow['mid']] =& $module;
+                 unset($module);
+            }
+        }
+        return $this->_cachedModule_dirname[$dirname];
 	}
 
 	/**
