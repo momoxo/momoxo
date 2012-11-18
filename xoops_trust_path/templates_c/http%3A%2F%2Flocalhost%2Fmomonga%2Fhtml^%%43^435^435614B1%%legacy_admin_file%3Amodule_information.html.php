@@ -487,4 +487,4 @@ if ($this->_foreach['config']['total'] > 0):
   <div class="legacy_modinfo_notmounted"><?php echo @_AD_LEGACY_LANG_NO_CONFIG; ?>
 </div>
 <?php endif; unset($_from); ?>
-
+
