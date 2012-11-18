@@ -39,8 +39,7 @@ $response = array(
 require_once INSTALLER_DIR . '/class/' . $op . '.php';
 $response = array_merge($response, process($xoops_root_path, $xoops_trust_path, $config_path));
 
-require_once 'phar://'. INSTALLER_DIR . '/lib/twig.phar/Twig/Autoloader.php';
-Twig_Autoloader::register();
+require_once 'phar://'. INSTALLER_DIR . '/lib/twig.phar';
 
 $loader = new Twig_Loader_Filesystem(INSTALLER_DIR.'/templates');
 $twig = new Twig_Environment($loader, array('debug' => true));
