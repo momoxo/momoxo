@@ -1,0 +1,11 @@
+language: php
+php:
+  - 5.3
+  - 5.4
+
+before_script:
+  - export XOOPS_TEST_DB_HOST=127.0.0.1
+  - export XOOPS_TEST_DB_USER=root
+  - export XOOPS_TEST_DB_PASS=""
+  - mysql -e 'create database momonga_test'
+script: phpunit --coverage-text --configuration xoops_trust_path/phpunit.xml.dist
