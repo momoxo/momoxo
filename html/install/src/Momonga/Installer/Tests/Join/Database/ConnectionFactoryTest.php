@@ -60,7 +60,10 @@ class ConnectionFactoryTest extends \PHPUnit_Framework_TestCase
 	public function testWithValidUsername()
 	{
 		$connectionFactory = new ConnectionFactory();
-		$connection = $connectionFactory->create('localhost', 'root', 'root');
+		$connection = $connectionFactory->create(
+			$_SERVER['XOOPS_TEST_DB_HOST'],
+			$_SERVER['XOOPS_TEST_DB_USER'],
+			$_SERVER['XOOPS_TEST_DB_PASS']);
 		$this->assertInstanceOf('PDO', $connection);
 	}
 
@@ -78,7 +81,11 @@ class ConnectionFactoryTest extends \PHPUnit_Framework_TestCase
 		$this->createDatabase($_SERVER['XOOPS_TEST_DB_NAME']);
 		$this->assertDatabaseExists($_SERVER['XOOPS_TEST_DB_NAME']);
 		$connectionFactory = new ConnectionFactory();
-		$connection = $connectionFactory->createWithDatabaseName('localhost', 'root', 'root', $_SERVER['XOOPS_TEST_DB_NAME']);
+		$connection = $connectionFactory->createWithDatabaseName(
+			$_SERVER['XOOPS_TEST_DB_HOST'],
+			$_SERVER['XOOPS_TEST_DB_USER'],
+			$_SERVER['XOOPS_TEST_DB_PASS'],
+			$_SERVER['XOOPS_TEST_DB_NAME']);
 		$this->assertInstanceOf('PDO', $connection);
 	}
 
