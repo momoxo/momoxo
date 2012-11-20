@@ -8,6 +8,10 @@
  *
  */
 // Enum
+define('XOOPS_GROUP_ADMIN', '1');
+define('XOOPS_GROUP_USERS', '2');
+define('XOOPS_GROUP_ANONYMOUS', '3');
+
 define("XOOPS_SIDEBLOCK_LEFT",0);
 define("XOOPS_SIDEBLOCK_RIGHT",1);
 define("XOOPS_SIDEBLOCK_BOTH",2);

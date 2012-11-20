@@ -7,21 +7,21 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="{{ xoops_url }}/js/vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ site.url }}/js/vendor/jquery/jquery.min.js"></script>
 	<script type="text/javascript">
 	$(function() {
-		$.post('{{ xoops_url }}/user.php', {
-			uname: '{{ admin_uname }}',
-			pass: '{{ admin_password }}',
+		$.post('{{ site.url }}/user.php', {
+			uname: '{{ site.admin.username }}',
+			pass: '{{ site.admin.password }}',
 			xoops_login: 1
 		}).success(function() {
-			$.post('{{ xoops_url }}', {
+			$.post('{{ site.url }}', {
 				cube_module_install: 1,
 				uninstalled_modules: [
 					'xcore', 'user', 'profile', 'altsys', 'xupdate', 'message', 'protector'
 				]
 			}).success(function() {
-				location.href = '{{ xoops_url }}';
+				location.href = '{{ site.url }}';
 			});
 		});
 	});

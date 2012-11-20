@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+		bootstrap="phpunit-bootstrap.php"
+		processIsolation="false"
+		verbose="false"
+		strict="false"
+		colors="true">
+
+	<php>
+		<includePath>./../html/install/src</includePath>
+		<!-- Don't change XOOPS_TEST_DB_*_DEFAULT here. See phpunit-bootstrap.php. -->
+		<server name="XOOPS_TEST_DB_HOST_DEFAULT" value="localhost"/>
+		<server name="XOOPS_TEST_DB_NAME_DEFAULT" value="momonga_test"/>
+		<server name="XOOPS_TEST_DB_USER_DEFAULT" value="root"/>
+		<server name="XOOPS_TEST_DB_PASS_DEFAULT" value="root"/>
+	</php>
+
+	<testsuites>
+		<testsuite name="PHPUnit">
+			<directory>../html/install/src/Momonga/Installer/Tests</directory>
+			<directory>modules/*/Tests</directory>
+		</testsuite>
+	</testsuites>
+
+	<logging>
+		<log
+				type="coverage-html"
+				target="metrics/coverage"
+				charset="UTF-8"
+				yui="true"
+				highlight="false"
+				lowUpperBound="35"
+				highLowerBound="70" />
+		<!-- <log type="coverage-text" target="php://stdout" lowUpperBound="35" highLowerBound="70" /> -->
+	</logging>
+
+	<filter>
+		<whitelist>
+			<directory suffix=".php">../html/install/src</directory>
+			<!-- directory suffix=".php">modules</directory -->
+			<!-- <file>/path/to/file</file> -->
+			<exclude>
+				<!-- <file>/path/to/file</file> -->
+				<!-- <directory suffix="Interface.php">modules</directory> -->
+				<directory>../html/install/src/Momonga/Installer/Tests</directory>
+				<directory>modules/*/Tests</directory>
+			</exclude>
+		</whitelist>
+		<blacklist>
+			<!-- <directory suffix=".php" group="PHPUNIT">/path/to/dir</directory> -->
+		</blacklist>
+	</filter>
+	<!--
+	<listeners>
+		<listener class="\Mockery\Adapter\Phpunit\TestListener" file="Vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php" />
+	</listeners>
+	-->
+</phpunit>

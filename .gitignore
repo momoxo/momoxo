@@ -7,3 +7,5 @@
 /xoops_trust_path/uploads/*
 /html/modules/xelfinder/cache/*
 /html/preload/AdelieDebug.php
+/xoops_trust_path/metrics
+/html/config/*
