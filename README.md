@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/momonga-project/momonga.png?branch=master)](https://travis-ci.org/momonga-project/momonga)
+
 ## What is Momonga?
 
 Momonga is a PHP 5.3 contents management system licensed under GPLv2. It is written with speed and flexibility in mind. It allows site owners to build better and easy to maintain websites.
