@@ -482,7 +482,37 @@ class XoopsModuleHandler extends XoopsObjectHandler
 			if (empty($mid)) { //Memo: if system module, mid might be set to 1
 				$mid = $this->db->genId('modules_mid_seq');
 			}
-            $sql = sprintf("INSERT INTO %s (mid, name, version, last_update, weight, isactive,issystem, dirname, trust_dirname, role, hasmain, hasadmin, hassearch, hasconfig, hascomments, hasnotification) VALUES (%u, %s, %u, %u, %u, %u, %s, %s, %s, %u, %u, %u, %u, %u, %u)", $this->db->prefix('modules'), $mid, $this->db->quoteString($name), $version, time(), $weight, 1, 0, $this->db->quoteString($dirname), $this->db->quoteString($trust_dirname), $this->db->quoteString($role), $hasmain, $hasadmin, $hassearch, $hasconfig, $hascomments, $hasnotification);
+
+			$data = array(
+				'%table%'          => $this->db->prefix('modules'),
+				':mid'             => $mid,
+				':name'            => $this->db->quoteString($name),
+				':version'         => $version,
+				':last_update'     => time(),
+				':weight'          => $weight,
+				':isactive'        => 1, // TODO >> magic number
+				':issystem'        => $issystem,
+				':dirname'         => $this->db->quoteString($dirname),
+				':trust_dirname'   => $this->db->quoteString($trust_dirname),
+				':role'            => $this->db->quoteString($role),
+				':hasmain'         => $hasmain,
+				':hasadmin'        => $hasadmin,
+				':hassearch'       => $hassearch,
+				':hasconfig'       => $hasconfig,
+				':hascomments'     => $hascomments,
+				':hasnotification' => $hasnotification,
+			);
+			$sql = "
+				INSERT INTO %table% (
+					mid, name, version, last_update, weight, isactive,
+					issystem, dirname, trust_dirname, role, hasmain,
+					hasadmin, hassearch, hasconfig, hascomments, hasnotification
+				) VALUES (
+					:mid, :name, :version, :last_update, :weight, :isactive,
+					:issystem, :dirname, :trust_dirname, :role, :hasmain,
+					:hasadmin, :hassearch, :hasconfig, :hascomments, :hasnotification
+				)";
+			$sql = str_replace(array_keys($data), array_values($data), $sql);
         } else {
             $sql = sprintf("UPDATE %s SET name = %s, dirname = %s, trust_dirname = %s, role = %s, version = %u, last_update = %u, weight = %u, isactive = %u, issystem = %u, hasmain = %u, hasadmin = %u, hassearch = %u, hasconfig = %u, hascomments = %u, hasnotification = %u WHERE mid = %u", $this->db->prefix('modules'), $this->db->quoteString($name), $this->db->quoteString($dirname), $this->db->quoteString($trust_dirname), $this->db->quoteString($role), $version, time(), $weight, $isactive, $issystem, $hasmain, $hasadmin, $hassearch, $hasconfig, $hascomments, $hasnotification, $mid);
 		}
