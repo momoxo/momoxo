@@ -1,6 +1,9 @@
 <?php
 
-require_once XOOPS_ROOT_PATH . '/modules/xcore/include/comment_constants.php';
+// TODO >> このrequire_onceをなくす
+if ( defined('XOOPS_ROOT_PATH') ) {
+	require_once XOOPS_ROOT_PATH . '/modules/xcore/include/comment_constants.php';
+}
 
 class XcoreColumnsideObject extends XoopsSimpleObject
 {
