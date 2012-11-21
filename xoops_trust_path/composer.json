@@ -6,7 +6,8 @@
 		"classmap": [
 			"../html/modules/xcore",
 			"../html/class",
-			"vendor/htmlpurifier/library"
+			"vendor/htmlpurifier/library",
+			"vendor/smarty"
 		]
 	}
 }
