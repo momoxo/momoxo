@@ -1,14 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: Xcore_TextFilter.class.php,v 1.9 2008/09/25 15:11:57 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /**
  * @public
@@ -496,4 +486,3 @@ class Xcore_TextFilter extends XCube_TextFilter
 		return $this->convertXCode(htmlspecialchars(str_replace('\"', '"', base64_decode($text)),ENT_QUOTES), $image);
 	}
 }
-?>

@@ -1,9 +1,4 @@
 <?php
-/**
- * @version $Id: Xcore_RenderTarget.class.php,v 1.1 2007/05/15 02:35:07 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 define("XCORE_RENDER_TARGET_TYPE_BUFFER", null);
 define("XCORE_RENDER_TARGET_TYPE_THEME", 'theme');
@@ -74,5 +69,3 @@ class Xcore_RenderTargetMain extends XCube_RenderTarget
 		$this->setAttribute('xcore_buffertype', XCORE_RENDER_TARGET_TYPE_MAIN);
 	}
 }
-
-?>

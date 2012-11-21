@@ -1,14 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: Xcore_PublicControllerStrategy.class.php,v 1.7 2008/11/14 09:45:23 mumincacao Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Xcore_PublicControllerStrategy extends Xcore_AbstractControllerStrategy
 {
@@ -118,5 +108,3 @@ class Xcore_PublicControllerStrategy extends Xcore_AbstractControllerStrategy
 		$root->mLanguageManager->loadModuleMessageCatalog($root->mContext->mXoopsModule->get('dirname'));
 	}
 }
-
-?>
