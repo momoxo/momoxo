@@ -535,10 +535,6 @@ class XCube_StringProperty extends XCube_AbstractProperty
 {
 	function set($value)
 	{
-		// if (preg_match_all("/[\\x00-\\x1f]/", $value, $matches, PREG_PATTERN_ORDER)) {
-		// 	die("Get control code :" . ord($matches[0][0]));
-		// }
-		
 		$this->mValue = preg_replace("/[\\x00-\\x1f]/", '' , $value);
 	}
 	
@@ -572,12 +568,6 @@ class XCube_TextProperty extends XCube_AbstractProperty
 {
 	function set($value)
 	{
-		$matches = array();
-		
-		// if (preg_match_all("/[\\x00-\\x08]|[\\x0b-\\x0c]|[\\x0e-\\x1f]/", $value, $matches,PREG_PATTERN_ORDER)) {
-		// 	die("Get control code :" . ord($matches[0][0]));
-		// }
-
 		$this->mValue = preg_replace("/[\\x00-\\x08]|[\\x0b-\\x0c]|[\\x0e-\\x1f]/", '', $value);
 	}
 	

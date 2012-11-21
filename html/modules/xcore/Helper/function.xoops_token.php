@@ -30,7 +30,7 @@ function smarty_function_xoops_token($params, &$smarty)
 			$tokenValue = $form->getToken();
 		}
 		else {
-			die('You does not set ActionForm instance to place holder.');
+			throw new RuntimeException('You does not set ActionForm instance to place holder.');
 		}
 	}
 	else {

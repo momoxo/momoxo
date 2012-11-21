@@ -42,10 +42,6 @@
 
 // TODO: allow 'GET' also so we can process 'unsubscribe' requests??
 
-if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
-	exit();
-}
-
 include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_constants.php';
 include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_functions.php';
 
@@ -53,7 +49,7 @@ $root =& XCube_Root::getSingleton();
 $root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 
 if (!isset($_POST['not_submit'])) {
-	exit();
+	throw new Exception();
 }
 
 // NOTE: in addition to the templates provided in the block and view
@@ -120,6 +116,3 @@ foreach (array_keys($redirect_args) as $arg) {
 }
 
 redirect_header ($_POST['not_redirect'].$argstring, 3, _NOT_UPDATEOK);
-exit();
-
-?>

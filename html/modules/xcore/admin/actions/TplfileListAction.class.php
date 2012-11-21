@@ -1,15 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplfileListAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileSetFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileUploadForm.class.php";
 
 class Xcore_TplfileListAction extends Xcore_AbstractListAction
 {
@@ -68,8 +57,6 @@ class Xcore_TplfileListAction extends Xcore_AbstractListAction
 	 */
 	function execute(&$controller, &$xoopsUser)
 	{
-		require_once XOOPS_ROOT_PATH . "/class/template.php";
-		
 		$this->mActionForm->fetch();
 		$this->mActionForm->validate();
 		

@@ -1,10 +1,4 @@
 <?php
-/**
- * @package xcore
- * HtaccessViewAction.class.php
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Xcore_HtaccessViewAction extends Xcore_Action
 {

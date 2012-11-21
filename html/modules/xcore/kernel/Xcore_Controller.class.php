@@ -419,7 +419,7 @@ class Xcore_Controller extends XCube_Controller
 		$requestPathInfo = @parse_url(!empty($php_info) ? substr(xoops_getenv('PHP_SELF'),0,- strlen(xoops_getenv('PATH_INFO'))) : xoops_getenv('PHP_SELF'));
 		
 		if ($requestPathInfo === false) {
-			die();
+			throw new RuntimeException();
 		}
 		
 		$requestPath = isset($requestPathInfo['path']) ? urldecode($requestPathInfo['path']) : '';
@@ -474,13 +474,13 @@ class Xcore_Controller extends XCube_Controller
 				 */
 				XCube_DelegateUtils::call('Xcore.Event.Exception.ModuleNotActive', $module);
 				$this->executeForward(XOOPS_URL . '/');
-				die();
+				die(); // need to response?
 			}
 			
 			if (!$this->_mStrategy->enableAccess()) {
 				XCube_DelegateUtils::call('Xcore.Event.Exception.ModuleSecurity', $module);
 				$this->executeRedirect(XOOPS_URL . '/user.php', 1, _NOPERM);	// TODO Depens on const message catalog.
-				die();
+				die(); // need to response?
 			}
 			
 			$this->_mStrategy->setupModuleLanguage();
@@ -522,7 +522,7 @@ class Xcore_Controller extends XCube_Controller
 			// Guard for XSS string of PHP_SELF
 			// @todo I must move this logic to preload plugin.
 			if(preg_match('/[\<\>\"\'\(\)]/',xoops_getenv('REQUEST_URI')))
-				die();
+				throw new RuntimeException();
 		}
 
 		// What is this!? But, old system depends this setting. We have to confirm it and modify!
@@ -815,7 +815,7 @@ class Xcore_Controller extends XCube_Controller
 					
 					$this->_executeViewTheme($renderTarget);
 					
-					exit();
+					exit(); // need to response
 				}
 			}
 		}
@@ -875,7 +875,7 @@ class Xcore_Controller extends XCube_Controller
 		//
 		$theme =& $this->_mStrategy->getMainThemeObject();
 		if (!is_object($theme)) {
-			die('Could not found any themes.');
+			throw new RuntimeException('Could not found any themes.');
 		}
 		
 		$renderSystem =& $this->mRoot->getRenderSystem($theme->get('render_system'));
@@ -1202,7 +1202,7 @@ class Xcore_Controller extends XCube_Controller
 			</html>';
 		}
 		
-		exit();
+		exit(); // need to response
 	}
 
 	/**
@@ -1363,7 +1363,7 @@ class Xcore_AbstractControllerStrategy
 		if (!is_object($module)) {
 			XCube_DelegateUtils::call('Xcore.Event.Exception.XoopsModuleNotFound', $dirname);
 			$this->mController->executeRedirect(XOOPS_URL . '/', 1, 'You can\'t access this URL.');	// TODO need message catalog.
-			die();
+			die(); // need to response?
 		}
 		
 		$context->mModule =& Xcore_Utils::createModule($module);

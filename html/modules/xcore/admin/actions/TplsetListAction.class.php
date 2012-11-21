@@ -1,11 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetFilterForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetSelectForm.class.php";
-
 class Xcore_TplsetListAction extends Xcore_AbstractListAction
 {
 	var $mActionForm = null;

@@ -1,14 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: BackendAction.class.php,v 1.4 2008/09/25 14:31:58 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /***
  * @internal
@@ -115,6 +105,6 @@ class Xcore_BackendAction extends Xcore_Action
 		
 		print xoops_utf8_encode($renderTarget->getResult());
 		
-		exit(0);
+		exit(0); // need to response
 	}
 }

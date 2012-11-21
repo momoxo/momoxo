@@ -1,13 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplsetUploadAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetUploadForm.class.php";
 
 class Xcore_TplsetUploadAction extends Xcore_Action
 {
@@ -43,7 +34,6 @@ class Xcore_TplsetUploadAction extends Xcore_Action
 			return $this->getDefaultView($controller, $xoopsUser);
 		}
 		
-		require_once XOOPS_ROOT_PATH . "/class/class.tar.php";
 		$tar =new tar();
 
 		$formFile = $this->mActionForm->get('upload');

@@ -799,7 +799,7 @@ class XoopsSimpleObject extends AbstractXoopsObject
 		static $_mAllowType = array(XOBJ_DTYPE_BOOL=>XOBJ_DTYPE_BOOL, XOBJ_DTYPE_INT=>XOBJ_DTYPE_INT, XOBJ_DTYPE_FLOAT=>XOBJ_DTYPE_FLOAT, XOBJ_DTYPE_STRING=>XOBJ_DTYPE_STRING, XOBJ_DTYPE_TEXT=>XOBJ_DTYPE_TEXT);
 	
 		if (!$_mAllowType[$dataType]) {
-			die();	// TODO
+			throw new RuntimeException();
 		}
 		
 		$this->mVars[$key] = array(

@@ -1,37 +1,5 @@
 <?php
-// $Id: comment_delete.php,v 1.1 2007/05/15 02:34:19 minahito Exp $
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author: Kazumi Ono (AKA onokazu)                                          //
-// URL: http://www.xoops.org/ http://jp.xoops.org/  http://www.myweb.ne.jp/  //
-// Project: The XOOPS Project (http://www.xoops.org/)                        //
-// ------------------------------------------------------------------------- //
 
-if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
-    exit();
-}
 include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
 $op = 'delete';
 if (!empty($_POST)) {
@@ -58,7 +26,7 @@ if ('system' == $xoopsModule->getVar('dirname')) {
     unset($comment);
 } else {
     if (XOOPS_COMMENT_APPROVENONE == $xoopsModuleConfig['com_rule']) {
-        exit();
+        exit(); // Should be exception?
     }
     $comment_config = $xoopsModule->getInfo('comments');
     $com_modid = $xoopsModule->getVar('mid');
@@ -102,7 +70,6 @@ if (false != $accesserror) {
     } else {
         redirect_header($redirect_page.'?'.$comment_config['itemName'].'='.(int)$com_itemid, 2, _NOPERM);
     }
-    exit();
 }
 
 $t_root =& XCube_Root::getSingleton();
@@ -116,7 +83,7 @@ case 'delete_one':
         include XOOPS_ROOT_PATH.'/header.php';
         xoops_error(_CM_COMDELETENG.' (ID: '.$comment->getVar('com_id').')');
         include XOOPS_ROOT_PATH.'/footer.php';
-        exit();
+        exit(); // need to response
     }
 
     $com_itemid = $comment->getVar('com_itemid');
@@ -195,7 +162,7 @@ case 'delete_one':
         include XOOPS_ROOT_PATH.'/header.php';
         xoops_error($errs);
         include XOOPS_ROOT_PATH.'/footer.php';
-        exit();
+        exit(); // need to response
     }
     redirect_header($redirect_page.'='.$com_itemid.'&amp;com_order='.$com_order.'&amp;com_mode='.$com_mode, 1, _CM_COMDELETED);
     break;

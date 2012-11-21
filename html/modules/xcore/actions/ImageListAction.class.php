@@ -1,17 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: ImageListAction.class.php,v 1.6 2008/09/25 14:31:45 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractListAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/forms/ImageFilterForm.class.php";
 
 /***
  * @internal
@@ -91,7 +78,6 @@ class Xcore_ImageListAction extends Xcore_AbstractListAction
 		}
 		$render->setAttribute('hasUploadPerm', $hasUploadPerm);
 		$render->setAttribute("category", $this->mCategory);
-		//echo xoops_getrequest('target');die();
         $render->setAttribute('target', htmlspecialchars(xoops_getrequest('target'), ENT_QUOTES));
 	}
 

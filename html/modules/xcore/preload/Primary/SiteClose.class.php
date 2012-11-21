@@ -55,7 +55,7 @@ class Xcore_SiteClose extends XCube_ActionFilter
 			
 			// @todo filebase template with absolute file path
 			$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_site_closed.html');
-			exit();
+			exit(); // need to response
 		}
 	}
 	

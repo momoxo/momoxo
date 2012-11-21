@@ -1,14 +1,4 @@
 <?php
-/**
- * @file
- * @package xcore
- * @version $Id$
-**/
-
-if(!defined('XOOPS_ROOT_PATH'))
-{
-	exit();
-}
 
 /**
  * Interface of Image delegate

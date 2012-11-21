@@ -21,9 +21,6 @@
  */
 function smarty_function_xoopsdhtmltarea($params, &$smarty)
 {
-	if (!class_exists('xoopsformelement')) {
-		require_once XOOPS_ROOT_PATH."/class/xoopsformloader.php";
-	}
 	$form=null;
 
 	if( ! empty( $params['name'] ) ) {

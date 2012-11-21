@@ -1,15 +1,4 @@
 <?php
-/**
- * @package ShadePlus
- * @version $Id: SoapClient.class.php,v 1.3 2008/10/12 04:31:22 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt Modified BSD license
- *
- */
- // TODO prevent path disclosure, gigamaster
- error_reporting(0);
-
-if (!XC_CLASS_EXISTS('XCube_AbstractServiceClient')) exit();
 
 class ShadePlus_SoapClient extends XCube_AbstractServiceClient
 {

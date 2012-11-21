@@ -1,13 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplsetEditForm.class.php,v 1.2 2007/06/07 05:27:57 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
 class Xcore_TplsetEditForm extends XCube_ActionForm
 {

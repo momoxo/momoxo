@@ -23,7 +23,6 @@
  */
 function smarty_modifier_xoops_user($uid, $key, $flag=2)
 {
-	require_once XOOPS_MODULE_PATH.'/profile/class/handler/Definitions.class.php';
 	$handler = xoops_gethandler('member');
 	$user= $handler->getUser(intval($uid));
 	if(in_array($key, Profile_DefinitionsHandler::getReservedNameList())){
@@ -44,5 +43,3 @@ function smarty_modifier_xoops_user($uid, $key, $flag=2)
 
 	return null;
 }
-
-?>

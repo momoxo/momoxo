@@ -1,7 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
 class XcoreTplsourceObject extends XoopsSimpleObject
 {
 	function XcoreTplsourceObject()
@@ -23,5 +21,3 @@ class XcoreTplsourceHandler extends XoopsObjectGenericHandler
 	var $mPrimary = "tpl_id";
 	var $mClass = "XcoreTplsourceObject";
 }
-
-?>

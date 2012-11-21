@@ -144,14 +144,14 @@ class XCube_Root
 	{
 		$n = func_num_args();
 		if ($n == 0) {
-			die("FETAL: open error: site setting config.");
+			throw new RuntimeException("FETAL: open error: site setting config.");
 		}
 
 		$files = func_get_args();
 		$file = array_shift($files);
 
 		if(!file_exists($file)) {
-			die("FETAL: open error: site setting config.");
+			throw new RuntimeException("FETAL: open error: site setting config.");
 		}
 		
 		$this->setSiteConfig(parse_ini_file($file, true));
@@ -380,7 +380,7 @@ class XCube_Root
 		}
 		
 		if (!is_object($mRS[$name])) {
-			die("NO");
+			throw new RuntimeException("NO");
 		}
 		
 		$mRS[$name]->prepare($this->mController);

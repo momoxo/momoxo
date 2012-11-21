@@ -1,10 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractDeleteAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileAdminDeleteForm.class.php";
-
 class Xcore_TplfileDeleteAction extends Xcore_AbstractDeleteAction
 {
 	function _getId()
@@ -42,8 +37,6 @@ class Xcore_TplfileDeleteAction extends Xcore_AbstractDeleteAction
 
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
 	{
-		require_once XOOPS_ROOT_PATH . "/class/template.php";
-		
 		$xoopsTpl =new XoopsTpl();
 		$xoopsTpl->clear_cache('db:' . $this->mObject->get('tpl_file'));
 		$xoopsTpl->clear_compiled_tpl('db:' . $this->mObject->get('tpl_file'));

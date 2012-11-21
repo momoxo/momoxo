@@ -1,14 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: non_installation_module.php,v 1.4 2008/09/25 15:11:22 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /***
  * @internal

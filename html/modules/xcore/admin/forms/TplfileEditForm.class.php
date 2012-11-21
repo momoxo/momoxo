@@ -1,12 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplfileEditForm.class.php,v 1.2 2007/06/07 02:23:37 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
 
 /***
  * @internal

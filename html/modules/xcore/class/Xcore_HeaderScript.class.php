@@ -1,7 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
 class Xcore_HeaderScript
 {
 	protected $_mType = 'google';

@@ -44,9 +44,6 @@ define ("XOOPS_DHTMLTAREA_DEFAULT_ROWS", "5");
 
 function smarty_function_xoops_dhtmltarea($params, &$smarty)
 {
-	if (!XC_CLASS_EXISTS('xoopsformelement')) {
-		require_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
-	}
 	$form = null;
 
 	$root =& XCube_Root::getSingleton();

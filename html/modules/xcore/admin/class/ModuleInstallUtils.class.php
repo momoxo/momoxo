@@ -1,21 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: ModuleInstallUtils.class.php,v 1.11 2008/10/26 04:07:23 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallInformation.class.php";
-require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstaller.class.php";
-require_once XOOPS_XCORE_PATH . "/admin/class/ModuleUpdater.class.php";
-require_once XOOPS_XCORE_PATH . "/admin/class/ModuleUninstaller.class.php";
-
-require_once XOOPS_ROOT_PATH."/class/template.php";
 
 define("MODINSTALL_LOGTYPE_REPORT", "report");
 define("MODINSTALL_LOGTYPE_WARNING", "warning");
@@ -164,7 +147,6 @@ class Xcore_ModuleInstallUtils
 		$sqlfilepath = XOOPS_MODULE_PATH . "/${dirname}/${sqlfile}";
 		
 		if (isset($module->modinfo['cube_style']) && $module->modinfo['cube_style'] == true) {
-			require_once XOOPS_MODULE_PATH . "/xcore/admin/class/Xcore_SQLScanner.class.php";
 			$scanner =new Xcore_SQLScanner();
 			$scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
 			$scanner->setDirname($module->get('dirname'));
@@ -193,8 +175,7 @@ class Xcore_ModuleInstallUtils
 			$log->addReport(_AD_XCORE_MESSAGE_DATABASE_SETUP_FINISHED);
 		}
 		else {
-			require_once XOOPS_ROOT_PATH.'/class/database/sqlutility.php';
-			
+
 			$reservedTables = array('avatar', 'avatar_users_link', 'block_module_link', 'xoopscomments', 'config', 'configcategory', 'configoption', 'image', 'imagebody', 'imagecategory', 'imgset', 'imgset_tplset_link', 'imgsetimg', 'groups','groups_users_link','group_permission', 'online', 'bannerclient', 'banner', 'bannerfinish', 'priv_msgs', 'ranks', 'session', 'smiles', 'users', 'newblocks', 'modules', 'tplfile', 'tplset', 'tplsource', 'xoopsnotifications');
 
 			$root =& XCube_Root::getSingleton();
@@ -1252,8 +1233,6 @@ class Xcore_ModuleInstallUtils
 	 */
 	function DBquery($query, &$module, $log)
 	{
-		require_once XOOPS_MODULE_PATH . "/xcore/admin/class/Xcore_SQLScanner.class.php";
-		
 		$successFlag = true;
 		
 		$scanner =new Xcore_SQLScanner();

@@ -207,7 +207,7 @@ class XCube_Controller
 	{
 		// check header output
 		header("location: " . $url);
-		exit();
+		exit(); // need to response
 	}
 	
 	/**

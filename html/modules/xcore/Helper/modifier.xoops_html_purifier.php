@@ -25,8 +25,7 @@
  */
 function smarty_modifier_xoops_html_purifier($html, $ecoding=null, $doctype=null)
 {
-	require_once XOOPS_VENDOR_PATH.'/htmlpurifier/library/HTMLPurifier.auto.php';
-	$encoding = $encoding ? $encoding : _CHARSET; 
+	$encoding = $encoding ? $encoding : _CHARSET;
 	$doctypeArr = array("HTML 4.01 Strict","HTML 4.01 Transitional","XHTML 1.0 Strict","XHTML 1.0 Transitional","XHTML 1.1");
 
 	$config = HTMLPurifier_Config::createDefault();

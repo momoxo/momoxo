@@ -1,7 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
 class XcoreTheme
 {
 	var $mDirName=null;

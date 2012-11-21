@@ -640,17 +640,10 @@ class XCube_DependClassFactory
 		if (!isset($_cache[$dependName])) {
 			// or switch?
 			$class_name = "XCube_" . ucfirst($dependName) . "Validator";
-			if (XC_CLASS_EXISTS($class_name)) {
-				$_cache[$dependName] = new $class_name();
-			}
-			else {
-				// FIXME:: use delegate?
-				die ("This is an error message of Alpha or Beta series. ${dependName} Validator is not found.");
-			}
+			$_cache[$dependName] = new $class_name();
 		}
 
 		return $_cache[$dependName];
 	}
 }
 
-?>

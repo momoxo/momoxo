@@ -1,12 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplsetSelectForm.class.php,v 1.2 2007/06/07 02:57:21 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
 
 class Xcore_TplsetSelectForm extends XCube_ActionForm
 {

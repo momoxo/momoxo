@@ -1,14 +1,4 @@
 <?php
-/**
- * @file
- * @package xcore
- * @version $Id$
-**/
-
-if(!defined('XOOPS_ROOT_PATH'))
-{
-    exit;
-}
 
 /**
  * Xcore_AbstractObject
@@ -85,7 +75,7 @@ abstract class Xcore_AbstractObject extends XoopsSimpleObject
             $this->mTable[$table] = $handler->get($this->get($handler->mPrimary));
         }
         else{
-            die('invalid load table');
+            throw new RuntimeException('invalid load table');
         }
     
         $this->_mIsLoaded[$table] = true;

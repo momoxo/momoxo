@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileFilterForm.class.php";
-
 /***
  * @internal
  * This class is a filter form for list up tplfile object *with* override.

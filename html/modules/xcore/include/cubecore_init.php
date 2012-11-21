@@ -1,18 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: cubecore_init.php,v 1.3 2008/09/25 15:12:45 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined("XOOPS_MAINFILE_INCLUDED")) exit();
-if (!defined('XOOPS_TRUST_PATH')){
-	echo "XOOPS_TRUST_PATH is required after XOOPS Cube Legacy 2.2 in mainfile.php";exit();
-}
-
 
 /**
  * This constant is the sign which this system is XOOPS Cube, for module
@@ -28,10 +14,6 @@ define('XOOPS_CUBE_XCORE', true);
 define('XCORE_BASE_VERSION', '2.2.2.0');
 
 define('XCUBE_CORE_PATH', dirname(__DIR__).'/kernel');
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_Root.class.php";
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_Controller.class.php";
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/libs/IniHandler.class.php";
 
 //
 // TODO We have to move the following lines to an appropriate place.
@@ -50,5 +32,3 @@ $root=&XCube_Root::getSingleton();
 //$root->loadSiteConfig(XCUBE_SITE_SETTING_FILE, XCUBE_SITE_CUSTOM_FILE, XCUBE_SITE_CUSTOM_FILE_SALT);
 $root->loadSiteConfig(XCUBE_SITE_SETTING_FILE, XCUBE_SITE_DIST_FILE, XCUBE_SITE_CUSTOM_FILE, XCUBE_SITE_CUSTOM_FILE_SALT); // edit by CorePack
 $root->setupController();
-
-?>

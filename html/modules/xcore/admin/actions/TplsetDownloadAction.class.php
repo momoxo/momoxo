@@ -1,12 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplsetDownloadAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
 
 class Xcore_TplsetDownloadAction extends Xcore_Action
 {
@@ -23,13 +15,11 @@ class Xcore_TplsetDownloadAction extends Xcore_Action
 		switch ($method) {
 			case 'tar':
 				if (@function_exists('gzencode')) {
-					require_once XOOPS_ROOT_PATH . "/class/tardownloader.php";
 					$ret =new XoopsTarDownloader();
 				}
 				break;
 			case 'zip':
 				if (@function_exists('gzcompress')) {
-					require_once XOOPS_ROOT_PATH . "/class/zipdownloader.php";
 					$ret =new XoopsZipDownloader();
 				}
 				break;
@@ -106,7 +96,7 @@ class Xcore_TplsetDownloadAction extends Xcore_Action
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)
 	{
 		print $this->mDownloader->download($this->mTplset->getShow('tplset_name'), true);
-		exit(0);
+		exit(0); // need to response
 	}
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)

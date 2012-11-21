@@ -1,10 +1,4 @@
 <?php
-/**
- AdminSystemCheckPlus Preload version 1.0 by wanikoo
- ( http://www.wanisys.net/ )
-*/
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 //New language constants added to catalog
 // (...)

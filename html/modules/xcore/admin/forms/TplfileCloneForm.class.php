@@ -1,13 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplfileCloneForm.class.php,v 1.1 2007/05/15 02:34:40 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
 class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 {

@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractFilterForm.class.php";
-
 define('TPLSET_SORT_KEY_TPLSET_ID', 1);
 define('TPLSET_SORT_KEY_TPLSET_NAME', 2);
 define('TPLSET_SORT_KEY_TPLSET_DESC', 3);

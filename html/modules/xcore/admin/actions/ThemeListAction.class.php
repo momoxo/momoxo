@@ -1,16 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: ThemeListAction.class.php,v 1.5 2008/09/25 15:11:47 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ThemeSelectForm.class.php";
 
 /***
  * @internal
@@ -99,7 +87,7 @@ class Xcore_ThemeListAction extends Xcore_Action
 		$t_themeArr = $this->mActionForm->getSelectableTheme();
 		$configs[0]->set('conf_value', serialize($t_themeArr));
 		if (!$configHandler->insertConfig($configs[0])) {
-			die(); // FIXME:
+			throw new RuntimeException();
 		}
 
 		//

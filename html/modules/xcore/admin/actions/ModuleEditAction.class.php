@@ -1,10 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/ModuleEditForm.class.php";
-
 class Xcore_ModuleEditAction extends Xcore_AbstractEditAction
 {
 

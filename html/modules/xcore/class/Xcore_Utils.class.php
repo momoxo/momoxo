@@ -333,7 +333,7 @@ class Xcore_Utils
 			else{
 				if($data_id>0){
 					if(isset($action)){
-						die();
+						throw new RuntimeException();
 					}
 					else{
 						$uri = sprintf('/%s/%d', $dirname, $data_id);
@@ -341,7 +341,7 @@ class Xcore_Utils
 				}
 				else{
 					if(isset($action)){
-						die();
+						throw new RuntimeException();
 					}
 					else{
 						$uri = '/'.$dirname;

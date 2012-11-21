@@ -111,7 +111,7 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 				///< @todo filebase template with absolute file path
 				$xoopsTpl->compile_check = true;
 				$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_uninstall_modules.html');
-				exit();
+				exit(); // need to response
 			}
 			elseif (!empty($_POST['cube_module_uninstallok'])) { //@todo use Ticket
 				$module = basename($_POST['cube_module_uninstallok']);
@@ -161,7 +161,7 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 				///< @todo filebase template with absolute file path
 				$xoopsTpl->compile_check = true;
 				$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_install_modules.html');
-				exit();
+				exit(); // need to response
 			}
 		}
 
@@ -180,7 +180,7 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 			
 			// @todo filebase template with absolute file path
 			$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xcore/templates/xcore_site_closed.html');
-			exit();
+			exit(); // need to response
 		}
 	}
 	

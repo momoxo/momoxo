@@ -1,8 +1,5 @@
 <?php
-/**
- * @author Marijuana
- */
-if (!defined('XOOPS_ROOT_PATH')) exit();
+
 function smarty_function_message_userlist($params, &$smarty)
 {
   $name = isset($params['name']) ? trim($params['name']) : 'uname';

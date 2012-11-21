@@ -7,7 +7,7 @@ class Xcore_Identity extends XCube_Identity
 		parent::XCube_Identity();
 		
 		if (!is_object($xoopsUser)) {
-			die('Exception');
+			throw new RuntimeException('Exception');
 		}
 		
 		$this->mName = $xoopsUser->get('uname');

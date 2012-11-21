@@ -1,14 +1,4 @@
 <?php
-/**
- * @file
- * @package xcore
- * @version $Id$
-**/
-
-if(!defined('XOOPS_ROOT_PATH'))
-{
-	exit();
-}
 
 /**
  * Interface of group client delegate
@@ -29,4 +19,3 @@ interface Xcore_iCommentClientDelegate
 	 */ 
 	public static function getClientList(/*** mixed[] ***/ &$list, /*** string ***/ $cDirname);
 }
-?>

@@ -1,10 +1,4 @@
 <?php
-/**
- * @package xcoreRender
- * @version $Id: StartupXoopsTpl.class.php,v 1.2 2007/06/07 05:26:13 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /***
  * @internal
@@ -19,5 +13,3 @@ class Xcore_StartupXoopsTpl extends XCube_ActionFilter
 		$dmy =& $this->mRoot->getRenderSystem('Xcore_RenderSystem');
 	}
 }
-
-?>

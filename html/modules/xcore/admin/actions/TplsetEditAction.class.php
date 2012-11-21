@@ -1,13 +1,4 @@
 <?php
-/**
- * @version xcore
- * @version $Id: TplsetEditAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplsetEditForm.class.php";
 
 class Xcore_TplsetEditAction extends Xcore_AbstractEditAction
 {

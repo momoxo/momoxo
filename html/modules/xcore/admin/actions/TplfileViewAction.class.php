@@ -1,10 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplfileViewAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Xcore_TplfileViewAction extends Xcore_Action
 {

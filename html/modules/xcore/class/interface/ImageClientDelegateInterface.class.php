@@ -1,14 +1,4 @@
 <?php
-/**
- * @file
- * @package xcore
- * @version $Id$
-**/
-
-if(!defined('XOOPS_ROOT_PATH'))
-{
-	exit();
-}
 
 /**
  * Interface of image client delegate
@@ -30,4 +20,3 @@ interface Xcore_iImageClientDelegate
 	 */ 
 	public static function getClientList(/*** array ***/ &$list);
 }
-?>

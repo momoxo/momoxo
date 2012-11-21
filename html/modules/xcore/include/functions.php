@@ -448,7 +448,7 @@ function redirect_header($url, $time = 3, $message = '', $addredirect = true)
         $xoopsTpl->assign('lang_ifnotreload', sprintf(_IFNOTRELOAD, $url));
         $GLOBALS['xoopsModuleUpdate'] = 1;
         $xoopsTpl->display('db:system_redirect.html');
-        exit();
+        exit(); // need to response
     } else {
         $url = preg_replace("/&amp;/i", '&', htmlspecialchars($url, ENT_QUOTES));
         echo '
@@ -476,7 +476,7 @@ function redirect_header($url, $time = 3, $message = '', $addredirect = true)
         </body>
         </html>';
     }
-    exit();
+    exit(); // need to response
 }
 
 function xoops_getenv($key)
@@ -639,7 +639,7 @@ function &xoops_getmodulehandler($name = null, $module_dir = null, $optional = f
         }
 
     if (!isset($mhdr[$name]) && !$optional) {
-        echo new RuntimeException('Handler does not exist. Module: '.$module_dir.'Name: '.$name);die;
+        throw new RuntimeException('Handler does not exist. Module: '.$module_dir.'Name: '.$name);
     }
     
     return $mhdr[$name];

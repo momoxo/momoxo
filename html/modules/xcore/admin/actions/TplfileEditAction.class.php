@@ -1,13 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplfileEditAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/AbstractEditAction.class.php";
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
 
 class Xcore_TplfileEditAction extends Xcore_AbstractEditAction
 {
@@ -55,8 +46,6 @@ class Xcore_TplfileEditAction extends Xcore_AbstractEditAction
 		// This class knows the db template mechanism, because this is in
 		// XcoreRender.
 		//
-		require_once XOOPS_ROOT_PATH . "/class/template.php";
-
 		$xoopsTpl =new XoopsTpl();
 		$xoopsTpl->clear_cache('db:' . $this->mObject->get('tpl_file'));
 		$xoopsTpl->clear_compiled_tpl('db:' . $this->mObject->get('tpl_file'));

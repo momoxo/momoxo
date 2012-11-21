@@ -1,37 +1,4 @@
 <?php
-// $Id: comment_post.php,v 1.1 2007/05/15 02:34:19 minahito Exp $
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author: Kazumi Ono (AKA onokazu)                                          //
-// URL: http://www.xoops.org/ http://jp.xoops.org/  http://www.myweb.ne.jp/  //
-// Project: The XOOPS Project (http://www.xoops.org/)                        //
-// ------------------------------------------------------------------------- //
-
-if (!defined('XOOPS_ROOT_PATH') || !is_object($xoopsModule)) {
-    exit();
-}
 
 $t_root =& XCube_Root::getSingleton();
 $t_root->mLanguageManager->loadPageTypeMessageCatalog("comment");	///< @todo Is this must?
@@ -42,7 +9,7 @@ $com_id = isset($_POST['com_id']) ? (int)$_POST['com_id'] : 0;
 $extra_params = '';
 if ('system' == $xoopsModule->getVar('dirname')) {
     if (empty($com_id)) {
-        exit();
+        exit(); // Should be exception?
     }
     $comment_handler =& xoops_gethandler('comment');
     $comment =& $comment_handler->get($com_id);
@@ -55,7 +22,7 @@ if ('system' == $xoopsModule->getVar('dirname')) {
     unset($comment);
 } else {
     if (XOOPS_COMMENT_APPROVENONE == $xoopsModuleConfig['com_rule']) {
-        exit();
+        exit(); // Should be exception?
     }
     $comment_config = $xoopsModule->getInfo('comments');
     $com_modid = $xoopsModule->getVar('mid');
@@ -103,7 +70,7 @@ if (!empty($_POST)) {
     $com_icon = isset($_POST['com_icon']) ? trim($_POST['com_icon']) : '';
     $noname = isset($_POST['noname']) ? (int)$_POST['noname'] : 0;
 } else {
-    exit();
+    exit(); // Should be exception?
 }
 
 switch ( $op ) {
@@ -188,7 +155,6 @@ case "post":
         }
         if (false != $accesserror) {
             redirect_header($redirect_page.'='.$com_itemid.'&amp;com_id='.$com_id.'&amp;com_mode='.$com_mode.'&amp;com_order='.$com_order, 1, _NOPERM);
-            exit();
         }
     } else {
         $comment = $comment_handler->create();
@@ -235,7 +201,6 @@ case "post":
             $uid = 0;
             if ($xoopsModuleConfig['com_anonpost'] != 1) {
                 redirect_header($redirect_page.'='.$com_itemid.'&amp;com_id='.$com_id.'&amp;com_mode='.$com_mode.'&amp;com_order='.$com_order, 1, _NOPERM);
-                exit();
             }
         }
         if ($uid == 0) {

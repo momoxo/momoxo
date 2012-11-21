@@ -1,10 +1,4 @@
 <?php
-/**
- * @package xcoreRender
- * @version $Id: Cacheclear.class.php,v 1.2 2007/06/18 07:41:55 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /***
  * @internal
@@ -33,4 +27,3 @@ class Xcore_Cacheclear extends XCube_ActionFilter {
 		}
     }
 }
-?>

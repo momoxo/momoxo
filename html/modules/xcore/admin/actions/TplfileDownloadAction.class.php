@@ -1,12 +1,4 @@
 <?php
-/**
- * @package xcore
- * @version $Id: TplfileDownloadAction.class.php,v 1.1 2007/05/15 02:34:17 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/admin/forms/TplfileEditForm.class.php";
 
 class Xcore_TplfileDownloadAction extends Xcore_Action
 {
@@ -44,7 +36,7 @@ class Xcore_TplfileDownloadAction extends Xcore_Action
 		header('Content-length: ' . strlen($source));
 		print $source;
 		
-		exit(0);
+		exit(0); // need to response
 	}
 
 	function executeViewError(&$controller, &$xoopsUser, &$render)

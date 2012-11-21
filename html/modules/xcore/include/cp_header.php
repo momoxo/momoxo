@@ -12,26 +12,6 @@
  |   keeping compatibility with XOOPS 2.0.x <http://www.xoops.org>        |
  *------------------------------------------------------------------------*/
 
-if (!defined('XOOPS_ROOT_PATH')) {
-	//
-	// Strange code? This file is used from files in admin directories having no include "mainfile.php".
-	// Ummm..., such uses is deprecated in Xcore.
-	//
-	/*
-	 * If you use open_basedir in php.ini and use file_exists for file outside open_basedir path,
-	 * you will not be warned at log and file_exists returns false even if file really exists.
-	 */
-	if (!file_exists("../../../mainfile.php")) {
-		if (!file_exists("../../mainfile.php")) {
-			exit();
-		} else {
-			require_once "../../mainfile.php";
-		}
-	} else {
-		require_once "../../../mainfile.php";
-	}
-}
-
 if (!defined('XOOPS_CPFUNC_LOADED')) require_once XOOPS_ROOT_PATH . "/modules/xcore/include/cp_functions.php";
 
 //
@@ -52,4 +32,3 @@ $root->mController->_mStrategy->setupModuleLanguage();	//< Umm...
 // TODO
 //
 
-?>

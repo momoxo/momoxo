@@ -1,16 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: ModuleInstaller.class.php,v 1.4 2008/10/26 04:00:40 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 
 /**
  * This class extends a base class for the process of install module. This is added
