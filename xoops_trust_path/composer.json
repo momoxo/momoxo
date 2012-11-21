@@ -4,7 +4,8 @@
 			"XCore": "modules/"
 		},
 		"classmap": [
-			"../html/modules/xcore"
+			"../html/modules/xcore",
+			"../html/class"
 		]
 	}
 }
