@@ -1,12 +1,4 @@
 <?php
-/**
- * @version $Id: Xcore_RenderSystem.class.php,v 1.4 2008/08/26 15:58:41 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_RenderTarget.class.php';
-require_once XOOPS_ROOT_PATH . '/class/template.php';
 
 /**
  * If a module handling banners can not work perfectly in your site, change the following

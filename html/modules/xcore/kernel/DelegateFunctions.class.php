@@ -1,12 +1,4 @@
 <?php
-/**
- * @package xcoreRender
- * @version $Id: DelegateFunctions.class.php,v 1.1 2007/05/15 02:35:07 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_Theme.class.php";
 
 class XcoreRender_DelegateFunctions
 {

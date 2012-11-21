@@ -1,17 +1,6 @@
 <?php
-/**
- *
- * @package XCube
- * @version $Id: XCube_Root.class.php,v 1.10 2008/11/20 16:05:57 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt Modified BSD license
- *
- */
 
-if (!defined('XCUBE_CORE_PATH')) define('XCUBE_CORE_PATH', dirname(__FILE__));
-
-require_once XCUBE_CORE_PATH . '/XCube_HttpContext.class.php';
-
+// TODO >>
 if (version_compare(PHP_VERSION, "5.0", ">=")) {
     function XC_CLASS_EXISTS($className)
     {

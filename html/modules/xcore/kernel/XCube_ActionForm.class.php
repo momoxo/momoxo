@@ -1,20 +1,4 @@
 <?php
-/**
- *
- * @package XCube
- * @version $Id: XCube_ActionForm.class.php,v 1.4 2008/10/12 04:30:27 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt Modified BSD license
- *
- */
-
-if (!defined('XCUBE_CORE_PATH')) define('XCUBE_CORE_PATH', dirname(__FILE__));
-
-require_once XCUBE_CORE_PATH . '/XCube_Root.class.php';
-
-require_once XCUBE_CORE_PATH . '/XCube_Property.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_Validator.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_FormFile.class.php';
 
 /**
  * @public

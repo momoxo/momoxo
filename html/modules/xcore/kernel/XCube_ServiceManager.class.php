@@ -1,16 +1,4 @@
 <?php
-/**
- *
- * @package XCube
- * @version $Id: XCube_ServiceManager.class.php,v 1.3 2008/10/12 04:30:27 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt Modified BSD license
- *
- */
-
-if (!defined('XCUBE_CORE_PATH')) define('XCUBE_CORE_PATH', dirname(__FILE__));
-
-require_once XCUBE_CORE_PATH . '/XCube_Delegate.class.php';
 
 class XCube_ServiceUtils
 {

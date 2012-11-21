@@ -1,33 +1,4 @@
 <?php
-/**
- *
- * @package XCube
- * @version $Id: XCube_Controller.class.php,v 1.9 2008/10/12 04:30:27 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt Modified BSD license
- *
- */
-
-if (!defined('XCUBE_CORE_PATH')) define('XCUBE_CORE_PATH', dirname(__FILE__));
-
-require_once XCUBE_CORE_PATH . '/XCube_Root.class.php';
-
-require_once XCUBE_CORE_PATH . '/XCube_ActionFilter.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_RenderSystem.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_Delegate.class.php';
-
-require_once XCUBE_CORE_PATH . '/XCube_Object.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_Service.class.php';
-
-require_once XCUBE_CORE_PATH . '/XCube_Identity.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_RoleManager.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_Permission.class.php';
-
-require_once XCUBE_CORE_PATH . '/XCube_LanguageManager.class.php';
-
-require_once XCUBE_CORE_PATH . '/XCube_ActionForm.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_TextFilter.class.php';
-require_once XCUBE_CORE_PATH . '/XCube_Session.class.php';
 
 /**
  * Virtual or Actual front controller class.
@@ -459,7 +430,6 @@ class XCube_Controller
 	 */
 	function &_createServiceManager()
 	{
-		require_once XCUBE_CORE_PATH . '/XCube_ServiceManager.class.php';
 		$serviceManager = new XCube_ServiceManager();
 		return $serviceManager;
 	}

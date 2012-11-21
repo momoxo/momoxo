@@ -1,17 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: Xcore_Controller.class.php,v 1.22 2008/11/14 09:45:23 mumincacao Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-if (!defined('XOOPS_TRUST_PATH')){
-	echo 'XOOPS_TRUST_PATH is required after XOOPS Cube Legacy 2.2 in mainfile.php';exit();
-}
 
 define('XCORE_MODULE_VERSION', '2.2');
 
@@ -19,17 +6,6 @@ define('XCORE_CONTROLLER_STATE_PUBLIC', 1);
 define('XCORE_CONTROLLER_STATE_ADMIN', 2);
 
 define('XCORE_XOOPS_MODULE_MANIFESTO_FILENAME', 'xoops_version.php');
-
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_BlockProcedure.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/xcore/class/Xcore_Utils.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/xcore/class/Enum.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_Identity.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_RoleManager.class.php';
-
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_CacheInformation.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_PublicControllerStrategy.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_TextFilter.class.php';
-require_once XOOPS_ROOT_PATH . '/modules/xcore/class/Xcore_Debugger.class.php';
 
 /**
  * This class is a virtual controller that has the compatibility with XOOPS 2.0.x.
@@ -159,7 +135,6 @@ class Xcore_Controller extends XCube_Controller
 		} elseif (substr($urlInfo[0], 0, 9) == 'admin.php') $adminStateFlag = true;
 
 		if ($adminStateFlag) {
-			require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_AdminControllerStrategy.class.php';
 			$this->_mStrategy = new Xcore_AdminControllerStrategy($this);
 		}
 		else {
@@ -244,7 +219,6 @@ class Xcore_Controller extends XCube_Controller
 
 	function _setupLogger()
 	{
-		require_once XOOPS_ROOT_PATH . '/class/logger.php';
 		$this->mLogger =& XoopsLogger::instance();
 		$this->mLogger->startTime();
 
@@ -318,16 +292,6 @@ class Xcore_Controller extends XCube_Controller
 
 		require_once XOOPS_ROOT_PATH.'/modules/xcore/include/functions.php';
 
-		require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/object.php';
-		require_once XOOPS_ROOT_PATH.'/class/criteria.php';
-		require_once XOOPS_ROOT_PATH.'/class/token.php';
-		require_once XOOPS_ROOT_PATH.'/class/module.textsanitizer.php';
-
-		require_once XOOPS_XCORE_PATH.'/kernel/object.php';				// ToDo (here?)
-		require_once XOOPS_XCORE_PATH.'/kernel/handler.php';				// ToDo
-		require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/XCube_Utils.class.php'; // ToDo
-
-		require_once XOOPS_ROOT_PATH.'/class/xoopssecurity.php';
 		$GLOBALS['xoopsSecurity'] = new XoopsSecurity();
 	}
 
@@ -595,8 +559,6 @@ class Xcore_Controller extends XCube_Controller
 		else
 			define('XOOPS_DB_CHKREF', 0);
 
-		require_once XOOPS_ROOT_PATH.'/class/database/databasefactory.php';
-
 		if ($this->mRoot->getSiteConfig('Xcore', 'AllowDBProxy') == true) {
 			if (xoops_getenv('REQUEST_METHOD') != 'POST' || !xoops_refcheck(XOOPS_DB_CHKREF)) {
 				define('XOOPS_DB_PROXY', 1);
@@ -621,8 +583,6 @@ class Xcore_Controller extends XCube_Controller
 	 */
 	function _setupLanguage()
 	{
-		require_once XOOPS_XCORE_PATH.'/kernel/Xcore_LanguageManager.class.php';
-		
 		$language = null;
 		
 		$this->mGetLanguageName->call(new XCube_Ref($language));
@@ -668,8 +628,6 @@ class Xcore_Controller extends XCube_Controller
 	 */ 
 	function &_createLanguageManager($language)
 	{
-		require_once XOOPS_XCORE_PATH . '/kernel/Xcore_LanguageManager.class.php';
-
 		$languageManager = null;
 		
 		$this->mCreateLanguageManager->call(new XCube_Ref($languageManager), $language);
@@ -729,7 +687,6 @@ class Xcore_Controller extends XCube_Controller
 
 	function _setupScript()
 	{
-		require_once XOOPS_MODULE_PATH.'/xcore/class/Xcore_HeaderScript.class.php';
 		$headerScript = new Xcore_HeaderScript();
 		$this->mRoot->mContext->setAttribute('headerScript', $headerScript);
 	}
@@ -807,11 +764,7 @@ class Xcore_Controller extends XCube_Controller
 
 	protected function _loadInterfaceFiles()
 	{
-		$dir = XOOPS_MODULE_PATH.'/xcore/class/interface/';
-		$interfaces = glob($dir.'*.php');
-		foreach($interfaces as $file){
-			require_once($file);
-		}
+		// TODO >> Delete this method. This method is not necessary because class-autoloaing is available
 	}
 
 	function executeHeader()
@@ -981,7 +934,6 @@ class Xcore_Controller extends XCube_Controller
 	{
 		$serviceManager =& parent::_createServiceManager();
 		
-		require_once XOOPS_ROOT_PATH . '/modules/xcore/service/XcoreSearchService.class.php';
 		$searchService = new Xcore_SearchService();
 		$searchService->prepare();
 		
@@ -1213,7 +1165,6 @@ class Xcore_Controller extends XCube_Controller
 		}
 
 		if (!defined('XOOPS_CPFUNC_LOADED')) {
-			require_once XOOPS_ROOT_PATH.'/class/template.php';
 			$xoopsTpl = new XoopsTpl();
 			$xoopsTpl->assign(array('xoops_sitename'=>htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES),
 									'sitename'=>htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES),
@@ -1317,8 +1268,6 @@ class Xcore_Controller extends XCube_Controller
 	
 	function &_createContext()
 	{
-		require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_HttpContext.class.php';
-		
 		$context = new Xcore_HttpContext();
 		$request = new XCube_HttpRequest();
 		$context->setRequest($request);

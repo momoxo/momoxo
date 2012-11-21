@@ -1,16 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: Xcore_HttpContext.class.php,v 1.4 2008/09/25 15:12:00 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/Xcore_Module.class.php";
 
 /**
  * @public

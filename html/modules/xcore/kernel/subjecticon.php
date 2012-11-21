@@ -1,7 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
 class XoopsSubjecticon extends XoopsObject
 {
 	function XoopsSubjecticon()
@@ -16,7 +14,6 @@ class XoopsSubjecticonHandler extends XoopsObjectHandler
 	
 	function XoopsSubjecticonHandler(&$db)
 	{
-		require_once XOOPS_ROOT_PATH . "/class/xoopslists.php";
 		$this->_mResult =& XoopsLists::getSubjectsList();
 	}
 	

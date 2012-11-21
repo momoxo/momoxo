@@ -27,6 +27,8 @@ define('XOOPS_CUBE_XCORE', true);
  */
 define('XCORE_BASE_VERSION', '2.2.2.0');
 
+define('XCUBE_CORE_PATH', dirname(__DIR__).'/kernel');
+
 require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_Root.class.php";
 require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_Controller.class.php";
 require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/libs/IniHandler.class.php";
