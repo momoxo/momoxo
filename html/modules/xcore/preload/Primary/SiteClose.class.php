@@ -1,14 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: SiteClose.class.php,v 1.5 2008/09/25 15:12:38 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /***
  * The action filter for the site close procedure.
@@ -50,7 +40,6 @@ class Xcore_SiteClose extends XCube_ActionFilter
 		}
 
 		if (!$accessAllowFlag) {
-			require_once XOOPS_ROOT_PATH . '/class/template.php';
 			$xoopsTpl =new XoopsTpl();
 			$xoopsTpl->assign(array('xoops_sitename' => htmlspecialchars($xoopsConfig['sitename']),
 									   'xoops_isuser' => is_object( $context->mXoopsUser ),//GIJ

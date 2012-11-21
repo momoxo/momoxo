@@ -1,11 +1,4 @@
 <?php
-/**
- * @file
- * @package xcore
- * @version $Id$
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Xcore_TextareaEditor extends XCube_ActionFilter
 {
@@ -24,10 +17,6 @@ class Xcore_TextareaEditor extends XCube_ActionFilter
     */
     public static function renderBBCode(&$html, $params)
     {
-        if (!XC_CLASS_EXISTS('xoopsformelement')) {
-            require_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
-        }
-    
         $form =new XoopsFormDhtmlTextArea($params['name'], $params['name'], $params['value'], $params['rows'], $params['cols']);
         $form->setId($params['id']);
         if ($params['class'] != null) {
@@ -50,10 +39,6 @@ class Xcore_TextareaEditor extends XCube_ActionFilter
     */
     public static function renderNone(&$html, $params)
     {
-        if (!XC_CLASS_EXISTS('xoopsformelement')) {
-            require_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
-        }
-    
         $form =new XoopsFormTextArea($params['name'], $params['name'], $params['value'], $params['rows'], $params['cols']);
         $form->setId($params['id']);
         if ($params['class'] != null) {
@@ -63,5 +48,3 @@ class Xcore_TextareaEditor extends XCube_ActionFilter
         $html = $form->render();
     }
 }
-
-?>

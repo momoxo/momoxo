@@ -1,14 +1,4 @@
 <?php
-/**
- *
- * @package Xcore
- * @version $Id: SystemModuleInstall.class.php,v 1.5 2008/09/25 15:12:38 kilica Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
- *
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /**
  * The action filter for the site close procedure.
@@ -49,8 +39,6 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 		if ($accessAllowFlag) {
 			$GLOBALS['xoopsUser'] = $context->mXoopsUser;
 			if (!empty($_POST['cube_module_install'])) { //@todo use Ticket
-				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstaller.class.php";
-				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 				if (isset($_POST['uninstalled_modules']) && is_array($_POST['uninstalled_modules'])){
 					foreach ($_POST['uninstalled_modules'] as $module) {
 						$module = basename($module);
@@ -113,7 +101,6 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 				$controller->executeRedirect(XOOPS_URL . '/', 1);
 			}
 			elseif (!empty($_GET['cube_module_uninstall'])) {
-				require_once XOOPS_ROOT_PATH . '/class/template.php';
 				$xoopsTpl =new XoopsTpl();
 				$xoopsTpl->assign('cube_module_uninstall', htmlspecialchars($_GET['cube_module_uninstall'],ENT_QUOTES));
 				$xoopsTpl->assign( array(
@@ -127,8 +114,6 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 				exit();
 			}
 			elseif (!empty($_POST['cube_module_uninstallok'])) { //@todo use Ticket
-				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleUninstaller.class.php";
-				require_once XOOPS_XCORE_PATH . "/admin/class/ModuleInstallUtils.class.php";
 				$module = basename($_POST['cube_module_uninstallok']);
 				if (in_array($module, $retArray['disabled'])) {
 					$controller->mRoot->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
@@ -164,7 +149,6 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 				}
                 ksort( $optionModules ) ;
                 $optionModules = array_values( $optionModules ) ;
-				require_once XOOPS_ROOT_PATH . '/class/template.php';
 				$xoopsTpl =new XoopsTpl();
 				$xoopsTpl->assign('uninstalled',$retArray['uninstalled']);
 				$xoopsTpl->assign('disabled',$retArray['disabled']);
@@ -182,7 +166,6 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 		}
 
 		if (!$accessAllowFlag) {
-			require_once XOOPS_ROOT_PATH . '/class/template.php';
 			$xoopsTpl =new XoopsTpl();
 			$xoopsTpl->assign(array('xoops_sitename' => htmlspecialchars($xoopsConfig['sitename']),
 									   'xoops_themecss' => xoops_getcss(),
@@ -221,4 +204,3 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 		}
 	}
 }
-?>
