@@ -60,14 +60,12 @@ class DefaultController
 
 	public function inputAction()
 	{
-		// @todo SSL対応
-		$xoopsUrl = sprintf('http://%s/%s', $_SERVER['SERVER_NAME'], str_replace('/install/index.php', '', $_SERVER['SCRIPT_NAME']));
-		$xoopsUrl = rtrim($xoopsUrl, '/');
+		$xoopsUrl = $this->_getXoopsUrl();
 
 		$requirementTestResult = $this->_testRequirement();
 
 		$form = new ConfigurationForm();
-		$form->setURL($this->_getXoopsUrl());
+		$form->setURL($xoopsUrl);
 
 		if ( $form->isMethod('POST') ) {
 			$form->fetch($_POST);
