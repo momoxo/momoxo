@@ -109,11 +109,11 @@ class Xcore_ModuleInstallUtils
 				$className = "${namespace}_${className}";
 			}
 				
-			if (!XC_CLASS_EXISTS($className) && file_exists($filePath)) {
+			if (!class_exists($className) && file_exists($filePath)) {
 				require_once $filePath;
 			}
 				
-			if (XC_CLASS_EXISTS($className)) {
+			if (class_exists($className)) {
 				$installer =new $className();
 				return $installer;
 			}

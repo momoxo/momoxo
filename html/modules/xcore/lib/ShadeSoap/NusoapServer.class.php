@@ -43,7 +43,7 @@ class ShadeSoap_NusoapServer extends soap_server
 		}
 
 		if (strlen($delim) > 0 && substr_count($this->methodname, $delim) == 1 &&
-			XC_CLASS_EXISTS(substr($this->methodname, 0, strpos($this->methodname, $delim)))) {
+			class_exists(substr($this->methodname, 0, strpos($this->methodname, $delim)))) {
 			// get the class and method name
 			$class = substr($this->methodname, 0, strpos($this->methodname, $delim));
 			$method = substr($this->methodname, strpos($this->methodname, $delim) + strlen($delim));

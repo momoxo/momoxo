@@ -639,7 +639,7 @@ class Xcore_Controller extends XCube_Controller
 			// If the class exists, create a instance. Else, load the file, and
 			// try creating a instance again.
 			//
-			if (XC_CLASS_EXISTS($className)) {
+			if (class_exists($className)) {
 				$languageManager = new $className();
 			}
 			else {
@@ -648,7 +648,7 @@ class Xcore_Controller extends XCube_Controller
 					require_once $filePath;
 				}
 				
-				if (XC_CLASS_EXISTS($className)) {
+				if (class_exists($className)) {
 					$languageManager = new $className();
 				}
 				else {
@@ -739,7 +739,7 @@ class Xcore_Controller extends XCube_Controller
 							require_once $file;
 								$className = ucfirst($mod_dir) . '_' . basename($file, '.class.php');
 						
-								if (XC_CLASS_EXISTS($className) && !isset($this->_mLoadedFilterNames[$className])) {
+								if (class_exists($className) && !isset($this->_mLoadedFilterNames[$className])) {
 									$this->_mLoadedFilterNames[$className] = true;
 									$this->addActionFilter(new $className($this));
 								}
@@ -1329,7 +1329,7 @@ class Xcore_AbstractControllerStrategy
 		foreach ($primaryPreloads as $className => $classPath) {
 			if (file_exists(XOOPS_ROOT_PATH . $classPath)) {
 				require_once XOOPS_ROOT_PATH . $classPath;
-				if (XC_CLASS_EXISTS($className) && !isset($this->_mLoadedFilterNames[$className])) {
+				if (class_exists($className) && !isset($this->_mLoadedFilterNames[$className])) {
 					$this->_mLoadedFilterNames[$className] = true;
 					$filter = new $className($this->mController);
 					$this->mController->addActionFilter($filter);

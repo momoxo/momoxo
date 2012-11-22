@@ -1,18 +1,5 @@
 <?php
 
-// TODO >>
-if (version_compare(PHP_VERSION, "5.0", ">=")) {
-    function XC_CLASS_EXISTS($className)
-    {
-	return class_exists($className, false);
-    }
-} else {
-    function XC_CLASS_EXISTS($className)
-    {
-	return class_exists($className);
-    }
-}
-
 /**
  * @public
  * @brief [FINAL CLASS] The root object which collects exchangable managers. 
@@ -525,7 +512,7 @@ class XCube_Root
 			}
 		}
 		
-		if (XC_CLASS_EXISTS($className)) {
+		if (class_exists($className)) {
 			$ret = new $className();
 		}
 

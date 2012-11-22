@@ -28,7 +28,7 @@ class XoopsObjectGenericHandler extends XoopsObjectHandler
 	function &create($isNew = true)
 	{
 		$obj = null;
-		if (XC_CLASS_EXISTS($this->mClass)) {
+		if (class_exists($this->mClass)) {
 			$obj =new $this->mClass();
 			$obj->mDirname = $this->getDirname();
 			if($isNew)

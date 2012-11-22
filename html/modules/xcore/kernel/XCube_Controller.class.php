@@ -402,7 +402,7 @@ class XCube_Controller
 				foreach (glob($path.'/*.class.php') as $file) {
 						require_once $file;
 						$className = basename($file, '.class.php');
-						if (XC_CLASS_EXISTS($className) && !isset($this->_mLoadedFilterNames[$className])) {
+						if (class_exists($className) && !isset($this->_mLoadedFilterNames[$className])) {
 							$this->_mLoadedFilterNames[$className] = true;
 							$instance = new $className($this);
 							$this->addActionFilter($instance);

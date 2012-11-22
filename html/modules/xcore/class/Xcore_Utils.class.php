@@ -73,14 +73,14 @@ class Xcore_Utils
 		// IMPORTANT CONVENTION
 		//
 		$className = ucfirst($dirname) . "_Module";
-		if (!XC_CLASS_EXISTS($className)) {
+		if (!class_exists($className)) {
 			$filePath = XOOPS_ROOT_PATH . "/modules/${dirname}/class/Module.class.php";
 			if (file_exists($filePath)) {
 				require_once $filePath;
 			}
 		}
 		
-		if (XC_CLASS_EXISTS($className)) {
+		if (class_exists($className)) {
 			$instance = new $className($module, $loadConfig);
 		}
 		else {
@@ -115,7 +115,7 @@ class Xcore_Utils
 		$func = $block->get('show_func');
 		if (substr($func, 0, 4) == 'cl::') {
 			$className = ucfirst($block->get('dirname')) . '_' . substr($func, 4);
-			if (!XC_CLASS_EXISTS($className)) {
+			if (!class_exists($className)) {
 				$filePath = XOOPS_ROOT_PATH . '/modules/' . $block->get('dirname') . '/blocks/' . $block->get('func_file');
 				if (!file_exists($filePath)) {
 					$retBlock = new Xcore_BlockProcedureAdapter($block);
@@ -124,7 +124,7 @@ class Xcore_Utils
 				
 				require_once $filePath;
 				
-				if (!XC_CLASS_EXISTS($className)) {
+				if (!class_exists($className)) {
 					$retBlock = new Xcore_BlockProcedureAdapter($block);
 					return $retBlock;
 				}

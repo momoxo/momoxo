@@ -16,7 +16,7 @@
  */
 function smarty_function_hyp_emoji_pad($params, &$smarty)
 {
-	if (! function_exists('XC_CLASS_EXISTS') || ! XC_CLASS_EXISTS('HypCommonFunc')) return 'Class "HypCommonFunc" not exists.';
+	if (! function_exists('class_exists') || ! class_exists('HypCommonFunc')) return 'Class "HypCommonFunc" not exists.';
 	
 	if (empty($params['id'])) return 'Parameter "id" is not set.';
 	
