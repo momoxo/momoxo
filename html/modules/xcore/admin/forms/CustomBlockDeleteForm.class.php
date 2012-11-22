@@ -32,4 +32,3 @@ class Xcore_CustomBlockDeleteForm extends XCube_ActionForm
 	}
 }
 
-?>

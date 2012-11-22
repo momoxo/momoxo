@@ -130,4 +130,4 @@ class XoopsFormDhtmlTextArea extends XoopsFormTextArea
 		return $renderTarget->getResult();
     }
 }
-?>
+

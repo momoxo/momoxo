@@ -323,4 +323,3 @@ class XoopsXmlRpcStruct extends XoopsXmlRpcTag{
         return $ret;
     }
 }
-?>

@@ -171,4 +171,3 @@ class Xcore_CommentEditAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

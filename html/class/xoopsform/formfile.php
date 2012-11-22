@@ -100,4 +100,3 @@ class XoopsFormFile extends XoopsFormElement {
 		return $renderTarget->getResult();
 	}
 }
-?>

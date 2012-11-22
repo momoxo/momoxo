@@ -29,4 +29,3 @@ function smarty_function_d3forum_comment_topicscount($params, &$smarty)
 
 /* vim: set expandtab: */
 
-?>

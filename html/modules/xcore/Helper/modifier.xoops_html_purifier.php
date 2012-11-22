@@ -38,4 +38,3 @@ function smarty_modifier_xoops_html_purifier($html, $ecoding=null, $doctype=null
 	return $purifier->purify($html);
 }
 
-?>

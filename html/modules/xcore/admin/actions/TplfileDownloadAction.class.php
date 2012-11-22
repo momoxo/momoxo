@@ -45,4 +45,3 @@ class Xcore_TplfileDownloadAction extends Xcore_Action
 	}
 }
 
-?>

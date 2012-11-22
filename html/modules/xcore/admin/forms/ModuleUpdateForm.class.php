@@ -27,4 +27,3 @@ class Xcore_ModuleUpdateForm extends XCube_ActionForm
 	}
 }
 
-?>

@@ -34,4 +34,3 @@ class Xcore_TplfileAdminDeleteForm extends XCube_ActionForm
 	}
 }
 
-?>

@@ -63,4 +63,3 @@ class Xcore_TplsetEditAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

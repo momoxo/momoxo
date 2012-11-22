@@ -75,4 +75,3 @@ class Xcore_ImageUploadAction extends Xcore_ImageEditAction
 	}
 }
 
-?>

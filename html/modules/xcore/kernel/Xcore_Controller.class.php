@@ -1414,4 +1414,3 @@ class Xcore_AbstractControllerStrategy
 	{
 	}
 }
-?>

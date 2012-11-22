@@ -145,4 +145,3 @@ class XoopsFormTextArea extends XoopsFormElement {
 		return $renderTarget->getResult();
 	}
 }
-?>

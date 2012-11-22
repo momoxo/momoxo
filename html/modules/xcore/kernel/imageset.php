@@ -171,4 +171,3 @@ class XoopsImagesetHandler extends XoopsObjectHandler
         return $ret;
     }
 }
-?>

@@ -32,4 +32,3 @@ class XcoreSmilesHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

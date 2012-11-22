@@ -110,4 +110,3 @@ class Xcore_CommentDeleteAction extends Xcore_AbstractDeleteAction
 	}
 }
 
-?>

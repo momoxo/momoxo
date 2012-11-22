@@ -184,4 +184,3 @@ class Xcore_ActSearchAction extends Xcore_Action
 	}
 }
 
-?>

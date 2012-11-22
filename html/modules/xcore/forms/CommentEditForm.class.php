@@ -164,4 +164,3 @@ class Xcore_CommentEditForm_Admin extends Xcore_CommentEditForm
 	}
 }
 
-?>

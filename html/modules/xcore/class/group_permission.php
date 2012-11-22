@@ -57,4 +57,3 @@ class XcoreGroup_permissionHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

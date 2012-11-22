@@ -55,4 +55,3 @@ class Xcore_ModuleInfoAction extends Xcore_Action
 	}
 }
 
-?>

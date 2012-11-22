@@ -93,4 +93,3 @@ class Xcore_SiteClose extends XCube_ActionFilter
 	}
 }
 
-?>

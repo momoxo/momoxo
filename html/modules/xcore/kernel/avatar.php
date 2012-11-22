@@ -203,4 +203,3 @@ class XoopsAvatarHandler extends XoopsObjectHandler
         return $ret;
     }
 }
-?>

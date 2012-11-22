@@ -717,4 +717,3 @@ class XoopsUserHandler extends XoopsObjectHandler
         return true;
     }
 }
-?>

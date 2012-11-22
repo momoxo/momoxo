@@ -67,4 +67,3 @@ class Xcore_CustomBlockEditForm extends Xcore_BlockEditForm
 	}
 }
 
-?>

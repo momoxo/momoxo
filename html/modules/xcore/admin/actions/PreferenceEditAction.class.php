@@ -344,4 +344,3 @@ class Xcore_ModulePreferenceEditState extends Xcore_AbstractPreferenceEditState
 		$controller->executeForward($module->getAdminIndex());
 	}
 }
-?>

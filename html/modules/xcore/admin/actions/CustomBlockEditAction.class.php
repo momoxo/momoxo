@@ -84,4 +84,3 @@ class Xcore_CustomBlockEditAction extends Xcore_BlockEditAction
 	}
 }
 
-?>

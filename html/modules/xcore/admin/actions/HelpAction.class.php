@@ -202,4 +202,3 @@ class Xcore_HelpAction extends Xcore_Action
 	}
 }
 
-?>

@@ -57,4 +57,3 @@ function smarty_modifier_xugj_date( $string , $format = 'Y-n-j' , $new1_string =
 
 	return date( $format , $utime ) . $new_marks ;
 }
-?>

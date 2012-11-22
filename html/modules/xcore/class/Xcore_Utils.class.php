@@ -401,4 +401,3 @@ class Xcore_Utils
 	}
 }
 
-?>

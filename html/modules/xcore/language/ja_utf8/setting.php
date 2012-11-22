@@ -69,4 +69,3 @@ function xoops_language_trim($text)
 	return $text;
 }
 }
-?>

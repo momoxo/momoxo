@@ -862,4 +862,3 @@ class Xcore_ModinfoX2DBReader extends Xcore_AbstractModinfoReader
 	}
 }
 
-?>

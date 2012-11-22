@@ -200,4 +200,3 @@ class XCube_LanguageManager
 	}
 }
 
-?>

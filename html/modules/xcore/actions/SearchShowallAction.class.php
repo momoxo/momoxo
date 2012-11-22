@@ -40,4 +40,3 @@ class Xcore_SearchShowallAction extends Xcore_SearchResultsAction
 	}
 }
 
-?>

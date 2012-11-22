@@ -57,4 +57,3 @@ class Xcore_TplfileSetFilterForm extends Xcore_TplfileFilterForm
 	}
 }
 
-?>

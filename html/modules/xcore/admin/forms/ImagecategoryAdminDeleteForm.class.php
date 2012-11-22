@@ -33,4 +33,3 @@ class Xcore_ImagecategoryAdminDeleteForm extends XCube_ActionForm
 	}
 }
 
-?>

@@ -148,4 +148,3 @@ class Xcore_BlockEditForm extends XCube_ActionForm
 	}
 }
 
-?>

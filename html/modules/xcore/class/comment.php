@@ -146,4 +146,3 @@ class XcoreCommentHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

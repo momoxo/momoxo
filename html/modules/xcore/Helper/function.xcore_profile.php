@@ -52,4 +52,3 @@ function smarty_function_xcore_profile($params, &$smarty)
 	echo $render->getResult();
 }
 
-?>

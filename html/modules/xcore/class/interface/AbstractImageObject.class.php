@@ -186,4 +186,3 @@ abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
 	abstract public function getFileUrl($tsize=0);
 }
 
-?>

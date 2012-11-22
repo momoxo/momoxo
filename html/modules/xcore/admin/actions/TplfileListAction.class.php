@@ -181,4 +181,3 @@ class Xcore_TplfileListAction extends Xcore_AbstractListAction
 	}
 }
 
-?>

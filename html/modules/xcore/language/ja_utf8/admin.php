@@ -545,4 +545,3 @@ define('_AD_XCORE_TIPS_TPLSET_UPLOAD', "もしこの場で名前を指定しな�
 define('_AD_XCORE_LANG_HTACCESS', ".htaccess ファイル");
 define('_AD_XCORE_DESC_HTACCESS', 'お使いのサーバが mod_rewrite に対応していれば、このページの設定を .htaccess ファイルに追加することで URI を変換することが出来ます。このオプションを使う場合、<a href="'.XOOPS_URL.'/modules/xcore/admin/index.php?action=PreferenceEdit&confcat_id=1">全般設定</a> 画面で Cool Uri のオプションを「はい」に設定してください。');
 define('_MD_AM_META_KEYWORDS', 'METAキーワード');
-?>

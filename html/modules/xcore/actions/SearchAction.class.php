@@ -42,4 +42,3 @@ class Xcore_SearchAction extends Xcore_SearchResultsAction
 	}
 }
 
-?>

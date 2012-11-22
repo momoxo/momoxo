@@ -36,4 +36,3 @@ function smarty_modifier_hyp_emoji_pad($id = '', $checkmsg = '', $clearDisplayId
 	return HypCommonFunc::make_emoji_pad($id, $checkmsg, $clearDisplayId, $emojiurl, $writeJS, $emj_list);
 }
 
-?>

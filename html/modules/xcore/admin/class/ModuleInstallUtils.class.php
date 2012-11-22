@@ -1273,4 +1273,3 @@ class Xcore_ModuleInstallUtils
 	}
 }
 
-?>

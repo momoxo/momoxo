@@ -146,4 +146,3 @@ class XoopsFormPassword extends XoopsFormElement {
 		return $renderTarget->getResult();
 	}
 }
-?>

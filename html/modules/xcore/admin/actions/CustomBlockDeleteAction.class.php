@@ -83,4 +83,3 @@ class Xcore_CustomBlockDeleteAction extends Xcore_AbstractDeleteAction
 	}
 }
 
-?>

@@ -123,4 +123,3 @@ class Xcore_ImagecategoryAdminEditForm extends XCube_ActionForm
 	}
 }
 
-?>

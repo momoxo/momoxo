@@ -193,4 +193,3 @@ define('_GROUP_RANK_REGULAR', "会員");
 define('_GROUP_RANK_STAFF', "スタッフ");
 define('_GROUP_RANK_OWNER', "オーナー");
 
-?>

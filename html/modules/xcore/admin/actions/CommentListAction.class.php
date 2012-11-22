@@ -329,4 +329,3 @@ class Xcore_CommentListAction extends Xcore_AbstractListAction
 
 }
 
-?>

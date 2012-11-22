@@ -483,4 +483,3 @@ class XCube_Controller
 	}
 }
 
-?>

@@ -80,4 +80,3 @@ class Xcore_TplsetListAction extends Xcore_AbstractListAction
 	}
 }
 
-?>

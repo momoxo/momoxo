@@ -115,4 +115,3 @@ class Xcore_ImagecategoryFilterForm extends Xcore_AbstractFilterForm
 	}
 }
 
-?>

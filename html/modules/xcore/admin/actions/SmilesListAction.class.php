@@ -169,4 +169,3 @@ class Xcore_SmilesListAction extends Xcore_AbstractListAction
 
 }
 
-?>

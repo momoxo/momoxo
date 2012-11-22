@@ -89,4 +89,3 @@ abstract class Xcore_AbstractCategoryObject extends XoopsSimpleObject
 
 }
 
-?>

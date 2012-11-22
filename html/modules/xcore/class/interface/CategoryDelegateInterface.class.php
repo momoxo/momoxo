@@ -111,4 +111,3 @@ interface Xcore_iCategoryDelegate
 
 }
 
-?>

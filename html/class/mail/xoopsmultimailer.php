@@ -225,4 +225,4 @@ class XoopsMultiMailer extends PHPMailer {
         return parent::SetLanguage($lang_type, $lang_path);
     }
 }
-?>
+

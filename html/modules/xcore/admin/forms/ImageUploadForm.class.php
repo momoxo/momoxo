@@ -75,4 +75,3 @@ class Xcore_ImageUploadForm extends XCube_ActionForm
 	}
 }
 
-?>

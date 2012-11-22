@@ -249,4 +249,3 @@ class Xcore_LanguageManager extends XCube_LanguageManager
 	}
 }
 
-?>

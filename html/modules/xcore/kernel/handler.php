@@ -482,4 +482,3 @@ class XoopsObjectGenericHandler extends XoopsObjectHandler
 	}
 
 }
-?>

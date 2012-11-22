@@ -411,4 +411,3 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	}
 }
 
-?>

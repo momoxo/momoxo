@@ -37,4 +37,3 @@ function smarty_function_xoops_explaceholder($params, &$smarty)
 	return $buf;
 }
 
-?>

@@ -76,4 +76,3 @@ class Xcore_InstallWizardAction extends Xcore_AbstractModuleInstallAction
 	}
 }
 
-?>

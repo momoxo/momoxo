@@ -59,4 +59,3 @@ class Xcore_AdminActionSearch extends Xcore_AbstractBlockProcedure
 	}
 }
 
-?>

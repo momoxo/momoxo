@@ -24,4 +24,3 @@ function b_xcore_search_show()
     $block = array(1);
     return $block;
 }
-?>

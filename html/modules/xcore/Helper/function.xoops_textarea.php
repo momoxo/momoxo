@@ -89,4 +89,3 @@ function smarty_function_xoops_textarea($params, &$smarty)
 	}
 }
 
-?>

@@ -25,4 +25,3 @@ class Xcore_InstallListAction extends Xcore_Action
 	}
 }
 
-?>

@@ -137,4 +137,3 @@ class XCube_Utils
 	}
 }
 
-?>

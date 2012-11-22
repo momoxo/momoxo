@@ -189,4 +189,3 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	}
 }
 
-?>

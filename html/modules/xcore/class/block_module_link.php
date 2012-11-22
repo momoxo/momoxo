@@ -22,4 +22,3 @@ class XcoreBlock_module_linkHandler extends XoopsObjectGenericHandler
 	var $mClass = "XcoreBlock_module_linkObject";
 }
 
-?>

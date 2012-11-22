@@ -49,4 +49,3 @@ interface Xcore_iWorkflowDelegate
 	public static function getHistory(/*** mix[] ***/ &$historyArr, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $data_id);
 }
 
-?>

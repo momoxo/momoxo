@@ -39,4 +39,3 @@ $button_tray->addElement(new XoopsFormButton('', 'preview', _PREVIEW, 'submit'))
 $button_tray->addElement(new XoopsFormButton('', 'post', _CM_POSTCOMMENT, 'submit'));
 $cform->addElement($button_tray);
 $cform->display();
-?>

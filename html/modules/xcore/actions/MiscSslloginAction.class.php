@@ -31,4 +31,3 @@ class Xcore_MiscSslloginAction extends Xcore_Action
 	}
 }
 
-?>

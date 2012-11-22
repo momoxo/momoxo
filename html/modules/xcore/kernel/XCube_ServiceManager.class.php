@@ -147,4 +147,3 @@ class XCube_ServiceManager
     }
 }
 
-?>

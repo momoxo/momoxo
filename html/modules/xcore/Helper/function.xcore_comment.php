@@ -49,4 +49,3 @@ function smarty_function_xcore_comment($params, &$smarty)
 }
 
 
-?>

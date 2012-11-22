@@ -64,4 +64,3 @@ function b_xcore_comments_edit($options) {
     $form = sprintf(_MB_XCORE_DISPLAYC, $inputtag);
     return $form;
 }
-?>

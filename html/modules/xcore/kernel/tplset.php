@@ -173,4 +173,3 @@ class XoopsTplsetHandler extends XoopsObjectHandler
 		return $ret;
 	}
 }
-?>

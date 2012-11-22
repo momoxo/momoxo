@@ -128,4 +128,3 @@ class XoopsFormButton extends XoopsFormElement {
 		return $renderTarget->getResult();
 	}
 }
-?>

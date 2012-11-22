@@ -75,4 +75,3 @@ $adminmenu[150]['title']=_MI_XCORE_ADMENU_HTACCESS_VIEW;
 $adminmenu[150]['link']="admin/index.php?action=HtaccessView";
 $adminmenu[150]['show']=true;
 
-?>

@@ -439,4 +439,3 @@ class XoopsConfigItemHandler extends XoopsObjectHandler
     }
 }
 
-?>

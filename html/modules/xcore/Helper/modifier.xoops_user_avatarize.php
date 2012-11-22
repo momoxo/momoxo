@@ -46,4 +46,3 @@ function smarty_modifier_xoops_user_avatarize($uid, $tag=false, $url=null)
 	}
 }
 
-?>

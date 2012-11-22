@@ -159,4 +159,3 @@ class Xcore_ModuleListAction extends Xcore_Action
 	}
 }
 
-?>

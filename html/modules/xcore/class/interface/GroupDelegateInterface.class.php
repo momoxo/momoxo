@@ -128,4 +128,3 @@ interface Xcore_iGroupDelegate
 	public static function isMember(/*** bool ***/ &$check, /*** string ***/ $gDirname, /*** int ***/ $groupId, /*** int ***/ $uid, /*** Enum ***/ $rank=Lenum_GroupRank::REGULAR);
 }
 
-?>

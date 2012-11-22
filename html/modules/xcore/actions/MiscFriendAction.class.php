@@ -66,4 +66,3 @@ class Xcore_MiscFriendAction extends Xcore_Action
 	}
 }
 
-?>

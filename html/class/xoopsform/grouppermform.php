@@ -334,4 +334,3 @@ class XoopsGroupFormCheckBox extends XoopsFormElement
 		return isset($this->_optionTree[0]) && is_array($this->_optionTree[0]['children']);
 	}
 }
-?>

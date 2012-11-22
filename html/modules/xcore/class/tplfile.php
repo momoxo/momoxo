@@ -213,4 +213,3 @@ class XcoreTplfileHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

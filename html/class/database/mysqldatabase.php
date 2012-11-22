@@ -486,4 +486,4 @@ class XoopsMySQLDatabaseProxy extends XoopsMySQLDatabase
 		return $ret;
 	}
 }
-?>
+

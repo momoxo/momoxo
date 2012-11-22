@@ -36,4 +36,3 @@ class Xcore_NotifyDeleteForm extends XCube_ActionForm
 	}
 }
 
-?>

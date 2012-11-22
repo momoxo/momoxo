@@ -140,4 +140,3 @@ class Xcore_SmartyDebugger extends Xcore_AbstractDebugger
 	}
 }
 
-?>

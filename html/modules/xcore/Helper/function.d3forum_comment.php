@@ -32,4 +32,3 @@ function smarty_function_d3forum_comment($params, &$smarty)
 
 /* vim: set expandtab: */
 
-?>

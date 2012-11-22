@@ -203,4 +203,3 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 	}
 }
 
-?>

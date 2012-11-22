@@ -431,4 +431,3 @@ class XoopsStory
 		return $this->comments;
 	}
 }
-?>

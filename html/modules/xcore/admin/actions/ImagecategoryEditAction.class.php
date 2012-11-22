@@ -55,4 +55,3 @@ class Xcore_ImagecategoryEditAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

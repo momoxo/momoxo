@@ -67,4 +67,3 @@ class Xcore_ImageAdminEditForm extends Xcore_ImageAdminCreateForm
 	}
 }
 
-?>

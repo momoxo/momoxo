@@ -76,4 +76,3 @@ class Xcore_BlockListForm extends XCube_ActionForm
 	}
 }
 
-?>

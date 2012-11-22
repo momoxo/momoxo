@@ -37,4 +37,3 @@ class Xcore_TplsetDeleteForm extends XCube_ActionForm
 	}
 }
 
-?>

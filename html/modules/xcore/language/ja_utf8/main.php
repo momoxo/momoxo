@@ -58,4 +58,3 @@ define('_MD_XCORE_MESSAGE_LOGIN_SUCCESS', "{0}さん、ようこそ。ログイ�
 define('_MD_XCORE_MESSAGE_THANKYOUFORVISIT', "当サイトをご利用いただきありがとうございました。");
 define('_MD_XCORE_LANG_ALL_SMILEY_LIST', 'スマイリー一覧');
 
-?>

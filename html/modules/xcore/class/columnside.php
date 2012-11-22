@@ -84,4 +84,3 @@ class XcoreColumnsideHandler extends XoopsObjectHandler
 	}
 }
 
-?>

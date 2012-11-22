@@ -33,4 +33,3 @@ class Xcore_TplsetFilterForm extends Xcore_AbstractFilterForm
 	}
 }
 
-?>

@@ -355,4 +355,4 @@ class XoopsApi extends XoopsXmlRpcApi
 		}
 	}
 }
-?>
+

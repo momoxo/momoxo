@@ -84,4 +84,3 @@ class Xcore_AbstractEditAction extends Xcore_Action
 	}
 }
 
-?>

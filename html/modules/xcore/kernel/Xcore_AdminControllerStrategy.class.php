@@ -172,4 +172,3 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 	}
 }
 
-?>

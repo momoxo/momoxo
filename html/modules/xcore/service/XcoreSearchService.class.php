@@ -239,4 +239,3 @@ class Xcore_SearchUtils
     }
 }
 
-?>

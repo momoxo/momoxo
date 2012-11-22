@@ -838,4 +838,3 @@ if (!function_exists('session_regenerate_id')) { // @ToDo this compatible functi
         }
     }
 }
-?>

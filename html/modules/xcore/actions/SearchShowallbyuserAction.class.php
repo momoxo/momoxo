@@ -50,4 +50,3 @@ class Xcore_SearchShowallbyuserAction extends Xcore_SearchShowallAction
 	}
 }
 
-?>

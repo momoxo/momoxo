@@ -49,4 +49,3 @@ class Xcore_TplsetUploadForm extends XCube_ActionForm
 	}
 }
 
-?>

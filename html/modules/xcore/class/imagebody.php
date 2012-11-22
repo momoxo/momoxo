@@ -22,4 +22,3 @@ class XcoreImagebodyHandler extends XoopsObjectGenericHandler
 	var $mClass = "XcoreImagebodyObject";
 }
 
-?>

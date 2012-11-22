@@ -69,4 +69,3 @@ function b_xcore_mainmenu_edit( $options ) {
 	"<input type=\"radio\" name=\"options[0]\" value=\"0\" $off>"._NO.
 	" &nbsp; <input type=\"radio\" name=\"options[0]\" value=\"1\" $on>"._YES."</div>";
 }
-?>

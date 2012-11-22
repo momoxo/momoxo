@@ -138,4 +138,3 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 	}
 }
 
-?>

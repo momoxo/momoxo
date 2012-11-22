@@ -344,4 +344,3 @@ class XCube_FormImageFile extends XCube_FormFile
 	}
 }
 
-?>

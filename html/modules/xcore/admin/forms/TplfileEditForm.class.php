@@ -59,4 +59,3 @@ class Xcore_TplfileEditForm extends XCube_ActionForm
 	}
 }
 
-?>

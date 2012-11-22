@@ -158,4 +158,3 @@ class XoopsSessionHandler
         return $this->db->queryF($sql);
     }
 }
-?>

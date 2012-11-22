@@ -138,4 +138,3 @@ class Xcore_ModulePreferenceEditForm extends Xcore_PreferenceEditForm
 	}
 }
 
-?>

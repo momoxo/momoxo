@@ -187,4 +187,3 @@ class XCube_RenderSystem
 	}
 }
 
-?>

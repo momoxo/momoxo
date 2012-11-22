@@ -92,4 +92,3 @@ class XoopsCachetimeHandler extends XoopsObjectHandler
 	}
 }
 
-?>

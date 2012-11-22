@@ -54,4 +54,3 @@ class Xcore_MiscSmiliesAction extends Xcore_AbstractListAction
     }
 }
 
-?>

@@ -248,4 +248,3 @@ class XcoreImagecategoryHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

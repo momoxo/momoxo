@@ -61,4 +61,3 @@ class Xcore_SmilesEditAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

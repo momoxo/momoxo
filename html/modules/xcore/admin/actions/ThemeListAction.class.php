@@ -123,4 +123,3 @@ class Xcore_ThemeListAction extends Xcore_Action
 	}
 }
 
-?>

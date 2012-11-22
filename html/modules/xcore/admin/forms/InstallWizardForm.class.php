@@ -35,4 +35,3 @@ class Xcore_InstallWizardForm extends XCube_ActionForm
 	}
 }
 
-?>

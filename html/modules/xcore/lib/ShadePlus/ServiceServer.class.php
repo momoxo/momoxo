@@ -128,4 +128,3 @@ class ShadePlus_ServiceServer
 	}
 }
 
-?>

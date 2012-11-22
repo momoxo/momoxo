@@ -62,4 +62,3 @@ function b_xcore_usermenu_show()
     }
     return false;
 }
-?>

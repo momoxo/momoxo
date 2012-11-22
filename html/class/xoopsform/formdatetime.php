@@ -73,4 +73,3 @@ class XoopsFormDateTime extends XoopsFormElementTray
 		$this->addElement($timeselect);
 	}
 }
-?>

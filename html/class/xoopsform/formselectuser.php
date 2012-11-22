@@ -78,4 +78,4 @@ class XoopsFormSelectUser extends XoopsFormSelect
 		$this->addOptionArray($member_handler->getUserList());
 	}
 }
-?>
+

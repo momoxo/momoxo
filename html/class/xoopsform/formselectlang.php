@@ -73,4 +73,3 @@ class XoopsFormSelectLang extends XoopsFormSelect
 		$this->addOptionArray(XoopsLists::getLangList());
 	}
 }
-?>

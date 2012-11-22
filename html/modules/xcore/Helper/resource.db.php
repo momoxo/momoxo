@@ -238,4 +238,3 @@ class Xcore_ResourcedbUtils
 	}
 }
 
-?>

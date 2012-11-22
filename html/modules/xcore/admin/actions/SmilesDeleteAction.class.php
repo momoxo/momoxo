@@ -42,4 +42,3 @@ class Xcore_SmilesDeleteAction extends Xcore_AbstractDeleteAction
 	}
 }
 
-?>

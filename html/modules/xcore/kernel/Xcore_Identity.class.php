@@ -55,4 +55,3 @@ class Xcore_GenericPrincipal extends XCube_Principal
 	}
 }
 
-?>

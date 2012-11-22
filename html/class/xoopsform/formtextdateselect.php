@@ -78,4 +78,3 @@ class XoopsFormTextDateSelect extends XoopsFormText
 		return $renderTarget->getResult();
     }
 }
-?>

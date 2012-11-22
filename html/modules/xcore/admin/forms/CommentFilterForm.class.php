@@ -158,4 +158,3 @@ class Xcore_CommentFilterForm extends Xcore_AbstractFilterForm
 	}
 }
 
-?>

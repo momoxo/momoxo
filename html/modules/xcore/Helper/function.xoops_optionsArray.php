@@ -58,4 +58,3 @@ function smarty_function_xoops_optionsArray($params, &$smarty)
 	print $tags;
 }
 
-?>

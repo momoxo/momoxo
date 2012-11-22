@@ -30,4 +30,3 @@ if (!defined('XOOPS_SYSTEM_GROUP')) {
 	define('XOOPS_SYSTEM_TPLSET', 15);
 }
 
-?>

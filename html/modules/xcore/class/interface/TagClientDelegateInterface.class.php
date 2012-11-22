@@ -35,4 +35,3 @@ interface Xcore_iTagClientDelegate
 	 */ 
 	public static function getClientData(/*** mixed ***/ &$list, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int[] ***/ $idList);
 }
-?>

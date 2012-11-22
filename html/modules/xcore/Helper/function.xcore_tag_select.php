@@ -49,4 +49,3 @@ function smarty_function_xcore_tag_select($params, &$smarty)
 	echo $render->getResult();
 }
 
-?>

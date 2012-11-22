@@ -225,4 +225,3 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 	
 }
 
-?>

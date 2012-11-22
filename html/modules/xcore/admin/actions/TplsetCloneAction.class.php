@@ -72,4 +72,3 @@ class Xcore_TplsetCloneAction extends Xcore_TplsetEditAction
 	}
 }
 
-?>

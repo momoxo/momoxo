@@ -36,4 +36,3 @@ function smarty_function_xcore_tree($params, &$smarty)
 
 	echo $render->getResult();
 }
-?>

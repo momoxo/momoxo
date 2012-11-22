@@ -94,4 +94,3 @@ class Xcore_ImageListAction extends Xcore_AbstractListAction
 	}
 }
 
-?>

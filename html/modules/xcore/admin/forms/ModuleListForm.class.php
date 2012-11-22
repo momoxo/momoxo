@@ -49,4 +49,3 @@ class Xcore_ModuleListForm extends XCube_ActionForm
 	}
 }
 
-?>

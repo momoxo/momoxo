@@ -186,4 +186,3 @@ class Xcore_EventFunction
 	}
 }
 
-?>

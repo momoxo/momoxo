@@ -49,4 +49,3 @@ if (!defined('XOOPS_USE_MULTIBYTES')) define('XOOPS_USE_MULTIBYTES', '0');
 if (!defined('_REQUESTED_DATA_NAME')) define('_REQUESTED_DATA_NAME', 'requested_data_name');
 if (!defined('_REQUESTED_ACTION_NAME')) define('_REQUESTED_ACTION_NAME', 'requested_action_name');
 if (!defined('_REQUESTED_DATA_ID')) define('_REQUESTED_DATA_ID', 'requested_data_id');
-?>

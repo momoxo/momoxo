@@ -19,4 +19,4 @@ $PHPMAILER_LANG["connect_host"] = 'SMTP错误 : 无法连结SMTP伺服器';
 $PHPMAILER_LANG["file_access"] = '无法使用文件 : ';
 $PHPMAILER_LANG["file_open"] = '文件错误 : 无法打开文件: ';
 $PHPMAILER_LANG["encoding"] = '未知的编码: ';
-?>
+

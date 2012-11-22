@@ -54,4 +54,3 @@ class Xcore_TplsetDeleteAction extends Xcore_AbstractDeleteAction
 	}
 }
 
-?>

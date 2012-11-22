@@ -105,4 +105,3 @@ class Xcore_TplsetDownloadAction extends Xcore_Action
 	}
 }
 
-?>

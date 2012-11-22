@@ -65,4 +65,3 @@ function smarty_function_xcore_button($params, &$smarty)
 	}
 }
 
-?>

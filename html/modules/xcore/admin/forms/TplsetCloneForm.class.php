@@ -63,4 +63,3 @@ class Xcore_TplsetCloneForm extends Xcore_TplsetEditForm
 	}
 }
 
-?>

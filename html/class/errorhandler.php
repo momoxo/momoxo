@@ -215,4 +215,3 @@ function XoopsErrorHandler_Shutdown()
     echo $error_handler->renderErrors();
 }
 
-?>

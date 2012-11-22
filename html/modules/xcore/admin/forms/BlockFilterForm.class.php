@@ -151,4 +151,3 @@ class Xcore_BlockFilterForm extends Xcore_AbstractFilterForm
 	}
 }
 
-?>

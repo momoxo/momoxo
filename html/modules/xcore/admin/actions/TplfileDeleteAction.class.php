@@ -59,4 +59,3 @@ class Xcore_TplfileDeleteAction extends Xcore_AbstractDeleteAction
 	}
 }
 
-?>

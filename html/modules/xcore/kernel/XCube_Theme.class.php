@@ -119,4 +119,3 @@ class XCube_Theme
 	}
 }
 
-?>

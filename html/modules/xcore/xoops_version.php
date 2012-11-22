@@ -214,4 +214,3 @@ $modversion['blocks'][8]['options'] = "0|80";
 $modversion['blocks'][8]['edit_func'] = "b_xcore_themes_edit";
 $modversion['blocks'][8]['template'] = 'xcore_block_themes.html';
 
-?>

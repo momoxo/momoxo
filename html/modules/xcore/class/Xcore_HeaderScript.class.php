@@ -336,4 +336,3 @@ google.load("jqueryui", "'. $this->_mUi .'");
 	}
 
 }
-?>

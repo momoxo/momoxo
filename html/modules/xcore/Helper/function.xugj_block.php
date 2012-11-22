@@ -35,4 +35,3 @@ function smarty_function_xugj_block( $params , &$smarty )
 	}
 }
 
-?>

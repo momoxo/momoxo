@@ -85,4 +85,3 @@ class Xcore_Waiting extends XCube_ActionFilter {
         }
     }
 }
-?>

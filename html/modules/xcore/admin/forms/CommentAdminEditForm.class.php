@@ -110,4 +110,3 @@ class Xcore_ApprovalCommentAdminEditForm extends Xcore_AbstractCommentAdminEditF
 }
 
 
-?>

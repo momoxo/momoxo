@@ -56,4 +56,3 @@ class Xcore_SmilesListForm extends XCube_ActionForm
 	}
 }
 
-?>

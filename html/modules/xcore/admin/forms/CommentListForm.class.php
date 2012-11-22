@@ -50,4 +50,3 @@ class Xcore_CommentListForm extends XCube_ActionForm
 	}
 }
 
-?>

@@ -237,4 +237,3 @@ class Xcore_ModuleEditAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

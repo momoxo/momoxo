@@ -966,4 +966,3 @@ class RpcStructHandler extends XmlTagHandler
         $parser->releaseWorkingLevel();
     }
 }
-?>

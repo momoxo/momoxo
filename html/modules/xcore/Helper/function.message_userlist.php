@@ -28,4 +28,3 @@ function smarty_function_message_userlist($params, &$smarty)
   echo $option;
   echo '</select>';
 }
-?>

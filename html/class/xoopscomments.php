@@ -347,4 +347,3 @@ class XoopsComments extends XoopsObject
 		echo "</table><br />";
 	}
 }
-?>

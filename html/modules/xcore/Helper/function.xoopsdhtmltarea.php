@@ -36,4 +36,3 @@ function smarty_function_xoopsdhtmltarea($params, &$smarty)
 
 /* vim: set expandtab: */
 
-?>

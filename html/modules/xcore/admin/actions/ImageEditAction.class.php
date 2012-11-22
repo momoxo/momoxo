@@ -44,4 +44,3 @@ class Xcore_ImageEditAction extends Xcore_ImageCreateAction
 	}
 }
 
-?>

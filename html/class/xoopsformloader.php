@@ -35,4 +35,3 @@ include_once XOOPS_ROOT_PATH."/class/xoopsform/formtoken.php";
 include_once XOOPS_ROOT_PATH."/class/xoopsform/formbreak.php";
 //include_once XOOPS_ROOT_PATH."/class/xoopsform/grouppermform.php";
 
-?>

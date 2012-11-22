@@ -643,4 +643,3 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
         return $this->mAdminMenu;
     }
 }
-?>

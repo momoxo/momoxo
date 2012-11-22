@@ -91,4 +91,3 @@ class Xcore_HttpContext extends XCube_HttpContext
 	}
 }
 
-?>

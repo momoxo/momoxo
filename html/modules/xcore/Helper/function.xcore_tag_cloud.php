@@ -81,4 +81,3 @@ function _smarty_function_xcore_tag_cloud_get_size(/*** array **/ $tagList, /***
 	}
 	return $sizeArr;
 }
-?>

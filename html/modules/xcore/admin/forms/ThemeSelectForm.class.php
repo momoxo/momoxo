@@ -53,4 +53,3 @@ class Xcore_ThemeSelectForm extends XCube_ActionForm
 	}
 }
 
-?>

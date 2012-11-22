@@ -54,4 +54,3 @@ class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 	}
 }
 
-?>

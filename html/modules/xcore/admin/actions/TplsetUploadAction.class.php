@@ -192,4 +192,3 @@ class Xcore_TplsetUploadAction extends Xcore_Action
 	}
 }
 
-?>

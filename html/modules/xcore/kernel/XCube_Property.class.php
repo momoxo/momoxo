@@ -711,4 +711,3 @@ class XCube_ImageFileArrayProperty extends XCube_FileArrayProperty
 	}
 }
 
-?>

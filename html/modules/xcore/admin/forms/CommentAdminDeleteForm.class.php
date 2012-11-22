@@ -37,4 +37,3 @@ class Xcore_CommentAdminDeleteForm extends XCube_ActionForm
 	}
 }
 
-?>

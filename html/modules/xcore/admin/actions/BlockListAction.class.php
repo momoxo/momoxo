@@ -210,4 +210,3 @@ class Xcore_BlockListAction extends Xcore_AbstractListAction
 
 }
 
-?>

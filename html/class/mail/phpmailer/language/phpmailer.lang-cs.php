@@ -20,4 +20,4 @@ $PHPMAILER_LANG["connect_host"] = 'Chyba SMTP: Nepodaøilo se pøipojit k SMTP ser
 $PHPMAILER_LANG["file_access"] = 'Není pøístup k souboru: ';
 $PHPMAILER_LANG["file_open"] = 'Chyba souboru: Nepodaøilo se otevøít soubor: ';
 $PHPMAILER_LANG["encoding"] = 'Neznámé kódování: ';
-?>
+

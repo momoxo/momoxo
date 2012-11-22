@@ -310,4 +310,3 @@ class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
     }
 }
 
-?>

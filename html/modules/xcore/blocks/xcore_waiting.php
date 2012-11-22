@@ -18,4 +18,3 @@ function b_xcore_waiting_show() {
     $block['modules'] = $modules;
     return $block;
 }
-?>

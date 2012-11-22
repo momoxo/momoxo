@@ -456,4 +456,3 @@ class XoopsCommentHandler extends XoopsObjectHandler
 		return true;	// TODO
 	}
 }
-?>

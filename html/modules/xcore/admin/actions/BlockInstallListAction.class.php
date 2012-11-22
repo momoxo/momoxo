@@ -77,4 +77,3 @@ class Xcore_BlockInstallListAction extends Xcore_AbstractListAction
 	}
 }
 
-?>

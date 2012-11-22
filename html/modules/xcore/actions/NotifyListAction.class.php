@@ -140,4 +140,3 @@ class Xcore_NotifyListAction extends Xcore_Action
 	}
 }
 
-?>

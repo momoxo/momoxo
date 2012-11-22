@@ -37,4 +37,3 @@ interface Xcore_iCategoryClientDelegate
 	 */ 
 	public static function getClientData(/*** mixed ***/ &$list, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** string ***/ $fieldname, /*** int ***/ $catId);
 }
-?>

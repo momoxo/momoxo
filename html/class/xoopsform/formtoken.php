@@ -26,4 +26,4 @@ class XoopsFormToken extends XoopsFormHidden {
         }
     }
 }
-?>
+

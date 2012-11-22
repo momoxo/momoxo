@@ -30,4 +30,3 @@ class Xcore_PreferenceListAction extends Xcore_Action
 	}
 }
 
-?>

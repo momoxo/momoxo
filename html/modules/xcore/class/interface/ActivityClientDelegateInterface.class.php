@@ -57,4 +57,3 @@ interface Xcore_iActivityClientDelegate
 	 */ 
 	public static function getClientFeed(/*** mixed ***/ &$list, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $dataId);
 }
-?>

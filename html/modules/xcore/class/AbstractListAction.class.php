@@ -36,4 +36,3 @@ class Xcore_AbstractListAction extends Xcore_Action
 	}
 }
 
-?>

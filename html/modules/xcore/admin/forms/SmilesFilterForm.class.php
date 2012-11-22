@@ -86,4 +86,3 @@ class Xcore_SmilesFilterForm extends Xcore_AbstractFilterForm
 	}
 }
 
-?>

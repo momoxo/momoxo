@@ -194,4 +194,3 @@ class Xcore_Criteria
 	}
 }
 
-?>

@@ -68,4 +68,3 @@ class Xcore_SQLScanner extends EasyLex_SQLScanner
 	}
 }
 
-?>

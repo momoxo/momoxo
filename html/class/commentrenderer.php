@@ -386,4 +386,3 @@ class XoopsCommentRenderer {
         return '<img src="'.XOOPS_URL.'/images/icons/no_posticon.gif" alt="" />';
     }
 }
-?>

@@ -48,4 +48,3 @@ function smarty_function_xcore_category_select($params, &$smarty)
 
 	echo $selectHtml;
 }
-?>

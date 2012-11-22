@@ -60,4 +60,3 @@ class Xcore_BlockUninstallAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

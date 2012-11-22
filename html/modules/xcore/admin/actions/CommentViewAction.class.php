@@ -50,4 +50,3 @@ class Xcore_CommentViewAction extends Xcore_Action
 	}
 }
 
-?>

@@ -64,4 +64,3 @@ function smarty_function_d3comment($params, &$smarty)
 	}
 }
 
-?>

@@ -43,4 +43,3 @@ function smarty_function_xoops_token($params, &$smarty)
 	}
 }
 
-?>

@@ -64,4 +64,3 @@ function b_xcore_notification_show()
     $block['submit_button'] = _NOT_UPDATENOW;
     return $block;
 }
-?>

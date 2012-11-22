@@ -32,4 +32,3 @@ class Xcore_TplfileViewAction extends Xcore_Action
 	}
 }
 
-?>

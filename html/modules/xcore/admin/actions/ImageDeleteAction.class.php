@@ -44,4 +44,3 @@ class Xcore_ImageDeleteAction extends Xcore_AbstractDeleteAction
 	}
 }
 
-?>

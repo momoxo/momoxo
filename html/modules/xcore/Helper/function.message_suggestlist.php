@@ -46,4 +46,3 @@ echo '<input id="txt_uname" type="text" name="uname" value="'.htmlspecialchars($
 <div id="suggest"></div>
 ';
 }
-?>

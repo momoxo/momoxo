@@ -100,4 +100,3 @@ class Xcore_Mailer extends PHPMailer
 	}
 }
 
-?>

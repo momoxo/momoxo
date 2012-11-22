@@ -95,4 +95,3 @@ $button_tray->addElement(new XoopsFormButton('', 'com_dopost', _CM_POSTCOMMENT, 
 $cform->addElement($button_tray);
 //$cform->addElement(new XoopsFormHiddenToken());
 $cform->display();
-?>

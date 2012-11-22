@@ -228,4 +228,3 @@ class Xcore_BlockEditAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

@@ -23,4 +23,3 @@ class Xcore_ActionForm extends XCube_ActionForm
 }
 
 
-?>

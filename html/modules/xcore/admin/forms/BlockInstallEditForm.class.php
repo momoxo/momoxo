@@ -14,4 +14,3 @@ class Xcore_BlockInstallEditForm extends Xcore_BlockEditForm
 	}
 }
 
-?>

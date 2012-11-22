@@ -15,4 +15,3 @@ class Xcore_BlockUninstallForm extends Xcore_CustomBlockDeleteForm
 	}
 }
 
-?>

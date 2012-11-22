@@ -211,4 +211,3 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 	}
 }
 
-?>

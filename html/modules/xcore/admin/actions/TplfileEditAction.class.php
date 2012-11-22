@@ -68,4 +68,3 @@ class Xcore_TplfileEditAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

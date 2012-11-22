@@ -71,4 +71,3 @@ $basepath. 'editor/skins/'. $skin. '/' ;
                print $editor;
        }
 }
-?>

@@ -39,4 +39,3 @@ class Xcore_ImagecategoryAdminNewForm extends Xcore_ImagecategoryAdminEditForm
 	}
 }
 
-?>

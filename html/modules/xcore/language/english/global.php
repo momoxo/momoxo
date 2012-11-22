@@ -192,4 +192,3 @@ define('_GROUP_RANK_REGULAR', "Regular");
 define('_GROUP_RANK_STAFF', "Staff");
 define('_GROUP_RANK_OWNER', "Owner");
 
-?>

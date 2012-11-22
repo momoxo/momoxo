@@ -74,4 +74,3 @@ class Xcore_ModuleListFilterForm extends Xcore_AbstractFilterForm
 	}
 }
 
-?>

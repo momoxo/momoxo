@@ -80,4 +80,3 @@ class Xcore_SmilesAdminEditForm extends XCube_ActionForm
 	}
 }
 
-?>

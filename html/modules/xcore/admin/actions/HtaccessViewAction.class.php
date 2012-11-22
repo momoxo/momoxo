@@ -19,4 +19,3 @@ class Xcore_HtaccessViewAction extends Xcore_Action
 	}
 }
 
-?>

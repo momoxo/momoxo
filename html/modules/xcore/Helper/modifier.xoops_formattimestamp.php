@@ -26,4 +26,3 @@ function smarty_modifier_xoops_formattimestamp($time, $format='s')
 	return;
 }
 
-?>

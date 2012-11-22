@@ -101,4 +101,3 @@ class XcoreTplsetHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

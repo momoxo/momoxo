@@ -35,4 +35,3 @@ interface Xcore_iWorkflowClientDelegate
 	public static function updateStatus(/*** string ***/ &$result, /*** string ***/ $dirname, /*** string ***/ $dataname, /*** int ***/ $data_id, /*** Enum ***/ $status);
 }
 
-?>

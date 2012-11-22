@@ -56,4 +56,3 @@ class Xcore_MiscFriendForm extends XCube_ActionForm
 	}
 }
 
-?>

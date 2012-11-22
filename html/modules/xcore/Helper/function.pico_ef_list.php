@@ -66,4 +66,3 @@ function smarty_function_pico_ef_list( $params , &$smarty )
 		echo '</pre>' ;
 	}
 }
-?>

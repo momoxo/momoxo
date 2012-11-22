@@ -165,4 +165,3 @@ class XoopsFormCheckBox extends XoopsFormElement {
 		return $renderTarget->getResult();
 	}
 }
-?>

@@ -79,4 +79,3 @@ abstract class Xcore_AbstractGroupObject extends XoopsSimpleObject
 	}
 }
 
-?>

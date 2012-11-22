@@ -32,4 +32,3 @@ function smarty_function_user_uname2name($params, &$smarty)
 	}
 }
 
-?>

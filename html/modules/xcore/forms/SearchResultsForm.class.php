@@ -90,4 +90,3 @@ class Xcore_SearchResultsForm extends XCube_ActionForm
 	}
 }
 
-?>

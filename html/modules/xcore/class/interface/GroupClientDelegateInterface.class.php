@@ -54,4 +54,3 @@ interface Xcore_iGroupClientDelegate
 	 */ 
 	public static function getActionList(/*** mixed[] ***/ &$list, /*** string ***/ $dirname, /*** string ***/ $dataname);
 }
-?>

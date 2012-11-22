@@ -97,4 +97,3 @@ if ($xoopsModule->getVar('dirname') != 'system') {
 	require_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_form.php';
 	xoops_cp_footer();
 }
-?>

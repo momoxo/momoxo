@@ -27,4 +27,3 @@ class Xcore_ModuleUninstallForm extends XCube_ActionForm
 	}
 }
 
-?>

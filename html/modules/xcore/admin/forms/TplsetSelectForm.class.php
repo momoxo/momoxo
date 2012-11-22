@@ -24,4 +24,3 @@ class Xcore_TplsetSelectForm extends XCube_ActionForm
 	}
 }
 
-?>

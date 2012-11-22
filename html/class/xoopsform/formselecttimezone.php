@@ -74,4 +74,3 @@ class XoopsFormSelectTimezone extends XoopsFormSelect
 		$this->addOptionArray(XoopsLists::getTimeZoneList());
 	}
 }
-?>

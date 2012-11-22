@@ -90,4 +90,3 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 	}
 }
 
-?>

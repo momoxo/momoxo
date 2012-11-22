@@ -81,4 +81,3 @@ class XcoreCommentstatusHandler extends XoopsObjectHandler
 	}
 }
 
-?>

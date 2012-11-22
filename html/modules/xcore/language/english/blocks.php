@@ -37,4 +37,3 @@ define('_MB_XCORE_MESSAGE_CAN_NOT_THEME_CHANGE', "Sorry, you can't change themes
 
 define('_MB_XCORE_MAINMENU_EXPAND_SUB', "Show all submenus");
 
-?>

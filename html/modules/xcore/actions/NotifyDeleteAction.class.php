@@ -75,4 +75,3 @@ class Xcore_NotifyDeleteAction extends Xcore_Action
 	}
 }
 
-?>

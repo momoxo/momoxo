@@ -112,4 +112,3 @@ class Xcore_ImageCreateAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

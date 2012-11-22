@@ -58,4 +58,3 @@ define('_MD_XCORE_MESSAGE_LOGGEDOUT', "You are now logged out.");
 define('_MD_XCORE_MESSAGE_LOGIN_SUCCESS', "Login successful");
 define('_MD_XCORE_MESSAGE_THANKYOUFORVISIT', "Thank you for your visit to our site!");
 
-?>

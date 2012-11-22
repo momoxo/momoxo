@@ -125,4 +125,3 @@ class XoopsTimezoneHandler extends XoopsObjectHandler
 	}
 }
 
-?>

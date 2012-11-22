@@ -569,4 +569,3 @@ if ( !defined("XOOPS_LISTS_INCLUDED") ) {
         }
     }
 }
-?>

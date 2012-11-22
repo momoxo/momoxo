@@ -217,4 +217,3 @@ class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
 	}
 }
 
-?>

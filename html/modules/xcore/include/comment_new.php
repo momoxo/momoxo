@@ -123,4 +123,3 @@ print $renderTarget->getResult();
 
 require_once XOOPS_ROOT_PATH . "/footer.php";
 }
-?>

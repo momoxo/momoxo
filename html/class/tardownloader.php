@@ -177,4 +177,3 @@ class XoopsTarDownloader extends XoopsDownloader
 		echo $file;
 	}
 }
-?>

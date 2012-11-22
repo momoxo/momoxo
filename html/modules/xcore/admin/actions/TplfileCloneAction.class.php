@@ -63,4 +63,3 @@ class Xcore_TplfileCloneAction extends Xcore_AbstractEditAction
 	}
 }
 
-?>

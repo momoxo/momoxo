@@ -94,4 +94,3 @@ class Xcore_ModuleEditForm extends XCube_ActionForm
 	}
 }
 
-?>

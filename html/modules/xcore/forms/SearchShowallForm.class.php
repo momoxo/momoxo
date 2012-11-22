@@ -32,4 +32,3 @@ class Xcore_SearchShowallForm extends Xcore_SearchResultsForm
 	}
 }
 
-?>

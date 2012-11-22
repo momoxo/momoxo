@@ -181,4 +181,3 @@ class XoopsFormElementTray extends XoopsFormElement {
 		return $renderTarget->getResult();
 	}
 }
-?>

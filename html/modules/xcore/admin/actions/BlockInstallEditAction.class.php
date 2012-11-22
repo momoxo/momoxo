@@ -40,4 +40,3 @@ class Xcore_BlockInstallEditAction extends Xcore_BlockEditAction
 	}
 }
 
-?>

@@ -953,4 +953,3 @@ class XoopsSimpleObject extends AbstractXoopsObject
 	}
 }
 
-?>

@@ -178,4 +178,3 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 	}
 }
 
-?>

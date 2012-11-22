@@ -44,4 +44,3 @@ class Xcore_TplsetEditForm extends XCube_ActionForm
 	}
 }
 
-?>

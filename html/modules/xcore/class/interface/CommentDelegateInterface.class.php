@@ -38,4 +38,3 @@ interface Xcore_iCommentDelegate
 
 }
 
-?>

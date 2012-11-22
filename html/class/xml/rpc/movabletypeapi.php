@@ -79,4 +79,3 @@ class MovableTypeApi extends XoopsXmlRpcApi
         $this->response->add(new XoopsXmlRpcFault(107));
     }
 }
-?>

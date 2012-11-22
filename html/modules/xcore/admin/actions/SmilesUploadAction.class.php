@@ -181,4 +181,3 @@ class Xcore_SmilesUploadAction extends Xcore_Action
 	}
 }
 
-?>

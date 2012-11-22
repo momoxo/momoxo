@@ -411,4 +411,3 @@ function notificationGenerateConfig (&$category, &$event, $type)
 		break;
 	}
 }
-?>

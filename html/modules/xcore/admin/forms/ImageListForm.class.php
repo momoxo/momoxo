@@ -52,4 +52,3 @@ class Xcore_ImageListForm extends XCube_ActionForm
 	}
 }
 
-?>

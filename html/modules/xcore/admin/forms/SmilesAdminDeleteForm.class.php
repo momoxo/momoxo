@@ -33,4 +33,3 @@ class Xcore_SmilesAdminDeleteForm extends XCube_ActionForm
 	}
 }
 
-?>

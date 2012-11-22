@@ -586,4 +586,3 @@ function XcoreRender_smartyfunction_notifications_select($params, &$smarty)
 	return $renderTarget->getResult();
 }
 
-?>
