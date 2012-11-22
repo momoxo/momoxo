@@ -157,7 +157,7 @@ class Profile_Admin_DataUploadConfAction extends Profile_Admin_DataUploadAction
 			if($lineCount>0) $csvData[] = $import_data;
 			$lineCount++;
 		}
-		$render->setAttribute('csv_data', $csvData,&$this->userObjects);
+		$render->setAttribute('csv_data', $csvData,$this->userObjects);
 		$_SESSION['import_csv_upload_data'] = $csvData;
 	}
 	private function checkUpdate($key,$csv_value){

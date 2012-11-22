@@ -44,7 +44,6 @@ define('_MI_XCORE_ADMENU_THEME_SETTING', "Theme settings");
 define('_MI_XCORE_ADMENU_TPLFILE_MANAGE', "Template File Management");
 define('_MI_XCORE_ADMENU_HTACCESS_VIEW', "htaccess setting");
 define('_MI_XCORE_CONF_BANNERS', "Activate banner ads?");
-Themes with this system.");
 define('_MI_XCORE_FOOTER', "Footer");
 define('_MI_XCORE_FOOTER_DESC', "Be sure to type full links with the path starting from http://, otherwise the links will not work correctly in modules pages.");
 define('_MI_XCORE_META_AUTHOR', "Meta Author");
