@@ -124,8 +124,12 @@ class DefaultController
 		if ( isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] === 'on' ) {
 			$scheme = 'https';
 		}
-		$xoopsUrl = sprintf('%s://%s/%s', $scheme, $_SERVER['SERVER_NAME'], str_replace('/install/index.php', '', $_SERVER['SCRIPT_NAME']));
-		return rtrim($xoopsUrl, '/');
+		$hostname = $_SERVER['SERVER_NAME'];
+		// str_replace するよりこっちの方が Windows とかにも簡単に対応できると思う
+		$path = dirname(dirname($_SERVER['SCRIPT_NAME']));
+
+		$xoopsUrl = "{$scheme}://{$hostname}{$path}";
+		return $xoopsUrl;
 	}
 
 	/**
