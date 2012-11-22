@@ -38,7 +38,7 @@ class Xupdate_ModuleActionOverride extends XCube_ActionFilter
 
 		$className = 'Xupdate_'.$actionName.'Action';
 		
-		if (XC_CLASS_EXISTS($className)) {
+		if (class_exists($className)) {
 			$actionFrame->mAction =new $className($actionFrame->mAdminFlag);
 		}
 	}

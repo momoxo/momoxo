@@ -93,7 +93,7 @@ class Xcore_ActionFrame
 	
 		require_once $fileName;
 	
-		if (XC_CLASS_EXISTS($className)) {
+		if (class_exists($className)) {
 			$actionFrame->mAction =new $className($actionFrame->mAdminFlag);
 		}
 	}

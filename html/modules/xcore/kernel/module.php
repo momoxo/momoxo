@@ -501,7 +501,7 @@ class XoopsModuleHandler extends XoopsObjectHandler
 		$this->_cachedModule_dirname[$dirname] = $module;
 		$this->_cachedModule_mid[$mid] =& $this->_cachedModule_dirname[$dirname];
 
-		if (XC_CLASS_EXISTS('Xcore_AdminSideMenu')) {
+		if (class_exists('Xcore_AdminSideMenu')) {
 			Xcore_AdminSideMenu::clearCache();
 		}
 

@@ -93,7 +93,7 @@ abstract class AbstractAction
       require_once XOOPS_ROOT_PATH.'/class/xoopsmailer.php';
       if ( is_file(XOOPS_ROOT_PATH.'/language/'.$this->root->mLanguageManager->mLanguageName.'/xoopsmailerlocal.php') ) {
         require_once XOOPS_ROOT_PATH.'/language/'.$this->root->mLanguageManager->mLanguageName.'/xoopsmailerlocal.php';
-        if ( XC_CLASS_EXISTS('XoopsMailerLocal') ) {
+        if ( class_exists('XoopsMailerLocal') ) {
           $classname = 'XoopsMailerLocal';
         }
       }
