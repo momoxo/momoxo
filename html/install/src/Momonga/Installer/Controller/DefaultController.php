@@ -120,8 +120,11 @@ class DefaultController
 
 	private function _getXoopsUrl()
 	{
-		// @todo SSL対応
-		$xoopsUrl = sprintf('http://%s/%s', $_SERVER['SERVER_NAME'], str_replace('/install/index.php', '', $_SERVER['SCRIPT_NAME']));
+		$scheme = 'http';
+		if ( isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] === 'on' ) {
+			$scheme = 'https';
+		}
+		$xoopsUrl = sprintf('%s://%s/%s', $scheme, $_SERVER['SERVER_NAME'], str_replace('/install/index.php', '', $_SERVER['SCRIPT_NAME']));
 		return rtrim($xoopsUrl, '/');
 	}
 
