@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/momonga-project/momonga.png?branch=master)](https://travis-ci.org/momonga-project/momonga)
+[![Build Status](https://secure.travis-ci.org/momoxo/momoxo.png?branch=master)](https://travis-ci.org/momoxo/momoxo)
 
 ## What is momoxo?
 
