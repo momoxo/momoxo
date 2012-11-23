@@ -122,8 +122,11 @@ class XoopsDatabase
  */
 class Database
 {
-
-	function getInstance()
+	/**
+	 * @deprecated
+	 * @return object
+	 */
+	public static function getInstance()
 	{
 		$instance = XoopsDatabaseFactory::getDatabaseConnection();
 		return $instance;

@@ -5,7 +5,7 @@ class XcoreRender_DelegateFunctions
 	/**
 	 * Search themes that Xcore_RenderSystem can render in file system.
 	 */	
-	function getInstalledThemes(&$results)
+	public static function getInstalledThemes(&$results)
 	{
 		foreach (glob(XOOPS_THEME_PATH.'/*', GLOB_ONLYDIR) as $themeDir) {
 			$theme =new XCube_Theme();

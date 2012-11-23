@@ -54,7 +54,7 @@ class Xcore_Utils
 	 * @param XoopsModule $module
 	 * @return Xcore_Module
 	 */
-	function &createModule($module, $loadConfig=true)
+	public static function &createModule($module, $loadConfig=true)
 	{
 		$instance = null;
 
@@ -96,7 +96,7 @@ class Xcore_Utils
 	 * @static
 	 * @return Xcore_BlockProcedure
 	 */
-	function &createBlockProcedure(&$block)
+	public static function &createBlockProcedure(&$block)
 	{
 		//
 		// IMPORTANT CONVENTION
@@ -142,7 +142,7 @@ class Xcore_Utils
 	/***
 	 * Calls user controll event.
 	 */
-	function raiseUserControlEvent()
+	public static function raiseUserControlEvent()
 	{
 		$root =& XCube_Root::getSingleton();
 		foreach (array_keys($_REQUEST) as $key) {

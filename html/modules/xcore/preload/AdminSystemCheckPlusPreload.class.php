@@ -31,7 +31,7 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 
 	}
 
-	function SystemCheckPlus()
+	public static function SystemCheckPlus()
 	{
 		$root =& XCube_Root::getSingleton();
 		////////////////////////////////////////////////
@@ -202,7 +202,7 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		/////////////////////////////////
 	}
 
-	function display_message($attributes = array(), $template="", $return = false)
+	public static function display_message($attributes = array(), $template="", $return = false)
 	{
 		$root =& XCube_Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem($root->mContext->mBaseRenderSystemName);
