@@ -100,6 +100,7 @@ class XoopsModule extends XoopsObject
 
 	function setVar($key, $value, $not_gpc = false)
 	{
+		// TODO 複数カラムでのソートが上手く動かない為システムモジュール以外は優先度下げることで対応
 		if ($key === 'weight' && $this->getVar('issystem') == 0) {
 			$value = $value + 10000;
 		}
