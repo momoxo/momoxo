@@ -21,9 +21,6 @@ class DefaultSystemCheckFunction
 		if ( ini_get('register_globals') == 1 ) {
 		    xoops_error(sprintf(_WARNPHPENV,'register_globals','on',_WARNSECURITY),'','warning');
 		}
-		if ( is_writable(XOOPS_ROOT_PATH."/config/config.php") ) {
-		    xoops_error(sprintf(_WARNINWRITEABLE,XOOPS_ROOT_PATH.'/config/config.php'),'','warning');
-		}
 	}
 }
 
