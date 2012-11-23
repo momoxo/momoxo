@@ -49,7 +49,7 @@ class SiteFactory
 		$admin
 			->setUsername($form->getAdminUsername())
 			->setEmail($form->getAdminEmail())
-			->setUrl($form->getURL().'/')
+			->setUrl($form->getURL())
 			->setPassword($form->getAdminPassword())
 			->setTimezoneOffset(date('Z') / 3600);
 
