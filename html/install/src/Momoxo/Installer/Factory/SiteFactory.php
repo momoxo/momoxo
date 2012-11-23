@@ -26,7 +26,7 @@ class SiteFactory
 		$site
 			->setRootPath($config->get('xoops_root_path'))
 			->setTrustPath($config->get('xoops_trust_path'))
-			->setUrl($form->getURL())
+			->setUrl(rtrim($form->getURL(), '/'))
 			->setSalt($form->getSalt());
 
 		$database = new Database();

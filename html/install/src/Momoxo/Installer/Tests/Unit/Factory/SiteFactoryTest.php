@@ -54,4 +54,19 @@ class SiteFactoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame(date('Z') / 3600, $admin->getTimezoneOffset());
 		$this->assertTrue($admin instanceof Admin);
 	}
+
+	public function testTrailLastSlashFromSiteURL()
+	{
+		$postData = ConfigurationFormTest::getValidData();
+		$postData['url'] = 'http://example.com/'; // <-- This last slash should be removed by the factory.
+
+		$form = new ConfigurationForm();
+		$form->fetch($postData);
+		$installerConfig = $this->getInstallerConfigStub();
+
+		$factory = new SiteFactory();
+		$site = $factory->createByConfigurationForm($form, $installerConfig);
+		$this->assertTrue($site instanceof Site);
+		$this->assertSame('http://example.com', $site->getUrl());
+	}
 }
