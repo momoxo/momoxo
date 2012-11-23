@@ -4,7 +4,7 @@
 		"database.structure" : "%installer_dir%/sql/mysql.structure.sql",
 		"database.data"      : "%installer_dir%/sql/mysql.data.sql",
 		"database.permanent_connection" : false,
-		"installer.template_dir" : "%installer_dir%/src/momoxo/Installer/Templates",
+		"installer.template_dir" : "%installer_dir%/src/Momoxo/Installer/Templates",
 		"config_dir"         : "%xoops_root_path%/config",
 		"config_filename"    : "%xoops_root_path%/config/config.php",
 		"password_encryptor" : "Momoxo\\Installer\\Security\\MD5PasswordEncryptor"
