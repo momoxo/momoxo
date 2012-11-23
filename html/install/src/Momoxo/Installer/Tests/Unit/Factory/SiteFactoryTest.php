@@ -49,7 +49,7 @@ class SiteFactoryTest extends \PHPUnit_Framework_TestCase
 		$admin = $site->getAdmin();
 		$this->assertSame('admin', $admin->getUsername());
 		$this->assertSame('admin@example.com', $admin->getEmail());
-		$this->assertSame('http://example.comH', $admin->getUrl());
+		$this->assertSame('http://example.com', $admin->getUrl());
 		$this->assertSame('adminP@ss', $admin->getPassword());
 		$this->assertSame(date('Z') / 3600, $admin->getTimezoneOffset());
 		$this->assertTrue($admin instanceof Admin);
