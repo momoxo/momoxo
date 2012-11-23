@@ -11,6 +11,7 @@ use Momoxo\Installer\DataTransferObject\RequirementTestDTO;
 use Momoxo\Installer\ValueObject\Site;
 use Momoxo\Installer\Form\ConfigurationForm;
 use Momoxo\Installer\Factory\SiteFactory;
+use Momoxo\Installer\HTTP\Request;
 
 class DefaultController
 {
@@ -60,12 +61,11 @@ class DefaultController
 
 	public function inputAction()
 	{
-		$xoopsUrl = $this->_getXoopsUrl();
-
 		$requirementTestResult = $this->_testRequirement();
 
+		$request = new Request();
 		$form = new ConfigurationForm();
-		$form->setURL($xoopsUrl);
+		$form->setURL($request->getSiteUrl());
 
 		if ( $form->isMethod('POST') ) {
 			$form->fetch($_POST);
@@ -102,7 +102,7 @@ class DefaultController
 		$this->template = 'step1.twig';
 		return array(
 			'form' => $form,
-			'xoops_url' => $xoopsUrl,
+			'xoops_url' => $request->getSiteUrl(),
 			'testResult' => $requirementTestResult,
 		);
 	}
@@ -116,20 +116,6 @@ class DefaultController
 		));
 		$twig->addGlobal('layout', $twig->loadTemplate('layout.twig'));
 		echo $twig->render($this->template, $this->response);
-	}
-
-	private function _getXoopsUrl()
-	{
-		$scheme = 'http';
-		if ( isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] === 'on' ) {
-			$scheme = 'https';
-		}
-		$hostname = $_SERVER['SERVER_NAME'];
-		// str_replace するよりこっちの方が Windows とかにも簡単に対応できると思う
-		$path = dirname(dirname($_SERVER['SCRIPT_NAME']));
-
-		$xoopsUrl = "{$scheme}://{$hostname}{$path}";
-		return $xoopsUrl;
 	}
 
 	/**
