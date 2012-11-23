@@ -7,7 +7,7 @@
 		"installer.template_dir" : "%installer_dir%/src/Momonga/Installer/Templates",
 		"config_dir"         : "%xoops_root_path%/config",
 		"config_filename"    : "%xoops_root_path%/config/config.php",
-		"password_encryptor" : "Momonga\\Installer\\Security\\MD5PasswordEncryptor"
+		"password_encryptor" : "Momoxo\\Installer\\Security\\MD5PasswordEncryptor"
 	},
 	"requirement": {
 		"php_extension": [

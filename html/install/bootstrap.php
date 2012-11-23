@@ -1,7 +1,7 @@
 <?php
 
-use Momonga\Installer\TrustPathFinder;
-use Momonga\Installer\InstallerConfig;
+use Momoxo\Installer\TrustPathFinder;
+use Momoxo\Installer\InstallerConfig;
 
 // Load classes
 spl_autoload_register(function($c) { @include_once strtr($c, '\\_', '//').'.php'; });
@@ -36,15 +36,15 @@ if ($xoopsTrustPath === false) {
 $installerConfig->set('xoops_trust_path', $xoopsTrustPath);
 
 // Dependency injection
-use Momonga\Installer\Service\RequirementTestService;
-use Momonga\Installer\Requirement\PHPExtensionRequirement;
-use Momonga\Installer\Requirement\FileWritableRequirement;
-use Momonga\Installer\Service\ConfigCreationService;
-use Momonga\Installer\ConfigFormatter\ConstantFormatter;
-use Momonga\Installer\Requirement\DatabaseConnectableRequirement;
-use Momonga\Installer\Database\ConnectionFactory;
-use Momonga\Installer\Service\DatabaseConnectionTestService;
-use Momonga\Installer\Service\DatabaseConstructionService;
+use Momoxo\Installer\Service\RequirementTestService;
+use Momoxo\Installer\Requirement\PHPExtensionRequirement;
+use Momoxo\Installer\Requirement\FileWritableRequirement;
+use Momoxo\Installer\Service\ConfigCreationService;
+use Momoxo\Installer\ConfigFormatter\ConstantFormatter;
+use Momoxo\Installer\Requirement\DatabaseConnectableRequirement;
+use Momoxo\Installer\Database\ConnectionFactory;
+use Momoxo\Installer\Service\DatabaseConnectionTestService;
+use Momoxo\Installer\Service\DatabaseConstructionService;
 
 $container = new Pimple();
 
@@ -76,8 +76,8 @@ $container['service.database_construction'] = function($container) use ($install
 	$encryptorClass = $installerConfig->get('password_encryptor');
 	$service = new DatabaseConstructionService();
 	$service
-		->setSqlUtility(new \Momonga\Installer\Database\SqlUtility())
-		->setConnectionFactory(new \Momonga\Installer\Database\ConnectionFactory())
+		->setSqlUtility(new \Momoxo\Installer\Database\SqlUtility())
+		->setConnectionFactory(new \Momoxo\Installer\Database\ConnectionFactory())
 		->setPasswordEncryptor(new $encryptorClass);
 	return $service;
 };
