@@ -25,7 +25,7 @@ class ConfigurationFormTest extends \PHPUnit_Framework_TestCase
 			'dbHost'              => 'localhost',
 			'dbUser'              => 'root',
 			'dbPassword'          => 'p@ssW0rd',
-			'dbName'              => 'momonga',
+			'dbName'              => 'momoxo',
 			'dbPrefix'            => 'prefix',
 			'adminUsername'       => 'admin',
 			'adminEmail'          => 'admin@example.com',
@@ -36,7 +36,7 @@ class ConfigurationFormTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame('localhost', $form->getDBHost());
 		$this->assertSame('root', $form->getDBUser());
 		$this->assertSame('p@ssW0rd', $form->getDBPassword());
-		$this->assertSame('momonga', $form->getDBName());
+		$this->assertSame('momoxo', $form->getDBName());
 		$this->assertSame('prefix', $form->getDBPrefix());
 		$this->assertSame('admin', $form->getAdminUsername());
 		$this->assertSame('admin@example.com', $form->getAdminEmail());
@@ -51,7 +51,7 @@ class ConfigurationFormTest extends \PHPUnit_Framework_TestCase
 			'dbHost'              => 'localhost',
 			'dbUser'              => 'root',
 			'dbPassword'          => 'p@ssW0rd',
-			'dbName'              => 'momonga',
+			'dbName'              => 'momoxo',
 			'dbPrefix'            => 'prefix',
 			'adminUsername'       => 'admin',
 			'adminEmail'          => 'admin@example.com',

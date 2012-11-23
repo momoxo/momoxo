@@ -4,7 +4,7 @@
 [Manifesto]
 Name="Momonga Basic"
 Depends=Xcore_RenderSystem,xcore
-Url="http://www.momonga-project.org/"
+Url="http://www.momoxo-project.org/"
 Version="0.1"
 
 [Theme]

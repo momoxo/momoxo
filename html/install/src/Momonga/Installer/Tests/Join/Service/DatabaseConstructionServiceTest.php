@@ -130,7 +130,7 @@ class DatabaseConstructionServiceTest extends \PHPUnit_Framework_TestCase
 			->setUser($_SERVER['XOOPS_TEST_DB_USER'])
 			->setPassword($_SERVER['XOOPS_TEST_DB_PASS'])
 			->setName($_SERVER['XOOPS_TEST_DB_NAME'])
-			->setPrefix('momonga');
+			->setPrefix('momoxo');
 
 		$admin = new Admin();
 		$admin
@@ -149,16 +149,16 @@ class DatabaseConstructionServiceTest extends \PHPUnit_Framework_TestCase
 			->setPasswordEncryptor($encryptor);
 		$service->construct($database, $admin, $schemaFile, $dataFile);
 
-		$this->assertTableExists('momonga_foo');
-		$this->assertTableExists('momonga_users');
+		$this->assertTableExists('momoxo_foo');
+		$this->assertTableExists('momoxo_users');
 
 		$this->assertTableEquals(array(
 			array('dummy1'),
 			array('dummy2'),
 			array('dummy3'),
-		), 'momonga_foo');
+		), 'momoxo_foo');
 
-		$this->assertTableRowCount(1, 'momonga_users');
+		$this->assertTableRowCount(1, 'momoxo_users');
 		$this->assertUserTableContains(array(
 			'uid'             => '1',
 			'uname'           => 'alice',
@@ -166,6 +166,6 @@ class DatabaseConstructionServiceTest extends \PHPUnit_Framework_TestCase
 			'pass'            => $encryptor->encrypt('p@ssW0rd'),
 			'url'             => 'http://example.com/',
 			'timezone_offset' => '9.0',
-		), 1, 'momonga_users');
+		), 1, 'momoxo_users');
 	}
 }

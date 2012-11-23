@@ -29,7 +29,7 @@ class ConfigCreationServiceTest extends \PHPUnit_Framework_TestCase
 
 	public function getConfigDirectory()
 	{
-		return sys_get_temp_dir(). '/momonga';
+		return sys_get_temp_dir(). '/momoxo';
 	}
 
 	public function testCreateConfigWithConstantFormatter()

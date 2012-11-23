@@ -13,7 +13,7 @@ class SandboxDirectoryManager
 	 */
 	public static function getSandboxDirectory()
 	{
-		return sys_get_temp_dir().'/momonga-file-writable-test';
+		return sys_get_temp_dir().'/momoxo-file-writable-test';
 	}
 
 	/**

@@ -3,8 +3,8 @@
  *
  * @package XCube
  * @version $Id: XCube_RenderCache.class.php,v 1.3 2008/10/12 04:30:27 minahito Exp $
- * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt Modified BSD license
+ * @copyright Copyright 2005-2007 XOOPS Cube Project  <https://github.com/momoxo/momoxo>
+ * @license https://github.com/momoxo/momoxo/blob/master/docs/bsd_licenses.txt Modified BSD license
  *
  */
 

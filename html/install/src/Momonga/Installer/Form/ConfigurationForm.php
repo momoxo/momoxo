@@ -8,8 +8,8 @@ class ConfigurationForm
 	private $dbHost = 'localhost';
 	private $dbUser = 'root';
 	private $dbPassword;
-	private $dbName = 'momonga';
-	private $dbPrefix = 'momonga';
+	private $dbName = 'momoxo';
+	private $dbPrefix = 'momoxo';
 	private $adminUsername = 'admin';
 	private $adminEmail;
 	private $adminPassword;

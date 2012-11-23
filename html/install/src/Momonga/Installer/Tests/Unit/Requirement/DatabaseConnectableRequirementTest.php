@@ -30,7 +30,7 @@ class DatabaseConnectableRequirementTest extends \PHPUnit_Framework_TestCase
 			->setHost('localhost')
 			->setUser('root')
 			->setPassword('root')
-			->setName('momonga');
+			->setName('momoxo');
 		return $database;
 	}
 

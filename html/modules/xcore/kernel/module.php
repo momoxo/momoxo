@@ -84,7 +84,7 @@ class XoopsModule extends XoopsObject
 		$this->setVar('hasnotification', $hasnotification);
 	}
 
-    // momonga
+    // momoxo
     function &getVar($key, $format = 's')
     {
         $ret = parent::getVar($key, $format);

@@ -50,8 +50,8 @@ class DatabaseTest extends \PHPUnit_Framework_TestCase
 	{
 		$database = new Database();
 		$this->assertNull($database->getName());
-		$database->setName('momonga');
-		$this->assertSame('momonga', $database->getName());
+		$database->setName('momoxo');
+		$this->assertSame('momoxo', $database->getName());
 	}
 
 	public function testPermanentConnection()

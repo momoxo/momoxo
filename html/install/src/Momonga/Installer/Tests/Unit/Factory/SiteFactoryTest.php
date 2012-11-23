@@ -42,7 +42,7 @@ class SiteFactoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame('localhost', $database->getHost());
 		$this->assertSame('root', $database->getUser());
 		$this->assertSame('p@ssW0rd', $database->getPassword());
-		$this->assertSame('momonga', $database->getName());
+		$this->assertSame('momoxo', $database->getName());
 		$this->assertSame('prefix', $database->getPrefix());
 		$this->assertFalse($database->isPermanentConnectionEnabled());
 

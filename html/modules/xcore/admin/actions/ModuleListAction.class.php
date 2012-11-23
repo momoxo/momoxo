@@ -72,7 +72,7 @@ class Xcore_ModuleListAction extends Xcore_Action
             $olddata['weight'] = $module->get('weight');
             $olddata['isactive'] = $module->get('isactive');
             $newdata['name'] = $this->mActionForm->get('name', $mid);
-            // momonga
+            // momoxo
             if($this->mActionForm->get('issystem', $mid) == 0){
                 $weight = $this->mActionForm->get('weight', $mid) + 10000;
             } else {

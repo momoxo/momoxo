@@ -4,7 +4,7 @@
 [Manifesto]
 Name="XOOPS Cube Legacy 2.2"
 Depends=Xcore_RenderSystem,xcore
-Url="https://github.com/momonga-project/momonga/"
+Url="https://github.com/momoxo/momoxo/"
 Version="2.2"
 
 [Theme]

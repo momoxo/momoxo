@@ -16,7 +16,7 @@ class ConstantFormatterTest extends \PHPUnit_Framework_TestCase
 			->setHost('127.0.0.1')
 			->setUser('dba')
 			->setPassword('p@ssW0rd')
-			->setName('momonga')
+			->setName('momoxo')
 			->setPrefix('prefix')
 			->enablePermanentConnection();
 
@@ -43,7 +43,7 @@ define('XOOPS_DB_PREFIX', 'prefix');
 define('XOOPS_DB_HOST', '127.0.0.1');
 define('XOOPS_DB_USER', 'dba');
 define('XOOPS_DB_PASS', 'p@ssW0rd');
-define('XOOPS_DB_NAME', 'momonga');
+define('XOOPS_DB_NAME', 'momoxo');
 define('XOOPS_DB_PCONNECT', 1);";
 	}
 

@@ -4,8 +4,8 @@ XOOPS Cube Legacy "Package_Xcore" & "XCube core" Changelog
 ----------------------------------------
 2012/10/**: Package Revision 2.2.2 Beta1
 ----------------------------------------
-Move repository to github momonga-project/momonga from this version.
-https://github.com/momonga-project/momonga
+Move repository to github momoxo/momoxo from this version.
+https://github.com/momoxo/momoxo
 
 [Issues]
 #43 lib: Smarty up to 2.6.27
