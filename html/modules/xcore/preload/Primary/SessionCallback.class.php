@@ -22,6 +22,6 @@ class Xcore_SessionCallback extends XCube_ActionFilter
 	
 	public static function getSessionCookiePath(&$cookiePath) {
 		$parse_array = parse_url(XOOPS_URL);
-		$cookiePath = @$parse_array['path'].'/';
+		$cookiePath = rtrim(@$parse_array['path'], '/').'/';
 	}
 }
