@@ -2,7 +2,7 @@
 /**
 
 [Manifesto]
-Name="Momonga Basic"
+Name="momoxo Basic"
 Depends=Xcore_RenderSystem,xcore
 Url="http://www.momoxo-project.org/"
 Version="0.1"
@@ -10,9 +10,9 @@ Version="0.1"
 [Theme]
 RenderSystem="Xcore_RenderSystem"
 Format="XOOPS2 Legacy Style"
-Author="Momonga Project"
+Author="momoxo project"
 ScreenShot="screenshot.png"
-Description="Momonga Basic Theme"
+Description="momoxo Basic Theme"
 Licence="GPL"
 
 */
