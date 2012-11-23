@@ -47,8 +47,8 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 							
 							$handler =& xoops_gethandler('module');
 							$xoopsModule =& $handler->create();
-							$xoopsModule->set('weight', 1);
 							$xoopsModule->loadInfoAsVar($module);
+							$xoopsModule->set('weight', 1);
 							
 							$installer =& Xcore_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
 							$installer->setForceMode(true);
@@ -88,8 +88,8 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 							
 							$handler =& xoops_gethandler('module');
 							$xoopsModule =& $handler->create();
-							$xoopsModule->set('weight', 1);
 							$xoopsModule->loadInfoAsVar($module);
+							$xoopsModule->set('weight', 1);
 							
 							$installer =& Xcore_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
 							$installer->setForceMode(true);

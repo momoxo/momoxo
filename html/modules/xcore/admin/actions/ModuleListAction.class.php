@@ -71,16 +71,9 @@ class Xcore_ModuleListAction extends Xcore_Action
             $olddata['name'] = $module->get('name');
             $olddata['weight'] = $module->get('weight');
             $olddata['isactive'] = $module->get('isactive');
+
             $newdata['name'] = $this->mActionForm->get('name', $mid);
-            // momoxo
-            if($this->mActionForm->get('issystem', $mid) == 0){
-                $weight = $this->mActionForm->get('weight', $mid) + 10000;
-            } else {
-                $weight = $this->mActionForm->get('weight', $mid);
-            }
-            $newdata['weight'] = $weight;
-
-
+            $newdata['weight'] = $this->mActionForm->get('weight', $mid);
             $newdata['isactive'] = $this->mActionForm->get('isactive', $mid);
             if (count(array_diff_assoc($olddata, $newdata)) > 0 ) {
                 $module->set('name', $newdata["name"]);

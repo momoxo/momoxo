@@ -36,7 +36,7 @@ class XoopsModule extends XoopsObject
 		$this->initVar('last_update', XOBJ_DTYPE_INT, null, false);
 		$this->initVar('weight', XOBJ_DTYPE_INT, 0, false);
 		$this->initVar('isactive', XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('issystem', XOBJ_DTYPE_INT, 0, false);
+		$this->initVar('issystem', XOBJ_DTYPE_INT, 0, false);
 		$this->initVar('dirname', XOBJ_DTYPE_OTHER, null, true);
 		$this->initVar('trust_dirname', XOBJ_DTYPE_OTHER, null, true);
 		$this->initVar('role', XOBJ_DTYPE_OTHER, null, false);
@@ -68,6 +68,7 @@ class XoopsModule extends XoopsObject
 		$this->setVar('trust_dirname', $trustDirname , true);
 		$role = isset($this->modinfo['role']) ? $this->modinfo['role'] : null;
 		$this->setVar('role', $role , true);
+		$issystem = (isset($this->modinfo['issystem']) && $this->modinfo['issystem'] == 1) ? 1 : 0;
 		$hasmain = (isset($this->modinfo['hasMain']) && $this->modinfo['hasMain'] == 1) ? 1 : 0;
 		$hasadmin = (isset($this->modinfo['hasAdmin']) && $this->modinfo['hasAdmin'] == 1) ? 1 : 0;
 		$hassearch = (isset($this->modinfo['hasSearch']) && $this->modinfo['hasSearch'] == 1) ? 1 : 0;
@@ -75,6 +76,7 @@ class XoopsModule extends XoopsObject
 		$hascomments = (isset($this->modinfo['hasComments']) && $this->modinfo['hasComments'] == 1) ? 1 : 0;
 		// RMV-NOTIFY
 		$hasnotification = (isset($this->modinfo['hasNotification']) && $this->modinfo['hasNotification'] == 1) ? 1 : 0;
+		$this->setVar('issystem', $issystem);
 		$this->setVar('hasmain', $hasmain);
 		$this->setVar('hasadmin', $hasadmin);
 		$this->setVar('hassearch', $hassearch);
@@ -95,6 +97,15 @@ class XoopsModule extends XoopsObject
         }
         return $ret;
     }
+
+	function setVar($key, $value, $not_gpc = false)
+	{
+		if ($key === 'weight' && $this->getVar('issystem') == 0) {
+			$value = $value + 10000;
+		}
+
+		parent::setVar($key, $value, $not_gpc);
+	}
 
 
 

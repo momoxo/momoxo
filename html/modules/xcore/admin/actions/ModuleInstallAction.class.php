@@ -96,8 +96,8 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 		
         $this->mXoopsModule =& $handler->create();
         
-        $this->mXoopsModule->set('weight', 1);
         $this->mXoopsModule->loadInfoAsVar($dirname);
+        $this->mXoopsModule->set('weight', 1);
         
         if ($this->mXoopsModule->get('dirname') == null) {
             return false;
