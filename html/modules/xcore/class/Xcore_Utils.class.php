@@ -160,7 +160,7 @@ class Xcore_Utils
 	 * @param string $version
 	 * @return int
 	 */
-	function convertVersionFromModinfoToInt($version)
+	public static function convertVersionFromModinfoToInt($version)
 	{
 		return round(100 * floatval($version));
 	}
