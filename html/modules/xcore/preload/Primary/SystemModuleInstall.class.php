@@ -19,7 +19,7 @@ class Xcore_SystemModuleInstall extends XCube_ActionFilter
 	 * @var XoopsUser &$xoopsUser
 	 * @see preBlockFilter()
 	 */
-	function callbackSetupUser(&$principal, &$controller, &$context)
+	public static function callbackSetupUser(&$principal, &$controller, &$context)
 	{
 		$retArray = Xcore_Utils::checkSystemModules();
 		$accessAllowFlag = false;

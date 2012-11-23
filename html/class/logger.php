@@ -70,7 +70,7 @@ class XoopsLogger
      *
      * @return  object XoopsLogger  reference to the only instance
      */
-    public static function &instance()
+    public static function instance()
     {
         static $instance;
         if (!isset($instance)) {

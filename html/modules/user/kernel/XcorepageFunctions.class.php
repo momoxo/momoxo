@@ -1,11 +1,5 @@
 <?php
-/**
- * @package user
- * @version $Id: XcorepageFunctions.class.php,v 1.6 2007/12/15 15:18:11 minahito Exp $
- */
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
- 
 /***
  * @internal
  * This is static functions collection class for Legacy pages access.
@@ -17,7 +11,7 @@ class User_XcorepageFunctions
 	 * The process for userinfo.php. This process doesn't execute anything
 	 * directly. Forward to the controller of the user module.
 	 */
-	function userinfo()
+	public static function userinfo()
 	{
 		//
 		// Boot the action frame of the user module directly.
@@ -45,7 +39,7 @@ class User_XcorepageFunctions
 	 * The process for edituser.php. This process doesn't execute anything
 	 * directly. Forward to the controller of the user module.
 	 */
-	function edituser()
+	public static function edituser()
 	{
 		$actionName = "EditUser";
 		switch (xoops_getrequest('op')) {
@@ -85,7 +79,7 @@ class User_XcorepageFunctions
 	 * The process for register.php. This process doesn't execute anything
 	 * directly. Forward to the controller of the user module.
 	 */
-	function register()
+	public static function register()
 	{
 		$root =& XCube_Root::getSingleton();
 		$xoopsUser =& $root->mContext->mXoopsUser;
@@ -129,7 +123,7 @@ class User_XcorepageFunctions
 	 * directly. If the current user is registered user, kick out to the top
 	 * page. Else, forward to the lost-pass page.
 	 */
-	function lostpass()
+	public static function lostpass()
 	{
 		$root =& XCube_Root::getSingleton();
 		$xoopsUser =& $root->mContext->mXoopsUser;
@@ -165,7 +159,7 @@ class User_XcorepageFunctions
 	 * The process for user.php. This process doesn't execute anything directly.
 	 * Forward to the controller of the user module.
 	 */
-	function user()
+	public static function user()
 	{
 		$root =& XCube_Root::getSingleton();
 		$op = isset($_REQUEST['op']) ? trim(xoops_getrequest('op')) : "main";
@@ -218,7 +212,7 @@ class User_XcorepageFunctions
 		$root->mController->executeView();
 	}
 	
-	function checkLogin(&$xoopsUser)
+	public static function checkLogin(&$xoopsUser)
 	{
 		if (is_object($xoopsUser)) {
 			return;
@@ -270,7 +264,7 @@ class User_XcorepageFunctions
 		$_SESSION['xoopsUserGroups'] = $xoopsUser->getGroups();
 	}
 	
-    function checkLoginSuccess(&$xoopsUser)
+    public static function checkLoginSuccess(&$xoopsUser)
     {
 		if (is_object($xoopsUser)) {
 			$handler =& xoops_gethandler('user');
@@ -280,7 +274,7 @@ class User_XcorepageFunctions
 		}
 	}
 
-	function logout(&$successFlag, $xoopsUser)
+	public static function logout(&$successFlag, $xoopsUser)
 	{
 		$root =& XCube_Root::getSingleton();
 		$xoopsConfig = $root->mContext->mXoopsConfig;
@@ -300,7 +294,7 @@ class User_XcorepageFunctions
 		$successFlag = true;
     }
 	
-	function misc()
+	public static function misc()
 	{
 		if (xoops_getrequest('type') != 'online') {
 			return;
@@ -325,5 +319,3 @@ class User_XcorepageFunctions
 		$root->mController->executeView();
 	}
 }
-
-?>

@@ -92,8 +92,8 @@ class Xcore_TextFilter extends XCube_TextFilter
 		$this->mXCodePre = new XCube_Delegate();
 		$this->mXCodePre->register('MyTextSanitizer.XoopsCodePre');
 	}
-	
-	function getInstance(&$instance) {
+
+	public static function getInstance(&$instance) {
 		if (empty($instance)) {
 			$instance = new Xcore_TextFilter();
 		}

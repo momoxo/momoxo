@@ -486,7 +486,7 @@ class XoopsObject extends AbstractXoopsObject
      */
     function cleanVars()
     {
-        $ts =& MyTextSanitizer::getInstance();
+        $ts = MyTextSanitizer::getInstance();
         foreach ($this->vars as $k => $v) {
             $cleanv = $v['value'];
             if (!$v['changed']) {

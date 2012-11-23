@@ -16,7 +16,7 @@ class XCube_TextFilter
 {
     var $mDummy=null;  //Dummy member for preventing object be treated as empty.
 
-    function getInstance(&$instance) {
+    public static function getInstance(&$instance) {
        if (empty($instance)) {
             $instance = new XCube_TextFilter();
         }

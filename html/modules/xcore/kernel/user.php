@@ -467,7 +467,7 @@ class XoopsGuestUser extends XoopsUser
 		return true;
 	}
 	
-	function getGroups()
+	function getGroups($dummy = false)
 	{
 		return XOOPS_GROUP_ANONYMOUS;
 	}

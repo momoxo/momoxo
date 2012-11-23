@@ -70,7 +70,7 @@ class XCube_Utils
 	 *     This method doesn't implement the provider which knows how to format
 	 *     for each locales. So, this method is interim implement.
 	 */
-	function formatString()
+	public static function formatString()
 	{
 		$arr = func_get_args();
 		
@@ -104,7 +104,7 @@ class XCube_Utils
 	 * @deprecated XCube 1.0 will remove this method.
 	 * @see XCube_Utils::formatString()
 	 */	
-	function formatMessage()
+	public static function formatMessage()
 	{
 		$arr = func_get_args();
 		

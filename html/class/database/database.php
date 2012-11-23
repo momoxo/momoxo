@@ -78,11 +78,11 @@ class XoopsDatabase
 		 * assign a {@link XoopsLogger} object to the database
 		 * 
          * @see XoopsLogger
-         * @param object $logger reference to a {@link XoopsLogger} object
+         * @param XoopsLogger $logger reference to a {@link XoopsLogger} object
 		 */
-		function setLogger(&$logger)
+		function setLogger(XoopsLogger $logger)
 		{
-			$this->logger =& $logger;
+			$this->logger = $logger;
 		}
 
 		/**
@@ -123,9 +123,9 @@ class XoopsDatabase
 class Database
 {
 
-	function &getInstance()
+	function getInstance()
 	{
-		$instance =& XoopsDatabaseFactory::getDatabaseConnection();
+		$instance = XoopsDatabaseFactory::getDatabaseConnection();
 		return $instance;
 	}
 }

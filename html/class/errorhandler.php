@@ -74,7 +74,7 @@ class XoopsErrorHandler
      *
      * @access public
      */
-    function &getInstance()
+    public static function getInstance()
     {
         static $instance = null;
         if (empty($instance)) {

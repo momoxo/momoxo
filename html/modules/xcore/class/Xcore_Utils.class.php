@@ -22,7 +22,7 @@ class Xcore_Utils
 	 * disabled and recommended modules, basically. But, if there is no problem,
 	 * returns true.
 	 */
-	function checkSystemModules()
+	public static function checkSystemModules()
 	{
 		$root=&XCube_Root::getSingleton();
 		$systemModules = array_map('trim', explode(',', $root->getSiteConfig('Cube', 'SystemModules')));

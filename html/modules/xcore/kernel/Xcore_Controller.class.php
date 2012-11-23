@@ -9,7 +9,7 @@ define('XCORE_XOOPS_MODULE_MANIFESTO_FILENAME', 'xoops_version.php');
 
 /**
  * This class is a virtual controller that has the compatibility with XOOPS 2.0.x.
- * 
+ *
  * [NOTICE]
  * XOOPS 2.0.x can switch to public mode and control panel mode. This controller
  * emulates its process with using STATE. But, we may lose flexible setup by this
@@ -23,29 +23,29 @@ class Xcore_Controller extends XCube_Controller
 {
 	var $_mAdminModeFlag = false;
 	var $_mStrategy = null;
-	
+
 	var $mDialogMode = false;
-	
+
 	/**
 	 * @var XCube_Delegate
 	 */
 	var $mCheckLogin = null;
-	
+
 	/**
 	 * @var XCube_Delegate
 	 */
 	var $mLogout = null;
-	
+
 	/**
 	 * @var XCube_Delegate
 	 */
 	var $mCreateLanguageManager = null;
-	
+
 	/**
 	 * @var XCube_Delegate
 	 */
 	var $mSetBlockCachePolicy = null;
-	
+
 	/**
 	 * @var XoopsModule[]
 	 */
@@ -55,17 +55,17 @@ class Xcore_Controller extends XCube_Controller
 	 * @var XCube_Delegate
 	 */
 	var $mSetModuleCachePolicy = null;
-	
+
 	/**
 	 * @var XCube_Delegate
 	 */
 	var $mGetLanguageName = null;
-	
+
 	/**
 	 * @var XCube_Delegate
 	 */
 	var $mSetupDebugger = null;
-	
+
 	/**
 	 * @public
 	 * @var XCube_Delegate
@@ -73,36 +73,36 @@ class Xcore_Controller extends XCube_Controller
 	 * @remark Only the special module should access this member property.
 	 */
 	var $_mNotifyRedirectToUser = null;
-	
+
 	/**
 	 * @var XoopsLogger
 	 */
 	var $mLogger = null;
-	
+
 	function Xcore_Controller()
 	{
 		parent::XCube_Controller();
-		
+
 		//
 		// Setup member properties as member delegates.
 		//
 		$this->mSetupUser->register('Xcore_Controller.SetupUser');
-		
+
 		$this->mCheckLogin =new XCube_Delegate();
 		$this->mCheckLogin->register('Site.CheckLogin');
-		
+
 		$this->mLogout =new XCube_Delegate();
 		$this->mLogout->register('Site.Logout');
-		
+
 		$this->mCreateLanguageManager = new XCube_Delegate();
 		$this->mCreateLanguageManager->register('Xcore_Controller.CreateLanguageManager');
-		
+
 		$this->mGetLanguageName = new XCube_Delegate();
 		$this->mGetLanguageName->register('Xcore_Controller.GetLanguageName');
-		
+
 		$this->mSetBlockCachePolicy = new XCube_Delegate();
 		$this->mSetModuleCachePolicy = new XCube_Delegate();
-		
+
 		$this->mSetupDebugger = new XCube_Delegate();
 		$this->mSetupDebugger->add('Xcore_DebuggerManager::createInstance');
 
@@ -113,18 +113,18 @@ class Xcore_Controller extends XCube_Controller
 			set_magic_quotes_runtime(0);	// ^^;
 		}
 	}
-	
+
 	function prepare(&$root)
 	{
 		parent::prepare($root);
-		
+
 		//
 		// Decide status. [TEST]
 		//
 		$this->_processHostAbstractLayer();
 
 		$urlInfo = $this->_parseUrl();
-		
+
 		$adminStateFlag = false;
 		if (count($urlInfo) >= 3) {
 			if (strtolower($urlInfo[0]) == 'modules') {
@@ -141,7 +141,7 @@ class Xcore_Controller extends XCube_Controller
 			$this->_mStrategy = new Xcore_PublicControllerStrategy($this);
 		}
 	}
-	
+
 	/**
 	 * @access public
 	 */
@@ -156,7 +156,7 @@ class Xcore_Controller extends XCube_Controller
 		if (!defined('OH_MY_GOD_HELP_ME')) {
 //			error_reporting(0);
 		}
-	
+
 		// ^^;
 		$this->_setupErrorHandler();
 		//function date_default_timezone_set() is added on PHP5.1.0
@@ -169,34 +169,34 @@ class Xcore_Controller extends XCube_Controller
 		$this->_setupLogger();
 //
 		$this->_setupDB();
-	
+
 		$this->_setupLanguage();
-	
+
 		$this->_setupTextFilter();
-	
+
 		$this->_setupConfig();
-	
+
 		$this->_setupScript();
 //
 
 		$this->_setupDebugger();
-	
+
 		$this->_loadInterfaceFiles();
-	
+
 		$this->_processPreBlockFilter();	// What's !?
-	
+
 		$this->_setupSession();
-	
+
 		$this->_setupUser();
-	
+
 		$this->setupModuleContext();
-	
+
 		$this->_processModule();
-	
+
 		$this->_processPostFilter();
-	
+
 	}
-	
+
 	/**
 	 * Subset of executeCommon() Method
 	 * It'll be used when process starts with $xoopsOption['nocommon'] and
@@ -219,12 +219,12 @@ class Xcore_Controller extends XCube_Controller
 
 	function _setupLogger()
 	{
-		$this->mLogger =& XoopsLogger::instance();
+		$this->mLogger = XoopsLogger::instance();
 		$this->mLogger->startTime();
 
-		$GLOBALS['xoopsLogger'] =& $this->mLogger;
+		$GLOBALS['xoopsLogger'] = $this->mLogger;
 	}
-	
+
 	function &getLogger()
 	{
 		return $this->mLogger;
@@ -234,11 +234,11 @@ class Xcore_Controller extends XCube_Controller
 	{
 	    $iTime = time();
 	    $arr = localtime($iTime);
-	    $arr[5] += 1900; 
+	    $arr[5] += 1900;
 	    $arr[4]++;
 	    $iTztime = gmmktime($arr[2], $arr[1], $arr[0], $arr[4], $arr[3], $arr[5]);
 	    $offset = doubleval(($iTztime-$iTime)/(60*60));
-	    $zonelist = 
+	    $zonelist =
 	    array
 	    (
 	        'Kwajalein' => -12.00,
@@ -286,7 +286,7 @@ class Xcore_Controller extends XCube_Controller
 	{
 		parent::_setupEnvironment();
 		require_once XOOPS_ROOT_PATH.'/modules/xcore/include/version.php';
-		
+
 		require_once XOOPS_TRUST_PATH.'/settings/definition.inc.php';
 		define('XOOPS_XCORE_PATH',XOOPS_MODULE_PATH.'/'.XOOPS_XCORE_PROC_NAME);
 
@@ -303,7 +303,7 @@ class Xcore_Controller extends XCube_Controller
 	 * [MEMO]
 	 * For test, you can use automatic loading plug-in with writing a setting
 	 * in site_custom.ini.php.
-	 * 
+	 *
 	 * site_custom.ini.php:
 	 *	[Xcore]
 	 *	AutoPreload = 1
@@ -323,7 +323,7 @@ class Xcore_Controller extends XCube_Controller
 	 * Process of Block. Fetch objects from $this->mBlockChain, render the
 	 * result of the object with html data, and set those result to member
 	 * property.
-	 * 
+	 *
 	 * In this member function, the cache mechanism has to be important. If the
 	 * object has its cache, this function loads the cache data instead of
 	 * calling the business logic of the block.
@@ -333,7 +333,7 @@ class Xcore_Controller extends XCube_Controller
 	function _processBlock()
 	{
 		$i=0;
-		
+
 		//
 		// Create render-target for blocks. We use reset() to re-cycle this
 		// object in the foreach loop.
@@ -346,18 +346,18 @@ class Xcore_Controller extends XCube_Controller
 			// the logic of the block.
 			//
 			$usedCacheFlag = false;
-			
+
 			$cacheInfo = null;
-			
+
 			if ($this->isEnableCacheFeature() && $blockProcedure->isEnableCache()) {
 				//
 				// Reset the block cache information structure, and initialize.
 				//
 				$cacheInfo =& $blockProcedure->createCacheInfo();
-				
+
 				$this->mSetBlockCachePolicy->call(new XCube_Ref($cacheInfo));
 				$filepath = $cacheInfo->getCacheFilePath();
-				
+
 				//
 				// If caching is enable and the cache file exists, load and use.
 				//
@@ -373,18 +373,18 @@ class Xcore_Controller extends XCube_Controller
 							'weight'  => $blockProcedure->getWeight()
 						);
 					}
-						
+
 					$usedCacheFlag = true;
 				}
 			}
-			
+
 			if (!$usedCacheFlag) {
 				$blockProcedure->execute();
 
 				$renderBuffer = null;
 				if ($blockProcedure->isDisplay()) {
 					$renderBuffer =& $blockProcedure->getRenderTarget();
-					
+
 					$context->mAttributes['xcore_BlockShowFlags'][$blockProcedure->getEntryIndex()] = true;
 					$context->mAttributes['xcore_BlockContents'][$blockProcedure->getEntryIndex()][] = array(
 							'name' => $blockProcedure->getName(),
@@ -400,7 +400,7 @@ class Xcore_Controller extends XCube_Controller
 					//
 					$renderBuffer = new XCube_RenderTarget();
 				}
-				
+
 				if ($this->isEnableCacheFeature() && $blockProcedure->isEnableCache() && is_object($cacheInfo) && $cacheInfo->isEnableCache()) {
 					$this->cacheRenderTarget($cacheInfo->getCacheFilePath(), $renderBuffer);
 				}
@@ -413,15 +413,15 @@ class Xcore_Controller extends XCube_Controller
 	function _parseUrl()
 	{
 		$ret = array();
-		$rootPathInfo = @parse_url(XOOPS_URL); 
+		$rootPathInfo = @parse_url(XOOPS_URL);
 		$rootPath = (isset($rootPathInfo['path']) ? $rootPathInfo['path'] : '') . '/';
 		$php_info = xoops_getenv('PATH_INFO');
 		$requestPathInfo = @parse_url(!empty($php_info) ? substr(xoops_getenv('PHP_SELF'),0,- strlen(xoops_getenv('PATH_INFO'))) : xoops_getenv('PHP_SELF'));
-		
+
 		if ($requestPathInfo === false) {
 			throw new RuntimeException();
 		}
-		
+
 		$requestPath = isset($requestPathInfo['path']) ? urldecode($requestPathInfo['path']) : '';
 		$subPath=substr($requestPath,strlen($rootPath));
 		$subPath = trim($subPath, '/');
@@ -447,22 +447,22 @@ class Xcore_Controller extends XCube_Controller
 				$dirname = 'xcore';
 			}
 		}
-		
+
 		if ($dirname == null) {
 			return;
 		}
-		
+
 		if (!file_exists(XOOPS_ROOT_PATH . '/modules/' . $dirname . '/' . XCORE_XOOPS_MODULE_MANIFESTO_FILENAME)) {
 			return;
 		}
-		
+
 		$this->_mStrategy->setupModuleContext($this->mRoot->mContext, $dirname);
-		
+
 		if ($this->mRoot->mContext->mModule != null) {
 			$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mModule->mXoopsModule->get('name'));
 		}
 	}
-	
+
 	function _processModule()
 	{
 		if ($this->mRoot->mContext->mModule != null) {
@@ -476,28 +476,28 @@ class Xcore_Controller extends XCube_Controller
 				$this->executeForward(XOOPS_URL . '/');
 				die(); // need to response?
 			}
-			
+
 			if (!$this->_mStrategy->enableAccess()) {
 				XCube_DelegateUtils::call('Xcore.Event.Exception.ModuleSecurity', $module);
 				$this->executeRedirect(XOOPS_URL . '/user.php', 1, _NOPERM);	// TODO Depens on const message catalog.
 				die(); // need to response?
 			}
-			
+
 			$this->_mStrategy->setupModuleLanguage();
 			$module->startup();
-			
+
 			$GLOBALS['xoopsModule'] =& $module->mXoopsModule;
 			$GLOBALS['xoopsModuleConfig'] =& $module->mModuleConfig;
 		}
-		
+
 		Xcore_Utils::raiseUserControlEvent();
 	}
-	
+
 	// @todo change to refer settings ini file for HostAbstractLayer.
 	function _processHostAbstractLayer()
 	{
 		require_once XOOPS_ROOT_PATH.'/modules/xcore/include/functions.php';
-	
+
 		$path_translated = xoops_getenv('PATH_TRANSLATED');
 		$script_filename = xoops_getenv('SCRIPT_FILENAME');
 		$request_uri = xoops_getenv('REQUEST_URI');
@@ -518,7 +518,7 @@ class Xcore_Controller extends XCube_Controller
 			if (isset($query_string)) {
 				$_SERVER['REQUEST_URI'] .= '?' . $query_string;
 			}
-			
+
 			// Guard for XSS string of PHP_SELF
 			// @todo I must move this logic to preload plugin.
 			if(preg_match('/[\<\>\"\'\(\)]/',xoops_getenv('REQUEST_URI')))
@@ -543,7 +543,7 @@ class Xcore_Controller extends XCube_Controller
 		$GLOBALS['xoopsMemberHandler'] = xoops_gethandler('member');
 		$GLOBALS['member_handler'] =& $GLOBALS['xoopsMemberHandler'];
 	}
-	
+
 	function _setupErrorHandler()
 	{
 	}
@@ -572,11 +572,11 @@ class Xcore_Controller extends XCube_Controller
 
 		$GLOBALS['xoopsDB']=&$this->mDB;
 	}
-	
+
 	/**
 	 * Create a instance of Xcore_LanguageManager by the specified language,
 	 * and set it to member properties.
-	 * 
+	 *
 	 * [Notice]
 	 * Now, this member function sets a string to the member property without
 	 * language manager.
@@ -584,16 +584,16 @@ class Xcore_Controller extends XCube_Controller
 	function _setupLanguage()
 	{
 		$language = null;
-		
+
 		$this->mGetLanguageName->call(new XCube_Ref($language));
-		
+
 		if ($language == null) {
 			$handler = xoops_gethandler('config');
 			$criteria = new CriteriaCompo(new Criteria('conf_modid', 0));
 			$criteria->add(new Criteria('conf_catid', XOOPS_CONF));
 			$criteria->add(new Criteria('conf_name', 'language'));
 			$configs =& $handler->getConfigs($criteria);
-		
+
 			if (count($configs) > 0) {
 				$language = $configs[0]->get('conf_value', 'none');
 			}
@@ -612,29 +612,29 @@ class Xcore_Controller extends XCube_Controller
 	/**
 	 * Factory for the language manager. At first, this member function
 	 * delegates to get a instance of LanguageManager. If it can't get it, do
-	 * the following process: 
-	 * 
+	 * the following process:
+	 *
 	 * 1) Try creating a instance of 'Xcore_LanguageManager_' . ucfirst($language)
-	 * 2) If the class doesn't exist, try loading  'LanguageManager.class.php' 
+	 * 2) If the class doesn't exist, try loading  'LanguageManager.class.php'
 	 *	  in the specified language.
 	 * 3) Re-try creating the instance.
-	 * 
+	 *
 	 * If it can't create any instances, create a instance of
 	 * Xcore_LanguageManager as default.
-	 * 
+	 *
 	 * @access protected
-	 * @param string $language 
+	 * @param string $language
 	 * @return Xcore_LanguageManager
-	 */ 
+	 */
 	function &_createLanguageManager($language)
 	{
 		$languageManager = null;
-		
+
 		$this->mCreateLanguageManager->call(new XCube_Ref($languageManager), $language);
-		
+
 		if (!is_object($languageManager)) {
 			$className = 'Xcore_LanguageManager_' . ucfirst(strtolower($language));
-			
+
 			//
 			// If the class exists, create a instance. Else, load the file, and
 			// try creating a instance again.
@@ -647,7 +647,7 @@ class Xcore_Controller extends XCube_Controller
 				if (file_exists($filePath)) {
 					require_once $filePath;
 				}
-				
+
 				if (class_exists($className)) {
 					$languageManager = new $className();
 				}
@@ -659,14 +659,14 @@ class Xcore_Controller extends XCube_Controller
 				}
 			}
 		}
-		
+
 		return $languageManager;
 	}
 
 	function _setupConfig()
 	{
 		$configHandler = xoops_gethandler('config');
-		
+
 		$this->mRoot->mContext->mXoopsConfig =& $configHandler->getConfigsByCat(XOOPS_CONF);
 
 		$this->mRoot->mContext->mXoopsConfig['language'] = $this->mRoot->mLanguageManager->getLanguage();
@@ -679,7 +679,7 @@ class Xcore_Controller extends XCube_Controller
 		}
 
 		$this->mRoot->mContext->setThemeName($this->mRoot->mContext->mXoopsConfig['theme_set']);
-		
+
 		$this->mRoot->mContext->setAttribute('xcore_sitename', $this->mRoot->mContext->mXoopsConfig['sitename']);
 		$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mXoopsConfig['slogan']);
 		$this->mRoot->mContext->setAttribute('xcore_slogan', $this->mRoot->mContext->mXoopsConfig['slogan']);
@@ -698,7 +698,7 @@ class Xcore_Controller extends XCube_Controller
 	function _setupDebugger()
 	{
 		error_reporting(0);
-	
+
 		$debug_mode = $this->mRoot->mContext->mXoopsConfig['debug_mode'];
 		if (defined('OH_MY_GOD_HELP_ME')) {
 			$debug_mode = XOOPS_DEBUG_PHP;
@@ -738,7 +738,7 @@ class Xcore_Controller extends XCube_Controller
 						foreach($files as $file) {
 							require_once $file;
 								$className = ucfirst($mod_dir) . '_' . basename($file, '.class.php');
-						
+
 								if (class_exists($className) && !isset($this->_mLoadedFilterNames[$className])) {
 									$this->_mLoadedFilterNames[$className] = true;
 									$this->addActionFilter(new $className($this));
@@ -792,18 +792,18 @@ class Xcore_Controller extends XCube_Controller
 		//
 		if ($this->mRoot->mContext->mModule != null && $this->isEnableCacheFeature()) {
 			$cacheInfo =& $this->mRoot->mContext->mModule->createCacheInfo();
-			
+
 			$this->mSetModuleCachePolicy->call($cacheInfo);
-			
+
 			if ($this->mRoot->mContext->mModule->isEnableCache()) {
 				//
 				// Checks whether the cache file exists.
 				//
 				$xoopsModule =& $this->mRoot->mContext->mXoopsModule;
-	
+
 				$cachetime = $this->mRoot->mContext->mXoopsConfig['module_cache'][$xoopsModule->get('mid')];
 				$filepath = $cacheInfo->getCacheFilePath();
-				
+
 				//
 				// Checks whether the active cache file exists. If it's OK, load
 				// cache and do display.
@@ -812,9 +812,9 @@ class Xcore_Controller extends XCube_Controller
 					$renderSystem =& $this->mRoot->getRenderSystem($this->mRoot->mContext->mModule->getRenderSystemName());
 					$renderTarget =& $renderSystem->createRenderTarget(XCUBE_RENDER_TARGET_TYPE_MAIN);
 					$renderTarget->setResult($this->loadCache($filepath));
-					
+
 					$this->_executeViewTheme($renderTarget);
-					
+
 					exit(); // need to response
 				}
 			}
@@ -822,20 +822,20 @@ class Xcore_Controller extends XCube_Controller
 
 		ob_start();
 	}
-	
+
 	function executeView()
 	{
 		if ($this->mRoot->mContext->mModule != null) {
 			$renderSystem =& $this->mRoot->getRenderSystem($this->mRoot->mContext->mModule->getRenderSystemName());
 			$renderTarget =& $this->mRoot->mContext->mModule->getRenderTarget();
-		
+
 			//
 			//	Buffering handling of standard output for main render target is responsibility
 			// of a controller. Of course all controllers do not have to implement this.
 			// The following lines are movement for compatibility and the feature of
 			// this controller.
 			//
-		
+
 			// Wmm...
 			if (is_object($renderTarget)) {
 				if ($renderTarget->getTemplateName() == null) {
@@ -843,15 +843,15 @@ class Xcore_Controller extends XCube_Controller
 						$renderTarget->setTemplateName($GLOBALS['xoopsOption']['template_main']);
 					}
 				}
-				
+
 				$renderTarget->setAttribute('stdout_buffer', ob_get_contents());
 			}
-	
+
 			ob_end_clean();
-			
+
 			if (is_object($renderTarget)) {
 				$renderSystem->render($renderTarget);
-	
+
 				//
 				// Cache Control
 				//
@@ -861,10 +861,10 @@ class Xcore_Controller extends XCube_Controller
 				}
 			}
 		}
-		
+
 		$this->_executeViewTheme($renderTarget);
 	}
-	
+
 	/**
 	 * $resultRenderTarget object The render target of content's result.
 	 */
@@ -877,10 +877,10 @@ class Xcore_Controller extends XCube_Controller
 		if (!is_object($theme)) {
 			throw new RuntimeException('Could not found any themes.');
 		}
-		
+
 		$renderSystem =& $this->mRoot->getRenderSystem($theme->get('render_system'));
 		$screenTarget = $renderSystem->getThemeRenderTarget($this->mDialogMode);
-		
+
 		if (is_object($resultRenderTarget)) {
 			$screenTarget->setAttribute('xoops_contents', $resultRenderTarget->getResult());
 		}
@@ -916,9 +916,9 @@ class Xcore_Controller extends XCube_Controller
 	function &_createDelegateManager()
 	{
 		$delegateManager =& parent::_createDelegateManager();
-		
+
 		$file = XOOPS_ROOT_PATH . '/modules/xcore/kernel/Xcore_EventFunctions.class.php';
-		
+
 		$delegateManager->add('Xcorepage.Notifications.Access', 'Xcore_EventFunction::notifications', $file);
 		$delegateManager->add('Xcorefunction.Notifications.Select', 'Xcore_EventFunction::notifications_select', $file);
 		$delegateManager->add('Xcorepage.Search.Access', 'Xcore_EventFunction::search', $file);
@@ -926,38 +926,38 @@ class Xcore_Controller extends XCube_Controller
 		$delegateManager->add('Xcorepage.Backend.Access', 'Xcore_EventFunction::backend', $file);
 		$delegateManager->add('Xcorepage.Misc.Access', 'Xcore_EventFunction::misc', $file);
 		$delegateManager->add('User_UserViewAction.GetUserPosts', 'Xcore_EventFunction::recountPost', $file);
-		
+
 		return $delegateManager;
 	}
-	
+
 	function &_createServiceManager()
 	{
 		$serviceManager =& parent::_createServiceManager();
-		
+
 		$searchService = new Xcore_SearchService();
 		$searchService->prepare();
-		
+
 		$serviceManager->addService('XcoreSearch', $searchService);
 
 		return $serviceManager;
 	}
-	
+
 	/**
 	 * Check the login request through delegates, and set XoopsObject to member
 	 * property if the login is success.
-	 * 
+	 *
 	 * @access public
 	 */
 	function checkLogin()
 	{
 		if (!is_object($this->mRoot->mContext->mXoopsUser)) {
 			$this->mCheckLogin->call(new XCube_Ref($this->mRoot->mContext->mXoopsUser));
-			
+
 			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
 
 			if (is_object($this->mRoot->mContext->mXoopsUser)) {
 				// If the current user doesn't bring to any groups, kick out him for XCL's security.
-				$t_groups =& $this->mRoot->mContext->mXoopsUser->getGroups();
+				$t_groups = $this->mRoot->mContext->mXoopsUser->getGroups();
 				if (!is_array($t_groups)) {
 					// exception
 					$this->logout();
@@ -968,7 +968,7 @@ class Xcore_Controller extends XCube_Controller
 					$this->logout();
 					return;
 				}
-				
+
 				// RMV-NOTIFY
 				// Perform some maintenance of notification records
 				$notification_handler = xoops_gethandler('notification');
@@ -983,19 +983,19 @@ class Xcore_Controller extends XCube_Controller
 				if (!empty($_POST['xoops_redirect']) && !strpos(xoops_getrequest('xoops_redirect'), 'register')) {
 					$parsed = parse_url(XOOPS_URL);
 					$url = isset($parsed['scheme']) ? $parsed['scheme'].'://' : 'http://';
-					
+
 					if (isset($parsed['host'])) {
 						$url .= isset($parsed['port']) ? $parsed['host'] . ':' . $parsed['port'] . trim(xoops_getrequest('xoops_redirect')): $parsed['host'] . trim(xoops_getrequest('xoops_redirect'));
 					} else {
 						$url .= xoops_getenv('HTTP_HOST') . trim(xoops_getrequest('xoops_redirect'));
 					}
 				}
-				
+
 				$this->executeRedirect($url, 1, XCube_Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
 			}
 			else {
 				XCube_DelegateUtils::call('Site.CheckLogin.Fail', new XCube_Ref($this->mRoot->mContext->mXoopsUser));
-				
+
 				//
 				// Fall back process for login fail.
 				//
@@ -1006,21 +1006,21 @@ class Xcore_Controller extends XCube_Controller
 			$this->executeForward(XOOPS_URL . '/');
 		}
 	}
-	
+
 	/**
 	 * The current user logout.
-	 * 
+	 *
 	 * @access public
 	 */
 	function logout()
 	{
 		$successFlag = false;
 		$xoopsUser =& $this->mRoot->mContext->mXoopsUser;
-		
-		
+
+
 		if (is_object($xoopsUser)) {
 			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
-			
+
 			$this->mLogout->call(new XCube_Ref($successFlag), $xoopsUser);
 			if ($successFlag) {
 				XCube_DelegateUtils::call('Site.Logout.Success', $xoopsUser);
@@ -1043,7 +1043,7 @@ class Xcore_Controller extends XCube_Controller
 	{
 		$this->setStrategy($strategy);
 	}
-	
+
 	/**
 	 * CAUTION!!
 	 * This method has a special mission.
@@ -1056,7 +1056,7 @@ class Xcore_Controller extends XCube_Controller
 	{
 		if ($strategy->mStatusFlag != $this->_mStrategy->mStatusFlag) {
 			$this->_mStrategy =& $strategy;
-			
+
 			//
 			// The following line depends on XCube_Controller process of executeCommon.
 			// But, There is no other method.
@@ -1085,12 +1085,12 @@ class Xcore_Controller extends XCube_Controller
 	{
 		return $this->mDialogMode;
 	}
-	
+
 	/**
 	 *	Return current module object. But, it's decided by the rules of the state.
 	 *	Preferences page, Help page and some pages returns the specified module by
-	 * dirname. It's useful for controlling a theme. 
-	 * 
+	 * dirname. It's useful for controlling a theme.
+	 *
 	 * @return XoopsModule
 	 */
 	function &getVirtualCurrentModule()
@@ -1098,33 +1098,33 @@ class Xcore_Controller extends XCube_Controller
 		$ret =& $this->_mStrategy->getVirtualCurrentModule();
 		return $ret;
 	}
-	
+
 	/**
 	 * This member function works to redirect as well as redirect_header().
 	 * But, this member function handles raw values which hasn't been converted
 	 * by htmlspecialchars(). Therefore, if user calls this function with the
 	 * wrong value, some problems may be raised. If you can't understand the
 	 * difference, use not this function but redirect_header().
-	 * 
+	 *
 	 * @param string $url		   redirect URL. Don't use user's variables or request.
 	 * @param int	 $time		   waiting time (sec)
 	 * @param string $message	   This string doesn't include tags.
 	 * @param bool	 $addRedirect  A value indicationg whether this method adds URL automatically for user.php.
-	 * 
+	 *
 	 * @todo We'll change this function to delegate.
 	 * @remark This method encode $url and $message directly without its template, to share the template with old function.
 	 */
 	function executeRedirect($url, $time = 1, $message = null, $addRedirect = true)
 	{
 		global $xoopsConfig, $xoopsRequestUri;
-	
+
 		//
 		// Check the following by way of caution.
 		//
 		if (preg_match('/(javascript|vbscript):/si', $url)) {
 			$url = XOOPS_URL;
 		}
-		
+
 		$displayMessage = '';
 		if (is_array($message)) {
 			foreach (array_keys($message) as $key) {
@@ -1135,14 +1135,14 @@ class Xcore_Controller extends XCube_Controller
 		else {
 			$displayMessage = $message;
 		}
-		
+
 		$url = htmlspecialchars($url, ENT_QUOTES);
-		
+
 		// XOOPS2 Compatibility
 		if ($addRedirect && strstr($url, 'user.php')) {
 			$this->_mNotifyRedirectToUser->call(new XCube_Ref($url));
 		}
-		
+
 		if (defined('SID') && (! isset($_COOKIE[session_name()]) || ($xoopsConfig['use_mysession'] && $xoopsConfig['session_name'] != '' && !isset($_COOKIE[$xoopsConfig['session_name']])))) {
 			if ( strpos($url, XOOPS_URL) === 0 ) {
 				if (!strstr($url, '?')) {
@@ -1201,14 +1201,14 @@ class Xcore_Controller extends XCube_Controller
 			</body>
 			</html>';
 		}
-		
+
 		exit(); // need to response
 	}
 
 	/**
 	 * Gets a value indicating whether the controller can use a cache mechanism.
 	 * @return bool
-	 */ 
+	 */
 	function isEnableCacheFeature()
 	{
 		return $this->_mStrategy->isEnableCacheFeature();
@@ -1217,7 +1217,7 @@ class Xcore_Controller extends XCube_Controller
 	/**
 	 * Gets a value indicating wheter a cache file keeps life time. If
 	 * $cachetime is 0 or the specific cache file doesn't exist, gets false.
-	 * 
+	 *
 	 * @param string $filepath	a file path of the specific cache file.
 	 * @param int	 $cachetime cache active duration. (Sec)
 	 * @return bool
@@ -1227,20 +1227,20 @@ class Xcore_Controller extends XCube_Controller
 		if ($cachetime == 0) {
 			return false;
 		}
-		
+
 		if (!file_exists($filepath)) {
 			return false;
 		}
-		
+
 		return ((time() - filemtime($filepath)) <= $cachetime);
 	}
-	
+
 	/**
 	 * Save the content of $renderTarget to $filepath.
 	 * @param string $filepath a file path of the cache file.
 	 * @param XCube_RenderTarget $renderBuffer
 	 * @return bool success or failure.
-	 */ 
+	 */
 	function cacheRenderTarget($filepath, &$renderTarget)
 	{
 		$fp = fopen($filepath, 'wb');
@@ -1249,10 +1249,10 @@ class Xcore_Controller extends XCube_Controller
 			fclose($fp);
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	 * Loads $filepath and gets the content of the file.
 	 * @return string the content or null.
@@ -1262,19 +1262,19 @@ class Xcore_Controller extends XCube_Controller
 		if (file_exists($filepath)) {
 			return file_get_contents($filepath);
 		}
-		
+
 		return null;
 	}
-	
+
 	function &_createContext()
 	{
 		$context = new Xcore_HttpContext();
 		$request = new XCube_HttpRequest();
 		$context->setRequest($request);
-		
+
 		return $context;
 	}
-	
+
 	/**
 	 * Gets URL of preference editor by this controller.
 	 * @public
@@ -1289,7 +1289,7 @@ class Xcore_Controller extends XCube_Controller
 
 		return null;
 	}
-	
+
 	/**
 	 * Gets URL of help viewer by this controller.
 	 * @public
@@ -1315,14 +1315,14 @@ class Xcore_AbstractControllerStrategy
 	 * @var Xcore_Controller
 	 */
 	var $mController = null;
-	
+
 	var $mStatusFlag;
-	
+
 	function Xcore_AbstractControllerStrategy(&$controller)
 	{
 		$this->mController =& $controller;
 	}
-	
+
 	function _setupFilterChain()
 	{
 		$primaryPreloads = $this->mController->mRoot->getSiteConfig('Xcore.PrimaryPreloads');
@@ -1351,10 +1351,10 @@ class Xcore_AbstractControllerStrategy
 	 * Because Xcore_ModuleContext needs XoopsModule instance, this function
 	 * kills the process if XoopsModule instance can't be found. Plus, in the
 	 * case, raises 'Xcore.Event.Exception.XoopsModuleNotFound'.
-	 * 
+	 *
 	 * @param Xcore_HttpContext $context
 	 * @param string $dirname
-	 */ 
+	 */
 	function setupModuleContext(&$context, $dirname)
 	{
 		$handler = xoops_gethandler('module');
@@ -1365,11 +1365,11 @@ class Xcore_AbstractControllerStrategy
 			$this->mController->executeRedirect(XOOPS_URL . '/', 1, 'You can\'t access this URL.');	// TODO need message catalog.
 			die(); // need to response?
 		}
-		
+
 		$context->mModule =& Xcore_Utils::createModule($module);
 		$context->mXoopsModule =& $context->mModule->getXoopsModule();
 		$context->mModuleConfig = $context->mModule->getModuleConfig();
-		
+
 		//
 		// Load Roles
 		//
@@ -1379,7 +1379,7 @@ class Xcore_AbstractControllerStrategy
 	function setupBlock()
 	{
 	}
-	
+
 	function _processPreBlockFilter()
 	{
 		$this->mController->_processModulePreload('/preload');
@@ -1388,20 +1388,20 @@ class Xcore_AbstractControllerStrategy
 	/**
 	 * @return XoopsModule
 	 * @see Xcore_Controller::getVirtualCurrentModule()
-	 */ 
+	 */
 	function &getVirtualCurrentModule()
 	{
 		$ret = null;
 		return $ret;
 	}
-	
+
 	/**
 	 * Gets a value indicating whether the controller can use a cache mechanism.
-	 */ 
+	 */
 	function isEnableCacheFeature()
 	{
 	}
-	
+
 	/**
 	 * Gets a value indicating whether the current user can access to the current module.
 	 * @return bool
@@ -1409,7 +1409,7 @@ class Xcore_AbstractControllerStrategy
 	function enableAccess()
 	{
 	}
-	
+
 	function setupModuleLanguage()
 	{
 	}
