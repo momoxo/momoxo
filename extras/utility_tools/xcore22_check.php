@@ -3,8 +3,8 @@
 /**
  *
  * XOOPS Cube Legacy 2.2 Upgrade Checker
- * @copyright Copyright 2005-2010 XOOPS Cube Project  <https://github.com/momonga-project/momonga>
- * @license https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
+ * @copyright Copyright 2005-2010 XOOPS Cube Project  <https://github.com/momoxo/momoxo>
+ * @license https://github.com/momoxo/momoxo/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  * @usage Put this file on XOOPS_ROOT_PATH and access by your browser.
  */
 

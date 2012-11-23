@@ -9,11 +9,11 @@ ce qui fait de XOOPS Cube Legacy l'outil id�al pour le d�veloppement de peti
 dynamiques, portails intranet de soci�t�s, portails d'entreprise, blogs et beaucoup plus encore.
 </p>
 <p>
-XOOPS Cube est publi� sous les termes de la <a href='https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt' rel='external'>New BSD License</a> et libre d'utilisation et de modification.
+XOOPS Cube est publi� sous les termes de la <a href='https://github.com/momoxo/momoxo/blob/master/docs/bsd_licenses.txt' rel='external'>New BSD License</a> et libre d'utilisation et de modification.
 Il est librement redistribuable tant que vous vous soumettez aux termes de distribution New BSD License.
 </p>
 <p>
-XOOPS Cube Legacy est publi� sous les termes de la  <a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' rel='external'>GNU General Public License (GPL)</a> et libre d'utilisation et de modification.
+XOOPS Cube Legacy est publi� sous les termes de la  <a href='https://github.com/momoxo/momoxo/blob/master/docs/GPL_V2.txt' rel='external'>GNU General Public License (GPL)</a> et libre d'utilisation et de modification.
 Il est librement redistribuable tant que vous vous soumettez aux termes de distribution GPL.
 </p>
 <u><b>Conditions</b></u>

@@ -3,7 +3,7 @@
 // For composer
 require_once 'vendor/autoload.php';
 
-// For Momonga\Installer\*
+// For Momoxo\Installer\*
 spl_autoload_register(function($c) { @include_once strtr($c, '\\_', '//').'.php'; });
 
 /**

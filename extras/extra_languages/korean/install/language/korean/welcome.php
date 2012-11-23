@@ -9,11 +9,11 @@ $content =
 ª�� �ð����� ������..�׷��� ������ ���� Ŀ�´�Ƽ����Ʈ, ��Ʈ��ݿ� ��Ż����Ʈ, ��� ��Ż����Ʈ, �� ��α� ���� �ۼ��Ͻñ� ���ϽŴٸ� XOOPS Cube Legacy�� ������ ������ �� ���Դϴ�.
 </p>
 <p>
-XOOPS Cube�� ���̼����� <a href='https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt' rel='external'>New BSD License</a> �Դϴ�.
+XOOPS Cube�� ���̼����� <a href='https://github.com/momoxo/momoxo/blob/master/docs/bsd_licenses.txt' rel='external'>New BSD License</a> �Դϴ�.
 ���, �������� New BSD License�� ���ǳ�������� �����Ӱ� �̿�/����/������Ͻ� �� �ֽ��ϴ�
 </p>
 <p>
-XOOPS Cube Legacy�� ���̼����� <a href='https://github.com/momonga-project/momonga/blob/master/docs/GPL_V2.txt' rel='external'>GNU General Public License (GPL)</a> �Դϴ�.
+XOOPS Cube Legacy�� ���̼����� <a href='https://github.com/momoxo/momoxo/blob/master/docs/GPL_V2.txt' rel='external'>GNU General Public License (GPL)</a> �Դϴ�.
 ���, �������� GPL�� ���ǳ�������� �����Ӱ� �̿�/����/������Ͻ� �� �ֽ��ϴ�.
 </p>
 <u><b>�䱸���</b></u>

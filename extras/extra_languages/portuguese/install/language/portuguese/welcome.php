@@ -16,7 +16,7 @@
 $content = "<div style='text-align: left;'>
 <u><b>O que �?</b></u>
 XOOPS Cube � um sistema de publica��o gratuito para a cria��o de portais din�micos. � de c�digo livre, e concebido usando programa��o <a  href='http://www.php.net/' rel='homepage nofollow' title='PHP'>PHP</a> orientada a objetos (OO).
-O XOOPS Cube � ideal para a cria��o <i>sites</i> de not�cias, intranets, ou mesmo weblogs, de pequena a grande escala. O XOOPS Cube � distribuido sob os termos da <a href='http://pt.wikipedia.org/wiki/Licen�a_BSD' rel='external nofollow' target='_tab'>Nova Licen�a BSD</a>, o que prov� a liberdade de ser utilizado e modificado desde que sejam cumpridos os termos de distribui��o dessa <a href='https://github.com/momonga-project/momonga/blob/master/docs/bsd_licenses.txt' target='_tab'>licen�a</a>.
+O XOOPS Cube � ideal para a cria��o <i>sites</i> de not�cias, intranets, ou mesmo weblogs, de pequena a grande escala. O XOOPS Cube � distribuido sob os termos da <a href='http://pt.wikipedia.org/wiki/Licen�a_BSD' rel='external nofollow' target='_tab'>Nova Licen�a BSD</a>, o que prov� a liberdade de ser utilizado e modificado desde que sejam cumpridos os termos de distribui��o dessa <a href='https://github.com/momoxo/momoxo/blob/master/docs/bsd_licenses.txt' target='_tab'>licen�a</a>.
 
 <u><b>Requisitos:</b></u>
 <ul>

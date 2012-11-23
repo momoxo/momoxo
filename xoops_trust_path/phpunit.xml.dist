@@ -10,14 +10,14 @@
 		<includePath>./../html/install/src</includePath>
 		<!-- Don't change XOOPS_TEST_DB_*_DEFAULT here. See phpunit-bootstrap.php. -->
 		<server name="XOOPS_TEST_DB_HOST_DEFAULT" value="localhost"/>
-		<server name="XOOPS_TEST_DB_NAME_DEFAULT" value="momonga_test"/>
+		<server name="XOOPS_TEST_DB_NAME_DEFAULT" value="momoxo_test"/>
 		<server name="XOOPS_TEST_DB_USER_DEFAULT" value="root"/>
 		<server name="XOOPS_TEST_DB_PASS_DEFAULT" value="root"/>
 	</php>
 
 	<testsuites>
 		<testsuite name="PHPUnit">
-			<directory>../html/install/src/Momonga/Installer/Tests</directory>
+			<directory>../html/install/src/Momoxo/Installer/Tests</directory>
 			<directory>modules/*/Tests</directory>
 		</testsuite>
 	</testsuites>
@@ -44,7 +44,7 @@
 			<exclude>
 				<!-- <file>/path/to/file</file> -->
 				<!-- <directory suffix="Interface.php">modules</directory> -->
-				<directory>../html/install/src/Momonga/Installer/Tests</directory>
+				<directory>../html/install/src/Momoxo/Installer/Tests</directory>
 				<directory>modules/*/Tests</directory>
 			</exclude>
 		</whitelist>
