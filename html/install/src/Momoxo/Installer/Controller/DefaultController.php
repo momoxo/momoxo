@@ -12,6 +12,7 @@ use Momoxo\Installer\ValueObject\Site;
 use Momoxo\Installer\Form\ConfigurationForm;
 use Momoxo\Installer\Factory\SiteFactory;
 use Momoxo\Installer\HTTP\Request;
+use Momoxo\Installer\Service\SiteConstructionService;
 
 class DefaultController
 {
@@ -59,7 +60,7 @@ class DefaultController
 		$this->response = array_merge($this->response, $response);
 	}
 
-	public function inputAction()
+	private function inputAction()
 	{
 		$requirementTestResult = $this->_testRequirement();
 
@@ -82,11 +83,10 @@ class DefaultController
 			}
 
 			try {
-				$this->_createConfig($site);
-				$this->_createDatabase($site);
+				/** @var $service SiteConstructionService */
+				$service = $this->get('service.site_construction');
+				$service->construct($site);
 			} catch ( Exception $e ) {
-				// TODO >> drop tables
-				// TODO >> unlink config.php
 				$form->addError($e->getMessage());
 				goto input_page;
 			}
@@ -129,24 +129,12 @@ class DefaultController
 		return $dto;
 	}
 
+	/**
+	 * @param \Momoxo\Installer\ValueObject\Site $site
+	 * @return mixed
+	 */
 	private function _testDatabaseConnection(Site $site)
 	{
 		return $this->get('service.database_connection_test')->test($site->getDB());
-	}
-
-	private function _createConfig(Site $site)
-	{
-		$this->get('service.config_creation')->create($site);
-	}
-
-	private function _createDatabase(Site $site)
-	{
-		$service = $this->get('service.database_construction');
-		$service->construct(
-			$site->getDB(),
-			$site->getAdmin(),
-			$this->config->get('database.structure'),
-			$this->config->get('database.data')
-		);
 	}
 }
