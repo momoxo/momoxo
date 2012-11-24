@@ -18,7 +18,10 @@
 			$.post('{{ site.url }}', {
 				cube_module_install: 1,
 				uninstalled_modules: [
-					'xcore', 'user', 'profile', 'altsys', 'xupdate', 'message', 'protector'
+					'xcore', 'user', 'profile', 'altsys', 'xupdate'
+				],
+				option_modules: [
+					'message', 'protector'
 				]
 			}).success(function() {
 				location.href = '{{ site.url }}';
