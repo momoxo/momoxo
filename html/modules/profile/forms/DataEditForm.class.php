@@ -1,13 +1,4 @@
 <?php
-/**
- * @file
- * @package profile
- * @version $Id$
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_MODULE_PATH . "/xcore/class/Xcore_Validator.class.php";
 
 class Profile_DataEditForm extends XCube_ActionForm
 {
