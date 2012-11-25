@@ -4,7 +4,7 @@ class Xcore_MysqlDebugger extends Xcore_AbstractDebugger
 {
 	function prepare()
 	{
-		$GLOBALS['xoopsErrorHandler'] =& XoopsErrorHandler::getInstance();
+		$GLOBALS['xoopsErrorHandler'] = XoopsErrorHandler::getInstance();
 		$GLOBALS['xoopsErrorHandler']->activate(true);
 	}
 	
