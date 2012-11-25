@@ -22,6 +22,8 @@ $modversion['license'] = "GPL";
 $modversion['official'] = 0;
 $modversion['image']	   = 'images/module_icon.png';
 $modversion['dirname'] = "profile";
+// System Module
+$modversion['issystem'] = 1;
 
 $modversion['cube_style'] = true;
 $modversion['disable_xcore_2nd_installer'] = false;

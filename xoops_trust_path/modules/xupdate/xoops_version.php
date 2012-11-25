@@ -33,6 +33,8 @@ $modversion['official'] = 0;
 $modversion['image'] = 'module_icon.php';
 $modversion['dirname'] = $myDirName;
 $modversion['trust_dirname'] = $basename;
+// System Module
+$modversion['issystem'] = 1;
 
 $modversion['cube_style'] = true;
 $modversion['xcore_installer'] = array(
