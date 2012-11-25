@@ -28,6 +28,42 @@ function get_classes($filename)
 	return $classes;
 }
 
+function get_functions($filename)
+{
+	$functions  = array();
+	$contents = file_get_contents($filename);
+
+	$tokens = token_get_all($contents);
+
+	for ( $i = 0; $i < count($tokens); $i += 1 ) {
+
+		$token = $tokens[$i];
+
+		if ( is_array($token) and $token[0] === T_FUNCTION ) {
+
+			$functionName = null;
+
+			while ( true ) {
+				$i += 1;
+				$token = $tokens[$i];
+
+				if ( is_array($token) === false ) {
+					continue;
+				}
+
+				if ( $token[0] === T_STRING ) {
+					$functionName = $token[1];
+					break;
+				}
+			}
+
+			$functions[] = $functionName;
+		}
+	}
+
+	return $functions;
+}
+
 function get_constants($filename)
 {
 	$contents = file_get_contents($filename);
@@ -84,6 +120,7 @@ mkdir($buildDir);
 $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
 $classes = array();
 $constants = array();
+$functions = array();
 
 // Scan files
 foreach ($files as $file) {
@@ -98,17 +135,34 @@ foreach ($files as $file) {
 
 	$classes = array_merge($classes, get_classes($file->getPathname()));
 	$constants = array_merge($constants, get_constants($file->getPathname()));
+	$functions = array_merge($functions, get_functions($file->getPathname()));
 }
 
 // Load all files
+error_reporting(0);
 foreach ( $classes as $class => $file ) {
 	require_once $file;
 }
+error_reporting(-1);
 
 // Omit not declared constants
 foreach ( $constants as $constant => $declaration ) {
 	if ( defined($constant) === false ) {
 		unset($constants[$constant]);
+	}
+}
+
+// Omit not declared functions
+foreach ( $functions as $index => $function ) {
+	if ( function_exists($function) === false ) {
+		unset($functions[$index]);
+		continue;
+	}
+
+	$reflect = new ReflectionFunction($function);
+
+	if ( $reflect->isUserDefined() === false ) {
+		unset($functions[$index]);
 	}
 }
 
@@ -140,6 +194,21 @@ foreach ( $newClassFiles as $newClassFile => $classContent ) {
 	file_put_contents($buildDir.'/'.$newClassFile, $classContent);
 	echo "Create $buildDir/$newClassFile", PHP_EOL;
 }
+
+// Reflect all functions
+ob_start();
+echo '<?php',PHP_EOL,PHP_EOL;
+
+foreach ( $functions as $function ) {
+	$reflect = new ReflectionFunction($function);
+	echo ( $reflect->getDocComment() ) ? $reflect->getDocComment(). PHP_EOL : '';
+	echo file_get_contents_line_by_line($reflect->getFileName(), $reflect->getStartLine(), $reflect->getEndLine()), PHP_EOL;
+	echo PHP_EOL;
+}
+$contents = ob_get_clean();
+
+file_put_contents($buildDir.'/_functions.php', $contents);
+echo "Create $buildDir/_functions.php", PHP_EOL;
 
 // Create constants file
 $constantFileContents = '<?php'.PHP_EOL.PHP_EOL;
