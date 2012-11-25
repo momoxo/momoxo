@@ -2,7 +2,7 @@
 
 class Xcore_EventFunction
 {
-	function imageManager()
+	public static function imageManager()
 	{
 		$root =& XCube_Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
@@ -20,7 +20,7 @@ class Xcore_EventFunction
 		$root->mController->executeView();
 	}
 
-	function backend()
+	public static function backend()
 	{
 		$root =& XCube_Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
@@ -35,7 +35,7 @@ class Xcore_EventFunction
 		$root->mController->executeView();
 	}
 
-	function search()
+	public static function search()
 	{
 		$root =& XCube_Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
@@ -51,8 +51,8 @@ class Xcore_EventFunction
 		$root->mController->executeView();
 		
 	}
-	
-	function misc()
+
+	public static function misc()
 	{
 		$root =& XCube_Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
@@ -72,7 +72,7 @@ class Xcore_EventFunction
 		$root->mController->executeView();
 	}
 
-	function notifications()
+	public static function notifications()
 	{
 		$root =& XCube_Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
@@ -106,7 +106,7 @@ class Xcore_EventFunction
 	 * 
 	 * @param XCube_RenderBuffer $render
 	 */
-	function notifications_select(&$render)
+	public static function notifications_select(&$render)
 	{
 		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
 		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
@@ -178,7 +178,7 @@ class Xcore_EventFunction
 	 * 
 	 * @static
 	 */
-	function recountPost(&$posts, $xoopsUser)
+	public static function recountPost(&$posts, $xoopsUser)
 	{
 		$handler =& xoops_gethandler('comment');
 		$criteria =new Criteria('com_uid', $xoopsUser->get('uid'));

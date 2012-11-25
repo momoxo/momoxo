@@ -222,7 +222,7 @@ class Xcore_SearchService extends XCube_Service
 
 class Xcore_SearchUtils
 {
-    function getUserGroups()
+   public static function getUserGroups()
     {
         $root =& XCube_Root::getSingleton();
         $user =& $root->mController->mRoot->mContext->mXoopsUser;

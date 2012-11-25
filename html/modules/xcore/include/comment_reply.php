@@ -2,8 +2,6 @@
 
 require_once XOOPS_ROOT_PATH.'/header.php';
 
-require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
-
 //
 // Load message resource
 //

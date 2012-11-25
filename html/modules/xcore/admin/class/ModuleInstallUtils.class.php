@@ -763,7 +763,6 @@ class Xcore_ModuleInstallUtils
 		// Insert comment config by old style.
 		//
 		if ($module->getVar('hascomments') !=0 ) {
-			require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
 
 			$configInfos[] = array('name' => 'com_rule',
 			                         'title' => '_CM_COMRULES',

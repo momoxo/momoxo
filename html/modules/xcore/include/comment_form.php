@@ -3,7 +3,6 @@
 $com_modid = $xoopsModule->getVar('mid');
 
 $cform = new XoopsThemeForm(_CM_POSTCOMMENT, "commentform", 'comment_post.php');if (isset($xoopsModuleConfig['com_rule'])) {
-    include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
     switch ($xoopsModuleConfig['com_rule']) {
     case XOOPS_COMMENT_APPROVEALL:
         $rule_text = _CM_COMAPPROVEALL;
@@ -42,7 +41,6 @@ if (is_object($xoopsUser)) {
     if (false != $xoopsUser->isAdmin($com_modid)) {
         // show status change box when editing (comment id is not empty)
         if (!empty($com_id)) {
-            include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
             $status_select = new XoopsFormSelect(_CM_STATUS, 'com_status', $com_status);
             $status_select->addOptionArray(array(XOOPS_COMMENT_PENDING => _CM_PENDING, XOOPS_COMMENT_ACTIVE => _CM_ACTIVE, XOOPS_COMMENT_HIDDEN => _CM_HIDDEN));
             $cform->addElement($status_select);

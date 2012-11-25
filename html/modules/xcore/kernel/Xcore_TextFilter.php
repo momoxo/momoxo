@@ -202,7 +202,7 @@ class Xcore_TextFilter extends XCube_TextFilter
 	function getSmileys() {
 		if (count($this->mSmileys) == 0) {
 			$this->mSmileysConvTable[0] = $this->mSmileysConvTable[1] = array();
-			$db =& Database::getInstance();
+			$db = Database::getInstance();
 			if ($getsmiles = $db->query("SELECT * FROM ".$db->prefix("smiles"))){
 				while ($smile = $db->fetchArray($getsmiles)) {
 					$this->mSmileys[] = $smile;
@@ -259,7 +259,7 @@ class Xcore_TextFilter extends XCube_TextFilter
 		return $text;
 	}
 
-	function makeClickableConvertTable(&$patterns, &$replacements) {
+	public static function makeClickableConvertTable(&$patterns, &$replacements) {
 		// URI accept class ref. RFC 1738 (but not strict here)
 		$hpath = "[-_.!~*\'()a-z0-9;\/?:\@&=+\$,%#]+";
 		$patterns[] = "/(^|[^]_a-z0-9-=\"'\/])([a-z]+?):\/\/($hpath)/i";
@@ -319,11 +319,11 @@ class Xcore_TextFilter extends XCube_TextFilter
 		return $text;
 	}
 	
-	function makeXCodeCheckImgPatterns(&$patterns) {
+	public static function makeXCodeCheckImgPatterns(&$patterns) {
 		$patterns[] = "/\[img( align=\w+)]([^\"\(\)\?\&'<>]*)\[\/img\]/sU";
 	}
 
-	function makeXCodeConvertTable(&$patterns, &$replacements) {
+	public static function makeXCodeConvertTable(&$patterns, &$replacements) {
 		$patterns[] = "/\[siteurl\=(['\"]?)([^\"'<>]*)\\1\](.*)\[\/siteurl\]/sU";
 		$replacements[0][] = $replacements[1][] = '<a href="'.XOOPS_URL.'/\\2" rel="external">\\3</a>';
 		$patterns[] = "/\[url\=(['\"]?)(http[s]?:\/\/[^\"'<>]*)\\1\](.*)\[\/url\]/sU";
@@ -438,7 +438,7 @@ class Xcore_TextFilter extends XCube_TextFilter
 		return $text;
 	}
 	
-	function makePreXCodeConvertTable(&$patterns, &$replacements) {
+	public static function makePreXCodeConvertTable(&$patterns, &$replacements) {
 		$patterns[] = "/\[code\](.*)\[\/code\]/esU";
 		$replacements[] = "'[code]'.base64_encode('$1').'[/code]'";
 	}
@@ -476,7 +476,7 @@ class Xcore_TextFilter extends XCube_TextFilter
 		return $text;
 	}
 
-	function makePostXCodeConvertTable(&$patterns, &$replacements) {
+	public static function makePostXCodeConvertTable(&$patterns, &$replacements) {
 		$patterns[] = "/\[code\](.*)\[\/code\]/esU";
 		$replacements[0][] = "'<div class=\"xoopsCode\"><pre><code>'.Xcore_TextFilter::codeSanitizer('$1', 0).'</code></pre></div>'";
 		$replacements[1][] = "'<div class=\"xoopsCode\"><pre><code>'.Xcore_TextFilter::codeSanitizer('$1', 1).'</code></pre></div>'";

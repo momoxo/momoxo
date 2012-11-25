@@ -19,7 +19,7 @@ class UserInfoProtector extends XCube_ActionFilter
 			XCUBE_DELEGATE_PRIORITY_2);
 	}
 	
-	function rightCheck()
+	public static function rightCheck()
 	{
 		$root =& XCube_Root::getSingleton();
 		if (!$root->mContext->mUser->mIdentity->isAuthenticated()) {
@@ -33,5 +33,3 @@ class UserInfoProtector extends XCube_ActionFilter
 		}
 	}
 }
-
-?>

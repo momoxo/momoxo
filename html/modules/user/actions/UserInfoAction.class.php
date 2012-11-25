@@ -42,7 +42,7 @@ class User_UserInfoAction extends User_Action
 		return Xcore_Utils::getUserName(Xcore_Utils::getUid());
 	}
 
-	function prepare(&$controller, &$xoopsUser, $moduleConfig)
+	function prepare(&$controller, &$xoopsUser, &$moduleConfig)
 	{
 		$this->mSelfDelete = $moduleConfig['self_delete'];
 	}

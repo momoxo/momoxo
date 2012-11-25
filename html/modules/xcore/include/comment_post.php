@@ -3,8 +3,6 @@
 $t_root =& XCube_Root::getSingleton();
 $t_root->mLanguageManager->loadPageTypeMessageCatalog("comment");	///< @todo Is this must?
 
-include_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php';
-
 $com_id = isset($_POST['com_id']) ? (int)$_POST['com_id'] : 0;
 $extra_params = '';
 if ('system' == $xoopsModule->getVar('dirname')) {

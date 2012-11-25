@@ -11,7 +11,7 @@ class Xcore_NuSoapLoader extends XCube_ActionFilter
 	/**
 	 * @static
 	 */
-	function createClient(&$client, $service)
+	public static function createClient(&$client, $service)
 	{
 		if (is_object($client)) {
 			return;

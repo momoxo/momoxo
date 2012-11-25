@@ -626,8 +626,7 @@ class Xcore_ModinfoX2FileReader extends Xcore_AbstractModinfoReader
 	function _loadCommentPreferenceInfomations(&$modversion, &$collection)
 	{
 		if (isset($modversion['hasComments']) && $modversion['hasComments'] == true) {
-			require_once XOOPS_ROOT_PATH . "/modules/xcore/include/comment_constants.php";
-			
+
 			$comRule = array('name' => 'com_rule',
 			                 'title' => '_CM_COMRULES',
 			                 'description' => '',

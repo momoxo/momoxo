@@ -30,7 +30,7 @@ require_once XOOPS_TRUST_PATH.'/settings/definition.inc.php';
 
 require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/_constants.php'; // TODO >> これがなくても動くようにする
 require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/_functions.php'; // TODO >> これがなくても動くようにする
-
+require_once XOOPS_ROOT_PATH.'/modules/xcore/include/comment_constants.php'; // TODO >> これがなくても動くようにする
 //
 //@todo How does the system decide the main controller?
 //

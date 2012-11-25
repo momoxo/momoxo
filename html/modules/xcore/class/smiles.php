@@ -24,7 +24,7 @@ class XcoreSmilesHandler extends XoopsObjectGenericHandler
 	var $mPrimary = "id";
 	var $mClass = "XcoreSmilesObject";
 	
-	function delete(&$obj)
+	function delete(&$obj, $force = false)
 	{
 		@unlink(XOOPS_UPLOAD_PATH . "/" . $obj->get('smile_url'));
 		
