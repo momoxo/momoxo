@@ -243,6 +243,7 @@ return array(
     'MyTextSanitizer' => $baseDir . '/../html/class/MyTextSanitizer.php',
     'PHPMailer' => $baseDir . '/vendor/phpmailer/class.phpmailer.php',
     'POP3' => $baseDir . '/vendor/phpmailer/class.pop3.php',
+    'Profile_DefinitionsHandler' => $baseDir . '/../html/modules/profile/class/handler/Definitions.class.php',
     'RpcArrayHandler' => $baseDir . '/../html/class/RpcArrayHandler.php',
     'RpcBase64Handler' => $baseDir . '/../html/class/RpcBase64Handler.php',
     'RpcBooleanHandler' => $baseDir . '/../html/class/RpcBooleanHandler.php',
