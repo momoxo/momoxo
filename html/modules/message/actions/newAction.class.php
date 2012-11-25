@@ -88,7 +88,6 @@ class newAction extends AbstractAction
     if ( $setting->get('tomail') == 1 ) {
       $userhand = xoops_gethandler('user');
       $user = $userhand->get($this->mActionForm->fuid);
-      require_once XOOPS_ROOT_PATH.'/class/mail/phpmailer/class.phpmailer.php';
       require_once _MY_MODULE_PATH.'class/MyMailer.class.php';
       $mailer = new My_Mailer();
       $mailer->prepare();

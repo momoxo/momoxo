@@ -43,11 +43,6 @@
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /**
- * load the base class
- */
-require_once(XOOPS_ROOT_PATH.'/class/mail/phpmailer/class.phpmailer.php');
-
-/**
  * Mailer Class.
  * 
  * At the moment, this does nothing but send email through PHP's "mail()" function,

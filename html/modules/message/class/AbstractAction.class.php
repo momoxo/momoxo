@@ -98,7 +98,6 @@ abstract class AbstractAction
         }
       }
     } else {
-      require_once XOOPS_ROOT_PATH.'/class/mail/phpmailer/class.phpmailer.php';
       require_once _MY_MODULE_PATH.'class/MyMailer.class.php';
       $classname = 'My_Mailer';
     }

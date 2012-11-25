@@ -32,7 +32,7 @@ class My_Mailer extends PHPMailer
     }
     
     $this->Sender = $root->mContext->mXoopsConfig['adminmail'];
-    $this->SetLanguage(XCORE_MAIL_LANG, XOOPS_ROOT_PATH.'/class/mail/phpmailer/language/');
+    $this->SetLanguage(XCORE_MAIL_LANG, XOOPS_VENDOR_PATH.'/phpmailer/language/');
     $this->CharSet = XCORE_MAIL_CHAR;
     $this->Encoding = XCORE_MAIL_ENCO;
     
