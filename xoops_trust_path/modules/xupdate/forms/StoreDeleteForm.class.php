@@ -1,17 +1,4 @@
 <?php
-/**
- * @file
- * @package xupdate
- * @version $Id$
-**/
-
-if(!defined('XOOPS_ROOT_PATH'))
-{
-    exit;
-}
-
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/XCube_ActionForm.class.php';
-require_once XOOPS_MODULE_PATH . '/xcore/class/Xcore_Validator.class.php';
 
 /**
  * Xupdate_StoreDeleteForm

@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
-
 class User_GroupMemberEditForm extends XCube_ActionForm
 {
 	function getTokenName()

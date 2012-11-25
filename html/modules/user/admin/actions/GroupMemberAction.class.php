@@ -6,7 +6,6 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH."/modules/xcore/kernel/XCube_PageNavigator.class.php";
 require_once XOOPS_MODULE_PATH."/user/admin/forms/GroupMemberEditForm.class.php";
 
 if (!defined('USER_GROUPMEMBER_DEFAULT_PERPAGE')) {

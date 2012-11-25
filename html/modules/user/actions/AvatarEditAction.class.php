@@ -6,8 +6,6 @@
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_PageNavigator.class.php";
-
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractEditAction.class.php";
 require_once XOOPS_MODULE_PATH . "/user/forms/AvatarEditForm.class.php";
 require_once XOOPS_MODULE_PATH . "/user/forms/AvatarSelectForm.class.php";

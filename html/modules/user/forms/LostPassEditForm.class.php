@@ -1,12 +1,4 @@
 <?php
-/**
- * @package user
- * @version $Id: LostPassEditForm.class.php,v 1.2 2007/06/07 05:27:37 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
 
 class User_LostPassEditForm extends XCube_ActionForm
 {
@@ -32,5 +24,3 @@ class User_LostPassEditForm extends XCube_ActionForm
 		$this->mFieldProperties['email']->addMessage('email', _MD_USER_ERROR_EMAIL, _MD_USER_LANG_EMAIL);
 	}
 }
-
-?>

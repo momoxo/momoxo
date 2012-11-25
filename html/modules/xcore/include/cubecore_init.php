@@ -25,6 +25,12 @@ define("XCUBE_SITE_CUSTOM_FILE", XOOPS_TRUST_PATH . "/settings/site_custom.ini")
 define('XCUBE_SITE_CUSTOM_FILE_SALT', XOOPS_TRUST_PATH . '/settings/site_custom_' . XOOPS_SALT . '.ini');
 define("XCUBE_SITE_DIST_FILE", XOOPS_TRUST_PATH . "/settings/site_default.dist.ini"); // for CorePack
 
+require_once XOOPS_TRUST_PATH.'/settings/definition.inc.php';
+
+
+require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/_constants.php'; // TODO >> これがなくても動くようにする
+require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/_functions.php'; // TODO >> これがなくても動くようにする
+
 //
 //@todo How does the system decide the main controller?
 //

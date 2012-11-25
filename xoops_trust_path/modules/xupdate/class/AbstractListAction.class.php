@@ -1,16 +1,4 @@
 <?php
-/**
- * @file
- * @package xupdate
- * @version $Id$
-**/
-
-if(!defined('XOOPS_ROOT_PATH'))
-{
-    exit;
-}
-
-require_once XOOPS_ROOT_PATH . '/modules/xcore/kernel/XCube_PageNavigator.class.php';
 
 /**
  * Xupdate_AbstractListAction

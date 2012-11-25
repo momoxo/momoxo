@@ -1,12 +1,4 @@
 <?php
-/**
- * @package user
- * @version $Id: AvatarSelectForm.class.php,v 1.1 2007/05/15 02:34:20 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
 
 class User_AvatarSelectForm extends XCube_ActionForm
 {
@@ -68,5 +60,3 @@ class User_AvatarSelectForm extends XCube_ActionForm
 		}
 	}
 }
-
-?>

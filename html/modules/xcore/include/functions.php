@@ -568,34 +568,74 @@ function &getMailer()
  */
 function &xoops_gethandler($name, $optional = false )
 {
-    static $handlers=array();
-    $name = strtolower(trim($name));
-    if (isset($handlers[$name])) return $handlers[$name];
+	static $handlers = array();
+	$name = strtolower(trim($name));
+	if ( isset($handlers[$name]) ) {
+		return $handlers[$name];
+	}
 
-        //
-        // The following delegate is test at Alpha4-c.
-        //
-        $handler = null;
-        XCube_DelegateUtils::call('Xcore.Event.GetHandler', new XCube_Ref($handler), $name, $optional);
-        if ($handler) return $handlers[$name] =& $handler;
+	//
+	// The following delegate is test at Alpha4-c.
+	//
+	$handler = null;
+	XCube_DelegateUtils::call('Xcore.Event.GetHandler', new XCube_Ref($handler), $name, $optional);
+	if ( $handler ) {
+		return $handlers[$name] =& $handler;
+	}
+
+	// TODO >> このマップがなくてもロードできるようにする
+	$nameMap = array(
+		'avatar'         => 'XoopsAvatarHandler',
+		'block'          => 'XoopsBlockHandler',
+		'cachetime'      => 'XoopsCachetimeHandler',
+		'comment'        => 'XoopsCommentHandler',
+		'config'         => 'XoopsConfigHandler',
+		'configcategory' => 'XoopsConfigCategoryHandler',
+		'configitem'     => 'XoopsConfigItemHandler',
+		'configoption'   => 'XoopsConfigOptionHandler',
+		'group'          => 'XoopsGroupHandler',
+		'membership'     => 'XoopsMembershipHandler',
+		'groupperm'      => 'XoopsGroupPermHandler',
+		'handler'        => 'XoopsObjectGenericHandler',
+		'image'          => 'XoopsImageHandler',
+		'imagecategory'  => 'XoopsImagecategoryHandler',
+		'imageset'       => 'XoopsImagesetHandler',
+		'imagesetimg'    => 'XoopsImagesetimgHandler',
+		'member'         => 'XoopsMemberHandler',
+		'module'         => 'XoopsModuleHandler',
+		'notification'   => 'XoopsNotificationHandler',
+		'object'         => 'XoopsObjectHandler',
+		'online'         => 'XoopsOnlineHandler',
+		'privmessage'    => 'XoopsPrivmessageHandler',
+		'session'        => 'XoopsSessionHandler',
+		'subjecticon'    => 'XoopsSubjecticonHandler',
+		'timezone'       => 'XoopsTimezoneHandler',
+		'tplfile'        => 'XoopsTplfileHandler',
+		'tplset'         => 'XoopsTplsetHandler',
+		'user'           => 'XoopsUserHandler',
+	);
+
+	if ( isset($nameMap[$name]) and class_exists($nameMap[$name]) ) {
+		$class = $nameMap[$name];
+		$handlers[$name] = new $class($GLOBALS['xoopsDB']);
+		return $handlers[$name];
+	}
 
 	// internal Class handler exist
-        if (class_exists($class = 'Xoops'.ucfirst($name).'Handler')) {
-	    $handlers[$name] = $handler = new $class($GLOBALS['xoopsDB']);
-	    return $handler;
-        }
-	include_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/'.$name.'.php';
-	if (class_exists($class)) {
-	    $handlers[$name] = $handler = new $class($GLOBALS['xoopsDB']);
-	    return $handler;
-		}
+	$class = 'Xoops'.ucfirst($name).'Handler';
 
-    if (!$optional) {
-        trigger_error('Class <b>'.$class.'</b> does not exist<br />Handler Name: '.$name, E_USER_ERROR);
-    }
+	if ( class_exists($class) ) {
+		$handlers[$name] = new $class($GLOBALS['xoopsDB']);
+		return $handlers[$name];
+	}
 
-    $falseRet = false;
-    return $falseRet;
+	if ( !$optional ) {
+		throw new RuntimeException('Class "'.$class.'" does not exist. Handler Name: '.$name, E_USER_ERROR);
+	}
+
+	$falseRet = false;
+
+	return $falseRet;
 }
 
 function &xoops_getmodulehandler($name = null, $module_dir = null, $optional = false)

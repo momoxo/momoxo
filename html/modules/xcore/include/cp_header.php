@@ -21,7 +21,6 @@ if (!defined('XOOPS_CPFUNC_LOADED')) require_once XOOPS_ROOT_PATH . "/modules/xc
 //
 $root =& XCube_Root::getSingleton();
 
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/Xcore_AdminControllerStrategy.class.php";
 $strategy =new Xcore_AdminControllerStrategy($root->mController);
 
 $root->mController->setStrategy($strategy);

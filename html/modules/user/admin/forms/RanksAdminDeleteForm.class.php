@@ -1,12 +1,4 @@
 <?php
-/**
- * @package user
- * @version $Id: RanksAdminDeleteForm.class.php,v 1.2 2007/06/07 05:27:37 minahito Exp $
- */
-
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
 
 class User_RanksAdminDeleteForm extends XCube_ActionForm
 {

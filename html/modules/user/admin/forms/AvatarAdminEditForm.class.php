@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
-require_once XOOPS_ROOT_PATH . "/modules/xcore/kernel/XCube_ActionForm.class.php";
-
 class User_AvatarAdminEditForm extends XCube_ActionForm
 {
 	var $mOldFileName = null;
