@@ -30,11 +30,9 @@
 //  ------------------------------------------------------------------------ //
 
 require_once dirname(dirname(__FILE__)).'/class/AltsysBreadcrumbs.class.php' ;
-include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 
 	$xoopsOption['theme_use_smarty'] = 1;
 	// include Smarty template engine and initialize it
-	require_once XOOPS_ROOT_PATH.'/class/template.php';
 	$xoopsTpl = new XoopsTpl();
 	$xoopsTpl->xoops_setCaching(2);
 	if ($xoopsConfig['debug_mode'] == 3) {

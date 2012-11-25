@@ -28,6 +28,8 @@ define("XCUBE_SITE_DIST_FILE", XOOPS_TRUST_PATH . "/settings/site_default.dist.i
 require_once XOOPS_TRUST_PATH.'/settings/definition.inc.php';
 
 
+require_once XOOPS_ROOT_PATH.'/class/_constants.php'; // TODO >> これがなくても動くようにする
+require_once XOOPS_ROOT_PATH.'/class/_functions.php'; // TODO >> これがなくても動くようにする
 require_once XOOPS_ROOT_PATH.'/modules/xcore/class/_constants.php'; // TODO >> これがなくても動くようにする
 require_once XOOPS_ROOT_PATH.'/modules/xcore/class/_functions.php'; // TODO >> これがなくても動くようにする
 require_once XOOPS_ROOT_PATH.'/modules/xcore/kernel/_constants.php'; // TODO >> これがなくても動くようにする

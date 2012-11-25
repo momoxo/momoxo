@@ -500,7 +500,6 @@ function update_block($bid, $bside, $bweight, $bvisible, $btitle, $bcontent, $bc
 	}
 	$msg = _MD_A_MYBLOCKSADMIN_DBUPDATED;
 	if ($block->store() != false) {
-		include_once XOOPS_ROOT_PATH.'/class/template.php';
 		$xoopsTpl = new XoopsTpl();
 		$xoopsTpl->xoops_setCaching(2);
 		if ($block->getVar('template') != '') {
@@ -886,7 +885,6 @@ function form_edit( $bid , $mode = 'edit' )
 	//HACK by domifara
 	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$tpl->assign( 'xoops_cube_xcore' , true ) ;
-		include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
 	}else{
 		$tpl->assign( 'xoops_cube_xcore' , false ) ;
 	}

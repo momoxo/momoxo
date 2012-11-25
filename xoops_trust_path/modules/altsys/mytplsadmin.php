@@ -141,7 +141,6 @@ if( is_array( @$_POST['del_do'] ) ) foreach( $_POST['del_do'] as $tplset_from_tm
 	if( $tplset_from == 'default' && $target_dirname != '_custom' ) die( _MYTPLSADMIN_ERR_CANTREMOVEDEFAULT ) ;
 	if( empty( $_POST["{$tplset_from}_check"] ) ) die( _MYTPLSADMIN_ERR_NOTPLFILE ) ;
 
-	require_once XOOPS_ROOT_PATH.'/class/template.php' ;
 	$tpl = new XoopsTpl();
 	$tpl->force_compile = true;
 

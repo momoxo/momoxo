@@ -31,12 +31,6 @@
 
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
-require_once XOOPS_ROOT_PATH.'/class/xoopsform/formelement.php';
-require_once XOOPS_ROOT_PATH.'/class/xoopsform/formhidden.php';
-require_once XOOPS_ROOT_PATH.'/class/xoopsform/formbutton.php';
-require_once XOOPS_ROOT_PATH.'/class/xoopsform/formelementtray.php';
-require_once XOOPS_ROOT_PATH.'/class/xoopsform/form.php';
-
 /**
  * Renders a form for setting module specific group permissions
  *

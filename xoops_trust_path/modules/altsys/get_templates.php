@@ -19,11 +19,9 @@ if( $xoopsModule->getVar('dirname') != 'altsys' ) die( 'this page can be called 
 altsys_include_language_file( 'compilehookadmin' ) ;
 
 if( ! empty( $_POST['download_zip'] ) ) {
-	require_once XOOPS_ROOT_PATH.'/class/zipdownloader.php' ;
 	$downloader = new XoopsZipDownloader();
 	$do_download = true ;
 } else if( ! empty( $_POST['download_tgz'] ) ) {
-	require_once XOOPS_ROOT_PATH.'/class/tardownloader.php' ;
 	$downloader = new XoopsTarDownloader();
 	$do_download = true ;
 }

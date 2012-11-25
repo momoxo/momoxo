@@ -67,7 +67,6 @@ function altsys_onupdate_base( $module , $mydirname )
 					// generate compiled file
 					require_once XOOPS_TRUST_PATH.'/modules/altsys/include/altsys_functions.php' ;
 					altsys_clear_templates_c() ;
-					/*include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php' ;
 					if( ! xoops_template_touch( $tplid ) ) {
 						$msgs[] = '<span style="color:#ff0000;">ERROR: Failed compiling template <b>'.htmlspecialchars($mydirname.'_'.$file).'</b>.</span>';
 					} else {
@@ -78,8 +77,6 @@ function altsys_onupdate_base( $module , $mydirname )
 		}
 		closedir( $handler ) ;
 	}
-	include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php' ;
-	include_once XOOPS_ROOT_PATH.'/class/template.php' ;
 	xoops_template_clear_module_cache( $mid ) ;
 
 	return true ;

@@ -4,7 +4,7 @@ $mytrustdirname = basename( dirname( __FILE__ ) ) ;
 $mytrustdirpath = dirname( __FILE__ ) ;
 
 // environment
-require_once XOOPS_ROOT_PATH.'/class/template.php' ;
+
 $module_handler =& xoops_gethandler( 'module' ) ;
 $xoopsModule =& $module_handler->getByDirname( $mydirname ) ;
 $config_handler =& xoops_gethandler( 'config' ) ;

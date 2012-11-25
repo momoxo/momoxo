@@ -407,7 +407,6 @@ function redirect_header($url, $time = 3, $message = '', $addredirect = true)
         $url = XOOPS_URL;
     }
     if (!defined('XOOPS_CPFUNC_LOADED')) {
-        require_once XOOPS_ROOT_PATH.'/class/template.php';
         $xoopsTpl = new XoopsTpl();
         $xoopsTpl->assign('xoops_sitename', htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES));
         $xoopsTpl->assign('sitename', htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES));
@@ -550,7 +549,6 @@ function &getMailer()
 {
     global $xoopsConfig;
     $ret = null;
-    require_once XOOPS_ROOT_PATH.'/class/xoopsmailer.php';
     if ( file_exists(XOOPS_ROOT_PATH.'/language/'.$xoopsConfig['language'].'/xoopsmailerlocal.php') ) {
         require_once XOOPS_ROOT_PATH.'/language/'.$xoopsConfig['language'].'/xoopsmailerlocal.php';
         if ( class_exists('XoopsMailerLocal') ) {

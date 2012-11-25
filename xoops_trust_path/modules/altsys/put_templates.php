@@ -50,7 +50,6 @@ if( strtolower( substr( $orig_filename4check , -4 ) ) == '.zip' ) {
 } else if( substr( $orig_filename4check , -4 ) == '.tgz' || substr( $orig_filename4check , -7 ) == '.tar.gz' ) {
 
 	// tar.gz
-	require_once XOOPS_ROOT_PATH.'/class/class.tar.php' ;
 	$tar = new tar() ;
 	$tar->openTar( $_FILES['tplset_archive']['tmp_name'] ) ;
 	$files = array() ;

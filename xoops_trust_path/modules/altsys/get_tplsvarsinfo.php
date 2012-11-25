@@ -156,11 +156,9 @@ $snippet_format = '<?xml version="1.0" encoding="utf-8"?>
 
 
 if( ! empty( $_POST['as_dw_extension_zip'] ) ) {
-	require_once XOOPS_ROOT_PATH.'/class/zipdownloader.php' ;
 	$downloader = new XoopsZipDownloader();
 	$do_download = true ;
 } else if( ! empty( $_POST['as_dw_extension_tgz'] ) ) {
-	require_once XOOPS_ROOT_PATH.'/class/tardownloader.php' ;
 	$downloader = new XoopsTarDownloader();
 	$do_download = true ;
 }

@@ -30,7 +30,6 @@ function b_user_topusers_show($options)
 
 function b_user_topusers_edit($options)
 {
-    include_once XOOPS_ROOT_PATH.'/class/xoopslists.php';
     $inputtag = '<input type="text" name="options[]" value="'.intval($options[0]).'" />';
     $form = sprintf(_MB_USER_DISPLAY,$inputtag);
     $form .= '<br />'._MB_USER_DISPLAYA.'&nbsp;<input type="radio" id="options[]" name="options[]" value="1"';

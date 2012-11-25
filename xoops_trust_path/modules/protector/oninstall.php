@@ -29,13 +29,7 @@ function protector_oninstall_base( $module , $mydirname )
 	if( file_exists( $sql_file_path ) ) {
 		$ret[] = "SQL file found at <b>".htmlspecialchars($sql_file_path)."</b>.<br /> Creating tables...";
 
-		if( file_exists( XOOPS_ROOT_PATH.'/class/database/oldsqlutility.php' ) ) {
-			include_once XOOPS_ROOT_PATH.'/class/database/oldsqlutility.php' ;
-			$sqlutil = new OldSqlUtility ;
-		} else {
-			include_once XOOPS_ROOT_PATH.'/class/database/sqlutility.php' ;
-			$sqlutil = new SqlUtility ;
-		}
+		$sqlutil = new SqlUtility ;
 
 		$sql_query = trim( file_get_contents( $sql_file_path ) ) ;
 		$sqlutil->splitMySqlFile( $pieces , $sql_query ) ;
@@ -86,8 +80,6 @@ function protector_oninstall_base( $module , $mydirname )
 					$tplid = $tplfile->getVar( 'tpl_id' ) ;
 					$ret[] = 'Template <b>'.htmlspecialchars($mydirname.'_'.$file).'</b> added to the database. (ID: <b>'.$tplid.'</b>)<br />';
 					// generate compiled file
-					include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php' ;
-					include_once XOOPS_ROOT_PATH.'/class/template.php' ;
 					if( ! xoops_template_touch( $tplid ) ) {
 						$ret[] = '<span style="color:#ff0000;">ERROR: Failed compiling template <b>'.htmlspecialchars($mydirname.'_'.$file).'</b>.</span><br />';
 					} else {
@@ -98,8 +90,7 @@ function protector_oninstall_base( $module , $mydirname )
 		}
 		closedir( $handler ) ;
 	}
-	include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php' ;
-	include_once XOOPS_ROOT_PATH.'/class/template.php' ;
+
 	xoops_template_clear_module_cache( $mid ) ;
 
 	return true ;

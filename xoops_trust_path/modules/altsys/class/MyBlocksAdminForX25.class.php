@@ -238,7 +238,6 @@ function form_edit( $bid , $mode = 'edit' )
 	require_once XOOPS_TRUST_PATH.'/modules/altsys/class/D3Tpl.class.php' ;
 	$tpl = new D3Tpl() ;
 //dhtml
-	include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
 
 	if ($block_data['ctype']=='H' || empty($block_data['ctype'])){
 		$editor_configs=array();

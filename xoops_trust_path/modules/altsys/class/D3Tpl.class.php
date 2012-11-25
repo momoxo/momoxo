@@ -1,6 +1,5 @@
 <?php
 
-require_once XOOPS_ROOT_PATH.'/class/template.php' ;
 require_once XOOPS_TRUST_PATH.'/modules/altsys/include/altsys_functions.php' ;
 
 class D3Tpl extends XoopsTpl {

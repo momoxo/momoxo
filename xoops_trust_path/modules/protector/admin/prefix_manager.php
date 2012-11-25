@@ -137,13 +137,11 @@ if( ! empty( $_POST['copy'] ) && ! empty( $_POST['old_prefix'] ) ) {
 
 //by domifara for add action zip ,ta.gzdownload
 	if( ! empty( $_POST['download_zip'] ) ) {
-		require_once XOOPS_ROOT_PATH.'/class/zipdownloader.php' ;
 		$downloader = new XoopsZipDownloader();
 		$downloader->addFileData( $export_string , $sqlfile_name , time() ) ;
 		$downloader->download( $sqlfile_name , true ) ;
 		exit;
 	} else if( ! empty( $_POST['download_tgz'] ) ) {
-		require_once XOOPS_ROOT_PATH.'/class/tardownloader.php' ;
 		$downloader = new XoopsTarDownloader();
 		$downloader->addFileData( $export_string , $sqlfile_name , time() ) ;
 		$downloader->download( $sqlfile_name , true ) ;

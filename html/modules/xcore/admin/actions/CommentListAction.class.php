@@ -233,7 +233,6 @@ class Xcore_CommentListAction extends Xcore_AbstractListAction
 				}
 				    // get all comments posted later within the same thread
 				$thread_comments =& $comment_handler->getThread($comment->getVar('com_rootid'), $cid);
-			 	include_once XOOPS_ROOT_PATH.'/class/tree.php';
 				$xot = new XoopsObjectTree($thread_comments, 'com_id', 'com_pid', 'com_rootid');
 				$child_comments =& $xot->getFirstChild($cid);
 				 // now set new parent ID for direct child comments

@@ -494,10 +494,7 @@ class XoopsObject extends AbstractXoopsObject
      */
     function _loadFilters()
     {
-        //include_once XOOPS_ROOT_PATH.'/class/filters/filter.php';
-        //foreach ($this->_filters as $f) {
-        //	  include_once XOOPS_ROOT_PATH.'/class/filters/'.strtolower($f).'php';
-        //}
+
     }
 
     /**

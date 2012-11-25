@@ -133,17 +133,17 @@ foreach ($files as $file) {
 		continue;
 	}
 
+	echo "Found: ", $file->getPathname(), PHP_EOL;
+
 	$classes = array_merge($classes, get_classes($file->getPathname()));
 	$constants = array_merge($constants, get_constants($file->getPathname()));
 	$functions = array_merge($functions, get_functions($file->getPathname()));
 }
 
 // Load all files
-error_reporting(0);
 foreach ( $classes as $class => $file ) {
 	require_once $file;
 }
-error_reporting(-1);
 
 // Omit not declared constants
 foreach ( $constants as $constant => $declaration ) {

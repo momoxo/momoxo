@@ -33,7 +33,6 @@ if ($op == 'showmod') {
 	if ($count < 1) {
 		die( 'no configs' ) ;
 	}
-	include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
 	$form = new XoopsThemeForm( _MD_A_MYPREFERENCES_FORMTITLE , 'pref_form', 'index.php?mode=admin&lib=altsys&page=mypreferences&op=save');
 	$module_handler =& xoops_gethandler('module');
 	$module =& $module_handler->get($mod);
@@ -108,20 +107,16 @@ if ($op == 'showmod') {
 			$ele = new XoopsFormRadioYN($title, $config[$i]->getVar('conf_name'), $config[$i]->getConfValueForOutput(), _YES, _NO);
 			break;
 		case 'group':
-			include_once XOOPS_ROOT_PATH.'/class/xoopslists.php';
 			$ele = new XoopsFormSelectGroup($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput(), 1, false);
 			break;
 		case 'group_multi':
-			include_once XOOPS_ROOT_PATH.'/class/xoopslists.php';
 			$ele = new XoopsFormSelectGroup($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput(), 5, true);
 			break;
 		// RMV-NOTIFY: added 'user' and 'user_multi'
 		case 'user':
-			include_once XOOPS_ROOT_PATH.'/class/xoopslists.php';
 			$ele = new XoopsFormSelectUser($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput(), 1, false);
 			break;
 		case 'user_multi':
-			include_once XOOPS_ROOT_PATH.'/class/xoopslists.php';
 			$ele = new XoopsFormSelectUser($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput(), 5, true);
 			break;
 		case 'password':
@@ -170,7 +165,6 @@ if ($op == 'save') {
 	if ( ! $xoopsGTicket->check( true , 'mypreferences' ) ) {
 		redirect_header(XOOPS_URL.'/',3,$xoopsGTicket->getErrors());
 	}
-	require_once XOOPS_ROOT_PATH.'/class/template.php' ;
 	$xoopsTpl = new XoopsTpl();
 //HACK by domifara for new XOOPS and XCL etc.
 //old xoops
