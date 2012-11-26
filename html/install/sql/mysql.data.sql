@@ -220,3 +220,33 @@ INSERT INTO imgset_tplset_link VALUES (1,'default');
 #
 
 INSERT INTO `tplset` (`tplset_id`, `tplset_name`, `tplset_desc`, `tplset_credits`, `tplset_created`) VALUES (1,'default','XOOPS Cube Default Template Set','',1353120994);
+
+
+#
+# Dumping data for table `newblocks`
+#
+
+INSERT INTO `newblocks` (`bid`, `mid`, `func_num`, `options`, `name`, `title`, `content`, `side`, `weight`, `visible`, `block_type`, `c_type`, `isactive`, `dirname`, `func_file`, `show_func`, `edit_func`, `template`, `bcachetime`, `last_modified`) VALUES
+(1, 0, 0, '', 'カスタム(顔アイコン無効)', 'ようこそ、momoxoへ！', 'momoxoをインストールしていただきありがとうございます。\r\n\r\nmomoxoはXOOPS Cubeのディストリビューションで\r\n\r\nmo もっと ＋ mo もっと ＋ xo XOOPSを！\r\n\r\nを実現するために活動しています。\r\n\r\nnote:このカスタムブロックはサンプルです。内容や設定を変えたり、アンインストールしてあなたのサイトに最適な内容にすることが出来ます。\r\n\r\n-----------------------------\r\n☆デフォルト設定\r\n並び順：0\r\n表示サイド：中央ブロック-中央\r\nタイプ：自動フォーマット顔アイコン無効\r\n表示先のモジュール：トップページ\r\nアクセス権のあるグループ：サイト管理者、登録ユーザ、ゲスト\r\n-----------------------------', 5, 0, 1, 'C', 'T', 1, '', '', '', '', '', 0, 1353874792),
+(2, 0, 0, '', 'カスタム(PHP)', 'ログインしているあなたの情報', 'global $xoopsUser;\r\n\r\nif(isset($xoopsUser)){\r\n     echo ''uid:''.$xoopsUser->getVar(''uid'');\r\n     echo ''<br />name:''.$xoopsUser->getVar(''name'');\r\n     echo ''<br />uname:''.$xoopsUser->getVar(''uname'');\r\n} else {\r\n     echo ''あなたはゲストです'';\r\n}\r\n\r\n\r\n\r\n?>\r\n<div style="margin-top:10px;margin-bottom:10px">\r\nnote:このカスタムブロックはサンプルです。内容や設定を変えたり、アンインストールしてあなたのサイトに最適な内容にすることが出来ます。\r\n</div>\r\n\r\n<pre style="line-height:1.4em;">\r\n-----------------------------\r\n☆デフォルト設定\r\n並び順：10\r\n表示サイド：中央ブロック-左\r\nタイプ：PHPスクリプト\r\n表示先のモジュール：トップページ\r\nアクセス権のあるグループ：サイト管理者、登録ユーザ、ゲスト\r\n-----------------------------\r\n</pre>\r\n', 3, 10, 1, 'C', 'P', 1, '', '', '', '', '', 0, 1353878174),
+(3, 0, 0, '', 'カスタム(HTML)', 'HTMLサンプル', '<div style="margin-top:10px;border:1px #f00 dotted;padding:5px;background:#CCFFFF;">\r\n<div style="text-align:center;"><a href="{X_SITEURL}edituser.php">アカウント編集</a></div>\r\n<div style="font-size:0.7em;text-align:right;">＊ゲストの場合はTOPに戻ります</div>\r\n</div>\r\n\r\n\r\n\r\n<div style="margin-top:10px;margin-bottom:10px">\r\nnote:このカスタムブロックはサンプルです。内容や設定を変えたり、アンインストールしてあなたのサイトに最適な内容にすることが出来ます。\r\n</div>\r\n\r\n<pre style="line-height:1.4em;">\r\n-----------------------------\r\n☆デフォルト設定\r\n並び順：20\r\n表示サイド：中央ブロック-右\r\nタイプ：HTMLタグ\r\n表示先のモジュール：トップページ\r\nアクセス権のあるグループ：サイト管理者、登録ユーザ、ゲスト\r\n-----------------------------\r\n</pre>', 4, 20, 1, 'C', 'H', 1, '', '', '', '', '', 0, 1353878929);
+
+#
+# Dumping data for table `block_module_link`
+#
+
+INSERT INTO `block_module_link` (`block_id`, `module_id`) VALUES
+(3, -1),
+(2, -1),
+(1, -1);
+
+INSERT INTO `group_permission` (`gperm_groupid`, `gperm_itemid`, `gperm_modid`, `gperm_name`) VALUES
+(1, 1, 1, 'block_read'),
+(2, 1, 1, 'block_read'),
+(3, 1, 1, 'block_read'),
+(1, 2, 1, 'block_read'),
+(2, 2, 1, 'block_read'),
+(3, 2, 1, 'block_read'),
+(1, 3, 1, 'block_read'),
+(2, 3, 1, 'block_read'),
+(3, 3, 1, 'block_read');
