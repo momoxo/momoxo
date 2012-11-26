@@ -15,7 +15,7 @@
 			pass: '{{ site.admin.password }}',
 			xoops_login: 1
 		}).success(function() {
-			$.post('{{ site.url }}', {
+			$.post('{{ site.url }}/index.php', {
 				cube_module_install: 1,
 				uninstalled_modules: [
 					'xcore', 'user', 'profile', 'altsys', 'xupdate'
