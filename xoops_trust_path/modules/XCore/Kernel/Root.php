@@ -13,6 +13,7 @@ use XCube_TextFilter;
 use XCube_RoleManager;
 use XCube_HttpContext;
 use XCube_Session;
+use XCube_Ref;
 
 /**
  * @public
@@ -26,7 +27,7 @@ class Root
 {
 	/**
 	 * @public
-	 * @brief [READ ONLY] XCube_Controller
+	 * @var XCube_Controller
 	 */
 	var $mController = null;
 
