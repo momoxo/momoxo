@@ -35,7 +35,8 @@ if ( is_writable($_SERVER['argv'][1]) === false ) {
 	exit(1);
 }
 
-$contents = file_get_contents($_SERVER['argv'][1]);
-$useAppendedContents = auto_use($contents, $_SERVER['argv'][2]);
+$filename = $_SERVER['argv'][1];
 
-echo $useAppendedContents;
+$contents = file_get_contents($filename);
+$useAppendedContents = auto_use($contents, $_SERVER['argv'][2]);
+file_put_contents($filename, $useAppendedContents);
