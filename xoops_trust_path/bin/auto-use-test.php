@@ -59,6 +59,7 @@ $cases[4]['source'] = '<?php
 namespace Foo;
 
 use Foo\Bar\Baz;
+use Foo\Bar\Baz2;
 
 require "../../mainfile.php";
 ';
@@ -68,6 +69,7 @@ $cases[4]['expected'] = '<?php
 namespace Foo;
 
 use Foo\Bar\Baz;
+use Foo\Bar\Baz2;
 use XCore\Kernel\Root;
 
 require "../../mainfile.php";
@@ -134,6 +136,38 @@ require "../../mainfile.php";
 
 // ✄ - - - - - - - - - - - - - - - - - - - - - - - -
 
+
+$cases[7]['source'] = '<?php
+
+namespace Foo\Bar;
+
+use Foo\Bar\Baz;
+use Foo\Bar\Hoge;
+
+/**
+ * Comment
+ */
+class ClassName
+{
+}';
+
+$cases[7]['expected'] =  '<?php
+
+namespace Foo\Bar;
+
+use Foo\Bar\Baz;
+use Foo\Bar\Hoge;
+use XCore\Kernel\Root;
+
+/**
+ * Comment
+ */
+class ClassName
+{
+}';
+
+// ✄ - - - - - - - - - - - - - - - - - - - - - - - -
+
 class AutoNamespaceTest extends PHPUnit_Framework_TestCase
 {
 	public function test_auto_use()
@@ -160,12 +194,21 @@ class AutoNamespaceTest extends PHPUnit_Framework_TestCase
 		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
 	}
 
-	/**
-	 * @group now
-	 */
 	public function test_auto_use_5()
 	{
 		$case = $GLOBALS['cases'][5];
+		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+	}
+
+	public function test_auto_use_6()
+	{
+		$case = $GLOBALS['cases'][6];
+		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+	}
+
+	public function test_auto_use_7()
+	{
+		$case = $GLOBALS['cases'][7];
 		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
 	}
 }

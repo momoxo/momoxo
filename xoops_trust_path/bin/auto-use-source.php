@@ -32,6 +32,7 @@ function auto_use($sourceCode, $useClass)
 			if ( $token[0] === T_USE ) {
 				$skippingToEOL = true;
 				$foundUse = true;
+				$skipTokens = array_diff($skipTokens, array(T_COMMENT, T_DOC_COMMENT)); // ドックコメントなどの前で use するため。
 			}
 
 			// 最初の関数などに出くわしたら
@@ -42,6 +43,7 @@ function auto_use($sourceCode, $useClass)
 					}
 
 					$code .= sprintf("use %s;\n\n", $useClass);
+
 					$isUsed = true;
 				}
 			}
