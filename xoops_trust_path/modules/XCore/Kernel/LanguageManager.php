@@ -5,8 +5,8 @@ namespace XCore\Kernel;
 /**
  * This class manages resources of each languages. By requests of other
  * components, this class loads files, or checks the existence of the specified
- * resource, or composes filepath to access real files. And, it manages some
- * locale informations.
+ * resource, or composes file path to access real files. And, it manages some
+ * locale information.
  *
  * Rules about language are different at each bases. So it's important that a
  * base defines the sub class of this class if it can't use this class directly.
@@ -23,16 +23,19 @@ class LanguageManager
 	/**
 	 * @access protected
 	 * @var string
+	 * @todo 他のクラスが参照しているため protected にできない: getLanguage() を使わせる
 	 */
-	var $mLanguageName;
+	public $mLanguageName;
 
 	/**
-	 * @access protected
 	 * @var string
 	 */
-	var $mLocaleName;
+	protected $mLocaleName;
 
-	function __construct()
+	/**
+	 * Return new LanguageManager instance
+	 */
+	public function __construct()
 	{
 		$this->mLanguageName = $this->getFallbackLanguage();
 		$this->mLocaleName = $this->getFallbackLocale();
@@ -42,46 +45,42 @@ class LanguageManager
 	 * Normally, this member function is called soon, after constructor.
 	 * To follow the base, initialize.
 	 */
-	function prepare()
+	public function prepare()
 	{
 	}
 
 	/**
 	 * Set locale name.
-	 *
-	 * @param string $local locale name
+	 * @param string $locale locale name
 	 */
-	function setLocale($locale)
+	public function setLocale($locale)
 	{
-		$this->mLanguageName = $locale;
+		$this->mLanguageName = $locale; // @todo これはバグでは？ mLocaleName の間違い?
 	}
 
 	/**
 	 * Get locale name.
-	 *
 	 * @return string  locale name
 	 */
-	function getLocale()
+	public function getLocale()
 	{
-		return $this->mLanguageName;
+		return $this->mLanguageName; // @todo これはバグでは？ mLocaleName の間違い?
 	}
 
 	/**
 	 * Set language name.
-	 *
 	 * @param string $language language name
 	 */
-	function setLanguage($language)
+	public function setLanguage($language)
 	{
 		$this->mLanguageName = $language;
 	}
 
 	/**
 	 * Get language name.
-	 *
 	 * @return string  language name
 	 */
-	function getLanguage()
+	public function getLanguage()
 	{
 		return $this->mLanguageName;
 	}
@@ -89,106 +88,91 @@ class LanguageManager
 	/**
 	 * Load the global message catalog which is defined in the base module.
 	 */
-	function loadGlobalMessageCatalog()
+	public function loadGlobalMessageCatalog()
 	{
 	}
 
 	/**
-	 * Load the module message catalog which is defined in the specified
-	 * module.
-	 *
+	 * Load the module message catalog which is defined in the specified module.
 	 * @param string $moduleName A name of module.
 	 */
-	function loadModuleMessageCatalog($moduleName)
+	public function loadModuleMessageCatalog($moduleName)
 	{
 	}
 
 	/**
 	 * Load the theme message catalog which is defined in the specified module.
-	 *
 	 * @param string $themeName A name of theme.
 	 */
-	function loadThemeMessageCatalog($themeName)
+	public function loadThemeMessageCatalog($themeName)
 	{
 	}
 
 	/**
-	 * check the exstence of the specified file in the specified section.
-	 *
-	 * @access public
+	 * check the existence of the specified file in the specified section.
 	 * @param string $section  A name of section.
 	 * @param string $filename A name of file
 	 * @return bool
 	 */
-	function existFile($section, $filename)
+	public function existFile($section, $filename)
 	{
 	}
 
 	/**
 	 * Return the file path by the specified section and the specified file.
-	 *
-	 * @access public
 	 * @param string $section  A name of section.
 	 * @param string $filename A name of file
 	 * @return string
 	 */
-	function getFilepath($section, $filename)
+	public function getFilepath($section, $filename)
 	{
 	}
 
 	/**
 	 * Get file contents and return it.
-	 *
-	 * @access public
 	 * @param string $section  A name of section.
 	 * @param string $filename A name of file
 	 * @return string
 	 */
-	function loadTextFile($section, $filename)
+	public function loadTextFile($section, $filename)
 	{
 	}
 
 	/**
 	 * Return translated message.
-	 *
 	 * @param  string $word
 	 * @return string
-	 *
 	 * @note This member function is test.
 	 */
-	function translate($word)
+	public function translate($word)
 	{
 		return $word;
 	}
 
 	/**
 	 * Return default language name.
-	 *
-	 * @access protected
 	 * @return string
 	 */
-	function getFallbackLanguage()
+	protected function getFallbackLanguage()
 	{
 		return "eng";
 	}
 
 	/**
 	 * Return default locale name.
-	 *
-	 * @access protected
 	 * @return string
 	 */
-	function getFallbackLocale()
+	protected function getFallbackLocale()
 	{
 		return "EG";
 	}
 
-	function encodeUTF8($str)
+	public function encodeUTF8($str)
 	{
 		return $str;
 	}
 
-	function decodeUTF8($str)
+	public function decodeUTF8($str)
 	{
 		return $str;
 	}
