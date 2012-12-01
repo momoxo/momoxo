@@ -16,7 +16,7 @@ use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
 
 /**
- * The root object which collects exchangable managers.
+ * The root object which collects exchangeable managers.
  *
  * This class offers the access course same as global variable for a logic in old mechanism.
  * This class does not let you depend on a main controller class name
