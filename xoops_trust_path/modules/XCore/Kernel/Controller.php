@@ -6,7 +6,6 @@ use XCube_Delegate;
 use XCube_Ref;
 use XCube_ActionFilter;
 use XCube_Session;
-use XCube_AbstractPermissionProvider;
 use XCube_RoleManager;
 use XCube_HttpContext;
 use XCube_HttpRequest;
@@ -14,6 +13,7 @@ use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
+use XCore\Kernel\AbstractPermissionProvider;
 
 /**
  * Virtual or Actual front controller class.
@@ -410,7 +410,7 @@ class Controller
 
 	/**
 	 * Creates an instance of the permission manager and returns it.
-	 * @return XCube_AbstractPermissionProvider
+	 * @return AbstractPermissionProvider
 	 */
 	protected function &_createPermissionManager()
 	{

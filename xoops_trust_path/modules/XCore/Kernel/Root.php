@@ -3,7 +3,6 @@
 namespace XCore\Kernel;
 
 use RuntimeException;
-use XCube_AbstractPermissionProvider;
 use XCube_TextFilter;
 use XCube_RoleManager;
 use XCube_HttpContext;
@@ -14,6 +13,7 @@ use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
 use XCore\Kernel\RenderSystem;
+use XCore\Kernel\AbstractPermissionProvider;
 
 /**
  * The root object which collects exchangeable managers.
@@ -59,7 +59,7 @@ class Root
 
 	/**
 	 * @internal
-	 * @var XCube_AbstractPermissionProvider
+	 * @var AbstractPermissionProvider
 	 */
 	public $mPermissionManager;
 
