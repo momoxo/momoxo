@@ -6,7 +6,6 @@ use XCube_Delegate;
 use XCube_Ref;
 use XCube_ActionFilter;
 use XCube_Session;
-use XCube_RoleManager;
 use XCube_HttpContext;
 use XCube_HttpRequest;
 use XCore\Kernel\Root;
@@ -14,6 +13,7 @@ use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
 use XCore\Kernel\AbstractPermissionProvider;
+use XCore\Kernel\RoleManager;
 
 /**
  * Virtual or Actual front controller class.
@@ -426,7 +426,7 @@ class Controller
 
 	/**
 	 * Creates an instance of the role manager and returns it.
-	 * @return XCube_RoleManager
+	 * @return RoleManager
 	 */
 	protected function &_createRoleManager()
 	{

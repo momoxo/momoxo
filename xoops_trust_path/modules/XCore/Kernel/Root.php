@@ -4,7 +4,6 @@ namespace XCore\Kernel;
 
 use RuntimeException;
 use XCube_TextFilter;
-use XCube_RoleManager;
 use XCube_HttpContext;
 use XCube_Session;
 use XCube_Ref;
@@ -14,6 +13,7 @@ use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
 use XCore\Kernel\RenderSystem;
 use XCore\Kernel\AbstractPermissionProvider;
+use XCore\Kernel\RoleManager;
 
 /**
  * The root object which collects exchangeable managers.
@@ -65,7 +65,7 @@ class Root
 
 	/**
 	 * @readonly
-	 * @var XCube_RoleManager
+	 * @var RoleManager
 	 * @todo Let's implements!
 	 */
 	public $mRoleManager;
@@ -428,7 +428,7 @@ class Root
 
 	/**
 	 * Sets the role manager object.
-	 * @param XCube_RoleManager $manager
+	 * @param RoleManager $manager
 	 * @return void
 	 */
 	public function setRoleManager(&$manager)
