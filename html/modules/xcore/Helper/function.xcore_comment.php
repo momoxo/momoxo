@@ -17,6 +17,8 @@
  * Examples: {xcore_comment cDirname=tag dirname=news dataname=story data_id=3}
  * -------------------------------------------------------------
  */
+use XCore\Kernel\Root;
+
 function smarty_function_xcore_comment($params, &$smarty)
 {
 	$cDirname = $params['cDirname'];
@@ -43,7 +45,7 @@ function smarty_function_xcore_comment($params, &$smarty)
 	$render->setTemplateName($template);
 	$render->setAttribute('xcore_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
 	$render->setAttribute('comments', $comments);
-	XCube_Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
+	Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
 
 	echo $render->getResult();
 }

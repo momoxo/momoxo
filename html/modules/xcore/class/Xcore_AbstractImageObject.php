@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
 {
 	const IMAGE_TAG = '<img src="%s" width="%d" height="%d" alt="%s" />';
@@ -53,7 +55,7 @@ abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
 	    }
 	
 		//set image id
-	    $idName = XCube_Root::getSingleton()->mContext->mRequest->getRequest('xcore_image_id');
+	    $idName = Root::getSingleton()->mContext->mRequest->getRequest('xcore_image_id');
 	    if(! $this->get('image_id') && isset($idName[$num])){
 		    $this->set('image_id', $idName[$num]);
 		}
@@ -61,7 +63,7 @@ abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
 		$this->set('num', $num);
 	
 		//Should be delete ?
-		$isDeleted = XCube_Root::getSingleton()->mContext->mRequest->getRequest('xcore_image_delete');
+		$isDeleted = Root::getSingleton()->mContext->mRequest->getRequest('xcore_image_delete');
 		if($isDeleted[$num]){
 			$this->_mIsDeleted = true;
 		}
@@ -87,7 +89,7 @@ abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
 	public function getRandomFileName($prefix,$salt=null)
 	{
 		if (! isset($salt)) {
-			$root=&XCube_Root::getSingleton();
+			$root=&Root::getSingleton();
 			$salt = $root->getSiteConfig('Cube', 'Salt');
 		}
 		srand(microtime() *1000000);

@@ -1,12 +1,14 @@
 <?php
 
 // The next line is special fix for IE6.
+use XCore\Kernel\Root;
+
 session_cache_limiter('private_no_expire');
 
 define ('_XCORE_ALLOW_ACCESS_FROM_ANY_ADMINS_', true);
 
 require_once "../../../mainfile.php";
-$root =& XCube_Root::getSingleton();
+$root =& Root::getSingleton();
 unset($root->mContext->mXoopsModule);
 
 //

@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -196,7 +198,7 @@ class Xupdate_AssetManager
 
         if($type == 'handler')
         {
-            $root =& XCube_Root::getSingleton();
+            $root =& Root::getSingleton();
             $instance = new $className($root->mController->getDB(),$this->mDirname);
         }
         else

@@ -37,6 +37,8 @@
  * -------------------------------------------------------------
  */
 
+use XCore\Kernel\Root;
+
 define ('XOOPS_TEXTAREA_DEFID_PREFIX', 'xcore_xoopsform_');
 define ('XOOPS_TEXTAREA_DEFAULT_COLS', '50');
 define ('XOOPS_TEXTAREA_DEFAULT_ROWS', '5');
@@ -45,7 +47,7 @@ function smarty_function_xoops_textarea($params, &$smarty)
 {
 	static $textFilter;
 	if (!isset($textFilter)) {
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$textFilter = $root->getTextFilter();
 	}
 	if (isset($params['name'])) {

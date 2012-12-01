@@ -20,6 +20,8 @@
  * \par Abstract Class
  *    This class is an abstract class.
  */
+use XCore\Kernel\Root;
+
 class XCube_ActionFilter
 {
 	/**

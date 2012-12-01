@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_HtaccessViewAction extends Xcore_Action
 {
 	public function getDefaultView(&$controller, &$xoopsUser)
@@ -9,7 +11,7 @@ class Xcore_HtaccessViewAction extends Xcore_Action
 
 	public function executeViewSuccess(&$controller, &$xoopsUser, &$render)
 	{
-		XCube_Root::getSingleton()->mLanguageManager->loadGlobalMessageCatalog();
+		Root::getSingleton()->mLanguageManager->loadGlobalMessageCatalog();
 	
 		$render->setAttribute('xoops_module_path', XOOPS_MODULE_PATH);
 		$render->setAttribute('data_name', _REQUESTED_DATA_NAME);

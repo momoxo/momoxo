@@ -2,6 +2,8 @@
 /**
  * @author Marijuana
  */
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 function smarty_function_message_suggestlist($params, &$smarty)
 {
@@ -9,7 +11,7 @@ function smarty_function_message_suggestlist($params, &$smarty)
   $size = isset($params['size']) ? intval($params['size']) : 30;
   $username = isset($params['uname']) ? trim($params['uname']) : '';
   
-  $root = XCube_Root::getSingleton();
+  $root = Root::getSingleton();
   $db = $root->mController->getDB();
   
   $sql = "SELECT `uname` FROM `".$db->prefix('users')."` ";

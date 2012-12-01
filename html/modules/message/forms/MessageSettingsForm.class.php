@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class MessageSettingsForm extends XCube_ActionForm
 {
   public function __construct()
@@ -38,7 +40,7 @@ class MessageSettingsForm extends XCube_ActionForm
   
   public function update(&$obj)
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $obj->set('uid', $root->mContext->mXoopsUser->get('uid'));
     $obj->set('usepm', $this->get('usepm'));
     $obj->set('tomail', $this->get('tomail'));

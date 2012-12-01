@@ -14,6 +14,8 @@
  * the rule that you are forced.
  * 
  */
+use XCore\Kernel\Root;
+
 class XoopsSimpleObject extends AbstractXoopsObject
 {
 	public $mVars = array();
@@ -146,12 +148,12 @@ class XoopsSimpleObject extends AbstractXoopsObject
 				return $vars['value'];
 
 			case XOBJ_DTYPE_STRING:
-				$root =& XCube_Root::getSingleton();
+				$root =& Root::getSingleton();
 				$textFilter =& $root->getTextFilter();
 				return $textFilter->toShow($vars['value']);
 
 			case XOBJ_DTYPE_TEXT:
-				$root =& XCube_Root::getSingleton();
+				$root =& Root::getSingleton();
 				$textFilter =& $root->getTextFilter();
 				return $textFilter->toShowTarea($vars['value'], 0, 1, 1, 1, 1);
 		}
@@ -180,7 +182,7 @@ class XoopsSimpleObject extends AbstractXoopsObject
 	**/
 	public function getPurifiedHtml(/*** string ***/ $key, /*** string ***/ $encoding=null, /*** string ***/ $doctype=null)
 	{
-		$root = XCube_Root::getSingleton();
+		$root = Root::getSingleton();
 		$textFilter = $root->getTextFilter();
 		return $textFilter->purifyHtml($this->get($key), $encoding, $doctype);
 	}

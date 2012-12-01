@@ -1,8 +1,10 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
-$root = XCube_Root::getSingleton();
+$root = Root::getSingleton();
 // PM
 if ($root->mContext->mXoopsUser != null){
 	$url = null;

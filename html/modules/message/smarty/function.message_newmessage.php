@@ -2,6 +2,8 @@
 /**
  * @author Marijuana
  */
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 function smarty_function_message_newmessage($params, &$smarty)
 {
@@ -9,7 +11,7 @@ function smarty_function_message_newmessage($params, &$smarty)
   $open = isset($params['open']) ? trim($params['open']) : 'open_message_alert';
   
   $new_messages = false;
-  $root = XCube_Root::getSingleton();
+  $root = Root::getSingleton();
   if ($root->mContext->mUser->isInRole('Site.RegisteredUser')) {
     $modHand = xoops_getmodulehandler('inbox', 'message');
     $new_messages = $modHand->getCountUnreadByFromUid($root->mContext->mXoopsUser->get('uid'));

@@ -10,13 +10,15 @@
  * full-compatibility with XOOPS2.
  *
  */
+use XCore\Kernel\Root;
+
 include '../../../modules/xcore/include/cp_header.php';
 $modid = isset($_POST['modid']) ? intval($_POST['modid']) : 0;
 
 //
 // Load Message catalog
 //
-$root =& XCube_Root::getSingleton();
+$root =& Root::getSingleton();
 $root->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 
 // we dont want system module permissions to be changed here

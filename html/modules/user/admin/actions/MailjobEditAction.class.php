@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractEditAction.class.php";
 require_once XOOPS_MODULE_PATH . "/user/admin/forms/MailjobAdminEditForm.class.php";
 require_once XOOPS_MODULE_PATH . "/user/admin/forms/UserSearchFilterForm.class.php";
@@ -30,7 +32,7 @@ class User_MailjobEditAction extends User_AbstractEditAction
 		
 		$this->mFilter->fetch();
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mDelegateManager->add('Xcore.Event.Explaceholder.Get.UserPagenaviHidden', 'User_MailjobEditAction::renderHiddenControl');
 	}
 	

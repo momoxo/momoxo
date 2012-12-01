@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define('IMAGECATEGORY_SORT_KEY_IMGCAT_ID', 1);
 define('IMAGECATEGORY_SORT_KEY_IMGCAT_NAME', 2);
 define('IMAGECATEGORY_SORT_KEY_IMGCAT_MAXSIZE', 3);
@@ -40,7 +42,7 @@ class Xcore_ImagecategoryFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$imgcat_name = $root->mContext->mRequest->getRequest('imgcat_name');
 		$imgcat_display = $root->mContext->mRequest->getRequest('imgcat_display');
 		$imgcat_type = $root->mContext->mRequest->getRequest('imgcat_type');

@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class User_AbstractFilterForm
@@ -30,7 +32,7 @@ class User_AbstractFilterForm
 	
 	function fetchSort()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$this->mSort = intval($root->mContext->mRequest->getRequest('sort'));
 		
 		if (!isset($this->mSortKeys[abs($this->mSort)])) {

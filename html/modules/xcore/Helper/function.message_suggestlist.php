@@ -1,12 +1,14 @@
 <?php
 
+use XCore\Kernel\Root;
+
 function smarty_function_message_suggestlist($params, &$smarty)
 {
   $name = isset($params['name']) ? trim($params['name']) : 'uname';
   $size = isset($params['size']) ? intval($params['size']) : 30;
   $username = isset($params['uname']) ? trim($params['uname']) : '';
   
-  $root = XCube_Root::getSingleton();
+  $root = Root::getSingleton();
   $db = $root->mController->getDB();
   
   $sql = "SELECT `uname` FROM `".$db->prefix('users')."` ";

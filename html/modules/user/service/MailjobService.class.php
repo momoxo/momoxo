@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Mailjob_ArrayOfInt extends XCube_ObjectArray
@@ -33,7 +35,7 @@ class User_MailjobService extends XCube_Service
 	{
 		require_once XOOPS_MODULE_PATH . "/user/admin/forms/MailjobServiceEditForm.class.php";
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 	
 		$uidArr = $root->mContext->mRequest->getRequest('uidArr');
 	
@@ -72,33 +74,4 @@ class User_MailjobService extends XCube_Service
 	
 		return $obj->get('mailjob_id');
 	}
-/*
-	function sendMailjob()
-	{
-		$root =& XCube_Root::getSingleton();
-		$mailjob_id = intval($root->mContext->mRequest->getRequest('mailjob_id'));
-		$uid = intval($root->mContext->mRequest->getRequest('mailjob_id'));
-	
-		$handler =& xoops_getmodulehandler('mailjob', 'user');
-		$mailjobObj =& $handler->get($mailjjob_id);
-	
-		$userHandler =& xoops_gethandler('user');
-		$userObj =& $userHandler->get($uid);
-	
-		if ($mailjobObj->get('is_pm')) {
-			$mailjobObj->mSend->add(array(&$this, "sendPM"));
-		}
-
-		if ($mailjobObj->get('is_mail')) {
-			$mailjobObj->mSend->add(array(&$this, "sendMail"));
-		}
-
-		$mailjobObj->send($userObj);
-		
-		return $mailjobObj->loadUserCount();
-	}
-*/
 }
-
-
-?>

@@ -4,6 +4,8 @@
  * @version $Id: RegistMailBuilder.class.php,v 1.2 2007/06/07 05:27:37 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /***
@@ -72,7 +74,7 @@ class User_RegistUserActivateMailBuilder
 	 */
 	function setTemplate()
 	{
-		$root=&XCube_Root::getSingleton();
+		$root=&Root::getSingleton();
 		$language = $root->mContext->getXoopsConfig('language');
 		$this->mMailer->setTemplateDir(XOOPS_ROOT_PATH . '/modules/user/language/' . $language . '/mail_template/');
 		$this->mMailer->setTemplate('register.tpl');
@@ -118,7 +120,7 @@ class User_RegistUserAdminActivateMailBuilder extends User_RegistUserActivateMai
 {
 	function setTemplate()
 	{
-		$root=&XCube_Root::getSingleton();
+		$root=&Root::getSingleton();
 		$language = $root->mContext->getXoopsConfig('language');
 		$this->mMailer->setTemplateDir(XOOPS_ROOT_PATH . '/modules/user/language/' . $language . '/mail_template/');
 		$this->mMailer->setTemplate('adminactivate.tpl');
@@ -189,7 +191,7 @@ class User_RegistAdminCommitMailBuilder extends User_RegistUserActivateMailBuild
 {
 	function setTemplate()
 	{
-		$root=&XCube_Root::getSingleton();
+		$root=&Root::getSingleton();
 		$language = $root->mContext->getXoopsConfig('language');
 		$this->mMailer->setTemplateDir(XOOPS_ROOT_PATH . '/modules/user/language/' . $language . '/mail_template/');
 		$this->mMailer->setTemplate('activated.tpl');

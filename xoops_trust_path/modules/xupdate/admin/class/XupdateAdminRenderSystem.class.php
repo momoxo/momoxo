@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -150,7 +152,7 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
         {
             return $ret;
         }
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
     
         $module =& $root->mContext->mXoopsModule;
         $dirName = $root->mContext->mRequest->getRequest('dirname');

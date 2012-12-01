@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Message_Service extends XCube_Service
@@ -16,7 +18,7 @@ class Message_Service extends XCube_Service
   
   public function getPmInboxUrl()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $uid = $root->mContext->mRequest->getRequest('uid');
     
     if ($uid > 0) {
@@ -28,7 +30,7 @@ class Message_Service extends XCube_Service
   
   public function getPmliteUrl()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     
     $fromUid = $root->mContext->mRequest->getRequest('fromUid');
     $toUid = $root->mContext->mRequest->getRequest('toUid');
@@ -42,7 +44,7 @@ class Message_Service extends XCube_Service
   
   public function getCountUnreadPM()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $uid = $root->mContext->mRequest->getRequest('uid');
     
     if ($uid > 0) {

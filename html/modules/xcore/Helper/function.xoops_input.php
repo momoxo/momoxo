@@ -41,6 +41,8 @@
  * -------------------------------------------------------------
  */
 
+use XCore\Kernel\Root;
+
 define ('XOOPS_INPUT_DEFID_PREFIX', 'xcore_xoopsform_');
 
 function smarty_function_xoops_input($params, &$smarty)
@@ -51,7 +53,7 @@ function smarty_function_xoops_input($params, &$smarty)
 		//
 		static $textFilter;
 		if (!isset($textFilter)) {
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			$textFilter = $root->getTextFilter();
 		}
 		$name = trim($params['name']);

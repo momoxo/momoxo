@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit;
 
 class Emaillogin extends XCube_ActionFilter
@@ -15,7 +17,7 @@ class Emaillogin extends XCube_ActionFilter
   
   function checkLogin(&$xoopsUser)
   {
-    $root =& XCube_Root::getSingleton();
+    $root =& Root::getSingleton();
     if ($root->mContext->mUser->isInRole('Site.RegisteredUser')) {
       return;
     }

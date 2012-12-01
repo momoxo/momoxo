@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define('SMILES_SORT_KEY_ID', 1);
 define('SMILES_SORT_KEY_CODE', 2);
 define('SMILES_SORT_KEY_SMILE_URL', 3);
@@ -31,7 +33,7 @@ class Xcore_SmilesFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$code = $root->mContext->mRequest->getRequest('code');
 		$smile_url = $root->mContext->mRequest->getRequest('smile_url');
 		$emotion = $root->mContext->mRequest->getRequest('emotion');

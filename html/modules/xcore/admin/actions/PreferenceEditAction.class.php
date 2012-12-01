@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define("XCORE_PEREFERENCE_ID_GENERAL", 1);
 
 class Xcore_PreferenceEditAction extends Xcore_Action
@@ -277,7 +279,7 @@ class Xcore_PreferenceEditState extends Xcore_AbstractPreferenceEditState
 		}
 		
 		if( $this->_mMaster->mCategory->get('confcat_id') == XCORE_PEREFERENCE_ID_GENERAL) { //GIJ
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			if ($useMysession) {
 				$root->mSession->setParam($sessionName, $sessionExpire);
 			} else {
@@ -320,7 +322,7 @@ class Xcore_ModulePreferenceEditState extends Xcore_AbstractPreferenceEditState
 		//
 		// Load constants
 		//
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mLanguageManager->loadModinfoMessageCatalog($this->_mMaster->mModule->get('dirname'));
 		
 		$this->_mMaster->mPreparedFlag = true;

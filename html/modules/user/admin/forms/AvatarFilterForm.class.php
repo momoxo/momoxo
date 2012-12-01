@@ -4,6 +4,8 @@
  * @version $Id: AvatarFilterForm.class.php,v 1.1 2007/05/15 02:34:39 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractFilterForm.class.php";
@@ -47,7 +49,7 @@ class User_AvatarFilterForm extends User_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$avatar_display = $root->mContext->mRequest->getRequest('avatar_display');
 		$avatar_type = $root->mContext->mRequest->getRequest('avatar_type');
 		$option_field = $root->mContext->mRequest->getRequest('option_field');

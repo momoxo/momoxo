@@ -6,7 +6,9 @@
  * @version $Id$
 **/
 
-$root =& XCube_Root::getSingleton();
+use XCore\Kernel\Root;
+
+$root =& Root::getSingleton();
 
 $root->mController->executeHeader();
 $root->mController->execute();

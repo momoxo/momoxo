@@ -23,6 +23,8 @@ use XCube_Ref;
  * This class does not let you depend on a main controller class name
  * You must not succeed to this class.
  */
+use XCore\Kernel\Root;
+
 class Root
 {
 	/**
@@ -109,7 +111,7 @@ class Root
 	/**
 	 * @internal
 	 */
-	function XCube_Root()
+	function __construct()
 	{
 	}
 

@@ -9,6 +9,8 @@
  * enable the service logic to get values by the request object. After calls,
  * restores the original request object.
  */
+use XCore\Kernel\Root;
+
 class XCube_ServiceClient extends XCube_AbstractServiceClient
 {
 	function call($operation, $params)
@@ -20,7 +22,7 @@ class XCube_ServiceClient extends XCube_AbstractServiceClient
 			return null;
 		}
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$request_bak =& $root->mContext->mRequest;
 		unset($root->mContext->mRequest);
 		

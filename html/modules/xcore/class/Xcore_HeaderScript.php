@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_HeaderScript
 {
 	protected $_mType = 'google';
@@ -25,7 +27,7 @@ class Xcore_HeaderScript
 	**/
 	public function __construct()
 	{
-		$root = XCube_Root::getSingleton();
+		$root = Root::getSingleton();
 	
 		//setup jQuery library location
 		$this->_mCore = $this->_getRenderConfig('jquery_core');
@@ -230,7 +232,7 @@ class Xcore_HeaderScript
 	**/
 	protected function _loadGoogleJQueryLibrary()
 	{
-		$apiKey = XCube_Root::getSingleton()->getSiteConfig('jQuery', 'GoogleApiKey');
+		$apiKey = Root::getSingleton()->getSiteConfig('jQuery', 'GoogleApiKey');
 		$apiKey = (isset($apiKey)) ? '?key='.$apiKey : null;
 		return '<script type="text/javascript" src="//www.google.com/jsapi'.$apiKey.'"></script>
 <script type="text/javascript"><!--

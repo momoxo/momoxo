@@ -29,9 +29,11 @@
   *  $block.inbox_url ... Return url to access inbox of pm.
   *  $block.new_messages ... amount of unread messages.
   */
+use XCore\Kernel\Root;
+
 function b_xcore_usermenu_show()
 {
-    $root =& XCube_Root::getSingleton();
+    $root =& Root::getSingleton();
     $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
 
     if (is_object($xoopsUser)) {

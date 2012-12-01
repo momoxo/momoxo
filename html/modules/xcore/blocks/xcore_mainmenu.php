@@ -19,8 +19,10 @@
 //  This file has been modified for Legacy from XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
+use XCore\Kernel\Root;
+
 function b_xcore_mainmenu_show( $options ) {
-    $root =& XCube_Root::getSingleton();
+    $root =& Root::getSingleton();
     $xoopsModule =& $root->mContext->mXoopsModule;
     $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
     

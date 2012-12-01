@@ -18,6 +18,8 @@
  *     This is the candidate as new delegate style, which has foolish name to escape
  *     conflict with old XCube_Delegate. After replacing, we'll change all.
  */
+use XCore\Kernel\Root;
+
 class XCube_Delegate
 {
 	/**
@@ -110,7 +112,7 @@ class XCube_Delegate
 	 */
 	function register($delegateName)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		if ($root->mDelegateManager != null) {
 			$this->_mIsLazyRegister = false;
 			$this->_mLazyRegisterName = null;

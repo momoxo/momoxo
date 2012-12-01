@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
 if( ! defined( 'XOOPS_TRUST_PATH' ) || XOOPS_TRUST_PATH == '' ) {
@@ -43,7 +45,7 @@ class AltsysLangMgr_LanguageManager extends Xcore_LanguageManager
 	{
 		// read/check once (selected_theme)/language/(lang).php
 		if( ! $this->theme_lang_checked ) {
-			$root =& XCube_Root::getSingleton() ;
+			$root =& Root::getSingleton() ;
 			if( ! empty( $root->mContext->mXoopsConfig['theme_set'] ) ) {
 				$langdir = XOOPS_THEME_PATH.'/'.$root->mContext->mXoopsConfig['theme_set'].'/language' ;
 				if( file_exists( $langdir ) ) {

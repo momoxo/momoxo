@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -96,7 +98,7 @@ abstract class Xupdate_AbstractFilterForm
     **/
     protected function fetchSort()
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
 //fix pagenavi
 		$this->mNavi->setStart(intval($root->mContext->mRequest->getRequest($this->mNavi->mPrefix . 'start')));
 

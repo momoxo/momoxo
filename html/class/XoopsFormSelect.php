@@ -9,6 +9,8 @@
  * @author	    Kazumi Ono	<onokazu@xoops.org>
  * @copyright	copyright (c) 2000-2003 XOOPS.org
  */
+use XCore\Kernel\Root;
+
 class XoopsFormSelect extends XoopsFormElement {
 
 	/**
@@ -142,7 +144,7 @@ class XoopsFormSelect extends XoopsFormElement {
      * @return	string  HTML
 	 */
 	function render(){
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');

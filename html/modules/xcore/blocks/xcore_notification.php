@@ -19,12 +19,14 @@
 //  This file has been modified for Legacy from XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
+use XCore\Kernel\Root;
+
 function b_xcore_notification_show()
 {
     global $xoopsConfig, $xoopsUser, $xoopsModule;
     include_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 	
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 	
     // Notification must be enabled, and user must be logged in

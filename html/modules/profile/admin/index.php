@@ -6,11 +6,13 @@
  * @version $Id$
  */
 
+use XCore\Kernel\Root;
+
 require_once "../../../mainfile.php";
 require_once XOOPS_ROOT_PATH . "/header.php";
 require_once XOOPS_MODULE_PATH . "/profile/class/ActionFrame.class.php";
 
-$root =& XCube_Root::getSingleton();
+$root =& Root::getSingleton();
 $actionName = isset($_GET['action']) ? trim($_GET['action']) : NULL;	//"ProfileList";
 $moduleRunner = new Profile_ActionFrame(true);
 $moduleRunner->setActionName($actionName);

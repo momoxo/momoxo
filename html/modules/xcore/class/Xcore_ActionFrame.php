@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_ActionFrame
 {
 	var $mActionName = null;
@@ -34,7 +36,7 @@ class Xcore_ActionFrame
 		//
 		// Temp FIXME!
 		//
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mContext->setAttribute('actionName', $name);
 		$root->mContext->mModule->setAttribute('actionName', $name);
 	}

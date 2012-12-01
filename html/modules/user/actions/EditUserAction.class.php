@@ -4,6 +4,8 @@
  * @version $Id: EditUserAction.class.php,v 1.3 2007/12/22 17:54:05 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractEditAction.class.php";
@@ -29,7 +31,7 @@ class User_EditUserAction extends User_AbstractEditAction
 	
 	function _getId()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$uid = is_object($root->mContext->mXoopsUser) ? $root->mContext->mXoopsUser->get('uid') : 0;
 		
 		return isset($_REQUEST['uid']) ? intval(xoops_getrequest('uid')) : $uid;
@@ -143,12 +145,12 @@ class User_EditUserAction extends User_AbstractEditAction
 		//
 		// TODO Because abstract message catalog style is not decided, we load directly.
 		//
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 		require_once XOOPS_ROOT_PATH . "/modules/xcore/include/notification_constants.php";
 
 		// Check the PM service has been installed.
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$service =& $root->mServiceManager->getService('privateMessage');
 
 		$methodOptions = array();
@@ -172,7 +174,7 @@ class User_EditUserAction extends User_AbstractEditAction
 
 	protected function _setDatepicker()
 	{
-		$headerScript = XCube_Root::getSingleton()->mContext->getAttribute('headerScript');
+		$headerScript = Root::getSingleton()->mContext->getAttribute('headerScript');
 		$headerScript->addScript('$(".datepicker").each(function(){$(this).datepicker({dateFormat: "'._JSDATEPICKSTRING.'"});});');
 	}
 

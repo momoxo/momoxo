@@ -3,7 +3,9 @@
  * @license http://www.gnu.org/licenses/gpl.txt GNU GENERAL PUBLIC LICENSE Version 3
  * @author Marijuana
  */
- if (!defined('XOOPS_ROOT_PATH')) exit();
+ use XCore\Kernel\Root;
+
+if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH.'/modules/xcore/admin/class/ModuleInstaller.class.php';
 
@@ -39,7 +41,7 @@ class Message_myInstaller extends Xcore_ModuleInstaller
   
   function _processScript()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $db = $root->mController->getDB();
     
     /*

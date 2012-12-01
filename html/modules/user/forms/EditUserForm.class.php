@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/forms/AbstractUserEditForm.class.php";
@@ -186,7 +188,7 @@ class User_EditUserForm extends User_AbstractUserEditForm
 		$this->set('pass', null);
 		$this->set('vpass', null);
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$this->set('usercookie', empty($_COOKIE[$this->mConfig['usercookie']]) ? 0 : 1);
 	
 		XCube_DelegateUtils::call('Xcore_Profile.LoadActionForm', $this);

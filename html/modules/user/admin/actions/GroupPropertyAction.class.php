@@ -4,6 +4,8 @@
  * @version $Id: GroupPropertyAction.class.php,v 1.4 2007/06/29 03:23:14 nobunobu Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH."/user/admin/class/Permission.class.php";
@@ -36,7 +38,7 @@ class User_GroupPropertyAction extends User_Action
 			return USER_FRAME_VIEW_ERROR;
 		}
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mLanguageManager->loadModuleAdminMessageCatalog("system");
 		$root->mLanguageManager->loadModinfoMessageCatalog("system");
 

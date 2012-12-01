@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
 //
@@ -77,7 +79,7 @@ $menu_cache_file = XOOPS_TRUST_PATH.'/cache/theme_'.$theme_name.'_menus_'.SITE_S
 if( is_object( @$xoopsUser ) ) {
 	if (defined('XOOPS_CUBE_XCORE')) {
 		$url = null;
-		$root = XCube_Root::getSingleton();
+		$root = Root::getSingleton();
 		$service =& $root->mServiceManager->getService('privateMessage');
 		if ($service != null) {
 			$client =& $root->mServiceManager->createClient($service);

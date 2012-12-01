@@ -42,6 +42,8 @@
  * @param  int     $module_id  ID of the module  (default current module)
  * @return bool
  */
+use XCore\Kernel\Root;
+
 function notificationEnabled ($style, $module_id=null)
 {
 	if (isset($GLOBALS['xoopsModuleConfig']['notification_enabled'])) {
@@ -206,7 +208,7 @@ function &notificationEvents ($category_name, $enabled_only, $module_id=null)
 	}
 	
 
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 
 	// Insert comment info if applicable

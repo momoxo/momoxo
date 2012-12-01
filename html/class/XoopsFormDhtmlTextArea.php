@@ -9,6 +9,8 @@
  * @package     kernel
  * @subpackage  form
  */
+use XCore\Kernel\Root;
+
 class XoopsFormDhtmlTextArea extends XoopsFormTextArea
 {
     /**
@@ -41,7 +43,7 @@ class XoopsFormDhtmlTextArea extends XoopsFormTextArea
      */
     function render()
     {
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
@@ -69,7 +71,7 @@ class XoopsFormDhtmlTextArea extends XoopsFormTextArea
 		$handler =& xoops_getmodulehandler('smiles', 'xcore');
 		$smilesArr =& $handler->getObjects(new Criteria('display', 1));
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	

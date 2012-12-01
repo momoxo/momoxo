@@ -1,11 +1,13 @@
 <?php
 
+use XCore\Kernel\Root;
+
 require_once XOOPS_ROOT_PATH.'/header.php';
 
 //
 // Load message resource
 //
-$t_root =& XCube_Root::getSingleton();
+$t_root =& Root::getSingleton();
 
 $t_root->mLanguageManager->loadModuleMessageCatalog("xcore");
 $t_root->mLanguageManager->loadPageTypeMessageCatalog("comment");	///< @todo Is this must?

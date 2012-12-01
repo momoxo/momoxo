@@ -24,6 +24,8 @@
 //  along with this program; if not, write to the Free Software              //
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
+use XCore\Kernel\Root;
+
 define('XOOPS_CPFUNC_LOADED', 1);
 
 function xoops_cp_header()
@@ -33,7 +35,7 @@ function xoops_cp_header()
 	// Old modules may call this file from other admin directory.
 	// In this case, the controller does not have Admin Module Object.
 	//
-	$root=&XCube_Root::getSingleton();
+	$root=&Root::getSingleton();
 
 	$strategy =new Xcore_AdminControllerStrategy($root->mController);
 	

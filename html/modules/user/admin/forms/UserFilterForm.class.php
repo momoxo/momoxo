@@ -4,6 +4,8 @@
  * @version $Id: UserFilterForm.class.php,v 1.2 2007/06/07 05:27:37 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractFilterForm.class.php";
@@ -96,7 +98,7 @@ class User_UserFilterForm extends User_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$uid = $root->mContext->mRequest->getRequest('uid');
 		$email = $root->mContext->mRequest->getRequest('email');
 		$attachsig = $root->mContext->mRequest->getRequest('attachsig');

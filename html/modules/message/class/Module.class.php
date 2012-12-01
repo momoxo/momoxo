@@ -3,6 +3,8 @@
  * @license http://www.gnu.org/licenses/gpl.txt GNU GENERAL PUBLIC LICENSE Version 3
  * @author Marijuana
  */
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 class Message_Module extends Xcore_ModuleAdapter
 {
@@ -19,7 +21,7 @@ class Message_Module extends Xcore_ModuleAdapter
   public function getAdminIndex()
   {
     //return XOOPS_MODULE_URL.'/'.$this->mXoopsModule->get('dirname').'/admin/index.php';
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     return $root->mController->getPreferenceEditUrl($this->mXoopsModule);
   }
   
@@ -28,7 +30,7 @@ class Message_Module extends Xcore_ModuleAdapter
     if ($this->_mAdminMenuLoadedFlag) {
       return $this->mAdminMenu;
     }
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $this->mAdminMenu[] = array(
       'link' => $root->mController->getPreferenceEditUrl($this->mXoopsModule),
       'title' => _PREFERENCES,

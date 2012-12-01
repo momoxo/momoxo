@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_ModuleUninstaller
 {
 	/**
@@ -80,7 +82,7 @@ class Xcore_ModuleUninstaller
 	 */
 	function _uninstallTables()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$db =& $root->mController->getDB();
 
 		$dirname = $this->_mXoopsModule->get('dirname');

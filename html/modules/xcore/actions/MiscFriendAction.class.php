@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_MiscFriendAction extends Xcore_Action
 {
 	var $mActionForm = null;
@@ -31,7 +33,7 @@ class Xcore_MiscFriendAction extends Xcore_Action
 			return XCORE_FRAME_VIEW_INPUT;
 		}
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		$this->mMailer =& getMailer();
 		$this->mMailer->setTemplate("tellfriend.tpl");

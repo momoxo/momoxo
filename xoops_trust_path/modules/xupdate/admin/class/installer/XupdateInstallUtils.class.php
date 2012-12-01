@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -65,7 +67,7 @@ class Xupdate_InstallUtils
         }
     
         $scanner->parse();
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $db =& $root->mController->getDB();
     
         foreach($scanner->getSQL() as $sql)
@@ -99,7 +101,7 @@ class Xupdate_InstallUtils
         $scanner->parse();
         $sqls = $scanner->getSQL();
     
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
     
         $successFlag = true;
         foreach($sqls as $sql)

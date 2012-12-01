@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_SmartyDebugger extends Xcore_AbstractDebugger
 {
 	function prepare()
@@ -10,7 +12,7 @@ class Xcore_SmartyDebugger extends Xcore_AbstractDebugger
 	
 	function isDebugRenderSystem()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$user =& $root->mContext->mXoopsUser;
 		
 		return is_object($user) ? $user->isAdmin(0) : false;

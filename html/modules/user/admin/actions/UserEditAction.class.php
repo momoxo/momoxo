@@ -4,6 +4,8 @@
  * @version $Id: UserEditAction.class.php,v 1.2 2007/12/22 17:54:05 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractEditAction.class.php";
@@ -37,7 +39,7 @@ class User_UserEditAction extends User_AbstractEditAction
 		$this->mObject =& $this->mObjectHandler->get($id);
 		
 		if ($this->mObject == null && $this->isEnableCreate()) {
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			$this->mObject =& $this->mObjectHandler->create();
 			$this->mObject->set('timezone_offset', $root->mContext->getXoopsConfig('server_TZ'));
 		}
@@ -90,7 +92,7 @@ class User_UserEditAction extends User_AbstractEditAction
 		//
 		// TODO Because abstract message catalog style is not decided, we load directly.
 		//
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 		require_once XOOPS_ROOT_PATH . "/modules/xcore/include/notification_constants.php";
 		

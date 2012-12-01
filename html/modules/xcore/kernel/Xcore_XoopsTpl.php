@@ -5,6 +5,8 @@
  * 
  * Because XoopsTpl class may be used without Cube's boot, this is declared.
  */
+use XCore\Kernel\Root;
+
 class Xcore_XoopsTpl extends XoopsTpl
 {
 	/**
@@ -23,7 +25,7 @@ class Xcore_XoopsTpl extends XoopsTpl
 	function assign($tpl_var, $value = null)
 	{
 		if (is_array($tpl_var)){
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			$context = $root->mContext;
 			$reserve = $this->_mContextReserve;
 			foreach ($tpl_var as $key => $val) {
@@ -38,7 +40,7 @@ class Xcore_XoopsTpl extends XoopsTpl
 		else {
 			if ($tpl_var) {
 				if (isset($this->_mContextReserve[$tpl_var])) {
-					$root =& XCube_Root::getSingleton();
+					$root =& Root::getSingleton();
 					$root->mContext->setAttribute($this->_mContextReserve[$tpl_var], htmlspecialchars_decode($value));
 				}
 				$this->_tpl_vars[$tpl_var] = $value;
@@ -50,7 +52,7 @@ class Xcore_XoopsTpl extends XoopsTpl
 	{
 		if ($tpl_var != '') {
 			if (isset($this->_mContextReserve[$tpl_var])) {
-				$root =& XCube_Root::getSingleton();
+				$root =& Root::getSingleton();
 				$root->mContext->setAttribute($this->_mContextReserve[$tpl_var], htmlspecialchars_decode($value));
 			}
 			$this->_tpl_vars[$tpl_var] =& $value;
@@ -59,7 +61,7 @@ class Xcore_XoopsTpl extends XoopsTpl
 	
 	function &get_template_vars($name = null)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		if (!isset($name)) {
 			foreach ($this->_mContextReserve as $t_key => $t_value) {
 				if (isset($this->_mContextReserve[$t_value])) {

@@ -4,6 +4,8 @@
  * @brief The specific FILE-TYPE render-system.
  * @todo We depends on Xcore_RenderSystem that a add-in module defines. We must stop this situation.
  */
+use XCore\Kernel\Root;
+
 class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 {
 	var $mController;
@@ -106,7 +108,7 @@ class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 		//
 		// Check Theme or Fallback
 		//
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$theme = $root->mSiteConfig['Xcore']['Theme'];
 		
 		if (file_exists(XOOPS_ROOT_PATH.'/themes/'.$theme.'/admin_theme.html')) {

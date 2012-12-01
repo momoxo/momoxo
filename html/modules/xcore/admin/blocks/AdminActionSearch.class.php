@@ -8,6 +8,8 @@
  * 
  * @package xcore
  */
+use XCore\Kernel\Root;
+
 class Xcore_AdminActionSearch extends Xcore_AbstractBlockProcedure
 {
 	function getName()
@@ -36,7 +38,7 @@ class Xcore_AdminActionSearch extends Xcore_AbstractBlockProcedure
 		$render->setAttribute('xcore_module', 'xcore');
 		$render->setTemplateName('xcore_admin_block_actionsearch.html');
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem($this->getRenderSystemName());
 		
 		$renderSystem->renderBlock($render);

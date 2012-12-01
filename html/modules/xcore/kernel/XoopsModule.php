@@ -8,6 +8,8 @@
  * @author		Kazumi Ono	<onokazu@xoops.org>
  * @copyright	(c) 2000-2003 The Xoops Project - www.xoops.org
  */
+use XCore\Kernel\Root;
+
 class XoopsModule extends XoopsObject
 {
 	/**
@@ -204,7 +206,7 @@ class XoopsModule extends XoopsObject
 			return;
 		}
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mLanguageManager->loadModinfoMessageCatalog($dirname);
 		
 		if (file_exists(XOOPS_ROOT_PATH.'/modules/'.$dirname.'/xoops_version.php')) {

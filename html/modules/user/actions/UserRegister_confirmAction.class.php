@@ -4,6 +4,8 @@
  * @version $Id: UserRegister_confirmAction.class.php,v 1.3 2007/12/15 15:45:35 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/forms/UserConfirmForm.class.php";
@@ -39,7 +41,7 @@ class User_UserRegister_confirmAction extends User_Action
 
 	function execute(&$controller, &$xoopsUser)
 	{
-		if (XCube_Root::getSingleton()->mContext->mRequest->getRequest('_form_control_cancel') != null)
+		if (Root::getSingleton()->mContext->mRequest->getRequest('_form_control_cancel') != null)
 		{
 			return USER_FRAME_VIEW_CANCEL;
 		}

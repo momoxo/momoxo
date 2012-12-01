@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Profile_DataObj extends XCube_Object
@@ -140,7 +142,7 @@ class Profile_Service extends XCube_Service
 	{
 		$definitionsArr = array();
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$uid = ($root->mContext->mXoopsUser) ? $root->mContext->mXoopsUser->get('uid') : 0;
 	
 		//get parameters
@@ -198,7 +200,7 @@ class Profile_Service extends XCube_Service
 	 */
 	function getProfile()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$uid = $root->mContext->mRequest->getRequest('uid');
 		$handler =& xoops_getmodulehandler('data', 'profile');
 
@@ -218,7 +220,7 @@ class Profile_Service extends XCube_Service
 	{
 		$dataList = array();
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$field_name = $root->mContext->mRequest->getRequest('field_name');
 		$value = $root->mContext->mRequest->getRequest('value');
 	
@@ -238,7 +240,7 @@ class Profile_Service extends XCube_Service
 	 */
 	function setProfile()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$field_name = $root->mContext->mRequest->getRequest('field_name');
 		$value = $root->mContext->mRequest->getRequest('value');
 		$uid = $root->mContext->mRequest->getRequest('uid');
@@ -265,7 +267,7 @@ class Profile_Service extends XCube_Service
 	 */
 	function setProfiles()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$uid = $root->mContext->mRequest->getRequest('uid');
 	
 		$defHandler =& xoops_getmodulehandler('definitions', 'profile');

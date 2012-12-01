@@ -17,6 +17,8 @@
  * -------------------------------------------------------------
  */
  
+use XCore\Kernel\Root;
+
 function smarty_function_xcore_tree($params, &$smarty)
 {
 	$tree = $params['tree'];
@@ -32,7 +34,7 @@ function smarty_function_xcore_tree($params, &$smarty)
 	$render->setAttribute('tree', $tree);
 	$render->setAttribute('dirname', $dirname);
 	$render->setAttribute('className', $className);
-	XCube_Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
+	Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
 
 	echo $render->getResult();
 }

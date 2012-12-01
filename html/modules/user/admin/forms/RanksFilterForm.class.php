@@ -4,6 +4,8 @@
  * @version $Id: RanksFilterForm.class.php,v 1.1 2007/05/15 02:34:39 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractFilterForm.class.php";
@@ -39,7 +41,7 @@ class User_RanksFilterForm extends User_AbstractFilterForm
 	{
 		parent::fetch();
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$rank_special = $root->mContext->mRequest->getRequest('rank_special');
 		$option_field = $root->mContext->mRequest->getRequest('option_field');
 		$search = $root->mContext->mRequest->getRequest('search');	

@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 if ( !defined('XCORE_MAIL_LANG') ) {
   define('XCORE_MAIL_LANG', _LANGCODE);
@@ -20,7 +22,7 @@ class My_Mailer extends PHPMailer
   
   public function prepare()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $handler = xoops_gethandler('config');
     $xoopsMailerConfig = $handler->getConfigsByCat(XOOPS_CONF_MAILER);
     $this->reset();

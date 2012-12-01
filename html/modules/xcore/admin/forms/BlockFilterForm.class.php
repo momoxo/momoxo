@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define('NEWBLOCKS_SORT_KEY_BID', 1);
 define('NEWBLOCKS_SORT_KEY_MID', 2);
 define('NEWBLOCKS_SORT_KEY_FUNC_NUM', 3);
@@ -55,7 +57,7 @@ class Xcore_BlockFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$mid = $root->mContext->mRequest->getRequest('mid');
 		$side = $root->mContext->mRequest->getRequest('side');
 		$weight = $root->mContext->mRequest->getRequest('weight');

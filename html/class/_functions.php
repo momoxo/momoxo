@@ -14,6 +14,8 @@
  * @param int $errLine Line number on which error occurred
  * @return void
  */
+use XCore\Kernel\Root;
+
 function XoopsErrorHandler_HandleError($errNo, $errStr, $errFile, $errLine)
 {
     // NOTE: we only store relative pathnames
@@ -129,7 +131,7 @@ function xoops_template_clear_module_cache($mid)
 
 function head_process_xoopscomment_php()
 {
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	$root->mLanguageManager->loadPageTypeMessageCatalog('comment');
 }
 

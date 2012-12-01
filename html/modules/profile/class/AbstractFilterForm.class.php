@@ -5,6 +5,8 @@
  * @version $Id$
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Profile_AbstractFilterForm
@@ -63,7 +65,7 @@ class Profile_AbstractFilterForm
 	 */
 	function fetchSort()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$this->mSort = intval($root->mContext->mRequest->getRequest($this->mNavi->mPrefix . 'sort'));
 	
 		if (!isset($this->mSortKeys[abs($this->mSort)])) {

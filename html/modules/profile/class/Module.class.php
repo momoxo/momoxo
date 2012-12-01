@@ -5,6 +5,8 @@
  * @version $Id$
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/profile/class/AbstractAction.class.php";
@@ -37,7 +39,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	
 		XCube_DelegateUtils::call('Module.profile.Event.GetAssetManager', new XCube_Ref($this->mAssetManager));
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mController->mExecute->add(array(&$this, "execute"));
 	
 		//
@@ -160,7 +162,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	function doPermissionError()
 	{
 		XCube_DelegateUtils::call("Module.Profile.Event.Exception.Permission");
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mController->executeForward(XOOPS_URL);
 		return;
 	}
@@ -171,7 +173,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	function doActionNotFoundError()
 	{
 		XCube_DelegateUtils::call("Module.Profile.Event.Exception.ActionNotFound");
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mController->executeForward(XOOPS_URL);
 		return;
 	}
@@ -182,7 +184,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	function doPreparationError()
 	{
 		XCube_DelegateUtils::call("Module.Profile.Event.Exception.Preparation");
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mController->executeForward(XOOPS_URL);
 		return;
 	}

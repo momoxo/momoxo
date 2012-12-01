@@ -1,6 +1,8 @@
 <?php
 
-$t_root =& XCube_Root::getSingleton();
+use XCore\Kernel\Root;
+
+$t_root =& Root::getSingleton();
 $t_root->mLanguageManager->loadPageTypeMessageCatalog("comment");	///< @todo Is this must?
 
 $com_id = isset($_POST['com_id']) ? (int)$_POST['com_id'] : 0;

@@ -5,6 +5,8 @@
  * @version $Id$
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/profile/class/AbstractFilterForm.class.php";
@@ -53,7 +55,7 @@ class Profile_Admin_DefinitionsFilterForm extends Profile_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 	
 		if (($value = $root->mContext->mRequest->getRequest('field_id')) !== null) {
 			$this->mNavi->addExtra('field_id', $value);

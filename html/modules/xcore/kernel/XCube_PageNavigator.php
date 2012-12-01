@@ -5,6 +5,8 @@
  * --- sort, offset and limit --- semiautomatically. And, the base modules may
  * offer place holders which is able to connect with interfaces of this class.
  */
+use XCore\Kernel\Root;
+
 class XCube_PageNavigator
 {
 	/**
@@ -116,7 +118,7 @@ class XCube_PageNavigator
 	
 	function fetchNaviControl(&$navi)
 	{	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		$startKey = $navi->getStartKey();
 		$perpageKey = $navi->getPerpageKey();

@@ -4,6 +4,8 @@
  * @package xupdate
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit();
@@ -67,7 +69,7 @@ class Xupdate_NotifyBlock extends Xcore_BlockProcedure
     **/
     protected function _setupObject($dirname)
     {
-    	$root =& XCube_Root::getSingleton();
+    	$root =& Root::getSingleton();
     	$roleManager = new Xcore_RoleManager();
     	$roleManager->loadRolesByDirname($dirname);
     	if ($root->mContext->mUser->isInRole('Module.'.$dirname.'.Admin')) {
@@ -92,7 +94,7 @@ class Xupdate_NotifyBlock extends Xcore_BlockProcedure
         $result = '';
         
         // load data refrash image by JS
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $headerScript= $root->mContext->getAttribute('headerScript');
         $headerScript->addScript('var xupdateCheckImg=new Image();xupdateCheckImg.src="'.XOOPS_MODULE_URL.'/xupdate/admin/index.php?action=ModuleView&checkonly=1";');
         

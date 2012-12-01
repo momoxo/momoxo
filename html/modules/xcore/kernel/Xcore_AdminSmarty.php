@@ -6,6 +6,8 @@
  * @brief The special extended smarty class for Xcore_AdminRenderSystem.
  * This class extends Smarty to mediate the collision compiled file name.
  */
+use XCore\Kernel\Root;
+
 class Xcore_AdminSmarty extends Smarty
 {
 	var $mModulePrefix = null;
@@ -51,7 +53,7 @@ class Xcore_AdminSmarty extends Smarty
 	{
 		$_return = false;
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$theme = $root->mSiteConfig['Xcore']['Theme'];
 		$dirname = $this->mModulePrefix;
 		

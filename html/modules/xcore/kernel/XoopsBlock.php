@@ -8,6 +8,8 @@
  *
  * @package kernel
  **/
+use XCore\Kernel\Root;
+
 class XoopsBlock extends XoopsObject
 {
 	var $mBlockFlagMapping = array();
@@ -134,7 +136,7 @@ class XoopsBlock extends XoopsObject
             if ( !$show_func ) return $ret;
             // must get lang files b4 execution of the function
             if ( file_exists($path = XOOPS_ROOT_PATH.'/modules/'.($dirname = $this->getVar('dirname', 'N')).'/blocks/'.$this->getVar('func_file', 'N')) ) {
-                $root=&XCube_Root::getSingleton();
+                $root=&Root::getSingleton();
                 $root->mLanguageManager->loadBlockMessageCatalog($dirname);
 
                 require_once $path;
@@ -200,7 +202,7 @@ class XoopsBlock extends XoopsObject
                 return false;
             }
             if (file_exists($path = XOOPS_ROOT_PATH.'/modules/'.($dirname=$this->getVar('dirname', 'N')).'/blocks/'.$this->getVar('func_file', 'N'))) {
-				$root =& XCube_Root::getSingleton();
+				$root =& Root::getSingleton();
 				$root->mLanguageManager->loadBlockMessageCatalog($dirname);
 				
                 include_once $path;

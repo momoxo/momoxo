@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_ImageUploadForm extends XCube_ActionForm
 {
 	var $mOldFileName = null;
@@ -41,7 +43,7 @@ class Xcore_ImageUploadForm extends XCube_ActionForm
 			$this->addErrorMessage(_AD_XCORE_LANG_IMGCAT_WRONG);
 		}
 		else {
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			$xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
 			
 			$groups = array();

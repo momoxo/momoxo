@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 eval( ' function xoops_module_uninstall_'.$mydirname.'( $module ) { return altsys_onuninstall_base( $module , "'.$mydirname.'" ) ; } ' ) ;
 
 
@@ -13,7 +15,7 @@ function altsys_onuninstall_base( $module , $mydirname )
 
 	// for Cube 2.1
 	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mDelegateManager->add( 'Xcore.Admin.Event.ModuleUninstall.' . ucfirst($mydirname) . '.Success' , 'altsys_message_append_onuninstall' ) ;
 		$ret = array() ;
 	} else {

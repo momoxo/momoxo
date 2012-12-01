@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class MessageForm extends XCube_ActionForm
 {
   public $fuid = 0;
@@ -64,7 +66,7 @@ class MessageForm extends XCube_ActionForm
   public function getShow($name, $type = 'toShow')
   {
     if ( isset($this->mFormProperties[$name]) ) {
-      $root = XCube_Root::getSingleton();
+      $root = Root::getSingleton();
       $textFilter = $root->getTextFilter();
       return $textFilter->$type($this->mFormProperties[$name]->getValue(null));
     }
@@ -73,7 +75,7 @@ class MessageForm extends XCube_ActionForm
   
   public function update(&$obj)
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $obj->set('uid', $this->fuid);
     $obj->set('from_uid', $root->mContext->mXoopsUser->get('uid'));
     $obj->set('title', $this->get('title'));

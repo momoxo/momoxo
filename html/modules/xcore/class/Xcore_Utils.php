@@ -8,6 +8,8 @@
  * @license https://github.com/momoxo/momoxo/blob/master/docs/GPL_V2.txt GNU GENERAL PUBLIC LICENSE Version 2
  *
  */
+use XCore\Kernel\Root;
+
 class Xcore_Utils
 {
 	/***
@@ -19,7 +21,7 @@ class Xcore_Utils
 	 */
 	public static function checkSystemModules()
 	{
-		$root=&XCube_Root::getSingleton();
+		$root=&Root::getSingleton();
 		$systemModules = array_map('trim', explode(',', $root->getSiteConfig('Cube', 'SystemModules')));
 		$recommendedModules = array_map('trim', explode(',', $root->getSiteConfig('Cube', 'RecommendedModules')));
 		$moduleHandler =& xoops_gethandler('module');
@@ -139,7 +141,7 @@ class Xcore_Utils
 	 */
 	public static function raiseUserControlEvent()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		foreach (array_keys($_REQUEST) as $key) {
 			if (strpos($key, 'Xcore_Event_User_') === 0) {
 				$eventName = substr($key, 18);
@@ -179,7 +181,7 @@ class Xcore_Utils
 	**/
 	public static function getUid()
 	{
-		$root = XCube_Root::getSingleton();
+		$root = Root::getSingleton();
 		return ($root->mContext->mUser->isInRole('Site.RegisteredUser')) ? $root->mContext->mXoopsUser->get('uid') : 0;
 	}
 
@@ -283,7 +285,7 @@ class Xcore_Utils
 			$className = ucfirst($trustDirname) . '_' . ucfirst($name) . 'Handler';
 			self::_loadClassFile($path,$className);
 		
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			$instance = new $className($root->mController->getDB(),$dirname);
 			return $instance;
 		}
@@ -306,7 +308,7 @@ class Xcore_Utils
 	public static function renderUri(/*** string ***/ $dirname, /*** string ***/ $dataname=null, /*** int ***/ $data_id=0, /*** string ***/ $action=null, /*** string ***/ $query=null)
 	{
 		$uri = null;
-		if(XCube_Root::getSingleton()->mContext->getXoopsConfig('cool_uri')==true){
+		if(Root::getSingleton()->mContext->getXoopsConfig('cool_uri')==true){
 			if(isset($dataname)){
 				if($data_id>0){
 					if(isset($action)){

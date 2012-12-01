@@ -6,6 +6,8 @@
  * @license http://www.gnu.org/licenses/lgpl.txt GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
  */
 
+use XCore\Kernel\Root;
+
 class ShadeSoap_NusoapServer extends soap_server
 {
 	function invoke_method() {
@@ -99,7 +101,7 @@ class ShadeSoap_NusoapServer extends soap_server
 		//
 		// Insert CUBE CODE
 		//
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		// $root->mContext->mUser->setService(true);
 		$retValue = call_user_func_array($call_arg, array($root->mContext->mUser, $this->methodparams));
 		

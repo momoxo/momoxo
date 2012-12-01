@@ -19,6 +19,8 @@
  * Examples: {xcore_tag_cloud tDirname=tag dirname=news}
  * -------------------------------------------------------------
  */
+use XCore\Kernel\Root;
+
 function smarty_function_xcore_tag_cloud($params, &$smarty)
 {
 	$tDirname = $params['tDirname'];
@@ -47,7 +49,7 @@ function smarty_function_xcore_tag_cloud($params, &$smarty)
 	$render->setAttribute('dirname', $tDirname);
 	$render->setAttribute('cloud', $cloud);
 	$render->setAttribute('sizeArr', $sizeArr);
-	XCube_Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
+	Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
 
 	echo $render->getResult();
 }

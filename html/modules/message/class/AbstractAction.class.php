@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 define('_USE_XOOPSMAILER', false);
 
@@ -12,7 +14,7 @@ abstract class AbstractAction
   
   public function __construct()
   {
-    $this->root = XCube_Root::getSingleton();
+    $this->root = Root::getSingleton();
   }
   
   protected function setUrl($url)

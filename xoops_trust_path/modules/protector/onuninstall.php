@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 eval( ' function xoops_module_uninstall_'.$mydirname.'( $module ) { return protector_onuninstall_base( $module , "'.$mydirname.'" ) ; } ' ) ;
 
 
@@ -13,7 +15,7 @@ function protector_onuninstall_base( $module , $mydirname )
 
 	// for Cube 2.1
 	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mDelegateManager->add( 'Xcore.Admin.Event.ModuleUninstall.' . ucfirst($mydirname) . '.Success' , 'protector_message_append_onuninstall' ) ;
 		$ret = array() ;
 	} else {

@@ -11,13 +11,15 @@
  * -------------------------------------------------------------
  */
 
+use XCore\Kernel\Root;
+
 function smarty_resource_db_systemTpl($tpl_name)
 {
     // Replace Legacy System Template name to Legacy Module Template name
     static $patterns = null;
     static $replacements = null;
     if (!$patterns) {
-        $root=&XCube_Root::getSingleton();
+        $root=&Root::getSingleton();
         $systemTemplates = explode(',',$root->getSiteConfig('Xcore_RenderSystem','SystemTemplate',''));
         $prefix = $root->getSiteConfig('Xcore_RenderSystem','SystemTemplatePrefix','xcore');
         $patterns = preg_replace('/^\s*([^\s]*)\s*$/e', '"/".preg_quote("\1","/")."/"', $systemTemplates);
@@ -93,7 +95,7 @@ function smarty_resource_db_tplinfo($tpl_name, $smarty)
 		} else {
 			$theme_default = '';
 		}
-		$root = XCube_Root::getSingleton();
+		$root = Root::getSingleton();
 		if (! $resourceDiscoveryOrder = $root->getSiteConfig('Smarty', 'ResourceDiscoveryOrder')) {
 			$resourceDiscoveryOrder = 'Theme,ThemeD3,ThemeDefault,ThemeDefaultD3,DbTplSet';
 		}
@@ -166,7 +168,7 @@ function smarty_resource_db_tplinfo($tpl_name, $smarty)
 		return false;
 	}
 	//update template if admin user and new template file exists
-	if(XCube_Root::getSingleton()->mContext->mUser->isInRole('Site.Administrator') && $smarty->xoops_canUpdateFromFile()){
+	if(Root::getSingleton()->mContext->mUser->isInRole('Site.Administrator') && $smarty->xoops_canUpdateFromFile()){
 		Xcore_ResourcedbUtils::updateTemplate($tplObj[0]);
 	}
 	return $cache[$tpl_name] = $tplObj[0];
@@ -212,7 +214,7 @@ class Xcore_ResourcedbUtils
 			return $mytrustdirname;
 		}
 		else{
-			$root = XCube_Root::getSingleton();
+			$root = Root::getSingleton();
 			$handler = xoops_gethandler('module');
 			$module = $handler->getByDirname($dirname);
 			return ($module && ($trustDirname = $module->get('trust_dirname'))) ? $trustDirname : null;

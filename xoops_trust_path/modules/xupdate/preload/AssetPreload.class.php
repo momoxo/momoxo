@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -50,7 +52,7 @@ class Xupdate_AssetPreloadBase extends XCube_ActionFilter
     **/
     public static function _setup($dirname)
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $instance = new self($root->mController);
         $instance->mDirname = $dirname;
         $root->mController->addActionFilter($instance);
@@ -216,7 +218,7 @@ class Xupdate_Block extends Xcore_AbstractBlockProcedure
 		$result = '';
 		
 		// load data refrash image by JS
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$headerScript= $root->mContext->getAttribute('headerScript');
 		$headerScript->addScript('var xupdateCheckImg=new Image();xupdateCheckImg.src="'.XOOPS_MODULE_URL.'/xupdate/admin/index.php?action=ModuleView&checkonly=1";');
 		

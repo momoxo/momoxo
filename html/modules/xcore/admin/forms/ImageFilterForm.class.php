@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define('IMAGE_SORT_KEY_IMAGE_ID', 1);
 define('IMAGE_SORT_KEY_IMAGE_NAME', 2);
 define('IMAGE_SORT_KEY_IMAGE_NICENAME', 3);
@@ -38,7 +40,7 @@ class Xcore_ImageFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$image_display = $root->mContext->mRequest->getRequest('image_display');
 		$imgcat_id = $root->mContext->mRequest->getRequest('imgcat_id');
 		$option_field = $root->mContext->mRequest->getRequest('option_field');

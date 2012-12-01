@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 {
 	var $_mMilestone = array(
@@ -120,7 +122,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 	 */
 	function _extendConfigTitleSize()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$db =& $root->mController->getDB();
 		$table = $db->prefix('config');
 	
@@ -138,7 +140,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 
 	function _setUniqueToGroupUserLink()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$db =& $root->mController->getDB();
 		$table = $db->prefix('groups_users_link');
 		
@@ -177,7 +179,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 	 */
 	function _recoverXoopsGroupPermission()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$db =& $root->mController->getDB();
 		
 		$permTable = $db->prefix('group_permission');

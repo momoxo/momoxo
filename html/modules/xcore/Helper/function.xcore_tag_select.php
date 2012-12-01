@@ -20,6 +20,8 @@
  * Examples: {xcore_tag_select tDirname=tag dirname=news tags=$tags}
  * -------------------------------------------------------------
  */
+use XCore\Kernel\Root;
+
 function smarty_function_xcore_tag_select($params, &$smarty)
 {
 	$tDirname = $params['tDirname'];
@@ -44,7 +46,7 @@ function smarty_function_xcore_tag_select($params, &$smarty)
 	$render->setAttribute('xcore_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
 	$render->setAttribute('cloud', $cloud);
 	$render->setAttribute('tags', $tags);
-	XCube_Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
+	Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
 
 	echo $render->getResult();
 }

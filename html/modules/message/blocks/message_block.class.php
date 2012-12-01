@@ -4,6 +4,8 @@
  * @author Marijuana
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 class Message_Block extends Xcore_BlockProcedure
 {
@@ -23,13 +25,13 @@ class Message_Block extends Xcore_BlockProcedure
 
   public function isDisplay()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     return $root->mContext->mUser->isInRole('Site.RegisteredUser');
   }
   
   public function execute()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $root->mLanguageManager->loadModinfoMessageCatalog(basename(dirname(dirname(__FILE__))));
     $root->mLanguageManager->loadModuleMessageCatalog(basename(dirname(dirname(__FILE__))));
     

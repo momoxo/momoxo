@@ -3,6 +3,8 @@
 /**
  * This is an exmine class for mail.
  */
+use XCore\Kernel\Root;
+
 class Xcore_Mailer extends PHPMailer
 {
 	/**
@@ -18,7 +20,7 @@ class Xcore_Mailer extends PHPMailer
 	
 	function prepare()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		$handler =& xoops_gethandler('config');
 		$xoopsMailerConfig =& $handler->getConfigsByCat(XOOPS_CONF_MAILER);

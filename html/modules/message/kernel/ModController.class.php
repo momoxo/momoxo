@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 require_once _MY_MODULE_PATH.'class/AbstractAction.class.php';
 
@@ -8,7 +10,7 @@ class ModController
   
   public function __construct()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $this->act = $root->mContext->mRequest->getRequest('action');
     if ( $this->act == "" ) {
       $this->act = 'index';

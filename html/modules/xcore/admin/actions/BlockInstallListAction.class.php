@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_BlockInstallListAction extends Xcore_AbstractListAction
 {
 
@@ -15,7 +17,7 @@ class Xcore_BlockInstallListAction extends Xcore_AbstractListAction
 	{
 		$navi =new XCube_PageNavigator($this->_getBaseUrl(), XCUBE_PAGENAVI_START | XCUBE_PAGENAVI_PERPAGE);
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$perpage = $root->mContext->mRequest->getRequest($navi->mPrefix.'perpage');
 
 		if (isset($perpage) && intval($perpage) == 0) { 	

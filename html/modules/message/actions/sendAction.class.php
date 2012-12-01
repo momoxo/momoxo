@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 require _MY_MODULE_PATH.'kernel/MyPageNavi.class.php';
 
@@ -69,7 +71,7 @@ class sendAction extends AbstractAction
   
   public function executeView(&$render)
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $render->setTemplateName('message_outboxlist.html');
     $render->setAttribute('ListData', $this->listdata);
     $render->setAttribute('pageNavi', $this->mPagenavi->mNavi);

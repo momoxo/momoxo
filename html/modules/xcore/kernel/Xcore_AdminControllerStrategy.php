@@ -3,6 +3,8 @@
 /**
  * @internal
  */
+use XCore\Kernel\Root;
+
 class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 {
 	var $mStatusFlag = XCORE_CONTROLLER_STATE_ADMIN;
@@ -160,7 +162,7 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 	
 	function setupModuleLanguage()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		$root->mContext->mXoopsModule->loadInfo($root->mContext->mXoopsModule->get('dirname'));
 		

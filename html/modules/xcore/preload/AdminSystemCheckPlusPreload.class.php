@@ -11,6 +11,8 @@
 
 //you can determine which should be displayed!
 //display(1) or not display(0): Welcome message
+use XCore\Kernel\Root;
+
 if (!defined('XC_ADMINSYSTEMCHECK_WELCOME')) define('XC_ADMINSYSTEMCHECK_WELCOME', 1);
 //display(1) or not display(0): Site/System Info
 if (!defined('XC_ADMINSYSTEMCHECK_SYSTEMINFO')) define('XC_ADMINSYSTEMCHECK_SYSTEMINFO', 1);
@@ -26,14 +28,14 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 	function preBlockFilter()
 	{
 
-	$root=&XCube_Root::getSingleton();
+	$root=&Root::getSingleton();
 	$root->mDelegateManager->add("Xcorepage.Admin.SystemCheck", "Xcore_AdminSystemCheckPlusPreload::SystemCheckPlus", XCUBE_DELEGATE_PRIORITY_NORMAL+1);
 
 	}
 
 	public static function SystemCheckPlus()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		////////////////////////////////////////////////
 		if(XC_ADMINSYSTEMCHECK_WELCOME) {
 		//ex) 
@@ -204,7 +206,7 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 
 	public static function display_message($attributes = array(), $template="", $return = false)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem($root->mContext->mBaseRenderSystemName);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 		$renderTarget->setAttribute('xcore_module', 'xcore');
@@ -213,7 +215,7 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		$renderTarget->setAttribute($attribute, $attributes[$attribute]);
 		}
 		$renderSystem->render($renderTarget);
-		if ($return == true ) { 
+		if ($return == true ) {
 		$ret = $renderTarget->getResult();
 		return $ret;
 		}

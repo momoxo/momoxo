@@ -2,6 +2,8 @@
 
 /* class Xupdate_Ftp  ## Base Class ##
 */
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
 	exit;
@@ -16,7 +18,7 @@ if (!defined('_XUPDATE_FTP_CUSTOM')){
 }
 
 // module config
-$mod_config = XCube_Root::getSingleton()->mContext->mModuleConfig ;
+$mod_config = Root::getSingleton()->mContext->mModuleConfig ;
 //	adump($this->mod_config);
 
 // FTP class

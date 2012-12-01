@@ -8,6 +8,8 @@
  *    XCube_DelegateUtils::raiseEvent("Event Name"[, fuction params...]); \n
  *    $string = XCube_DelegateUtils::applyStringFilter("Filter Name", $string, [, option params...]); \n
  */
+use XCore\Kernel\Root;
+
 class XCube_DelegateUtils
 {
 	/**
@@ -25,7 +27,7 @@ class XCube_DelegateUtils
         if ($num == 1) $delegateName = $args[0];
 		elseif ($num) $delegateName = array_shift($args);
 		else return false;
-		$m =& XCube_Root::getSingleton()->mDelegateManager;
+		$m =& Root::getSingleton()->mDelegateManager;
         if ($m) {
             $delegates = $m->getDelegates();
             if (isset($delegates[$delegateName])) {

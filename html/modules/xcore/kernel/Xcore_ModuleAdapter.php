@@ -8,6 +8,8 @@
  *    to be used by Xcore_Controller. If a module doesn't define its sub-class of
  *    Xcore_AbstractModule, this class is used as generic Xcore_AbstractModule.
  */
+use XCore\Kernel\Root;
+
 class Xcore_ModuleAdapter extends Xcore_AbstractModule
 {
     /**
@@ -53,7 +55,7 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
             $findFlag = false;
             foreach($searchArgs->getKeywords() as $word) {
                 if (stristr(_PREFERENCES, $word) !== false) {
-                    $root =& XCube_Root::getSingleton();
+                    $root =& Root::getSingleton();
                     $searchArgs->addRecord($this->mXoopsModule->getVar('name'), $root->mController->getPreferenceEditUrl($this->mXoopsModule), _PREFERENCES);
                     $findFlag = true;
                     break;
@@ -134,7 +136,7 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
             
             foreach($searchArgs->getKeywords() as $word) {
                 if (stristr(_HELP, $word) !== false) {
-                    $root =& XCube_Root::getSingleton();
+                    $root =& Root::getSingleton();
                     $searchArgs->addRecord($this->mXoopsModule->getVar('name'), $root->mController->getHelpViewUrl($this->mXoopsModule), _HELP);
                     $findFlag = true;
                     break;
@@ -142,7 +144,7 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
             }
             
             if (!$findFlag) {
-                $root =& XCube_Root::getSingleton();
+                $root =& Root::getSingleton();
                 $language = $root->mContext->getXoopsConfig('language');
                 $helpfile = $this->mXoopsModule->getHelp();
                 $dir = XOOPS_MODULE_PATH . "/" . $this->mXoopsModule->getVar('dirname') . "/language/" . $language. "/help";
@@ -230,7 +232,7 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
         }
         
         $info =& $this->mXoopsModule->getInfo();
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
 
         //
         // Load admin menu, and add preference menu by own judge.

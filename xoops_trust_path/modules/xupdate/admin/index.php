@@ -6,7 +6,9 @@
  * @version $Id$
 **/
 
-$root =& XCube_Root::getSingleton();
+use XCore\Kernel\Root;
+
+$root =& Root::getSingleton();
 $root->mContext->mModule->setAdminMode(true);
 
 

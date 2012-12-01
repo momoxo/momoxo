@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 /*
 define ("PROFILE_FRAME_PERFORM_SUCCESS", 1);
@@ -40,7 +42,7 @@ class Profile_ActionFrame
 		//
 		// Temp FIXME!
 		//
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mContext->setAttribute('actionName', $name);
 		$root->mContext->mModule->setAttribute('actionName', $name);
 	}
@@ -182,7 +184,7 @@ class Profile_Action
 
 	public function getPageTitle()
 	{
-		return Xcore_Utils::formatPagetitle(XCube_Root::getSingleton()->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getPageAction());
+		return Xcore_Utils::formatPagetitle(Root::getSingleton()->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getPageAction());
 	}
 
 	function hasPermission(&$controller, &$xoopsUser, $moduleConfig)

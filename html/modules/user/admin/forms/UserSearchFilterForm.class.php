@@ -4,6 +4,8 @@
  * @version $Id: UserSearchFilterForm.class.php,v 1.3 2007/09/08 01:09:39 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractFilterForm.class.php";
@@ -102,7 +104,7 @@ class User_UserSearchFilterForm extends User_AbstractFilterForm
 			return;
 		}
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 
 		foreach ($this->_mMatchFields as $field) {
 			if (strlen($form->get($field)) > 0) {

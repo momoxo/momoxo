@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_SearchModule extends XCube_Object
 {
     function getPropertyDefinition()
@@ -152,7 +154,7 @@ class Xcore_SearchService extends XCube_Service
         //
         // TODO Need validation
         //
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $request =& $root->mContext->mRequest;
         
         return $this->_searchItems((int)$request->getRequest('mid'), $request->getRequest('queries'), $request->getRequest('andor'), (int)$request->getRequest('maxhit'), (int)$request->getRequest('start'), 0);
@@ -163,7 +165,7 @@ class Xcore_SearchService extends XCube_Service
         //
         // TODO Need validation
         //
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $request =& $root->mContext->mRequest;
         
         return $this->_searchItems((int)$request->getRequest('mid'), null, 'and', (int)$request->getRequest('maxhit'), (int)$request->getRequest('start'), (int)$request->getRequest('uid'));
@@ -188,7 +190,7 @@ class Xcore_SearchService extends XCube_Service
 
         static $timezone;
         if (!isset($timezone)) {
-            $root =& XCube_Root::getSingleton();
+            $root =& Root::getSingleton();
             $timezone = $root->mContext->getXoopsConfig('server_TZ') * 3600;
         }
 
@@ -224,7 +226,7 @@ class Xcore_SearchUtils
 {
    public static function getUserGroups()
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $user =& $root->mController->mRoot->mContext->mXoopsUser;
         $groups = array();
         

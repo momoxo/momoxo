@@ -5,6 +5,8 @@
  * @public
  * Install module
  */
+use XCore\Kernel\Root;
+
 class Xcore_InstallWizardAction extends Xcore_AbstractModuleInstallAction
 {
 	var $mLicence;
@@ -24,7 +26,7 @@ class Xcore_InstallWizardAction extends Xcore_AbstractModuleInstallAction
 
 	function _loadAgreement()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		$this->mLicence = $this->mModuleObject->modinfo['installer']['licence']['title'];
 

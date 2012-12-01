@@ -3,7 +3,9 @@
 //
 // Load message resource
 //
-$t_root =& XCube_Root::getSingleton();
+use XCore\Kernel\Root;
+
+$t_root =& Root::getSingleton();
 
 $t_root->mLanguageManager->loadModuleMessageCatalog("xcore");
 

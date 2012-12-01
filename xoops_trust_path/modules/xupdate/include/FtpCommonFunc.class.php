@@ -1,6 +1,8 @@
 <?php
 
 // Xupdate_ftp class object
+use XCore\Kernel\Root;
+
 require_once XUPDATE_TRUST_PATH .'/class/Root.class.php';
 require_once XUPDATE_TRUST_PATH . '/class/Ftp.class.php';
 
@@ -32,7 +34,7 @@ class Xupdate_FtpCommonFunc {
 	
 	public function __construct() {
 
-		$this->mRoot =& XCube_Root::getSingleton();
+		$this->mRoot =& Root::getSingleton();
 		$this->mModule =& $this->mRoot->mContext->mModule;
 		$this->mAsset =& $this->mModule->mAssetManager;
 

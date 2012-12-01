@@ -12,6 +12,8 @@
  |   keeping compatibility with XOOPS 2.0.x <http://www.xoops.org>        |
  *------------------------------------------------------------------------*/
 
+use XCore\Kernel\Root;
+
 include "mainfile.php";
 
 class DefaultSystemCheckFunction
@@ -25,7 +27,7 @@ class DefaultSystemCheckFunction
 }
 
 require_once XOOPS_ROOT_PATH . "/header.php";
-$root=&XCube_Root::getSingleton();
+$root=&Root::getSingleton();
 $root->mDelegateManager->add("Xcorepage.Admin.SystemCheck", "DefaultSystemCheckFunction::DefaultCheck");
 XCube_DelegateUtils::call("Xcorepage.Admin.SystemCheck");
 require_once XOOPS_ROOT_PATH . "/footer.php";

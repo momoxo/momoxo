@@ -9,6 +9,8 @@
  * @package		kernel
  * @subpackage	form
  */
+use XCore\Kernel\Root;
+
 class XoopsFormRadio extends XoopsFormElement {
 
 	/**
@@ -100,7 +102,7 @@ class XoopsFormRadio extends XoopsFormElement {
 	 * @return	string	HTML
 	 */
 	function render(){
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget();

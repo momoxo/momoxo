@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_NotifyDeleteForm extends XCube_ActionForm
 {
 	var $mNotifiyIds = array();
@@ -14,7 +16,7 @@ class Xcore_NotifyDeleteForm extends XCube_ActionForm
 	{
 		parent::fetch();
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$t_arr = $root->mContext->mRequest->getRequest('del_not');
 		
 		if (!is_array($t_arr)) {

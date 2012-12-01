@@ -4,6 +4,8 @@
  * The adapter class for XoopsBlock objects of XOOPS2 JP.
  * @see Xcore_AbstractBlockProcedure
  */
+use XCore\Kernel\Root;
+
 class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
 {
     var $_mDisplayFlag = true;
@@ -30,7 +32,7 @@ class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
             $render->setAttribute('block', $result);
         }
         
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $renderSystem =& $root->getRenderSystem($this->getRenderSystemName());
         
         $renderSystem->renderBlock($render);
@@ -60,7 +62,7 @@ class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
                     //
                     // load language file.
                     //
-                    $root =& XCube_Root::getSingleton();
+                    $root =& Root::getSingleton();
                     $langManager =& $root->getLanguageManager();
                     $langManager->loadBlockMessageCatalog($this->_mBlock->get('dirname'));
                     
@@ -73,7 +75,7 @@ class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
         // The block may have options, even it doesn't have end_func 
         //
         if ($this->_mBlock->get('options')) {
-            $root =& XCube_Root::getSingleton();
+            $root =& Root::getSingleton();
             $textFilter =& $root->getTextFilter();
             
             $buf = "";

@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_NuSoapLoader extends XCube_ActionFilter
 {
 	function preFilter()
@@ -17,7 +19,7 @@ class Xcore_NuSoapLoader extends XCube_ActionFilter
 			return;
 		}
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		if (is_object($service) && is_a($service, 'XCube_Service')) {
 			$client = new XCube_ServiceClient($service);

@@ -11,6 +11,8 @@
  * @package kernel
  * @subpackage block
 */
+use XCore\Kernel\Root;
+
 class XoopsBlockHandler extends XoopsObjectHandler
 {
 
@@ -444,7 +446,7 @@ class XoopsBlockHandler extends XoopsObjectHandler
 	 **/
 	function &getBlocks($groupid, $mid=false, $blockFlag=SHOW_BLOCK_ALL, $orderby='b.weight,b.bid')
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $db = $this->db =& $root->mController->getDB();
 
         $ret = array();

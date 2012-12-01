@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/admin/forms/MailjobAdminSendForm.class.php";
@@ -55,7 +57,7 @@ class User_MailjobSendAction extends User_Action
 			return USER_FRAME_VIEW_INPUT;
 		}
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		if ($this->mMailjob->get('is_pm')) {
 			$this->mMailjob->mSend->add(array(&$this, "sendPM"));
 		}

@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) die();
 
 class Message_Preload extends XCube_ActionFilter
@@ -36,7 +38,7 @@ class Message_Preload extends XCube_ActionFilter
   
   public static function getNewMessage(&$arrays)
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     if ($root->mContext->mUser->isInRole('Site.RegisteredUser')) {
       $uid = $root->mContext->mXoopsUser->get('uid');
       $modHand = xoops_getmodulehandler('inbox', 'message');
@@ -67,7 +69,7 @@ class Message_Preload extends XCube_ActionFilter
   
   public static function accessToReadpmsg()
   {
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $root->mController->executeForward(XOOPS_MODULE_URL.'/message/');
   }
   

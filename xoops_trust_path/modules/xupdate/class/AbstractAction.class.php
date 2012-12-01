@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -37,7 +39,7 @@ abstract class Xupdate_AbstractAction
     **/
     public function __construct()
     {
-		$this->mRoot =& XCube_Root::getSingleton();
+		$this->mRoot =& Root::getSingleton();
 		$this->mModule =& $this->mRoot->mContext->mModule;
 		$this->mAsset =& $this->mModule->mAssetManager;
 

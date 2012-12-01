@@ -12,6 +12,8 @@
  * XCube_Controller keeps a process that set up instances of some Legacy classes,
  * yet. We should move its process to this controller.
  */
+use XCore\Kernel\Root;
+
 class Xcore_Controller extends XCube_Controller
 {
 	var $_mAdminModeFlag = false;
@@ -746,7 +748,7 @@ class Xcore_Controller extends XCube_Controller
 	{
 		parent::_setupSession();
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$xoopsConfig = $root->mContext->mXoopsConfig;
 		if ($xoopsConfig['use_mysession']) {
 			$this->mRoot->mSession->setParam($xoopsConfig['session_name'], $xoopsConfig['session_expire']);

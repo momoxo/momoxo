@@ -1,6 +1,8 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
-$root = XCube_Root::getSingleton();
+$root = Root::getSingleton();
 //admin page
 if ($root->mController->_mStrategy){
 	if (strtolower(get_class($root->mController->_mStrategy)) == strtolower('Xcore_AdminControllerStrategy')) {

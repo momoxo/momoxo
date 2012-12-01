@@ -12,6 +12,8 @@
  * @author      Goghs Cheng
  * @copyright   (c) 2000-2003 The Xoops Project - www.xoops.org
  */
+use XCore\Kernel\Root;
+
 class MyTextSanitizer
 {
     /**
@@ -56,7 +58,7 @@ class MyTextSanitizer
 		$this->mXoopsCodePostFilter =new XCube_Delegate();
 		$this->mXoopsCodePostFilter->register('MyTextSanitizer.XoopsCodePostFilter');
 
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $this->mTextFilter =& $root->getTextFilter();
 
     }

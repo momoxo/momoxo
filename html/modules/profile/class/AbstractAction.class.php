@@ -5,6 +5,8 @@
  * @version $Id$
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Profile_AbstractAction
@@ -19,7 +21,7 @@ class Profile_AbstractAction
 	function &_getHandler(){
 	}
 	function Profile_AbstractAction(){
-		$this->mRoot =& XCube_Root::getSingleton();
+		$this->mRoot =& Root::getSingleton();
 		$this->mModule =& $this->mRoot->mContext->mModule;
 		$this->mAsset =& $this->mModule->mAssetManager;
 	}

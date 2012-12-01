@@ -4,6 +4,8 @@
  * @version $Id: AdminPreload.class.php,v 1.1 2007/05/15 02:35:34 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class User_AdminPreload extends XCube_ActionFilter
@@ -15,7 +17,7 @@ class User_AdminPreload extends XCube_ActionFilter
 	
 	function doThemeSettingChanged($mainTheme, $selectableThemes)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$db =& $root->mController->mDB;
 		$table = $db->prefix('users');
 		

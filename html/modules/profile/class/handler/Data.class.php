@@ -5,6 +5,8 @@
  * @version $Id$
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class Profile_DataObject extends XoopsSimpleObject
@@ -52,7 +54,7 @@ class Profile_DataObject extends XoopsSimpleObject
 		switch ($type) {
 			case Profile_FormType::TEXT:
 				if($this->mDef[$key]->get('options')=='html'){
-					$value = XCube_Root::getSingleton()->mTextFilter->purifyHtml($value);
+					$value = Root::getSingleton()->mTextFilter->purifyHtml($value);
 				}
 				$this->set($key, $value);
 				break;

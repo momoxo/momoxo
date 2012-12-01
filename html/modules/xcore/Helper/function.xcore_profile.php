@@ -16,6 +16,8 @@
  * Examples: {xcore_profile uid=3 action=edit actionForm=$actionForm}
  * -------------------------------------------------------------
  */
+use XCore\Kernel\Root;
+
 function smarty_function_xcore_profile($params, &$smarty)
 {
 	$uid = isset($params['uid']) ? intval($params['uid']) : Xcore_Utils::getUid();
@@ -47,7 +49,7 @@ function smarty_function_xcore_profile($params, &$smarty)
 	$render->setAttribute('profileForm', $profileActionForm);
 	$render->setAttribute('profile', $profile);
 	$render->setAttribute('defArr', $defArr);
-	XCube_Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
+	Root::getSingleton()->getRenderSystem('Xcore_RenderSystem')->render($render);
 
 	echo $render->getResult();
 }

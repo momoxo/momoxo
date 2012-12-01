@@ -8,6 +8,8 @@
  * @package kernel
  * @subpackage form
  */
+use XCore\Kernel\Root;
+
 class XoopsGroupPermForm extends XoopsForm
 {
     /**
@@ -118,7 +120,7 @@ class XoopsGroupPermForm extends XoopsForm
         $tray->addElement(new XoopsFormButton('', 'reset', _CANCEL, 'reset'));
         $this->addElement($tray);
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');

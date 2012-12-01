@@ -1,10 +1,12 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class XoopsLists
 {
     public static function getTimeZoneList()
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         if ($root->mLanguageManager !== null && !defined(_TZ_GMT0)) {
             $root->mLanguageManager->loadPageTypeMessageCatalog('timezone');
         }

@@ -12,6 +12,8 @@
  |   keeping compatibility with XOOPS 2.0.x <http://www.xoops.org>        |
  *------------------------------------------------------------------------*/
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_CPFUNC_LOADED')) require_once XOOPS_ROOT_PATH . "/modules/xcore/include/cp_functions.php";
 
 //
@@ -19,7 +21,7 @@ if (!defined('XOOPS_CPFUNC_LOADED')) require_once XOOPS_ROOT_PATH . "/modules/xc
 // Old modules may call this file from other admin directory.
 // In this case, the controller does not have Admin Module Object.
 //
-$root =& XCube_Root::getSingleton();
+$root =& Root::getSingleton();
 
 $strategy =new Xcore_AdminControllerStrategy($root->mController);
 

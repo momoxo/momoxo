@@ -11,6 +11,8 @@
  * @package     kernel
  * @subpackage  form
  */
+use XCore\Kernel\Root;
+
 class XoopsThemeForm extends XoopsForm
 {
 	/**
@@ -33,7 +35,7 @@ class XoopsThemeForm extends XoopsForm
 	 */
 	function render()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	

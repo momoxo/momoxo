@@ -5,6 +5,8 @@
  * controller. The sub-class must implement these interfaces with helper
  * functions, to be called back by the controller.
  */
+use XCore\Kernel\Root;
+
 class Xcore_AbstractBlockProcedure
 {
     /**
@@ -43,7 +45,7 @@ class Xcore_AbstractBlockProcedure
      */
     function getRenderSystemName()
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         return $root->mContext->mBaseRenderSystemName;
     }
     

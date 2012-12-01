@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define('COMMENT_SORT_KEY_COM_ID', 1);
 define('COMMENT_SORT_KEY_COM_PID', 2);
 define('COMMENT_SORT_KEY_COM_ROOTID', 3);
@@ -61,7 +63,7 @@ class Xcore_CommentFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$com_modid = $root->mContext->mRequest->getRequest('com_modid');
 		$dirname = $root->mContext->mRequest->getRequest('dirname');
 		$com_icon = $root->mContext->mRequest->getRequest('com_icon');

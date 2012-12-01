@@ -5,6 +5,8 @@
  * @version $Id$
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class User_MailjobPreload extends XCube_ActionFilter
@@ -14,7 +16,7 @@ class User_MailjobPreload extends XCube_ActionFilter
 	 */
 	function preBlockFilter()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 	
 		require_once XOOPS_MODULE_PATH . "/user/service/MailjobService.class.php";
 		$service =new User_MailjobService();

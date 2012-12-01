@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Root;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -89,7 +91,7 @@ class Xupdate_Uninstaller
     **/
     private function _uninstallTables()
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $db =& $root->mController->getDB();
         $dirname = $this->_mXoopsModule->get('dirname');
     

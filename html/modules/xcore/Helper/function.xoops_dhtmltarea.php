@@ -38,6 +38,8 @@
  * -------------------------------------------------------------
  */
 
+use XCore\Kernel\Root;
+
 define ("XOOPS_DHTMLTAREA_DEFID_PREFIX", "xcore_xoopsform_");
 define ("XOOPS_DHTMLTAREA_DEFAULT_COLS", "50");
 define ("XOOPS_DHTMLTAREA_DEFAULT_ROWS", "5");
@@ -46,7 +48,7 @@ function smarty_function_xoops_dhtmltarea($params, &$smarty)
 {
 	$form = null;
 
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	$textFilter =& $root->getTextFilter();
 	if (isset($params['name'])) {
 		//

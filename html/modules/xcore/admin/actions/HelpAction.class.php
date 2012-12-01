@@ -13,6 +13,8 @@
  * 'helpimage' modify a image URL. These modifiers consider the existence of
  * language files.
  */
+use XCore\Kernel\Root;
+
 class Xcore_HelpSmarty extends Smarty
 {
 	/**
@@ -61,7 +63,7 @@ class Xcore_HelpSmarty extends Smarty
 
 function Xcore_modifier_helpurl($file, $dirname = null )
 {
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	
 	$language = $root->mContext->getXoopsConfig('language');
 	$dirname = $root->mContext->getAttribute('xcore_help_dirname');
@@ -82,7 +84,7 @@ function Xcore_modifier_helpurl($file, $dirname = null )
 
 function Xcore_modifier_helpimage($file)
 {
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	
 	$language = $root->mContext->getXoopsConfig('language');
 	$dirname = $root->mContext->getAttribute('xcore_help_dirname');

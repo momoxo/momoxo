@@ -9,6 +9,8 @@
  * We put this class in root/class for the progress of this project. But, we will move
  * this to other directory in the future.
  */
+use XCore\Kernel\Root;
+
 class XCube_FormFile
 {
 	var $mName=null;
@@ -196,7 +198,7 @@ class XCube_FormFile
 	function _getRandomString($salt='')
 	{
 		if (empty($salt)) {
-			$root=&XCube_Root::getSingleton();
+			$root=&Root::getSingleton();
 			$salt = $root->getSiteConfig('Cube', 'Salt');
 		}
 		srand( microtime() *1000000);

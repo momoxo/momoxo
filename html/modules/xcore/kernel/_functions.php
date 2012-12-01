@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 function Xcore_modifier_theme($string)
 {
 	$infoArr = Xcore_get_override_file($string);
@@ -70,7 +72,7 @@ function Xcore_function_stylesheet($params, &$smarty)
 
 function Xcore_get_override_file($file, $prefix = null, $isSpDirname = false)
 {
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	$moduleObject =& $root->mContext->mXoopsModule;
 
 	if ($isSpDirname && is_object($moduleObject) && $moduleObject->get('dirname') == 'xcore' && isset($_REQUEST['dirname'])) {
@@ -134,7 +136,7 @@ function Xcore_get_override_file($file, $prefix = null, $isSpDirname = false)
 
 function XcoreRender_smartyfunction_notifications_select($params, &$smarty)
 {
-	$root =& XCube_Root::getSingleton();
+	$root =& Root::getSingleton();
 	$renderSystem =& $root->getRenderSystem('Xcore_RenderSystem');
 	
 	$renderTarget =& $renderSystem->createRenderTarget('main');

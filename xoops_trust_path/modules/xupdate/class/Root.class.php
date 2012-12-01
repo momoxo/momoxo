@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xupdate_Root extends XoopsSimpleObject {
 
 	public $mRoot ;
@@ -23,7 +25,7 @@ class Xupdate_Root extends XoopsSimpleObject {
 
 		$this->xoops_root_path = XOOPS_ROOT_PATH;
 
-		$this->mRoot = $root = XCube_Root::getSingleton();
+		$this->mRoot = $root = Root::getSingleton();
 
 		$this->db = $root->mController->mDB;
 

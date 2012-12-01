@@ -12,9 +12,11 @@
  |   keeping compatibility with XOOPS 2.0.x <http://www.xoops.org>        |
  *------------------------------------------------------------------------*/
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-$root=&XCube_Root::getSingleton();
+$root=&Root::getSingleton();
 if(!is_object($root->mController)) exit();
 
 $root->mController->executeHeader();

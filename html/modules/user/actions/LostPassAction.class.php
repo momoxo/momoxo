@@ -4,6 +4,8 @@
  * @version $Id: LostPassAction.class.php,v 1.3 2008/07/20 05:55:52 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/forms/LostPassEditForm.class.php";
@@ -43,7 +45,7 @@ class User_LostPassAction extends User_Action
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$code = $root->mContext->mRequest->getRequest('code');	// const $code
 		$email = $root->mContext->mRequest->getRequest('email');	// const $email
 		if (strlen($code) == 0 || strlen($email) == 0) {

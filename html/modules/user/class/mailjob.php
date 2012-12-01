@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class UserMailjobObject extends XoopsSimpleObject
@@ -105,7 +107,7 @@ class UserMailjobObject extends XoopsSimpleObject
 	
 	function send($from_user)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		$userArr =& $this->getUsers($this->getCurrentRetry());
 		$handler =& xoops_getmodulehandler('mailjob_link', 'user');

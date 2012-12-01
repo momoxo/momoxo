@@ -1,12 +1,14 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class XcoreCommentstatusHandler extends XoopsObjectHandler
 {
 	var $_mResults = array();
 	
 	function XcoreCommentstatusHandler(&$db)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$language = $root->mContext->getXoopsConfig('language');
 		$root->mLanguageManager->loadPageTypeMessageCatalog('comment');
 

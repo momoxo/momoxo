@@ -3,6 +3,8 @@
 /**
  * XCube_PermissionUtils
  */
+use XCore\Kernel\Root;
+
 class XCube_Permissions
 {
 	function getRolesOfAction()
@@ -10,7 +12,7 @@ class XCube_Permissions
 		$args = func_get_args();
 		$actionName = array_shift($args);
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		return $root->mPermissionManager->getRolesOfAction($actionName, $args);
 	}
 }

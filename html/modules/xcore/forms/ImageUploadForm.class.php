@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_ImageUploadForm extends XCube_ActionForm
 {
 	var $mOldFileName = null;
@@ -44,7 +46,7 @@ class Xcore_ImageUploadForm extends XCube_ActionForm
 		// from outside. However, the ideal fix needs changing much message catalogs
 		// including code which I can not edit. So I put the following code as an
 		// exception.
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 	}
 	
@@ -55,7 +57,7 @@ class Xcore_ImageUploadForm extends XCube_ActionForm
 	{
 		$imgcat_id = $this->get('imgcat_id');
 		if ($imgcat_id != null) {
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			$xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
 			
 			$groups = array();

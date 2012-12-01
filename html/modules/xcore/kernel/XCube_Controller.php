@@ -20,12 +20,14 @@
  * sub-class controller to override easily. Most of sub-class controllers
  * doesn't need to override them, because typical code is there.
  */
+use XCore\Kernel\Root;
+
 class XCube_Controller
 {
 	/**
 	 * The reference for the root object.
 	 *
-	 * @var XCube_Root
+	 * @var Root
 	 */
 	var $mRoot;
 
@@ -118,7 +120,7 @@ class XCube_Controller
 	 * This member function is overridden. The sub-class implements the
 	 * initialization process which sets up the root object finally.
 	 *
-	 * @param XCube_Root $root
+	 * @param Root $root
 	 */
 	function prepare(&$root)
 	{

@@ -42,10 +42,12 @@
 
 // TODO: allow 'GET' also so we can process 'unsubscribe' requests??
 
+use XCore\Kernel\Root;
+
 include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_constants.php';
 include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_functions.php';
 
-$root =& XCube_Root::getSingleton();
+$root =& Root::getSingleton();
 $root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 
 if (!isset($_POST['not_submit'])) {

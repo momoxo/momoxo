@@ -9,6 +9,8 @@
  * @package     kernel
  * @subpackage  form
  */
+use XCore\Kernel\Root;
+
 class XoopsForm {
     /**#@+
      * @access  private
@@ -344,7 +346,7 @@ class XoopsForm {
      * @param       boolean  $withtags  Include the < javascript > tags in the returned string
      */
     function renderValidationJS( $withtags = true ) {
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget();

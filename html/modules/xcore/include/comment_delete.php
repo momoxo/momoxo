@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 $op = 'delete';
 if (!empty($_POST)) {
     $com_mode = isset($_POST['com_mode']) ? htmlspecialchars(trim($_POST['com_mode']), ENT_QUOTES) : 'flat';
@@ -71,7 +73,7 @@ if (false != $accesserror) {
     }
 }
 
-$t_root =& XCube_Root::getSingleton();
+$t_root =& Root::getSingleton();
 $t_root->mLanguageManager->loadPageTypeMessageCatalog('comment');	///< Is this must?
 
 switch ($op) {

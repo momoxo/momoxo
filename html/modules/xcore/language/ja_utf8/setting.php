@@ -1,6 +1,8 @@
 <?php
 
 //%%%%%		TIME FORMAT SETTINGS   %%%%%
+use XCore\Kernel\Root;
+
 if (!defined('_DATESTRING')) define("_DATESTRING","Y/n/j G:i:s");
 if (!defined('_MEDIUMDATESTRING')) define("_MEDIUMDATESTRING","Y/n/j G:i");
 if (!defined('_SHORTDATESTRING')) define("_SHORTDATESTRING","Y/n/j");
@@ -32,8 +34,8 @@ define("_MBSTRING_LANGUAGE", "japanese");
 // Register the function about local.
 //
 
-if ( class_exists( 'XCube_Root' ) && function_exists('mb_convert_encoding') && function_exists('mb_convert_kana')) {
-	$root =& XCube_Root::getSingleton();
+if ( class_exists('Root') && function_exists('mb_convert_encoding') && function_exists('mb_convert_kana')) {
+	$root =& Root::getSingleton();
 	$root->mDelegateManager->add('Xcore_Mailer.ConvertLocal', 'Xcore_JapaneseUtf8_convLocal');
 }
 

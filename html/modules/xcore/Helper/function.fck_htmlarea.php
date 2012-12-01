@@ -11,6 +11,8 @@ basepath=/js/vendor/fckeditor/ toolbar=Custom skin=silver  value=$message}
  */
 
 
+use XCore\Kernel\Root;
+
 define ("FCK_HTMLAREA_DEFID_PREFIX", "fck_form_");
 define ("FCK_HTMLAREA_DEFAULT_WIDTH", "100%");
 define ("FCK_HTMLAREA_DEFAULT_HIGHT", "400px");
@@ -21,7 +23,7 @@ define ("FCK_HTMLAREA_DEFAULT_SKIN", "default");
 function smarty_function_fck_htmlarea($params, &$smarty)
 {
 
-       $root = &XCube_Root :: getSingleton();
+       $root = &Root :: getSingleton();
        $textFilter = &$root -> getTextFilter();
 
        if( ! empty( $params['name'] ) ) {

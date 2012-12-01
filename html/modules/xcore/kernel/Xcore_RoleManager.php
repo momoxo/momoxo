@@ -3,6 +3,8 @@
 /**
  * @note draft
  */
+use XCore\Kernel\Root;
+
 class Xcore_RoleManager
 {
 	/**
@@ -15,7 +17,7 @@ class Xcore_RoleManager
 	{
 		static $cache;
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$context =& $root->mContext;
 		
 		if ($module == null) {

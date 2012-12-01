@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class ShadePlus_SoapClient extends XCube_AbstractServiceClient
 {
 	var $mClient = null;
@@ -13,7 +15,7 @@ class ShadePlus_SoapClient extends XCube_AbstractServiceClient
 	
 	function call($operation, $args)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		$args = $this->_encodeUTF8($args, $root->mLanguageManager);
 		

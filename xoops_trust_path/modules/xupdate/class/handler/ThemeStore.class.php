@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XUPDATE_TRUST_PATH .'/class/handler/ModuleStore.class.php';
@@ -13,7 +15,7 @@ class Xupdate_ThemeStore extends Xupdate_ModuleStore {
 	public function get_StoreUrl()
 	{
 		//TODO for test dirname ?
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$modDirname = $root->mContext->mModule->mAssetManager->mDirname;
 		$ret = XOOPS_MODULE_URL .'/'.$modDirname.'/admin/index.php?action=ThemeInstall'
 			.'&id='.$this->getVar('id') .'&dirname='.$this->getVar('dirname');

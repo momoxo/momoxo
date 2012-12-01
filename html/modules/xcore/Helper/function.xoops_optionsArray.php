@@ -29,6 +29,8 @@
 // This overlaps with "xoops_input".
 //define ("XOOPS_INPUT_DEFID_PREFIX", "xcore_xoopsform_");
 
+use XCore\Kernel\Root;
+
 function smarty_function_xoops_optionsArray($params, &$smarty)
 {
 	//
@@ -40,7 +42,7 @@ function smarty_function_xoops_optionsArray($params, &$smarty)
 	$id = isset($params['id']) ? XOOPS_INPUT_DEFID_PREFIX . $params['id'] . '_': null;
 	static $textFilter;
 	if (!isset($textFilter)) {
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$textFilter = $root->getTextFilter();
 	}
 	$vname = $params['value'];

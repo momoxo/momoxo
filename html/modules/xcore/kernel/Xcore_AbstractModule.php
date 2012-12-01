@@ -19,6 +19,8 @@
   * @see Xcore_Utils::createModule()
   * @see XoopsModule
   */
+use XCore\Kernel\Root;
+
 class Xcore_AbstractModule
 {
     /**
@@ -233,7 +235,7 @@ class Xcore_AbstractModule
      */
     function getRenderSystemName()
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         return $root->mContext->mBaseRenderSystemName;
     }
     
@@ -246,7 +248,7 @@ class Xcore_AbstractModule
      */
     function &getRenderSystem()
     {
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         $renderSystem =& $root->getRenderSystem($this->getRenderSystemName());
         
         return $renderSystem;
@@ -278,7 +280,7 @@ class Xcore_AbstractModule
             return false;
         }
         
-        $root =& XCube_Root::getSingleton();
+        $root =& Root::getSingleton();
         
         return is_object($this->mXoopsModule) && !empty($root->mContext->mXoopsConfig['module_cache'][$this->mXoopsModule->get('mid')]);
     }

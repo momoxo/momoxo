@@ -1,8 +1,10 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 if ( !isset($root) ) {
-  $root = XCube_Root::getSingleton();
+  $root = Root::getSingleton();
 }
 
 $mydirpath = basename( dirname( dirname( __FILE__ ) ) ) ;

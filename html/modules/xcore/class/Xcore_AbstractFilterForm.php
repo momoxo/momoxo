@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 class Xcore_AbstractFilterForm
 {
 	var $mSort = 0;
@@ -30,7 +32,7 @@ class Xcore_AbstractFilterForm
 	
 	function fetchSort()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$this->mSort = intval($root->mContext->mRequest->getRequest('sort'));
 		
 		if (!isset($this->mSortKeys[abs($this->mSort)])) {

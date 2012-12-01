@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define('XCORE_ADMINMENU_CACHEPREFIX', XOOPS_CACHE_PATH.'/'.urlencode(XOOPS_URL).'_admin_menu_');
 
 /**
@@ -45,7 +47,7 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 
 	function execute()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		
 		// load message catalog of Legacy for _AD_XCORE_LANG_NO_SETTING, even if the current module is not Xcore.
 		$langMgr =& $root->mLanguageManager;

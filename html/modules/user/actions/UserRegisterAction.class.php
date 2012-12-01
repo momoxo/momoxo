@@ -4,6 +4,8 @@
  * @version $Id: UserRegisterAction.class.php,v 1.2 2007/06/07 02:58:44 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/forms/UserRegisterEditForm.class.php";
@@ -75,7 +77,7 @@ class User_UserRegisterAction extends User_Action
 		
 		$this->mActionForm->prepare();
 		
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$this->mActionForm->set('timezone_offset', $root->mContext->getXoopsConfig('default_TZ'));
 	}
 

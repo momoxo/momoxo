@@ -1,4 +1,6 @@
 <?php
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 //require_once XUPDATE_TRUST_PATH .'/class/Root.class.php';
@@ -291,7 +293,7 @@ class Xupdate_ModuleStore extends Xcore_AbstractObject {
 	public function get_StoreUrl()
 	{
 		//TODO for test dirname ?
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$modDirname = $root->mContext->mModule->mAssetManager->mDirname;
 		$ret = XOOPS_MODULE_URL .'/'.$modDirname.'/admin/index.php?action=ModuleInstall'
 			.'&id='.$this->getVar('id') .'&dirname='.$this->getVar('dirname');
@@ -488,7 +490,7 @@ class Xupdate_ModuleStoreHandler extends Xcore_AbstractClientObjectHandler
 		$theme_count = $this->getCountHasUpdate('theme');
 		$preload_count = $this->getCountHasUpdate('preload');
 		if ($module_count || $theme_count || $preload_count) {
-			$root =& XCube_Root::getSingleton();
+			$root =& Root::getSingleton();
 			$root->mLanguageManager->loadBlockMessageCatalog('xupdate');
 			$module = ($module_count)? '<a href="'.XOOPS_MODULE_URL.'/'.$this->mDirname.'/admin/index.php?action=ModuleStore&amp;filter=updated">'.sprintf(_MB_XUPDATE_HAVE_UPDATEMODULE, $module_count).'</a>' : '';
 			$theme = ($theme_count)? '<a href="'.XOOPS_MODULE_URL.'/'.$this->mDirname.'/admin/index.php?action=ThemeStore&amp;filter=updated">'.sprintf(_MB_XUPDATE_HAVE_UPDATETHEME, $theme_count).'</a>' : '';

@@ -4,6 +4,8 @@
  * @version $Id: UserListAction.class.php,v 1.1 2007/05/15 02:34:42 minahito Exp $
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractListAction.class.php";
@@ -32,7 +34,7 @@ class User_UserListAction extends User_AbstractListAction
 	{
 		$navi =new XCube_PageNavigator($this->_getBaseUrl(), XCUBE_PAGENAVI_START | XCUBE_PAGENAVI_PERPAGE);
 
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$perpage = $root->mContext->mRequest->getRequest($navi->mPrefix.'perpage');
 
 		if (isset($perpage) && intval($perpage) == 0) { 	

@@ -3,6 +3,8 @@
  * @license http://www.gnu.org/licenses/gpl.txt GNU GENERAL PUBLIC LICENSE Version 3
  * @author Marijuana
  */
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH.'/modules/xcore/admin/class/ModuleUpdater.class.php';
@@ -32,7 +34,7 @@ class Message_myUpdater extends Xcore_ModulePhasedUpgrader
   function update070()
   {
     $this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $db = $root->mController->getDB();
     
     $sql = "ALTER TABLE `".$db->prefix('message_inbox')."` ";
@@ -48,7 +50,7 @@ class Message_myUpdater extends Xcore_ModulePhasedUpgrader
   function update060()
   {
     $this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $db = $root->mController->getDB();
     
     $sql = "ALTER TABLE `".$db->prefix('message_users')."` ";
@@ -83,7 +85,7 @@ class Message_myUpdater extends Xcore_ModulePhasedUpgrader
   
     $scanner->parse();
     $sqls = $scanner->getSQL();
-    $root = XCube_Root::getSingleton();
+    $root = Root::getSingleton();
     $db = $root->mController->getDB();
   
     foreach ($sqls as $sql) {

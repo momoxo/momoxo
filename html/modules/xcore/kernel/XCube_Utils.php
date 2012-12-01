@@ -4,6 +4,8 @@
  * @public
  * @brief The utility class collecting static helper functions.
  */
+use XCore\Kernel\Root;
+
 class XCube_Utils
 {
 	/**
@@ -27,7 +29,7 @@ class XCube_Utils
 	 */
 	function redirectHeader($url, $time, $messages = null)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$root->mController->executeRedirect($url, $time, $messages);
 	}
 

@@ -1,12 +1,14 @@
 <?php
 
+use XCore\Kernel\Root;
+
 function smarty_function_message_newmessage($params, &$smarty)
 {
   $name = isset($params['name']) ? trim($params['name']) : 'new_messages';
   $open = isset($params['open']) ? trim($params['open']) : 'open_message_alert';
   
   $new_messages = false;
-  $root = XCube_Root::getSingleton();
+  $root = Root::getSingleton();
   if ($root->mContext->mUser->isInRole('Site.RegisteredUser')) {
     $modHand = xoops_getmodulehandler('inbox', 'message');
     $new_messages = $modHand->getCountUnreadByFromUid($root->mContext->mXoopsUser->get('uid'));

@@ -5,9 +5,11 @@
   * @deprecated
   */
 
+use XCore\Kernel\Root;
+
 function xoops_session_regenerate()
 {
-    $root =& XCube_Root::getSingleton();
+    $root =& Root::getSingleton();
     $root->mSession->regenerate();
 }
 

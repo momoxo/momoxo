@@ -4,13 +4,15 @@
  * @version $Id
  */
 
+use XCore\Kernel\Root;
+
 if (!defined('XOOPS_ROOT_PATH')) die();
 
 class User_PrimaryFilter extends XCube_ActionFilter
 {
 	function preFilter()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$this->mController->mSetupUser->add("User_Utils::setupUser");
 		$this->mController->_mNotifyRedirectToUser->add("User_Utils::convertUrlToUser");
 

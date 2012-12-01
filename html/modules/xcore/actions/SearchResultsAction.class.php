@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Root;
+
 define('XCORE_SEARCH_RESULT_MAXHIT', 5);
 define('XCORE_SEARCH_SHOWALL_MAXHIT', 20);
 
@@ -94,7 +96,7 @@ class Xcore_SearchResultsAction extends Xcore_Action
 	
 	function _doSearch(&$client, &$xoopsUser, &$params)
 	{
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$timezone = $root->mContext->getXoopsConfig('server_TZ') * 3600;
 		
 		$results = $client->call('searchItems', $params);

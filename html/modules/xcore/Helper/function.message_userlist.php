@@ -1,12 +1,14 @@
 <?php
 
+use XCore\Kernel\Root;
+
 function smarty_function_message_userlist($params, &$smarty)
 {
   $name = isset($params['name']) ? trim($params['name']) : 'uname';
   $username = isset($params['uname']) ? trim($params['uname']) : '';
   $buid = isset($params['uid']) ? true : false;
   
-  $root = XCube_Root::getSingleton();
+  $root = Root::getSingleton();
   $db = $root->mController->getDB();
   
   $option = '<option value=""></option>';

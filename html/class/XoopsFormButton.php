@@ -9,6 +9,8 @@
  * @package     kernel
  * @subpackage  form
  */
+use XCore\Kernel\Root;
+
 class XoopsFormButton extends XoopsFormElement {
 
 	/**
@@ -74,7 +76,7 @@ class XoopsFormButton extends XoopsFormElement {
      * @return	string
 	 */
 	function render(){
-		$root =& XCube_Root::getSingleton();
+		$root =& Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');
