@@ -6,8 +6,7 @@ use XCube_Delegate;
 use XCube_DelegateUtils;
 
 /**
- * @public
- * @brief Manages for delegates.
+ * Manages for delegates.
  *
  * This is the agent of un-registered delegate objects. Usually, connected
  * functions can't be added to un-registered delegates. When destination
@@ -19,45 +18,43 @@ use XCube_DelegateUtils;
 class DelegateManager
 {
 	/**
-	 * @protected
-	 * @brief Complex Array
-	 */
-	var $_mCallbacks = array();
-
-	/**
-	 * @protected
-	 * @brief Complex Array
-	 */
-	var $_mCallbackParameters = array();
-
-	/**
-	 * @protected
+	 * Complex Array
 	 * @var array
 	 */
-	var $_mDelegates = array();
+	protected $_mCallbacks = array();
 
 	/**
-	 * @public
-	 * @brief Constructor.
+	 * Complex Array
+	 * @var array
 	 */
-	function __construct()
+	protected $_mCallbackParameters = array();
+
+	/**
+	 * @var array
+	 */
+	protected $_mDelegates = array();
+
+	/**
+	 * Constructor.
+	 */
+	public function __construct()
 	{
 	}
 
 	/**
-	 * @public
-	 * @brief Adds $delegate as Delegate to the list of this manager.
-	 * @param $name string - Registration name.
-	 * @param $delegate XCube_Delegate - Delegate object which will be registered.
-	 * @return bool
+	 * Adds $delegate as Delegate to the list of this manager.
 	 *
 	 * If some functions that want to connect to $delegate, have been entrusted yet,
 	 * this object calls add() of $delegate with their parameters.
 	 *
 	 * Usually this member function isn't used as Cube's API by developers. In many
 	 * cases, XCube_Delegate::register() calls this.
+	 *
+	 * @param string $name Registration name.
+	 * @param XCube_Delegate $delegate Delegate object which will be registered.
+	 * @return bool
 	 */
-	function register($name, &$delegate)
+	public function register($name, &$delegate)
 	{
 		$mDelegate =& $this->_mDelegates[$name];
 		if (isset($mDelegate[$id=$delegate->getID()])) {
@@ -79,22 +76,21 @@ class DelegateManager
 	}
 
 	/**
-	 * @public
-	 * @brief Connects functions to the delegate that have the specified name.
-	 * @param      $name string - Registration name.
-	 * @param      $callback
-	 * @param null $param3
-	 * @param null $param4
-	 * @return void
+	 * Connects functions to the delegate that have the specified name.
 	 *
 	 * If there aren't any delegates that have the specified name, this manager
 	 * entrust parameters to member properties. Then, when the delegate that
 	 * have the specified name will be registered, this manager will set these
 	 * parameters to the delegate.
 	 *
+	 * @param string $name Registration name.
+	 * @param      $callback
+	 * @param null $param3
+	 * @param null $param4
+	 * @return void
 	 * @see XCube_Delegate::add()
 	 */
-	function add($name, $callback, $param3 = null, $param4 = null)
+	public function add($name, $callback, $param3 = null, $param4 = null)
 	{
 		if (isset($this->_mDelegates[$name])) {
 			foreach($this->_mDelegates[$name] as $func) {
@@ -107,12 +103,12 @@ class DelegateManager
 	}
 
 	/**
-	 * @public
-	 * @param $name       string - Registration name
-	 * @param $delcallback* @brief Disconnects a function from the delegate that have the specified name.
+	 * Disconnects a function from the delegate that have the specified name.
+	 * @param string $name Registration name
+	 * @param $delcallback*
 	 * @see XCube_Delegate::delete()
 	 */
-	function delete($name, $delcallback)
+	public function delete($name, $delcallback)
 	{
 		if (isset($this->_mDelegates[$name])) {
 			foreach(array_keys($this->_mDelegates[$name]) as $key) {
@@ -131,13 +127,11 @@ class DelegateManager
 	}
 
 	/**
-	 * @public
-	 * @brief Resets all functions off the delegate that have the specified name.
-	 * @param $name string - Registration name which will be resetted.
-	 *
+	 * Resets all functions off the delegate that have the specified name.
+	 * @param string $name Registration name which will be reset.
 	 * @see XCube_Delegate::reset()
 	 */
-	function reset($name)
+	public function reset($name)
 	{
 		if (isset($this->_mDelegates[$name])) {
 			foreach(array_keys($this->_mDelegates[$name]) as $key) {
@@ -151,12 +145,11 @@ class DelegateManager
 	}
 
 	/**
-	 * @public
-	 * @brief Gets a value indicating whether the specified delegate has callback functions.
-	 * @param string $name string - Registration name.
+	 * Gets a value indicating whether the specified delegate has callback functions.
+	 * @param string $name Registration name.
 	 * @return bool
 	 */
-	function isEmpty($name)
+	public function isEmpty($name)
 	{
 		if (isset($this->_mDelegates[$name])) {
 			return $this->_mDelegates[$name]->isEmpty();
@@ -166,10 +159,9 @@ class DelegateManager
 	}
 
 	/**
-	 * @public
 	 * @return array
 	 */
-	function getDelegates()
+	public function getDelegates()
 	{
 		return $this->_mDelegates;
 	}
