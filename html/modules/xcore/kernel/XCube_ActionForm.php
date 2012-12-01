@@ -92,7 +92,7 @@ class XCube_ActionForm
 	 * @public
 	 * @brief Constructor.
 	 */
-	function XCube_ActionForm()
+	function __construct()
 	{
 		$root =& Root::getSingleton();
 		$this->mContext =& $root->getContext();

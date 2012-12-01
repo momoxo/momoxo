@@ -7,7 +7,7 @@ class Xcore_PreferenceEditForm extends XCube_ActionForm
 	
 	function Xcore_PreferenceEditForm(&$category)
 	{
-		parent::XCube_ActionForm();
+		parent::__construct();
 		$this->mKeyValue = $category->get('confcat_id');
 	}
 	
@@ -118,7 +118,7 @@ class Xcore_ModulePreferenceEditForm extends Xcore_PreferenceEditForm
 
 	function Xcore_ModulePreferenceEditForm(&$module)
 	{
-		parent::XCube_ActionForm();
+		parent::__construct();
 		$this->mKeyValue = $module->get('mid');
 	}
 	

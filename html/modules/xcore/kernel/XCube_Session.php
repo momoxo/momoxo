@@ -34,7 +34,7 @@ class XCube_Session
 	 */
     var $mGetSessionCookiePath = null;
 
-    function XCube_Session($sessionName='', $sessionExpire=0)
+    function __construct($sessionName='', $sessionExpire=0)
     {
         $this->setParam($sessionName, $sessionExpire);
 

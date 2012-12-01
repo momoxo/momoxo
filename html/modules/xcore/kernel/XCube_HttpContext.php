@@ -41,7 +41,7 @@ class XCube_HttpContext
 	 */
 	var $mThemeName = null;
 	
-	function XCube_HttpContext()
+	function __construct()
 	{
 	}
 	

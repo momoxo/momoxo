@@ -18,6 +18,6 @@ class Xcore_ActionForm extends XCube_ActionForm
 	 */
 	function Xcore_ActionForm()
 	{
-		parent::XCube_ActionForm();
+		parent::__construct();
 	}
 }

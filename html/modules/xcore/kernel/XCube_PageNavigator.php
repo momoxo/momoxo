@@ -96,7 +96,7 @@ class XCube_PageNavigator
 	 * @param int $total
 	 * @param int flag
 	 */
-	function XCube_PageNavigator($url, $flags = XCUBE_PAGENAVI_START)
+	function __construct($url, $flags = XCUBE_PAGENAVI_START)
 	{
 		$this->mUrl = $url;
 		$this->mFlags = $flags;

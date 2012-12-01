@@ -7,8 +7,8 @@
  */
 class XCube_FloatArrayProperty extends XCube_GenericArrayProperty
 {
-	function XCube_FloatArrayProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_GenericArrayProperty("XCube_FloatProperty", $name);
+		parent::__construct("XCube_FloatProperty", $name);
 	}
 }

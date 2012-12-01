@@ -23,9 +23,9 @@ class XCube_AbstractProperty extends XCube_PropertyInterface
 	 * @brief Constructor.
 	 * @param $name string - A name of this property.
 	 */
-	function XCube_AbstractProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_PropertyInterface($name);
+		parent::__construct($name);
 		$this->mName = $name;
 	}
 	

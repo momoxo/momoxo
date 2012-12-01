@@ -7,9 +7,9 @@
  */
 class XCube_ImageFileProperty extends XCube_FileProperty
 {
-	function XCube_ImageFileProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_AbstractProperty($name);
+		parent::__construct($name);
 		$this->mValue = new XCube_FormImageFile($name);
 	}
 }

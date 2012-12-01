@@ -16,7 +16,7 @@ class XCube_Principal
 	 */
 	var $_mRoles = array();
 	
-	function XCube_Principal($identity, $roles = array())
+	function __construct($identity, $roles = array())
 	{
 		$this->mIdentity =& $identity;
 		$this->_mRoles = $roles;

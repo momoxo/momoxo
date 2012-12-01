@@ -34,7 +34,7 @@ class XCube_ServiceManager
      */
     var $mCreateServer = null;
     
-    function XCube_ServiceManager()
+    function __construct()
     {
         $this->mCreateClient = new XCube_Delegate();
         $this->mCreateClient->register("XCube_ServiceManager.CreateClient");

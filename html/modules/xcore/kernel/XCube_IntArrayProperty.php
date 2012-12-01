@@ -7,8 +7,8 @@
  */
 class XCube_IntArrayProperty extends XCube_GenericArrayProperty
 {
-	function XCube_IntArrayProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_GenericArrayProperty("XCube_IntProperty", $name);
+		parent::__construct("XCube_IntProperty", $name);
 	}
 }

@@ -17,7 +17,7 @@ class XCube_Identity
 	 */
 	var $_mAuthenticationType = "";
 	
-	function XCube_Identity()
+	function __construct()
 	{
 	}
 	

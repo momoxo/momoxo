@@ -4,7 +4,7 @@ class Xcore_Identity extends XCube_Identity
 {
 	function Xcore_Identity(&$xoopsUser)
 	{
-		parent::XCube_Identity();
+		parent::__construct();
 		
 		if (!is_object($xoopsUser)) {
 			throw new RuntimeException('Exception');

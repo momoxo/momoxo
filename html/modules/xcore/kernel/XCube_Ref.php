@@ -28,7 +28,7 @@ class XCube_Ref
 	 * @public Constructor.
 	 * @param $obj mixed
 	 */
-	function XCube_Ref(&$obj)
+	function __construct(&$obj)
 	{
 		$this->_mObject =& $obj;
 	}

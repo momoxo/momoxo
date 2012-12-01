@@ -6,7 +6,7 @@ class Xcore_AbstractThemeRenderTarget extends XCube_RenderTarget
 
 	function Xcore_AbstractThemeRenderTarget()
 	{
-		parent::XCube_RenderTarget();
+		parent::__construct();
 		$this->setAttribute('xcore_buffertype', XCORE_RENDER_TARGET_TYPE_THEME);
 	}
 

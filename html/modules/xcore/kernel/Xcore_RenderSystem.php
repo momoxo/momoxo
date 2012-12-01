@@ -36,7 +36,7 @@ class Xcore_RenderSystem extends XCube_RenderSystem
 	
 	function Xcore_RenderSystem()
 	{
-		parent::XCube_RenderSystem();
+		parent::__construct();
 		$this->mSetupXoopsTpl =new XCube_Delegate();
 		$this->mSetupXoopsTpl->register('Xcore_RenderSystem.SetupXoopsTpl');
 

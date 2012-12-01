@@ -7,8 +7,8 @@
  */
 class XCube_ImageFileArrayProperty extends XCube_FileArrayProperty
 {
-	function XCube_ImageFileArrayProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_GenericArrayProperty("XCube_ImageFileProperty", $name);
+		parent::__construct("XCube_ImageFileProperty", $name);
 	}
 }

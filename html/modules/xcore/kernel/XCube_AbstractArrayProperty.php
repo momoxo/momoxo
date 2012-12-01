@@ -6,8 +6,8 @@
  */
 class XCube_AbstractArrayProperty extends XCube_GenericArrayProperty
 {
-	function XCube_AbstractArrayProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_GenericArrayProperty($this->mPropertyClassName, $name);
+		parent::__construct($this->mPropertyClassName, $name);
 	}
 }

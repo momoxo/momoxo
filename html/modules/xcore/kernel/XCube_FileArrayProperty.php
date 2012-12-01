@@ -7,9 +7,9 @@
  */
 class XCube_FileArrayProperty extends XCube_GenericArrayProperty
 {
-	function XCube_FileArrayProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_GenericArrayProperty("XCube_FileProperty", $name);
+		parent::__construct("XCube_FileProperty", $name);
 	}
 	
 	function hasFetchControl()

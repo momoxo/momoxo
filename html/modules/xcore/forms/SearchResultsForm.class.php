@@ -7,7 +7,7 @@ class Xcore_SearchResultsForm extends XCube_ActionForm
 	
 	function Xcore_SearchResultsForm($keywordMin)
 	{
-		parent::XCube_ActionForm();
+		parent::__construct();
 		$this->_mKeywordMin = intval($keywordMin);
 	}
 		

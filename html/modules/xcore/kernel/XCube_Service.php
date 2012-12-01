@@ -37,7 +37,7 @@ class XCube_Service
 	
 	var $_mFunctions = array();
 	
-	function XCube_Service()
+	function __construct()
 	{
 	}
 	

@@ -14,7 +14,7 @@ class Xcore_ThemeSelect extends XCube_ActionFilter
 		//
 		// TODO remove
 		//
-		parent::XCube_ActionFilter($controller);
+		parent::__construct($controller);
 
         $controller->mRoot->mDelegateManager->add('XcoreThemeHandler.GetInstalledThemes', 'XcoreRender_DelegateFunctions::getInstalledThemes');
 

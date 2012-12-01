@@ -12,7 +12,7 @@ class XCube_Utils
 	 * @private
 	 * @brief Private Constructor. In other words, it's impossible to generate an instance of this class.
 	 */
-	function XCube_Utils()
+	function __construct()
 	{
 	}
 	

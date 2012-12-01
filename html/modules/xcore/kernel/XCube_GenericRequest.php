@@ -11,7 +11,7 @@ class XCube_GenericRequest extends XCube_AbstractRequest
 	 */
 	var $mAttributes = array();
 	
-	function XCube_GenericRequest($arr = null)
+	function __construct($arr = null)
 	{
 		if (is_array($arr)) {
 			$this->mAttributes = $arr;

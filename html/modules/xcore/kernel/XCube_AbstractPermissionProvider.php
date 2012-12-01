@@ -2,7 +2,7 @@
 
 class XCube_AbstractPermissionProvider
 {
-	function XCube_AbstractPermissionProvider()
+	function __construct()
 	{
 	}
 	

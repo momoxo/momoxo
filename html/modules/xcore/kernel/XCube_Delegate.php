@@ -76,7 +76,7 @@ class XCube_Delegate
 	 *   $delegate =new XCube_Delegate("string", "string");
 	 * \endcode
 	 */
-	function XCube_Delegate()
+	function __construct()
 	{
 		if (func_num_args()) {
 			$this->_setSignatures(func_get_args());

@@ -14,7 +14,7 @@ class XCube_PropertyInterface
 	 * @brief Constructor.
 	 * @param $name string - A name of this property.
 	 */
-	function XCube_PropertyInterface($name)
+	function __construct($name)
 	{
 	}
 

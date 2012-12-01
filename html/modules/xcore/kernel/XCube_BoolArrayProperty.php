@@ -7,8 +7,8 @@
  */
 class XCube_BoolArrayProperty extends XCube_GenericArrayProperty
 {
-	function XCube_BoolArrayProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_GenericArrayProperty("XCube_BoolProperty", $name);
+		parent::__construct("XCube_BoolProperty", $name);
 	}
 }

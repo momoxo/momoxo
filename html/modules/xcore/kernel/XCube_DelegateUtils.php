@@ -16,7 +16,7 @@ class XCube_DelegateUtils
 	 * @private
 	 * @brief Private Construct. In other words, it's possible to create an instance of this class.
 	 */
-	function XCube_DelegateUtils()
+	function __construct()
 	{
 	}
 

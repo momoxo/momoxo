@@ -53,7 +53,7 @@ class XCube_FieldProperty
 	 * @remarks
      *     Only sub-classes of XCube_ActionForm calles this constructor. 
 	 */
-	function XCube_FieldProperty(&$form)
+	function __construct(&$form)
 	{
 		$this->mForm =& $form;
 	}

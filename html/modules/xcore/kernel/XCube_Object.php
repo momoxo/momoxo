@@ -28,7 +28,7 @@ class XCube_Object
 	{
 	}
 	
-	function XCube_Object()
+	function __construct()
 	{
 		$fileds = $this->getPropertyDefinition();
 		foreach ($fileds as $t_field) {

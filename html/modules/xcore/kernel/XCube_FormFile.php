@@ -26,7 +26,7 @@ class XCube_FormFile
 	
 	var $mUploadFileFlag=false;
 	
-	function XCube_FormFile($name = null, $key = null)
+	function __construct($name = null, $key = null)
 	{
 		$this->mName = $name;
 		$this->mKey = $key;

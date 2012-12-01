@@ -35,7 +35,7 @@ class XCube_DelegateManager
 	 * @public
 	 * @brief Constructor.
 	 */
-	function XCube_DelegateManager()
+	function __construct()
 	{
 	}
 	

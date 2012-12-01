@@ -7,8 +7,8 @@
  */
 class XCube_TextArrayProperty extends XCube_GenericArrayProperty
 {
-	function XCube_TextArrayProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_GenericArrayProperty("XCube_TextProperty", $name);
+		parent::__construct("XCube_TextProperty", $name);
 	}
 }

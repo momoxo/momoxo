@@ -17,7 +17,7 @@ class XCube_RenderSystem
 
 	var $mRenderMode = XCUBE_RENDER_MODE_NORMAL;
 	
-	function XCube_RenderSystem()
+	function __construct()
 	{
 	}
 	

@@ -14,7 +14,7 @@ class XCube_AbstractServiceClient
 	
 	var $mUser = null;
 	
-	function XCube_AbstractServiceClient(&$service)
+	function __construct(&$service)
 	{
 		$this->mService =& $service;
 	}

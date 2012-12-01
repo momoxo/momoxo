@@ -15,9 +15,9 @@ class XCube_FileProperty extends XCube_AbstractProperty
 	 */
 	var $mIndex = null;
 	
-	function XCube_FileProperty($name)
+	function __construct($name)
 	{
-		parent::XCube_AbstractProperty($name);
+		parent::__construct($name);
 		$this->mValue = new XCube_FormFile($name);
 	}
 	

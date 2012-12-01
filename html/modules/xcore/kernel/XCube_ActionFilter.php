@@ -43,7 +43,7 @@ class XCube_ActionFilter
 	 * @brief Constructor.
 	 * @param $controller Controller
 	 */
-	function XCube_ActionFilter(&$controller)
+	function __construct(&$controller)
 	{
 		$this->mController =& $controller;
 		$this->mRoot =& $this->mController->mRoot;

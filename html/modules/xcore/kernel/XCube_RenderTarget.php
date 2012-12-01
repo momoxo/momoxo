@@ -24,7 +24,7 @@ class XCube_RenderTarget
 	
 	var $mCacheTime = null;
 		
-	function XCube_RenderTarget()
+	function __construct()
 	{
 	}
 

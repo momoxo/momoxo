@@ -35,7 +35,7 @@ class XCube_GenericArrayProperty extends XCube_PropertyInterface
 	 * @param $classname string - <T>
 	 * @param $name string - A name of the property.
 	 */
-	function XCube_GenericArrayProperty($classname, $name)
+	function __construct($classname, $name)
 	{
 		$this->mPropertyClassName = $classname;
 		$this->mName = $name;
