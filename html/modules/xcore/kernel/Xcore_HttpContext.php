@@ -37,7 +37,7 @@ class Xcore_HttpContext extends XCube_HttpContext
 	 *
 	 *     This is string collection which indicates site configurations by a site owner.
 	 *     Those configuration informations are loaded by the controller, and set. This
-	 *     configuration and the site configuration of XCube_Root are different.
+	 *     configuration and the site configuration of Root are different.
 	 * 
 	 *     The array for Xoops, which is configured in the preference of the base. This
 	 *     property and $xoopsConfig (X2) is the same.

@@ -34,7 +34,8 @@ class XCube_ActionFilter
 	
 	/**
 	 * @protected
-	 * @brief [READ ONLY] XCube_Root
+	 * @readonly
+	 * @var Root
 	 */
 	var $mRoot;
 	

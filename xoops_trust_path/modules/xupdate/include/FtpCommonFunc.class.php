@@ -8,7 +8,7 @@ require_once XUPDATE_TRUST_PATH . '/class/Ftp.class.php';
 
 class Xupdate_FtpCommonFunc {
 
-	public /*** XCube_Root ***/ $mRoot = null;
+	public $mRoot = null;
 	public /*** Xupdate_Module ***/ $mModule = null;
 	public /*** Xupdate_AssetManager ***/ $mAsset = null;
 

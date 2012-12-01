@@ -16,8 +16,7 @@ use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
 
 /**
- * @public
- * @brief [FINAL CLASS] The root object which collects exchangable managers.
+ * The root object which collects exchangable managers.
  *
  * This class offers the access course same as global variable for a logic in old mechanism.
  * This class does not let you depend on a main controller class name
@@ -27,98 +26,82 @@ use XCore\Kernel\DelegateManager;
 class Root
 {
 	/**
-	 * @public
 	 * @var Controller
 	 */
-	var $mController = null;
+	public $mController;
 
 	/**
-	 * @public
 	 * @var LanguageManager
 	 */
-	var $mLanguageManager = null;
+	public $mLanguageManager;
 
 	/**
-	 * @public
 	 * @var DelegateManager
 	 */
-	var $mDelegateManager = null;
+	public $mDelegateManager;
 
 	/**
-	 * @public
-	 * @brief [READ ONLY] XCube_ServiceManager
+	 * @var XCube_ServiceManager
 	 */
-	var $mServiceManager = null;
+	public $mServiceManager;
 
 	/**
-	 * @private
-	 * @brief Hash-Map Array - std::map<string, XCube_RenderSystem*> - Caches for genereted render-systems.
-	 * @attention
-	 *      Only the kernel system should access this member property.
+	 * Caches for genereted render-systems.
+	 *
+	 * Only the kernel system should access this member property.
+	 * @var XCube_RenderSystem[]
 	 */
-	var $_mRenderSystems = array();
+	private $_mRenderSystems = array();
 
 	/**
-	 * @public
-	 * @brief [READ ONLY] Hash-Map Array - std::map<string, string>
+	 * @var string[]
 	 */
-	var $mSiteConfig = array();
+	public $mSiteConfig = array();
 
 	/**
 	 * @internal
-	 * @access public
 	 * @var XCube_AbstractPermissionProvider
 	 */
-	var $mPermissionManager = null;
+	public $mPermissionManager;
 
 	/**
-	 * @public
-	 * @brief [READ ONLY] XCube_RoleManager
+	 * @readonly
+	 * @var XCube_RoleManager
 	 * @todo Let's implements!
 	 */
-	var $mRoleManager = null;
+	public $mRoleManager;
 
 	/**
-	 * @internal
-	 * @deprecated
-	 * @todo Check! This is deprecated member.
-	 */
-	var $mCacheSystem = null;
-
-	/**
-	 * @public
-	 * @brief [READ ONLY] XCube_TextFilter
-	 * @attention
-	 *      In some cases, this member is not initialized. Use getTextFilter().
-	 *
+	 * In some cases, this member is not initialized. Use getTextFilter().
+	 * @readonly
+	 * @var XCube_TextFilter
 	 * @see getTextFilter()
 	 */
-	var $mTextFilter = null;
+	public $mTextFilter;
 
 	/**
 	 * @var XCube_HttpContext
 	 */
-	var $mContext;
+	public $mContext;
 
 	/**
-	 * @public
-	 * @brief [READ ONLY] XCube_Session
+	 * @readonly
+	 * @var XCube_Session
 	 */
-	var $mSession = null;
+	public $mSession;
 
 	/**
 	 * @internal
 	 */
-	function __construct()
+	public function __construct()
 	{
 	}
 
 	/**
-	 * @public
-	 * @brief [Static] Gets a object of XCube_Root as singleton.
+	 * Gets a object of Root as singleton.
 	 * @return Root
 	 */
-	static function &getSingleton()
+	public static function &getSingleton()
 	{
 		static $instance;
 
@@ -129,20 +112,27 @@ class Root
 	}
 
 	/**
-	 * @public
-	 * @berif [Secret Agreement][Overload] Loads SiteConfig from plural files, and control set and override site config.
+	 * Loads SiteConfig from plural files, and control set and override site config.
+	 *
+	 * Loads the site settings from file1.
+	 *
+	 * ```
+	 * $root->loadSiteConfig(string $file1);
+	 * ```
+	 *
+	 * Loads the site setting from file1. After that, override file1's setting with file2's setting.
+	 *
+	 * ```
+	 * $root->loadSiteConfig(string $file1, string $file2);
+	 * ```
+	 *
+	 * Only a base module's boot strap should call this method.
+	 *
+	 * @overload
+	 * @throws \RuntimeException
 	 * @return void
-	 *
-	 * \par $root->loadSiteConfig(string $file1);
-	 *   Loads the site settings from file1.
-	 *
-	 * \par $root->loadSiteConfig(string $file1, string $file2);
-	 *   Loads the site setting from file1. After that, override file1's setting with file2's setting.
-	 *
-	 * @attention
-	 *     Only a base module's boot strap should call this method.
 	 */
-	function loadSiteConfig()
+	public function loadSiteConfig()
 	{
 		$n = func_num_args();
 		if ($n == 0) {
@@ -171,30 +161,27 @@ class Root
 	}
 
 	/**
+	 * Sets site configs.
 	 * @internal
-	 * @public
-	 * @brief Sets site configs.
-	 * @param $config Array
+	 * @param array $config
 	 * @return void
 	 */
-	function setSiteConfig($config)
+	public function setSiteConfig($config)
 	{
 		$this->mSiteConfig = $config;
 	}
 
 	/**
-	 * @public
-	 * @brief [Secret Agreement] Overwrites the current site configs with $config.
+	 * Overwrites the current site configs with $config.
 	 *
 	 * Override site config. SiteConfig is overridden by $config value. And, if
 	 * $config has new key, that key is set.
 	 *
-	 * @attention
-	 *     Only the header of the current base module should call this method.
+	 * Only the header of the current base module should call this method.
 	 *
 	 * @param array $config
 	 */
-	function overrideSiteConfig($config)
+	public function overrideSiteConfig($config)
 	{
 		foreach ($config as $_overKey=>$_overVal) {
 			if (array_key_exists($_overKey, $this->mSiteConfig)) {
@@ -207,23 +194,35 @@ class Root
 	}
 
 	/**
-	 * @public
-	 * @brief [Overload] Gets a value of site config that is defined by .ini files.
+	 * Gets a value of site config that is defined by .ini files.
+	 * @overload
 	 * @return mixed - If the value specified by parameters is no, return null.
 	 *
-	 * \par $root->getSiteConfig();
-	 *   Gets array.
+	 * Gets array.
 	 *
-	 * \par $root->getSiteConfig(string $groupName);
-	 *   Gets array of the group specified by $groupName.
+	 * ```
+	 * $root->getSiteConfig();
+	 * ```
 	 *
-	 * \par $root->getSiteConfig(string $groupName, string $itemName);
-	 *   Gets a config value specified by $groupName & $itemName.
+	 * Gets array of the group specified by $groupName.
 	 *
-	 * \par $root->getSiteConfig(string $groupName, string $itemName, string $default);
-	 *   If the config value is NOT defined specified by $groupName & $itemName, gets $default.
+	 * ```
+	 * $root->getSiteConfig(string $groupName);
+	 * ```
+	 *
+	 * Gets a config value specified by $groupName & $itemName.
+	 *
+	 * ```
+	 * $root->getSiteConfig(string $groupName, string $itemName);
+	 * ```
+	 *
+	 * If the config value is NOT defined specified by $groupName & $itemName, gets $default.
+	 *
+	 * ```
+	 * $root->getSiteConfig(string $groupName, string $itemName, string $default);
+	 * ```
 	 */
-	function getSiteConfig()
+	public function getSiteConfig()
 	{
 		//
 		// TODO Check keys with using 'isset'
@@ -249,18 +248,16 @@ class Root
 	}
 
 	/**
-	 * @public
-	 * @brief [Secret Agreement] Creates controller with the rule.
+	 * Creates controller with the rule.
 	 *
 	 * Creates controller with the rule, and call member function prepare().
 	 * The class of creating controller is defined in ini.php files.
 	 *
-	 * @attention
-	 *     Only the header of the current base module should call this method.
+	 * Only the header of the current base module should call this method.
 	 *
 	 * @return void
 	 */
-	function setupController()
+	public function setupController()
 	{
 		//
 		// [NOTICE]
@@ -280,86 +277,79 @@ class Root
 	/**
 	 * @return Controller
 	 */
-	function &getController()
+	public function &getController()
 	{
 		return $this->mController;
 	}
 
 	/**
-	 * @public
-	 * @param $languageManager LanguageManager
+	 * @param LanguageManager $languageManager
 	 * @return void
 	 */
-	function setLanguageManager(&$languageManager)
+	public function setLanguageManager(&$languageManager)
 	{
 		$this->mLanguageManager =& $languageManager;
 	}
 
 	/**
-	 * @public
 	 * @return LanguageManager
 	 */
-	function &getLanguageManager()
+	public function &getLanguageManager()
 	{
 		return $this->mLanguageManager;
 	}
 
 	/**
 	 * Sets the DelegateManager object.
-	 * @public
-	 * @param $delegateManager DelegateManager
+	 * @param DelegateManager $delegateManager
 	 * @return void
 	 */
-	function setDelegateManager(&$delegateManager)
+	public function setDelegateManager(&$delegateManager)
 	{
 		$this->mDelegateManager =& $delegateManager;
 	}
 
 	/**
 	 * Gets a DelegateManager object.
-	 * @public
 	 * @return DelegateManager
 	 */
-	function &getDelegateManager()
+	public function &getDelegateManager()
 	{
 		return $this->mDelegateManager;
 	}
 
 	/**
-	 * @public
-	 * @brief Sets the XCube_ServiceManager object.
-	 * @param $serviceManager XCube_ServiceManager
+	 * Sets the XCube_ServiceManager object.
+	 * @param XCube_ServiceManager $serviceManager
 	 * @return void
 	 */
-	function setServiceManager(&$serviceManager)
+	public function setServiceManager(&$serviceManager)
 	{
 		$this->mServiceManager =& $serviceManager;
 	}
 
 	/**
-	 * @public
-	 * @brief Gets a XCube_ServiceManager object.
+	 * Gets a XCube_ServiceManager object.
 	 * @return XCube_ServiceManager
 	 */
-	function &getServiceManager()
+	public function &getServiceManager()
 	{
 		return $this->mServiceManager;
 	}
 
 	/**
-	 * @public
-	 * @brief Gets a RenderSystem object having specified name.
-	 * @param $name string - the registed name of the render system.
-	 * @throws \RuntimeException
-	 * @return XCube_RenderSystem
+	 * Gets a RenderSystem object having specified name.
 	 *
 	 * Return the instance of the render system by the name. If the render
 	 * system specified by $name doesn't exist, raise fatal error. This member
 	 * function does creating the instance and calling prepare().
+	 *
+	 * @param string $name the registered name of the render system.
+	 * @throws \RuntimeException
+	 * @return XCube_RenderSystem
 	 */
-	function &getRenderSystem($name)
+	public function &getRenderSystem($name)
 	{
-		/** @var $mRS XCube_RenderSystem[] */
 		$mRS =& $this->_mRenderSystems;
 		if (isset($mRS[$name])) {
 			return $mRS[$name];
@@ -392,7 +382,7 @@ class Root
 	/**
 	 * @internal
 	 */
-	function setPermissionManager(&$manager)
+	public function setPermissionManager(&$manager)
 	{
 		$this->mPermissionManager =& $manager;
 	}
@@ -400,32 +390,31 @@ class Root
 	/**
 	 * @internal
 	 */
-	function &getPermissionManager()
+	public function &getPermissionManager()
 	{
 		return $this->mPermissionManager;
 	}
 
 	/**
-	 * @public
-	 * @brief Sets a XCube_TextFilter object.
+	 * Sets a XCube_TextFilter object.
 	 * @param XCube_TextFilter $textFilter
 	 * @return void
 	 */
-	function setTextFilter(&$textFilter)
+	public function setTextFilter(&$textFilter)
 	{
 		$this->mTextFilter =& $textFilter;
 	}
 
 	/**
-	 * @public
-	 * @brief Gets a XCube_TextFilter object.
+	 * Gets a XCube_TextFilter object.
+	 *
+	 * If mTextFilter member has been not initialized, the root object tries to
+	 * generate an instance though Controller's delegate. This is a special
+	 * case. Basically, a class never calls delegates of other classes directly.
+	 *
 	 * @return XCube_TextFilter
-	 * @attention
-	 *     If mTextFilter member has been not initialized, the root object tries to
-	 *     generate an instance though Controller's delegate. This is a special
-	 *     case. Basically, a class never calls degates of other classes directly.
 	 */
-	function &getTextFilter()
+	public function &getTextFilter()
 	{
 		if (!empty($this->mTextFilter)) return $this->mTextFilter;
 		if (!empty($this->mController)) { //ToDo: This case is for _XCORE_PREVENT_EXEC_COMMON_ status;
@@ -439,73 +428,67 @@ class Root
 	}
 
 	/**
-	 * @public
-	 * @brief Sets the role manager object.
-	 * @param $manager XCube_RoleManager
+	 * Sets the role manager object.
+	 * @param XCube_RoleManager $manager
 	 * @return void
 	 */
-	function setRoleManager(&$manager)
+	public function setRoleManager(&$manager)
 	{
 		$this->mRoleManager =& $manager;
 	}
 
 	/**
-	 * @public
-	 * @brief Sets the HTTP-context object.
-	 * @param $context XCube_HttpContext
+	 * Sets the HTTP-context object.
+	 * @param XCube_HttpContext $context
 	 * @return void
 	 */
-	function setContext(&$context)
+	public function setContext(&$context)
 	{
 		$this->mContext =& $context;
 	}
 
 	/**
-	 * @public
-	 * @brief Gets a HTTP-context object.
+	 * Gets a HTTP-context object.
 	 * @return XCube_HttpContext
 	 */
-	function &getContext()
+	public function &getContext()
 	{
 		return $this->mContext;
 	}
 
 	/**
-	 * @public
-	 * @brief Sets a Session object.
-	 * @param $session XCube_Session
+	 * Sets a Session object.
+	 * @param XCube_Session $session
 	 * @return void
 	 */
-	function setSession(&$session)
+	public function setSession(&$session)
 	{
 		$this->mSession =& $session;
 	}
 
 	/**
-	 * @public
-	 * @brief Gets a Session object.
+	 * Gets a Session object.
 	 * @return XCube_Session
 	 */
-	function &getSession()
+	public function &getSession()
 	{
 		return $this->mSession;
 	}
 
 	/**
-	 * @private
-	 * @brief Create an instance.
+	 * Create an instance.
 	 *
 	 * Create the instance dynamic with the rule and the string parameters.
 	 * First, load the file from $classPath. The rule is XOOPS_ROOT_PATH +
 	 * $classPath + $className + .class.php. Next, create the instance of the
 	 * class if the class is defined rightly. This member function is called by
-	 * other member functions of XCube_Root.
+	 * other member functions of Root.
 	 *
-	 * @param $className string - the name of class.
-	 * @param $classPath string - the path that $className is defined in.
-	 * @param $root      string - the root path instead of Cube.Root.
-	 * @return Object
-	 *
+	 * @private
+	 * @param string $className the name of class.
+	 * @param string $classPath the path that $className is defined in.
+	 * @param string $root      the root path instead of Cube.Root.
+	 * @return object
 	 * @todo If the file doesn't exist, require_once() raises fatal errors.
 	 */
 	function &_createInstance($className, $classPath = null, $root = null)

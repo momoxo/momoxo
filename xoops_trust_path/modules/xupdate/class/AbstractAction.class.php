@@ -17,7 +17,7 @@ if(!defined('XOOPS_ROOT_PATH'))
 **/
 abstract class Xupdate_AbstractAction
 {
-	public /*** XCube_Root ***/ $mRoot = null;
+	public $mRoot = null;
 
 	public /*** Xupdate_Module ***/ $mModule = null;
 
