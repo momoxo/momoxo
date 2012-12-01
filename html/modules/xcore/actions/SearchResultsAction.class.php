@@ -96,7 +96,7 @@ class Xcore_SearchResultsAction extends Xcore_Action
 	
 	function _doSearch(&$client, &$xoopsUser, &$params)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$timezone = $root->mContext->getXoopsConfig('server_TZ') * 3600;
 		
 		$results = $client->call('searchItems', $params);

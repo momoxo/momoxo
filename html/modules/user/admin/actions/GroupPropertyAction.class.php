@@ -38,7 +38,7 @@ class User_GroupPropertyAction extends User_Action
 			return USER_FRAME_VIEW_ERROR;
 		}
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mLanguageManager->loadModuleAdminMessageCatalog("system");
 		$root->mLanguageManager->loadModinfoMessageCatalog("system");
 

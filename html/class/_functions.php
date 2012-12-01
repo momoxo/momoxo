@@ -131,7 +131,7 @@ function xoops_template_clear_module_cache($mid)
 
 function head_process_xoopscomment_php()
 {
-	$root =& Root::getSingleton();
+	$root = Root::getSingleton();
 	$root->mLanguageManager->loadPageTypeMessageCatalog('comment');
 }
 

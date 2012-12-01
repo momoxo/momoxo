@@ -198,7 +198,7 @@ class XCube_FormFile
 	function _getRandomString($salt='')
 	{
 		if (empty($salt)) {
-			$root=&Root::getSingleton();
+			$root = Root::getSingleton();
 			$salt = $root->getSiteConfig('Cube', 'Salt');
 		}
 		srand( microtime() *1000000);

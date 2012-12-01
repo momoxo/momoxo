@@ -15,7 +15,7 @@ function altsys_oninstall_base( $module , $mydirname )
 
 	// for Cube 2.1
 	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mDelegateManager->add( 'Xcore.Admin.Event.ModuleInstall.' . ucfirst($mydirname) . '.Success' , 'altsys_message_append_oninstall' ) ;
 		$ret = array() ;
 	} else {

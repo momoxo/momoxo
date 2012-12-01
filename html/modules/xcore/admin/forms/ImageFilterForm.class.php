@@ -40,7 +40,7 @@ class Xcore_ImageFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$image_display = $root->mContext->mRequest->getRequest('image_display');
 		$imgcat_id = $root->mContext->mRequest->getRequest('imgcat_id');
 		$option_field = $root->mContext->mRequest->getRequest('option_field');

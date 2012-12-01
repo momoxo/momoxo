@@ -35,7 +35,7 @@ define("_MBSTRING_LANGUAGE", "japanese");
 //
 
 if ( class_exists('Root') && function_exists('mb_convert_encoding') && function_exists('mb_convert_kana')) {
-	$root =& Root::getSingleton();
+	$root = Root::getSingleton();
 	$root->mDelegateManager->add('Xcore_Mailer.ConvertLocal', 'Xcore_JapaneseUtf8_convLocal');
 }
 

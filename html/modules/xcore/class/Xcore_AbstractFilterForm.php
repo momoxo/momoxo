@@ -32,7 +32,7 @@ class Xcore_AbstractFilterForm
 	
 	function fetchSort()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$this->mSort = intval($root->mContext->mRequest->getRequest('sort'));
 		
 		if (!isset($this->mSortKeys[abs($this->mSort)])) {

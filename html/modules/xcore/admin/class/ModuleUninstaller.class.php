@@ -82,7 +82,7 @@ class Xcore_ModuleUninstaller
 	 */
 	function _uninstallTables()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$db =& $root->mController->getDB();
 
 		$dirname = $this->_mXoopsModule->get('dirname');

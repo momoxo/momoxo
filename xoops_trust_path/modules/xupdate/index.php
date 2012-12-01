@@ -8,7 +8,7 @@
 
 use XCore\Kernel\Root;
 
-$root =& Root::getSingleton();
+$root = Root::getSingleton();
 
 $root->mController->executeHeader();
 $root->mController->execute();

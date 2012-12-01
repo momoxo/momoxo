@@ -118,7 +118,7 @@ class XCube_PageNavigator
 	
 	function fetchNaviControl(&$navi)
 	{	
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		$startKey = $navi->getStartKey();
 		$perpageKey = $navi->getPerpageKey();

@@ -35,7 +35,7 @@ class XoopsThemeForm extends XoopsForm
 	 */
 	function render()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 	

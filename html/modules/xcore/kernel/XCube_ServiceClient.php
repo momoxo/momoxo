@@ -22,7 +22,7 @@ class XCube_ServiceClient extends XCube_AbstractServiceClient
 			return null;
 		}
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$request_bak =& $root->mContext->mRequest;
 		unset($root->mContext->mRequest);
 		

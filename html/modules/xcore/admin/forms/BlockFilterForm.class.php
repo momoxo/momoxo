@@ -57,7 +57,7 @@ class Xcore_BlockFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$mid = $root->mContext->mRequest->getRequest('mid');
 		$side = $root->mContext->mRequest->getRequest('side');
 		$weight = $root->mContext->mRequest->getRequest('weight');

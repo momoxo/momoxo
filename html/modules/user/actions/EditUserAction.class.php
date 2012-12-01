@@ -31,7 +31,7 @@ class User_EditUserAction extends User_AbstractEditAction
 	
 	function _getId()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$uid = is_object($root->mContext->mXoopsUser) ? $root->mContext->mXoopsUser->get('uid') : 0;
 		
 		return isset($_REQUEST['uid']) ? intval(xoops_getrequest('uid')) : $uid;
@@ -145,12 +145,12 @@ class User_EditUserAction extends User_AbstractEditAction
 		//
 		// TODO Because abstract message catalog style is not decided, we load directly.
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 		require_once XOOPS_ROOT_PATH . "/modules/xcore/include/notification_constants.php";
 
 		// Check the PM service has been installed.
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$service =& $root->mServiceManager->getService('privateMessage');
 
 		$methodOptions = array();

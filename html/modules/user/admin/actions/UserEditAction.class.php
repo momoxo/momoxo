@@ -39,7 +39,7 @@ class User_UserEditAction extends User_AbstractEditAction
 		$this->mObject =& $this->mObjectHandler->get($id);
 		
 		if ($this->mObject == null && $this->isEnableCreate()) {
-			$root =& Root::getSingleton();
+			$root = Root::getSingleton();
 			$this->mObject =& $this->mObjectHandler->create();
 			$this->mObject->set('timezone_offset', $root->mContext->getXoopsConfig('server_TZ'));
 		}
@@ -92,7 +92,7 @@ class User_UserEditAction extends User_AbstractEditAction
 		//
 		// TODO Because abstract message catalog style is not decided, we load directly.
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 		require_once XOOPS_ROOT_PATH . "/modules/xcore/include/notification_constants.php";
 		

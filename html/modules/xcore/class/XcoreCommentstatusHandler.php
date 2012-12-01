@@ -8,7 +8,7 @@ class XcoreCommentstatusHandler extends XoopsObjectHandler
 	
 	function XcoreCommentstatusHandler(&$db)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$language = $root->mContext->getXoopsConfig('language');
 		$root->mLanguageManager->loadPageTypeMessageCatalog('comment');
 

@@ -120,7 +120,7 @@ class XoopsGroupPermForm extends XoopsForm
         $tray->addElement(new XoopsFormButton('', 'reset', _CANCEL, 'reset'));
         $this->addElement($tray);
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');

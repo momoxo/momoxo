@@ -206,7 +206,7 @@ class XoopsModule extends XoopsObject
 			return;
 		}
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mLanguageManager->loadModinfoMessageCatalog($dirname);
 		
 		if (file_exists(XOOPS_ROOT_PATH.'/modules/'.$dirname.'/xoops_version.php')) {

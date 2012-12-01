@@ -83,7 +83,7 @@ class Xcore_ModuleEditForm extends XCube_ActionForm
 		$this->set('name', $obj->get('name'));
 		$this->set('weight', $obj->get('weight'));
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$module_cache = !empty($root->mContext->mXoopsConfig['module_cache'][$obj->get('mid')]) ? $root->mContext->mXoopsConfig['module_cache'][$obj->get('mid')]: 0;
 		$this->set('module_cache', $module_cache);
 	}

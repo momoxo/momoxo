@@ -27,7 +27,7 @@ class DefaultSystemCheckFunction
 }
 
 require_once XOOPS_ROOT_PATH . "/header.php";
-$root=&Root::getSingleton();
+$root = Root::getSingleton();
 $root->mDelegateManager->add("Xcorepage.Admin.SystemCheck", "DefaultSystemCheckFunction::DefaultCheck");
 XCube_DelegateUtils::call("Xcorepage.Admin.SystemCheck");
 require_once XOOPS_ROOT_PATH . "/footer.php";

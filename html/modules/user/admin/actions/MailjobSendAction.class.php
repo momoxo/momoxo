@@ -57,7 +57,7 @@ class User_MailjobSendAction extends User_Action
 			return USER_FRAME_VIEW_INPUT;
 		}
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		if ($this->mMailjob->get('is_pm')) {
 			$this->mMailjob->mSend->add(array(&$this, "sendPM"));
 		}

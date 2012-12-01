@@ -12,7 +12,7 @@ class XCube_Permissions
 		$args = func_get_args();
 		$actionName = array_shift($args);
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		return $root->mPermissionManager->getRolesOfAction($actionName, $args);
 	}
 }

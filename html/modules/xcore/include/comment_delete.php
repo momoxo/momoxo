@@ -73,7 +73,7 @@ if (false != $accesserror) {
     }
 }
 
-$t_root =& Root::getSingleton();
+$t_root = Root::getSingleton();
 $t_root->mLanguageManager->loadPageTypeMessageCatalog('comment');	///< Is this must?
 
 switch ($op) {

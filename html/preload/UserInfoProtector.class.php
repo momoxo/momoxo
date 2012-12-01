@@ -13,7 +13,7 @@ class UserInfoProtector extends XCube_ActionFilter
 {
 	function preBlockFilter()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$delegateMgr =& $root->getDelegateManager();
 		
 		$delegateMgr->add('Xcorepage.Userinfo.Access',
@@ -23,7 +23,7 @@ class UserInfoProtector extends XCube_ActionFilter
 	
 	public static function rightCheck()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		if (!$root->mContext->mUser->mIdentity->isAuthenticated()) {
 			$root->mController->executeForward(XOOPS_URL);
 		}

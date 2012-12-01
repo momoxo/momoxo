@@ -53,7 +53,7 @@ class Xcore_AdminSmarty extends Smarty
 	{
 		$_return = false;
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$theme = $root->mSiteConfig['Xcore']['Theme'];
 		$dirname = $this->mModulePrefix;
 		

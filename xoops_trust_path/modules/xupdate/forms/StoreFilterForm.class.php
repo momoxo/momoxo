@@ -63,7 +63,7 @@ class Xupdate_StoreFilterForm extends Xupdate_AbstractFilterForm
     {
         parent::fetch();
     
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
     
 		if (($value = $root->mContext->mRequest->getRequest('sid')) !== null) {
 			$this->mNavi->addExtra('sid', $value);

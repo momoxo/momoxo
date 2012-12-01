@@ -28,7 +28,7 @@ class XCube_DelegateUtils
         if ($num == 1) $delegateName = $args[0];
 		elseif ($num) $delegateName = array_shift($args);
 		else return false;
-		$m =& Root::getSingleton()->mDelegateManager;
+		$m = Root::getSingleton()->mDelegateManager;
         if ($m) {
             $delegates = $m->getDelegates();
             if (isset($delegates[$delegateName])) {

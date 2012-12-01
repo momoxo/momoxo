@@ -128,7 +128,7 @@ class XoopsFormElementTray extends XoopsFormElement {
      * @return	string  HTML output
 	 */
 	function render(){
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');

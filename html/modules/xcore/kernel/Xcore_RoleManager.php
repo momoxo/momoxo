@@ -17,7 +17,7 @@ class Xcore_RoleManager
 	{
 		static $cache;
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$context =& $root->mContext;
 		
 		if ($module == null) {

@@ -67,7 +67,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
 
         XCube_DelegateUtils::call('Module.xupdate.Global.Event.GetAssetManager',new XCube_Ref($this->mAssetManager),$this->mXoopsModule->get('dirname'));
 
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         $root->mController->mExecute->add(array(&$this, 'execute'));
 
         //
@@ -131,7 +131,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
         if(!defined('XUPDATE_ADMIN_RENDER_REGISTED'))
         {
             define('XUPDATE_ADMIN_RENDER_REGISTED',true);
-            $root =& Root::getSingleton();
+            $root = Root::getSingleton();
             $root->overrideSiteConfig(
                 array(
                     'RenderSystems' => array(
@@ -163,7 +163,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
             return $this->mAdminMenu;
         }
 
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
 
         // load admin menu
         $adminMenu = $this->mXoopsModule->getInfo('adminmenu');
@@ -219,7 +219,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
         {
             if(is_array($this->mXoopsModule->getInfo('config')) && count($this->mXoopsModule->getInfo('config')) > 0)
             {
-                $root =& Root::getSingleton();
+                $root = Root::getSingleton();
                 $this->_mPreferenceEditUrl = $root->mController->getPreferenceEditUrl($this->mXoopsModule);
             }
             else
@@ -244,7 +244,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
         {
             if($this->mXoopsModule->hasHelp())
             {
-                $root =& Root::getSingleton();
+                $root = Root::getSingleton();
                 $this->_mHelpViewUrl = $root->mController->getHelpViewUrl($this->mXoopsModule);
             }
             else
@@ -309,7 +309,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
     **/
     private function _createAction()
     {
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
 
         if($this->mActionName == null)
         {
@@ -382,7 +382,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          * @return  void
         **/
         XCube_DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.ActionNotFound');
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }
 
@@ -411,7 +411,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          * @return  void
         **/
         XCube_DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Preparation');
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }
 
@@ -440,7 +440,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          * @return  void
         **/
         XCube_DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Permission');
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }
 }

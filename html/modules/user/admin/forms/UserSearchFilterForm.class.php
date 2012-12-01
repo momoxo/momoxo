@@ -104,7 +104,7 @@ class User_UserSearchFilterForm extends User_AbstractFilterForm
 			return;
 		}
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 
 		foreach ($this->_mMatchFields as $field) {
 			if (strlen($form->get($field)) > 0) {

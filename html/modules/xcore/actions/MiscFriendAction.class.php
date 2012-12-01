@@ -33,7 +33,7 @@ class Xcore_MiscFriendAction extends Xcore_Action
 			return XCORE_FRAME_VIEW_INPUT;
 		}
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		$this->mMailer =& getMailer();
 		$this->mMailer->setTemplate("tellfriend.tpl");

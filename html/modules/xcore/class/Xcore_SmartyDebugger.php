@@ -12,7 +12,7 @@ class Xcore_SmartyDebugger extends Xcore_AbstractDebugger
 	
 	function isDebugRenderSystem()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$user =& $root->mContext->mXoopsUser;
 		
 		return is_object($user) ? $user->isAdmin(0) : false;

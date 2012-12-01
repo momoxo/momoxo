@@ -5,7 +5,7 @@
 //
 use XCore\Kernel\Root;
 
-$t_root =& Root::getSingleton();
+$t_root = Root::getSingleton();
 
 $t_root->mLanguageManager->loadModuleMessageCatalog("xcore");
 

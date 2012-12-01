@@ -161,7 +161,7 @@ class Xcore_ModuleInstallUtils
 			$scanner->parse();
 			$sqls = $scanner->getSQL();
 			
-			$root =& Root::getSingleton();
+			$root = Root::getSingleton();
 			$db =& $root->mController->getDB();
 			
 			//
@@ -180,7 +180,7 @@ class Xcore_ModuleInstallUtils
 
 			$reservedTables = array('avatar', 'avatar_users_link', 'block_module_link', 'xoopscomments', 'config', 'configcategory', 'configoption', 'image', 'imagebody', 'imagecategory', 'imgset', 'imgset_tplset_link', 'imgsetimg', 'groups','groups_users_link','group_permission', 'online', 'bannerclient', 'banner', 'bannerfinish', 'priv_msgs', 'ranks', 'session', 'smiles', 'users', 'newblocks', 'modules', 'tplfile', 'tplset', 'tplsource', 'xoopsnotifications');
 
-			$root =& Root::getSingleton();
+			$root = Root::getSingleton();
 			$db =& $root->mController->mDB;
 			
 			$sql_query = fread(fopen($sqlfilepath, 'r'), filesize($sqlfilepath));
@@ -565,7 +565,7 @@ class Xcore_ModuleInstallUtils
         				}
         			}
 				} else {
-				    $root =& Root::getSingleton();
+				    $root = Root::getSingleton();
                     $groups = $root->mContext->mXoopsUser->getGroups(true);
                     foreach ($groups as $mygroup) {
         				$bperm->setVar('gperm_groupid', $mygroup);
@@ -1243,7 +1243,7 @@ class Xcore_ModuleInstallUtils
 		$scanner->parse();
 		$sqlArr = $scanner->getSQL();
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		foreach ($sqlArr as $sql) {		
 			if ($root->mController->mDB->query($sql)) {

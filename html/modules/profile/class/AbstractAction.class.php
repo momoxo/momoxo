@@ -21,7 +21,7 @@ class Profile_AbstractAction
 	function &_getHandler(){
 	}
 	function Profile_AbstractAction(){
-		$this->mRoot =& Root::getSingleton();
+		$this->mRoot = Root::getSingleton();
 		$this->mModule =& $this->mRoot->mContext->mModule;
 		$this->mAsset =& $this->mModule->mAssetManager;
 	}

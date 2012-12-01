@@ -16,7 +16,7 @@ use XCore\Kernel\Root;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-$root=&Root::getSingleton();
+$root = Root::getSingleton();
 if(!is_object($root->mController)) exit();
 
 $root->mController->executeHeader();

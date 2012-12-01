@@ -9,7 +9,7 @@ use XCore\Kernel\Root;
 
 require_once XOOPS_ROOT_PATH . '/modules/xcore/include/cubecore_init.php';
 
-$root=&Root::getSingleton();
+$root = Root::getSingleton();
 $xoopsController=&$root->getController();
 $xoopsController->executeCommon();
 

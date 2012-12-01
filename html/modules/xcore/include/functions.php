@@ -34,7 +34,7 @@ use XCore\Kernel\Root;
 
 function xoops_getrequest($name)
 {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     return $root->mContext->mRequest->getRequest($name);
 }
 
@@ -43,7 +43,7 @@ function xoops_getrequest($name)
  */
 function xoops_header($closehead = true)
 {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     $renderSystem =& $root->getRenderSystem('Xcore_RenderSystem');
     if ($renderSystem != null) {
         $renderSystem->showXoopsHeader($closehead);
@@ -55,7 +55,7 @@ function xoops_header($closehead = true)
  */
 function xoops_footer()
 {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     $renderSystem =& $root->getRenderSystem('Xcore_RenderSystem');
     if ($renderSystem != null) {
         $renderSystem->showXoopsFooter();
@@ -64,7 +64,7 @@ function xoops_footer()
 
 function xoops_error($message, $title='', $style='errorMsg')
 {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     $renderSystem =& $root->getRenderSystem($root->mContext->mBaseRenderSystemName);
 
     $renderTarget =& $renderSystem->createRenderTarget('main');
@@ -86,7 +86,7 @@ function xoops_error($message, $title='', $style='errorMsg')
  */
 function xoops_result($message, $title='')
 {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     $renderSystem =& $root->getRenderSystem($root->mContext->mBaseRenderSystemName);
     
     $renderTarget =& $renderSystem->createRenderTarget('main');
@@ -115,7 +115,7 @@ function xoops_confirm($hiddens, $action, $message, $submit = '', $addToken = tr
     //
     $tokenHandler->register($token);
     
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     $renderSystem =& $root->getRenderSystem($root->mContext->mBaseRenderSystemName);
     
     $renderTarget =& $renderSystem->createRenderTarget('main');
@@ -508,7 +508,7 @@ function xoops_getenv($key)
  */
 function getTheme()
 {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     return $root->mContext->getXoopsConfig('theme_set');
 }
 

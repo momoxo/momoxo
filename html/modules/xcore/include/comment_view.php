@@ -8,7 +8,7 @@ if (XOOPS_COMMENT_APPROVENONE != $xoopsModuleConfig['com_rule']) {
 	$groups = ( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
 	$xoopsTpl->assign( 'xoops_iscommentadmin', $gperm_handler->checkRight( 'system_admin', XCORE_SYSTEM_COMMENT, $groups) );
 
-	$t_root =& Root::getSingleton();
+	$t_root = Root::getSingleton();
 	$t_root->mLanguageManager->loadPageTypeMessageCatalog('comment');
 	$comment_config = $xoopsModule->getInfo('comments');
 	$com_itemid = (trim($comment_config['itemName']) != '' && isset($_GET[$comment_config['itemName']])) ? (int)$_GET[$comment_config['itemName']] : 0;

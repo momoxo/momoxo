@@ -15,7 +15,7 @@ class ShadePlus_SoapClient extends XCube_AbstractServiceClient
 	
 	function call($operation, $args)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		$args = $this->_encodeUTF8($args, $root->mLanguageManager);
 		

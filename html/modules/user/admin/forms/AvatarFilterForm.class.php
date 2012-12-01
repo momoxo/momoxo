@@ -49,7 +49,7 @@ class User_AvatarFilterForm extends User_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$avatar_display = $root->mContext->mRequest->getRequest('avatar_display');
 		$avatar_type = $root->mContext->mRequest->getRequest('avatar_type');
 		$option_field = $root->mContext->mRequest->getRequest('option_field');

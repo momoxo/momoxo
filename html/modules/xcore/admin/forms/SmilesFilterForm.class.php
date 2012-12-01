@@ -33,7 +33,7 @@ class Xcore_SmilesFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$code = $root->mContext->mRequest->getRequest('code');
 		$smile_url = $root->mContext->mRequest->getRequest('smile_url');
 		$emotion = $root->mContext->mRequest->getRequest('emotion');

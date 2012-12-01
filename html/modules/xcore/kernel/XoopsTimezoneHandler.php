@@ -10,7 +10,7 @@ class XoopsTimezoneHandler extends XoopsObjectHandler
 	{
 		parent::XoopsObjectHandler($db);
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 
 		//
 		// Because abstract language style is not decided, we load directly. But we must fix.

@@ -5,7 +5,7 @@ if (!defined('XOOPS_ROOT_PATH')) {
     exit();
 }
 
-$root =& Root::getSingleton();
+$root = Root::getSingleton();
 $root->mLanguageManager->loadPageTypeMessageCatalog('calendar');
 
 ?>

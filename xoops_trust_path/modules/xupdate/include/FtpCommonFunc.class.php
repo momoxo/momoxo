@@ -34,7 +34,7 @@ class Xupdate_FtpCommonFunc {
 	
 	public function __construct() {
 
-		$this->mRoot =& Root::getSingleton();
+		$this->mRoot = Root::getSingleton();
 		$this->mModule =& $this->mRoot->mContext->mModule;
 		$this->mAsset =& $this->mModule->mAssetManager;
 

@@ -98,7 +98,7 @@ abstract class Xupdate_AbstractFilterForm
     **/
     protected function fetchSort()
     {
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
 //fix pagenavi
 		$this->mNavi->setStart(intval($root->mContext->mRequest->getRequest($this->mNavi->mPrefix . 'start')));
 

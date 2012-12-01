@@ -35,7 +35,7 @@ function xoops_cp_header()
 	// Old modules may call this file from other admin directory.
 	// In this case, the controller does not have Admin Module Object.
 	//
-	$root=&Root::getSingleton();
+	$root = Root::getSingleton();
 
 	$strategy =new Xcore_AdminControllerStrategy($root->mController);
 	

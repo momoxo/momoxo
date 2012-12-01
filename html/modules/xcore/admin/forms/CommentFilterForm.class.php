@@ -63,7 +63,7 @@ class Xcore_CommentFilterForm extends Xcore_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$com_modid = $root->mContext->mRequest->getRequest('com_modid');
 		$dirname = $root->mContext->mRequest->getRequest('dirname');
 		$com_icon = $root->mContext->mRequest->getRequest('com_icon');

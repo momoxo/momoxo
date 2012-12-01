@@ -18,7 +18,7 @@ class User_XcorepageFunctions
 		//
 		// Boot the action frame of the user module directly.
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->executeHeader();
 		
 		$root->mController->setupModuleContext('user');
@@ -58,7 +58,7 @@ class User_XcorepageFunctions
 		//
 		// Boot the action frame of the user module directly.
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->executeHeader();
 		
 		$root->mController->setupModuleContext('user');
@@ -83,7 +83,7 @@ class User_XcorepageFunctions
 	 */
 	public static function register()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$xoopsUser =& $root->mContext->mXoopsUser;
 		
 		if (is_object($xoopsUser)) {
@@ -127,7 +127,7 @@ class User_XcorepageFunctions
 	 */
 	public static function lostpass()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$xoopsUser =& $root->mContext->mXoopsUser;
 
 		if (is_object($xoopsUser)) {
@@ -144,7 +144,7 @@ class User_XcorepageFunctions
 				
 		require_once XOOPS_MODULE_PATH . "/user/class/ActionFrame.class.php";
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 
 		$moduleRunner = new User_ActionFrame(false);
 		$moduleRunner->setActionName("LostPass");
@@ -163,7 +163,7 @@ class User_XcorepageFunctions
 	 */
 	public static function user()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$op = isset($_REQUEST['op']) ? trim(xoops_getrequest('op')) : "main";
 		$xoopsUser =& $root->mContext->mXoopsUser;
 		
@@ -196,7 +196,7 @@ class User_XcorepageFunctions
 		//
 		// Boot the action frame of the user module directly.
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->executeHeader();
 		
 		$root->mController->setupModuleContext('user');
@@ -220,7 +220,7 @@ class User_XcorepageFunctions
 			return;
 		}
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mLanguageManager->loadModuleMessageCatalog('user');
 
 		$userHandler =& xoops_getmodulehandler('users', 'user');
@@ -278,7 +278,7 @@ class User_XcorepageFunctions
 
 	public static function logout(&$successFlag, $xoopsUser)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$xoopsConfig = $root->mContext->mXoopsConfig;
 		
 		$root->mLanguageManager->loadModuleMessageCatalog('user');
@@ -304,7 +304,7 @@ class User_XcorepageFunctions
 		
 		require_once XOOPS_MODULE_PATH . "/user/class/ActionFrame.class.php";
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->setupModuleContext('user');
 		
 		$actionName = "MiscOnline";

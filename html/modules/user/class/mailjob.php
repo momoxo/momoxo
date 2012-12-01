@@ -107,7 +107,7 @@ class UserMailjobObject extends XoopsSimpleObject
 	
 	function send($from_user)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		$userArr =& $this->getUsers($this->getCurrentRetry());
 		$handler =& xoops_getmodulehandler('mailjob_link', 'user');

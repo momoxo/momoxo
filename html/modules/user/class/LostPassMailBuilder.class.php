@@ -76,7 +76,7 @@ class User_LostPass1MailBuilder
 	 */
 	function setTemplate()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$language = $root->mContext->getXoopsConfig('language');
 		$this->mMailer->setTemplateDir(XOOPS_MODULE_PATH . '/user/language/' . $language . '/mail_template/');
 		$this->mMailer->setTemplate("lostpass1.tpl");
@@ -111,7 +111,7 @@ class User_LostPass2MailBuilder extends User_LostPass1MailBuilder
 {
 	function setTemplate()
 	{
-		$root=&Root::getSingleton();
+		$root = Root::getSingleton();
 		$language = $root->mContext->getXoopsConfig('language');
 		$this->mMailer->setTemplateDir(XOOPS_MODULE_PATH . '/user/language/' . $language . '/mail_template/');
 		$this->mMailer->setTemplate("lostpass2.tpl");

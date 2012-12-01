@@ -47,7 +47,7 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 
 	function execute()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		// load message catalog of Legacy for _AD_XCORE_LANG_NO_SETTING, even if the current module is not Xcore.
 		$langMgr =& $root->mLanguageManager;

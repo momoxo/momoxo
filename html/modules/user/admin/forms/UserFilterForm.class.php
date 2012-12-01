@@ -98,7 +98,7 @@ class User_UserFilterForm extends User_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$uid = $root->mContext->mRequest->getRequest('uid');
 		$email = $root->mContext->mRequest->getRequest('email');
 		$attachsig = $root->mContext->mRequest->getRequest('attachsig');

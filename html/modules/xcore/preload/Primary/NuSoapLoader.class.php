@@ -19,7 +19,7 @@ class Xcore_NuSoapLoader extends XCube_ActionFilter
 			return;
 		}
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		if (is_object($service) && is_a($service, 'XCube_Service')) {
 			$client = new XCube_ServiceClient($service);

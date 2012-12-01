@@ -32,7 +32,7 @@ class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
             $render->setAttribute('block', $result);
         }
         
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         $renderSystem =& $root->getRenderSystem($this->getRenderSystemName());
         
         $renderSystem->renderBlock($render);
@@ -62,7 +62,7 @@ class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
                     //
                     // load language file.
                     //
-                    $root =& Root::getSingleton();
+                    $root = Root::getSingleton();
                     $langManager =& $root->getLanguageManager();
                     $langManager->loadBlockMessageCatalog($this->_mBlock->get('dirname'));
                     
@@ -75,7 +75,7 @@ class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
         // The block may have options, even it doesn't have end_func 
         //
         if ($this->_mBlock->get('options')) {
-            $root =& Root::getSingleton();
+            $root = Root::getSingleton();
             $textFilter =& $root->getTextFilter();
             
             $buf = "";

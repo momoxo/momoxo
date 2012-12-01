@@ -7,7 +7,7 @@ include_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_functions.php'
 $xoops_notification = array();
 $xoops_notification['show'] = isset($xoopsModule) && is_object($xoopsUser) && notificationEnabled('inline') ? 1 : 0;
 if ($xoops_notification['show']) {
-	$root =& Root::getSingleton();
+	$root = Root::getSingleton();
 	$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 	$categories =& notificationSubscribableCategoryInfo();
 	$event_count = 0;

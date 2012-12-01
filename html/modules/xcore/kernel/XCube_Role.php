@@ -9,7 +9,7 @@ class XCube_Role
 {
 	function getRolesForUser($username = null)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		return $root->mRoleManager->getRolesForUser($username);
 	}
 }

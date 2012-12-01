@@ -94,7 +94,7 @@ class XCube_ActionForm
 	 */
 	function __construct()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$this->mContext =& $root->getContext();
 		$this->mUser =& $this->mContext->getUser();
 	}
@@ -133,7 +133,7 @@ class XCube_ActionForm
 	{
 		if ($this->_mToken == null) {
 			srand(microtime() * 100000);
-			$root=&Root::getSingleton();
+			$root = Root::getSingleton();
 			$salt = $root->getSiteConfig('Cube', 'Salt');
 			$this->_mToken = md5($salt . uniqid(rand(), true));
 			

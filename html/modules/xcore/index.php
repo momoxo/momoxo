@@ -13,7 +13,7 @@ use XCore\Kernel\Root;
 require_once "../../mainfile.php";
 require_once XOOPS_ROOT_PATH . "/header.php";
 
-$root =& Root::getSingleton();
+$root = Root::getSingleton();
 
 $actionName = isset($_GET['action']) ? trim($_GET['action']) : "Default";
 

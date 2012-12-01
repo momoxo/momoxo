@@ -8,7 +8,7 @@ session_cache_limiter('private_no_expire');
 define ('_XCORE_ALLOW_ACCESS_FROM_ANY_ADMINS_', true);
 
 require_once "../../../mainfile.php";
-$root =& Root::getSingleton();
+$root = Root::getSingleton();
 unset($root->mContext->mXoopsModule);
 
 //

@@ -36,7 +36,7 @@ class User_AvatarListAction extends User_AbstractListAction
 	{
 		$navi =new XCube_PageNavigator($this->_getBaseUrl(), XCUBE_PAGENAVI_START | XCUBE_PAGENAVI_PERPAGE);
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$perpage = $root->mContext->mRequest->getRequest($navi->mPrefix.'perpage');
 
 		if (isset($perpage) && intval($perpage) == 0) { 	

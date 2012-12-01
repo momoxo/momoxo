@@ -17,7 +17,7 @@ class User_AdminPreload extends XCube_ActionFilter
 	
 	function doThemeSettingChanged($mainTheme, $selectableThemes)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$db =& $root->mController->mDB;
 		$table = $db->prefix('users');
 		

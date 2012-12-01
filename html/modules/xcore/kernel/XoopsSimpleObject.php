@@ -148,12 +148,12 @@ class XoopsSimpleObject extends AbstractXoopsObject
 				return $vars['value'];
 
 			case XOBJ_DTYPE_STRING:
-				$root =& Root::getSingleton();
+				$root = Root::getSingleton();
 				$textFilter =& $root->getTextFilter();
 				return $textFilter->toShow($vars['value']);
 
 			case XOBJ_DTYPE_TEXT:
-				$root =& Root::getSingleton();
+				$root = Root::getSingleton();
 				$textFilter =& $root->getTextFilter();
 				return $textFilter->toShowTarea($vars['value'], 0, 1, 1, 1, 1);
 		}

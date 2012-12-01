@@ -29,7 +29,7 @@ function smarty_modifier_xoops_escape($string, $esc_type = 'show')
 {
 	static $textFilter;
     if (!isset($textFilter)) {
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         $textFilter = $root->getTextFilter();
     }
     switch ($esc_type) {

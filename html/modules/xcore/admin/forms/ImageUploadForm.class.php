@@ -43,7 +43,7 @@ class Xcore_ImageUploadForm extends XCube_ActionForm
 			$this->addErrorMessage(_AD_XCORE_LANG_IMGCAT_WRONG);
 		}
 		else {
-			$root =& Root::getSingleton();
+			$root = Root::getSingleton();
 			$xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
 			
 			$groups = array();

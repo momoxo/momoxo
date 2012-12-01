@@ -16,7 +16,7 @@ class Xcore_NotifyDeleteForm extends XCube_ActionForm
 	{
 		parent::fetch();
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$t_arr = $root->mContext->mRequest->getRequest('del_not');
 		
 		if (!is_array($t_arr)) {

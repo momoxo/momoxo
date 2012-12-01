@@ -65,7 +65,7 @@ class Profile_AbstractFilterForm
 	 */
 	function fetchSort()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$this->mSort = intval($root->mContext->mRequest->getRequest($this->mNavi->mPrefix . 'sort'));
 	
 		if (!isset($this->mSortKeys[abs($this->mSort)])) {

@@ -749,7 +749,7 @@ class Xcore_Controller extends Controller
 	{
 		parent::_setupSession();
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$xoopsConfig = $root->mContext->mXoopsConfig;
 		if ($xoopsConfig['use_mysession']) {
 			$this->mRoot->mSession->setParam($xoopsConfig['session_name'], $xoopsConfig['session_expire']);

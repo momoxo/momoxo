@@ -58,7 +58,7 @@ class MyTextSanitizer
 		$this->mXoopsCodePostFilter =new XCube_Delegate();
 		$this->mXoopsCodePostFilter->register('MyTextSanitizer.XoopsCodePostFilter');
 
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         $this->mTextFilter =& $root->getTextFilter();
 
     }

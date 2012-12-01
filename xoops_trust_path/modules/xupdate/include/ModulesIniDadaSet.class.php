@@ -61,7 +61,7 @@ class Xupdate_ModulesIniDadaSet
 		//$this->Ftp =& $this->Xupdate->Ftp ;		// FTP instance
 		$this->Func =& $this->Xupdate->func ;		// Functions instance
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$mAsset =& $root->mContext->mModule->mAssetManager;
 		$this->mTagModule = $root->mContext->mModuleConfig['tag_dirname'];
 		$this->storeHand =& $mAsset->getObject('handler', 'Store', false);
@@ -85,7 +85,7 @@ class Xupdate_ModulesIniDadaSet
 		}
 		touch($cacheCheckFile);
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$org_lang = $language = $root->mContext->getXoopsConfig('language');
 		if (isset($this->lang_mapping[$language])) {
 			$language = $this->lang_mapping[$language];

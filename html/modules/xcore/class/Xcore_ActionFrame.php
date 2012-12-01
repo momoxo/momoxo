@@ -36,7 +36,7 @@ class Xcore_ActionFrame
 		//
 		// Temp FIXME!
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mContext->setAttribute('actionName', $name);
 		$root->mContext->mModule->setAttribute('actionName', $name);
 	}

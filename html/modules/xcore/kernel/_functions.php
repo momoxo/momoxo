@@ -72,7 +72,7 @@ function Xcore_function_stylesheet($params, &$smarty)
 
 function Xcore_get_override_file($file, $prefix = null, $isSpDirname = false)
 {
-	$root =& Root::getSingleton();
+	$root = Root::getSingleton();
 	$moduleObject =& $root->mContext->mXoopsModule;
 
 	if ($isSpDirname && is_object($moduleObject) && $moduleObject->get('dirname') == 'xcore' && isset($_REQUEST['dirname'])) {
@@ -136,7 +136,7 @@ function Xcore_get_override_file($file, $prefix = null, $isSpDirname = false)
 
 function XcoreRender_smartyfunction_notifications_select($params, &$smarty)
 {
-	$root =& Root::getSingleton();
+	$root = Root::getSingleton();
 	$renderSystem =& $root->getRenderSystem('Xcore_RenderSystem');
 	
 	$renderTarget =& $renderSystem->createRenderTarget('main');

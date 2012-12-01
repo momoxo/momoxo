@@ -163,7 +163,7 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 	
 	function setupModuleLanguage()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		$root->mContext->mXoopsModule->loadInfo($root->mContext->mXoopsModule->get('dirname'));
 		

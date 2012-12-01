@@ -101,7 +101,7 @@ class Root
 	 * Gets a object of Root as singleton.
 	 * @return Root
 	 */
-	public static function &getSingleton()
+	public static function getSingleton()
 	{
 		static $instance;
 

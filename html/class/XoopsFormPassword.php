@@ -94,7 +94,7 @@ class XoopsFormPassword extends XoopsFormElement {
 	 * @return	string	HTML
 	 */
 	function render(){
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem(XOOPSFORM_DEPENDENCE_RENDER_SYSTEM);
 		
 		$renderTarget =& $renderSystem->createRenderTarget('main');

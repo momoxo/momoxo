@@ -45,7 +45,7 @@ class Xcore_AbstractBlockProcedure
      */
     function getRenderSystemName()
     {
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         return $root->mContext->mBaseRenderSystemName;
     }
     

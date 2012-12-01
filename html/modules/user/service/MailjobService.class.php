@@ -35,7 +35,7 @@ class User_MailjobService extends XCube_Service
 	{
 		require_once XOOPS_MODULE_PATH . "/user/admin/forms/MailjobServiceEditForm.class.php";
 	
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 	
 		$uidArr = $root->mContext->mRequest->getRequest('uidArr');
 	

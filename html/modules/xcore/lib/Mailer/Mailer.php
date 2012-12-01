@@ -20,7 +20,7 @@ class Xcore_Mailer extends PHPMailer
 	
 	function prepare()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		$handler =& xoops_gethandler('config');
 		$xoopsMailerConfig =& $handler->getConfigsByCat(XOOPS_CONF_MAILER);

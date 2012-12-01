@@ -17,7 +17,7 @@ class Emaillogin extends XCube_ActionFilter
   
   function checkLogin(&$xoopsUser)
   {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     if ($root->mContext->mUser->isInRole('Site.RegisteredUser')) {
       return;
     }

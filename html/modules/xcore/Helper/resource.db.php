@@ -19,7 +19,7 @@ function smarty_resource_db_systemTpl($tpl_name)
     static $patterns = null;
     static $replacements = null;
     if (!$patterns) {
-        $root=&Root::getSingleton();
+        $root = Root::getSingleton();
         $systemTemplates = explode(',',$root->getSiteConfig('Xcore_RenderSystem','SystemTemplate',''));
         $prefix = $root->getSiteConfig('Xcore_RenderSystem','SystemTemplatePrefix','xcore');
         $patterns = preg_replace('/^\s*([^\s]*)\s*$/e', '"/".preg_quote("\1","/")."/"', $systemTemplates);

@@ -22,7 +22,7 @@
 use XCore\Kernel\Root;
 
 function b_xcore_mainmenu_show( $options ) {
-    $root =& Root::getSingleton();
+    $root = Root::getSingleton();
     $xoopsModule =& $root->mContext->mXoopsModule;
     $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
     

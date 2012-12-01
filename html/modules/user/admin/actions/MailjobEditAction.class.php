@@ -32,7 +32,7 @@ class User_MailjobEditAction extends User_AbstractEditAction
 		
 		$this->mFilter->fetch();
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mDelegateManager->add('Xcore.Event.Explaceholder.Get.UserPagenaviHidden', 'User_MailjobEditAction::renderHiddenControl');
 	}
 	

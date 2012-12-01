@@ -15,7 +15,7 @@ function protector_onupdate_base( $module , $mydirname )
 
 	// for Cube 2.1
 	if( defined( 'XOOPS_CUBE_XCORE' ) ) {
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mDelegateManager->add( 'Xcore.Admin.Event.ModuleUpdate.' . ucfirst($mydirname) . '.Success', 'protector_message_append_onupdate' ) ;
 		$msgs = array() ;
 	} else {

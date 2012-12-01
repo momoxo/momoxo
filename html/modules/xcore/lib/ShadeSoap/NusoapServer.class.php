@@ -101,7 +101,7 @@ class ShadeSoap_NusoapServer extends soap_server
 		//
 		// Insert CUBE CODE
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		// $root->mContext->mUser->setService(true);
 		$retValue = call_user_func_array($call_arg, array($root->mContext->mUser, $this->methodparams));
 		

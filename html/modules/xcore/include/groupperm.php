@@ -18,7 +18,7 @@ $modid = isset($_POST['modid']) ? intval($_POST['modid']) : 0;
 //
 // Load Message catalog
 //
-$root =& Root::getSingleton();
+$root = Root::getSingleton();
 $root->mLanguageManager->loadModuleAdminMessageCatalog('xcore');
 
 // we dont want system module permissions to be changed here

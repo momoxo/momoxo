@@ -53,7 +53,7 @@ function smarty_function_xoops_input($params, &$smarty)
 		//
 		static $textFilter;
 		if (!isset($textFilter)) {
-			$root =& Root::getSingleton();
+			$root = Root::getSingleton();
 			$textFilter = $root->getTextFilter();
 		}
 		$name = trim($params['name']);

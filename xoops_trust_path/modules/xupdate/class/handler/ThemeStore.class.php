@@ -15,7 +15,7 @@ class Xupdate_ThemeStore extends Xupdate_ModuleStore {
 	public function get_StoreUrl()
 	{
 		//TODO for test dirname ?
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$modDirname = $root->mContext->mModule->mAssetManager->mDirname;
 		$ret = XOOPS_MODULE_URL .'/'.$modDirname.'/admin/index.php?action=ThemeInstall'
 			.'&id='.$this->getVar('id') .'&dirname='.$this->getVar('dirname');

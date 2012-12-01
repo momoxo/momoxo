@@ -67,7 +67,7 @@ class Profile_DataFilterForm extends Profile_AbstractFilterForm
     {
         parent::fetch();
     
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
     
         if (($value = $root->mContext->mRequest->getRequest('uid')) !== null) {
             $this->mNavi->addExtra('uid', $value);

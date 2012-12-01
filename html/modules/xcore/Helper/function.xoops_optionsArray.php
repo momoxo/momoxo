@@ -42,7 +42,7 @@ function smarty_function_xoops_optionsArray($params, &$smarty)
 	$id = isset($params['id']) ? XOOPS_INPUT_DEFID_PREFIX . $params['id'] . '_': null;
 	static $textFilter;
 	if (!isset($textFilter)) {
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$textFilter = $root->getTextFilter();
 	}
 	$vname = $params['value'];

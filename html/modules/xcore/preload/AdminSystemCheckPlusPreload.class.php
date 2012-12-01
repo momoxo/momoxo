@@ -28,14 +28,14 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 	function preBlockFilter()
 	{
 
-	$root=&Root::getSingleton();
+	$root = Root::getSingleton();
 	$root->mDelegateManager->add("Xcorepage.Admin.SystemCheck", "Xcore_AdminSystemCheckPlusPreload::SystemCheckPlus", XCUBE_DELEGATE_PRIORITY_NORMAL+1);
 
 	}
 
 	public static function SystemCheckPlus()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		////////////////////////////////////////////////
 		if(XC_ADMINSYSTEMCHECK_WELCOME) {
 		//ex) 
@@ -206,7 +206,7 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 
 	public static function display_message($attributes = array(), $template="", $return = false)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$renderSystem =& $root->getRenderSystem($root->mContext->mBaseRenderSystemName);
 		$renderTarget =& $renderSystem->createRenderTarget('main');
 		$renderTarget->setAttribute('xcore_module', 'xcore');

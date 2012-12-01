@@ -6,7 +6,7 @@ class Xcore_EventFunction
 {
 	public static function imageManager()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
 	
 		$moduleRunner =new Xcore_ActionFrame(false);
@@ -24,7 +24,7 @@ class Xcore_EventFunction
 
 	public static function backend()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
 		
 		$moduleRunner =new Xcore_ActionFrame(false);
@@ -39,7 +39,7 @@ class Xcore_EventFunction
 
 	public static function search()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
 		
 		$moduleRunner =new Xcore_ActionFrame(false);
@@ -56,7 +56,7 @@ class Xcore_EventFunction
 
 	public static function misc()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
 		
 		$actionName = isset($_REQUEST['type']) ? ucfirst(xoops_getrequest('type')) : "Smilies";
@@ -76,7 +76,7 @@ class Xcore_EventFunction
 
 	public static function notifications()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->setupModuleContext('xcore');
 		
 		//
@@ -113,7 +113,7 @@ class Xcore_EventFunction
 		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_constants.php';
 		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$xoopsModule =& $root->mContext->mXoopsModule;
 		$moduleConfig =& $root->mContext->mModuleConfig;
 		$xoopsUser =& $root->mContext->mXoopsUser;

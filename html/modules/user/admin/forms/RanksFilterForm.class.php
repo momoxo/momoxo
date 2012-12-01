@@ -41,7 +41,7 @@ class User_RanksFilterForm extends User_AbstractFilterForm
 	{
 		parent::fetch();
 
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$rank_special = $root->mContext->mRequest->getRequest('rank_special');
 		$option_field = $root->mContext->mRequest->getRequest('option_field');
 		$search = $root->mContext->mRequest->getRequest('search');	

@@ -42,7 +42,7 @@ require_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_constants.php'
 //
 //@todo How does the system decide the main controller?
 //
-$root=&Root::getSingleton();
+$root = Root::getSingleton();
 //$root->loadSiteConfig(XCUBE_SITE_SETTING_FILE, XCUBE_SITE_CUSTOM_FILE, XCUBE_SITE_CUSTOM_FILE_SALT);
 $root->loadSiteConfig(XCUBE_SITE_SETTING_FILE, XCUBE_SITE_DIST_FILE, XCUBE_SITE_CUSTOM_FILE, XCUBE_SITE_CUSTOM_FILE_SALT); // edit by CorePack
 $root->setupController();

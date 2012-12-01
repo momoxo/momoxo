@@ -153,7 +153,7 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
         {
             return $ret;
         }
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
     
         $module =& $root->mContext->mXoopsModule;
         $dirName = $root->mContext->mRequest->getRequest('dirname');

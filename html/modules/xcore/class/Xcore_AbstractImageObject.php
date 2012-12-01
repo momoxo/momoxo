@@ -89,7 +89,7 @@ abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
 	public function getRandomFileName($prefix,$salt=null)
 	{
 		if (! isset($salt)) {
-			$root=&Root::getSingleton();
+			$root = Root::getSingleton();
 			$salt = $root->getSiteConfig('Cube', 'Salt');
 		}
 		srand(microtime() *1000000);

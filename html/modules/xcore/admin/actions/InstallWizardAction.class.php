@@ -26,7 +26,7 @@ class Xcore_InstallWizardAction extends Xcore_AbstractModuleInstallAction
 
 	function _loadAgreement()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		
 		$this->mLicence = $this->mModuleObject->modinfo['installer']['licence']['title'];
 

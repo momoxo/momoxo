@@ -17,7 +17,7 @@
 use XCore\Kernel\Root;
 
 require_once "../../mainfile.php";
-$root =& Root::getSingleton();
+$root = Root::getSingleton();
 
 
 // check ticket 

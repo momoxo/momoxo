@@ -45,7 +45,7 @@ class User_LostPassAction extends User_Action
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$code = $root->mContext->mRequest->getRequest('code');	// const $code
 		$email = $root->mContext->mRequest->getRequest('email');	// const $email
 		if (strlen($code) == 0 || strlen($email) == 0) {

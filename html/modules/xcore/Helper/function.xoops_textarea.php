@@ -47,7 +47,7 @@ function smarty_function_xoops_textarea($params, &$smarty)
 {
 	static $textFilter;
 	if (!isset($textFilter)) {
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$textFilter = $root->getTextFilter();
 	}
 	if (isset($params['name'])) {

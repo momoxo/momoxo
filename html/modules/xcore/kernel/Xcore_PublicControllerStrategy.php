@@ -70,7 +70,7 @@ class Xcore_PublicControllerStrategy extends Xcore_AbstractControllerStrategy
 		// Fail safe
 		//-----------
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		foreach ($root->mContext->mXoopsConfig['theme_set_allowed'] as $theme) {
 			$theme =& $handler->get($theme);
 			if (is_object($theme)) {
@@ -106,7 +106,7 @@ class Xcore_PublicControllerStrategy extends Xcore_AbstractControllerStrategy
 	
 	function setupModuleLanguage()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mLanguageManager->loadModuleMessageCatalog($root->mContext->mXoopsModule->get('dirname'));
 	}
 }

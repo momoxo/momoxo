@@ -77,7 +77,7 @@ class User_UserRegisterAction extends User_Action
 		
 		$this->mActionForm->prepare();
 		
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$this->mActionForm->set('timezone_offset', $root->mContext->getXoopsConfig('default_TZ'));
 	}
 

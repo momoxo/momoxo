@@ -21,7 +21,7 @@ class Xcore_Utils
 	 */
 	public static function checkSystemModules()
 	{
-		$root=&Root::getSingleton();
+		$root = Root::getSingleton();
 		$systemModules = array_map('trim', explode(',', $root->getSiteConfig('Cube', 'SystemModules')));
 		$recommendedModules = array_map('trim', explode(',', $root->getSiteConfig('Cube', 'RecommendedModules')));
 		$moduleHandler =& xoops_gethandler('module');
@@ -141,7 +141,7 @@ class Xcore_Utils
 	 */
 	public static function raiseUserControlEvent()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		foreach (array_keys($_REQUEST) as $key) {
 			if (strpos($key, 'Xcore_Event_User_') === 0) {
 				$eventName = substr($key, 18);
@@ -285,7 +285,7 @@ class Xcore_Utils
 			$className = ucfirst($trustDirname) . '_' . ucfirst($name) . 'Handler';
 			self::_loadClassFile($path,$className);
 		
-			$root =& Root::getSingleton();
+			$root = Root::getSingleton();
 			$instance = new $className($root->mController->getDB(),$dirname);
 			return $instance;
 		}

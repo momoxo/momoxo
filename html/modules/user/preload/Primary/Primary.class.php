@@ -12,7 +12,7 @@ class User_PrimaryFilter extends XCube_ActionFilter
 {
 	function preFilter()
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$this->mController->mSetupUser->add("User_Utils::setupUser");
 		$this->mController->_mNotifyRedirectToUser->add("User_Utils::convertUrlToUser");
 

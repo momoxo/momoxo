@@ -108,7 +108,7 @@ class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 		//
 		// Check Theme or Fallback
 		//
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$theme = $root->mSiteConfig['Xcore']['Theme'];
 		
 		if (file_exists(XOOPS_ROOT_PATH.'/themes/'.$theme.'/admin_theme.html')) {

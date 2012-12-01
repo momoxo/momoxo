@@ -55,7 +55,7 @@ class Profile_Admin_DefinitionsFilterForm extends Profile_AbstractFilterForm
 	{
 		parent::fetch();
 	
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 	
 		if (($value = $root->mContext->mRequest->getRequest('field_id')) !== null) {
 			$this->mNavi->addExtra('field_id', $value);

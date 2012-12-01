@@ -198,7 +198,7 @@ class Xupdate_AssetManager
 
         if($type == 'handler')
         {
-            $root =& Root::getSingleton();
+            $root = Root::getSingleton();
             $instance = new $className($root->mController->getDB(),$this->mDirname);
         }
         else

@@ -6,7 +6,7 @@ class XoopsLists
 {
     public static function getTimeZoneList()
     {
-        $root =& Root::getSingleton();
+        $root = Root::getSingleton();
         if ($root->mLanguageManager !== null && !defined(_TZ_GMT0)) {
             $root->mLanguageManager->loadPageTypeMessageCatalog('timezone');
         }

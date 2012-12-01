@@ -29,7 +29,7 @@ class XCube_Utils
 	 */
 	function redirectHeader($url, $time, $messages = null)
 	{
-		$root =& Root::getSingleton();
+		$root = Root::getSingleton();
 		$root->mController->executeRedirect($url, $time, $messages);
 	}
 

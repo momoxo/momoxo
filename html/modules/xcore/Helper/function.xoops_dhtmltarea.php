@@ -48,7 +48,7 @@ function smarty_function_xoops_dhtmltarea($params, &$smarty)
 {
 	$form = null;
 
-	$root =& Root::getSingleton();
+	$root = Root::getSingleton();
 	$textFilter =& $root->getTextFilter();
 	if (isset($params['name'])) {
 		//

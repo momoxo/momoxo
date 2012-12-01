@@ -42,7 +42,7 @@ class Xupdate_Updater
     	$this->mLog->addReport('DB upgrade start (for Ver 0.06)');
     	
     	// Update database table index.
-    	$root =& Root::getSingleton();
+    	$root = Root::getSingleton();
     	$db =& $root->mController->getDB();
     	$table = $db->prefix($this->_mCurrentXoopsModule->get('dirname') . '_modulestore');
     	 
@@ -80,7 +80,7 @@ class Xupdate_Updater
     	$this->mLog->addReport('DB upgrade start (for Ver 0.11)');
     	 
     	// Update database table index.
-    	$root =& Root::getSingleton();
+    	$root = Root::getSingleton();
     	$db =& $root->mController->getDB();
     	$table = $db->prefix($this->_mCurrentXoopsModule->get('dirname') . '_modulestore');
     
@@ -114,7 +114,7 @@ class Xupdate_Updater
     	$this->mLog->addReport('DB upgrade start (for Ver 0.22)');
     
     	// Update database table index.
-    	$root =& Root::getSingleton();
+    	$root = Root::getSingleton();
     	$db =& $root->mController->getDB();
     	$table = $db->prefix($this->_mCurrentXoopsModule->get('dirname') . '_modulestore');
     
@@ -321,7 +321,7 @@ class Xupdate_Updater
     public function executeUpgrade()
     {
     	// remove modules.ini cache
-    	$root =& Root::getSingleton();
+    	$root = Root::getSingleton();
     	$ch =& xoops_gethandler('config');
     	$mconf = $ch->getConfigsByDirname($this->_mCurrentXoopsModule->get('dirname'));
     	$cdir = XOOPS_TRUST_PATH . '/'.trim($mconf['temp_path'], '/');

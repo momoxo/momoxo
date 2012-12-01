@@ -208,7 +208,7 @@ function &notificationEvents ($category_name, $enabled_only, $module_id=null)
 	}
 	
 
-	$root =& Root::getSingleton();
+	$root = Root::getSingleton();
 	$root->mLanguageManager->loadPageTypeMessageCatalog('notification');
 
 	// Insert comment info if applicable

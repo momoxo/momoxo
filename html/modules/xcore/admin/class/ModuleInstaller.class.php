@@ -83,7 +83,7 @@ class Xcore_ModuleInstaller
         // Add a permission which administrators can manage. (Special for Legacy System Module)
         //
         if ($this->_mXoopsModule->getVar('dirname') == 'system') {
-			$root =& Root::getSingleton();
+			$root = Root::getSingleton();
 			$root->mLanguageManager->loadModuleAdminMessageCatalog('system');
 
             require_once XOOPS_ROOT_PATH . "/modules/system/constants.php";
@@ -127,7 +127,7 @@ class Xcore_ModuleInstaller
                 //
                 // Add a permission which administrators can read.
                 //
-                $root =& Root::getSingleton();
+                $root = Root::getSingleton();
                 $groups = $root->mContext->mXoopsUser->getGroups(true);
                 foreach($groups as $mygroup) {
                     $readPerm =& $this->_createPermission($mygroup);
