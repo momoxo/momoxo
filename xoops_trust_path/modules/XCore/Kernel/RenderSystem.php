@@ -14,32 +14,39 @@ use XCube_RenderTarget;
 class RenderSystem
 {
 	/**
-	@access private
+	 * @private
+	 * @var Controller
+	 * @todo 他のクラスからの参照を取り除いてprivateにする
 	 */
-	var $mController;
+	public $mController;
 
-	var $mRenderMode = XCUBE_RENDER_MODE_NORMAL;
+	/**
+	 * @var int
+	 */
+	public $mRenderMode = XCUBE_RENDER_MODE_NORMAL;
 
-	function __construct()
+	/**
+	 * Return new RenderSysatem instance
+	 */
+	public function __construct()
 	{
 	}
 
 	/**
 	 * Prepare.
-	 *
 	 * @param Controller $controller
+	 * @return void
 	 */
-	function prepare(&$controller)
+	public function prepare(&$controller)
 	{
 		$this->mController =& $controller;
 	}
 
 	/**
 	 * Create an object of the render-target, and return it.
-	 *
 	 * @return XCube_RenderTarget
 	 */
-	function &createRenderTarget()
+	public function &createRenderTarget()
 	{
 		$renderTarget = new XCube_RenderTarget();
 		return $renderTarget;
@@ -47,10 +54,10 @@ class RenderSystem
 
 	/**
 	 * Render to $target.
-	 *
 	 * @param XCube_RenderTarget $target
+	 * @return void
 	 */
-	function render(&$target)
+	public function render(&$target)
 	{
 	}
 }
