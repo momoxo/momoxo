@@ -16,6 +16,8 @@
  *   $delegate->call(new XCube_Delegate($object)); // In PHP4, functions will receive the object.
  * \endcode
  */
+use XCore\Kernel\DelegateManager;
+
 class XCube_Ref
 {
 	/**
@@ -39,7 +41,7 @@ class XCube_Ref
 	 * @brief [Secret Agreement] Gets the value which this class is adapting.
 	 * @return mixed
 	 * @attention
-	 *     Only XCube_Delegate & XCube_DelegateManager should call this method.
+	 *     Only XCube_Delegate & DelegateManager should call this method.
 	 */
 	function &getObject()
 	{

@@ -4,7 +4,6 @@ namespace XCore\Kernel;
 
 use RuntimeException;
 use XCube_AbstractPermissionProvider;
-use XCube_DelegateManager;
 use XCube_ServiceManager;
 use XCube_RenderSystem;
 use XCube_TextFilter;
@@ -14,6 +13,7 @@ use XCube_Session;
 use XCube_Ref;
 use XCore\Kernel\Controller;
 use XCore\Kernel\LanguageManager;
+use XCore\Kernel\DelegateManager;
 
 /**
  * @public
@@ -23,6 +23,7 @@ use XCore\Kernel\LanguageManager;
  * This class does not let you depend on a main controller class name
  * You must not succeed to this class.
  */
+
 class Root
 {
 	/**
@@ -39,7 +40,7 @@ class Root
 
 	/**
 	 * @public
-	 * @brief [READ ONLY] XCube_DelegateManager
+	 * @var DelegateManager
 	 */
 	var $mDelegateManager = null;
 
@@ -304,9 +305,9 @@ class Root
 	}
 
 	/**
+	 * Sets the DelegateManager object.
 	 * @public
-	 * @brief Sets the XCube_DelegateManager object.
-	 * @param $delegateManager XCube_DelegateManager
+	 * @param $delegateManager DelegateManager
 	 * @return void
 	 */
 	function setDelegateManager(&$delegateManager)
@@ -315,9 +316,9 @@ class Root
 	}
 
 	/**
+	 * Gets a DelegateManager object.
 	 * @public
-	 * @brief Gets a XCube_DelegateManager object.
-	 * @return XCube_DelegateManager
+	 * @return DelegateManager
 	 */
 	function &getDelegateManager()
 	{

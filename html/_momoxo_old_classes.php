@@ -1,6 +1,8 @@
 <?php
 // TODO >> このファイルはクラス名の移行が完了したら削除する
 
+use XCore\Kernel\DelegateManager;
+
 call_user_func(function(){
 	$legacyClasses = array(
 		'AbstractXoopsObject'                  => null,
@@ -14,7 +16,6 @@ call_user_func(function(){
 		'XCube_BoolArrayProperty'              => null,
 		'XCube_BoolProperty'                   => null,
 		'XCube_Delegate'                       => null,
-		'XCube_DelegateManager'                => null,
 		'XCube_DelegateUtils'                  => null,
 		'XCube_DependClassFactory'             => null,
 		'XCube_EmailValidator'                 => null,

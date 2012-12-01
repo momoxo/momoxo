@@ -6,7 +6,6 @@ use XCube_Delegate;
 use XCube_Ref;
 use XCube_ActionFilter;
 use XCube_Session;
-use XCube_DelegateManager;
 use XCube_ServiceManager;
 use XCube_AbstractPermissionProvider;
 use XCube_RoleManager;
@@ -14,6 +13,7 @@ use XCube_HttpContext;
 use XCube_HttpRequest;
 use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
+use XCore\Kernel\DelegateManager;
 
 /**
  * Virtual or Actual front controller class.
@@ -428,11 +428,11 @@ class Controller
 	/**
 	 * Creates an instance of the delegate manager and returns it.
 	 *
-	 * @return XCube_DelegateManager
+	 * @return DelegateManager
 	 */
 	function &_createDelegateManager()
 	{
-		$delegateManager = new XCube_DelegateManager();
+		$delegateManager = new DelegateManager();
 		return $delegateManager;
 	}
 

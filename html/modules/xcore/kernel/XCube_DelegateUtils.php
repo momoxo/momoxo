@@ -9,6 +9,7 @@
  *    $string = XCube_DelegateUtils::applyStringFilter("Filter Name", $string, [, option params...]); \n
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\DelegateManager;
 
 class XCube_DelegateUtils
 {
@@ -142,9 +143,9 @@ class XCube_DelegateUtils
      * @return bool
      * 
      * @attention
-     *     Only XCube_Delegate, XCube_DelegateManager and sub-classes of them should use this method. 
+     *     Only XCube_Delegate, DelegateManager and sub-classes of them should use this method.
      */
-    function _compareCallback($callback1, $callback2)
+    public static function _compareCallback($callback1, $callback2)
     {
         if (!is_array($callback1) && !is_array($callback2) && ($callback1 === $callback2)) {
             return true;
