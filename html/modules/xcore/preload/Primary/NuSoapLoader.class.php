@@ -1,13 +1,14 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\ServiceManager;
 
 class Xcore_NuSoapLoader extends XCube_ActionFilter
 {
 	function preFilter()
 	{
-		$this->mRoot->mDelegateManager->add('XCube_ServiceManager.CreateClient', 'Xcore_NuSoapLoader::createClient');
-		$this->mRoot->mDelegateManager->add('XCube_ServiceManager.CreateServer', 'Xcore_NuSoapLoader::createServer');
+		$this->mRoot->mDelegateManager->add('XCore.Kernel.ServiceManager.CreateClient', 'Xcore_NuSoapLoader::createClient');
+		$this->mRoot->mDelegateManager->add('XCore.Kernel.ServiceManager.CreateServer', 'Xcore_NuSoapLoader::createServer');
 	}
 	
 	/**

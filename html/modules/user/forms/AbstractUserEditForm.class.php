@@ -6,7 +6,7 @@ class User_AbstractUserEditForm extends XCube_ActionForm
 	
 	function User_AbstractUserEditForm($userConfig)
 	{
-		parent::XCube_ActionForm();
+		parent::__construct();
 		$this->mConfig = $userConfig;
 	}
 	

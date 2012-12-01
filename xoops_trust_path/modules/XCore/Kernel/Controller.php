@@ -6,7 +6,6 @@ use XCube_Delegate;
 use XCube_Ref;
 use XCube_ActionFilter;
 use XCube_Session;
-use XCube_ServiceManager;
 use XCube_AbstractPermissionProvider;
 use XCube_RoleManager;
 use XCube_HttpContext;
@@ -14,6 +13,7 @@ use XCube_HttpRequest;
 use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
+use XCore\Kernel\ServiceManager;
 
 /**
  * Virtual or Actual front controller class.
@@ -35,7 +35,6 @@ use XCore\Kernel\DelegateManager;
  * sub-class controller to override easily. Most of sub-class controllers
  * doesn't need to override them, because typical code is there.
  */
-
 class Controller
 {
 	/**
@@ -401,11 +400,11 @@ class Controller
 
 	/**
 	 * Creates an instance of the service manager and returns it.
-	 * @return XCube_ServiceManager
+	 * @return ServiceManager
 	 */
 	protected function &_createServiceManager()
 	{
-		$serviceManager = new XCube_ServiceManager();
+		$serviceManager = new ServiceManager();
 		return $serviceManager;
 	}
 
