@@ -4,15 +4,15 @@ namespace XCore\Kernel;
 
 class AbstractPermissionProvider
 {
-	function __construct()
+	public function __construct()
 	{
 	}
 
-	function prepare()
+	public function prepare()
 	{
 	}
 
-	function getRolesOfAction($actionName, $args)
+	public function getRolesOfAction($actionName, $args)
 	{
 	}
 }
