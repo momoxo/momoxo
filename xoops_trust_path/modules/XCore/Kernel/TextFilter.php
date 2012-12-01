@@ -9,7 +9,7 @@ namespace XCore\Kernel;
  */
 class TextFilter
 {
-	var $mDummy = null; //Dummy member for preventing object be treated as empty.
+	public $mDummy = null; //Dummy member for preventing object be treated as empty.
 
 	public static function getInstance(&$instance)
 	{
@@ -18,12 +18,20 @@ class TextFilter
 		}
 	}
 
-	function toShow($str)
+	/**
+	 * @param string $str
+	 * @return string
+	 */
+	public function toShow($str)
 	{
 		return htmlspecialchars($str, ENT_QUOTES);
 	}
 
-	function toEdit($str)
+	/**
+	 * @param string $str
+	 * @return string
+	 */
+	public function toEdit($str)
 	{
 		return htmlspecialchars($str, ENT_QUOTES);
 	}
