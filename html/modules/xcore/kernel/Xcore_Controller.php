@@ -9,12 +9,13 @@
  * implement. Now, we are investigating the influence.
  *
  * [TODO]
- * XCube_Controller keeps a process that set up instances of some Legacy classes,
+ * Controller keeps a process that set up instances of some Legacy classes,
  * yet. We should move its process to this controller.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Controller;
 
-class Xcore_Controller extends XCube_Controller
+class Xcore_Controller extends Controller
 {
 	var $_mAdminModeFlag = false;
 	var $_mStrategy = null;
@@ -74,9 +75,9 @@ class Xcore_Controller extends XCube_Controller
 	 */
 	var $mLogger = null;
 
-	function Xcore_Controller()
+	function __construct()
 	{
-		parent::XCube_Controller();
+		parent::__construct();
 
 		//
 		// Setup member properties as member delegates.
@@ -1040,7 +1041,7 @@ class Xcore_Controller extends XCube_Controller
 	 * CAUTION!!
 	 * This method has a special mission.
 	 * Because this method changes state after executeCommon, this resets now property.
-	 * It depends on XCube_Controller steps.
+	 * It depends on Controller steps.
 	 *
 	 * @param Xcore_AbstractControllerStrategy $strategy
 	 */
@@ -1050,7 +1051,7 @@ class Xcore_Controller extends XCube_Controller
 			$this->_mStrategy =& $strategy;
 
 			//
-			// The following line depends on XCube_Controller process of executeCommon.
+			// The following line depends on Controller process of executeCommon.
 			// But, There is no other method.
 			//
 			$this->setupModuleContext();

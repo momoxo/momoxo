@@ -4,6 +4,7 @@
  * @internal
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Controller;
 
 class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 {
@@ -11,7 +12,7 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 	
 	/**
 	 * @var XCube_Delegate
-	 * @param XCube_Controller &$controller
+	 * @param Controller &$controller
 	 */
 	var $mSetupBlock = null;
 	

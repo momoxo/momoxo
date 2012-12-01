@@ -6,6 +6,8 @@
  * This class has a bad design so that the template engine is strongly tied to cache management.
  * We must divide this class into renderer and cache management.
  */
+use XCore\Kernel\Controller;
+
 class XCube_RenderSystem
 {
 	/**
@@ -22,7 +24,7 @@ class XCube_RenderSystem
 	/**
 	 * Prepare.
 	 *
-	 * @param XCube_Controller $controller
+	 * @param Controller $controller
 	 */
 	function prepare(&$controller)
 	{

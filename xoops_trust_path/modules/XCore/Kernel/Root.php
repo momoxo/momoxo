@@ -4,7 +4,6 @@ namespace XCore\Kernel;
 
 use RuntimeException;
 use XCube_AbstractPermissionProvider;
-use XCube_Controller;
 use XCube_LanguageManager;
 use XCube_DelegateManager;
 use XCube_ServiceManager;
@@ -23,13 +22,13 @@ use XCube_Ref;
  * This class does not let you depend on a main controller class name
  * You must not succeed to this class.
  */
-use XCore\Kernel\Root;
+use XCore\Kernel\Controller;
 
 class Root
 {
 	/**
 	 * @public
-	 * @var XCube_Controller
+	 * @var Controller
 	 */
 	var $mController = null;
 
@@ -97,10 +96,9 @@ class Root
 	var $mTextFilter = null;
 
 	/**
-	 * @public
-	 * @brief [READ ONLY] XCube_HttpContext
+	 * @var XCube_HttpContext
 	 */
-	var $mContext = null;
+	var $mContext;
 
 	/**
 	 * @public
@@ -280,9 +278,7 @@ class Root
 	}
 
 	/**
-	 * @public
-	 * @public Gets a XCube_Controller object.
-	 * @return XCube_Controller
+	 * @return Controller
 	 */
 	function &getController()
 	{
@@ -413,7 +409,7 @@ class Root
 	/**
 	 * @public
 	 * @brief Sets a XCube_TextFilter object.
-	 * @param $textFilter XCube_TextFilter
+	 * @param XCube_TextFilter $textFilter
 	 * @return void
 	 */
 	function setTextFilter(&$textFilter)
@@ -427,7 +423,7 @@ class Root
 	 * @return XCube_TextFilter
 	 * @attention
 	 *     If mTextFilter member has been not initialized, the root object tries to
-	 *     generate an instance though XCube_Controller's delegate. This is a special
+	 *     generate an instance though Controller's delegate. This is a special
 	 *     case. Basically, a class never calls degates of other classes directly.
 	 */
 	function &getTextFilter()

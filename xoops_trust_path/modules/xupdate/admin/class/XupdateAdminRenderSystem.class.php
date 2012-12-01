@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Controller;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -24,11 +25,11 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
     /**
      * prepare
      * 
-     * @param   XCube_Controller  &$controller
+     * @param   Controller  &$controller
      * 
      * @return  void
     **/
-    public function prepare(/*** XCube_Controller ***/ &$controller)
+    public function prepare(&$controller)
     {
         $this->mController =& $controller;
     

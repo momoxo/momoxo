@@ -21,12 +21,14 @@
  *    This class is an abstract class.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Controller;
 
 class XCube_ActionFilter
 {
 	/**
 	 * @protected
-	 * @brief [READ ONLY] XCube_Controller
+	 * @readonly
+	 * @var Controller
 	 */
 	var $mController;
 	
@@ -39,7 +41,7 @@ class XCube_ActionFilter
 	/**
 	 * @public
 	 * @brief Constructor.
-	 * @param $controller XCube_Controller
+	 * @param $controller Controller
 	 */
 	function XCube_ActionFilter(&$controller)
 	{

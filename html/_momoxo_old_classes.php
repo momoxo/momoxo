@@ -13,7 +13,6 @@ call_user_func(function(){
 		'XCube_ActionForm'                     => null,
 		'XCube_BoolArrayProperty'              => null,
 		'XCube_BoolProperty'                   => null,
-		'XCube_Controller'                     => null,
 		'XCube_Delegate'                       => null,
 		'XCube_DelegateManager'                => null,
 		'XCube_DelegateUtils'                  => null,

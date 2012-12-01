@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Controller;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -258,11 +259,11 @@ class Xupdate_Module extends Xcore_ModuleAdapter
     /**
      * execute
      *
-     * @param   XCube_Controller  &$controller
+     * @param   Controller  &$controller
      *
      * @return  void
     **/
-    public function execute(/*** XCube_Controller ***/ &$controller)
+    public function execute(&$controller)
     {
         if($this->_createAction() === false)
         {
