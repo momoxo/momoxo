@@ -1,6 +1,7 @@
 <?php
 
 // From ../../html/modules/xcore/kernel/block.php
+
 define ('SHOW_SIDEBLOCK_LEFT',     1);
 define ('SHOW_SIDEBLOCK_RIGHT',    2);
 define ('SHOW_CENTERBLOCK_LEFT',   4);
@@ -99,7 +100,7 @@ define('XCUBE_PAGENAVI_SORT', 1);
 define('XCUBE_PAGENAVI_PAGE', 4);
 define('XCUBE_PAGENAVI_DEFAULT_PERPAGE', 20);
 
-// From ../../html/modules/xcore/kernel/XCube_RenderSystem.class.php
+// From XCore\Kernel\RenderSystem
 define("XCUBE_RENDER_MODE_NORMAL",1);
 define("XCUBE_RENDER_MODE_DIALOG",2);
 define("XCUBE_RENDER_TARGET_TYPE_BUFFER", null);

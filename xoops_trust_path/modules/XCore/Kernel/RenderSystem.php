@@ -1,26 +1,29 @@
 <?php
 
+namespace XCore\Kernel;
+
+use XCore\Kernel\Controller;
+use XCube_RenderTarget;
+
 /**
  * This system is in charge of rendering and contents cache management.
  * For cache management, this system must talk with a business logic before business logic executes.
  * This class has a bad design so that the template engine is strongly tied to cache management.
  * We must divide this class into renderer and cache management.
  */
-use XCore\Kernel\Controller;
-
-class XCube_RenderSystem
+class RenderSystem
 {
 	/**
-	 @access private
+	@access private
 	 */
 	var $mController;
 
 	var $mRenderMode = XCUBE_RENDER_MODE_NORMAL;
-	
+
 	function __construct()
 	{
 	}
-	
+
 	/**
 	 * Prepare.
 	 *
@@ -30,7 +33,7 @@ class XCube_RenderSystem
 	{
 		$this->mController =& $controller;
 	}
-	
+
 	/**
 	 * Create an object of the render-target, and return it.
 	 *

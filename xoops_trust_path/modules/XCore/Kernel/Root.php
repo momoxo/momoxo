@@ -4,7 +4,6 @@ namespace XCore\Kernel;
 
 use RuntimeException;
 use XCube_AbstractPermissionProvider;
-use XCube_RenderSystem;
 use XCube_TextFilter;
 use XCube_RoleManager;
 use XCube_HttpContext;
@@ -14,6 +13,7 @@ use XCore\Kernel\Controller;
 use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
+use XCore\Kernel\RenderSystem;
 
 /**
  * The root object which collects exchangeable managers.
@@ -48,7 +48,7 @@ class Root
 	 * Caches for generated render-systems.
 	 *
 	 * Only the kernel system should access this member property.
-	 * @var XCube_RenderSystem[]
+	 * @var RenderSystem[]
 	 */
 	private $_mRenderSystems = array();
 
@@ -345,7 +345,7 @@ class Root
 	 *
 	 * @param string $name the registered name of the render system.
 	 * @throws \RuntimeException
-	 * @return XCube_RenderSystem
+	 * @return RenderSystem
 	 */
 	public function &getRenderSystem($name)
 	{

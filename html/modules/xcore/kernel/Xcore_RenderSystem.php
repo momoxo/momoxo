@@ -6,7 +6,9 @@
  * This manages theme and main render-target directly. And, this realizes
  * variable-sharing-mechanism with using smarty.
  */
-class Xcore_RenderSystem extends XCube_RenderSystem
+use XCore\Kernel\RenderSystem;
+
+class Xcore_RenderSystem extends RenderSystem
 {
 	var $mXoopsTpl;
 

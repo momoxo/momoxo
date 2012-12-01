@@ -20,6 +20,7 @@
   * @see XoopsModule
   */
 use XCore\Kernel\Root;
+use XCore\Kernel\RenderSystem;
 
 class Xcore_AbstractModule
 {
@@ -242,7 +243,7 @@ class Xcore_AbstractModule
     /**
      * @public
      * @brief Gets the dependency render system.
-     * @return XCube_RenderSystem
+     * @return RenderSystem
      * @remarks
      *     If this module uses the unregistered render system is used, override this.
      */
