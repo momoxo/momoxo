@@ -5,7 +5,6 @@ namespace XCore\Kernel;
 use XCube_Delegate;
 use XCube_Ref;
 use XCube_ActionFilter;
-use XCube_LanguageManager;
 use XCube_Session;
 use XCube_DelegateManager;
 use XCube_ServiceManager;
@@ -14,6 +13,7 @@ use XCube_RoleManager;
 use XCube_HttpContext;
 use XCube_HttpRequest;
 use XCore\Kernel\Root;
+use XCore\Kernel\LanguageManager;
 
 /**
  * Virtual or Actual front controller class.
@@ -286,7 +286,7 @@ class Controller
 	 */
 	function _setupLanguage()
 	{
-		$this->mRoot->mLanguageManager = new XCube_LanguageManager();
+		$this->mRoot->mLanguageManager = new LanguageManager();
 	}
 
 

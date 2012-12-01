@@ -4,7 +4,6 @@ namespace XCore\Kernel;
 
 use RuntimeException;
 use XCube_AbstractPermissionProvider;
-use XCube_LanguageManager;
 use XCube_DelegateManager;
 use XCube_ServiceManager;
 use XCube_RenderSystem;
@@ -13,6 +12,8 @@ use XCube_RoleManager;
 use XCube_HttpContext;
 use XCube_Session;
 use XCube_Ref;
+use XCore\Kernel\Controller;
+use XCore\Kernel\LanguageManager;
 
 /**
  * @public
@@ -22,8 +23,6 @@ use XCube_Ref;
  * This class does not let you depend on a main controller class name
  * You must not succeed to this class.
  */
-use XCore\Kernel\Controller;
-
 class Root
 {
 	/**
@@ -34,7 +33,7 @@ class Root
 
 	/**
 	 * @public
-	 * @brief [READ ONLY] XCube_LanguageManager
+	 * @var LanguageManager
 	 */
 	var $mLanguageManager = null;
 
@@ -287,8 +286,7 @@ class Root
 
 	/**
 	 * @public
-	 * @brief Sets the XCube_LanguageManager object.
-	 * @param $languageManager XCube_LanguageManager
+	 * @param $languageManager LanguageManager
 	 * @return void
 	 */
 	function setLanguageManager(&$languageManager)
@@ -298,8 +296,7 @@ class Root
 
 	/**
 	 * @public
-	 * @brief Gets a XCube_LanguageManager object.
-	 * @return XCube_LanguageManager
+	 * @return LanguageManager
 	 */
 	function &getLanguageManager()
 	{
@@ -361,6 +358,7 @@ class Root
 	 */
 	function &getRenderSystem($name)
 	{
+		/** @var $mRS XCube_RenderSystem[] */
 		$mRS =& $this->_mRenderSystems;
 		if (isset($mRS[$name])) {
 			return $mRS[$name];

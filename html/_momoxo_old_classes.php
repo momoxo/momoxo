@@ -37,7 +37,6 @@ call_user_func(function(){
 		'XCube_IntArrayProperty'               => null,
 		'XCube_IntProperty'                    => null,
 		'XCube_IntRangeValidator'              => null,
-		'XCube_LanguageManager'                => null,
 		'XCube_MaskValidator'                  => null,
 		'XCube_MaxValidator'                   => null,
 		'XCube_MaxfilesizeValidator'           => null,

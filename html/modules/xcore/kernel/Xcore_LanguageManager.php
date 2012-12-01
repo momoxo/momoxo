@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_LanguageManager extends XCube_LanguageManager
+use XCore\Kernel\LanguageManager;
+
+class Xcore_LanguageManager extends LanguageManager
 {
 	function prepare()
 	{
