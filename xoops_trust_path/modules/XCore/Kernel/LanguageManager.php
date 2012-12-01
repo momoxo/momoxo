@@ -32,7 +32,7 @@ class LanguageManager
 	 */
 	var $mLocaleName;
 
-	function LanguageManager()
+	function __construct()
 	{
 		$this->mLanguageName = $this->getFallbackLanguage();
 		$this->mLocaleName = $this->getFallbackLocale();
