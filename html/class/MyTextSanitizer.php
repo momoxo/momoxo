@@ -13,6 +13,7 @@
  * @copyright   (c) 2000-2003 The Xoops Project - www.xoops.org
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\TextFilter;
 
 class MyTextSanitizer
 {
@@ -22,7 +23,7 @@ class MyTextSanitizer
     var $censorConf;
 
 	/**
-	 * @var XCube_TextFilter
+	 * @var TextFilter
 	 */
 	var $mTextFilter = null;
 

@@ -4,7 +4,9 @@
  * @public
  * @brief The text filter for Xcore.
  */
-class Xcore_TextFilter extends XCube_TextFilter
+use XCore\Kernel\TextFilter;
+
+class Xcore_TextFilter extends TextFilter
 {
 	/**
 	 * @var XCube_Delegate

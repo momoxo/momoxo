@@ -3,7 +3,6 @@
 namespace XCore\Kernel;
 
 use RuntimeException;
-use XCube_TextFilter;
 use XCube_HttpContext;
 use XCube_Session;
 use XCube_Ref;
@@ -14,6 +13,7 @@ use XCore\Kernel\ServiceManager;
 use XCore\Kernel\RenderSystem;
 use XCore\Kernel\AbstractPermissionProvider;
 use XCore\Kernel\RoleManager;
+use XCore\Kernel\TextFilter;
 
 /**
  * The root object which collects exchangeable managers.
@@ -73,7 +73,7 @@ class Root
 	/**
 	 * In some cases, this member is not initialized. Use getTextFilter().
 	 * @readonly
-	 * @var XCube_TextFilter
+	 * @var TextFilter
 	 * @see getTextFilter()
 	 */
 	public $mTextFilter;
@@ -179,6 +179,7 @@ class Root
 	 * Only the header of the current base module should call this method.
 	 *
 	 * @param array $config
+	 * @return void
 	 */
 	public function overrideSiteConfig($config)
 	{
@@ -195,7 +196,7 @@ class Root
 	/**
 	 * Gets a value of site config that is defined by .ini files.
 	 * @overload
-	 * @return mixed - If the value specified by parameters is no, return null.
+	 * @return mixed If the value specified by parameters is no, return null.
 	 *
 	 * Gets array.
 	 *
@@ -380,6 +381,7 @@ class Root
 
 	/**
 	 * @internal
+	 * @return void
 	 */
 	public function setPermissionManager(&$manager)
 	{
@@ -388,6 +390,7 @@ class Root
 
 	/**
 	 * @internal
+	 * @return AbstractPermissionProvider
 	 */
 	public function &getPermissionManager()
 	{
@@ -395,8 +398,8 @@ class Root
 	}
 
 	/**
-	 * Sets a XCube_TextFilter object.
-	 * @param XCube_TextFilter $textFilter
+	 * Sets a TextFilter object.
+	 * @param TextFilter $textFilter
 	 * @return void
 	 */
 	public function setTextFilter(&$textFilter)
@@ -405,13 +408,13 @@ class Root
 	}
 
 	/**
-	 * Gets a XCube_TextFilter object.
+	 * Gets a TextFilter object.
 	 *
 	 * If mTextFilter member has been not initialized, the root object tries to
 	 * generate an instance though Controller's delegate. This is a special
 	 * case. Basically, a class never calls delegates of other classes directly.
 	 *
-	 * @return XCube_TextFilter
+	 * @return TextFilter
 	 */
 	public function &getTextFilter()
 	{

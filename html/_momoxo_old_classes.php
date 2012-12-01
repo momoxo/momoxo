@@ -61,7 +61,6 @@ call_user_func(function(){
 		'XCube_StringArrayProperty'            => null,
 		'XCube_StringProperty'                 => null,
 		'XCube_TextArrayProperty'              => null,
-		'XCube_TextFilter'                     => null,
 		'XCube_TextProperty'                   => null,
 		'XCube_Theme'                          => null,
 		'XCube_Utils'                          => null,

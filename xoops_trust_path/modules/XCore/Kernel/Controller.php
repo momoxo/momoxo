@@ -14,6 +14,7 @@ use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
 use XCore\Kernel\AbstractPermissionProvider;
 use XCore\Kernel\RoleManager;
+use XCore\Kernel\TextFilter;
 
 /**
  * Virtual or Actual front controller class.
@@ -108,7 +109,7 @@ class Controller
 		$this->mSetupUser = new XCube_Delegate();
 		$this->mExecute = new XCube_Delegate();
 		$this->mSetupTextFilter = new XCube_Delegate();
-		$this->mSetupTextFilter->add('XCube_TextFilter::getInstance',XCUBE_DELEGATE_PRIORITY_FINAL);
+		$this->mSetupTextFilter->add('XCore\Kernel\TextFilter::getInstance', XCUBE_DELEGATE_PRIORITY_FINAL);
 	}
 
 	/**
@@ -269,7 +270,7 @@ class Controller
 	 */
 	protected function _setupTextFilter()
 	{
-		/** @var $textFilter \XCube_TextFilter */
+		/** @var $textFilter \TextFilter */
 		$textFilter = null;
 		$this->mSetupTextFilter->call(new XCube_Ref($textFilter));
 		$this->mRoot->setTextFilter($textFilter);
