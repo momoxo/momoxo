@@ -2,8 +2,8 @@
 
 namespace XCore\Kernel;
 
-use XCube_Delegate;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Delegate;
 
 /**
  * Manages for delegates.
@@ -48,10 +48,10 @@ class DelegateManager
 	 * this object calls add() of $delegate with their parameters.
 	 *
 	 * Usually this member function isn't used as Cube's API by developers. In many
-	 * cases, XCube_Delegate::register() calls this.
+	 * cases, Delegate::register() calls this.
 	 *
 	 * @param string $name Registration name.
-	 * @param XCube_Delegate $delegate Delegate object which will be registered.
+	 * @param Delegate $delegate Delegate object which will be registered.
 	 * @return bool
 	 */
 	public function register($name, &$delegate)
@@ -88,13 +88,13 @@ class DelegateManager
 	 * @param null $param3
 	 * @param null $param4
 	 * @return void
-	 * @see XCube_Delegate::add()
+	 * @see Delegate::add()
 	 */
 	public function add($name, $callback, $param3 = null, $param4 = null)
 	{
 		if (isset($this->_mDelegates[$name])) {
 			foreach($this->_mDelegates[$name] as $func) {
-				/** @var $func XCube_Delegate */
+				/** @var $func Delegate */
 				$func->add($callback, $param3, $param4);
 			}
 		}
@@ -106,7 +106,7 @@ class DelegateManager
 	 * Disconnects a function from the delegate that have the specified name.
 	 * @param string $name Registration name
 	 * @param $delcallback*
-	 * @see XCube_Delegate::delete()
+	 * @see Delegate::delete()
 	 */
 	public function delete($name, $delcallback)
 	{
@@ -129,7 +129,7 @@ class DelegateManager
 	/**
 	 * Resets all functions off the delegate that have the specified name.
 	 * @param string $name Registration name which will be reset.
-	 * @see XCube_Delegate::reset()
+	 * @see Delegate::reset()
 	 */
 	public function reset($name)
 	{

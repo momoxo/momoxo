@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Delegate;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -13,14 +14,14 @@ class User_UserViewAction extends User_AbstractViewAction
 	var $mActionForm = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mGetUserPosts = null;
 	
 	function User_UserViewAction()
 	{
 		parent::User_AbstractViewAction();
-		$this->mGetUserPosts =new XCube_Delegate();
+		$this->mGetUserPosts =new Delegate();
 		$this->mGetUserPosts->register('User_UserViewAction.GetUserPosts');
 	}
 	

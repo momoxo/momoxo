@@ -4,6 +4,7 @@
  * @internal
  */
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_BackendAction extends Xcore_Action
 {
@@ -21,7 +22,7 @@ class Xcore_BackendAction extends Xcore_Action
 	 *  $item['category'] ... not required. 
 	 *  $item['author'] ... not required. 
 	 *  
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mGetRSSItems = null;
 	
@@ -29,7 +30,7 @@ class Xcore_BackendAction extends Xcore_Action
 	{
 		parent::Xcore_Action($flag);
 		
-		$this->mGetRSSItems =new XCube_Delegate();
+		$this->mGetRSSItems =new Delegate();
 		$this->mGetRSSItems->register('Xcore_BackendAction.GetRSSItems');
 	}
 	

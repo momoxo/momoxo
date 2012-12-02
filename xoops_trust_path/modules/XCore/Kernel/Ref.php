@@ -3,49 +3,47 @@
 namespace XCore\Kernel;
 
 use XCore\Kernel\DelegateManager;
+use XCore\Kernel\Delegate;
 
 /**
- * @public
- * @brief [Final] This class is an expression of reference in delegation mechanism for PHP4.
+ * This class is an expression of reference in delegation mechanism for PHP4.
  *
- * This class is adapt reference pointer for XCube_Delegate. Because XCube_Delegate is
+ * This class is adapt reference pointer for Delegate. Because Delegate is
  * virtual function pointers, it's impossible to hand variables as references to
- * XCube_Delegate::call(). In a such case, use this class as an adapter.
+ * Delegate::call(). In a such case, use this class as an adapter.
  *
- * \code
- *   $object = new Object;
- *   $delegate->call($object); // In PHP4, functions will receive the copied value of $object.
+ * ```
+ * $object = new Object;
+ * $delegate->call($object); // In PHP4, functions will receive the copied value of $object.
  *
- *   $object = new Object;
- *   $delegate->call(new XCube_Delegate($object)); // In PHP4, functions will receive the object.
- * \endcode
+ * $object = new Object;
+ * $delegate->call(new Delegate($object)); // In PHP4, functions will receive the object.
+ * ```
  */
-class Ref
+final class Ref
 {
 	/**
-	 * @private
-	 * @brief mixed
+	 * @var mixed
 	 */
-	var $_mObject = null;
+	private $_mObject = null;
 
 	/**
-	 * @public Constructor.
-	 * @param $obj mixed
+	 * Constructor.
+	 * @param mixed $obj
 	 */
-	function __construct(&$obj)
+	public function __construct(&$obj)
 	{
 		$this->_mObject =& $obj;
 	}
 
 	/**
-	 * @public
+	 * Gets the value which this class is adapting.
+	 *
+	 * Only Delegate & DelegateManager should call this method.
 	 * @internal
-	 * @brief [Secret Agreement] Gets the value which this class is adapting.
 	 * @return mixed
-	 * @attention
-	 *     Only XCube_Delegate & DelegateManager should call this method.
 	 */
-	function &getObject()
+	public function &getObject()
 	{
 		return $this->_mObject;
 	}

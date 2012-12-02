@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_ActionFrame
 {
@@ -18,14 +19,14 @@ class Xcore_ActionFrame
 	var $mMode = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mCreateAction = null;
 	
 	function Xcore_ActionFrame($admin)
 	{
 		$this->mAdminFlag = $admin;
-		$this->mCreateAction =new XCube_Delegate();
+		$this->mCreateAction =new Delegate();
 		$this->mCreateAction->register('Xcore_ActionFrame.CreateAction');
 		$this->mCreateAction->add(array(&$this, '_createAction'));
 	}

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_ActionSearchArgs
 {
@@ -86,7 +87,7 @@ class Xcore_ActSearchAction extends Xcore_Action
 	{
 		parent::Xcore_Action($flag);
 		
-		$this->mSearchAction =new XCube_Delegate();
+		$this->mSearchAction =new Delegate();
 		$this->mSearchAction->add(array(&$this, 'defaultSearch'));
 		$this->mSearchAction->register('Xcore_ActSearchAction.SearchAction');
 	}

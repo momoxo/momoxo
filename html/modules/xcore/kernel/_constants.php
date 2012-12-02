@@ -1,9 +1,6 @@
 <?php
 
 // From ../../html/modules/xcore/kernel/block.php
-
-use XCore\Kernel\HttpContext;
-
 define ('SHOW_SIDEBLOCK_LEFT',     1);
 define ('SHOW_SIDEBLOCK_RIGHT',    2);
 define ('SHOW_CENTERBLOCK_LEFT',   4);
@@ -73,7 +70,7 @@ define("XCORE_RENDER_TARGET_TYPE_THEME", 'theme');
 define("XCORE_RENDER_TARGET_TYPE_BLOCK", 'block');
 define("XCORE_RENDER_TARGET_TYPE_MAIN", 'main');
 
-// From ../../html/modules/xcore/kernel/XCube_Delegate.class.php
+// From XCore\Kernel\Delegate
 define("XCUBE_DELEGATE_PRIORITY_1", 10);
 define("XCUBE_DELEGATE_PRIORITY_2", 20);
 define("XCUBE_DELEGATE_PRIORITY_3", 30);

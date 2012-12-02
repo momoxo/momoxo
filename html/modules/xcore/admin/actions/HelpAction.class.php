@@ -15,6 +15,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_HelpSmarty extends Smarty
 {
@@ -115,7 +116,7 @@ class Xcore_HelpAction extends Xcore_Action
 	var $_mDirname = null;
 	
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mCreateHelpSmarty = null;
 	
@@ -123,7 +124,7 @@ class Xcore_HelpAction extends Xcore_Action
 	{
 		parent::Xcore_Action($flag);
 		
-		$this->mCreateHelpSmarty =new XCube_Delegate();
+		$this->mCreateHelpSmarty =new Delegate();
 		$this->mCreateHelpSmarty->add(array(&$this, '_createHelpSmarty'));
 		$this->mCreateHelpSmarty->register('Xcore_HelpAction.CreateHelpSmarty');
 	}

@@ -17,6 +17,7 @@ use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
 use XCore\Kernel\HttpRequest;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Delegate;
 
 class Xcore_Controller extends Controller
 {
@@ -26,22 +27,22 @@ class Xcore_Controller extends Controller
 	var $mDialogMode = false;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mCheckLogin = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mLogout = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mCreateLanguageManager = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mSetBlockCachePolicy = null;
 
@@ -51,23 +52,23 @@ class Xcore_Controller extends Controller
 	var $mActiveModules = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mSetModuleCachePolicy = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mGetLanguageName = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mSetupDebugger = null;
 
 	/**
 	 * @public
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 * [Secret Agreement] In execute_redirect(), notice the redirection which directs toward user.php.
 	 * @remark Only the special module should access this member property.
 	 */
@@ -87,27 +88,27 @@ class Xcore_Controller extends Controller
 		//
 		$this->mSetupUser->register('Xcore_Controller.SetupUser');
 
-		$this->mCheckLogin =new XCube_Delegate();
+		$this->mCheckLogin =new Delegate();
 		$this->mCheckLogin->register('Site.CheckLogin');
 
-		$this->mLogout =new XCube_Delegate();
+		$this->mLogout =new Delegate();
 		$this->mLogout->register('Site.Logout');
 
-		$this->mCreateLanguageManager = new XCube_Delegate();
+		$this->mCreateLanguageManager = new Delegate();
 		$this->mCreateLanguageManager->register('Xcore_Controller.CreateLanguageManager');
 
-		$this->mGetLanguageName = new XCube_Delegate();
+		$this->mGetLanguageName = new Delegate();
 		$this->mGetLanguageName->register('Xcore_Controller.GetLanguageName');
 
-		$this->mSetBlockCachePolicy = new XCube_Delegate();
-		$this->mSetModuleCachePolicy = new XCube_Delegate();
+		$this->mSetBlockCachePolicy = new Delegate();
+		$this->mSetModuleCachePolicy = new Delegate();
 
-		$this->mSetupDebugger = new XCube_Delegate();
+		$this->mSetupDebugger = new Delegate();
 		$this->mSetupDebugger->add('Xcore_DebuggerManager::createInstance');
 
 		$this->mSetupTextFilter->add('Xcore_TextFilter::getInstance',XCUBE_DELEGATE_PRIORITY_FINAL-1);
 
-		$this->_mNotifyRedirectToUser = new XCube_Delegate();
+		$this->_mNotifyRedirectToUser = new Delegate();
 		if(get_magic_quotes_runtime()) {
 			set_magic_quotes_runtime(0);	// ^^;
 		}

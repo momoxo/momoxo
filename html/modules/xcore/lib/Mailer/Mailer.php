@@ -5,17 +5,18 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_Mailer extends PHPMailer
 {
 	/**
-	 * @type XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mConvertLocal = null;
 	
 	function Xcore_Mailer()
 	{
-		$this->mConvertLocal =new XCube_Delegate();
+		$this->mConvertLocal =new Delegate();
 		$this->mConvertLocal->register('Xcore_Mailer.ConvertLocal');
 	}
 	

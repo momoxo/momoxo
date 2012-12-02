@@ -1,6 +1,7 @@
 <?php
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 if ( !defined('XCORE_MAIL_LANG') ) {
@@ -15,7 +16,7 @@ class My_Mailer extends PHPMailer
   
   public function __construct()
   {
-    $this->mConvertLocal = new XCube_Delegate();
+    $this->mConvertLocal = new Delegate();
     $this->mConvertLocal->register('Xcore_Mailer.ConvertLocal');
     $this->LE ="\n";
     $this->prepare();

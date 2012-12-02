@@ -52,16 +52,17 @@
  */
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Delegate;
 
 class Xcore_ModuleUpdateAction extends Xcore_Action
 {
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mUpdateSuccess = null;
 	
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mUpdateFail = null;
 	
@@ -73,10 +74,10 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	{
 		parent::Xcore_Action($flag);
 		
-		$this->mUpdateSuccess =new XCube_Delegate();
+		$this->mUpdateSuccess =new Delegate();
 		$this->mUpdateSuccess->register('Xcore_ModuleUpdateAction.UpdateSuccess');
 		
-		$this->mUpdateFail =new XCube_Delegate();
+		$this->mUpdateFail =new Delegate();
 		$this->mUpdateFail->register('Xcore_ModuleUpdateAction.UpdateFail');
 	}
 	

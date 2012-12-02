@@ -15,6 +15,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\TextFilter;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class MyTextSanitizer
 {
@@ -29,13 +30,13 @@ class MyTextSanitizer
 	var $mTextFilter = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
      * @deprecated
 	 */
 	var $mMakeClickablePostFilter = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
      * @deprecated
 	 */
 	var $mXoopsCodePostFilter = null;
@@ -54,10 +55,10 @@ class MyTextSanitizer
     function MyTextSanitizer()
     {
 
-		$this->mMakeClickablePostFilter =new XCube_Delegate();
+		$this->mMakeClickablePostFilter =new Delegate();
 		$this->mMakeClickablePostFilter->register('MyTextSanitizer.MakeClickablePostFilter');
 
-		$this->mXoopsCodePostFilter =new XCube_Delegate();
+		$this->mXoopsCodePostFilter =new Delegate();
 		$this->mXoopsCodePostFilter->register('MyTextSanitizer.XoopsCodePostFilter');
 
         $root = Root::getSingleton();

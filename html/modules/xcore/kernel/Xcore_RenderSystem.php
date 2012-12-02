@@ -9,6 +9,7 @@
 use XCore\Kernel\RenderSystem;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Delegate;
 
 class Xcore_RenderSystem extends RenderSystem
 {
@@ -27,7 +28,7 @@ class Xcore_RenderSystem extends RenderSystem
 	var $_mContentsData = null;
 
 	/**
-	 * @type XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mSetupXoopsTpl = null;
 	
@@ -41,10 +42,10 @@ class Xcore_RenderSystem extends RenderSystem
 	function Xcore_RenderSystem()
 	{
 		parent::__construct();
-		$this->mSetupXoopsTpl =new XCube_Delegate();
+		$this->mSetupXoopsTpl =new Delegate();
 		$this->mSetupXoopsTpl->register('Xcore_RenderSystem.SetupXoopsTpl');
 
-		$this->mBeginRender =new XCube_Delegate();
+		$this->mBeginRender =new Delegate();
 		$this->mBeginRender->register('Xcore_RenderSystem.BeginRender');
 	}
 	

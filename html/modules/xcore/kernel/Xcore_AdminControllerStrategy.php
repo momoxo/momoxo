@@ -6,13 +6,14 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 {
 	var $mStatusFlag = XCORE_CONTROLLER_STATE_ADMIN;
 	
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 * @param Controller &$controller
 	 */
 	var $mSetupBlock = null;
@@ -47,7 +48,7 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 			$GLOBALS['xoopsOption']['pagetype'] = "user";
 		}		
 		
-		$this->mSetupBlock =new XCube_Delegate();
+		$this->mSetupBlock =new Delegate();
 		$this->mSetupBlock->register('Xcore_AdminControllerStrategy.SetupBlock');
 	}
 

@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -13,17 +14,17 @@ class UserMailjobObject extends XoopsSimpleObject
 	var $_mUserCountLoadedFlag = false;
 	
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mGetReplaceTitle = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mGetReplaceBody = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mSend = null;
 	
@@ -44,13 +45,13 @@ class UserMailjobObject extends XoopsSimpleObject
 		$initVars=$this->mVars;
 		}
 		
-		$this->mGetReplaceTitle =new XCube_Delegate();
+		$this->mGetReplaceTitle =new Delegate();
 		$this->mGetReplaceTitle->register('UserMailjobObject.GetReplaceTitle');
 		
-		$this->mGetReplaceBody =new XCube_Delegate();
+		$this->mGetReplaceBody =new Delegate();
 		$this->mGetReplaceBody->register('UserMailjobObject.GetReplaceBody');
 		
-		$this->mSend =new XCube_Delegate();
+		$this->mSend =new Delegate();
 		$this->mSend->register('UserMailjobObject.Send');
 	}
 

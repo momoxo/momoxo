@@ -7,6 +7,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class XCube_PageNavigator
 {
@@ -70,7 +71,7 @@ class XCube_PageNavigator
 	var $mFlags = 0;
 
 	/**
-	 * @XCube_Delegate
+	 * @var Delegate
 	 */	
 	var $mFetch = null;
 	
@@ -86,7 +87,7 @@ class XCube_PageNavigator
 	 * 
 	 * void getTotal(int &total, const XCube_Navigator);
 	 * 
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mGetTotalItems = null;
 	
@@ -102,10 +103,10 @@ class XCube_PageNavigator
 		$this->mUrl = $url;
 		$this->mFlags = $flags;
 		
-		$this->mFetch =new XCube_Delegate();
+		$this->mFetch =new Delegate();
 		$this->mFetch->add(array(&$this, 'fetchNaviControl'));
 		
-		$this->mGetTotalItems =new XCube_Delegate();
+		$this->mGetTotalItems =new Delegate();
 	}
 	
 	/**

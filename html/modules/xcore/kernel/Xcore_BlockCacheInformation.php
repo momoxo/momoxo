@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
 {
@@ -13,14 +14,14 @@ class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
      var $mBlock = null;
      
      /**
-      * @var XCube_Delegate
+      * @var Delegate
       */
      var $mGetCacheFilePath = null;
      
      function Xcore_BlockCacheInformation()
      {
          parent::Xcore_AbstractCacheInformation();
-         $this->mGetCacheFilePath = new XCube_Delegate();
+         $this->mGetCacheFilePath = new Delegate();
          $this->mGetCacheFilePath->register('Xcore_BlockCachInformation.getCacheFilePath');
      }
      

@@ -2,7 +2,6 @@
 
 namespace XCore\Kernel;
 
-use XCube_Delegate;
 use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
@@ -15,6 +14,7 @@ use XCore\Kernel\Session;
 use XCore\Kernel\Ref;
 use XCore\Kernel\HttpRequest;
 use XCore\Kernel\ActionFilter;
+use XCore\Kernel\Delegate;
 
 /**
  * Virtual or Actual front controller class.
@@ -84,19 +84,19 @@ class Controller
 
 	/**
 	 * Rebuilds the principal object for the current HTTP-request.
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	public $mSetupUser;
 
 	/**
 	 * Executes the main logic of the controller.
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	public $mExecute;
 
 	/**
 	 * Make a instance of TextFilter.
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	public $mSetupTextFilter;
 
@@ -106,9 +106,9 @@ class Controller
 		$this->_mFilterChain = array();
 		$this->_mLoadedFilterNames = array();
 
-		$this->mSetupUser = new XCube_Delegate();
-		$this->mExecute = new XCube_Delegate();
-		$this->mSetupTextFilter = new XCube_Delegate();
+		$this->mSetupUser = new Delegate();
+		$this->mExecute = new Delegate();
+		$this->mSetupTextFilter = new Delegate();
 		$this->mSetupTextFilter->add('XCore\Kernel\TextFilter::getInstance', XCUBE_DELEGATE_PRIORITY_FINAL);
 	}
 

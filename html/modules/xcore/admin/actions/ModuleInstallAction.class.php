@@ -50,16 +50,17 @@
  */
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Delegate;
 
 class Xcore_ModuleInstallAction extends Xcore_Action
 {
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mInstallSuccess = null;
 	
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mInstallFail = null;
 	
@@ -79,10 +80,10 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 	{
 		parent::Xcore_Action($flag);
 		
-		$this->mInstallSuccess =new XCube_Delegate();
+		$this->mInstallSuccess =new Delegate();
 		$this->mInstallSuccess->register('Xcore_ModuleInstallAction.InstallSuccess');
 		
-		$this->mInstallFail =new XCube_Delegate();
+		$this->mInstallFail =new Delegate();
 		$this->mInstallFail->register('Xcore_ModuleInstallAction.InstallFail');
 	}
 	

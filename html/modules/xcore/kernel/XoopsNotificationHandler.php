@@ -14,16 +14,17 @@
  * @copyright	copyright (c) 2000-2003 XOOPS.org
  */
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class XoopsNotificationHandler extends XoopsObjectHandler
 {
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mTrigger = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mTriggerPreAction = null;
 	
@@ -31,10 +32,10 @@ class XoopsNotificationHandler extends XoopsObjectHandler
 	{
 		parent::XoopsObjectHandler($db);
 		
-		$this->mTrigger =new XCube_Delegate();
+		$this->mTrigger =new Delegate();
 		$this->mTrigger->register('XoopsNotificationHandler.Trigger');
 
-		$this->mTriggerPreAction =new XCube_Delegate();
+		$this->mTriggerPreAction =new Delegate();
 		$this->mTriggerPreAction->register("XoopsNotificationHandler.TriggerPreAction");
 	}
 

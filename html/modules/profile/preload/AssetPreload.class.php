@@ -6,6 +6,7 @@
  */
 
 use XCore\Kernel\ActionFilter;
+use XCore\Kernel\Delegate;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -19,7 +20,7 @@ class Profile_AssetPreload extends ActionFilter
 	function preBlockFilter()
 	{
 		if (!$this->mRoot->mContext->hasAttribute('module.profile.HasSetAssetManager')) {
-			$delegate =new XCube_Delegate();
+			$delegate =new Delegate();
 			$delegate->register('Module.profile.Event.GetAssetManager');
 			$delegate->add(array(&$this, 'getManager'));
 			$this->mRoot->mContext->setAttribute('module.profile.HasSetAssetManager', true);

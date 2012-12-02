@@ -1,19 +1,20 @@
 <?php
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class XcoreThemeHandler extends XoopsObjectHandler
 {
 	var $_mResults = array();
 	
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mGetInstalledThemes = null;
 	
 	function XcoreThemeHandler(&$db)
 	{
-		$this->mGetInstalledThemes =new XCube_Delegate();
+		$this->mGetInstalledThemes =new Delegate();
 		$this->mGetInstalledThemes->register('XcoreThemeHandler.GetInstalledThemes');
 	}
 	

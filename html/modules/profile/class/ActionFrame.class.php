@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 /*
@@ -24,14 +25,14 @@ class Profile_ActionFrame
 	var $mAdminFlag = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mCreateAction = null;
 	
 	function Profile_ActionFrame($admin)
 	{
 		$this->mAdminFlag = $admin;
-		$this->mCreateAction =new XCube_Delegate();
+		$this->mCreateAction =new Delegate();
 		$this->mCreateAction->register('Profile_ActionFrame.CreateAction');
 		$this->mCreateAction->add(array(&$this, '_createAction'));
 	}

@@ -2,8 +2,8 @@
 
 namespace XCore\Kernel;
 
-use XCube_Delegate;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Session
 {
@@ -20,13 +20,13 @@ class Session
 	public $mSessionLifetime = 0;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 * @readonly
 	 */
 	public $mSetupSessionHandler = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 * @readonly
 	 */
 	public $mGetSessionCookiePath = null;
@@ -40,10 +40,10 @@ class Session
 	{
 		$this->setParam($sessionName, $sessionExpire);
 
-		$this->mSetupSessionHandler = new XCube_Delegate();
+		$this->mSetupSessionHandler = new Delegate();
 		$this->mSetupSessionHandler->register('XCore.Kernel.Session.SetupSessionHandler');
 
-		$this->mGetSessionCookiePath = new XCube_Delegate();
+		$this->mGetSessionCookiePath = new Delegate();
 		$this->mGetSessionCookiePath->register('XCore.Kernel.Session.GetSessionCookiePath');
 	}
 

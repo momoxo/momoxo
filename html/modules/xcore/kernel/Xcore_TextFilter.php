@@ -6,36 +6,37 @@
  */
 use XCore\Kernel\TextFilter;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_TextFilter extends TextFilter
 {
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mMakeXCodeConvertTable = null;
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mMakeXCodeCheckImgPatterns = null;
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mMakeClickableConvertTable = null;
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mMakePreXCodeConvertTable = null;
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mMakePostXCodeConvertTable = null;
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 * @deprecated	keep compatible with XC2.1 Beta3
 	 */
 	var $mXCodePre = null;
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 * @deprecated	keep compatible with XC2.1 Beta3. Legacy 2.2.0 will not support this.
 	 * @todo
 	 *	  This is a deprecated member.
@@ -67,32 +68,32 @@ class Xcore_TextFilter extends TextFilter
 	 */
 	function Xcore_TextFilter()
 	{
-		$obj = $this->mMakeClickableConvertTable = new XCube_Delegate;
+		$obj = $this->mMakeClickableConvertTable = new Delegate;
 		$obj->register('Xcore_TextFilter.MakeClickableConvertTable');
 		$obj->add('Xcore_TextFilter::makeClickableConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
-		$obj = $this->mMakeXCodeConvertTable = new XCube_Delegate;
+		$obj = $this->mMakeXCodeConvertTable = new Delegate;
 		$obj->register('Xcore_TextFilter.MakeXCodeConvertTable');
 		$obj->add('Xcore_TextFilter::makeXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
-		$obj = $this->mMakeXCodeCheckImgPatterns = new XCube_Delegate;
+		$obj = $this->mMakeXCodeCheckImgPatterns = new Delegate;
 		$obj->register('Xcore_TextFilter.MakeXCodeCheckImgPatterns');
 		$obj->add('Xcore_TextFilter::makeXCodeCheckImgPatterns', XCUBE_DELEGATE_PRIORITY_2);
 
-		$obj = $this->mMakePreXCodeConvertTable = new XCube_Delegate;
+		$obj = $this->mMakePreXCodeConvertTable = new Delegate;
 		$obj->register('Xcore_TextFilter.MakePreXCodeConvertTable');
 		$obj->add('Xcore_TextFilter::makePreXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
-		$obj = $this->mMakePostXCodeConvertTable = new XCube_Delegate;
+		$obj = $this->mMakePostXCodeConvertTable = new Delegate;
 		$obj->register('Xcore_TextFilter.MakePostXCodeConvertTable');
 		$obj->add('Xcore_TextFilter::makePostXCodeConvertTable', XCUBE_DELEGATE_PRIORITY_2);
 
 		//@deprecated
 		//Todo: For keeping compatible with XC2.1 Beta3
-		$this->mMakeClickablePre = new XCube_Delegate();
+		$this->mMakeClickablePre = new Delegate();
 		$this->mMakeClickablePre->register('MyTextSanitizer.MakeClickablePre');
 
-		$this->mXCodePre = new XCube_Delegate();
+		$this->mXCodePre = new Delegate();
 		$this->mXCodePre->register('MyTextSanitizer.XoopsCodePre');
 	}
 

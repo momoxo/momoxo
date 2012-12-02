@@ -2,10 +2,10 @@
 
 namespace XCore\Kernel;
 
-use XCube_Delegate;
 use XCore\Kernel\Root;
 use XCore\Kernel\DelegateManager;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 /**
  * Utility class which collects utility functions for delegates.
@@ -40,14 +40,14 @@ class DelegateUtils
 	 *
 	 * ```
 	 * {
-	 *     $local =new XCube_Delegate();
+	 *     $local =new Delegate();
 	 *     $local->register("Module.A.Exception.Null");
 	 *     $local->call();
 	 * }
 	 * ```
 	 *
 	 * Only event-owners should use this method. Outside program never calls other's
-	 * events. This is a kind of XCube_Delegate rules. There is the following code;
+	 * events. This is a kind of Delegate rules. There is the following code;
 	 *
 	 * ```
 	 * ClassA::check()
@@ -96,7 +96,7 @@ class DelegateUtils
 				list($key) = array_keys($delegates);
 				$delegate =& $delegates[$key];
 			} else {
-				$delegate = new XCube_Delegate;
+				$delegate = new Delegate;
 				$m->register($delegateName, $delegate);
 			}
 		}
@@ -151,7 +151,7 @@ class DelegateUtils
 	/**
 	 * Comparing two callback (PHP4 cannot compare Object exactly)
 	 *
-	 * Only XCube_Delegate, DelegateManager and sub-classes of them should use this method.
+	 * Only Delegate, DelegateManager and sub-classes of them should use this method.
 	 * @internal
 	 * @param $callback1
 	 * @param $callback2

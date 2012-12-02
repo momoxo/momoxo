@@ -1,13 +1,14 @@
 <?php
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_Module extends Xcore_ModuleAdapter
 {
 	function Xcore_Module(&$xoopsModule)
 	{
 		parent::Xcore_ModuleAdapter($xoopsModule);
-		$this->mGetAdminMenu =new XCube_Delegate();
+		$this->mGetAdminMenu =new Delegate();
 		$this->mGetAdminMenu->register('Xcore_Module.getAdminMenu');
 	}
 	

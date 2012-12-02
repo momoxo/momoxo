@@ -49,18 +49,19 @@
  */
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Delegate;
 
 class Xcore_ModuleUninstallAction extends Xcore_Action
 {
 	/**
 	 * @private
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mUninstallSuccess = null;
 	
 	/**
 	 * @private
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	var $mUninstallFail = null;
 	
@@ -80,10 +81,10 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 	{
 		parent::Xcore_Action($flag);
 		
-		$this->mUninstallSuccess =new XCube_Delegate();
+		$this->mUninstallSuccess =new Delegate();
 		$this->mUninstallSuccess->register('Xcore_ModuleUninstallAction.UninstallSuccess');
 		
-		$this->mUninstallFail =new XCube_Delegate();
+		$this->mUninstallFail =new Delegate();
 		$this->mUninstallFail->register('Xcore_ModuleUninstallAction.UninstallFail');
 	}
 

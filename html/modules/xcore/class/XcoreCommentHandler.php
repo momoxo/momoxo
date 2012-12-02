@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Delegate;
+
 class XcoreCommentHandler extends XoopsObjectGenericHandler
 {
 	var $mTable = "xoopscomments";
@@ -7,12 +9,12 @@ class XcoreCommentHandler extends XoopsObjectGenericHandler
 	var $mClass = "XcoreCommentObject";
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */	
 	var $mUpdateSuccess;
 	
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */	
 	var $mDeleteSuccess;
 	
@@ -20,8 +22,8 @@ class XcoreCommentHandler extends XoopsObjectGenericHandler
 	{
 		parent::XoopsObjectGenericHandler($db);
 		
-		$this->mUpdateSuccess =new XCube_Delegate();
-		$this->mDeleteSuccess =new XCube_Delegate();
+		$this->mUpdateSuccess =new Delegate();
+		$this->mDeleteSuccess =new Delegate();
 	}
 	
 	function insert(&$comment, $force = false)

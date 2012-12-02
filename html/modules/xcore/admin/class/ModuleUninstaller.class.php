@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 class Xcore_ModuleUninstaller
 {
@@ -23,7 +24,7 @@ class Xcore_ModuleUninstaller
 	var $_mXoopsModule = null;
 	
 	/**
-	 * @brief XCube_Delegate
+	 * @var Delegate
 	 * @attention
 	 *     This may be changed in the future.
 	 * @todo
@@ -35,7 +36,7 @@ class Xcore_ModuleUninstaller
 	function Xcore_ModuleUninstaller()
 	{
 		$this->mLog =new Xcore_ModuleInstallLog();
-		$this->m_fireNotifyUninstallTemplateBegun =new XCube_Delegate();
+		$this->m_fireNotifyUninstallTemplateBegun =new Delegate();
 		$this->m_fireNotifyUninstallTemplateBegun->register("Xcore_ModuleUninstaller._fireNotifyUninstallTemplateBegun");
 	}
 	

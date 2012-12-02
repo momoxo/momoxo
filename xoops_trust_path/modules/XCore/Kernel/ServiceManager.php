@@ -2,10 +2,10 @@
 
 namespace XCore\Kernel;
 
-use XCube_Delegate;
 use XCube_Service;
 use XCube_AbstractServiceClient;
 use XCore\Kernel\Ref;
+use XCore\Kernel\Delegate;
 
 /**
  * This class manages XCube_Service instances, searches these, creates a much
@@ -29,12 +29,12 @@ class ServiceManager
 	public $mServices = array();
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	public $mCreateClient = null;
 
 	/**
-	 * @var XCube_Delegate
+	 * @var Delegate
 	 */
 	public $mCreateServer = null;
 
@@ -43,10 +43,10 @@ class ServiceManager
 	 */
 	public function __construct()
 	{
-		$this->mCreateClient = new XCube_Delegate();
+		$this->mCreateClient = new Delegate();
 		$this->mCreateClient->register("XCore.Kernel.ServiceManager.CreateClient");
 
-		$this->mCreateServer = new XCube_Delegate();
+		$this->mCreateServer = new Delegate();
 		$this->mCreateServer->register("XCore.Kernel.ServiceManager.CreateServer");
 	}
 
