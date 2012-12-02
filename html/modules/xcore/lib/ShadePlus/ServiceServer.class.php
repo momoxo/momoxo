@@ -7,6 +7,8 @@
  *
  */
 
+use XCore\Kernel\ServiceUtils;
+
 class ShadePlus_ServiceServer
 {
 	var $_mService;
@@ -38,7 +40,7 @@ class ShadePlus_ServiceServer
 				if (call_user_func(array($className, 'isArray')) == true) {
 					$targetClassName = call_user_func(array($className, 'getClassName'));
 					
-					if (XCube_ServiceUtils::isXSD($targetClassName)) {
+					if (ServiceUtils::isXSD($targetClassName)) {
 						$targetClassName = 'xsd:' . $targetClassName;
 					}
 					else {
@@ -65,7 +67,7 @@ class ShadePlus_ServiceServer
 						$name = $t_field['name'];
 						$type = $t_field['type'];
 					
-						if (XCube_ServiceUtils::isXSD($t_field['type'])) {
+						if (ServiceUtils::isXSD($t_field['type'])) {
 							$type = 'xsd:' . $type;
 						}
 						else {
@@ -94,7 +96,7 @@ class ShadePlus_ServiceServer
 		// FIXME
 		//
 		foreach ($this->_mService->_mFunctions as $func) {
-			if (XCube_ServiceUtils::isXSD($func['out'])) {
+			if (ServiceUtils::isXSD($func['out'])) {
 				$t_out = 'xsd:' . $func['out'];
 			}
 			else {
@@ -108,7 +110,7 @@ class ShadePlus_ServiceServer
 			//
 			$in = array();
 			foreach ($func['in'] as $name => $type) {
-				if (XCube_ServiceUtils::isXSD($type)) {
+				if (ServiceUtils::isXSD($type)) {
 					$t_type = 'xsd:' . $type;
 				}
 				else {
