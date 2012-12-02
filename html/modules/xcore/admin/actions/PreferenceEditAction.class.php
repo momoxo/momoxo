@@ -24,14 +24,14 @@ class Xcore_PreferenceEditAction extends Xcore_Action
 
 		$this->mState = (xoops_getrequest('confmod_id') > 0) ? new Xcore_ModulePreferenceEditState($this) : new Xcore_PreferenceEditState($this);
 		$this->mState->prepare($controller, $xoopsUser);
-		
+
 		if ($this->mPreparedFlag) {
 			$handler =& xoops_gethandler('config');
 			
 			$criteria =new CriteriaCompo();
 			$criteria->add(new Criteria('conf_modid', $this->mActionForm->getModuleId()));
 			$criteria->add(new Criteria('conf_catid', $this->mActionForm->getCategoryId()));
-			
+
 			$this->mObjects =& $handler->getConfigs($criteria);
 			$this->mActionForm->prepare($this->mObjects);
 		}
@@ -310,7 +310,7 @@ class Xcore_ModulePreferenceEditState extends Xcore_AbstractPreferenceEditState
 		$handler =& xoops_gethandler('module');
 		$this->_mMaster->mModule =& $handler->get(intval(xoops_getrequest('confmod_id')));
 
-        if (!(is_object($this->_mMaster->mModule) && $this->_mMaster->mModule->get('isactive') && 
+        if (!(is_object($this->_mMaster->mModule) && $this->_mMaster->mModule->get('isactive') &&
               ($this->_mMaster->mModule->get('hasconfig') ||
                $this->_mMaster->mModule->get('hascomments') ||
                $this->_mMaster->mModule->get('hasnotification')))) {
