@@ -3,8 +3,8 @@
 namespace XCore\Kernel;
 
 use XCube_AbstractServiceClient;
-use _GenericRequest;
 use XCore\Kernel\Root;
+use XCore\Kernel\GenericRequest;
 
 /**
  * Interface to be used for accessing a Service.
@@ -35,7 +35,7 @@ class ServiceClient extends XCube_AbstractServiceClient
 		$request_bak =& $root->mContext->mRequest;
 		unset($root->mContext->mRequest);
 
-		$root->mContext->mRequest = new _GenericRequest($params);
+		$root->mContext->mRequest = new GenericRequest($params);
 
 		if ( isset($this->mService->_mFunctions[$operation]) ) {
 			$ret = call_user_func(array($this->mService, $operation));

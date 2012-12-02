@@ -1,6 +1,8 @@
 <?php
 // TODO >> このファイルはクラス名の移行が完了したら削除する
 
+use XCore\Kernel\GenericRequest;
+
 call_user_func(function(){
 	$legacyClasses = array(
 		'AbstractXoopsObject'                  => null,
@@ -21,7 +23,6 @@ call_user_func(function(){
 		'XCube_FormFile'                       => null,
 		'XCube_FormImageFile'                  => null,
 		'XCube_GenericArrayProperty'           => null,
-		'XCube_GenericRequest'                 => null,
 		'XCube_ImageFileArrayProperty'         => null,
 		'XCube_ImageFileProperty'              => null,
 		'XCube_IniHandler'                     => null,
