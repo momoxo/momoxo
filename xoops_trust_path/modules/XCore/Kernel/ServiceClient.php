@@ -2,9 +2,9 @@
 
 namespace XCore\Kernel;
 
-use XCube_AbstractServiceClient;
 use XCore\Kernel\Root;
 use XCore\Kernel\GenericRequest;
+use XCore\Kernel\AbstractServiceClient;
 
 /**
  * Interface to be used for accessing a Service.
@@ -14,7 +14,7 @@ use XCore\Kernel\GenericRequest;
  * enable the service logic to get values by the request object. After calls,
  * restores the original request object.
  */
-class ServiceClient extends XCube_AbstractServiceClient
+class ServiceClient extends AbstractServiceClient
 {
 	/**
 	 * @param $operation

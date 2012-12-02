@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\AbstractServiceClient;
 
-class ShadePlus_SoapClient extends XCube_AbstractServiceClient
+class ShadePlus_SoapClient extends AbstractServiceClient
 {
 	var $mClient = null;
 	

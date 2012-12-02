@@ -3,9 +3,9 @@
 namespace XCore\Kernel;
 
 use XCube_Service;
-use XCube_AbstractServiceClient;
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Kernel\AbstractServiceClient;
 
 /**
  * This class manages XCube_Service instances, searches these, creates a much
@@ -109,7 +109,7 @@ class ServiceManager
 	 * But, if the service is a virtual service of XCube, virtual client has to
 	 * be created.
 	 * @param XCube_Service $service
-	 * @return XCube_AbstractServiceClient|null
+	 * @return AbstractServiceClient|null
 	 */
 	public function &createClient(&$service)
 	{
