@@ -45,7 +45,6 @@ call_user_func(function(){
 		'XCube_Role'                           => null,
 		'XCube_Root'                           => '\XCore\Kernel\Root',
 		'XCube_Service'                        => null,
-		'XCube_ServiceClient'                  => null,
 		'XCube_ServiceUtils'                   => null,
 		'XCube_StringArrayProperty'            => null,
 		'XCube_StringProperty'                 => null,
