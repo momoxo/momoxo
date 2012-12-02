@@ -2,8 +2,8 @@
 
 namespace XCore\Kernel;
 
-use XCube_Principal;
 use XCore\Kernel\AbstractRequest;
+use XCore\Kernel\Principal;
 
 /**
  * Encapsulates major HTTP specific information about a HTTP request.
@@ -28,7 +28,7 @@ class HttpContext
 	public $mRequest = null;
 
 	/**
-	 * @var XCube_Principal
+	 * @var Principal
 	 * @todo protectedにするためにこのメンバ変数を直接参照している処理をゲッター・セッター経由に変更する
 	 */
 	public $mUser = null;
@@ -107,8 +107,8 @@ class HttpContext
 	}
 
 	/**
-	 * Sets the object which has a interface of XCube_Principal.
-	 * @param XCube_Principal $principal
+	 * Sets the object which has a interface of Principal.
+	 * @param Principal $principal
 	 * @return void
 	 */
 	public function setUser(&$principal)
@@ -117,8 +117,8 @@ class HttpContext
 	}
 
 	/**
-	 * Gets the object which has a interface of XCube_Principal.
-	 * @return XCube_Principal
+	 * Gets the object which has a interface of Principal.
+	 * @return Principal
 	 */
 	public function &getUser()
 	{

@@ -9,7 +9,9 @@
  * Module.{dirname}.Visitor is 'module_read'.
  * Module.{dirname}.Admin is 'module_admin'.
  */
-class Xcore_GenericPrincipal extends XCube_Principal
+use XCore\Kernel\Principal;
+
+class Xcore_GenericPrincipal extends Principal
 {
 	/**
 	 * Adds a role to this object.

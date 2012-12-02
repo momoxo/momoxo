@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\HttpContext;
+use XCore\Kernel\Principal;
 
 /**
  * @public
@@ -47,9 +48,9 @@ class XCube_ActionForm
 	
 	/**
 	 * @protected
-	 * @brief [READ ONLY] XCube_Principal
+	 * @var Principal
 	 * 
-	 * The object which has a interface of XCube_Principal. Enables to check
+	 * The object which has a interface of Principal. Enables to check
 	 * permissions of the current HTTP-request through principal object.
 	 * Basically, this member property is read only. Initialized in constructor.
 	 */
