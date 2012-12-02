@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Validator\Validator;
+
 /**
  * @internal
  * @public
@@ -12,9 +14,9 @@ class XCube_DependClassFactory
 	/**
 	 * @public
 	 * @internal
-	 * @brief [static] Gets a XCube_Validator object by the rule name (depend name).
+	 * @brief [static] Gets a Validator object by the rule name (depend name).
 	 * @param $dependName string
-	 * @return XCube_Validator
+	 * @return Validator
 	 * @attention
 	 *     Only 'XCube_ActionForm' class should use this class.
 	 */

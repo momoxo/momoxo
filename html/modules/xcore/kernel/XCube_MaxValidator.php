@@ -1,6 +1,8 @@
 <?php
 
-class XCube_MaxValidator extends XCube_Validator
+use XCore\Validator\Validator;
+
+class XCube_MaxValidator extends Validator
 {
 	function isValid(&$form, $vars)
 	{

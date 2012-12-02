@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Validator\Validator;
+
 /**
  * @public
  * @brief [Abstract] Used for validating member property values of XCube_ActionForm.
@@ -14,7 +16,7 @@ class XCube_FieldProperty
 	
 	/**
 	 * @protected
-	 * @brief XCube_Validator[] - std::map<string, XCube_Validator*>
+	 * @var Validator[]
 	 */
 	var $mDepends;
 	

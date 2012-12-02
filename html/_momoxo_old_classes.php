@@ -48,7 +48,6 @@ call_user_func(function(){
 		'XCube_TextProperty'                   => null,
 		'XCube_Theme'                          => null,
 		'XCube_Utils'                          => null,
-		'XCube_Validator'                      => null,
 		'LegacyBlock_module_linkHandler'        => null,
 		'LegacyBlock_module_linkObject'         => null,
 		'LegacyBlockctypeHandler'               => null,

@@ -1,6 +1,8 @@
 <?php
 
-class XCube_EmailValidator extends XCube_Validator
+use XCore\Validator\Validator;
+
+class XCube_EmailValidator extends Validator
 {
 	function isValid(&$form, $vars)
 	{

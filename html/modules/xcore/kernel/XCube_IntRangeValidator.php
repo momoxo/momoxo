@@ -1,6 +1,8 @@
 <?php
 
-class XCube_IntRangeValidator extends XCube_Validator
+use XCore\Validator\Validator;
+
+class XCube_IntRangeValidator extends Validator
 {
 	function isValid(&$form, $vars)
 	{
