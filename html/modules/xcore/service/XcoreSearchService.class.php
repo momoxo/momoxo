@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Service;
 
 class Xcore_SearchModule extends XCube_Object
 {
@@ -91,7 +92,7 @@ class Xcore_ArrayOfString extends XCube_ObjectArray
 /**
  * Sample class
  */
-class Xcore_SearchService extends XCube_Service
+class Xcore_SearchService extends Service
 {
     var $mServiceName = "Xcore_SearchService";
     var $mNameSpace = "Xcore";

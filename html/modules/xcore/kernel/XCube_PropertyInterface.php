@@ -4,9 +4,11 @@
  * @public
  * @brief [Abstract] Defines a interface for the property class group.
  * 
- * XCube_PropertyInterface is designed to work in XCube_ActionForm or XCube_Service (in the near future).
+ * XCube_PropertyInterface is designed to work in XCube_ActionForm or Service (in the near future).
  * Therefore only sub-classes of them should call constructors of XCube_Property classes.
  */
+use XCore\Kernel\Service;
+
 class XCube_PropertyInterface
 {
 	/**

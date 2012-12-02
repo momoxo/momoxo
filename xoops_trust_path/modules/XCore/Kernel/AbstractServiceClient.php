@@ -2,7 +2,7 @@
 
 namespace XCore\Kernel;
 
-use XCube_Service;
+use XCore\Kernel\Service;
 
 /**
  * The adapter for a service class.
@@ -13,7 +13,7 @@ use XCube_Service;
 abstract class AbstractServiceClient
 {
 	/**
-	 * @var XCube_Service
+	 * @var Service
 	 */
 	protected $mService;
 
@@ -25,7 +25,7 @@ abstract class AbstractServiceClient
 	protected $mUser = null;
 
 	/**
-	 * @param XCube_Service $service
+	 * @param Service $service
 	 */
 	public function __construct(&$service)
 	{

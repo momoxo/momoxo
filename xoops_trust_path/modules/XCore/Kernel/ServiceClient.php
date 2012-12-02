@@ -5,11 +5,12 @@ namespace XCore\Kernel;
 use XCore\Kernel\Root;
 use XCore\Kernel\GenericRequest;
 use XCore\Kernel\AbstractServiceClient;
+use XCore\Kernel\Service;
 
 /**
  * Interface to be used for accessing a Service.
  *
- * The client object for XCube_Service(Inner service). This class calls
+ * The client object for Service(Inner service). This class calls
  * functions directly, but exchanges the request object of the context to
  * enable the service logic to get values by the request object. After calls,
  * restores the original request object.

@@ -3,6 +3,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\Service;
 
 function Xcore_modifier_theme($string)
 {
@@ -167,7 +168,7 @@ function S_PUBLIC_VAR($definition)
 
 /**
  * @internal
- * @brief This is a kind of MACRO like C for XCube_Service.
+ * @brief This is a kind of MACRO like C for Service.
  */
 function S_PUBLIC_FUNC($definition)
 {

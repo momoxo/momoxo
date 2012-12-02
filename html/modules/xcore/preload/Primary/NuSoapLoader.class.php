@@ -4,6 +4,7 @@ use XCore\Kernel\Root;
 use XCore\Kernel\ServiceManager;
 use XCore\Kernel\ActionFilter;
 use XCore\Kernel\ServiceClient;
+use XCore\Kernel\Service;
 
 class Xcore_NuSoapLoader extends ActionFilter
 {
@@ -24,7 +25,7 @@ class Xcore_NuSoapLoader extends ActionFilter
 
 		$root = Root::getSingleton();
 		
-		if (is_object($service) && is_a($service, 'XCube_Service')) {
+		if (is_object($service) && $service instanceof Service) {
 			$client = new ServiceClient($service);
 		}
 		else {

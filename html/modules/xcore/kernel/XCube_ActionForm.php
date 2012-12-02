@@ -3,6 +3,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\HttpContext;
 use XCore\Kernel\Principal;
+use XCore\Kernel\Service;
 
 /**
  * @public
@@ -27,13 +28,13 @@ use XCore\Kernel\Principal;
  *   of the context.
  * 
  * @remarks
- *     This class is diable for XCube_Service, because the class uses SESSION
+ *     This class is diable for Service, because the class uses SESSION
  *     directly. XCube_ActionForm will be changed in the near feature. Developers
  *     need to pay attention to spec change.
  * 
  * @todo The difference of array and no-array is too big.
  * @todo Form object should have getValue(), isNull(), toString().
- * @todo This form is impossible to be used in XCube_Service SOAP mode.
+ * @todo This form is impossible to be used in Service SOAP mode.
  */
 class XCube_ActionForm
 {

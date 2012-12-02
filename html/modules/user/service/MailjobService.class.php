@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Service;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -12,7 +13,7 @@ class Mailjob_ArrayOfInt extends XCube_ObjectArray
 	}
 }
 
-class User_MailjobService extends XCube_Service
+class User_MailjobService extends Service
 {
 	var $mServiceName = "User_MailjobService";
 	var $mNameSpace = "User_Mailjob";

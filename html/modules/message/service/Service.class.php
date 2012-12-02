@@ -1,9 +1,10 @@
 <?php
 use XCore\Kernel\Root;
+use XCore\Kernel\Service;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Message_Service extends XCube_Service
+class Message_Service extends Service
 {
   public $mServiceName = 'Message_Service';
   public $mNameSpace = 'Message';

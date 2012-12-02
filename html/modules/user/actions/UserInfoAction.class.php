@@ -4,6 +4,8 @@
  * @version $Id: UserInfoAction.class.php,v 1.2 2007/06/07 05:27:01 minahito Exp $
  */
 
+use XCore\Kernel\Service;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/ActionFrame.class.php";
@@ -111,7 +113,7 @@ class User_UserInfoAction extends User_Action
 	
 	/***
 	 * [Notice]
-	 * Because XCube_Service class group are changed now, this member function
+	 * Because Service class group are changed now, this member function
 	 * can't get the result of user posts.
 	 */
 	function executeViewSuccess(&$controller, &$xoopsUser, &$render)

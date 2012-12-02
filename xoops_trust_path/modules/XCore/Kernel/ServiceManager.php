@@ -2,13 +2,13 @@
 
 namespace XCore\Kernel;
 
-use XCube_Service;
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
 use XCore\Kernel\AbstractServiceClient;
+use XCore\Kernel\Service;
 
 /**
- * This class manages XCube_Service instances, searches these, creates a much
+ * This class manages Service instances, searches these, creates a much
  * client instance. Now, the purpose of this class is for inside of own XOOPS
  * site. In other words, this class doesn't work for publishing web services.
  * About these separated working, the core team shall examine.
@@ -23,8 +23,8 @@ use XCore\Kernel\AbstractServiceClient;
 class ServiceManager
 {
 	/**
-	 * Array of XCube_Service instances.
-	 * @var XCube_Service[]
+	 * Array of Service instances.
+	 * @var Service[]
 	 */
 	public $mServices = array();
 
@@ -55,7 +55,7 @@ class ServiceManager
 	 * service which has the same name, is a member of the list, return false.
 	 *
 	 * @param string $name
-	 * @param XCube_Service $service
+	 * @param Service $service
 	 * @return bool
 	 */
 	public function addService($name, &$service)
@@ -89,7 +89,7 @@ class ServiceManager
 
 	/**
 	 * @param string $name
-	 * @return XCube_Service
+	 * @return Service
 	 */
 	public function &getService($name)
 	{
@@ -108,7 +108,7 @@ class ServiceManager
 	 * specified service is really web service, SOAP client has to be created.
 	 * But, if the service is a virtual service of XCube, virtual client has to
 	 * be created.
-	 * @param XCube_Service $service
+	 * @param Service $service
 	 * @return AbstractServiceClient|null
 	 */
 	public function &createClient(&$service)
@@ -120,8 +120,8 @@ class ServiceManager
 	}
 
 	/**
-	 * @param XCube_Service $service
-	 * @return XCube_Service|null
+	 * @param Service $service
+	 * @return Service|null
 	 */
 	public function &createServer(&$service)
 	{

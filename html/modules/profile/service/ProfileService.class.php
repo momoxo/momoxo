@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Service;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -98,7 +99,7 @@ class Profile_DefinitionsObjArray extends XCube_ObjectArray
 	}
 }
 
-class Profile_Service extends XCube_Service
+class Profile_Service extends Service
 {
 	var $mServiceName = "Profile_Service";
 	var $mNameSpace = "Profile";
