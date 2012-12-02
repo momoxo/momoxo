@@ -8,8 +8,9 @@
  *     Only Xcore_Controller or its sub-classes calls this constructor.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\HttpContext;
 
-class Xcore_HttpContext extends XCube_HttpContext
+class Xcore_HttpContext extends HttpContext
 {
 	/**
 	 * @public

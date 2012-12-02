@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Kernel\Root;
+use XCore\Kernel\HttpContext;
+
 /**
  * @public
  * @brief [Abstract] Fetches input values, valudates fetched values and passes them to some object.
@@ -31,13 +34,11 @@
  * @todo Form object should have getValue(), isNull(), toString().
  * @todo This form is impossible to be used in XCube_Service SOAP mode.
  */
-use XCore\Kernel\Root;
-
 class XCube_ActionForm
 {
 	/**
 	 * @protected
-	 * @brief [READ ONLY] XCube_HttpContext
+	 * @var HttpContext
 	 * 
 	 * The context object. Enables to access the HTTP-request information.
 	 * Basically, this member property is read only. Initialized in the constructor.

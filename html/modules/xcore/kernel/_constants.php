@@ -2,6 +2,8 @@
 
 // From ../../html/modules/xcore/kernel/block.php
 
+use XCore\Kernel\HttpContext;
+
 define ('SHOW_SIDEBLOCK_LEFT',     1);
 define ('SHOW_SIDEBLOCK_RIGHT',    2);
 define ('SHOW_CENTERBLOCK_LEFT',   4);
@@ -89,7 +91,7 @@ define("XCUBE_DELEGATE_PRIORITY_FINAL", XCUBE_DELEGATE_PRIORITY_10);
 // From ../../html/modules/xcore/kernel/XCube_FormFile.class.php
 define("XCUBE_FORMFILE_CHMOD", 0644);
 
-// From ../../html/modules/xcore/kernel/XCube_HttpContext.class.php
+// From XCore\Kernel\HttpContext
 define("XCUBE_CONTEXT_TYPE_DEFAULT", "web_browser");
 define("XCUBE_CONTEXT_TYPE_WEB_SERVICE", "web_service");
 

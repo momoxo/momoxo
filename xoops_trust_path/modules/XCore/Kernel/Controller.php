@@ -6,7 +6,6 @@ use XCube_Delegate;
 use XCube_Ref;
 use XCube_ActionFilter;
 use XCube_Session;
-use XCube_HttpContext;
 use XCube_HttpRequest;
 use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
@@ -15,6 +14,7 @@ use XCore\Kernel\ServiceManager;
 use XCore\Kernel\AbstractPermissionProvider;
 use XCore\Kernel\RoleManager;
 use XCore\Kernel\TextFilter;
+use XCore\Kernel\HttpContext;
 
 /**
  * Virtual or Actual front controller class.
@@ -443,11 +443,11 @@ class Controller
 
 	/**
 	 * Creates the context object to initial the root object, and returns it.
-	 * @return XCube_HttpContext
+	 * @return HttpContext
 	 */
 	protected function &_createContext()
 	{
-		$context = new XCube_HttpContext();
+		$context = new HttpContext();
 		$request = new XCube_HttpRequest();
 		$context->setRequest($request);
 

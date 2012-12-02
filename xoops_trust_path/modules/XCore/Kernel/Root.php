@@ -3,7 +3,6 @@
 namespace XCore\Kernel;
 
 use RuntimeException;
-use XCube_HttpContext;
 use XCube_Session;
 use XCube_Ref;
 use XCore\Kernel\Controller;
@@ -14,6 +13,7 @@ use XCore\Kernel\RenderSystem;
 use XCore\Kernel\AbstractPermissionProvider;
 use XCore\Kernel\RoleManager;
 use XCore\Kernel\TextFilter;
+use XCore\Kernel\HttpContext;
 
 /**
  * The root object which collects exchangeable managers.
@@ -79,7 +79,7 @@ class Root
 	public $mTextFilter;
 
 	/**
-	 * @var XCube_HttpContext
+	 * @var HttpContext
 	 */
 	public $mContext;
 
@@ -441,7 +441,7 @@ class Root
 
 	/**
 	 * Sets the HTTP-context object.
-	 * @param XCube_HttpContext $context
+	 * @param HttpContext $context
 	 * @return void
 	 */
 	public function setContext(&$context)
@@ -451,7 +451,7 @@ class Root
 
 	/**
 	 * Gets a HTTP-context object.
-	 * @return XCube_HttpContext
+	 * @return HttpContext
 	 */
 	public function &getContext()
 	{
