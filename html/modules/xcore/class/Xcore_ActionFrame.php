@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class Xcore_ActionFrame
 {
@@ -102,7 +103,7 @@ class Xcore_ActionFrame
 		//
 		// Create action object by mActionName
 		//
-		$this->mCreateAction->call(new XCube_Ref($this));
+		$this->mCreateAction->call(new Ref($this));
 	
 		if (!(is_object($this->mAction) && is_a($this->mAction, 'Xcore_Action'))) {
 			throw new RuntimeException();

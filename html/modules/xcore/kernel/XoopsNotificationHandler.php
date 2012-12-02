@@ -13,6 +13,8 @@
  * @author	    Michael van Dam <mvandam@caltech.edu>
  * @copyright	copyright (c) 2000-2003 XOOPS.org
  */
+use XCore\Kernel\Ref;
+
 class XoopsNotificationHandler extends XoopsObjectHandler
 {
 	/**
@@ -500,12 +502,12 @@ class XoopsNotificationHandler extends XoopsObjectHandler
 						
 			$force_return = false;
 			
-			$this->mTriggerPreAction->call(new XCube_Ref($category), new XCube_Ref($event), new XCube_Ref($item_id),
-										   new XCube_Ref($extra_tags), new XCube_Ref($module), new XCube_Ref($user_list),
-										   new XCube_Ref($omit_user_id), new XCube_Ref($not_config),
-										   new XCube_Ref($force_return));
+			$this->mTriggerPreAction->call(new Ref($category), new Ref($event), new Ref($item_id),
+										   new Ref($extra_tags), new Ref($module), new Ref($user_list),
+										   new Ref($omit_user_id), new Ref($not_config),
+										   new Ref($force_return));
 																												   
-			$this->mTrigger->call($category, $event, $item_id, $extra_tags, new XCube_Ref($module), $user_list, $omit_user_id, $not_config, new XCube_Ref($force_return));
+			$this->mTrigger->call($category, $event, $item_id, $extra_tags, new Ref($module), $user_list, $omit_user_id, $not_config, new Ref($force_return));
         	if ($force_return) {
 				return;
 			}

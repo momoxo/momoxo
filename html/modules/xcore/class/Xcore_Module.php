@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Ref;
+
 class Xcore_Module extends Xcore_ModuleAdapter
 {
 	function Xcore_Module(&$xoopsModule)
@@ -12,7 +14,7 @@ class Xcore_Module extends Xcore_ModuleAdapter
 	function getAdminMenu()
 	{
 		$menu = parent::getAdminMenu();
-		$this->mGetAdminMenu->call(new XCube_Ref($menu));
+		$this->mGetAdminMenu->call(new Ref($menu));
 		
 		ksort($menu);
 		

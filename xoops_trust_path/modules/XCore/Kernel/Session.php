@@ -3,7 +3,7 @@
 namespace XCore\Kernel;
 
 use XCube_Delegate;
-use XCube_Ref;
+use XCore\Kernel\Ref;
 
 class Session
 {
@@ -150,7 +150,7 @@ class Session
 	{
 		static $sessionCookiePath = null;
 		if ( empty($sessionCookiePath) ) {
-			$this->mGetSessionCookiePath->call(new XCube_Ref($sessionCookiePath));
+			$this->mGetSessionCookiePath->call(new Ref($sessionCookiePath));
 			if ( empty($sessionCookiePath) ) {
 				$sessionCookiePath = '/';
 			}

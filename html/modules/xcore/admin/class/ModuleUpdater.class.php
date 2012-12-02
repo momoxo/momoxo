@@ -31,6 +31,8 @@
  * 
  * @see Xcore_ModuleInstallUtils
  */
+use XCore\Kernel\Ref;
+
 class Xcore_ModulePhasedUpgrader
 {
 	/**
@@ -262,7 +264,7 @@ class Xcore_ModulePhasedUpgrader
 			require_once XOOPS_MODULE_PATH . "/" . $this->_mTargetXoopsModule->get('dirname') . "/" . $installScript;
 			$funcName = 'xoops_module_update_' . $this->_mTargetXoopsModule->get('dirname');
 			if (function_exists($funcName)) {
-				if (!call_user_func($funcName, $this->_mTargetXoopsModule, $this->getCurrentVersion(), new XCube_Ref($this->mLog))) {
+				if (!call_user_func($funcName, $this->_mTargetXoopsModule, $this->getCurrentVersion(), new Ref($this->mLog))) {
 					$this->mLog->addError("Failed to execute " . $funcName);
 				}
 			}

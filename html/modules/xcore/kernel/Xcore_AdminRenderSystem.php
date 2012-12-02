@@ -5,6 +5,7 @@
  * @todo We depends on Xcore_RenderSystem that a add-in module defines. We must stop this situation.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 {
@@ -75,7 +76,7 @@ class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 
 		//jQuery Ready functions
 		$context = $this->mController->mRoot->mContext;
-		XCube_DelegateUtils::call('Site.JQuery.AddFunction', new XCube_Ref($context->mAttributes['headerScript']));
+		XCube_DelegateUtils::call('Site.JQuery.AddFunction', new Ref($context->mAttributes['headerScript']));
 		$headerScript = $context->getAttribute('headerScript');
 		$moduleHeader =  $headerScript->createLibraryTag() . $headerScript->createOnloadFunctionTag();
 		$vars['xoops_module_header'] = $moduleHeader;

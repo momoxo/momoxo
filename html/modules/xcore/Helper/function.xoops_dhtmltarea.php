@@ -39,6 +39,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 define ("XOOPS_DHTMLTAREA_DEFID_PREFIX", "xcore_xoopsform_");
 define ("XOOPS_DHTMLTAREA_DEFAULT_COLS", "50");
@@ -67,15 +68,15 @@ function smarty_function_xoops_dhtmltarea($params, &$smarty)
 		$html = "";
 		switch($params['editor']){
 		case 'html':
-			XCube_DelegateUtils::call("Site.TextareaEditor.HTML.Show", new XCube_Ref($html), $params);
+			XCube_DelegateUtils::call("Site.TextareaEditor.HTML.Show", new Ref($html), $params);
 			break;
 		
 		case 'none':
-			XCube_DelegateUtils::call("Site.TextareaEditor.None.Show", new XCube_Ref($html), $params);
+			XCube_DelegateUtils::call("Site.TextareaEditor.None.Show", new Ref($html), $params);
 			break;
 		case 'bbcode':
 		default:
-			XCube_DelegateUtils::call("Site.TextareaEditor.BBCode.Show", new XCube_Ref($html), $params);
+			XCube_DelegateUtils::call("Site.TextareaEditor.BBCode.Show", new Ref($html), $params);
 			break;
 		}
 		print $html;

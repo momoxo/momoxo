@@ -14,6 +14,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\TextFilter;
+use XCore\Kernel\Ref;
 
 class MyTextSanitizer
 {
@@ -119,7 +120,7 @@ class MyTextSanitizer
         //  Args :
         //      'string'       [I/O] : Text to convert;
         //
-        $this->mMakeClickablePostFilter->call(new XCube_Ref($text));
+        $this->mMakeClickablePostFilter->call(new Ref($text));
         return $text;
     }
 
@@ -141,7 +142,7 @@ class MyTextSanitizer
         //      'string'       [I/O] : Text to convert;
         //      'allowimage'   [I]   : xoopsCodeDecode $allowimage parameter
         //
-        $this->mXoopsCodePostFilter->call(new XCube_Ref($text), $allowimage);
+        $this->mXoopsCodePostFilter->call(new Ref($text), $allowimage);
         return $text;
     }
 

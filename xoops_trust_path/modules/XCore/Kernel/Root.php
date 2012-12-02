@@ -3,7 +3,6 @@
 namespace XCore\Kernel;
 
 use RuntimeException;
-use XCube_Ref;
 use XCore\Kernel\Controller;
 use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
@@ -14,6 +13,7 @@ use XCore\Kernel\RoleManager;
 use XCore\Kernel\TextFilter;
 use XCore\Kernel\HttpContext;
 use XCore\Kernel\Session;
+use XCore\Kernel\Ref;
 
 /**
  * The root object which collects exchangeable managers.
@@ -420,7 +420,7 @@ class Root
 	{
 		if (!empty($this->mTextFilter)) return $this->mTextFilter;
 		if (!empty($this->mController)) { //ToDo: This case is for _XCORE_PREVENT_EXEC_COMMON_ status;
-			$this->mController->mSetupTextFilter->call(new XCube_Ref($this->mTextFilter));
+			$this->mController->mSetupTextFilter->call(new Ref($this->mTextFilter));
 			return $this->mTextFilter;
 		}
 

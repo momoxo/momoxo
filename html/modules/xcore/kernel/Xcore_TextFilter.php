@@ -5,6 +5,7 @@
  * @brief The text filter for Xcore.
  */
 use XCore\Kernel\TextFilter;
+use XCore\Kernel\Ref;
 
 class Xcore_TextFilter extends TextFilter
 {
@@ -245,7 +246,7 @@ class Xcore_TextFilter extends TextFilter
 			//		'patterns'	   [I/O] : &Array of pattern RegExp
 			//		'replacements' [I/O] : &Array of replacing string
 			//
-			$this->mMakeClickableConvertTable->call(new XCube_Ref($this->mClickablePatterns), new XCube_Ref($this->mClickableReplacements));
+			$this->mMakeClickableConvertTable->call(new Ref($this->mClickablePatterns), new Ref($this->mClickableReplacements));
 
 			// Delegate Call 'MyTextSanitizer.MakeClickablePre'
 			//	Delegate may replace makeClickable conversion table
@@ -255,7 +256,7 @@ class Xcore_TextFilter extends TextFilter
 			//
 			//	Todo: For Compatiblitiy to XC2.1 Beta3
 			//
-			$this->mMakeClickablePre->call(new XCube_Ref($this->mClickablePatterns), new XCube_Ref($this->mClickableReplacements));
+			$this->mMakeClickablePre->call(new Ref($this->mClickablePatterns), new Ref($this->mClickableReplacements));
 		}
 		$text = preg_replace($this->mClickablePatterns, $this->mClickableReplacements, $text);
 		return $text;
@@ -292,7 +293,7 @@ class Xcore_TextFilter extends TextFilter
 			//							   replacements[0] for $allowimage = 0;
 			//							   replacements[1] for $allowimage = 1;
 			//
-			$this->mMakeXCodeConvertTable->call(new XCube_Ref($this->mXCodePatterns), new XCube_Ref($this->mXCodeReplacements));
+			$this->mMakeXCodeConvertTable->call(new Ref($this->mXCodePatterns), new Ref($this->mXCodeReplacements));
 
 			// RaiseEvent 'MyTextSanitizer.XoopsCodePre'
 			//	Delegate may replace conversion table
@@ -302,9 +303,9 @@ class Xcore_TextFilter extends TextFilter
 			//		'allowimage'   [I]	 : xoopsCodeDecode $allowimage parameter
 			//
 			//Todo: For Compatiblitiy to XC2.1 Beta3
-			$this->mXCodePre->call(new XCube_Ref($this->mXCodePatterns), new XCube_Ref($this->mXCodeReplacements[0]), 0);
+			$this->mXCodePre->call(new Ref($this->mXCodePatterns), new Ref($this->mXCodeReplacements[0]), 0);
 			$dummy = array();
-			$this->mXCodePre->call(new XCube_Ref($dummy), new XCube_Ref($this->mXCodeReplacements[1]), 1);
+			$this->mXCodePre->call(new Ref($dummy), new Ref($this->mXCodeReplacements[1]), 1);
 		}
 		if (empty($this->mXCodeCheckImgPatterns)) {
 			// RaiseEvent 'Xcore_TextFilter.MakeXCodeCheckImgPatterns'
@@ -313,7 +314,7 @@ class Xcore_TextFilter extends TextFilter
 			//		'patterns'	   [I/O] : &Array of pattern RegExp
 			//		'replacements' [I/O] : &Array of replacing string
 			//
-			$this->mMakeXCodeCheckImgPatterns->call(new XCube_Ref($this->mXCodeCheckImgPatterns));
+			$this->mMakeXCodeCheckImgPatterns->call(new Ref($this->mXCodeCheckImgPatterns));
 		}
 		$text = preg_replace_callback($this->mXCodeCheckImgPatterns, array($this, '_filterImgUrl'), $text);
 		$replacementsIdx = ($allowimage == 0) ? 0 : 1;
@@ -433,7 +434,7 @@ class Xcore_TextFilter extends TextFilter
 				//		'patterns'	   [I/O] : &Array of pattern RegExp
 				//		'replacements' [I/O] : &Array of replacing string
 				//
-				$this->mMakePreXCodeConvertTable->call(new XCube_Ref($this->mPreXCodePatterns), new XCube_Ref($this->mPreXCodeReplacements));
+				$this->mMakePreXCodeConvertTable->call(new Ref($this->mPreXCodePatterns), new Ref($this->mPreXCodeReplacements));
 			}
 			$text =  preg_replace($this->mPreXCodePatterns, $this->mPreXCodeReplacements, $text);
 		}
@@ -470,7 +471,7 @@ class Xcore_TextFilter extends TextFilter
 				//		 So, conversion rule for[code] is defined after call delegate function.
 				//	   - Conversion rule should treat input string as raw text with single quote escape.(not sanitized).
 				//
-				$this->mMakePostXCodeConvertTable->call(new XCube_Ref($this->mPostXCodePatterns), new XCube_Ref($this->mPostXCodeReplacements));
+				$this->mMakePostXCodeConvertTable->call(new Ref($this->mPostXCodePatterns), new Ref($this->mPostXCodeReplacements));
 			}
 			$replacementsIdx = ($image == 0) ? 0 : 1;
 			$text =  preg_replace($this->mPostXCodePatterns, $this->mPostXCodeReplacements[$replacementsIdx], $text);

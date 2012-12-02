@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class Xcore_ModuleUninstaller
 {
@@ -121,7 +122,7 @@ class Xcore_ModuleUninstaller
 	 */
 	function _uninstallTemplates()
 	{
-		$this->m_fireNotifyUninstallTemplateBegun->call(new XCube_Ref($this->_mXoopsModule));
+		$this->m_fireNotifyUninstallTemplateBegun->call(new Ref($this->_mXoopsModule));
 		Xcore_ModuleInstallUtils::uninstallAllOfModuleTemplates($this->_mXoopsModule, $this->mLog);
 	}
 
@@ -164,7 +165,7 @@ class Xcore_ModuleUninstaller
 			}
 			
 			if (function_exists($funcName)) {
-				if (!call_user_func($funcName, $this->_mXoopsModule, new XCube_Ref($this->mLog))) {
+				if (!call_user_func($funcName, $this->_mXoopsModule, new Ref($this->mLog))) {
 					$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
 				}
 			}

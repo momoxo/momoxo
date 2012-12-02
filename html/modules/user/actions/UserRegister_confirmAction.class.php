@@ -5,6 +5,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -70,7 +71,7 @@ class User_UserRegister_confirmAction extends User_Action
 		$this->_processMail($controller);
 		$this->_eventNotifyMail($controller);
 		
-		XCube_DelegateUtils::call('Xcore.Event.RegistUser.Success', new XCube_Ref($this->mNewUser));
+		XCube_DelegateUtils::call('Xcore.Event.RegistUser.Success', new Ref($this->mNewUser));
 		
 		return USER_FRAME_VIEW_SUCCESS;
 	}

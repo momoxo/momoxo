@@ -5,6 +5,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -135,13 +136,13 @@ class User_UserListAction extends User_AbstractListAction
 		if(($this->mActionForm->get('delete', $uid) == 1) && ($uid != 1)) {
 			$user =& $userHandler->get($uid);
 			if (is_object($user)) {
-				XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete', new XCube_Ref($user));
+				XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete', new Ref($user));
 				$memberhandler =& xoops_gethandler('member');
 				if ($memberhandler->delete($user)) {
-				XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Success', new XCube_Ref($user));
+				XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Success', new Ref($user));
 				}
 				else {
-				XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Fail', new XCube_Ref($user));
+				XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Fail', new Ref($user));
 				return USER_FRAME_VIEW_ERROR;
 				}
 			}//object

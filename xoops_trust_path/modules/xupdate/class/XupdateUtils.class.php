@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\Ref;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -71,7 +73,7 @@ class Xupdate_Utils
         $asset = null;
         XCube_DelegateUtils::call(
             'Module.xupdate.Global.Event.GetAssetManager',
-            new XCube_Ref($asset),
+            new Ref($asset),
             $dirname
         );
         if(is_object($asset) && is_a($asset, 'Xupdate_AssetManager'))

@@ -9,6 +9,7 @@
  *
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class Xcore_Utils
 {
@@ -58,7 +59,7 @@ class Xcore_Utils
 		//
 		// TODO need cache here?
 		//
-		XCube_DelegateUtils::call('Xcore_Utils.CreateModule', new XCube_Ref($instance), $module, $loadConfig);
+		XCube_DelegateUtils::call('Xcore_Utils.CreateModule', new Ref($instance), $module, $loadConfig);
 		
 		if (is_object($instance) && is_a($instance, 'Xcore_AbstractModule')) {
 			return $instance;
@@ -103,7 +104,7 @@ class Xcore_Utils
 		//
 		// TODO need cache here?
 		//
-		XCube_DelegateUtils::call('Xcore_Utils.CreateBlockProcedure', new XCube_Ref($retBlock), $block);
+		XCube_DelegateUtils::call('Xcore_Utils.CreateBlockProcedure', new Ref($retBlock), $block);
 		
 		if (is_object($retBlock) && is_a($retBlock, 'Xcore_AbstractBlockProcedure')) {
 			return $retBlock;
@@ -195,7 +196,7 @@ class Xcore_Utils
 	public static function getUserName(/*** int ***/ $uid)
 	{
 		$name = null;
-		XCube_DelegateUtils::call('Xcore_User.GetUserName', new XCube_Ref($name), $uid);
+		XCube_DelegateUtils::call('Xcore_User.GetUserName', new Ref($name), $uid);
 		if(! $name){
 			$handler =& xoops_gethandler('member');
 			$user =& $handler->getUser(intval($uid));
@@ -348,7 +349,7 @@ class Xcore_Utils
 			$uri = (isset($query)) ? XOOPS_URL.$uri.'?'.$query : XOOPS_URL. $uri;
 		}
 		else{
-			XCube_DelegateUtils::call('Module.'.$dirname.'.Global.Event.GetNormalUri', new XCube_Ref($uri), $dirname, $dataname, $data_id, $action, $query);
+			XCube_DelegateUtils::call('Module.'.$dirname.'.Global.Event.GetNormalUri', new Ref($uri), $dirname, $dataname, $data_id, $action, $query);
 		
 			$uri = XOOPS_MODULE_URL. $uri;
 		}

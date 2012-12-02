@@ -6,6 +6,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -37,7 +38,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	{
 		parent::startup();
 	
-		XCube_DelegateUtils::call('Module.profile.Event.GetAssetManager', new XCube_Ref($this->mAssetManager));
+		XCube_DelegateUtils::call('Module.profile.Event.GetAssetManager', new Ref($this->mAssetManager));
 	
 		$root = Root::getSingleton();
 		$root->mController->mExecute->add(array(&$this, "execute"));

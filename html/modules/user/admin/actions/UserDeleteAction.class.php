@@ -4,6 +4,8 @@
  * @version $Id: UserDeleteAction.class.php,v 1.1 2007/05/15 02:34:41 minahito Exp $
  */
 
+use XCore\Kernel\Ref;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractDeleteAction.class.php";
@@ -41,14 +43,14 @@ class User_UserDeleteAction extends User_AbstractDeleteAction
 
 	function _doExecute()
 	{
-		XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete', new XCube_Ref($this->mObject));
+		XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete', new Ref($this->mObject));
 		$handler =& xoops_gethandler('member');
 		if ($handler->delete($this->mObject)) {
-			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Success', new XCube_Ref($this->mObject));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Success', new Ref($this->mObject));
 			return USER_FRAME_VIEW_SUCCESS;
 		}
 		else {
-			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Fail', new XCube_Ref($this->mObject));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Fail', new Ref($this->mObject));
 			return USER_FRAME_VIEW_ERROR;
 		}
 	}

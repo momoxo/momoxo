@@ -18,6 +18,7 @@
  * -------------------------------------------------------------
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 function smarty_function_xcore_comment($params, &$smarty)
 {
@@ -29,7 +30,7 @@ function smarty_function_xcore_comment($params, &$smarty)
 	$comments = null;
 
 	XCube_DelegateUtils::call('Xcore_Comment.'.$cDirname.'.GetComments',
-		new XCube_Ref($comments),
+		new Ref($comments),
 		$cDirname,
 		$dirname,
 		$dataname,

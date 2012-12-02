@@ -17,6 +17,7 @@
  * -------------------------------------------------------------
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 function smarty_function_xcore_profile($params, &$smarty)
 {
@@ -31,14 +32,14 @@ function smarty_function_xcore_profile($params, &$smarty)
 	$defArr = null;
 	XCube_DelegateUtils::call(
 		'Xcore_Profile.GetDefinition',
-		new XCube_Ref($defArr),
+		new Ref($defArr),
 		$action
 	);
 
 	$profile = null;
 	XCube_DelegateUtils::call(
 		'Xcore_Profile.GetProfile',
-		new XCube_Ref($profile),
+		new Ref($profile),
 		$uid
 	);
 

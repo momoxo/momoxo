@@ -3,6 +3,8 @@
 /**
  * Xcore_AbstractObject
 **/
+use XCore\Kernel\Ref;
+
 abstract class Xcore_AbstractObject extends XoopsSimpleObject
 {
     //const PRIMARY = '';
@@ -129,7 +131,7 @@ abstract class Xcore_AbstractObject extends XoopsSimpleObject
     {
         $imageObjs = array();
         if($this->get($this->getPrimary())>0){
-	        XCube_DelegateUtils::call('Xcore_Image.GetImageObjects', new XCube_Ref($imageObjs), $this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()));
+	        XCube_DelegateUtils::call('Xcore_Image.GetImageObjects', new Ref($imageObjs), $this->getDirname(), $this->getDataname(), $this->get($this->getPrimary()));
 	    }
         return $imageObjs;
     }
@@ -164,7 +166,7 @@ abstract class Xcore_AbstractObject extends XoopsSimpleObject
 		$this->mImage = $this->getImages();
 	
 		$originalImage = array();
-		XCube_DelegateUtils::call('Xcore_Image.CreateImageObject', new XCube_Ref($originalImage));
+		XCube_DelegateUtils::call('Xcore_Image.CreateImageObject', new Ref($originalImage));
 		$originalImage->set('title', $this->get($handler->getClientField('title')));
 		$originalImage->set('uid', Xcore_Utils::getUid());
 		$originalImage->set('dirname', $this->getDirname());
@@ -198,7 +200,7 @@ abstract class Xcore_AbstractObject extends XoopsSimpleObject
             $tagArr = array();
             if(! $this->isNew()){
                 XCube_DelegateUtils::call('Xcore_Tag.'.$configArr['tag_dirname'].'.GetTags',
-                    new XCube_Ref($tagArr),
+                    new Ref($tagArr),
                     $tagDirname,
                     $this->getDirname(),
                     $this->getDataname(),

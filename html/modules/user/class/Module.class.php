@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Ref;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class User_Module extends Xcore_ModuleAdapter
@@ -14,7 +16,7 @@ class User_Module extends Xcore_ModuleAdapter
 	function getAdminMenu()
 	{
 		$menu = parent::getAdminMenu();
-		$this->mGetAdminMenu->call(new XCube_Ref($menu));
+		$this->mGetAdminMenu->call(new Ref($menu));
 		
 		ksort($menu);
 		

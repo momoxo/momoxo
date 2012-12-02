@@ -14,6 +14,7 @@
  * language files.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class Xcore_HelpSmarty extends Smarty
 {
@@ -156,7 +157,7 @@ class Xcore_HelpAction extends Xcore_Action
 		// Smarty
 		//
 		$smarty = null;
-		$this->mCreateHelpSmarty->call(new XCube_Ref($smarty));
+		$this->mCreateHelpSmarty->call(new Ref($smarty));
 		$smarty->setDirname($this->_mDirname);
 
 		//

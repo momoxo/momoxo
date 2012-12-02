@@ -7,6 +7,7 @@
  * variable-sharing-mechanism with using smarty.
  */
 use XCore\Kernel\RenderSystem;
+use XCore\Kernel\Ref;
 
 class Xcore_RenderSystem extends RenderSystem
 {
@@ -62,7 +63,7 @@ class Xcore_RenderSystem extends RenderSystem
 		}
 		$mTpl = $this->mXoopsTpl;
 		$mTpl->register_function('xcore_notifications_select', 'XcoreRender_smartyfunction_notifications_select');
-		$this->mSetupXoopsTpl->call(new XCube_Ref($mTpl));
+		$this->mSetupXoopsTpl->call(new Ref($mTpl));
 
 		// compatible
 		$GLOBALS['xoopsTpl'] =& $mTpl;
@@ -187,7 +188,7 @@ class Xcore_RenderSystem extends RenderSystem
 		$vars = $target->getAttributes();
 		$mTpl->assign($vars);
 
-		$this->mBeginRender->call(new XCube_Ref($mTpl));
+		$this->mBeginRender->call(new Ref($mTpl));
 		$result=&$mTpl->fetchBlock($target->getTemplateName(),$target->getAttribute('bid'));
 		$target->setResult($result);
 		
@@ -203,7 +204,7 @@ class Xcore_RenderSystem extends RenderSystem
 			$this->mXoopsTpl->assign($key,$value);
 		}
 
-		$this->mBeginRender->call(new XCube_Ref($this->mXoopsTpl), $target->getAttribute('xcore_buffertype'));
+		$this->mBeginRender->call(new Ref($this->mXoopsTpl), $target->getAttribute('xcore_buffertype'));
 		$result=$this->mXoopsTpl->fetch('db:'.$target->getTemplateName());
 		$target->setResult($result);
 
@@ -271,7 +272,7 @@ class Xcore_RenderSystem extends RenderSystem
 		//jQuery Ready functions
 		$mRoot = $this->mController->mRoot;
 		$mContext = $mRoot->mContext;
-		XCube_DelegateUtils::call('Site.JQuery.AddFunction', new XCube_Ref($mContext->mAttributes['headerScript']));
+		XCube_DelegateUtils::call('Site.JQuery.AddFunction', new Ref($mContext->mAttributes['headerScript']));
 		$headerScript = $mContext->getAttribute('headerScript');
 		$mTpl = $this->mXoopsTpl;
 		$moduleHeader = $mTpl->get_template_vars('xoops_module_header');
@@ -333,7 +334,7 @@ class Xcore_RenderSystem extends RenderSystem
 			}
 		}
 
-		$this->mBeginRender->call(new XCube_Ref($mTpl));
+		$this->mBeginRender->call(new Ref($mTpl));
 		
 		//
 		// Render result, and set it to the RenderBuffer of the $target.

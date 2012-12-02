@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Ref;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractViewAction.class.php";
@@ -77,7 +79,7 @@ class User_UserViewAction extends User_AbstractViewAction
 		// Do 'recount'
 		//
 		$posts = 0;
-		$this->mGetUserPosts->call(new XCube_Ref($posts), $this->mObject);
+		$this->mGetUserPosts->call(new Ref($posts), $this->mObject);
 		
 		$handler =& xoops_getmodulehandler('users');
 		return $handler->insert($this->mObject) ? USER_FRAME_VIEW_SUCCESS
@@ -125,8 +127,8 @@ class User_UserViewAction extends User_AbstractViewAction
 	
 		$definitions = array();
 		$profile = null;
-		XCube_DelegateUtils::call('Xcore_Profile.GetDefinition', new XCube_Ref($definitions), 'view');
-		XCube_DelegateUtils::call('Xcore_Profile.GetProfile', new XCube_Ref($profile), $this->mObject->get('uid'));
+		XCube_DelegateUtils::call('Xcore_Profile.GetDefinition', new Ref($definitions), 'view');
+		XCube_DelegateUtils::call('Xcore_Profile.GetProfile', new Ref($profile), $this->mObject->get('uid'));
 		$render->setAttribute('definitions', $definitions);
 		$render->setAttribute('data', $profile);
 	}

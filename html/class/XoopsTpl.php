@@ -9,6 +9,8 @@
  * @author		Kazumi Ono 	<onokazu@xoops.org>
  * @copyright	(c) 2000-2003 The Xoops Project - www.xoops.org
  */
+use XCore\Kernel\Ref;
+
 class XoopsTpl extends Smarty
 {
 
@@ -65,7 +67,7 @@ class XoopsTpl extends Smarty
         //  varArgs : 
         //      'xoopsTpl'     [I/O] : $this
         //
-		XCube_DelegateUtils::call('XoopsTpl.New',  new XCube_Ref($this));
+		XCube_DelegateUtils::call('XoopsTpl.New',  new Ref($this));
 	}
 
 	/**

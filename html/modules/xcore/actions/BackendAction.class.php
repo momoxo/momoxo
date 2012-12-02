@@ -3,6 +3,8 @@
 /***
  * @internal
  */
+use XCore\Kernel\Ref;
+
 class Xcore_BackendAction extends Xcore_Action
 {
 	var $mItems = array();
@@ -34,7 +36,7 @@ class Xcore_BackendAction extends Xcore_Action
 	function getDefaultView(&$controll, &$xoopsUser)
 	{
 		$items = array();
-		$this->mGetRSSItems->call(new XCube_Ref($items));
+		$this->mGetRSSItems->call(new Ref($items));
 
 		$sortArr = array();
 		foreach ($items as $item) {

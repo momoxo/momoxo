@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -120,7 +121,7 @@ class UserMailjobObject extends XoopsSimpleObject
 			$userArr[$key]->set('message', '');
 			
 			if (is_object($to_user)) {
-				$this->mSend->call(new XCube_Ref($userArr[$key]), new XCube_Ref($this), $to_user, $from_user);
+				$this->mSend->call(new Ref($userArr[$key]), new Ref($this), $to_user, $from_user);
 			}
 			else {
 				$userArr[$key]->set('message', 'This user does not exist.');
@@ -152,7 +153,7 @@ class UserMailjobObject extends XoopsSimpleObject
 		$t_body = str_replace('{X_UNAME}', $to_user->get('uname'), $t_body);
 		$t_body = str_replace('{X_UEMAIL}', $to_user->get('email'), $t_body);
 
-		$this->mGetReplaceBody->call(new XCube_Ref($t_body), $to_user, $from_user);
+		$this->mGetReplaceBody->call(new Ref($t_body), $to_user, $from_user);
 		
 		return $t_body;
 	}

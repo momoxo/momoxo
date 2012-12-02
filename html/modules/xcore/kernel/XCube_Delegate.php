@@ -19,6 +19,7 @@
  *     conflict with old XCube_Delegate. After replacing, we'll change all.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class XCube_Delegate
 {
@@ -213,7 +214,7 @@ class XCube_Delegate
 		
 		for ($i=0 ; $i<$num ;$i++) {
 			$arg = &$args[$i];
-			if ($arg instanceof XCube_Ref) $args[$i] =& $arg->getObject();
+			if ($arg instanceof Ref) $args[$i] =& $arg->getObject();
 
 			if ($hasSig) {
 				if (!isset($mSigs[$i])) return false;

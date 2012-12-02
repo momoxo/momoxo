@@ -7,6 +7,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
+use XCore\Kernel\Ref;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -65,7 +66,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
     {
         parent::startup();
 
-        XCube_DelegateUtils::call('Module.xupdate.Global.Event.GetAssetManager',new XCube_Ref($this->mAssetManager),$this->mXoopsModule->get('dirname'));
+        XCube_DelegateUtils::call('Module.xupdate.Global.Event.GetAssetManager',new Ref($this->mAssetManager),$this->mXoopsModule->get('dirname'));
 
         $root = Root::getSingleton();
         $root->mController->mExecute->add(array(&$this, 'execute'));

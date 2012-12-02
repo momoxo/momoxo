@@ -6,6 +6,7 @@
  * offer place holders which is able to connect with interfaces of this class.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class XCube_PageNavigator
 {
@@ -113,7 +114,7 @@ class XCube_PageNavigator
 	 */
 	function fetch()
 	{
-		$this->mFetch->call(new XCube_Ref($this));
+		$this->mFetch->call(new Ref($this));
 	}
 	
 	function fetchNaviControl(&$navi)
@@ -296,7 +297,7 @@ class XCube_PageNavigator
 	function getTotalItems()
 	{
 		if ($this->_mIsSpecifedTotalItems == false) {
-			$this->mGetTotalItems->call(new XCube_Ref($this->mTotal));
+			$this->mGetTotalItems->call(new Ref($this->mTotal));
 			$this->_mIsSpecifedTotalItems = true;
 		}
 		

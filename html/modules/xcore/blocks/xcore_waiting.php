@@ -12,9 +12,11 @@
  |   keeping compatibility with XOOPS 2.0.x <http://www.xoops.org>        |
  *------------------------------------------------------------------------*/
 
+use XCore\Kernel\Ref;
+
 function b_xcore_waiting_show() {
     $modules = array();
-    XCube_DelegateUtils::call('Xcoreblock.Waiting.Show', new XCube_Ref($modules));
+    XCube_DelegateUtils::call('Xcoreblock.Waiting.Show', new Ref($modules));
     $block['modules'] = $modules;
     return $block;
 }

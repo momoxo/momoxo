@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Ref;
+
 class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
 {
     /**
@@ -46,7 +48,7 @@ class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
     function getCacheFilePath()
     {
         $filepath = null;
-        $this->mGetCacheFilePath->call(new XCube_Ref($filepath), $this);
+        $this->mGetCacheFilePath->call(new Ref($filepath), $this);
         
         if (!$filepath) {
             $id = md5(XOOPS_SALT . '(' . implode('_', $this->mIdentityArr) . ')' . implode('_', $this->mGroupArr));

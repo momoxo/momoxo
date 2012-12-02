@@ -4,6 +4,8 @@
  * @version $Id: UserDeleteAction.class.php,v 1.3 2007/12/15 13:59:03 minahito Exp $
  */
 
+use XCore\Kernel\Ref;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/forms/UserDeleteForm.class.php";
@@ -107,10 +109,10 @@ class User_UserDeleteAction extends User_Action
 		}
 		
 		$flag = false;
-		$this->_mDoDelete->call(new XCube_Ref($flag), $controller, $xoopsUser);
+		$this->_mDoDelete->call(new Ref($flag), $controller, $xoopsUser);
 		
 		if ($flag) {
-			XCube_DelegateUtils::call('Xcore.Event.UserDelete', new XCube_Ref($this->mObject));
+			XCube_DelegateUtils::call('Xcore.Event.UserDelete', new Ref($this->mObject));
 			
 			return USER_FRAME_VIEW_SUCCESS;
 		}

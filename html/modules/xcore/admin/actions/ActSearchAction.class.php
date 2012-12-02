@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Ref;
+
 class Xcore_ActionSearchArgs
 {
 	var $mKeywords;
@@ -135,7 +137,7 @@ class Xcore_ActSearchAction extends Xcore_Action
 		}
 
 		$searchArgs =new Xcore_ActionSearchArgs($this->mActionForm->get('keywords'));
-		$this->mSearchAction->call(new XCube_Ref($searchArgs));
+		$this->mSearchAction->call(new Ref($searchArgs));
 
 		if ($searchArgs->hasRecord()) {
 			$this->mRecords =& $searchArgs->getRecords();

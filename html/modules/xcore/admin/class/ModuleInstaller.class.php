@@ -7,6 +7,7 @@
  * @todo It seems possibility to abstract with other installer classes.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class Xcore_ModuleInstaller
 {
@@ -194,7 +195,7 @@ class Xcore_ModuleInstaller
 				// Because X2 can use reference parameter, Legacy doesn't use the following code;'
                 // if (!call_user_func($funcName, $this->_mXoopsModule)) {
 
-				$result = $funcName($this->_mXoopsModule, new XCube_Ref($this->mLog));                	
+				$result = $funcName($this->_mXoopsModule, new Ref($this->mLog));
 				if (!$result) {
                     $this->mLog->addError(XCUbe_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
                 }

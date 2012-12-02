@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Ref;
+
 class XcoreThemeHandler extends XoopsObjectHandler
 {
 	var $_mResults = array();
@@ -48,7 +50,7 @@ class XcoreThemeHandler extends XoopsObjectHandler
 	{
 		if (count($this->_mResults) == 0) {
 			$t_themeArr = array();
-			$this->mGetInstalledThemes->call(new XCube_Ref($t_themeArr));
+			$this->mGetInstalledThemes->call(new Ref($t_themeArr));
 			
 			foreach ($t_themeArr as $theme) {
 				$obj =& $this->create();

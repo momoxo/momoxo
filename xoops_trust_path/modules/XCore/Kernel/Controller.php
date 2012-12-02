@@ -3,7 +3,6 @@
 namespace XCore\Kernel;
 
 use XCube_Delegate;
-use XCube_Ref;
 use XCube_ActionFilter;
 use XCube_HttpRequest;
 use XCore\Kernel\Root;
@@ -15,6 +14,7 @@ use XCore\Kernel\RoleManager;
 use XCore\Kernel\TextFilter;
 use XCore\Kernel\HttpContext;
 use XCore\Kernel\Session;
+use XCore\Kernel\Ref;
 
 /**
  * Virtual or Actual front controller class.
@@ -177,7 +177,7 @@ class Controller
 	 */
 	public function execute()
 	{
-		$this->mExecute->call(new XCube_Ref($this));
+		$this->mExecute->call(new Ref($this));
 	}
 
 	/**
@@ -272,7 +272,7 @@ class Controller
 	{
 		/** @var $textFilter \TextFilter */
 		$textFilter = null;
-		$this->mSetupTextFilter->call(new XCube_Ref($textFilter));
+		$this->mSetupTextFilter->call(new Ref($textFilter));
 		$this->mRoot->setTextFilter($textFilter);
 	}
 
@@ -300,7 +300,7 @@ class Controller
 	 */
 	protected function _setupUser()
 	{
-		$this->mSetupUser->call(new XCube_Ref($this->mRoot->mContext->mUser), new XCube_Ref($this), new XCube_Ref($this->mRoot->mContext));
+		$this->mSetupUser->call(new Ref($this->mRoot->mContext->mUser), new Ref($this), new Ref($this->mRoot->mContext));
 	}
 
 	/**

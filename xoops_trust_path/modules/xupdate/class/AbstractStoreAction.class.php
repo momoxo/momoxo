@@ -5,6 +5,8 @@
 * @version $Id$
 **/
 
+use XCore\Kernel\Ref;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XUPDATE_TRUST_PATH . '/class/AbstractListAction.class.php';
@@ -205,7 +207,7 @@ class Xupdate_AbstractStoreAction extends Xupdate_AbstractListAction
 		
 		$tagCloud = array();
 		if (! empty($this->mod_config['tag_dirname'])) {
-			XCube_DelegateUtils::call('Xcore_Tag.'.$this->mod_config['tag_dirname'].'.GetTagCloudSrc', new XCube_Ref($tagCloud), $this->mod_config['tag_dirname'], 'xupdate', $this->contents . 'store');
+			XCube_DelegateUtils::call('Xcore_Tag.'.$this->mod_config['tag_dirname'].'.GetTagCloudSrc', new Ref($tagCloud), $this->mod_config['tag_dirname'], 'xupdate', $this->contents . 'store');
 			if ($tagCloud) {
 				$this->Func->setTagCloudSize($tagCloud);
 			}

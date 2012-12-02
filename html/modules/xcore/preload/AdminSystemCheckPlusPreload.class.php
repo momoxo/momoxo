@@ -12,6 +12,7 @@
 //you can determine which should be displayed!
 //display(1) or not display(0): Welcome message
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XC_ADMINSYSTEMCHECK_WELCOME')) define('XC_ADMINSYSTEMCHECK_WELCOME', 1);
 //display(1) or not display(0): Site/System Info
@@ -169,7 +170,7 @@ class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
 		/////////////////////////////////////////
 		if(XC_ADMINSYSTEMCHECK_WAITING) {
 		$modules = array();
-    		XCube_DelegateUtils::call('Xcoreblock.Waiting.Show', new XCube_Ref($modules));
+    		XCube_DelegateUtils::call('Xcoreblock.Waiting.Show', new Ref($modules));
 		$attributes = array();
 		$attributes['block']['modules'] = $modules;
 		$template = XOOPS_ROOT_PATH."/modules/xcore/templates/blocks/xcore_block_waiting.html";

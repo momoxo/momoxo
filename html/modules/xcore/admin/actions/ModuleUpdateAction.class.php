@@ -50,6 +50,8 @@
  * @see Xcore_ModulePhasedUpgrader
  * @see Xcore_ModuleInstallUtils
  */
+use XCore\Kernel\Ref;
+
 class Xcore_ModuleUpdateAction extends Xcore_Action
 {
 	/**
@@ -156,12 +158,12 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			$this->mUpdateSuccess->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			$this->mUpdateSuccess->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		else {
-			$this->mUpdateFail->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			$this->mUpdateFail->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		
 		$renderer->setTemplateName("module_update_success.html");

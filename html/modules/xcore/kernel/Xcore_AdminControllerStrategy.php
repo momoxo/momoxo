@@ -5,6 +5,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
+use XCore\Kernel\Ref;
 
 class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 {
@@ -76,7 +77,7 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 		$this->mController->_mBlockChain[] =new Xcore_AdminActionSearch();
 		$this->mController->_mBlockChain[] =new Xcore_AdminSideMenu();
 		
-		$this->mSetupBlock->call(new XCube_Ref($this->mController));
+		$this->mSetupBlock->call(new Ref($this->mController));
 	}
 
 	function _processPreBlockFilter()

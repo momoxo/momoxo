@@ -5,6 +5,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -119,7 +120,7 @@ class User_UserEditAction extends User_AbstractEditAction
 	{
 		$ret = parent::_doExecute();
 		if($ret===true){
-			XCube_DelegateUtils::call('Xcore_Profile.SaveProfile', new XCube_Ref($ret), $this->mActionForm);
+			XCube_DelegateUtils::call('Xcore_Profile.SaveProfile', new Ref($ret), $this->mActionForm);
 		}
 		return $ret;
 	}

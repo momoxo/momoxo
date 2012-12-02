@@ -4,6 +4,7 @@
  * This is an exmine class for mail.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 class Xcore_Mailer extends PHPMailer
 {
@@ -97,7 +98,7 @@ class Xcore_Mailer extends PHPMailer
 	
 	function convertLocal($text, $mime = false)
 	{
-		$this->mConvertLocal->call(new XCube_Ref($text), $mime);
+		$this->mConvertLocal->call(new Ref($text), $mime);
 		return $text;
 	}
 }

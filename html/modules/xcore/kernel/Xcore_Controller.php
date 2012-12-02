@@ -14,6 +14,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
+use XCore\Kernel\Ref;
 
 class Xcore_Controller extends Controller
 {
@@ -350,7 +351,7 @@ class Xcore_Controller extends Controller
 				//
 				$cacheInfo =& $blockProcedure->createCacheInfo();
 
-				$this->mSetBlockCachePolicy->call(new XCube_Ref($cacheInfo));
+				$this->mSetBlockCachePolicy->call(new Ref($cacheInfo));
 				$filepath = $cacheInfo->getCacheFilePath();
 
 				//
@@ -580,7 +581,7 @@ class Xcore_Controller extends Controller
 	{
 		$language = null;
 
-		$this->mGetLanguageName->call(new XCube_Ref($language));
+		$this->mGetLanguageName->call(new Ref($language));
 
 		if ($language == null) {
 			$handler = xoops_gethandler('config');
@@ -625,7 +626,7 @@ class Xcore_Controller extends Controller
 	{
 		$languageManager = null;
 
-		$this->mCreateLanguageManager->call(new XCube_Ref($languageManager), $language);
+		$this->mCreateLanguageManager->call(new Ref($languageManager), $language);
 
 		if (!is_object($languageManager)) {
 			$className = 'Xcore_LanguageManager_' . ucfirst(strtolower($language));
@@ -699,7 +700,7 @@ class Xcore_Controller extends Controller
 			$debug_mode = XOOPS_DEBUG_PHP;
 		}
 
-		$this->mSetupDebugger->call(new XCube_Ref($this->mDebugger), $debug_mode);
+		$this->mSetupDebugger->call(new Ref($this->mDebugger), $debug_mode);
 		$this->mDebugger->prepare();
 
 		$GLOBALS['xoopsDebugger']=&$this->mDebugger;
@@ -944,7 +945,7 @@ class Xcore_Controller extends Controller
 	function checkLogin()
 	{
 		if (!is_object($this->mRoot->mContext->mXoopsUser)) {
-			$this->mCheckLogin->call(new XCube_Ref($this->mRoot->mContext->mXoopsUser));
+			$this->mCheckLogin->call(new Ref($this->mRoot->mContext->mXoopsUser));
 
 			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
 
@@ -967,7 +968,7 @@ class Xcore_Controller extends Controller
 				$notification_handler = xoops_gethandler('notification');
 				$notification_handler->doLoginMaintenance($this->mRoot->mContext->mXoopsUser->get('uid'));
 
-				XCube_DelegateUtils::call('Site.CheckLogin.Success', new XCube_Ref($this->mRoot->mContext->mXoopsUser));
+				XCube_DelegateUtils::call('Site.CheckLogin.Success', new Ref($this->mRoot->mContext->mXoopsUser));
 
 				//
 				// Fall back process for login success.
@@ -987,7 +988,7 @@ class Xcore_Controller extends Controller
 				$this->executeRedirect($url, 1, XCube_Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
 			}
 			else {
-				XCube_DelegateUtils::call('Site.CheckLogin.Fail', new XCube_Ref($this->mRoot->mContext->mXoopsUser));
+				XCube_DelegateUtils::call('Site.CheckLogin.Fail', new Ref($this->mRoot->mContext->mXoopsUser));
 
 				//
 				// Fall back process for login fail.
@@ -1014,7 +1015,7 @@ class Xcore_Controller extends Controller
 		if (is_object($xoopsUser)) {
 			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
 
-			$this->mLogout->call(new XCube_Ref($successFlag), $xoopsUser);
+			$this->mLogout->call(new Ref($successFlag), $xoopsUser);
 			if ($successFlag) {
 				XCube_DelegateUtils::call('Site.Logout.Success', $xoopsUser);
 				$this->executeRedirect(XOOPS_URL . '/', 1, array(_MD_XCORE_MESSAGE_LOGGEDOUT, _MD_XCORE_MESSAGE_THANKYOUFORVISIT));
@@ -1133,7 +1134,7 @@ class Xcore_Controller extends Controller
 
 		// XOOPS2 Compatibility
 		if ($addRedirect && strstr($url, 'user.php')) {
-			$this->_mNotifyRedirectToUser->call(new XCube_Ref($url));
+			$this->_mNotifyRedirectToUser->call(new Ref($url));
 		}
 
 		if (defined('SID') && (! isset($_COOKIE[session_name()]) || ($xoopsConfig['use_mysession'] && $xoopsConfig['session_name'] != '' && !isset($_COOKIE[$xoopsConfig['session_name']])))) {

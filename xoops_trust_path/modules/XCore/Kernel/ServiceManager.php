@@ -5,7 +5,7 @@ namespace XCore\Kernel;
 use XCube_Delegate;
 use XCube_Service;
 use XCube_AbstractServiceClient;
-use XCube_Ref;
+use XCore\Kernel\Ref;
 
 /**
  * This class manages XCube_Service instances, searches these, creates a much
@@ -114,7 +114,7 @@ class ServiceManager
 	public function &createClient(&$service)
 	{
 		$client = null;
-		$this->mCreateClient->call(new XCube_Ref($client), new XCube_Ref($service));
+		$this->mCreateClient->call(new Ref($client), new Ref($service));
 
 		return $client;
 	}
@@ -126,7 +126,7 @@ class ServiceManager
 	public function &createServer(&$service)
 	{
 		$server = null;
-		$this->mCreateServer->call(new XCube_Ref($server), new XCube_Ref($service));
+		$this->mCreateServer->call(new Ref($server), new Ref($service));
 
 		return $server;
 	}

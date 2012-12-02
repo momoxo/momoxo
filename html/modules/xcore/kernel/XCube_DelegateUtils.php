@@ -10,6 +10,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\DelegateManager;
+use XCore\Kernel\Ref;
 
 class XCube_DelegateUtils
 {
@@ -126,7 +127,7 @@ class XCube_DelegateUtils
             if (!empty($string) && is_string($string)) {
                 return "";
             }
-            $args[1] = new XCube_Ref($string);
+            $args[1] = new Ref($string);
             call_user_func_array(array('XCube_DelegateUtils','call'),$args);
             return $string;
         } else {

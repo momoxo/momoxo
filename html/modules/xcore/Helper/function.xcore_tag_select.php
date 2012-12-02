@@ -21,6 +21,7 @@
  * -------------------------------------------------------------
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 function smarty_function_xcore_tag_select($params, &$smarty)
 {
@@ -33,7 +34,7 @@ function smarty_function_xcore_tag_select($params, &$smarty)
 	$cloud = array();
 
 	XCube_DelegateUtils::call('Xcore_Tag.'.$tDirname.'.GetTagCloudSrc',
-		new XCube_Ref($cloud),
+		new Ref($cloud),
 		$tDirname,
 		$dirname,
 		$dataname,

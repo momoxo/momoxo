@@ -1,5 +1,6 @@
 <?php
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 if ( !defined('XCORE_MAIL_LANG') ) {
@@ -121,7 +122,7 @@ class My_Mailer extends PHPMailer
     if ( _LANGCODE == 'ja' ) {
       $text = $this->_Japanese_convLocal($text, $mime);
     } else {
-      $this->mConvertLocal->call(new XCube_Ref($text), $mime);
+      $this->mConvertLocal->call(new Ref($text), $mime);
     }
     return $text;
   }

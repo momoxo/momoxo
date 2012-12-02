@@ -48,6 +48,8 @@
  * 
  * @todo These classes are good to abstract again.
  */
+use XCore\Kernel\Ref;
+
 class Xcore_ModuleInstallAction extends Xcore_Action
 {
 	/**
@@ -173,12 +175,12 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 	function executeViewSuccess(&$controller,&$xoopsUser,&$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			$this->mInstallSuccess->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			$this->mInstallSuccess->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		else {
-			$this->mInstallFail->call(new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new XCube_Ref($this->mXoopsModule), new XCube_Ref($this->mInstaller->mLog));
+			$this->mInstallFail->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 
 		$renderer->setTemplateName("module_install_success.html");

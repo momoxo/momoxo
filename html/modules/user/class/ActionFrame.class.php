@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\Ref;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -85,7 +86,7 @@ class User_ActionFrame
 		//
 		// Create action object by mActionName
 		//
-		$this->mCreateAction->call(new XCube_Ref($this));
+		$this->mCreateAction->call(new Ref($this));
 		
 		if (!(is_object($this->mAction) && is_a($this->mAction, 'User_Action'))) {
 			die();	//< TODO
