@@ -18,6 +18,7 @@ use XCore\Kernel\Ref;
 use XCore\Kernel\HttpRequest;
 use XCore\Kernel\DelegateUtils;
 use XCore\Kernel\Delegate;
+use XCore\Kernel\RenderTarget;
 
 class Xcore_Controller extends Controller
 {
@@ -397,7 +398,7 @@ class Xcore_Controller extends Controller
 					//
 					// Dummy save
 					//
-					$renderBuffer = new XCube_RenderTarget();
+					$renderBuffer = new RenderTarget();
 				}
 
 				if ($this->isEnableCacheFeature() && $blockProcedure->isEnableCache() && is_object($cacheInfo) && $cacheInfo->isEnableCache()) {
@@ -1235,7 +1236,7 @@ class Xcore_Controller extends Controller
 	/**
 	 * Save the content of $renderTarget to $filepath.
 	 * @param string $filepath a file path of the cache file.
-	 * @param XCube_RenderTarget $renderBuffer
+	 * @param RenderTarget $renderBuffer
 	 * @return bool success or failure.
 	 */
 	function cacheRenderTarget($filepath, &$renderTarget)

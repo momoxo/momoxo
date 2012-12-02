@@ -18,6 +18,7 @@
  */
  
 use XCore\Kernel\Root;
+use XCore\Kernel\RenderTarget;
 
 function smarty_function_xcore_tree($params, &$smarty)
 {
@@ -28,7 +29,7 @@ function smarty_function_xcore_tree($params, &$smarty)
 	$template = isset($params['template']) ? $params['template'] : 'xcore_inc_tree.html';
 
 	//render template
-	$render = new XCube_RenderTarget();
+	$render = new RenderTarget();
 	$render->setTemplateName($template);
 	$render->setAttribute('xcore_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
 	$render->setAttribute('tree', $tree);

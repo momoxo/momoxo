@@ -3,7 +3,7 @@
 namespace XCore\Kernel;
 
 use XCore\Kernel\Controller;
-use XCube_RenderTarget;
+use XCore\Kernel\RenderTarget;
 
 /**
  * This system is in charge of rendering and contents cache management.
@@ -44,17 +44,17 @@ class RenderSystem
 
 	/**
 	 * Create an object of the render-target, and return it.
-	 * @return XCube_RenderTarget
+	 * @return RenderTarget
 	 */
 	public function &createRenderTarget()
 	{
-		$renderTarget = new XCube_RenderTarget();
+		$renderTarget = new RenderTarget();
 		return $renderTarget;
 	}
 
 	/**
 	 * Render to $target.
-	 * @param XCube_RenderTarget $target
+	 * @param RenderTarget $target
 	 * @return void
 	 */
 	public function render(&$target)

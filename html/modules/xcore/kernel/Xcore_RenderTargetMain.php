@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_RenderTargetMain extends XCube_RenderTarget
+use XCore\Kernel\RenderTarget;
+
+class Xcore_RenderTargetMain extends RenderTarget
 {
 	function Xcore_RenderTargetMain()
 	{

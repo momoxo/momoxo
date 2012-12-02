@@ -61,7 +61,7 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 		$cachePath = XCORE_ADMINMENU_CACHEPREFIX . md5(XOOPS_SALT . "($groups)". $langMgr->mLanguageName).'.html';
 		$render =& $this->getRenderTarget();
 		if (file_exists($cachePath)) {
-			$render->mRenderBuffer = file_get_contents($cachePath);
+			$render->setResult(file_get_contents($cachePath));
 			return;
 		}
 		$render->setAttribute('xcore_module', 'xcore');
@@ -126,7 +126,7 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 		$renderSystem =& $root->getRenderSystem($this->getRenderSystemName());
 		
 		$renderSystem->renderBlock($render);
-		file_put_contents($cachePath, $render->mRenderBuffer);
+		file_put_contents($cachePath, $render->getResult());
 	}
 
 	static function clearCache()

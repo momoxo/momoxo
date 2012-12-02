@@ -22,6 +22,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\RenderTarget;
 
 function smarty_function_xcore_tag_cloud($params, &$smarty)
 {
@@ -45,7 +46,7 @@ function smarty_function_xcore_tag_cloud($params, &$smarty)
 	$sizeArr = _smarty_function_xcore_tag_cloud_get_size($cloud, $max, $min);
 
 	//render template
-	$render = new XCube_RenderTarget();
+	$render = new RenderTarget();
 	$render->setTemplateName($template);
 	$render->setAttribute('xcore_buffertype',XCUBE_RENDER_TARGET_TYPE_MAIN);
 	$render->setAttribute('dirname', $tDirname);

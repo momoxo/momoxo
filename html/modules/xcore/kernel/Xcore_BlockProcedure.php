@@ -5,6 +5,8 @@
  * controller. And, it has a XoopsBlock instance, and some public methods for
  * the public side and the control panel side.
  */
+use XCore\Kernel\RenderTarget;
+
 class Xcore_BlockProcedure extends Xcore_AbstractBlockProcedure
 {
     /**
@@ -13,7 +15,7 @@ class Xcore_BlockProcedure extends Xcore_AbstractBlockProcedure
     var $_mBlock = null;
     
     /**
-     * @var XCube_RenderTarget
+     * @var RenderTarget
      */
     var $mRender = null;
     

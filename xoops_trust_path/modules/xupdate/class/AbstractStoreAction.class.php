@@ -7,6 +7,7 @@
 
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\RenderTarget;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -174,7 +175,7 @@ class Xupdate_AbstractStoreAction extends Xupdate_AbstractListAction
 	/**
 	 * executeViewIndex
 	 *
-	 * @param	XCube_RenderTarget	&$render
+	 * @param	RenderTarget	&$render
 	 *
 	 * @return	void
 	**/

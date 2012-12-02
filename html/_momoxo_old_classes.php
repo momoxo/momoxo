@@ -41,7 +41,6 @@ call_user_func(function(){
 		'XCube_Permissions'                    => null,
 		'XCube_PropertyInterface'              => null,
 		'XCube_RenderCache'                    => null,
-		'XCube_RenderTarget'                   => null,
 		'XCube_RequiredValidator'              => null,
 		'XCube_Role'                           => null,
 		'XCube_Root'                           => '\XCore\Kernel\Root',

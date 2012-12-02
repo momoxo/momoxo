@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_AbstractThemeRenderTarget extends XCube_RenderTarget
+use XCore\Kernel\RenderTarget;
+
+class Xcore_AbstractThemeRenderTarget extends RenderTarget
 {
 	var $mSendHeaderFlag=false;
 

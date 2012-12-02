@@ -6,11 +6,12 @@
  * functions, to be called back by the controller.
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\RenderTarget;
 
 class Xcore_AbstractBlockProcedure
 {
     /**
-     * @var XCube_RenderTarget
+     * @var RenderTarget
      */
     var $mRender = null;
     
@@ -28,7 +29,7 @@ class Xcore_AbstractBlockProcedure
     }
     
     /**
-     * @var XCube_RenderTarget
+     * @var RenderTarget
      */
     function &getRenderTarget()
     {
@@ -56,7 +57,7 @@ class Xcore_AbstractBlockProcedure
      */
     function &_createRenderTarget()
     {
-        $this->mRender = new XCube_RenderTarget();
+        $this->mRender = new RenderTarget();
         $this->mRender->setType(XCUBE_RENDER_TARGET_TYPE_BLOCK);
         
         return $this->mRender;

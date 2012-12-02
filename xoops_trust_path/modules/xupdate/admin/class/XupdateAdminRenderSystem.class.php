@@ -9,6 +9,7 @@ use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Kernel\RenderTarget;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -62,11 +63,11 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
     /**
      * renderBlock
      * 
-     * @param   XCube_RenderTarget  &$target
+     * @param   RenderTarget  &$target
      * 
      * @return  void
     **/
-    public function renderBlock(/*** XCube_RenderTarget ***/ &$target)
+    public function renderBlock(&$target)
     {
         parent::renderBlock($target);    // TODO will be use other method
     }
@@ -74,11 +75,11 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
     /**
      * renderTheme
      * 
-     * @param   XCube_RenderTarget  &$target
+     * @param   RenderTarget  &$target
      * 
      * @return  void
     **/
-    public function renderTheme(/*** XCube_RenderTarget ***/ &$target)
+    public function renderTheme(&$target)
     {
         $module =& $this->mController->getVirtualCurrentModule();
         $context =& $this->mController->mRoot->getContext();
@@ -112,11 +113,11 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
     /**
      * renderMain
      * 
-     * @param   XCube_RenderTarget  &$target
+     * @param   RenderTarget  &$target
      * 
      * @return  void
     **/
-    public function renderMain(/*** XCube_RenderTarget ***/ &$target)
+    public function renderMain(&$target)
     {
         $info = Xupdate_AdminRenderSystem::getOverrideFileInfo($target->getTemplateName());
         $this->mSmarty->compile_id = $info['dirname'];

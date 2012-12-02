@@ -21,6 +21,7 @@
   */
 use XCore\Kernel\Root;
 use XCore\Kernel\RenderSystem;
+use XCore\Kernel\RenderTarget;
 
 class Xcore_AbstractModule
 {
@@ -52,8 +53,9 @@ class Xcore_AbstractModule
     var $mCacheInfo = null;
     
     /**
+     * The render target instance for this module.
      * @private
-     * @brief XCube_RenderTarget - The render target instance for this module.
+     * @var RenderTarget
      * @see getRenderTarget()
      */
     var $mRender = null;
@@ -194,7 +196,7 @@ class Xcore_AbstractModule
     /**
      * @public
      * @brief Gets the render target instance.
-     * @return XCube_RenderTarget
+     * @return RenderTarget
      * @see _createRenderTarget()
      */
     function &getRenderTarget()
@@ -209,7 +211,7 @@ class Xcore_AbstractModule
     /**
      * @protected
      * @brief Creates a render target instance and returns it.
-     * @return XCube_RenderTarget
+     * @return RenderTarget
      * @remarks
      *     This member function sets the created instance to mRender because this
      *     instance has to keep the instance for many callbacks.

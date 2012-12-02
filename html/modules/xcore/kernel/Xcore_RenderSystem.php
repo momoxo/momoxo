@@ -10,6 +10,7 @@ use XCore\Kernel\RenderSystem;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
 use XCore\Kernel\Delegate;
+use XCore\Kernel\RenderTarget;
 
 class Xcore_RenderSystem extends RenderSystem
 {
@@ -470,12 +471,12 @@ class Xcore_RenderSystem extends RenderSystem
 				break;
 				
 			case XCORE_RENDER_TARGET_TYPE_BLOCK:
-				$renderTarget =new XCube_RenderTarget();
+				$renderTarget =new RenderTarget();
 				$renderTarget->setAttribute('xcore_buffertype', XCORE_RENDER_TARGET_TYPE_BLOCK);
 				break;
 				
 			default:
-				$renderTarget =new XCube_RenderTarget();
+				$renderTarget =new RenderTarget();
 				break;
 		}
 

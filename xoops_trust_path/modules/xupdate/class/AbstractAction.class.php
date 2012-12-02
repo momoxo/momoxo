@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Kernel\RenderTarget;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -175,66 +176,66 @@ abstract class Xupdate_AbstractAction
     /**
      * executeViewSuccess
      *
-     * @param   XCube_RenderTarget  &$render
+     * @param   RenderTarget  &$render
      *
      * @return  void
     **/
-    public function executeViewSuccess(/*** XCube_RenderTarget ***/ &$render)
+    public function executeViewSuccess(&$render)
     {
     }
 
     /**
      * executeViewError
      *
-     * @param   XCube_RenderTarget  &$render
+     * @param   RenderTarget  &$render
      *
      * @return  void
     **/
-    public function executeViewError(/*** XCube_RenderTarget ***/ &$render)
+    public function executeViewError(&$render)
     {
     }
 
     /**
      * executeViewIndex
      *
-     * @param   XCube_RenderTarget  &$render
+     * @param   RenderTarget  &$render
      *
      * @return  void
     **/
-    public function executeViewIndex(/*** XCube_RenderTarget ***/ &$render)
+    public function executeViewIndex(&$render)
     {
     }
 
     /**
      * executeViewInput
      *
-     * @param   XCube_RenderTarget  &$render
+     * @param   RenderTarget  &$render
      *
      * @return  void
     **/
-    public function executeViewInput(/*** XCube_RenderTarget ***/ &$render)
+    public function executeViewInput(&$render)
     {
     }
 
     /**
      * executeViewPreview
      *
-     * @param   XCube_RenderTarget  &$render
+     * @param   RenderTarget  &$render
      *
      * @return  void
     **/
-    public function executeViewPreview(/*** XCube_RenderTarget ***/ &$render)
+    public function executeViewPreview(&$render)
     {
     }
 
     /**
      * executeViewCancel
      *
-     * @param   XCube_RenderTarget  &$render
+     * @param   RenderTarget  &$render
      *
      * @return  void
     **/
-    public function executeViewCancel(/*** XCube_RenderTarget ***/ &$render)
+    public function executeViewCancel(&$render)
     {
     }
     

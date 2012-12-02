@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\RenderTarget;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
 	exit;
@@ -125,7 +127,7 @@ class Xupdate_AbstractInstallAction extends Xupdate_AbstractAction
 	/**
 	 * executeViewIndex
 	 *
-	 * @param	XCube_RenderTarget	&$render
+	 * @param	RenderTarget	&$render
 	 *
 	 * @return	void
 	**/
@@ -234,7 +236,7 @@ class Xupdate_AbstractInstallAction extends Xupdate_AbstractAction
 	/**
 	 * executeViewSuccess
 	 *
-	 * @param	XCube_RenderTarget	&$render
+	 * @param	RenderTarget	&$render
 	 *
 	 * @return	void
 	 **/
@@ -340,7 +342,7 @@ class Xupdate_AbstractInstallAction extends Xupdate_AbstractAction
 	/**
 	 * executeViewCancel
 	 *
-	 * @param	XCube_RenderTarget	&$render
+	 * @param	RenderTarget	&$render
 	 *
 	 * @return	void
 	 **/

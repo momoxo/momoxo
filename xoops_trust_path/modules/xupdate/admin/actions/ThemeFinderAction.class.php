@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\RenderTarget;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
 	exit;
@@ -81,7 +83,7 @@ HTML;
 	/**
 	 * executeViewIndex
 	 *
-	 * @param	XCube_RenderTarget	&$render
+	 * @param	RenderTarget	&$render
 	 *
 	 * @return	void
 	**/

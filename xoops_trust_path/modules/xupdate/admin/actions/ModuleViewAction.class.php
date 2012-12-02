@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Kernel\RenderTarget;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
 	exit;
@@ -75,7 +77,7 @@ class Xupdate_Admin_ModuleViewAction extends Xupdate_AbstractAction
 	/**
 	 * executeViewSuccess
 	 *
-	 * @param	XCube_RenderTarget	&$render
+	 * @param	RenderTarget	&$render
 	 *
 	 * @return	void
 	**/
