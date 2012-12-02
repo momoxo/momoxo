@@ -5,8 +5,7 @@ namespace XCore\Kernel;
 use XCore\Kernel\AbstractRequest;
 
 /**
- * Enables a program to read the HTTP values through XCubeAbstractRequest
- * interface.
+ * Enables a program to read the HTTP values through AbstractRequest interface.
  */
 class HttpRequest extends AbstractRequest
 {

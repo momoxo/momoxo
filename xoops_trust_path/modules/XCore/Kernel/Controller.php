@@ -270,7 +270,7 @@ class Controller
 	 */
 	protected function _setupTextFilter()
 	{
-		/** @var $textFilter \TextFilter */
+		/** @var $textFilter TextFilter */
 		$textFilter = null;
 		$this->mSetupTextFilter->call(new Ref($textFilter));
 		$this->mRoot->setTextFilter($textFilter);
@@ -326,18 +326,6 @@ class Controller
 	 */
 	protected function _processBlock()
 	{
-		/*		foreach(array_keys($this->mBlockChain) as $key) {
-					if ($this->mBlockChain[$key]->hasPermission($this, $this->getUser())) {
-						$renderTarget =new XCube_RenderTarget();
-						$renderTarget->setType(XCUBE_RENDER_TARGET_TYPE_MAIN);
-
-						$this->mBlockChain[$key]->execute($this, $this->getUser(), $renderTarget);
-
-						$this->mBlockChain[$key]->mRenderTarget =& $renderTarget;
-
-						unset($renderTarget);
-					}
-				}*/
 	}
 
 	/**

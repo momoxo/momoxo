@@ -11,7 +11,7 @@ namespace XCore\Kernel;
  * Rules about language are different at each bases. So it's important that a
  * base defines the sub class of this class if it can't use this class directly.
  *
- * And, XCube or bases have to make each languages possible to have its sub
+ * And, XCore or bases have to make each languages possible to have its sub
  * class. By that, languages become able to implement their logic to solve
  * problems.
  *

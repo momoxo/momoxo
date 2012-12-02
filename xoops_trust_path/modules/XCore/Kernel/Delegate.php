@@ -7,7 +7,7 @@ use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
 
 /**
- * Used for the simple mechanism for common delegation in XCube.
+ * Used for the simple mechanism for common delegation in XCore.
  *
  * A delegate can have $callback as connected function, $filepath for lazy
  * loading and $priority as order indicated.
@@ -185,7 +185,7 @@ final class Delegate
 	/**
 	 * Resets all delegate functions from this object.
 	 *
-	 * This is the special method, so XCube doesn't recommend using this.
+	 * This is the special method, so XCore doesn't recommend using this.
 	 *
 	 * @return void
 	 */
@@ -265,7 +265,7 @@ final class Delegate
 	/**
 	 * Gets the unique ID of this object.
 	 *
-	 * This is the special method, so XCube doesn't recommend using this.
+	 * This is the special method, so XCore doesn't recommend using this.
 	 *
 	 * @internal
 	 * @return string
