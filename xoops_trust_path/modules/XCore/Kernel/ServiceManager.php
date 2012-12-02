@@ -13,11 +13,11 @@ use XCore\Kernel\Service;
  * site. In other words, this class doesn't work for publishing web services.
  * About these separated working, the core team shall examine.
  *
- * XCube namespace can't contain the SOAP library directly. Delegate mechanism
+ * XCore namespace can't contain the SOAP library directly. Delegate mechanism
  * is good for this class. This class creates a client instance which to
  * connect to a service, with following the kind of the service. For example,
  * if the specified service is really web service, SOAP client has to be
- * created. But, if the service is a virtual service of XCube, virtual client
+ * created. But, if the service is a virtual service of XCore, virtual client
  * has to be created.
  */
 class ServiceManager
@@ -106,7 +106,7 @@ class ServiceManager
 	 * Create client instance which to connect to a service, with following the
 	 * kind of the service. Then return that instance. For example, if the
 	 * specified service is really web service, SOAP client has to be created.
-	 * But, if the service is a virtual service of XCube, virtual client has to
+	 * But, if the service is a virtual service of XCore, virtual client has to
 	 * be created.
 	 * @param Service $service
 	 * @return AbstractServiceClient|null
