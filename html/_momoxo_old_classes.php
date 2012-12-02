@@ -37,7 +37,6 @@ call_user_func(function(){
 		'XCube_ObjectExistValidator'           => null,
 		'XCube_PageNavigator'                  => null,
 		'XCube_Permissions'                    => null,
-		'XCube_PropertyInterface'              => null,
 		'XCube_RenderCache'                    => null,
 		'XCube_RequiredValidator'              => null,
 		'XCube_Role'                           => null,

@@ -2,12 +2,14 @@
 
 /**
  * @public
- * @brief [Abstract] Defines common array property class which implements XCube_PropertyInterface.
+ * @brief [Abstract] Defines common array property class which implements PropertyInterface.
  * 
  * This class is a kind of template-class --- XCube_GenericArrayProperty<T>.
  * Developers should know about sub-classes of XCube_AbstractProperty.
  */
-class XCube_GenericArrayProperty extends XCube_PropertyInterface
+use XCore\Property\PropertyInterface;
+
+class XCube_GenericArrayProperty extends PropertyInterface
 {
 	/**
 	 * @protected

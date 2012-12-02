@@ -1,10 +1,12 @@
 <?php
 
+use XCore\Property\PropertyInterface;
+
 /**
  * @public
- * @brief [Abstract] The base class which implements XCube_PropertyInterface, for all properties.
+ * @brief [Abstract] The base class which implements PropertyInterface, for all properties.
  */
-class XCube_AbstractProperty extends XCube_PropertyInterface
+class XCube_AbstractProperty extends PropertyInterface
 {
 	/**
 	 * @protected

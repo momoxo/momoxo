@@ -2,7 +2,7 @@
 
 namespace XCore\Validator;
 
-use XCube_PropertyInterface;
+use XCore\Property\PropertyInterface;
 
 /**
  *  This class defines a interface which XCube_ActionForm calls the check functions.
@@ -18,7 +18,7 @@ class Validator
 {
 	/**
 	 *
-	 * @param XCube_PropertyInterface $form
+	 * @param PropertyInterface $form
 	 * @param array $vars variables of this field property.
 	 * @return bool
 	 */
