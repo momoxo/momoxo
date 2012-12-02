@@ -4,7 +4,6 @@ namespace XCore\Kernel;
 
 use XCube_Delegate;
 use XCube_ActionFilter;
-use XCube_HttpRequest;
 use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
@@ -15,6 +14,7 @@ use XCore\Kernel\TextFilter;
 use XCore\Kernel\HttpContext;
 use XCore\Kernel\Session;
 use XCore\Kernel\Ref;
+use XCore\Kernel\HttpRequest;
 
 /**
  * Virtual or Actual front controller class.
@@ -448,7 +448,7 @@ class Controller
 	protected function &_createContext()
 	{
 		$context = new HttpContext();
-		$request = new XCube_HttpRequest();
+		$request = new HttpRequest();
 		$context->setRequest($request);
 
 		return $context;

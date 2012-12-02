@@ -15,6 +15,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
+use XCore\Kernel\HttpRequest;
 
 class Xcore_Controller extends Controller
 {
@@ -1263,7 +1264,7 @@ class Xcore_Controller extends Controller
 	function &_createContext()
 	{
 		$context = new Xcore_HttpContext();
-		$request = new XCube_HttpRequest();
+		$request = new HttpRequest();
 		$context->setRequest($request);
 
 		return $context;
