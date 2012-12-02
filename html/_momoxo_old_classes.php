@@ -1,6 +1,8 @@
 <?php
 // TODO >> このファイルはクラス名の移行が完了したら削除する
 
+use XCore\Kernel\DelegateUtils;
+
 call_user_func(function(){
 	$legacyClasses = array(
 		'AbstractXoopsObject'                  => null,

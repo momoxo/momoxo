@@ -6,6 +6,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -107,7 +108,7 @@ class User_EditUserAction extends User_AbstractEditAction
 				setcookie($this->mUserCookie);
 			}
 			$ret = false;
-			XCube_DelegateUtils::call('Xcore_Profile.SaveProfile', new Ref($ret), $this->mActionForm);
+			DelegateUtils::call('Xcore_Profile.SaveProfile', new Ref($ret), $this->mActionForm);
 			return $ret;
 		}
 		else {

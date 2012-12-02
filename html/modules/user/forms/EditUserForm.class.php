@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -153,7 +154,7 @@ class User_EditUserForm extends User_AbstractUserEditForm
 		$this->mFieldProperties['bio']->addMessage('maxlength', _MD_USER_ERROR_MAXLENGTH, _MD_USER_LANG_BIO, '250');
 		$this->mFieldProperties['bio']->addVar('maxlength', 250);
 	
-		XCube_DelegateUtils::call('Xcore_Profile.SetupActionForm', $this);
+		DelegateUtils::call('Xcore_Profile.SetupActionForm', $this);
 	}
 	
 	function load(&$obj)
@@ -191,7 +192,7 @@ class User_EditUserForm extends User_AbstractUserEditForm
 		$root = Root::getSingleton();
 		$this->set('usercookie', empty($_COOKIE[$this->mConfig['usercookie']]) ? 0 : 1);
 	
-		XCube_DelegateUtils::call('Xcore_Profile.LoadActionForm', $this);
+		DelegateUtils::call('Xcore_Profile.LoadActionForm', $this);
 	}
 	
 	function update(&$obj)

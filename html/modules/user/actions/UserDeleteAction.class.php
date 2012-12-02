@@ -5,6 +5,7 @@
  */
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -112,7 +113,7 @@ class User_UserDeleteAction extends User_Action
 		$this->_mDoDelete->call(new Ref($flag), $controller, $xoopsUser);
 		
 		if ($flag) {
-			XCube_DelegateUtils::call('Xcore.Event.UserDelete', new Ref($this->mObject));
+			DelegateUtils::call('Xcore.Event.UserDelete', new Ref($this->mObject));
 			
 			return USER_FRAME_VIEW_SUCCESS;
 		}

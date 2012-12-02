@@ -16,6 +16,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 function XoopsErrorHandler_HandleError($errNo, $errStr, $errFile, $errLine)
 {
@@ -58,7 +59,7 @@ function xoops_template_touch($tpl_id, $clear_old = true)
     //  varArgs : 
     //      'xoopsTpl'     [I/O] : $this
     //
-    XCube_DelegateUtils::call('Xcore.XoopsTpl.TemplateTouch', $tpl_id, $clear_old, new Ref($result));
+    DelegateUtils::call('Xcore.XoopsTpl.TemplateTouch', $tpl_id, $clear_old, new Ref($result));
 	
 	if ($result === null) {
 		$tpl = new XoopsTpl();

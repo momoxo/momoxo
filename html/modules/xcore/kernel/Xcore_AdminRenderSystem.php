@@ -6,6 +6,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 {
@@ -76,7 +77,7 @@ class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 
 		//jQuery Ready functions
 		$context = $this->mController->mRoot->mContext;
-		XCube_DelegateUtils::call('Site.JQuery.AddFunction', new Ref($context->mAttributes['headerScript']));
+		DelegateUtils::call('Site.JQuery.AddFunction', new Ref($context->mAttributes['headerScript']));
 		$headerScript = $context->getAttribute('headerScript');
 		$moduleHeader =  $headerScript->createLibraryTag() . $headerScript->createOnloadFunctionTag();
 		$vars['xoops_module_header'] = $moduleHeader;

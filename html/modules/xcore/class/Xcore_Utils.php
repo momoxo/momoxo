@@ -10,6 +10,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 class Xcore_Utils
 {
@@ -59,7 +60,7 @@ class Xcore_Utils
 		//
 		// TODO need cache here?
 		//
-		XCube_DelegateUtils::call('Xcore_Utils.CreateModule', new Ref($instance), $module, $loadConfig);
+		DelegateUtils::call('Xcore_Utils.CreateModule', new Ref($instance), $module, $loadConfig);
 		
 		if (is_object($instance) && is_a($instance, 'Xcore_AbstractModule')) {
 			return $instance;
@@ -104,7 +105,7 @@ class Xcore_Utils
 		//
 		// TODO need cache here?
 		//
-		XCube_DelegateUtils::call('Xcore_Utils.CreateBlockProcedure', new Ref($retBlock), $block);
+		DelegateUtils::call('Xcore_Utils.CreateBlockProcedure', new Ref($retBlock), $block);
 		
 		if (is_object($retBlock) && is_a($retBlock, 'Xcore_AbstractBlockProcedure')) {
 			return $retBlock;
@@ -146,7 +147,7 @@ class Xcore_Utils
 		foreach (array_keys($_REQUEST) as $key) {
 			if (strpos($key, 'Xcore_Event_User_') === 0) {
 				$eventName = substr($key, 18);
-				XCube_DelegateUtils::call('Xcore.Event.User.' . $eventName);
+				DelegateUtils::call('Xcore.Event.User.' . $eventName);
 				$root->mContext->mAttributes['userEvent'][$eventName] = true;
 			}
 		}
@@ -196,7 +197,7 @@ class Xcore_Utils
 	public static function getUserName(/*** int ***/ $uid)
 	{
 		$name = null;
-		XCube_DelegateUtils::call('Xcore_User.GetUserName', new Ref($name), $uid);
+		DelegateUtils::call('Xcore_User.GetUserName', new Ref($name), $uid);
 		if(! $name){
 			$handler =& xoops_gethandler('member');
 			$user =& $handler->getUser(intval($uid));
@@ -349,7 +350,7 @@ class Xcore_Utils
 			$uri = (isset($query)) ? XOOPS_URL.$uri.'?'.$query : XOOPS_URL. $uri;
 		}
 		else{
-			XCube_DelegateUtils::call('Module.'.$dirname.'.Global.Event.GetNormalUri', new Ref($uri), $dirname, $dataname, $data_id, $action, $query);
+			DelegateUtils::call('Module.'.$dirname.'.Global.Event.GetNormalUri', new Ref($uri), $dirname, $dataname, $data_id, $action, $query);
 		
 			$uri = XOOPS_MODULE_URL. $uri;
 		}

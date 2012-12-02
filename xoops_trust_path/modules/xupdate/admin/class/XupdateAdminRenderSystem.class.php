@@ -8,6 +8,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -50,7 +51,7 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
         );
     
         // TODO event name is this?
-        XCube_DelegateUtils::call('Xcore_RenderSystem.SetupXoopsTpl',new Ref($this->mSmarty));
+        DelegateUtils::call('Xcore_RenderSystem.SetupXoopsTpl',new Ref($this->mSmarty));
     
         $this->mSmarty->force_compile = (
             $controller->mRoot->mSiteConfig['Xcore_AdminRenderSystem']['ThemeDevelopmentMode'] ||

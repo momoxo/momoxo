@@ -3,7 +3,7 @@
 namespace XCore\Kernel;
 
 use XCube_Delegate;
-use XCube_DelegateUtils;
+use XCore\Kernel\DelegateUtils;
 
 /**
  * Manages for delegates.
@@ -118,7 +118,7 @@ class DelegateManager
 		if (isset($this->_mCallbacks[$name])) {
 			foreach(array_keys($this->_mCallbacks[$name]) as $key) {
 				$callback = $this->_mCallbacks[$name][$key];
-				if (XCube_DelegateUtils::_compareCallback($callback, $delcallback)) {
+				if (DelegateUtils::_compareCallback($callback, $delcallback)) {
 					unset($this->_mCallbacks[$name][$key]);
 					unset($this->_mCallbackParameters[$name][$key]);
 				}

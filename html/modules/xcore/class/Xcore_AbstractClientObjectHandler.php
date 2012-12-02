@@ -4,6 +4,7 @@
  * Xcore_AbstractClientObjectHandler
 **/
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandler
 {
@@ -144,7 +145,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	protected function _saveActivity(/*** XoopsSimpleObject ***/ $obj)
 	{
 		$ret = false;
-		XCube_DelegateUtils::call(
+		DelegateUtils::call(
 			'Xcore_Activity.AddActivity',
 			new Ref($ret),
 			$obj->get('uid'),
@@ -168,7 +169,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	protected function _saveTags(/*** XoopsSimpleObject ***/ $obj, /*** string ***/ $tagDirname)
 	{
 		$ret = false;
-		XCube_DelegateUtils::call('Xcore_Tag.'.$tagDirname.'.SetTags',
+		DelegateUtils::call('Xcore_Tag.'.$tagDirname.'.SetTags',
 			new Ref($ret),
 			$tagDirname, 
 			$obj->getDirname(),
@@ -194,10 +195,10 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 		foreach($obj->mImage as $image){
 			$result = false;
 			if($image->isDeleted()===true){	//delete image
-	        	XCube_DelegateUtils::call('Xcore_Image.DeleteImage', new Ref($result), $image);
+	        	DelegateUtils::call('Xcore_Image.DeleteImage', new Ref($result), $image);
 			}
 			else{	//save image
-				XCube_DelegateUtils::call('Xcore_Image.SaveImage', new Ref($result), $image);
+				DelegateUtils::call('Xcore_Image.SaveImage', new Ref($result), $image);
 			}
 			if($result===false){
 				$ret = false;
@@ -217,7 +218,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
     protected function _saveMap($obj)
     {
         $result = array();
-        XCube_DelegateUtils::call(
+        DelegateUtils::call(
         	'Xcore_Map.SetPlace',
         	new Ref($result),
         	$obj->getDirname(), 
@@ -240,7 +241,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	protected function _deleteActivity(/*** XoopsSimpleObject ***/ $obj)
 	{
 		$ret = false;
-		XCube_DelegateUtils::call('Xcore_Activity.DeleteActivity', new Ref($ret), $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
+		DelegateUtils::call('Xcore_Activity.DeleteActivity', new Ref($ret), $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
 		return $ret;
 	}
 
@@ -255,7 +256,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	protected function _deleteTags(/*** XoopsSimpleObject ***/ $obj, /*** string ***/ $tagDirname)
 	{
 		$ret = false;
-		XCube_DelegateUtils::call(
+		DelegateUtils::call(
 			'Xcore_Tag.'.$tagDirname.'.SetTags',
 			new Ref($ret),
 			$tagDirname,
@@ -277,7 +278,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	 */
 	protected function _deleteWorkflow(/*** XoopsSimpleObject ***/ $obj)
 	{
-		XCube_DelegateUtils::call('Xcore_Workflow.DeleteItem', $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
+		DelegateUtils::call('Xcore_Workflow.DeleteItem', $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
 	}
 
 	/**
@@ -297,7 +298,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 				continue;
 			}
 			$result = false;
-			XCube_DelegateUtils::call('Xcore_Image.DeleteImage', new Ref($result), $image);
+			DelegateUtils::call('Xcore_Image.DeleteImage', new Ref($result), $image);
 			if($result===false){
 				$ret = false;
 			}

@@ -3,6 +3,8 @@
 /**
  * @internal
  */
+use XCore\Kernel\DelegateUtils;
+
 class Xcore_AbstractControllerStrategy
 {
 	/**
@@ -55,7 +57,7 @@ class Xcore_AbstractControllerStrategy
 		$module =& $handler->getByDirname($dirname);
 
 		if (!is_object($module)) {
-			XCube_DelegateUtils::call('Xcore.Event.Exception.XoopsModuleNotFound', $dirname);
+			DelegateUtils::call('Xcore.Event.Exception.XoopsModuleNotFound', $dirname);
 			$this->mController->executeRedirect(XOOPS_URL . '/', 1, 'You can\'t access this URL.');	// TODO need message catalog.
 			die(); // need to response?
 		}

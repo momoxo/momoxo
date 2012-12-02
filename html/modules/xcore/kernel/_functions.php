@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 function Xcore_modifier_theme($string)
 {
@@ -143,7 +144,7 @@ function XcoreRender_smartyfunction_notifications_select($params, &$smarty)
 	$renderTarget =& $renderSystem->createRenderTarget('main');
 	$renderTarget->setTemplateName('xcore_notification_select_form.html');
 
-	XCube_DelegateUtils::call('Xcorefunction.Notifications.Select', new Ref($renderTarget));
+	DelegateUtils::call('Xcorefunction.Notifications.Select', new Ref($renderTarget));
 
 	$renderSystem->render($renderTarget);
 	

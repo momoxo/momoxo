@@ -15,6 +15,8 @@
  * XcoreRender module. If you want to check the concept of this strategy, see
  * ThemeSelect preload in Legacy module.
  */
+use XCore\Kernel\DelegateUtils;
+
 class Xcore_ThemeListAction extends Xcore_Action
 {
 	var $mThemes = null;
@@ -109,7 +111,7 @@ class Xcore_ThemeListAction extends Xcore_Action
 			}
 		}
 		
-		XCube_DelegateUtils::call('Xcore.Event.ThemeSettingChanged', $this->mMainTheme, $t_themeArr);
+		DelegateUtils::call('Xcore.Event.ThemeSettingChanged', $this->mMainTheme, $t_themeArr);
 
 		return $this->getDefaultView($controller, $xoopsUser);
 	}

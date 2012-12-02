@@ -8,6 +8,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -66,7 +67,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
     {
         parent::startup();
 
-        XCube_DelegateUtils::call('Module.xupdate.Global.Event.GetAssetManager',new Ref($this->mAssetManager),$this->mXoopsModule->get('dirname'));
+        DelegateUtils::call('Module.xupdate.Global.Event.GetAssetManager',new Ref($this->mAssetManager),$this->mXoopsModule->get('dirname'));
 
         $root = Root::getSingleton();
         $root->mController->mExecute->add(array(&$this, 'execute'));
@@ -374,7 +375,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        XCube_DelegateUtils::call('Module.xupdate.Global.Event.Exception.ActionNotFound',$this->mAssetManager->mDirname);
+        DelegateUtils::call('Module.xupdate.Global.Event.Exception.ActionNotFound',$this->mAssetManager->mDirname);
         /**
          * Module.{dirname}.Event.Exception.ActionNotFound
          *
@@ -382,7 +383,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        XCube_DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.ActionNotFound');
+        DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.ActionNotFound');
         $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }
@@ -403,7 +404,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        XCube_DelegateUtils::call('Module.xupdate.Global.Event.Exception.Preparation',$this->mAssetManager->mDirname);
+        DelegateUtils::call('Module.xupdate.Global.Event.Exception.Preparation',$this->mAssetManager->mDirname);
         /**
          * Module.{dirname}.Event.Exception.Preparation
          *
@@ -411,7 +412,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        XCube_DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Preparation');
+        DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Preparation');
         $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }
@@ -432,7 +433,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        XCube_DelegateUtils::call('Module.xupdate.Global.Event.Exception.Permission',$this->mAssetManager->mDirname);
+        DelegateUtils::call('Module.xupdate.Global.Event.Exception.Permission',$this->mAssetManager->mDirname);
         /**
          * Module.{dirname}.Event.Exception.Permission
          *
@@ -440,7 +441,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        XCube_DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Permission');
+        DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Permission');
         $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }

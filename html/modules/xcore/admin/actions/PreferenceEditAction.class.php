@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\DelegateUtils;
 
 define("XCORE_PEREFERENCE_ID_GENERAL", 1);
 
@@ -275,7 +276,7 @@ class Xcore_PreferenceEditState extends Xcore_AbstractPreferenceEditState
 		}
 		
 		if ($name != null && $allowedThemes != null) {
-			XCube_DelegateUtils::call('Xcore.Event.ThemeSettingChanged', $themeName, $allowedThemes);
+			DelegateUtils::call('Xcore.Event.ThemeSettingChanged', $themeName, $allowedThemes);
 		}
 		
 		if( $this->_mMaster->mCategory->get('confcat_id') == XCORE_PEREFERENCE_ID_GENERAL) { //GIJ

@@ -32,6 +32,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 function xoops_getrequest($name)
 {
@@ -579,7 +580,7 @@ function &xoops_gethandler($name, $optional = false )
 	// The following delegate is test at Alpha4-c.
 	//
 	$handler = null;
-	XCube_DelegateUtils::call('Xcore.Event.GetHandler', new Ref($handler), $name, $optional);
+	DelegateUtils::call('Xcore.Event.GetHandler', new Ref($handler), $name, $optional);
 	if ( $handler ) {
 		return $handlers[$name] =& $handler;
 	}

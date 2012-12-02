@@ -16,6 +16,7 @@ use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
 use XCore\Kernel\HttpRequest;
+use XCore\Kernel\DelegateUtils;
 
 class Xcore_Controller extends Controller
 {
@@ -469,13 +470,13 @@ class Xcore_Controller extends Controller
 				 * Notify that the current user accesses none-activate module
 				 * controller.
 				 */
-				XCube_DelegateUtils::call('Xcore.Event.Exception.ModuleNotActive', $module);
+				DelegateUtils::call('Xcore.Event.Exception.ModuleNotActive', $module);
 				$this->executeForward(XOOPS_URL . '/');
 				die(); // need to response?
 			}
 
 			if (!$this->_mStrategy->enableAccess()) {
-				XCube_DelegateUtils::call('Xcore.Event.Exception.ModuleSecurity', $module);
+				DelegateUtils::call('Xcore.Event.Exception.ModuleSecurity', $module);
 				$this->executeRedirect(XOOPS_URL . '/user.php', 1, _NOPERM);	// TODO Depens on const message catalog.
 				die(); // need to response?
 			}
@@ -969,7 +970,7 @@ class Xcore_Controller extends Controller
 				$notification_handler = xoops_gethandler('notification');
 				$notification_handler->doLoginMaintenance($this->mRoot->mContext->mXoopsUser->get('uid'));
 
-				XCube_DelegateUtils::call('Site.CheckLogin.Success', new Ref($this->mRoot->mContext->mXoopsUser));
+				DelegateUtils::call('Site.CheckLogin.Success', new Ref($this->mRoot->mContext->mXoopsUser));
 
 				//
 				// Fall back process for login success.
@@ -989,7 +990,7 @@ class Xcore_Controller extends Controller
 				$this->executeRedirect($url, 1, XCube_Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
 			}
 			else {
-				XCube_DelegateUtils::call('Site.CheckLogin.Fail', new Ref($this->mRoot->mContext->mXoopsUser));
+				DelegateUtils::call('Site.CheckLogin.Fail', new Ref($this->mRoot->mContext->mXoopsUser));
 
 				//
 				// Fall back process for login fail.
@@ -1018,11 +1019,11 @@ class Xcore_Controller extends Controller
 
 			$this->mLogout->call(new Ref($successFlag), $xoopsUser);
 			if ($successFlag) {
-				XCube_DelegateUtils::call('Site.Logout.Success', $xoopsUser);
+				DelegateUtils::call('Site.Logout.Success', $xoopsUser);
 				$this->executeRedirect(XOOPS_URL . '/', 1, array(_MD_XCORE_MESSAGE_LOGGEDOUT, _MD_XCORE_MESSAGE_THANKYOUFORVISIT));
 			}
 			else {
-				XCube_DelegateUtils::call('Site.Logout.Fail', $xoopsUser);
+				DelegateUtils::call('Site.Logout.Fail', $xoopsUser);
 			}
 		}
 		else {

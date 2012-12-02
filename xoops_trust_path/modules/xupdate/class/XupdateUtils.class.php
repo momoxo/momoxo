@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -71,7 +72,7 @@ class Xupdate_Utils
     public static function &getXupdateHandler(/*** string ***/ $name,/*** string ***/ $dirname)
     {
         $asset = null;
-        XCube_DelegateUtils::call(
+        DelegateUtils::call(
             'Module.xupdate.Global.Event.GetAssetManager',
             new Ref($asset),
             $dirname

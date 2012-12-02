@@ -10,6 +10,7 @@
  * @copyright	(c) 2000-2003 The Xoops Project - www.xoops.org
  */
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 class XoopsTpl extends Smarty
 {
@@ -67,7 +68,7 @@ class XoopsTpl extends Smarty
         //  varArgs : 
         //      'xoopsTpl'     [I/O] : $this
         //
-		XCube_DelegateUtils::call('XoopsTpl.New',  new Ref($this));
+		DelegateUtils::call('XoopsTpl.New',  new Ref($this));
 	}
 
 	/**

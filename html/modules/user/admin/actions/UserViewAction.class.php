@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -127,8 +128,8 @@ class User_UserViewAction extends User_AbstractViewAction
 	
 		$definitions = array();
 		$profile = null;
-		XCube_DelegateUtils::call('Xcore_Profile.GetDefinition', new Ref($definitions), 'view');
-		XCube_DelegateUtils::call('Xcore_Profile.GetProfile', new Ref($profile), $this->mObject->get('uid'));
+		DelegateUtils::call('Xcore_Profile.GetDefinition', new Ref($definitions), 'view');
+		DelegateUtils::call('Xcore_Profile.GetProfile', new Ref($profile), $this->mObject->get('uid'));
 		$render->setAttribute('definitions', $definitions);
 		$render->setAttribute('data', $profile);
 	}

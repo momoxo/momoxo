@@ -12,9 +12,11 @@
  |   keeping compatibility with XOOPS 2.0.x <http://www.xoops.org>        |
  *------------------------------------------------------------------------*/
 
+use XCore\Kernel\DelegateUtils;
+
 require_once "mainfile.php";
 require_once XOOPS_ROOT_PATH . "/header.php";
 
-XCube_DelegateUtils::call('Xcorepage.Misc.Access');
+DelegateUtils::call('Xcorepage.Misc.Access');
 
 ?>

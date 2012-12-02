@@ -19,6 +19,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 function smarty_function_xcore_comment($params, &$smarty)
 {
@@ -29,7 +30,7 @@ function smarty_function_xcore_comment($params, &$smarty)
 	$categoryId = isset($params['category_id']) ? $params['category_id'] : 0;
 	$comments = null;
 
-	XCube_DelegateUtils::call('Xcore_Comment.'.$cDirname.'.GetComments',
+	DelegateUtils::call('Xcore_Comment.'.$cDirname.'.GetComments',
 		new Ref($comments),
 		$cDirname,
 		$dirname,

@@ -4,6 +4,7 @@
  * NOTE: This class has only one primary key and one table.
  */
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 class XoopsObjectGenericHandler extends XoopsObjectHandler
 {
@@ -476,10 +477,10 @@ class XoopsObjectGenericHandler extends XoopsObjectHandler
 		if(isset($arr[2])){
 			$tableName = $arr[2];
 			for($i=3;$i<count($arr);$i++) $tableName .= '_'.$arr[$i];
-			XCube_DelegateUtils::call(sprintf('Module.%s.Event.%s.%s', $this->getDirname(), $type, $tableName), new Ref($obj));
+			DelegateUtils::call(sprintf('Module.%s.Event.%s.%s', $this->getDirname(), $type, $tableName), new Ref($obj));
 		}
 		else{
-			XCube_DelegateUtils::call(sprintf('Module.%s.Event.%s', $this->getDirname(), $type), new Ref($obj));
+			DelegateUtils::call(sprintf('Module.%s.Event.%s', $this->getDirname(), $type), new Ref($obj));
 		}
 	}
 

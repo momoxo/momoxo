@@ -7,6 +7,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -38,7 +39,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	{
 		parent::startup();
 	
-		XCube_DelegateUtils::call('Module.profile.Event.GetAssetManager', new Ref($this->mAssetManager));
+		DelegateUtils::call('Module.profile.Event.GetAssetManager', new Ref($this->mAssetManager));
 	
 		$root = Root::getSingleton();
 		$root->mController->mExecute->add(array(&$this, "execute"));
@@ -162,7 +163,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	 */
 	function doPermissionError()
 	{
-		XCube_DelegateUtils::call("Module.Profile.Event.Exception.Permission");
+		DelegateUtils::call("Module.Profile.Event.Exception.Permission");
 		$root = Root::getSingleton();
 		$root->mController->executeForward(XOOPS_URL);
 		return;
@@ -173,7 +174,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	 */
 	function doActionNotFoundError()
 	{
-		XCube_DelegateUtils::call("Module.Profile.Event.Exception.ActionNotFound");
+		DelegateUtils::call("Module.Profile.Event.Exception.ActionNotFound");
 		$root = Root::getSingleton();
 		$root->mController->executeForward(XOOPS_URL);
 		return;
@@ -184,7 +185,7 @@ class Profile_Module extends Xcore_ModuleAdapter
 	 */
 	function doPreparationError()
 	{
-		XCube_DelegateUtils::call("Module.Profile.Event.Exception.Preparation");
+		DelegateUtils::call("Module.Profile.Event.Exception.Preparation");
 		$root = Root::getSingleton();
 		$root->mController->executeForward(XOOPS_URL);
 		return;

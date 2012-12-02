@@ -20,6 +20,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 class XCube_Delegate
 {
@@ -172,7 +173,7 @@ class XCube_Delegate
 		foreach (array_keys($this->_mCallbacks) as $priority) {
             foreach (array_keys($this->_mCallbacks[$priority]) as $idx) {
                 $callback = $this->_mCallbacks[$priority][$idx][0];
-                if (XCube_DelegateUtils::_compareCallback($callback, $delcallback)) {
+                if (DelegateUtils::_compareCallback($callback, $delcallback)) {
                     unset($this->_mCallbacks[$priority][$idx]);
                 }
                 if (count($this->_mCallbacks[$priority])==0) {

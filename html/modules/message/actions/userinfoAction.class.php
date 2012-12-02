@@ -1,5 +1,6 @@
 <?php
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 require_once XOOPS_MODULE_PATH.'/user/actions/UserInfoAction.class.php';
@@ -80,8 +81,8 @@ class UserinfoAction extends User_UserInfoAction
     
     $definitions = array();
     $profile = null;
-    XCube_DelegateUtils::call('Xcore_Profile.GetDefinition', new Ref($definitions), 'view');
-    XCube_DelegateUtils::call('Xcore_Profile.GetProfile', new Ref($profile), $this->mObject->get('uid'));
+    DelegateUtils::call('Xcore_Profile.GetDefinition', new Ref($definitions), 'view');
+    DelegateUtils::call('Xcore_Profile.GetProfile', new Ref($profile), $this->mObject->get('uid'));
     $render->setAttribute('definitions', $definitions);
     $render->setAttribute('data', $profile);
   }

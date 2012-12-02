@@ -5,6 +5,7 @@
  */
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -43,14 +44,14 @@ class User_UserDeleteAction extends User_AbstractDeleteAction
 
 	function _doExecute()
 	{
-		XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete', new Ref($this->mObject));
+		DelegateUtils::call('Xcore.Admin.Event.UserDelete', new Ref($this->mObject));
 		$handler =& xoops_gethandler('member');
 		if ($handler->delete($this->mObject)) {
-			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Success', new Ref($this->mObject));
+			DelegateUtils::call('Xcore.Admin.Event.UserDelete.Success', new Ref($this->mObject));
 			return USER_FRAME_VIEW_SUCCESS;
 		}
 		else {
-			XCube_DelegateUtils::call('Xcore.Admin.Event.UserDelete.Fail', new Ref($this->mObject));
+			DelegateUtils::call('Xcore.Admin.Event.UserDelete.Fail', new Ref($this->mObject));
 			return USER_FRAME_VIEW_ERROR;
 		}
 	}

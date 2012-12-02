@@ -8,6 +8,7 @@
  */
 use XCore\Kernel\RenderSystem;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 class Xcore_RenderSystem extends RenderSystem
 {
@@ -272,7 +273,7 @@ class Xcore_RenderSystem extends RenderSystem
 		//jQuery Ready functions
 		$mRoot = $this->mController->mRoot;
 		$mContext = $mRoot->mContext;
-		XCube_DelegateUtils::call('Site.JQuery.AddFunction', new Ref($mContext->mAttributes['headerScript']));
+		DelegateUtils::call('Site.JQuery.AddFunction', new Ref($mContext->mAttributes['headerScript']));
 		$headerScript = $mContext->getAttribute('headerScript');
 		$mTpl = $this->mXoopsTpl;
 		$moduleHeader = $mTpl->get_template_vars('xoops_module_header');

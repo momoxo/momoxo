@@ -6,6 +6,8 @@
  * 
  * @todo We may have to check the format of URL.
  */
+use XCore\Kernel\DelegateUtils;
+
 class User_UserAdminEditForm extends XCube_ActionForm
 {
 	var $_mIsNew;
@@ -166,7 +168,7 @@ class User_UserAdminEditForm extends XCube_ActionForm
 		$this->mFieldProperties['user_intrest']->addVar('maxlength', 150);
 	
 		//profile
-		XCube_DelegateUtils::call('Xcore_Profile.SetupActionForm', $this);
+		DelegateUtils::call('Xcore_Profile.SetupActionForm', $this);
 	}
 	
 	function validateUname()
@@ -308,7 +310,7 @@ class User_UserAdminEditForm extends XCube_ActionForm
 		}
 	
 		//profile
-		XCube_DelegateUtils::call('Xcore_Profile.LoadActionForm', $this);
+		DelegateUtils::call('Xcore_Profile.LoadActionForm', $this);
 	}
 
 	function update(&$obj)

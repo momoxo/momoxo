@@ -3,6 +3,7 @@
 // notification handler for D3 modules
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php' ;
 
@@ -55,9 +56,9 @@ function triggerEvent( $mydirname , $mytrustdirname , $category , $item_id , $ev
 	$mail_template_dir = $this->getMailTemplateDir( $mydirname , $mytrustdirname ) ;
 
 	// calling a delegate before
-	if( class_exists( 'XCube_DelegateUtils' ) ) {
+	if( class_exists('DelegateUtils') ) {
 		$force_return = false ;
-		XCube_DelegateUtils::raiseEvent( 'D3NotificationHandler.Trigger' , new Ref($category), new Ref($event), new Ref($item_id), new Ref($extra_tags), new Ref($module), new Ref($user_list), new Ref($omit_user_id), $module->getInfo( 'notification' ) , new Ref($force_return) , new Ref($mail_template_dir) , $mydirname , $mytrustdirname ) ;
+		DelegateUtils::raiseEvent( 'D3NotificationHandler.Trigger' , new Ref($category), new Ref($event), new Ref($item_id), new Ref($extra_tags), new Ref($module), new Ref($user_list), new Ref($omit_user_id), $module->getInfo( 'notification' ) , new Ref($force_return) , new Ref($mail_template_dir) , $mydirname , $mytrustdirname ) ;
 		if( $force_return) return ;
 	}
 

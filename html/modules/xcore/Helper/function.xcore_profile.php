@@ -18,6 +18,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 function smarty_function_xcore_profile($params, &$smarty)
 {
@@ -30,14 +31,14 @@ function smarty_function_xcore_profile($params, &$smarty)
 	$template = isset($params['template']) ? $params['template'] : 'profile_inc_data_view.html';
 
 	$defArr = null;
-	XCube_DelegateUtils::call(
+	DelegateUtils::call(
 		'Xcore_Profile.GetDefinition',
 		new Ref($defArr),
 		$action
 	);
 
 	$profile = null;
-	XCube_DelegateUtils::call(
+	DelegateUtils::call(
 		'Xcore_Profile.GetProfile',
 		new Ref($profile),
 		$uid

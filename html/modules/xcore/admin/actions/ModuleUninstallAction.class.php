@@ -48,6 +48,7 @@
  * @todo These classes are good to abstract again.
  */
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 class Xcore_ModuleUninstallAction extends Xcore_Action
 {
@@ -154,11 +155,11 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
 			$this->mUninstallSuccess->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		else {
 			$this->mUninstallFail->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
-			XCube_DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 
 		$renderer->setTemplateName("module_uninstall_success.html");

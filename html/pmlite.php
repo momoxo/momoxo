@@ -12,7 +12,9 @@
  |   keeping compatibility with XOOPS 2.0.x <http://www.xoops.org>        |
  *------------------------------------------------------------------------*/
 
+use XCore\Kernel\DelegateUtils;
+
 require_once "mainfile.php";
 
-XCube_DelegateUtils::call("Xcorepage.Pmlite.Access");
+DelegateUtils::call("Xcorepage.Pmlite.Access");
 ?>

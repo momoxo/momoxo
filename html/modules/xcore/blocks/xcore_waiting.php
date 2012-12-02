@@ -13,10 +13,11 @@
  *------------------------------------------------------------------------*/
 
 use XCore\Kernel\Ref;
+use XCore\Kernel\DelegateUtils;
 
 function b_xcore_waiting_show() {
     $modules = array();
-    XCube_DelegateUtils::call('Xcoreblock.Waiting.Show', new Ref($modules));
+    DelegateUtils::call('Xcoreblock.Waiting.Show', new Ref($modules));
     $block['modules'] = $modules;
     return $block;
 }

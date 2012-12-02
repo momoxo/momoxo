@@ -14,6 +14,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\ActionFilter;
+use XCore\Kernel\DelegateUtils;
 
 if (!defined('XC_ADMINSYSTEMCHECK_WELCOME')) define('XC_ADMINSYSTEMCHECK_WELCOME', 1);
 //display(1) or not display(0): Site/System Info
@@ -171,7 +172,7 @@ class Xcore_AdminSystemCheckPlusPreload extends ActionFilter
 		/////////////////////////////////////////
 		if(XC_ADMINSYSTEMCHECK_WAITING) {
 		$modules = array();
-    		XCube_DelegateUtils::call('Xcoreblock.Waiting.Show', new Ref($modules));
+    		DelegateUtils::call('Xcoreblock.Waiting.Show', new Ref($modules));
 		$attributes = array();
 		$attributes['block']['modules'] = $modules;
 		$template = XOOPS_ROOT_PATH."/modules/xcore/templates/blocks/xcore_block_waiting.html";
