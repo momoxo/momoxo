@@ -3,7 +3,9 @@
 /**
  * A kind of request objects. This class is free to register values.
  */
-class XCube_GenericRequest extends XCube_AbstractRequest
+use XCore\Kernel\AbstractRequest;
+
+class _GenericRequest extends AbstractRequest
 {
 	/**
 	 * Hash map which stores registered values.

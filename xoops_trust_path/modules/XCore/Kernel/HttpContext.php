@@ -3,7 +3,7 @@
 namespace XCore\Kernel;
 
 use XCube_Principal;
-use XCube_AbstractRequest;
+use XCore\Kernel\AbstractRequest;
 
 /**
  * Encapsulates major HTTP specific information about a HTTP request.
@@ -22,7 +22,7 @@ class HttpContext
 
 	/**
 	 * The object which enables to read the request values.
-	 * @var XCube_AbstractRequest
+	 * @var AbstractRequest
 	 * @todo protectedにするためにこのメンバ変数を直接参照している処理をゲッター・セッター経由に変更する
 	 */
 	public $mRequest = null;
@@ -88,8 +88,8 @@ class HttpContext
 	}
 
 	/**
-	 * Sets the object which has a interface of XCube_AbstractRequest.
-	 * @param XCube_AbstractRequest $request
+	 * Sets the object which has a interface of AbstractRequest.
+	 * @param AbstractRequest $request
 	 * @return void
 	 */
 	public function setRequest(&$request)
@@ -98,8 +98,8 @@ class HttpContext
 	}
 
 	/**
-	 * Gets the object which has a interface of XCube_AbstractRequest.
-	 * @return XCube_AbstractRequest
+	 * Gets the object which has a interface of AbstractRequest.
+	 * @return AbstractRequest
 	 */
 	public function &getRequest()
 	{

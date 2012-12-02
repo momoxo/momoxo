@@ -6,7 +6,6 @@ call_user_func(function(){
 		'AbstractXoopsObject'                  => null,
 		'XCube_AbstractArrayProperty'          => null,
 		'XCube_AbstractProperty'               => null,
-		'XCube_AbstractRequest'                => null,
 		'XCube_AbstractServiceClient'          => null,
 		'XCube_ActionFilter'                   => null,
 		'XCube_ActionForm'                     => null,
