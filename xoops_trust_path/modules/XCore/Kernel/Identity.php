@@ -1,68 +1,74 @@
 <?php
 
+namespace XCore\Kernel;
+
 /**
  * Defines the basic functionality of an identity object.
  */
-class XCube_Identity
+class Identity
 {
 	/**
 	 * A name of the identity.
 	 * @var string
 	 */
-	var $mName = "";
-	
+	protected $mName = "";
+
 	/**
 	 * The authentication type
 	 * @var string
 	 */
-	var $_mAuthenticationType = "";
-	
-	function __construct()
+	protected $_mAuthenticationType = "";
+
+	/**
+	 * Return new Identity instance
+	 */
+	public function __construct()
 	{
 	}
-	
+
 	/**
 	 * Sets the authentication type.
 	 * @param string $type
+	 * @return void
 	 */
-	function setAuthenticationType($type)
+	public function setAuthenticationType($type)
 	{
 		$this->_mAuthenticationType = $type;
 	}
-	
+
 	/**
 	 * Gets the authentication type.
 	 * @return string
 	 */
-	function getAuthenticationType()
+	public function getAuthenticationType()
 	{
 		return $this->_mAuthenticationType;
 	}
-	
+
 	/**
 	 * Sets a name of this object.
+	 * @return void
 	 */
-	function setName($name)
+	public function setName($name)
 	{
 		$this->mName = $name;
 	}
-	
+
 	/**
 	 * Gets a name of this object.
-	 *
 	 * @return string
 	 */
-	function getName()
+	public function getName()
 	{
 		return $this->mName;
 	}
-	
+
 	/**
 	 * Gets a value that indicates whether the user has been authenticated.
-	 *
 	 * @return bool
 	 */
-	function isAuthenticated()
+	public function isAuthenticated()
 	{
 	}
 }
+

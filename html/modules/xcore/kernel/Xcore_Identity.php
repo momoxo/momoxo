@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_Identity extends XCube_Identity
+use XCore\Kernel\Identity;
+
+class Xcore_Identity extends Identity
 {
 	function Xcore_Identity(&$xoopsUser)
 	{

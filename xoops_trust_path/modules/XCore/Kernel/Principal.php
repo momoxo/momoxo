@@ -2,7 +2,7 @@
 
 namespace XCore\Kernel;
 
-use XCube_Identity;
+use XCore\Kernel\Identity;
 
 /**
  * Defines the basic functionality of a principal object.
@@ -11,7 +11,7 @@ class Principal
 {
 	/**
 	 * The identity object which is tied to this object.
-	 * @var XCube_Identity
+	 * @var Identity
 	 */
 	public $mIdentity = null;
 
@@ -22,7 +22,7 @@ class Principal
 	protected $_mRoles = array();
 
 	/**
-	 * @param XCube_Identity $identity
+	 * @param Identity $identity
 	 * @param array $roles
 	 */
 	public function __construct($identity, $roles = array())
@@ -33,7 +33,7 @@ class Principal
 
 	/**
 	 * Gets a identity object which is tied to this object.
-	 * @return XCube_Identity
+	 * @return Identity
 	 */
 	public function getIdentity()
 	{

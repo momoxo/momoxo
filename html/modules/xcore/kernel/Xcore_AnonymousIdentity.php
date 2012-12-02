@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_AnonymousIdentity extends XCube_Identity
+use XCore\Kernel\Identity;
+
+class Xcore_AnonymousIdentity extends Identity
 {
 	function isAuthenticated()
 	{

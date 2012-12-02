@@ -22,7 +22,6 @@ call_user_func(function(){
 		'XCube_FormImageFile'                  => null,
 		'XCube_GenericArrayProperty'           => null,
 		'XCube_GenericRequest'                 => null,
-		'XCube_Identity'                       => null,
 		'XCube_ImageFileArrayProperty'         => null,
 		'XCube_ImageFileProperty'              => null,
 		'XCube_IniHandler'                     => null,
