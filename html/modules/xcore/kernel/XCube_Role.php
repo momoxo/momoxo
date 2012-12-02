@@ -1,10 +1,11 @@
 <?php
 
-/**
- * The utility class which handles role information without the root object.
- */
 use XCore\Kernel\Root;
 
+/**
+ * The utility class which handles role information without the root object.
+ * @todo このクラス使われていない？
+ */
 class XCube_Role
 {
 	function getRolesForUser($username = null)
