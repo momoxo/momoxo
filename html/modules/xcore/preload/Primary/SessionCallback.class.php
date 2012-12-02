@@ -1,11 +1,13 @@
 <?php
 
+use XCore\Kernel\Session;
+
 class Xcore_SessionCallback extends XCube_ActionFilter
 {
 	function preBlockFilter()
 	{
-		$this->mRoot->mDelegateManager->add('XCube_Session.SetupSessionHandler', 'Xcore_SessionCallback::setupSessionHandler');
-		$this->mRoot->mDelegateManager->add('XCube_Session.GetSessionCookiePath', 'Xcore_SessionCallback::getSessionCookiePath');
+		$this->mRoot->mDelegateManager->add('XCore.Kernel.Session.SetupSessionHandler', 'Xcore_SessionCallback::setupSessionHandler');
+		$this->mRoot->mDelegateManager->add('XCore.Kernel.Session.GetSessionCookiePath', 'Xcore_SessionCallback::getSessionCookiePath');
 	}
 
 	public static function setupSessionHandler()

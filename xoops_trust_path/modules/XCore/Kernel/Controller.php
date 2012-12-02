@@ -5,7 +5,6 @@ namespace XCore\Kernel;
 use XCube_Delegate;
 use XCube_Ref;
 use XCube_ActionFilter;
-use XCube_Session;
 use XCube_HttpRequest;
 use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
@@ -15,6 +14,7 @@ use XCore\Kernel\AbstractPermissionProvider;
 use XCore\Kernel\RoleManager;
 use XCore\Kernel\TextFilter;
 use XCore\Kernel\HttpContext;
+use XCore\Kernel\Session;
 
 /**
  * Virtual or Actual front controller class.
@@ -291,7 +291,7 @@ class Controller
 	 */
 	protected function _setupSession()
 	{
-		$this->mRoot->setSession(new XCube_Session());
+		$this->mRoot->setSession(new Session());
 	}
 
 	/**

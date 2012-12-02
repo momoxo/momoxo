@@ -3,7 +3,6 @@
 namespace XCore\Kernel;
 
 use RuntimeException;
-use XCube_Session;
 use XCube_Ref;
 use XCore\Kernel\Controller;
 use XCore\Kernel\LanguageManager;
@@ -14,6 +13,7 @@ use XCore\Kernel\AbstractPermissionProvider;
 use XCore\Kernel\RoleManager;
 use XCore\Kernel\TextFilter;
 use XCore\Kernel\HttpContext;
+use XCore\Kernel\Session;
 
 /**
  * The root object which collects exchangeable managers.
@@ -85,7 +85,7 @@ class Root
 
 	/**
 	 * @readonly
-	 * @var XCube_Session
+	 * @var Session
 	 */
 	public $mSession;
 
@@ -460,7 +460,7 @@ class Root
 
 	/**
 	 * Sets a Session object.
-	 * @param XCube_Session $session
+	 * @param Session $session
 	 * @return void
 	 */
 	public function setSession(&$session)
@@ -470,7 +470,7 @@ class Root
 
 	/**
 	 * Gets a Session object.
-	 * @return XCube_Session
+	 * @return Session
 	 */
 	public function &getSession()
 	{

@@ -56,7 +56,6 @@ call_user_func(function(){
 		'XCube_Service'                        => null,
 		'XCube_ServiceClient'                  => null,
 		'XCube_ServiceUtils'                   => null,
-		'XCube_Session'                        => null,
 		'XCube_StringArrayProperty'            => null,
 		'XCube_StringProperty'                 => null,
 		'XCube_TextArrayProperty'              => null,
