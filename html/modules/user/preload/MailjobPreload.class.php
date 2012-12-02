@@ -6,10 +6,11 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class User_MailjobPreload extends XCube_ActionFilter
+class User_MailjobPreload extends ActionFilter
 {
 	/**
 	 * @public

@@ -5,9 +5,11 @@
  * @version $Id: jQuery_Pretty.class.php ver0.01 2011/07/27  00:40:00 domifara  $
  */
 
+use XCore\Kernel\ActionFilter;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class jQuery_Pretty extends XCube_ActionFilter
+class jQuery_Pretty extends ActionFilter
 {
 	public function preBlockFilter()
 	{

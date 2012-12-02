@@ -1,6 +1,8 @@
 <?php
 
-class protectorLE_Filter extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class protectorLE_Filter extends ActionFilter
 {
 	function getCheckRequestKeys()
 	{

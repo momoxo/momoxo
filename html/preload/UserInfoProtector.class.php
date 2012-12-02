@@ -8,8 +8,9 @@
  * @see http://sourceforge.net/tracker/index.php?func=detail&aid=1718508&group_id=159211&atid=943472
  */
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
-class UserInfoProtector extends XCube_ActionFilter
+class UserInfoProtector extends ActionFilter
 {
 	function preBlockFilter()
 	{

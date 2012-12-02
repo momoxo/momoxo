@@ -1,9 +1,10 @@
 <?php
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
 if (!defined('XOOPS_ROOT_PATH')) exit;
 
-class Emaillogin extends XCube_ActionFilter
+class Emaillogin extends ActionFilter
 {
   function preFilter()
   {

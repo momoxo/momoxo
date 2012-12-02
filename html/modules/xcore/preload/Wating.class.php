@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_Waiting extends XCube_ActionFilter {
+use XCore\Kernel\ActionFilter;
+
+class Xcore_Waiting extends ActionFilter {
     function preBlockFilter()
     {
         $this->mController->mRoot->mDelegateManager->add('Xcoreblock.Waiting.Show',array(&$this,"callbackWaitingShow"));

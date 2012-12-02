@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Session;
+use XCore\Kernel\ActionFilter;
 
-class Xcore_SessionCallback extends XCube_ActionFilter
+class Xcore_SessionCallback extends ActionFilter
 {
 	function preBlockFilter()
 	{

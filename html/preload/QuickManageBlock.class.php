@@ -11,9 +11,11 @@
  *
  */
 
+use XCore\Kernel\ActionFilter;
+
 if ( !defined('XOOPS_ROOT_PATH') ) exit;
 
-class QuickManageBlock extends XCube_ActionFilter
+class QuickManageBlock extends ActionFilter
 {
 	const VERSION = 1.1;
 

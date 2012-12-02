@@ -5,10 +5,11 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class User_AdminPreload extends XCube_ActionFilter
+class User_AdminPreload extends ActionFilter
 {
 	function preBlockFilter()
 	{

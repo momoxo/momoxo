@@ -6,7 +6,9 @@
  * prepared under XOOPS Cube regular process. For that, this action filter
  * tries to get 'Xcore_RenderSystem' as dummy.
  */
-class Xcore_StartupXoopsTpl extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class Xcore_StartupXoopsTpl extends ActionFilter
 {
 	function postFilter()
 	{

@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_TextareaEditor extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class Xcore_TextareaEditor extends ActionFilter
 {
     /**
      * @public

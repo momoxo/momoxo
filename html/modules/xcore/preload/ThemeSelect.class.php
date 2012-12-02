@@ -6,7 +6,9 @@
  * specified theme is selectable. Functions should be added to this delegate in
  * constructor, because the delegate is called in preBlockFilter().
  */
-class Xcore_ThemeSelect extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class Xcore_ThemeSelect extends ActionFilter
 {
 
 	function Xcore_ThemeSelect(&$controller)

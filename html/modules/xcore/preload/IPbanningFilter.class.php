@@ -4,7 +4,9 @@
  * This burns the access from the specific IP address, which is specified at
  * the preference.
  */
-class Xcore_IPbanningFilter extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class Xcore_IPbanningFilter extends ActionFilter
 {
 	function preBlockFilter()
 	{

@@ -3,7 +3,6 @@
 namespace XCore\Kernel;
 
 use XCube_Delegate;
-use XCube_ActionFilter;
 use XCore\Kernel\Root;
 use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
@@ -15,6 +14,7 @@ use XCore\Kernel\HttpContext;
 use XCore\Kernel\Session;
 use XCore\Kernel\Ref;
 use XCore\Kernel\HttpRequest;
+use XCore\Kernel\ActionFilter;
 
 /**
  * Virtual or Actual front controller class.
@@ -52,8 +52,8 @@ class Controller
 	public $_mBlockChain = array();
 
 	/**
-	 * Vector Array of XCube_ActionFilter class object.
-	 * @var XCube_ActionFilter[]
+	 * Vector Array of ActionFilter class object.
+	 * @var ActionFilter[]
 	 */
 	protected $_mFilterChain = array();
 
@@ -215,7 +215,7 @@ class Controller
 
 	/**
 	 * Adds the ActionFilter instance.
-	 * @param XCube_ActionFilter $filter
+	 * @param ActionFilter $filter
 	 */
 	public function addActionFilter(&$filter)
 	{

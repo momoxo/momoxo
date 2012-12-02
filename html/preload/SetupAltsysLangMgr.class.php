@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
@@ -12,7 +13,7 @@ if( ! defined( 'XOOPS_TRUST_PATH' ) || XOOPS_TRUST_PATH == '' ) {
 define('ALTSYS_MYLANGUAGE_ROOT_PATH', XOOPS_ROOT_PATH . '/my_language');
 
 
-class SetupAltsysLangMgr extends XCube_ActionFilter
+class SetupAltsysLangMgr extends ActionFilter
 {
 	function preFilter()
 	{

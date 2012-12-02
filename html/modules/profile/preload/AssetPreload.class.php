@@ -5,11 +5,13 @@
  * @version $Id$
  */
 
+use XCore\Kernel\ActionFilter;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH.'/profile/class/FieldType.class.php';
 
-class Profile_AssetPreload extends XCube_ActionFilter
+class Profile_AssetPreload extends ActionFilter
 {
 	/**
 	 * @public

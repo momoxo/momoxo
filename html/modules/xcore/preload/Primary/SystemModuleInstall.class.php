@@ -3,7 +3,9 @@
 /**
  * The action filter for the site close procedure.
  */
-class Xcore_SystemModuleInstall extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class Xcore_SystemModuleInstall extends ActionFilter
 {
 	function preBlockFilter()
 	{

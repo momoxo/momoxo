@@ -2,8 +2,9 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\ServiceManager;
+use XCore\Kernel\ActionFilter;
 
-class Xcore_NuSoapLoader extends XCube_ActionFilter
+class Xcore_NuSoapLoader extends ActionFilter
 {
 	function preFilter()
 	{

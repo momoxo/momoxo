@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_IndexRedirector extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class Xcore_IndexRedirector extends ActionFilter
 {
 	function preBlockFilter()
 	{

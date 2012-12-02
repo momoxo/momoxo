@@ -13,6 +13,7 @@
 //display(1) or not display(0): Welcome message
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Kernel\ActionFilter;
 
 if (!defined('XC_ADMINSYSTEMCHECK_WELCOME')) define('XC_ADMINSYSTEMCHECK_WELCOME', 1);
 //display(1) or not display(0): Site/System Info
@@ -24,7 +25,7 @@ if (!defined('XC_ADMINSYSTEMCHECK_WAITING')) define('XC_ADMINSYSTEMCHECK_WAITING
 //display(1) or not display(0): Full PHP Info!
 if (!defined('XC_ADMINSYSTEMCHECK_PHPINFO')) define('XC_ADMINSYSTEMCHECK_PHPINFO', 0);
 
-class Xcore_AdminSystemCheckPlusPreload extends XCube_ActionFilter
+class Xcore_AdminSystemCheckPlusPreload extends ActionFilter
 {
 	function preBlockFilter()
 	{

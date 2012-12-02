@@ -1,9 +1,10 @@
 <?php
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
 if (!defined('XOOPS_ROOT_PATH')) die();
 
-class Message_Preload extends XCube_ActionFilter
+class Message_Preload extends ActionFilter
 {
   public function postFilter()
   {

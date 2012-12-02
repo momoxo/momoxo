@@ -3,7 +3,9 @@
 // if XCL supports delegate "Module(Install|Update|Uninstall).Success" can remove this file
 // and can remove a file xupdate/admin/class/Xcore_ModuleActions.class.php
 
-class Xupdate_ModuleActionOverride extends XCube_ActionFilter
+use XCore\Kernel\ActionFilter;
+
+class Xupdate_ModuleActionOverride extends ActionFilter
 {
     /**
      * preBlockFilter

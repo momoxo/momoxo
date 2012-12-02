@@ -7,7 +7,6 @@ call_user_func(function(){
 		'XCube_AbstractArrayProperty'          => null,
 		'XCube_AbstractProperty'               => null,
 		'XCube_AbstractServiceClient'          => null,
-		'XCube_ActionFilter'                   => null,
 		'XCube_ActionForm'                     => null,
 		'XCube_BoolArrayProperty'              => null,
 		'XCube_BoolProperty'                   => null,

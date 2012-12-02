@@ -4,9 +4,11 @@
  * @license http://www.gnu.org/licenses/gpl.txt GNU GENERAL PUBLIC LICENSE Version 2
  */
 
+use XCore\Kernel\ActionFilter;
+
 if (!defined('XOOPS_ROOT_PATH')) die();
 
-class message_DeletePreload extends XCube_ActionFilter
+class message_DeletePreload extends ActionFilter
 {
   public function postFilter()
   {

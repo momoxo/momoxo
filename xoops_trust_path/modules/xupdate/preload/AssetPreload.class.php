@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -22,7 +23,7 @@ require_once XUPDATE_TRUST_PATH . '/class/XupdateUtils.class.php';
 /**
  * Xupdate_AssetPreloadBase
 **/
-class Xupdate_AssetPreloadBase extends XCube_ActionFilter
+class Xupdate_AssetPreloadBase extends ActionFilter
 {
 	public $mDirname = null;
 	protected $blockInstance = null;

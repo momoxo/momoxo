@@ -5,7 +5,9 @@
  * @todo
  *    This may have to be admin-preload.
  */
-class Xcore_Cacheclear extends XCube_ActionFilter {
+use XCore\Kernel\ActionFilter;
+
+class Xcore_Cacheclear extends ActionFilter {
     function preBlockFilter()
     {
 		$this->mRoot->mDelegateManager->add('Xcore_ModuleInstallAction.InstallSuccess', 'Xcore_Cacheclear::cacheClear');

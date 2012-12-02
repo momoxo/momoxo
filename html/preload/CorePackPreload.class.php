@@ -1,12 +1,14 @@
 <?php
 
 // Already checked with X-update install checker
+use XCore\Kernel\ActionFilter;
+
 define('XUPDATE_INSTALLERCHECKER_ACTIVE', false);
 
 // corepack version
 include_once(XOOPS_ROOT_PATH . '/modules/xcore/include/corepack_version.php');
 
-class CorePackPreload extends XCube_ActionFilter
+class CorePackPreload extends ActionFilter
 {
 	function preBlockFilter()
 	{

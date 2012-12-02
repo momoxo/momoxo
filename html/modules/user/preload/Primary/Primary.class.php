@@ -5,10 +5,11 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Kernel\ActionFilter;
 
 if (!defined('XOOPS_ROOT_PATH')) die();
 
-class User_PrimaryFilter extends XCube_ActionFilter
+class User_PrimaryFilter extends ActionFilter
 {
 	function preFilter()
 	{
