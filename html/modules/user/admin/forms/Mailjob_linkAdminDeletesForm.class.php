@@ -1,6 +1,8 @@
 <?php
 
-class User_Mailjob_linkAdminDeletesForm extends XCube_ActionForm 
+use XCore\Form\ActionForm;
+
+class User_Mailjob_linkAdminDeletesForm extends ActionForm
 {
 	function getTokenName()
 	{

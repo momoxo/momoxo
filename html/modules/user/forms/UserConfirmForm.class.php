@@ -1,6 +1,8 @@
 <?php
 
-class User_UserConfirmForm extends XCube_ActionForm 
+use XCore\Form\ActionForm;
+
+class User_UserConfirmForm extends ActionForm
 {
 	function getTokenName()
 	{

@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_ImagecategoryAdminDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_ImagecategoryAdminDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

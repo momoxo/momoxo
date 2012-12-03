@@ -1,6 +1,8 @@
 <?php
 
-class Xupdate_Admin_ThemeFinderInstallForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xupdate_Admin_ThemeFinderInstallForm extends ActionForm
 {
 	/**
 	 * getTokenName

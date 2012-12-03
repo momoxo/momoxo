@@ -1,6 +1,8 @@
 <?php
 
-class User_GroupPermEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_GroupPermEditForm extends ActionForm
 {
 	function getTokenName()
 	{

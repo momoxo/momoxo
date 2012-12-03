@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_PreferenceEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_PreferenceEditForm extends ActionForm
 {
 	var $mKeyName = "confcat_id";
 	var $mKeyValue = 0;
@@ -118,7 +120,7 @@ class Xcore_ModulePreferenceEditForm extends Xcore_PreferenceEditForm
 
 	function __construct(&$module)
 	{
-		XCube_ActionForm::__construct();
+		ActionForm::__construct();
 		$this->mKeyValue = $module->get('mid');
 	}
 	

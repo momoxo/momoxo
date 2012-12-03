@@ -1,6 +1,8 @@
 <?php
 
-class User_GroupMemberEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_GroupMemberEditForm extends ActionForm
 {
 	function getTokenName()
 	{

@@ -1,6 +1,8 @@
 <?php
 
-class User_GroupAdminDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_GroupAdminDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

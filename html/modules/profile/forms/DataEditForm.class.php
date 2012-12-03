@@ -1,6 +1,8 @@
 <?php
 
-class Profile_DataEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Profile_DataEditForm extends ActionForm
 {
 	//table field definitions
 	var $mDef = array();

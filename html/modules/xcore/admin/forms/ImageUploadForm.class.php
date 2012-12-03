@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Form\ActionForm;
 
-class Xcore_ImageUploadForm extends XCube_ActionForm
+class Xcore_ImageUploadForm extends ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = null;

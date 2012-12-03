@@ -7,6 +7,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\ActionFilter;
+use XCore\Form\ActionForm;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -68,7 +69,7 @@ class Xupdate_AssetManager
      * @param   bool  $isAdmin
      * @param   string  $mode
      *
-     * @return  &object<ActionFilter,XCube_ActionForm,XoopsObjectGenericHandler>
+     * @return  &object<ActionFilter,ActionForm,XoopsObjectGenericHandler>
     **/
     public function &getObject(/*** string ***/ $type,/*** string ***/ $name,/*** bool ***/ $isAdmin = false,/*** string ***/ $mode = null)
     {
@@ -150,7 +151,7 @@ class Xupdate_AssetManager
      * @param   bool  $isAdmin
      * @param   string  $mode
      *
-     * @return  &object<ActionFilter,XCube_ActionForm,XoopsObjectGenericHandler>
+     * @return  &object<ActionFilter,ActionForm,XoopsObjectGenericHandler>
     **/
     private function &_fallbackCreate(/*** string ***/ $type,/*** string ***/ $name,/*** bool ***/ $isAdmin = false,/*** string ***/ $mode = null)
     {

@@ -3,7 +3,9 @@
 /**
  * Xupdate_StoreEditForm
 **/
-class Xupdate_StoreEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xupdate_StoreEditForm extends ActionForm
 {
     /**
      * getTokenName

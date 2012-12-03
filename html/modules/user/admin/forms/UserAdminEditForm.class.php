@@ -7,8 +7,9 @@
  * @todo We may have to check the format of URL.
  */
 use XCore\Kernel\DelegateUtils;
+use XCore\Form\ActionForm;
 
-class User_UserAdminEditForm extends XCube_ActionForm
+class User_UserAdminEditForm extends ActionForm
 {
 	var $_mIsNew;
 	

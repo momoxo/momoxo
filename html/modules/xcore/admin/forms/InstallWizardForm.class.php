@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_InstallWizardForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_InstallWizardForm extends ActionForm
 {
 	function getTokenName()
 	{

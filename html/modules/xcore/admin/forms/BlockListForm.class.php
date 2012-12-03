@@ -5,7 +5,9 @@
  * @public
  * @todo We may rename this class.
  */
-class Xcore_BlockListForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_BlockListForm extends ActionForm
 {
 	/**
 	 * If the request is GET, never return token name.

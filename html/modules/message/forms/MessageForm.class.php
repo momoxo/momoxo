@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Form\ActionForm;
 
-class MessageForm extends XCube_ActionForm
+class MessageForm extends ActionForm
 {
   public $fuid = 0;
   

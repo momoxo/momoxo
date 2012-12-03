@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_SmilesAdminDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_SmilesAdminDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

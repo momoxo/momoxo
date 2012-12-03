@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Form\ActionForm;
 
-class Xcore_ModuleEditForm extends XCube_ActionForm
+class Xcore_ModuleEditForm extends ActionForm
 {
 	function getTokenName()
 	{

@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_ModuleUninstallForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_ModuleUninstallForm extends ActionForm
 {
 	function getTokenName()
 	{

@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_TplfileUploadForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_TplfileUploadForm extends ActionForm
 {
 	function getTokenName()
 	{

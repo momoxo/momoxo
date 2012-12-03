@@ -3,7 +3,9 @@
 /**
  * Xupdate_StoreDeleteForm
 **/
-class Xupdate_StoreDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xupdate_StoreDeleteForm extends ActionForm
 {
     /**
      * getTokenName

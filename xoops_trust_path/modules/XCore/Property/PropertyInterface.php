@@ -2,13 +2,13 @@
 
 namespace XCore\Property;
 
-use XCube_ActionForm;
 use XCore\Kernel\Service;
+use XCore\Form\ActionForm;
 
 /**
  * Defines a interface for the property class group.
  *
- * PropertyInterface is designed to work in XCube_ActionForm or Service (in the near future).
+ * PropertyInterface is designed to work in ActionForm or Service (in the near future).
  * Therefore only sub-classes of them should call constructors of XCube_Property classes.
  *
  * @todo abstract class ではなく interface にする
@@ -114,7 +114,7 @@ abstract class PropertyInterface
 
 	/**
 	 * Fetches values.
-	 * @param XCube_ActionForm $form
+	 * @param ActionForm $form
 	 * @return void
 	 */
 	public function fetch(&$form)

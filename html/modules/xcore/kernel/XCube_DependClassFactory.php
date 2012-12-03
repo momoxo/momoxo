@@ -1,13 +1,14 @@
 <?php
 
 use XCore\Validator\Validator;
+use XCore\Form\ActionForm;
 
 /**
  * @internal
  * @public
  * @brief Factory for generating validator objects.
  * @attention
- *     Only 'XCube_ActionForm' class should use this class.
+ *     Only 'ActionForm' class should use this class.
  */
 class XCube_DependClassFactory
 {
@@ -18,7 +19,7 @@ class XCube_DependClassFactory
 	 * @param $dependName string
 	 * @return Validator
 	 * @attention
-	 *     Only 'XCube_ActionForm' class should use this class.
+	 *     Only 'ActionForm' class should use this class.
 	 */
 	public static function &factoryClass($dependName)
 	{

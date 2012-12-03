@@ -3,7 +3,9 @@
 /***
  * @internal
  */
-class Xcore_CommentAdminDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_CommentAdminDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

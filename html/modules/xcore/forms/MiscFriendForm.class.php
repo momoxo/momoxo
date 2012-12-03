@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_MiscFriendForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_MiscFriendForm extends ActionForm
 {
 	function getTokenName()
 	{

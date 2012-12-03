@@ -1,6 +1,8 @@
 <?php
 
-class User_RanksAdminDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_RanksAdminDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

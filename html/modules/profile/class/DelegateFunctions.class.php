@@ -4,6 +4,8 @@
  * @version $Id: DelegateFunctions.class.php,v 1.0 $
  */
 
+use XCore\Form\ActionForm;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 /**
@@ -16,11 +18,11 @@ class Profile_Delegate
      * Its key is field name and the value is value of profile.
      *
      * @param bool      &$ret
-     * @param XCube_ActionForm  $actionForm User_EditUserForm
+     * @param ActionForm  $actionForm User_EditUserForm
      *
      * @return  void
      */ 
-    public static function saveProfile(/*** bool ***/ &$ret, XCube_ActionForm $actionForm)
+    public static function saveProfile(/*** bool ***/ &$ret, ActionForm $actionForm)
     {
         $handler = Xcore_Utils::getModuleHandler('data', 'profile');
         if(! $obj = $handler->get($actionForm->get('uid'))){
@@ -77,11 +79,11 @@ class Profile_Delegate
     /**
      * setup Profile ActionForm. Add FormProperties and FieldProperties on User_EditUserForm
      *
-     * @param XCube_ActionForm  &$actionForm    User_EditUserForm
+     * @param ActionForm  &$actionForm    User_EditUserForm
      *
      * @return  void
      */ 
-    public static function setupActionForm(XCube_ActionForm $actionForm)
+    public static function setupActionForm(ActionForm $actionForm)
     {
         $handler = Xcore_Utils::getModuleHandler('definitions', 'profile');
         $definitions = $handler->getFields4DataEdit();
@@ -113,11 +115,11 @@ class Profile_Delegate
     /**
      * load Profile ActionForm
      *
-     * @param XCube_ActionForm  &$actionForm    User_EditUserForm
+     * @param ActionForm  &$actionForm    User_EditUserForm
      *
      * @return  void
      */ 
-    public static function loadActionForm(XCube_ActionForm $actionForm)
+    public static function loadActionForm(ActionForm $actionForm)
     {
         $defHandler = Xcore_Utils::getModuleHandler('definitions', 'profile');
         $definitions = $defHandler->getFields4DataEdit();

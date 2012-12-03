@@ -1,6 +1,8 @@
 <?php
 
-class User_AbstractUserEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_AbstractUserEditForm extends ActionForm
 {
 	var $mConfig = null;
 	

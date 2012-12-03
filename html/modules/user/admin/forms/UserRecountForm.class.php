@@ -1,6 +1,8 @@
 <?php
 
-class User_RecountForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_RecountForm extends ActionForm
 {
 	function getTokenName()
 	{

@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Form\ActionForm;
 
-class MessageSettingsForm extends XCube_ActionForm
+class MessageSettingsForm extends ActionForm
 {
   public function __construct()
   {

@@ -1,6 +1,8 @@
 <?php
 
-class User_AvatarEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_AvatarEditForm extends ActionForm
 {
 	var $mOldAvatarFilename = null;
 	var $mFormFile = null;

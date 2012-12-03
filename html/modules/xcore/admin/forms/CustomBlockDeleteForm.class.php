@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_CustomBlockDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_CustomBlockDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

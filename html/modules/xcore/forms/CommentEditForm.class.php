@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_CommentEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_CommentEditForm extends ActionForm
 {
 	function getTokenName()
 	{

@@ -22,10 +22,12 @@
  * 
  * -------------------------------------------------------------
  */
+use XCore\Form\ActionForm;
+
 function smarty_function_xoops_token($params, &$smarty)
 {
 	if (isset($params['form']) && is_object($form = $params['form'])) {
-		if(is_a($form, 'XCube_ActionForm')) {
+		if( $form instanceof ActionForm ) {
 			$tokenName = $form->getTokenName();
 			$tokenValue = $form->getToken();
 		}

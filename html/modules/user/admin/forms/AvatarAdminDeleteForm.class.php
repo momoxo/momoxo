@@ -1,6 +1,8 @@
 <?php
 
-class User_AvatarAdminDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_AvatarAdminDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

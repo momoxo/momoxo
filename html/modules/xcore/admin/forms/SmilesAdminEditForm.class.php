@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_SmilesAdminEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_SmilesAdminEditForm extends ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = null;

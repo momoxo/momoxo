@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_TplsetEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_TplsetEditForm extends ActionForm
 {
 	function getTokenName()
 	{

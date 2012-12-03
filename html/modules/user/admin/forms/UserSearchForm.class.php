@@ -1,6 +1,8 @@
 <?php
 
-class User_UserSearchForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_UserSearchForm extends ActionForm
 {
 	function prepare()
 	{

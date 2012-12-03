@@ -1,6 +1,8 @@
 <?php
 
-class User_AvatarSelectForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_AvatarSelectForm extends ActionForm
 {
 	var $mSelectedId = null;
 	

@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_ActionSearchForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_ActionSearchForm extends ActionForm
 {
 	var $mState = null;
 	

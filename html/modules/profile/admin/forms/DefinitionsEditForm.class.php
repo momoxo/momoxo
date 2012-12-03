@@ -1,6 +1,8 @@
 <?php
 
-class Profile_Admin_DefinitionsEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Profile_Admin_DefinitionsEditForm extends ActionForm
 {
 	/**
 	 * @public

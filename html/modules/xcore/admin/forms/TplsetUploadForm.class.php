@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_TplsetUploadForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_TplsetUploadForm extends ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = null;

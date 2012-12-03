@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_SearchResultsForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_SearchResultsForm extends ActionForm
 {
 	var $mQueries = array();
 	var $_mKeywordMin = 0;

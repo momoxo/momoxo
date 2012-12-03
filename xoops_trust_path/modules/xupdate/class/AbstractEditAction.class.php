@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Form\ActionForm;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -19,7 +21,7 @@ abstract class Xupdate_AbstractEditAction extends Xupdate_AbstractAction
 
     public /*** XoopsObjectGenericHandler ***/ $mObjectHandler = null;
 
-    public /*** XCube_ActionForm ***/ $mActionForm = null;
+    public $mActionForm = null;
 
     /**
      * _getId

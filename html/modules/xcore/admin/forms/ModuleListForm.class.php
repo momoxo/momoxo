@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_ModuleListForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_ModuleListForm extends ActionForm
 {
 	/***
 	 * If the request is GET, never return token name.

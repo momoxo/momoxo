@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_ModuleUpdateForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_ModuleUpdateForm extends ActionForm
 {
 	function getTokenName()
 	{

@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_SmilesUploadForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_SmilesUploadForm extends ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = null;

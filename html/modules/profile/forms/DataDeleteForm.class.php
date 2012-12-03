@@ -1,6 +1,8 @@
 <?php
 
-class Profile_DataDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Profile_DataDeleteForm extends ActionForm
 {
 	/**
 	 * @public

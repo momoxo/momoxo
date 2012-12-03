@@ -1,8 +1,10 @@
 <?php
 
+use XCore\Form\ActionForm;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class User_UserDeleteForm extends XCube_ActionForm
+class User_UserDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

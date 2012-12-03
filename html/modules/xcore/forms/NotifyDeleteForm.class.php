@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Form\ActionForm;
 
-class Xcore_NotifyDeleteForm extends XCube_ActionForm
+class Xcore_NotifyDeleteForm extends ActionForm
 {
 	var $mNotifiyIds = array();
 	var $mFatalError = false;

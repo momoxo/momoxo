@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_TplfileAdminDeleteForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_TplfileAdminDeleteForm extends ActionForm
 {
 	function getTokenName()
 	{

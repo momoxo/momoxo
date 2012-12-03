@@ -1,6 +1,8 @@
 <?php
 
-class Xcore_BlockEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class Xcore_BlockEditForm extends ActionForm
 {
 	function getTokenName()
 	{

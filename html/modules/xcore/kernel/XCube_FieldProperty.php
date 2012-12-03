@@ -1,16 +1,17 @@
 <?php
 
 use XCore\Validator\Validator;
+use XCore\Form\ActionForm;
 
 /**
  * @public
- * @brief [Abstract] Used for validating member property values of XCube_ActionForm.
+ * @brief [Abstract] Used for validating member property values of ActionForm.
  */
 class XCube_FieldProperty
 {
 	/**
 	 * @protected
-	 * @brief XCube_ActionForm - Parent form contains this field property.
+	 * @var ActionForm - Parent form contains this field property.
 	 */
 	var $mForm;
 	
@@ -51,9 +52,9 @@ class XCube_FieldProperty
 	/**
 	 * @public
 	 * @brief Constructor.
-	 * @param $form XCube_ActionForm - Parent form.
+	 * @param $form ActionForm - Parent form.
 	 * @remarks
-     *     Only sub-classes of XCube_ActionForm calles this constructor. 
+     *     Only sub-classes of ActionForm calles this constructor.
 	 */
 	function __construct(&$form)
 	{
@@ -155,7 +156,7 @@ class XCube_FieldProperty
 	 * @public
 	 * @brief Validates form-property with validators which this field property holds.
 	 * @attention
-	 *      Only XCube_ActionForm and its sub-classes should call this method.
+	 *      Only ActionForm and its sub-classes should call this method.
 	 * @todo This class already has form property instance.
 	 */
 	function validate(&$form)

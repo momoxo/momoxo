@@ -1,6 +1,8 @@
 <?php
 
-class User_RanksAdminEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_RanksAdminEditForm extends ActionForm
 {
 	var $mOldFileName = null;
 	var $_mIsNew = false;

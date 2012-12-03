@@ -1,6 +1,8 @@
 <?php
 
-class User_LostPassEditForm extends XCube_ActionForm
+use XCore\Form\ActionForm;
+
+class User_LostPassEditForm extends ActionForm
 {
 	function getTokenName()
 	{
