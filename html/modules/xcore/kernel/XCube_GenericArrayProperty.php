@@ -5,9 +5,10 @@
  * @brief [Abstract] Defines common array property class which implements PropertyInterface.
  * 
  * This class is a kind of template-class --- XCube_GenericArrayProperty<T>.
- * Developers should know about sub-classes of XCube_AbstractProperty.
+ * Developers should know about sub-classes of AbstractProperty.
  */
 use XCore\Property\PropertyInterface;
+use XCore\Property\AbstractProperty;
 
 class XCube_GenericArrayProperty extends PropertyInterface
 {
@@ -19,7 +20,7 @@ class XCube_GenericArrayProperty extends PropertyInterface
 
 	/**
 	 * @protected
-	 * @brief XCube_AbstractProperty[] - std::map<mixed_key, mixed_value>
+	 * @var AbstractProperty[]
 	 */
 	var $mProperties = array();
 	

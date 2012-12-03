@@ -5,7 +5,9 @@
  * @brief Represents the special property which handles uploaded file.
  * @see XCube_FormFile
  */
-class XCube_FileProperty extends XCube_AbstractProperty
+use XCore\Property\AbstractProperty;
+
+class XCube_FileProperty extends AbstractProperty
 {
 	/**
 	 * @protected

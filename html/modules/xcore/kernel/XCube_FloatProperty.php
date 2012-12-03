@@ -4,7 +4,9 @@
  * @public
  * @brief Represents float property. 
  */
-class XCube_FloatProperty extends XCube_AbstractProperty
+use XCore\Property\AbstractProperty;
+
+class XCube_FloatProperty extends AbstractProperty
 {
 	function set($value)
 	{

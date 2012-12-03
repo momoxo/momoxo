@@ -7,7 +7,9 @@
  * This class shows the property of string. Check whether a request includes control
  * code. If it does, stop own process.
  */
-class XCube_StringProperty extends XCube_AbstractProperty
+use XCore\Property\AbstractProperty;
+
+class XCube_StringProperty extends AbstractProperty
 {
 	function set($value)
 	{

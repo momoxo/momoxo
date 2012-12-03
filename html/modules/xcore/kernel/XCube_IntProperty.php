@@ -4,7 +4,9 @@
  * @public
  * @brief Represents int property. 
  */
-class XCube_IntProperty extends XCube_AbstractProperty
+use XCore\Property\AbstractProperty;
+
+class XCube_IntProperty extends AbstractProperty
 {
 	function set($value)
 	{

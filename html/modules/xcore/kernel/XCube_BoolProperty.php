@@ -4,7 +4,9 @@
  * @public
  * @brief Represents bool property. 
  */
-class XCube_BoolProperty extends XCube_AbstractProperty
+use XCore\Property\AbstractProperty;
+
+class XCube_BoolProperty extends AbstractProperty
 {
 	function set($value)
 	{

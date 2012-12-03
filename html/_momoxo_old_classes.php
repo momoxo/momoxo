@@ -5,7 +5,6 @@ call_user_func(function(){
 	$legacyClasses = array(
 		'AbstractXoopsObject'                  => null,
 		'XCube_AbstractArrayProperty'          => null,
-		'XCube_AbstractProperty'               => null,
 		'XCube_BoolArrayProperty'              => null,
 		'XCube_BoolProperty'                   => null,
 		'XCube_DependClassFactory'             => null,

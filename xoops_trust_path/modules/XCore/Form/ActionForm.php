@@ -3,11 +3,11 @@
 namespace XCore\Form;
 
 use XCube_FieldProperty;
-use XCube_AbstractProperty;
 use XCore\Kernel\Root;
 use XCore\Kernel\HttpContext;
 use XCore\Kernel\Principal;
 use XCore\Kernel\Service;
+use XCore\Property\AbstractProperty;
 
 /**
  * Fetches input values, validates fetched values and passes them to some object.
@@ -56,7 +56,7 @@ abstract class ActionForm
 	protected $mUser;
 
 	/**
-	 * @var XCube_AbstractProperty[]
+	 * @var AbstractProperty[]
 	 */
 	protected $mFormProperties = array();
 
@@ -219,7 +219,7 @@ abstract class ActionForm
 	 *
 	 * Attention:
 	 * This method may not be must. So it will be renamed in the near future.
-	 * @return XCube_AbstractProperty[]
+	 * @return AbstractProperty[]
 	 * @todo Check whether this method is must.
 	 */
 	public function &getFormProperties()
