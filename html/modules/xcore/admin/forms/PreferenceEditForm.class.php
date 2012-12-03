@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_PreferenceEditForm extends ActionForm
 {
@@ -50,7 +51,7 @@ class Xcore_PreferenceEditForm extends ActionForm
 					$this->mFormProperties[$config->get('conf_name')] =new XCube_FloatProperty($config->get('conf_name'));
 					$this->set($config->get('conf_name'), $config->get('conf_value'));
 					
-					$this->mFieldProperties[$config->get('conf_name')] =new XCube_FieldProperty($this);
+					$this->mFieldProperties[$config->get('conf_name')] =new FieldProperty($this);
 					$this->mFieldProperties[$config->get('conf_name')]->setDependsByArray(array('required'));
 					$this->mFieldProperties[$config->get('conf_name')]->addMessage('required', _MD_XCORE_ERROR_REQUIRED, $config->get('conf_title'));
 					break;
@@ -59,7 +60,7 @@ class Xcore_PreferenceEditForm extends ActionForm
 					$this->mFormProperties[$config->get('conf_name')] =new XCube_IntProperty($config->get('conf_name'));
 					$this->set($config->get('conf_name'), $config->get('conf_value'));
 					
-					$this->mFieldProperties[$config->get('conf_name')] =new XCube_FieldProperty($this);
+					$this->mFieldProperties[$config->get('conf_name')] =new FieldProperty($this);
 					$this->mFieldProperties[$config->get('conf_name')]->setDependsByArray(array('required'));
 					$this->mFieldProperties[$config->get('conf_name')]->addMessage('required', _MD_XCORE_ERROR_REQUIRED, $config->get('conf_title'));
 					break;

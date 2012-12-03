@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Form\FieldProperty;
+
 class Xcore_ImagecategoryAdminNewForm extends Xcore_ImagecategoryAdminEditForm
 {
 	function getTokenName()
@@ -19,7 +21,7 @@ class Xcore_ImagecategoryAdminNewForm extends Xcore_ImagecategoryAdminEditForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['imgcat_storetype'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_storetype'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_storetype']->setDependsByArray(array('required','mask'));
 		$this->mFieldProperties['imgcat_storetype']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_STORETYPE);
 		$this->mFieldProperties['imgcat_storetype']->addMessage('mask', _MD_XCORE_ERROR_MASK, _AD_XCORE_LANG_IMGCAT_STORETYPE);

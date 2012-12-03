@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Form\FieldProperty;
+
 class Xcore_SearchShowallForm extends Xcore_SearchResultsForm
 {
 	function prepare()
@@ -15,7 +17,7 @@ class Xcore_SearchShowallForm extends Xcore_SearchResultsForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['andor'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['andor'] =new FieldProperty($this);
 		$this->mFieldProperties['andor']->setDependsByArray(array('mask'));
 		$this->mFieldProperties['andor']->addMessage('mask', _MD_XCORE_ERROR_MASK, _MD_XCORE_LANG_ANDOR);
 		$this->mFieldProperties['andor']->addVar('mask', '/^(AND|OR|exact)$/i');

@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ImageUploadForm extends ActionForm
 {
@@ -26,15 +27,15 @@ class Xcore_ImageUploadForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['image_name'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['image_name'] =new FieldProperty($this);
 		$this->mFieldProperties['image_name']->setDependsByArray(array('extension'));
 		$this->mFieldProperties['image_name']->addVar('extension', 'jpg,gif,png');
 	
-		$this->mFieldProperties['image_nicename'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['image_nicename'] =new FieldProperty($this);
 		$this->mFieldProperties['image_nicename']->setDependsByArray(array('required'));
 		$this->mFieldProperties['image_nicename']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_IMAGE_NICENAME);
 		
-		$this->mFieldProperties['imgcat_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_id'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_id']->setDependsByArray(array('required','objectExist'));
 		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_IMGCAT_ID);
 		$this->mFieldProperties['imgcat_id']->addMessage('objectExist', _MD_XCORE_ERROR_OBJECTEXIST, _MD_XCORE_LANG_IMGCAT_ID);

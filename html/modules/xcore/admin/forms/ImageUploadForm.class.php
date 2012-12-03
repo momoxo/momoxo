@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ImageUploadForm extends ActionForm
 {
@@ -26,10 +27,10 @@ class Xcore_ImageUploadForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['imgcat_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_id'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_ID);
-		$this->mFieldProperties['upload'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['upload'] =new FieldProperty($this);
 		$this->mFieldProperties['upload']->setDependsByArray(array('required'));
 		$this->mFieldProperties['upload']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_UPLOAD_FILE);
 	

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_RanksAdminEditForm extends ActionForm
 {
@@ -28,23 +29,23 @@ class User_RanksAdminEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['rank_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['rank_id'] =new FieldProperty($this);
 		$this->mFieldProperties['rank_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['rank_id']->addMessage('required', _MD_USER_ERROR_REQUIRED, _MD_USER_LANG_RANK_ID);
 
-		$this->mFieldProperties['rank_title'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['rank_title'] =new FieldProperty($this);
 		$this->mFieldProperties['rank_title']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['rank_title']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_RANK_TITLE, '50');
 		$this->mFieldProperties['rank_title']->addMessage('maxlength', _MD_USER_ERROR_MAXLENGTH, _AD_USER_LANG_RANK_TITLE, '50');
 		$this->mFieldProperties['rank_title']->addVar('maxlength', 50);
 
-		$this->mFieldProperties['rank_min'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['rank_min'] =new FieldProperty($this);
 		$this->mFieldProperties['rank_min']->setDependsByArray(array('required', 'min'));
 		$this->mFieldProperties['rank_min']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_RANK_MIN);
 		$this->mFieldProperties['rank_min']->addMessage('min', _AD_USER_ERROR_MIN, _AD_USER_LANG_RANK_MIN, 0);
 		$this->mFieldProperties['rank_min']->addVar('min', 0);
 
-		$this->mFieldProperties['rank_max'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['rank_max'] =new FieldProperty($this);
 		$this->mFieldProperties['rank_max']->setDependsByArray(array('required', 'min'));
 		$this->mFieldProperties['rank_max']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_RANK_MAX);
 		$this->mFieldProperties['rank_max']->addMessage('min', _AD_USER_ERROR_MIN, _AD_USER_LANG_RANK_MAX, 0);

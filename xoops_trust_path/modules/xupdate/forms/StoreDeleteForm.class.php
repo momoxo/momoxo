@@ -4,6 +4,7 @@
  * Xupdate_StoreDeleteForm
 **/
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xupdate_StoreDeleteForm extends ActionForm
 {
@@ -36,7 +37,7 @@ class Xupdate_StoreDeleteForm extends ActionForm
         //
         // Set field properties
         //
-        $this->mFieldProperties['sid'] = new XCube_FieldProperty($this);
+        $this->mFieldProperties['sid'] = new FieldProperty($this);
         $this->mFieldProperties['sid']->setDependsByArray(array('required'));
         $this->mFieldProperties['sid']->addMessage('required', _MD_XUPDATE_ERROR_REQUIRED, _MD_XUPDATE_LANG_SID);
     }

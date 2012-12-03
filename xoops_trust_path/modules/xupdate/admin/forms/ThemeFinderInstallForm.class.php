@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xupdate_Admin_ThemeFinderInstallForm extends ActionForm
 {
@@ -43,16 +44,11 @@ class Xupdate_Admin_ThemeFinderInstallForm extends ActionForm
 		//
 		// Set field properties
 		//
-/*
-		$this->mFieldProperties['addon_url'] = new XCube_FieldProperty($this);
-		$this->mFieldProperties['addon_url']->setDependsByArray(array('required'));
-		$this->mFieldProperties['addon_url']->addMessage('required', _MD_XUPDATE_ERROR_REQUIRED, 'addon_url');
-*/
-		$this->mFieldProperties['target_key'] = new XCube_FieldProperty($this);
+		$this->mFieldProperties['target_key'] = new FieldProperty($this);
 		$this->mFieldProperties['target_key']->setDependsByArray(array('required'));
 		$this->mFieldProperties['target_key']->addMessage('required', _MD_XUPDATE_ERROR_REQUIRED, 'target_key');
 
-		$this->mFieldProperties['target_type'] = new XCube_FieldProperty($this);
+		$this->mFieldProperties['target_type'] = new FieldProperty($this);
 		$this->mFieldProperties['target_type']->setDependsByArray(array('required'));
 		$this->mFieldProperties['target_type']->addMessage('required', _MD_XUPDATE_ERROR_REQUIRED, 'target_type');
 

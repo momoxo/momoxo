@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_TplsetUploadForm extends ActionForm
 {
@@ -25,11 +26,11 @@ class Xcore_TplsetUploadForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['upload'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['upload'] =new FieldProperty($this);
 		$this->mFieldProperties['upload']->setDependsByArray(array('required'));
 		$this->mFieldProperties['upload']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_TPLSET_UPLOAD_FILE);
 	
-		$this->mFieldProperties['tplset_name'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['tplset_name'] =new FieldProperty($this);
 		$this->mFieldProperties['tplset_name']->setDependsByArray(array('maxlength'));
 		$this->mFieldProperties['tplset_name']->addMessage('maxlength', _AD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_TPLSET_DESC, '50');
 		$this->mFieldProperties['tplset_name']->addVar('maxlength', '50');

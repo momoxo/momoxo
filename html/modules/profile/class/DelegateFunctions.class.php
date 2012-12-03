@@ -5,6 +5,7 @@
  */
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -95,7 +96,7 @@ class Profile_Delegate
             //validation checks for custom fields
             //
             $validationArr = array();
-            $actionForm->mFieldProperties[$def->get('field_name')] = new XCube_FieldProperty($actionForm);
+            $actionForm->mFieldProperties[$def->get('field_name')] = new FieldProperty($actionForm);
             //required check
             if($def->get('required')==true){
                 $validationArr[] = 'required';

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_AvatarUploadForm extends ActionForm
 {
@@ -24,7 +25,7 @@ class User_AvatarUploadForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['upload'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['upload'] =new FieldProperty($this);
 		$this->mFieldProperties['upload']->setDependsByArray(array('required'));
 		$this->mFieldProperties['upload']->addMessage('required', _AD_USER_ERROR_REQUIRED, _AD_USER_LANG_AVATAR_UPLOAD_FILE);
 	

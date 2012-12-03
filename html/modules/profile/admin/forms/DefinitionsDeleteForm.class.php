@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Profile_Admin_DefinitionsDeleteForm extends ActionForm
 {
@@ -25,7 +26,7 @@ class Profile_Admin_DefinitionsDeleteForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['field_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['field_id'] =new FieldProperty($this);
 		$this->mFieldProperties['field_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['field_id']->addMessage('required', _MD_PROFILE_ERROR_REQUIRED, _MD_PROFILE_LANG_FIELD_ID);
 	}

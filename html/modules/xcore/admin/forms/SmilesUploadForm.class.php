@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_SmilesUploadForm extends ActionForm
 {
@@ -24,7 +25,7 @@ class Xcore_SmilesUploadForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['upload'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['upload'] =new FieldProperty($this);
 		$this->mFieldProperties['upload']->setDependsByArray(array('required'));
 		$this->mFieldProperties['upload']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_SMILES_UPLOAD_FILE);
 	

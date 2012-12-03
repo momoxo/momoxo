@@ -5,6 +5,7 @@
  * @auchor makeActionForm
  */
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_AvatarListForm extends ActionForm
 {
@@ -43,13 +44,13 @@ class User_AvatarListForm extends ActionForm
 		//to display error-msg at confirm-page
 		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
 
-		$this->mFieldProperties['name'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['name'] =new FieldProperty($this);
 		$this->mFieldProperties['name']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['name']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_AVATAR_NAME, '100');
 		$this->mFieldProperties['name']->addMessage('maxlength', _MD_USER_ERROR_MAXLENGTH, _AD_USER_LANG_AVATAR_NAME, '100');
 		$this->mFieldProperties['name']->addVar('maxlength', 100);
 
-		$this->mFieldProperties['weight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['weight'] =new FieldProperty($this);
 		$this->mFieldProperties['weight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['weight']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_AVATAR_WEIGHT);
 

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_SmilesAdminEditForm extends ActionForm
 {
@@ -27,22 +28,22 @@ class Xcore_SmilesAdminEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['id'] =new FieldProperty($this);
 		$this->mFieldProperties['id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_ID);
 	
-		$this->mFieldProperties['code'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['code'] =new FieldProperty($this);
 		$this->mFieldProperties['code']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['code']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_CODE, '50');
 		$this->mFieldProperties['code']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _MD_XCORE_LANG_CODE, '50');
 		$this->mFieldProperties['code']->addVar('maxlength', '50');
 	
-		$this->mFieldProperties['smile_url'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['smile_url'] =new FieldProperty($this);
 		$this->mFieldProperties['smile_url']->setDependsByArray(array('extension'));
 		$this->mFieldProperties['smile_url']->addMessage('extension', _AD_XCORE_ERROR_EXTENSION);
 		$this->mFieldProperties['smile_url']->addVar('extension', 'jpg,gif,png');
 	
-		$this->mFieldProperties['emotion'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['emotion'] =new FieldProperty($this);
 		$this->mFieldProperties['emotion']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['emotion']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_EMOTION, '75');
 		$this->mFieldProperties['emotion']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _MD_XCORE_LANG_EMOTION, '75');

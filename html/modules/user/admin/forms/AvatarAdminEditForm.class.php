@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_AvatarAdminEditForm extends ActionForm
 {
@@ -27,22 +28,22 @@ class User_AvatarAdminEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['avatar_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['avatar_id'] =new FieldProperty($this);
 		$this->mFieldProperties['avatar_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['avatar_id']->addMessage('required', _MD_USER_ERROR_REQUIRED, _MD_USER_LANG_AVATAR_ID);
 
-		$this->mFieldProperties['avatar_file'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['avatar_file'] =new FieldProperty($this);
 		$this->mFieldProperties['avatar_file']->setDependsByArray(array('extension'));
 		$this->mFieldProperties['avatar_file']->addMessage('extension', _MD_USER_ERROR_AVATAR_EXTENSION, _AD_USER_LANG_AVATAR_FILE);
 		$this->mFieldProperties['avatar_file']->addVar('extension', "gif,png,jpg");
 
-		$this->mFieldProperties['avatar_name'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['avatar_name'] =new FieldProperty($this);
 		$this->mFieldProperties['avatar_name']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['avatar_name']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_AVATAR_NAME, '100');
 		$this->mFieldProperties['avatar_name']->addMessage('maxlength', _MD_USER_ERROR_MAXLENGTH, _AD_USER_LANG_AVATAR_NAME, '100');
 		$this->mFieldProperties['avatar_name']->addVar('maxlength', 100);
 
-		$this->mFieldProperties['avatar_weight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['avatar_weight'] =new FieldProperty($this);
 		$this->mFieldProperties['avatar_weight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['avatar_weight']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_AVATAR_WEIGHT);
 	}

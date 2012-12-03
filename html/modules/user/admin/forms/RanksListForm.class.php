@@ -5,6 +5,7 @@
  * @auchor makeActionForm
  */
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_RanksListForm extends ActionForm
 {
@@ -43,19 +44,19 @@ class User_RanksListForm extends ActionForm
 		//to display error-msg at confirm-page
 		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
 
-		$this->mFieldProperties['title'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['title'] =new FieldProperty($this);
 		$this->mFieldProperties['title']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['title']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_RANK_TITLE, '50');
 		$this->mFieldProperties['title']->addMessage('maxlength', _MD_USER_ERROR_MAXLENGTH, _AD_USER_LANG_RANK_TITLE, '50');
 		$this->mFieldProperties['title']->addVar('maxlength', 50);
 
-		$this->mFieldProperties['min'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['min'] =new FieldProperty($this);
 		$this->mFieldProperties['min']->setDependsByArray(array('required', 'min'));
 		$this->mFieldProperties['min']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_RANK_MIN);
 		$this->mFieldProperties['min']->addMessage('min', _AD_USER_ERROR_MIN, _AD_USER_LANG_RANK_MIN, 0);
 		$this->mFieldProperties['min']->addVar('min', 0);
 
-		$this->mFieldProperties['max'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['max'] =new FieldProperty($this);
 		$this->mFieldProperties['max']->setDependsByArray(array('required', 'min'));
 		$this->mFieldProperties['max']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_RANK_MAX);
 		$this->mFieldProperties['max']->addMessage('min', _AD_USER_ERROR_MIN, _AD_USER_LANG_RANK_MAX, 0);

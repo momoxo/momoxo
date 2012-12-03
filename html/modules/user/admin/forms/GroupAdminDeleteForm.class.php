@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_GroupAdminDeleteForm extends ActionForm
 {
@@ -19,7 +20,7 @@ class User_GroupAdminDeleteForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['groupid'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['groupid'] =new FieldProperty($this);
 		$this->mFieldProperties['groupid']->setDependsByArray(array('required'));
 		$this->mFieldProperties['groupid']->addMessage('required', _MD_USER_ERROR_REQUIRED, _MD_USER_LANG_GROUPID);
 	}

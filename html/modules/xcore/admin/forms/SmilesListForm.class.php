@@ -5,6 +5,7 @@
  * @auchor makeActionForm
  */
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_SmilesListForm extends ActionForm
 {
@@ -43,13 +44,13 @@ class Xcore_SmilesListForm extends ActionForm
 		//to display error-msg at confirm-page
 		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
 		// set fields
-		$this->mFieldProperties['code']=new XCube_FieldProperty($this);
+		$this->mFieldProperties['code']=new FieldProperty($this);
 		$this->mFieldProperties['code']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['code']->addMessage("required",_MD_XCORE_ERROR_REQUIRED,_MD_XCORE_LANG_CODE,"50");
 		$this->mFieldProperties['code']->addMessage("maxlength",_MD_XCORE_ERROR_MAXLENGTH,_MD_XCORE_LANG_CODE,"50");
 		$this->mFieldProperties['code']->addVar("maxlength",50);
 
-		$this->mFieldProperties['emotion']=new XCube_FieldProperty($this);
+		$this->mFieldProperties['emotion']=new FieldProperty($this);
 		$this->mFieldProperties['emotion']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['emotion']->addMessage("required",_MD_XCORE_ERROR_REQUIRED,_MD_XCORE_LANG_EMOTION,"75");
 		$this->mFieldProperties['emotion']->addMessage("maxlength",_MD_XCORE_ERROR_MAXLENGTH,_MD_XCORE_LANG_EMOTION,"75");

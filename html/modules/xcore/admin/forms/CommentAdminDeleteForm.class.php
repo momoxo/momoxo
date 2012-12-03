@@ -4,6 +4,7 @@
  * @internal
  */
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_CommentAdminDeleteForm extends ActionForm
 {
@@ -23,7 +24,7 @@ class Xcore_CommentAdminDeleteForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['com_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['com_id'] =new FieldProperty($this);
 		$this->mFieldProperties['com_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['com_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_COM_ID);
 	}

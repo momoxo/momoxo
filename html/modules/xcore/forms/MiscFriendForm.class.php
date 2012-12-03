@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_MiscFriendForm extends ActionForm
 {
@@ -23,20 +24,20 @@ class Xcore_MiscFriendForm extends ActionForm
 		// Set field properties
 		//
 	
-		$this->mFieldProperties['yname'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['yname'] =new FieldProperty($this);
 		$this->mFieldProperties['yname']->setDependsByArray(array('required'));
 		$this->mFieldProperties['yname']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_YNAME);
 	
-		$this->mFieldProperties['ymail'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['ymail'] =new FieldProperty($this);
 		$this->mFieldProperties['ymail']->setDependsByArray(array('required','email'));
 		$this->mFieldProperties['ymail']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_YMAIL);
 		$this->mFieldProperties['ymail']->addMessage('required', _MD_XCORE_ERROR_EMAIL, _MD_XCORE_LANG_YMAIL);
 	
-		$this->mFieldProperties['fname'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['fname'] =new FieldProperty($this);
 		$this->mFieldProperties['fname']->setDependsByArray(array('required'));
 		$this->mFieldProperties['fname']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_FNAME);
 	
-		$this->mFieldProperties['fmail'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['fmail'] =new FieldProperty($this);
 		$this->mFieldProperties['fmail']->setDependsByArray(array('required','email'));
 		$this->mFieldProperties['fmail']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_FMAIL);
 		$this->mFieldProperties['fmail']->addMessage('email', _MD_XCORE_ERROR_EMAIL, _MD_XCORE_LANG_FMAIL);

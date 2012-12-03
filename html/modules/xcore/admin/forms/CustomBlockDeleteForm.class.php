@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_CustomBlockDeleteForm extends ActionForm
 {
@@ -19,7 +20,7 @@ class Xcore_CustomBlockDeleteForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['bid'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['bid'] =new FieldProperty($this);
 		$this->mFieldProperties['bid']->setDependsByArray(array('required'));
 		$this->mFieldProperties['bid']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_BID);
 	}

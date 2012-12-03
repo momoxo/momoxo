@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_TplsetEditForm extends ActionForm
 {
@@ -21,11 +22,11 @@ class Xcore_TplsetEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['tplset_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['tplset_id'] =new FieldProperty($this);
 		$this->mFieldProperties['tplset_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['tplset_id']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_TPLSET_ID);
 
-		$this->mFieldProperties['tplset_desc'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['tplset_desc'] =new FieldProperty($this);
 		$this->mFieldProperties['tplset_desc']->setDependsByArray(array('maxlength'));
 		$this->mFieldProperties['tplset_desc']->addMessage('maxlength', _AD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_TPLSET_DESC, '255');
 		$this->mFieldProperties['tplset_desc']->addVar('maxlength', 255);

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ImagecategoryAdminEditForm extends ActionForm
 {
@@ -27,38 +28,38 @@ class Xcore_ImagecategoryAdminEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['imgcat_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_id'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['imgcat_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_ID);
 	
-		$this->mFieldProperties['imgcat_name'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_name'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_name']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['imgcat_name']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_NAME, '100');
 		$this->mFieldProperties['imgcat_name']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_IMGCAT_NAME, '100');
 		$this->mFieldProperties['imgcat_name']->addVar('maxlength', '100');
 	
-		$this->mFieldProperties['imgcat_maxsize'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_maxsize'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_maxsize']->setDependsByArray(array('required'));
 		$this->mFieldProperties['imgcat_maxsize']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXSIZE);
 	
-		$this->mFieldProperties['imgcat_maxwidth'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_maxwidth'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_maxwidth']->setDependsByArray(array('required'));
 		$this->mFieldProperties['imgcat_maxwidth']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXWIDTH);
 	
-		$this->mFieldProperties['imgcat_maxheight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_maxheight'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_maxheight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['imgcat_maxheight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXHEIGHT);
 	
-		$this->mFieldProperties['imgcat_weight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['imgcat_weight'] =new FieldProperty($this);
 		$this->mFieldProperties['imgcat_weight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['imgcat_weight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_WEIGHT);
 	
-		$this->mFieldProperties['readgroups'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['readgroups'] =new FieldProperty($this);
 		$this->mFieldProperties['readgroups']->setDependsByArray(array('objectExist'));
 		$this->mFieldProperties['readgroups']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_IMGCAT_READ_GROUPS);
 		$this->mFieldProperties['readgroups']->addVar('handler', 'group');
 	
-		$this->mFieldProperties['uploadgroups'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['uploadgroups'] =new FieldProperty($this);
 		$this->mFieldProperties['uploadgroups']->setDependsByArray(array('objectExist'));
 		$this->mFieldProperties['uploadgroups']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_IMGCAT_UPLOAD_GROUPS);
 		$this->mFieldProperties['uploadgroups']->addVar('handler', 'group');

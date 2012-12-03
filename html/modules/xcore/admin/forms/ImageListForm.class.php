@@ -5,6 +5,7 @@
  * @auchor makeActionForm
  */
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ImageListForm extends ActionForm
 {
@@ -43,11 +44,11 @@ class Xcore_ImageListForm extends ActionForm
 		//to display error-msg at confirm-page
 		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
 		// set fields
-		$this->mFieldProperties['nicename'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['nicename'] =new FieldProperty($this);
 		$this->mFieldProperties['nicename']->setDependsByArray(array('required'));
 		$this->mFieldProperties['nicename']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_IMAGE_NICENAME);
 
-		$this->mFieldProperties['weight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['weight'] =new FieldProperty($this);
 		$this->mFieldProperties['weight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['weight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_WEIGHT);
 

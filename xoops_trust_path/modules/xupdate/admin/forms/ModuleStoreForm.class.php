@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xupdate_Admin_ModuleStoreForm extends ActionForm
 {
@@ -35,7 +36,7 @@ class Xupdate_Admin_ModuleStoreForm extends ActionForm
 		$this->mFormProperties['dirname']=new XCube_StringArrayProperty('dirname');
 
 		// set fields
-		$this->mFieldProperties['dirname']=new XCube_FieldProperty($this);
+		$this->mFieldProperties['dirname']=new FieldProperty($this);
 		$this->mFieldProperties['dirname']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['dirname']->addMessage("required",_MD_XUPDATE_ERROR_REQUIRED,_MD_XUPDATE_LANG_NAME,"255");
 		$this->mFieldProperties['dirname']->addMessage("maxlength",_MD_XUPDATE_ERROR_MAXLENGTH,_MD_XUPDATE_LANG_NAME,"255");

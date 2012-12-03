@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_TplfileAdminDeleteForm extends ActionForm
 {
@@ -20,7 +21,7 @@ class Xcore_TplfileAdminDeleteForm extends ActionForm
 		// Set field properties
 		//
 	
-		$this->mFieldProperties['tpl_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['tpl_id'] =new FieldProperty($this);
 		$this->mFieldProperties['tpl_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['tpl_id']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_TPL_ID);
 	}

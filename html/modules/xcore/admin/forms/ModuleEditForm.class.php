@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ModuleEditForm extends ActionForm
 {
@@ -25,34 +26,34 @@ class Xcore_ModuleEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['mid'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['mid'] =new FieldProperty($this);
 		$this->mFieldProperties['mid']->setDependsByArray(array('required'));
 		$this->mFieldProperties['mid']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_MOD_MID);
 	
-		$this->mFieldProperties['name'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['name'] =new FieldProperty($this);
 		$this->mFieldProperties['name']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['name']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_NAME, '255');
 		$this->mFieldProperties['name']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_NAME, '255');
 		$this->mFieldProperties['name']->addVar('maxlength', '255');
 	
-		$this->mFieldProperties['weight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['weight'] =new FieldProperty($this);
 		$this->mFieldProperties['weight']->setDependsByArray(array('required', 'intRange'));
 		$this->mFieldProperties['weight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_WEIGHT);
 		$this->mFieldProperties['weight']->addMessage('intRange', _AD_XCORE_ERROR_INTRANGE, _AD_XCORE_LANG_WEIGHT);
 		$this->mFieldProperties['weight']->addVar('min', '0');
 		$this->mFieldProperties['weight']->addVar('max', '255');
 	
-		$this->mFieldProperties['read_groupid'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['read_groupid'] =new FieldProperty($this);
 		$this->mFieldProperties['read_groupid']->setDependsByArray(array('objectExist'));
 		$this->mFieldProperties['read_groupid']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_GROUPID);
 		$this->mFieldProperties['read_groupid']->addVar('handler', 'group');
 
-		$this->mFieldProperties['admin_groupid'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['admin_groupid'] =new FieldProperty($this);
 		$this->mFieldProperties['admin_groupid']->setDependsByArray(array('objectExist'));
 		$this->mFieldProperties['admin_groupid']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_GROUPID);
 		$this->mFieldProperties['admin_groupid']->addVar('handler', 'group');
 
-		$this->mFieldProperties['module_cache'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['module_cache'] =new FieldProperty($this);
 		$this->mFieldProperties['module_cache']->setDependsByArray(array('required', 'objectExist'));
 		$this->mFieldProperties['module_cache']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_AM_MODCACHE);
 		$this->mFieldProperties['module_cache']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _MD_AM_MODCACHE);

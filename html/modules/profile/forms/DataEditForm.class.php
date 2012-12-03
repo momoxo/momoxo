@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Profile_DataEditForm extends ActionForm
 {
@@ -33,7 +34,7 @@ class Profile_DataEditForm extends ActionForm
 		
 			//validation checks
 			$validationArr = array();
-			$this->mFieldProperties[$this->mDef[$key]->get('field_name')] =new XCube_FieldProperty($this);
+			$this->mFieldProperties[$this->mDef[$key]->get('field_name')] =new FieldProperty($this);
 			//required check
 			if($this->mDef[$key]->get('required')==1){
 				$validationArr[] = 'required';
@@ -52,7 +53,7 @@ class Profile_DataEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['uid'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['uid'] =new FieldProperty($this);
 		$this->mFieldProperties['uid']->setDependsByArray(array('required'));
 		$this->mFieldProperties['uid']->addMessage('required', _MD_PROFILE_ERROR_REQUIRED, _MD_PROFILE_LANG_UID);
 	}

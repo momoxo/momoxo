@@ -10,7 +10,6 @@ call_user_func(function(){
 		'XCube_DependClassFactory'             => null,
 		'XCube_EmailValidator'                 => null,
 		'XCube_ExtensionValidator'             => null,
-		'XCube_FieldProperty'                  => null,
 		'XCube_FileArrayProperty'              => null,
 		'XCube_FileProperty'                   => null,
 		'XCube_FloatArrayProperty'             => null,

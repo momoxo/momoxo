@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ModuleListForm extends ActionForm
 {
@@ -38,13 +39,13 @@ class Xcore_ModuleListForm extends ActionForm
         $this->mFormProperties['issystem']=new XCube_BoolArrayProperty('issystem');
 
 		// set fields
-		$this->mFieldProperties['name']=new XCube_FieldProperty($this);
+		$this->mFieldProperties['name']=new FieldProperty($this);
 		$this->mFieldProperties['name']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['name']->addMessage("required",_MD_XCORE_ERROR_REQUIRED,_AD_XCORE_LANG_NAME,"140");
 		$this->mFieldProperties['name']->addMessage("maxlength",_MD_XCORE_ERROR_MAXLENGTH,_AD_XCORE_LANG_NAME,"140");
 		$this->mFieldProperties['name']->addVar("maxlength",140);
 
-		$this->mFieldProperties['weight']=new XCube_FieldProperty($this);
+		$this->mFieldProperties['weight']=new FieldProperty($this);
 		$this->mFieldProperties['weight']->setDependsByArray(array('required','min'));
 		$this->mFieldProperties['weight']->addMessage("min",_AD_XCORE_ERROR_MIN,_AD_XCORE_LANG_WEIGHT,"0");
 		$this->mFieldProperties['weight']->addVar("min",0);

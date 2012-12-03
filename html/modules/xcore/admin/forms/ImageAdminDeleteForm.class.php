@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ImageAdminDeleteForm extends ActionForm
 {
@@ -19,7 +20,7 @@ class Xcore_ImageAdminDeleteForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['image_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['image_id'] =new FieldProperty($this);
 		$this->mFieldProperties['image_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['image_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_ID);
 	}

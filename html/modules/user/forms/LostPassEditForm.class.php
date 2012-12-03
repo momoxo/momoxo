@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_LostPassEditForm extends ActionForm
 {
@@ -20,7 +21,7 @@ class User_LostPassEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['email'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['email'] =new FieldProperty($this);
 		$this->mFieldProperties['email']->setDependsByArray(array('required', 'email'));
 		$this->mFieldProperties['email']->addMessage('required', _MD_USER_ERROR_REQUIRED, _MD_USER_LANG_EMAIL);
 		$this->mFieldProperties['email']->addMessage('email', _MD_USER_ERROR_EMAIL, _MD_USER_LANG_EMAIL);

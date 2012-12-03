@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_AvatarEditForm extends ActionForm
 {
@@ -29,7 +30,7 @@ class User_AvatarEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['uploadavatar'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['uploadavatar'] =new FieldProperty($this);
 		$this->mFieldProperties['uploadavatar']->setDependsByArray(array('extension', 'maxfilesize'));
 		$this->mFieldProperties['uploadavatar']->addMessage('extension', _MD_USER_ERROR_AVATAR_EXTENSION);
 		$this->mFieldProperties['uploadavatar']->addVar('extension', "jpg,gif,png");

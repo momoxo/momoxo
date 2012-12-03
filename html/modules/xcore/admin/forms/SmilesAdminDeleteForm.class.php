@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_SmilesAdminDeleteForm extends ActionForm
 {
@@ -19,7 +20,7 @@ class Xcore_SmilesAdminDeleteForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['id'] =new FieldProperty($this);
 		$this->mFieldProperties['id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_ID);
 	}

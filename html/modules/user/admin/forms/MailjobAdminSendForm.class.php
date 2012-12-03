@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_MailjobAdminSendForm extends ActionForm
 {
@@ -19,7 +20,7 @@ class User_MailjobAdminSendForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['mailjob_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['mailjob_id'] =new FieldProperty($this);
 		$this->mFieldProperties['mailjob_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['mailjob_id']->addMessage('required', _MD_USER_ERROR_REQUIRED, _AD_USER_LANG_MAILJOB_ID);
 	}

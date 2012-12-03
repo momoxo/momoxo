@@ -5,6 +5,7 @@
  * @auchor makeActionForm
  */
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_CommentListForm extends ActionForm
 {
@@ -42,7 +43,7 @@ class Xcore_CommentListForm extends ActionForm
 		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
 
 		// set fields
-		$this->mFieldProperties['status'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['status'] =new FieldProperty($this);
 		$this->mFieldProperties['status']->setDependsByArray(array('required','objectExist'));
 		$this->mFieldProperties['status']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_COM_STATUS);
 		$this->mFieldProperties['status']->addMessage('objectExist', _AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_COM_STATUS);

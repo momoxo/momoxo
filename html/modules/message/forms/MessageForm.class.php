@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class MessageForm extends ActionForm
 {
@@ -30,19 +31,19 @@ class MessageForm extends ActionForm
     $this->set_Property('Xcore_Event_User_Submit');
     $this->set_Property('note', 'XCube_TextProperty');
     
-    $this->mFieldProperties['uname'] = new XCube_FieldProperty($this);
+    $this->mFieldProperties['uname'] = new FieldProperty($this);
     $this->mFieldProperties['uname']->setDependsByArray(array('required', 'maxlength'));
     $this->mFieldProperties['uname']->addMessage('required', _MD_MESSAGE_FORMERROR1);
     $this->mFieldProperties['uname']->addMessage('maxlength', _MD_MESSAGE_FORMERROR2);
     $this->mFieldProperties['uname']->addVar('maxlength', '30');
     
-    $this->mFieldProperties['title'] = new XCube_FieldProperty($this);
+    $this->mFieldProperties['title'] = new FieldProperty($this);
     $this->mFieldProperties['title']->setDependsByArray(array('required', 'maxlength'));
     $this->mFieldProperties['title']->addMessage('required', _MD_MESSAGE_FORMERROR3);
     $this->mFieldProperties['title']->addMessage('maxlength', _MD_MESSAGE_FORMERROR4);
     $this->mFieldProperties['title']->addVar('maxlength', '100');
     
-    $this->mFieldProperties['note'] = new XCube_FieldProperty($this);
+    $this->mFieldProperties['note'] = new FieldProperty($this);
     $this->mFieldProperties['note']->setDependsByArray(array('required'));
     $this->mFieldProperties['note']->addMessage('required', _MD_MESSAGE_FORMERROR5);
   }

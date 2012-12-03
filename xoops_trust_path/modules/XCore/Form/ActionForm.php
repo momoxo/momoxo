@@ -2,12 +2,12 @@
 
 namespace XCore\Form;
 
-use XCube_FieldProperty;
 use XCore\Kernel\Root;
 use XCore\Kernel\HttpContext;
 use XCore\Kernel\Principal;
 use XCore\Kernel\Service;
 use XCore\Property\AbstractProperty;
+use XCore\Form\FieldProperty;
 
 /**
  * Fetches input values, validates fetched values and passes them to some object.
@@ -61,7 +61,7 @@ abstract class ActionForm
 	protected $mFormProperties = array();
 
 	/**
-	 * @var XCube_FieldProperty[]
+	 * @var FieldProperty[]
 	 */
 	protected $mFieldProperties = array();
 
@@ -69,7 +69,7 @@ abstract class ActionForm
 	 * Attention: This is temporary until we will decide the method of managing error.
 	 * @var bool
 	 */
-	protected $mErrorFlag = false;
+	public $mErrorFlag = false;
 
 	/**
 	 * @var string[]
@@ -367,7 +367,7 @@ abstract class ActionForm
 	 * Adds an message to error message buffer of the form.
 	 * @param $message string
 	 */
-	protected function addErrorMessage($message)
+	public function addErrorMessage($message)
 	{
 		$this->mErrorMessages[] = $message;
 	}

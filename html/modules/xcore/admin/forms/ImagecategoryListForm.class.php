@@ -5,6 +5,7 @@
  * @auchor makeActionForm
  */
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_ImagecategoryListForm extends ActionForm
 {
@@ -46,25 +47,25 @@ class Xcore_ImagecategoryListForm extends ActionForm
 		//to display error-msg at confirm-page
 		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
 		// set fields
-		$this->mFieldProperties['name'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['name'] =new FieldProperty($this);
 		$this->mFieldProperties['name']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['name']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_NAME, '100');
 		$this->mFieldProperties['name']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_IMGCAT_NAME, '100');
 		$this->mFieldProperties['name']->addVar('maxlength', '100');
 	
-		$this->mFieldProperties['maxsize'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['maxsize'] =new FieldProperty($this);
 		$this->mFieldProperties['maxsize']->setDependsByArray(array('required'));
 		$this->mFieldProperties['maxsize']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXSIZE);
 	
-		$this->mFieldProperties['maxwidth'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['maxwidth'] =new FieldProperty($this);
 		$this->mFieldProperties['maxwidth']->setDependsByArray(array('required'));
 		$this->mFieldProperties['maxwidth']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXWIDTH);
 	
-		$this->mFieldProperties['maxheight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['maxheight'] =new FieldProperty($this);
 		$this->mFieldProperties['maxheight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['maxheight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_MAXHEIGHT);
 	
-		$this->mFieldProperties['weight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['weight'] =new FieldProperty($this);
 		$this->mFieldProperties['weight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['weight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMGCAT_WEIGHT);
 

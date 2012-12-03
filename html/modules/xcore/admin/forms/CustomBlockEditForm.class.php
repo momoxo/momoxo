@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Form\FieldProperty;
+
 class Xcore_CustomBlockEditForm extends Xcore_BlockEditForm
 {
 	function getTokenName()
@@ -20,11 +22,11 @@ class Xcore_CustomBlockEditForm extends Xcore_BlockEditForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['content'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['content'] =new FieldProperty($this);
 		$this->mFieldProperties['content']->setDependsByArray(array('required'));
 		$this->mFieldProperties['content']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_CONTENT);
 	
-		$this->mFieldProperties['c_type'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['c_type'] =new FieldProperty($this);
 		$this->mFieldProperties['c_type']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['c_type']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_C_TYPE, '1');
 		$this->mFieldProperties['c_type']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _AD_XCORE_LANG_C_TYPE, '1');

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class User_GroupMemberEditForm extends ActionForm
 {
@@ -20,7 +21,7 @@ class User_GroupMemberEditForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['uid'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['uid'] =new FieldProperty($this);
 		$this->mFieldProperties['uid']->setDependsByArray(array('intRange'));
 		$this->mFieldProperties['uid']->addMessage('intRange', _AD_USER_ERROR_REQUEST_IS_WRONG);
 		$this->mFieldProperties['uid']->addVar('min', '1');

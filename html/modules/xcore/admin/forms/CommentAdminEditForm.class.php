@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_AbstractCommentAdminEditForm extends ActionForm
 {
@@ -30,22 +31,22 @@ class Xcore_AbstractCommentAdminEditForm extends ActionForm
 		// Set field properties
 		//
 	
-		$this->mFieldProperties['com_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['com_id'] =new FieldProperty($this);
 		$this->mFieldProperties['com_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['com_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_COM_ID);
 	
-		$this->mFieldProperties['com_icon'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['com_icon'] =new FieldProperty($this);
 		$this->mFieldProperties['com_icon']->setDependsByArray(array('maxlength'));
 		$this->mFieldProperties['com_icon']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _MD_XCORE_LANG_COM_ICON, '25');
 		$this->mFieldProperties['com_icon']->addVar('maxlength', '25');
 	
-		$this->mFieldProperties['com_title'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['com_title'] =new FieldProperty($this);
 		$this->mFieldProperties['com_title']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['com_title']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_COM_TITLE, '255');
 		$this->mFieldProperties['com_title']->addMessage('maxlength', _MD_XCORE_ERROR_MAXLENGTH, _MD_XCORE_LANG_COM_TITLE, '255');
 		$this->mFieldProperties['com_title']->addVar('maxlength', '255');
 	
-		$this->mFieldProperties['com_text'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['com_text'] =new FieldProperty($this);
 		$this->mFieldProperties['com_text']->setDependsByArray(array('required'));
 		$this->mFieldProperties['com_text']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _MD_XCORE_LANG_COM_TEXT);
 	}
@@ -87,7 +88,7 @@ class Xcore_PendingCommentAdminEditForm extends Xcore_AbstractCommentAdminEditFo
 	{
 		parent::prepare();
 
-		$this->mFieldProperties['com_status'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['com_status'] =new FieldProperty($this);
 		$this->mFieldProperties['com_status']->setDependsByArray(array('required','intRange'));
 		$this->mFieldProperties['com_status']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_COM_STATUS);
 		$this->mFieldProperties['com_status']->addMessage('intRange', _AD_XCORE_ERROR_INTRANGE, _AD_XCORE_LANG_COM_STATUS);
@@ -102,7 +103,7 @@ class Xcore_ApprovalCommentAdminEditForm extends Xcore_AbstractCommentAdminEditF
 	{
 		parent::prepare();
 
-		$this->mFieldProperties['com_status'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['com_status'] =new FieldProperty($this);
 		$this->mFieldProperties['com_status']->setDependsByArray(array('required','intRange'));
 		$this->mFieldProperties['com_status']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_COM_STATUS);
 		$this->mFieldProperties['com_status']->addMessage('intRange', _AD_XCORE_ERROR_INTRANGE, _AD_XCORE_LANG_COM_STATUS);

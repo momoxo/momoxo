@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Form\FieldProperty;
+
 class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 {
 	function getTokenName()
@@ -19,7 +21,7 @@ class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['tpl_tplset'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['tpl_tplset'] =new FieldProperty($this);
 		$this->mFieldProperties['tpl_tplset']->setDependsByArray(array('required'));
 		$this->mFieldProperties['tpl_tplset']->addMessage('required', _AD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_TPL_TPLSET);
 	}

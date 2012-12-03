@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Form\FieldProperty;
+
 class Xcore_ImageAdminCreateForm extends Xcore_ImageUploadForm
 {
 	var $_mImgcatId = 0;
@@ -23,11 +25,11 @@ class Xcore_ImageAdminCreateForm extends Xcore_ImageUploadForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['image_id'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['image_id'] =new FieldProperty($this);
 		$this->mFieldProperties['image_id']->setDependsByArray(array('required'));
 		$this->mFieldProperties['image_id']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_ID);
 	
-		$this->mFieldProperties['image_weight'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['image_weight'] =new FieldProperty($this);
 		$this->mFieldProperties['image_weight']->setDependsByArray(array('required'));
 		$this->mFieldProperties['image_weight']->addMessage('required', _MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_IMAGE_WEIGHT);
 	}

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Form\FieldProperty;
 
 class Xcore_InstallWizardForm extends ActionForm
 {
@@ -20,7 +21,7 @@ class Xcore_InstallWizardForm extends ActionForm
 		//
 		// Set field properties
 		//
-		$this->mFieldProperties['agree'] =new XCube_FieldProperty($this);
+		$this->mFieldProperties['agree'] =new FieldProperty($this);
 		$this->mFieldProperties['agree']->setDependsByArray(array('min'));
 		$this->mFieldProperties['agree']->addMessage('min', _AD_XCORE_ERROR_PLEASE_AGREE);
 		$this->mFieldProperties['agree']->addVar('min', '1');
