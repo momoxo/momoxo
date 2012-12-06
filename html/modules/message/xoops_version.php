@@ -99,4 +99,3 @@ $modversion['blocks'][0]['class']		= 'Block';
 $modversion['blocks'][0]['template']	= 'message_block_template.html';
 $modversion['blocks'][0]['visible'] 	= '1';
 $modversion['blocks'][0]['func_num']	= 1;
-?>

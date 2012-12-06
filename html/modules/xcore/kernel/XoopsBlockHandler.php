@@ -111,11 +111,14 @@ class XoopsBlockHandler extends XoopsObjectHandler
         foreach ($block->cleanVars as $k => $v) {
             ${$k} = $v;
         }
-
+		
 		$isNew = false;
 		
 		$db = $this->db;
         if ($block->isNew()) {
+			if(intval($weight) == 0){
+				$weight = 100;
+			}
 			$isNew = true;
             $bid = $db->genId('newblocks_bid_seq');
             $sql = sprintf('INSERT INTO %s (bid, mid, func_num, options, name, title, content, side, weight, visible, block_type, c_type, isactive, dirname, func_file, show_func, edit_func, template, bcachetime, last_modified) VALUES (%u, %u, %u, %s, %s, %s, %s, %u, %u, %u, %s, %s, %u, %s, %s, %s, %s, %s, %u, %u)', $db->prefix('newblocks'), $bid, $mid, $func_num, $db->quoteString($options), $db->quoteString($name), $db->quoteString($title), $db->quoteString($content), $side, $weight, $visible, $db->quoteString($block_type), $db->quoteString($c_type), 1, $db->quoteString($dirname), $db->quoteString($func_file), $db->quoteString($show_func), $db->quoteString($edit_func), $db->quoteString($template), $bcachetime, time());
