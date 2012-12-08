@@ -9,7 +9,7 @@ use XCore\Form\ActionForm;
  * Defines a interface for the property class group.
  *
  * PropertyInterface is designed to work in ActionForm or Service (in the near future).
- * Therefore only sub-classes of them should call constructors of XCube_Property classes.
+ * Therefore only sub-classes of them should call constructors of Property classes.
  *
  * @todo abstract class ではなく interface にする
  */
