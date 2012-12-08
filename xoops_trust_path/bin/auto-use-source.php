@@ -3,14 +3,36 @@
 /**
  * use句をソースコードに自動配置する
  * @param $sourceCode
+ * @param $oldClass
  * @param $useClass
  * @return string
  */
-function auto_use($sourceCode, $useClass)
+function auto_use($sourceCode, $oldClass, $useClass)
 {
 	$skipTokens = array(T_OPEN_TAG, T_DOC_COMMENT, T_COMMENT, T_WHITESPACE);
 	$code = '';
 	$tokens = token_get_all($sourceCode);
+
+	$className = null;
+
+	// 変えようとしているクラスのクラス名を調べる
+	foreach ( $tokens as $index => $token ) {
+		if ( is_array($token) and $token[0] === T_CLASS ) {
+			while ( isset($tokens[$index]) ) {
+				if ( $tokens[$index][0] === T_STRING ) {
+					$className = $tokens[$index][1];
+					break;
+				}
+				$index += 1;
+			}
+		}
+	}
+
+	// 自分自身の場合は use しない
+	if ( $className == $oldClass ) {
+		return $sourceCode;
+	}
+
 	$isUsed = false;
 	$skippingToEOL = false;
 	$foundUse = false;

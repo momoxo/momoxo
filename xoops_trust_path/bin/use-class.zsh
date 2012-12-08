@@ -1,10 +1,12 @@
 #!/usr/bin/env zsh
 
 set -eux
+SCRIPT_NAME=$(basename $0)
 
 help() {
+	set +x
 	echo "usage:"
-	echo "    \$ $0 \"<old class name>\" \"<new class name>\""
+	echo "    \$ $SCRIPT_NAME \"<old class name>\" \"<new class name>\""
 	exit 1
 }
 
@@ -20,6 +22,6 @@ autouse="$(dirname $0)/auto-use.php"
 
 for file in $(grep -rl "$old_class" **/*.php) 
 do
-	$autouse "$file" "$new_class"
+	$autouse "$file" "$old_class" "$new_class"
 done
 

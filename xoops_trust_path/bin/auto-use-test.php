@@ -168,47 +168,67 @@ class ClassName
 
 // ✄ - - - - - - - - - - - - - - - - - - - - - - - -
 
+$cases[8]['source'] = '<?php
+
+class OldClassName
+{
+}';
+
+$cases[8]['expected'] =  '<?php
+
+class OldClassName
+{
+}';
+
+// ✄ - - - - - - - - - - - - - - - - - - - - - - - -
+
 class AutoNamespaceTest extends PHPUnit_Framework_TestCase
 {
 	public function test_auto_use()
 	{
 		$case = $GLOBALS['cases'][1];
-		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
 	}
 
 	public function test_auto_use_with_comment()
 	{
 		$case = $GLOBALS['cases'][2];
-		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
 	}
 
 	public function test_auto_use_with_namespace()
 	{
 		$case = $GLOBALS['cases'][3];
-		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
 	}
 
 	public function test_auto_use_with_use()
 	{
 		$case = $GLOBALS['cases'][4];
-		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
 	}
 
 	public function test_auto_use_5()
 	{
 		$case = $GLOBALS['cases'][5];
-		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
 	}
 
 	public function test_auto_use_6()
 	{
 		$case = $GLOBALS['cases'][6];
-		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
 	}
 
 	public function test_auto_use_7()
 	{
 		$case = $GLOBALS['cases'][7];
-		$this->assertSame($case['expected'], auto_use($case['source'], 'XCore\Kernel\Root'));
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
+	}
+
+	public function test_auto_use_8()
+	{
+		$case = $GLOBALS['cases'][8];
+		$this->assertSame($case['expected'], auto_use($case['source'], 'OldClassName', 'XCore\Kernel\Root'));
 	}
 }
