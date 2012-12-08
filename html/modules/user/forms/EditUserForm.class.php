@@ -3,6 +3,11 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\DelegateUtils;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\FloatProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -28,34 +33,34 @@ class User_EditUserForm extends User_AbstractUserEditForm
 		//
 		// set properties
 		//
-		$this->mFormProperties['uid'] =new XCube_IntProperty('uid');
-		$this->mFormProperties['name'] =new XCube_StringProperty('name');
+		$this->mFormProperties['uid'] =new IntProperty('uid');
+		$this->mFormProperties['name'] =new StringProperty('name');
 		
 		if ($this->mConfig['allow_chgmail']) {
-			$this->mFormProperties['email'] =new XCube_StringProperty('email');
+			$this->mFormProperties['email'] =new StringProperty('email');
 		}
 
-		$this->mFormProperties['user_viewemail'] =new XCube_BoolProperty('user_viewemail');
-		$this->mFormProperties['url'] =new XCube_StringProperty('url');
-		$this->mFormProperties['user_icq'] =new XCube_StringProperty('user_icq');
-		$this->mFormProperties['user_aim'] =new XCube_StringProperty('user_aim');
-		$this->mFormProperties['user_yim'] =new XCube_StringProperty('user_yim');
-		$this->mFormProperties['user_msnm'] =new XCube_StringProperty('user_msnm');
-		$this->mFormProperties['user_from'] =new XCube_StringProperty('user_from');
-		$this->mFormProperties['timezone_offset'] =new XCube_FloatProperty('timezone_offset');
-		$this->mFormProperties['umode'] =new XCube_StringProperty('umode');
-		$this->mFormProperties['uorder'] =new XCube_IntProperty('uorder');
-		$this->mFormProperties['notify_method'] =new XCube_IntProperty('notify_method');
-		$this->mFormProperties['notify_mode'] =new XCube_IntProperty('notify_mode');
-		$this->mFormProperties['user_occ'] =new XCube_StringProperty('user_occ');
-		$this->mFormProperties['user_intrest'] =new XCube_StringProperty('user_intrest');
-		$this->mFormProperties['user_sig'] =new XCube_TextProperty('user_sig');
-		$this->mFormProperties['attachsig'] =new XCube_BoolProperty('attachsig');
-		$this->mFormProperties['bio'] =new XCube_TextProperty('bio');
-		$this->mFormProperties['pass'] =new XCube_StringProperty('pass');
-		$this->mFormProperties['vpass'] =new XCube_StringProperty('vpass');
-		$this->mFormProperties['usercookie'] =new XCube_BoolProperty('usercookie');
-		$this->mFormProperties['user_mailok'] =new XCube_BoolProperty('user_mailok');
+		$this->mFormProperties['user_viewemail'] =new BoolProperty('user_viewemail');
+		$this->mFormProperties['url'] =new StringProperty('url');
+		$this->mFormProperties['user_icq'] =new StringProperty('user_icq');
+		$this->mFormProperties['user_aim'] =new StringProperty('user_aim');
+		$this->mFormProperties['user_yim'] =new StringProperty('user_yim');
+		$this->mFormProperties['user_msnm'] =new StringProperty('user_msnm');
+		$this->mFormProperties['user_from'] =new StringProperty('user_from');
+		$this->mFormProperties['timezone_offset'] =new FloatProperty('timezone_offset');
+		$this->mFormProperties['umode'] =new StringProperty('umode');
+		$this->mFormProperties['uorder'] =new IntProperty('uorder');
+		$this->mFormProperties['notify_method'] =new IntProperty('notify_method');
+		$this->mFormProperties['notify_mode'] =new IntProperty('notify_mode');
+		$this->mFormProperties['user_occ'] =new StringProperty('user_occ');
+		$this->mFormProperties['user_intrest'] =new StringProperty('user_intrest');
+		$this->mFormProperties['user_sig'] =new TextProperty('user_sig');
+		$this->mFormProperties['attachsig'] =new BoolProperty('attachsig');
+		$this->mFormProperties['bio'] =new TextProperty('bio');
+		$this->mFormProperties['pass'] =new StringProperty('pass');
+		$this->mFormProperties['vpass'] =new StringProperty('vpass');
+		$this->mFormProperties['usercookie'] =new BoolProperty('usercookie');
+		$this->mFormProperties['user_mailok'] =new BoolProperty('user_mailok');
 
 		//
 		// set fields

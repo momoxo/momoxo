@@ -1,34 +1,35 @@
 <?php
 
+namespace XCore\Property;
+
+use XCore\Property\AbstractProperty;
+use XCore\Property\FileArrayProperty;
+
 /**
- * @public
- * @brief Represents the special property which handles uploaded file.
+ * Represents the special property which handles uploaded file.
  * @see XCube_FormFile
  */
-use XCore\Property\AbstractProperty;
-
-class XCube_FileProperty extends AbstractProperty
+class FileProperty extends AbstractProperty
 {
 	/**
-	 * @protected
-	 * @brief mixed - ID for XCube_FileArrayProperty.
-	 * 
-	 * friend XCube_FileArrayProperty;
+	 * ID for FileArrayProperty.
+	 * @var mixed
+	 * @see FileArrayProperty;
 	 */
-	var $mIndex = null;
+	protected $mIndex = null;
 	
-	function __construct($name)
+	public function __construct($name)
 	{
 		parent::__construct($name);
 		$this->mValue = new XCube_FormFile($name);
 	}
 	
-	function hasFetchControl()
+	public function hasFetchControl()
 	{
 		return true;
 	}
 	
-	function fetch(&$form)
+	public function fetch(&$form)
 	{
 		if (!is_object($this->mValue)) {
 			return false;
@@ -45,7 +46,7 @@ class XCube_FileProperty extends AbstractProperty
 		}
 	}
 	
-	function isNull()
+	public function isNull()
 	{
 		if (!is_object($this->mValue)) {
 			return true;
@@ -54,12 +55,12 @@ class XCube_FileProperty extends AbstractProperty
 		return !$this->mValue->hasUploadFile();
 	}
 	
-	function toString()
+	public function toString()
 	{
 		return null;
 	}
 	
-	function toNumber()
+	public function toNumber()
 	{
 		return null;
 	}

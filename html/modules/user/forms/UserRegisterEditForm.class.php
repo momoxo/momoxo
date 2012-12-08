@@ -1,6 +1,10 @@
 <?php
 
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\FloatProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -19,15 +23,15 @@ class User_RegisterEditForm extends User_AbstractUserEditForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['uname'] =new XCube_StringProperty('uname');
-		$this->mFormProperties['email'] =new XCube_StringProperty('email');
-		$this->mFormProperties['user_viewemail'] =new XCube_BoolProperty('user_viewemail');
-		$this->mFormProperties['url'] =new XCube_StringProperty('url');
-		$this->mFormProperties['timezone_offset'] =new XCube_FloatProperty('timezone_offset');
-		$this->mFormProperties['pass'] =new XCube_StringProperty('pass');
-		$this->mFormProperties['vpass'] =new XCube_StringProperty('vpass');
-		$this->mFormProperties['user_mailok'] =new XCube_BoolProperty('user_mailok');
-		$this->mFormProperties['agree'] =new XCube_BoolProperty('agree');
+		$this->mFormProperties['uname'] =new StringProperty('uname');
+		$this->mFormProperties['email'] =new StringProperty('email');
+		$this->mFormProperties['user_viewemail'] =new BoolProperty('user_viewemail');
+		$this->mFormProperties['url'] =new StringProperty('url');
+		$this->mFormProperties['timezone_offset'] =new FloatProperty('timezone_offset');
+		$this->mFormProperties['pass'] =new StringProperty('pass');
+		$this->mFormProperties['vpass'] =new StringProperty('vpass');
+		$this->mFormProperties['user_mailok'] =new BoolProperty('user_mailok');
+		$this->mFormProperties['agree'] =new BoolProperty('agree');
 
 		//
 		// Set field properties
@@ -100,7 +104,7 @@ class User_RegisterAgreeEditForm extends User_RegisterEditForm
 		parent::prepare();
 		
 		// set properties
-		$this->mFormProperties['agree']=new XCube_IntProperty('agree');
+		$this->mFormProperties['agree']=new IntProperty('agree');
 
 		// set fields
 		$this->mFieldProperties['agree']=new FieldProperty($this);

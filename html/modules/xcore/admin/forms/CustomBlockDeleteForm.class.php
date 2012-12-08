@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class Xcore_CustomBlockDeleteForm extends ActionForm
 {
@@ -15,7 +16,7 @@ class Xcore_CustomBlockDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['bid'] =new XCube_IntProperty('bid');
+		$this->mFormProperties['bid'] =new IntProperty('bid');
 	
 		//
 		// Set field properties

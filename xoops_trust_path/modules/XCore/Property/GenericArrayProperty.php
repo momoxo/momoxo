@@ -1,52 +1,46 @@
 <?php
 
-/**
- * @public
- * @brief [Abstract] Defines common array property class which implements PropertyInterface.
- * 
- * This class is a kind of template-class --- XCube_GenericArrayProperty<T>.
- * Developers should know about sub-classes of AbstractProperty.
- */
+namespace XCore\Property;
+
 use XCore\Property\PropertyInterface;
 use XCore\Property\AbstractProperty;
 
-class XCube_GenericArrayProperty extends PropertyInterface
+/**
+ * Defines common array property class which implements PropertyInterface.
+ * 
+ * This class is a kind of template-class --- GenericArrayProperty<T>.
+ * Developers should know about sub-classes of AbstractProperty.
+ */
+abstract class GenericArrayProperty extends PropertyInterface
 {
 	/**
-	 * @protected
-	 * @brief string
+	 * @var string
 	 */
-	var $mName = null;
+	protected $mName = null;
 
 	/**
-	 * @protected
 	 * @var AbstractProperty[]
 	 */
-	var $mProperties = array();
+	protected $mProperties = array();
 	
 	/**
-	 * @protected
-	 * @brief string - <T>
-	 * 
-	 * If this class is XCube_GenericArrayProperty<T>, mPropertyClassName is <T>.
+	 * @var string
 	 */
-	var $mPropertyClassName = null;
+    protected $mPropertyClassName = null;
 	
 	/**
-	 * @public
-	 * @brief Constructor.
-	 * @param $classname string - <T>
-	 * @param $name string - A name of the property.
+	 * Constructor.
+	 * @param string $classname
+	 * @param string $name A name of the property.
 	 */
-	function __construct($classname, $name)
+	public function __construct($classname, $name)
 	{
 		$this->mPropertyClassName = $classname;
 		$this->mName = $name;
 	}
 	
 	/**
-	 * @public
-	 * @brief Sets a value. And the value is casted by the property's type'.
+	 * Sets a value. And the value is casted by the property's type'.
 	 * 
 	 *   This member function has two signatures.
 	 * 
@@ -56,7 +50,7 @@ class XCube_GenericArrayProperty extends PropertyInterface
 	 * \par set(mixed key, mixed value);
 	 *    Set values with index 'key'.
 	 */
-	function set($arg1, $arg2 = null)
+	public function set($arg1, $arg2 = null)
 	{
 		if (is_array($arg1) && $arg2 == null) {
 			$this->reset();
@@ -76,7 +70,7 @@ class XCube_GenericArrayProperty extends PropertyInterface
 	 * @internal
 	 * @todo Research this method.
 	 */
-	function add($arg1, $arg2 = null)
+	public function add($arg1, $arg2 = null)
 	{
 		if (is_array($arg1) && $arg2 == null) {
 			foreach ($arg1 as $t_key => $t_value) {
@@ -89,13 +83,12 @@ class XCube_GenericArrayProperty extends PropertyInterface
 	}
 	
 	/**
-	 * @private
-	 * @brief This member function helps set().
+	 * This member function helps set().
 	 * @param string $index
 	 * @param mixed $value
 	 * @return void
 	 */
-	function _set($index, $value)
+	private function _set($index, $value)
 	{
 		if (!isset($this->mProperties[$index])) {
 			$this->mProperties[$index] = new $this->mPropertyClassName($this->mName);
@@ -104,12 +97,11 @@ class XCube_GenericArrayProperty extends PropertyInterface
 	}
 	
 	/**
-	 * @public
-	 * @brief Gets values of this property.
-	 * @param $index mixed - If $indes is null, gets array (std::map<mixed_key, mixed_value>).
+	 * Gets values of this property.
+	 * @param mixed $index If $index is null, gets array (std::map<mixed_key, mixed_value>).
 	 * @return mixed
 	 */
-	function get($index = null)
+	public function get($index = null)
 	{
 		if ($index === null) {
 			$ret = array();
@@ -125,76 +117,69 @@ class XCube_GenericArrayProperty extends PropertyInterface
 	}
 	
 	/**
-	 * @protected
-	 * @brief Resets all properties of this.
+	 * Resets all properties of this.
 	 */
-	function reset()
+	protected function reset()
 	{
 		unset($this->mProperties);
 		$this->mProperties = array();
 	}
 	
 	/**
-	 * @public
-	 * @brief Gets a value indicating whether this object expresses Array.
+	 * Gets a value indicating whether this object expresses Array.
 	 * @return bool
 	 * 
 	 * @remarks
 	 *     This class is a base class for array properties, so a sub-class of this
 	 *     does not override this method.
 	 */
-	function isArray()
+    public function isArray()
 	{
 		return true;
 	}
 	
 	/**
-	 * @public
-	 * @brief Gets a value indicating whether this object is null.
+	 * Gets a value indicating whether this object is null.
 	 * @return bool
 	 */
-	function isNull()
+    public function isNull()
 	{
 		return (count($this->mProperties) == 0);
 	}
 	
 	/**
-	 * @public
-	 * @brief Gets a value as integer --- but, gets null always.
+	 * Gets a value as integer --- but, gets null always.
 	 * @return int
 	 */
-	function toNumber()
+    public function toNumber()
 	{
 		return null;
 	}
 	
 	/**
-	 * @public
-	 * @brief Gets a value as string --- but, gets 'Array' always.
+	 * Gets a value as string --- but, gets 'Array' always.
 	 * @return string
 	 */
-	function toString()
+    public function toString()
 	{
 		return 'Array';
 	}
 	
 	/**
-	 * @public
-	 * @brief Gets a value as encoded HTML code --- but, gets 'Array' always.
+	 * Gets a value as encoded HTML code --- but, gets 'Array' always.
 	 * @return string - HTML
 	 * @deprecated
-	 */	
-	function toHTML()
+	 */
+    public function toHTML()
 	{
 		return htmlspecialchars($this->toString(), ENT_QUOTES);
 	}
 	
 	/**
-	 * @public
-	 * @brief Gets a value indicating whether this object has a fetch control.
+	 * Gets a value indicating whether this object has a fetch control.
 	 * @return bool
 	 */
-	function hasFetchControl()
+    public function hasFetchControl()
 	{
 		return false;
 	}

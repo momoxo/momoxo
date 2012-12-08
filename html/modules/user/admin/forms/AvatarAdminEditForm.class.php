@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\FileProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class User_AvatarAdminEditForm extends ActionForm
 {
@@ -19,11 +23,11 @@ class User_AvatarAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['avatar_id'] =new XCube_IntProperty('avatar_id');
-		$this->mFormProperties['avatar_file'] =new XCube_FileProperty('avatar_file');
-		$this->mFormProperties['avatar_name'] =new XCube_StringProperty('avatar_name');
-		$this->mFormProperties['avatar_display'] =new XCube_BoolProperty('avatar_display');
-		$this->mFormProperties['avatar_weight'] =new XCube_IntProperty('avatar_weight');
+		$this->mFormProperties['avatar_id'] =new IntProperty('avatar_id');
+		$this->mFormProperties['avatar_file'] =new FileProperty('avatar_file');
+		$this->mFormProperties['avatar_name'] =new StringProperty('avatar_name');
+		$this->mFormProperties['avatar_display'] =new BoolProperty('avatar_display');
+		$this->mFormProperties['avatar_weight'] =new IntProperty('avatar_weight');
 
 		//
 		// Set field properties

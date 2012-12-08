@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class User_GroupAdminDeleteForm extends ActionForm
 {
@@ -15,7 +16,7 @@ class User_GroupAdminDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['groupid'] =new XCube_IntProperty('groupid');
+		$this->mFormProperties['groupid'] =new IntProperty('groupid');
 
 		//
 		// Set field properties

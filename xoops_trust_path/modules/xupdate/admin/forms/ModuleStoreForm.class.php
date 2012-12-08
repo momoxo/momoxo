@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\StringArrayProperty;
 
 class Xupdate_Admin_ModuleStoreForm extends ActionForm
 {
@@ -33,7 +34,7 @@ class Xupdate_Admin_ModuleStoreForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['dirname']=new XCube_StringArrayProperty('dirname');
+		$this->mFormProperties['dirname']=new StringArrayProperty('dirname');
 
 		// set fields
 		$this->mFieldProperties['dirname']=new FieldProperty($this);

@@ -2,6 +2,9 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class User_GroupAdminEditForm extends ActionForm
 {
@@ -15,9 +18,9 @@ class User_GroupAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['groupid'] =new XCube_IntProperty('groupid');
-		$this->mFormProperties['name'] =new XCube_StringProperty('name');
-		$this->mFormProperties['description'] =new XCube_TextProperty('description');
+		$this->mFormProperties['groupid'] =new IntProperty('groupid');
+		$this->mFormProperties['name'] =new StringProperty('name');
+		$this->mFormProperties['description'] =new TextProperty('description');
 	
 		//
 		// Set field properties

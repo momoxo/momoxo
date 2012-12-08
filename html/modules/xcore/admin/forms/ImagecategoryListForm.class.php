@@ -6,6 +6,10 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\StringArrayProperty;
 
 class Xcore_ImagecategoryListForm extends ActionForm
 {
@@ -37,15 +41,15 @@ class Xcore_ImagecategoryListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['name'] =new XCube_StringArrayProperty('name');
-		$this->mFormProperties['maxsize'] =new XCube_IntArrayProperty('maxsize');
-		$this->mFormProperties['maxwidth'] =new XCube_IntArrayProperty('maxwidth');
-		$this->mFormProperties['maxheight'] =new XCube_IntArrayProperty('maxheight');
-		$this->mFormProperties['display'] =new XCube_BoolArrayProperty('display');
-		$this->mFormProperties['weight'] =new XCube_IntArrayProperty('weight');
-		$this->mFormProperties['delete']=new XCube_BoolArrayProperty('delete');
+		$this->mFormProperties['name'] =new StringArrayProperty('name');
+		$this->mFormProperties['maxsize'] =new IntArrayProperty('maxsize');
+		$this->mFormProperties['maxwidth'] =new IntArrayProperty('maxwidth');
+		$this->mFormProperties['maxheight'] =new IntArrayProperty('maxheight');
+		$this->mFormProperties['display'] =new BoolArrayProperty('display');
+		$this->mFormProperties['weight'] =new IntArrayProperty('weight');
+		$this->mFormProperties['delete']=new BoolArrayProperty('delete');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 		// set fields
 		$this->mFieldProperties['name'] =new FieldProperty($this);
 		$this->mFieldProperties['name']->setDependsByArray(array('required','maxlength'));

@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Validator\Validator;
+use XCore\Property\FileProperty;
 
 class XCube_MaxfilesizeValidator extends Validator
 {
@@ -10,7 +11,7 @@ class XCube_MaxfilesizeValidator extends Validator
 			return true;
 		}
 		else {
-			if (!is_a($form, "XCube_FileProperty")) {
+			if (!is_a($form, "FileProperty")) {
 				return true;
 			}
 			

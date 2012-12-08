@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\FileProperty;
 
 class Xcore_SmilesUploadForm extends ActionForm
 {
@@ -20,7 +21,7 @@ class Xcore_SmilesUploadForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['upload'] =new XCube_FileProperty('upload');
+		$this->mFormProperties['upload'] =new FileProperty('upload');
 	
 		//
 		// Set field properties

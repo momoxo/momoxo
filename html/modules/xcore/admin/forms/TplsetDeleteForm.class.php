@@ -6,6 +6,7 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class Xcore_TplsetDeleteForm extends ActionForm
 {
@@ -19,7 +20,7 @@ class Xcore_TplsetDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['tplset_id'] =new XCube_IntProperty('tplset_id');
+		$this->mFormProperties['tplset_id'] =new IntProperty('tplset_id');
 
 		//
 		// Set field properties

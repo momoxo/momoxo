@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class Xcore_CommentEditForm extends ActionForm
 {
@@ -15,24 +19,24 @@ class Xcore_CommentEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['com_id'] =new XCube_IntProperty('com_id');
-		$this->mFormProperties['com_pid'] =new XCube_IntProperty('com_pid');
-		$this->mFormProperties['com_rootid'] =new XCube_IntProperty('com_rootid');
-		$this->mFormProperties['com_modid'] =new XCube_IntProperty('com_modid');
-		$this->mFormProperties['com_itemid'] =new XCube_IntProperty('com_itemid');
-		$this->mFormProperties['com_icon'] =new XCube_StringProperty('com_icon');
-		$this->mFormProperties['com_created'] =new XCube_IntProperty('com_created');
-		$this->mFormProperties['com_modified'] =new XCube_IntProperty('com_modified');
-		$this->mFormProperties['com_ip'] =new XCube_StringProperty('com_ip');
-		$this->mFormProperties['com_title'] =new XCube_StringProperty('com_title');
-		$this->mFormProperties['com_text'] =new XCube_TextProperty('com_text');
-		$this->mFormProperties['com_sig'] =new XCube_BoolProperty('com_sig');
-		$this->mFormProperties['com_status'] =new XCube_IntProperty('com_status');
-		$this->mFormProperties['com_exparams'] =new XCube_StringProperty('com_exparams');
-		$this->mFormProperties['dosmiley'] =new XCube_BoolProperty('dosmiley');
-		$this->mFormProperties['doxcode'] =new XCube_BoolProperty('doxcode');
-		$this->mFormProperties['doimage'] =new XCube_BoolProperty('doimage');
-		$this->mFormProperties['dobr'] =new XCube_BoolProperty('dobr');
+		$this->mFormProperties['com_id'] =new IntProperty('com_id');
+		$this->mFormProperties['com_pid'] =new IntProperty('com_pid');
+		$this->mFormProperties['com_rootid'] =new IntProperty('com_rootid');
+		$this->mFormProperties['com_modid'] =new IntProperty('com_modid');
+		$this->mFormProperties['com_itemid'] =new IntProperty('com_itemid');
+		$this->mFormProperties['com_icon'] =new StringProperty('com_icon');
+		$this->mFormProperties['com_created'] =new IntProperty('com_created');
+		$this->mFormProperties['com_modified'] =new IntProperty('com_modified');
+		$this->mFormProperties['com_ip'] =new StringProperty('com_ip');
+		$this->mFormProperties['com_title'] =new StringProperty('com_title');
+		$this->mFormProperties['com_text'] =new TextProperty('com_text');
+		$this->mFormProperties['com_sig'] =new BoolProperty('com_sig');
+		$this->mFormProperties['com_status'] =new IntProperty('com_status');
+		$this->mFormProperties['com_exparams'] =new StringProperty('com_exparams');
+		$this->mFormProperties['dosmiley'] =new BoolProperty('dosmiley');
+		$this->mFormProperties['doxcode'] =new BoolProperty('doxcode');
+		$this->mFormProperties['doimage'] =new BoolProperty('doimage');
+		$this->mFormProperties['dobr'] =new BoolProperty('dobr');
 
 		//
 		// Set field properties
@@ -149,7 +153,7 @@ class Xcore_CommentEditForm_Admin extends Xcore_CommentEditForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['dohtml'] =new XCube_BoolProperty('dohtml');
+		$this->mFormProperties['dohtml'] =new BoolProperty('dohtml');
 	}
 
 	function load(&$obj)

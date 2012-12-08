@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_InstallWizardForm extends ActionForm
 {
@@ -15,8 +17,8 @@ class Xcore_InstallWizardForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['dirname'] =new XCube_StringProperty('dirname');
-		$this->mFormProperties['agree'] =new XCube_BoolProperty('agree');
+		$this->mFormProperties['dirname'] =new StringProperty('dirname');
+		$this->mFormProperties['agree'] =new BoolProperty('agree');
 	
 		//
 		// Set field properties

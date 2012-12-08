@@ -3,6 +3,9 @@
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\ImageFileProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_ImageUploadForm extends ActionForm
 {
@@ -20,9 +23,9 @@ class Xcore_ImageUploadForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['image_name'] =new XCube_ImageFileProperty('image_name');
-		$this->mFormProperties['image_nicename'] =new XCube_StringProperty('image_nicename');
-		$this->mFormProperties['imgcat_id'] =new XCube_IntProperty('imgcat_id');
+		$this->mFormProperties['image_name'] =new ImageFileProperty('image_name');
+		$this->mFormProperties['image_nicename'] =new StringProperty('image_nicename');
+		$this->mFormProperties['imgcat_id'] =new IntProperty('imgcat_id');
 	
 		//
 		// Set field properties

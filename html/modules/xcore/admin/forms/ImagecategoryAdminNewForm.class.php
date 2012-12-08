@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\FieldProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_ImagecategoryAdminNewForm extends Xcore_ImagecategoryAdminEditForm
 {
@@ -16,7 +17,7 @@ class Xcore_ImagecategoryAdminNewForm extends Xcore_ImagecategoryAdminEditForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['imgcat_storetype'] =new XCube_StringProperty('imgcat_storetype');
+		$this->mFormProperties['imgcat_storetype'] =new StringProperty('imgcat_storetype');
 	
 		//
 		// Set field properties

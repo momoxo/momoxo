@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
 
 class User_GroupMemberEditForm extends ActionForm
 {
@@ -15,8 +17,8 @@ class User_GroupMemberEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['groupid'] =new XCube_IntProperty('groupid');
-		$this->mFormProperties['uid'] =new XCube_IntArrayProperty('uid');
+		$this->mFormProperties['groupid'] =new IntProperty('groupid');
+		$this->mFormProperties['uid'] =new IntArrayProperty('uid');
 	
 		//
 		// Set field properties

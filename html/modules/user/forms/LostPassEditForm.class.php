@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\StringProperty;
 
 class User_LostPassEditForm extends ActionForm
 {
@@ -15,8 +16,8 @@ class User_LostPassEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['email'] =new XCube_StringProperty('email');
-		$this->mFormProperties['code'] =new XCube_StringProperty('code');
+		$this->mFormProperties['email'] =new StringProperty('email');
+		$this->mFormProperties['code'] =new StringProperty('code');
 
 		//
 		// Set field properties

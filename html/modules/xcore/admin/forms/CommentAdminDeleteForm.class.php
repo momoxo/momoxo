@@ -5,6 +5,8 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_CommentAdminDeleteForm extends ActionForm
 {
@@ -18,8 +20,8 @@ class Xcore_CommentAdminDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['com_id'] =new XCube_IntProperty('com_id');
-		$this->mFormProperties['delete_mode'] =new XCube_StringProperty('delete_mode');
+		$this->mFormProperties['com_id'] =new IntProperty('com_id');
+		$this->mFormProperties['delete_mode'] =new StringProperty('delete_mode');
 
 		//
 		// Set field properties

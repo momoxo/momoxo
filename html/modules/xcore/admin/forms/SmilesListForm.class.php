@@ -6,6 +6,9 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\StringArrayProperty;
 
 class Xcore_SmilesListForm extends ActionForm
 {
@@ -37,12 +40,12 @@ class Xcore_SmilesListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['code']=new XCube_StringArrayProperty('code');
-		$this->mFormProperties['emotion']=new XCube_StringArrayProperty('emotion');
-		$this->mFormProperties['display']=new XCube_BoolArrayProperty('display');
-		$this->mFormProperties['delete']=new XCube_BoolArrayProperty('delete');
+		$this->mFormProperties['code']=new StringArrayProperty('code');
+		$this->mFormProperties['emotion']=new StringArrayProperty('emotion');
+		$this->mFormProperties['display']=new BoolArrayProperty('display');
+		$this->mFormProperties['delete']=new BoolArrayProperty('delete');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 		// set fields
 		$this->mFieldProperties['code']=new FieldProperty($this);
 		$this->mFieldProperties['code']->setDependsByArray(array('required','maxlength'));

@@ -3,6 +3,8 @@
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class MessageForm extends ActionForm
 {
@@ -18,7 +20,7 @@ class MessageForm extends ActionForm
     return 'module.message.NewMessage.TOKEN';
   }
   
-  private function set_Property($key, $classname = 'XCube_StringProperty')
+  private function set_Property($key, $classname = 'StringProperty')
   {
     $this->mFormProperties[$key] = new $classname($key);
   }
@@ -29,7 +31,7 @@ class MessageForm extends ActionForm
     $this->set_Property('title');
     $this->set_Property('Xcore_Event_User_Preview');
     $this->set_Property('Xcore_Event_User_Submit');
-    $this->set_Property('note', 'XCube_TextProperty');
+    $this->set_Property('note', 'TextProperty');
     
     $this->mFieldProperties['uname'] = new FieldProperty($this);
     $this->mFieldProperties['uname']->setDependsByArray(array('required', 'maxlength'));

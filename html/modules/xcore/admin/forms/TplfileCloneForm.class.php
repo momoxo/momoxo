@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\FieldProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 {
@@ -16,7 +17,7 @@ class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['tpl_tplset'] =new XCube_StringProperty('tpl_tplset');
+		$this->mFormProperties['tpl_tplset'] =new StringProperty('tpl_tplset');
 	
 		//
 		// Set field properties

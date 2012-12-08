@@ -2,6 +2,9 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class Xcore_TplsetEditForm extends ActionForm
 {
@@ -15,9 +18,9 @@ class Xcore_TplsetEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['tplset_id'] =new XCube_IntProperty('tplset_id');
-		$this->mFormProperties['tplset_desc'] =new XCube_StringProperty('tplset_desc');
-		$this->mFormProperties['tplset_credits'] =new XCube_TextProperty('tplset_credits');
+		$this->mFormProperties['tplset_id'] =new IntProperty('tplset_id');
+		$this->mFormProperties['tplset_desc'] =new StringProperty('tplset_desc');
+		$this->mFormProperties['tplset_credits'] =new TextProperty('tplset_credits');
 
 		//
 		// Set field properties

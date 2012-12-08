@@ -6,6 +6,10 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\StringArrayProperty;
 
 class Xcore_ImageListForm extends ActionForm
 {
@@ -37,12 +41,12 @@ class Xcore_ImageListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['nicename']=new XCube_StringArrayProperty('nicename');
-		$this->mFormProperties['weight']=new XCube_IntArrayProperty('weight');
-		$this->mFormProperties['display']=new XCube_BoolArrayProperty('display');
-		$this->mFormProperties['delete']=new XCube_BoolArrayProperty('delete');
+		$this->mFormProperties['nicename']=new StringArrayProperty('nicename');
+		$this->mFormProperties['weight']=new IntArrayProperty('weight');
+		$this->mFormProperties['display']=new BoolArrayProperty('display');
+		$this->mFormProperties['delete']=new BoolArrayProperty('delete');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 		// set fields
 		$this->mFieldProperties['nicename'] =new FieldProperty($this);
 		$this->mFieldProperties['nicename']->setDependsByArray(array('required'));

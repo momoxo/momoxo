@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringArrayProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_BlockEditForm extends ActionForm
 {
@@ -15,14 +19,14 @@ class Xcore_BlockEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['bid'] =new XCube_IntProperty('bid');
-		$this->mFormProperties['options'] =new XCube_StringArrayProperty('options');
-		$this->mFormProperties['title'] =new XCube_StringProperty('title');
-		$this->mFormProperties['side'] =new XCube_IntProperty('side');
-		$this->mFormProperties['weight'] =new XCube_IntProperty('weight');
-		$this->mFormProperties['bcachetime'] =new XCube_IntProperty('bcachetime');
-		$this->mFormProperties['bmodule'] =new XCube_IntArrayProperty('bmodule');
-		$this->mFormProperties['groupid'] =new XCube_IntArrayProperty('groupid');
+		$this->mFormProperties['bid'] =new IntProperty('bid');
+		$this->mFormProperties['options'] =new StringArrayProperty('options');
+		$this->mFormProperties['title'] =new StringProperty('title');
+		$this->mFormProperties['side'] =new IntProperty('side');
+		$this->mFormProperties['weight'] =new IntProperty('weight');
+		$this->mFormProperties['bcachetime'] =new IntProperty('bcachetime');
+		$this->mFormProperties['bmodule'] =new IntArrayProperty('bmodule');
+		$this->mFormProperties['groupid'] =new IntArrayProperty('groupid');
 	
 		//
 		// Set field properties

@@ -6,6 +6,9 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class Xcore_TplfileEditForm extends ActionForm
 {
@@ -19,9 +22,9 @@ class Xcore_TplfileEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['tpl_id'] =new XCube_IntProperty('tpl_id');
-		$this->mFormProperties['tpl_desc'] =new XCube_StringProperty('tpl_desc');
-		$this->mFormProperties['tpl_source'] =new XCube_TextProperty('tpl_source');
+		$this->mFormProperties['tpl_id'] =new IntProperty('tpl_id');
+		$this->mFormProperties['tpl_desc'] =new StringProperty('tpl_desc');
+		$this->mFormProperties['tpl_source'] =new TextProperty('tpl_source');
 
 		//
 		// Set field properties

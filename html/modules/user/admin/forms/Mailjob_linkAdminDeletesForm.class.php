@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
 
 class User_Mailjob_linkAdminDeletesForm extends ActionForm
 {
@@ -21,8 +23,8 @@ class User_Mailjob_linkAdminDeletesForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['mailjob_id']=new XCube_IntProperty('mailjob_id');
-		$this->mFormProperties['uid']=new XCube_IntArrayProperty('uid');
+		$this->mFormProperties['mailjob_id']=new IntProperty('mailjob_id');
+		$this->mFormProperties['uid']=new IntArrayProperty('uid');
 	}
 }
 

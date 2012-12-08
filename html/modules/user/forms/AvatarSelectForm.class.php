@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
 
 class User_AvatarSelectForm extends ActionForm
 {
@@ -13,8 +15,8 @@ class User_AvatarSelectForm extends ActionForm
 
 	function prepare()
 	{
-		$this->mFormProperties['uid'] =new XCube_IntProperty('uid');
-		$this->mFormProperties['avatar_id'] =new XCube_IntArrayProperty('avatar_id');
+		$this->mFormProperties['uid'] =new IntProperty('uid');
+		$this->mFormProperties['avatar_id'] =new IntArrayProperty('avatar_id');
 	}
 	
 	function validateAvatar_id()

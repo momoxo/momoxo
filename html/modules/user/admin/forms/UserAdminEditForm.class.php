@@ -9,6 +9,11 @@
 use XCore\Kernel\DelegateUtils;
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\FloatProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class User_UserAdminEditForm extends ActionForm
 {
@@ -24,34 +29,34 @@ class User_UserAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['uid'] =new XCube_IntProperty('uid');
-		$this->mFormProperties['name'] =new XCube_StringProperty('name');
-		$this->mFormProperties['uname'] =new XCube_StringProperty('uname');
-		$this->mFormProperties['email'] =new XCube_StringProperty('email');
-		$this->mFormProperties['url'] =new XCube_StringProperty('url');
-		$this->mFormProperties['user_icq'] =new XCube_StringProperty('user_icq');
-		$this->mFormProperties['user_from'] =new XCube_StringProperty('user_from');
-		$this->mFormProperties['user_sig'] =new XCube_TextProperty('user_sig');
-		$this->mFormProperties['user_viewemail'] =new XCube_IntProperty('user_viewemail');
-		$this->mFormProperties['user_aim'] =new XCube_StringProperty('user_aim');
-		$this->mFormProperties['user_yim'] =new XCube_StringProperty('user_yim');
-		$this->mFormProperties['user_msnm'] =new XCube_StringProperty('user_msnm');
-		$this->mFormProperties['pass'] =new XCube_StringProperty('pass');
-		$this->mFormProperties['vpass'] =new XCube_StringProperty('vpass');
-		$this->mFormProperties['posts'] =new XCube_IntProperty('posts');
-		$this->mFormProperties['attachsig'] =new XCube_IntProperty('attachsig');
-		$this->mFormProperties['rank'] =new XCube_IntProperty('rank');
-		$this->mFormProperties['level'] =new XCube_IntProperty('level');
-		$this->mFormProperties['timezone_offset'] =new XCube_FloatProperty('timezone_offset');
-		$this->mFormProperties['umode'] =new XCube_StringProperty('umode');
-		$this->mFormProperties['uorder'] =new XCube_IntProperty('uorder');
-		$this->mFormProperties['notify_method'] =new XCube_IntProperty('notify_method');
-		$this->mFormProperties['notify_mode'] =new XCube_IntProperty('notify_mode');
-		$this->mFormProperties['user_occ'] =new XCube_StringProperty('user_occ');
-		$this->mFormProperties['bio'] =new XCube_TextProperty('bio');
-		$this->mFormProperties['user_intrest'] =new XCube_StringProperty('user_intrest');
-		$this->mFormProperties['user_mailok'] =new XCube_IntProperty('user_mailok');
-		$this->mFormProperties['groups'] =new XCube_IntArrayProperty('groups');
+		$this->mFormProperties['uid'] =new IntProperty('uid');
+		$this->mFormProperties['name'] =new StringProperty('name');
+		$this->mFormProperties['uname'] =new StringProperty('uname');
+		$this->mFormProperties['email'] =new StringProperty('email');
+		$this->mFormProperties['url'] =new StringProperty('url');
+		$this->mFormProperties['user_icq'] =new StringProperty('user_icq');
+		$this->mFormProperties['user_from'] =new StringProperty('user_from');
+		$this->mFormProperties['user_sig'] =new TextProperty('user_sig');
+		$this->mFormProperties['user_viewemail'] =new IntProperty('user_viewemail');
+		$this->mFormProperties['user_aim'] =new StringProperty('user_aim');
+		$this->mFormProperties['user_yim'] =new StringProperty('user_yim');
+		$this->mFormProperties['user_msnm'] =new StringProperty('user_msnm');
+		$this->mFormProperties['pass'] =new StringProperty('pass');
+		$this->mFormProperties['vpass'] =new StringProperty('vpass');
+		$this->mFormProperties['posts'] =new IntProperty('posts');
+		$this->mFormProperties['attachsig'] =new IntProperty('attachsig');
+		$this->mFormProperties['rank'] =new IntProperty('rank');
+		$this->mFormProperties['level'] =new IntProperty('level');
+		$this->mFormProperties['timezone_offset'] =new FloatProperty('timezone_offset');
+		$this->mFormProperties['umode'] =new StringProperty('umode');
+		$this->mFormProperties['uorder'] =new IntProperty('uorder');
+		$this->mFormProperties['notify_method'] =new IntProperty('notify_method');
+		$this->mFormProperties['notify_mode'] =new IntProperty('notify_mode');
+		$this->mFormProperties['user_occ'] =new StringProperty('user_occ');
+		$this->mFormProperties['bio'] =new TextProperty('bio');
+		$this->mFormProperties['user_intrest'] =new StringProperty('user_intrest');
+		$this->mFormProperties['user_mailok'] =new IntProperty('user_mailok');
+		$this->mFormProperties['groups'] =new IntArrayProperty('groups');
 
 		//
 		// Set field properties

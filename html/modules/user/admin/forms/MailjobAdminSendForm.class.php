@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class User_MailjobAdminSendForm extends ActionForm
 {
@@ -15,7 +16,7 @@ class User_MailjobAdminSendForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['mailjob_id'] =new XCube_IntProperty('mailjob_id');
+		$this->mFormProperties['mailjob_id'] =new IntProperty('mailjob_id');
 	
 		//
 		// Set field properties

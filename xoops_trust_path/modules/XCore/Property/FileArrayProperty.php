@@ -1,23 +1,27 @@
 <?php
 
+namespace XCore\Property;
+
+use XCore\Property\FileProperty;
+use XCore\Property\GenericArrayProperty;
+
 /**
- * @public
- * @brief Represents the special property[] which handles uploaded file. XCube_GenericArrayProperty<XCube_FileProperty>.
- * @see XCube_FileProperty
+ * Represents the special property[] which handles uploaded file.
+ * @see FileProperty
  */
-class XCube_FileArrayProperty extends XCube_GenericArrayProperty
+class FileArrayProperty extends GenericArrayProperty
 {
-	function __construct($name)
+	public function __construct($name)
 	{
-		parent::__construct("XCube_FileProperty", $name);
+		parent::__construct("FileProperty", $name);
 	}
 	
-	function hasFetchControl()
+	public function hasFetchControl()
 	{
 		return true;
 	}
 	
-	function fetch(&$form)
+	public function fetch(&$form)
 	{
 		unset($this->mProperties);
 		$this->mProperties = array();

@@ -2,6 +2,9 @@
 
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class MessageSettingsForm extends ActionForm
 {
@@ -17,11 +20,11 @@ class MessageSettingsForm extends ActionForm
   
   public function prepare()
   {
-    $this->mFormProperties['usepm'] = new XCube_BoolProperty('usepm');
-    $this->mFormProperties['tomail'] = new XCube_BoolProperty('tomail');
-    $this->mFormProperties['viewmsm'] = new XCube_BoolProperty('viewmsm');
-    $this->mFormProperties['pagenum'] = new XCube_IntProperty('pagenum');
-    $this->mFormProperties['blacklist'] = new XCube_StringProperty('blacklist');
+    $this->mFormProperties['usepm'] = new BoolProperty('usepm');
+    $this->mFormProperties['tomail'] = new BoolProperty('tomail');
+    $this->mFormProperties['viewmsm'] = new BoolProperty('viewmsm');
+    $this->mFormProperties['pagenum'] = new IntProperty('pagenum');
+    $this->mFormProperties['blacklist'] = new StringProperty('blacklist');
   }
   
   public function fetchBlacklist()

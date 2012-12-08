@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_MiscFriendForm extends ActionForm
 {
@@ -15,10 +16,10 @@ class Xcore_MiscFriendForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['yname'] =new XCube_StringProperty('yname');
-		$this->mFormProperties['ymail'] =new XCube_StringProperty('ymail');
-		$this->mFormProperties['fname'] =new XCube_StringProperty('fname');
-		$this->mFormProperties['fmail'] =new XCube_StringProperty('fmail');
+		$this->mFormProperties['yname'] =new StringProperty('yname');
+		$this->mFormProperties['ymail'] =new StringProperty('ymail');
+		$this->mFormProperties['fname'] =new StringProperty('fname');
+		$this->mFormProperties['fmail'] =new StringProperty('fmail');
 	
 		//
 		// Set field properties

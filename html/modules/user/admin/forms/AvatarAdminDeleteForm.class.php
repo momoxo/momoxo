@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class User_AvatarAdminDeleteForm extends ActionForm
 {
@@ -15,7 +16,7 @@ class User_AvatarAdminDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['avatar_id'] =new XCube_IntProperty('avatar_id');
+		$this->mFormProperties['avatar_id'] =new IntProperty('avatar_id');
 
 		//
 		// Set field properties

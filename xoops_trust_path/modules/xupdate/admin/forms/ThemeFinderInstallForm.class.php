@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xupdate_Admin_ThemeFinderInstallForm extends ActionForm
 {
@@ -36,10 +38,10 @@ class Xupdate_Admin_ThemeFinderInstallForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['addon_url'] = new XCube_StringProperty('addon_url');
+		$this->mFormProperties['addon_url'] = new StringProperty('addon_url');
 
-		$this->mFormProperties['target_key'] = new XCube_IntProperty('target_key');
-		$this->mFormProperties['target_type'] = new XCube_StringProperty('target_type');
+		$this->mFormProperties['target_key'] = new IntProperty('target_key');
+		$this->mFormProperties['target_type'] = new StringProperty('target_type');
 
 		//
 		// Set field properties

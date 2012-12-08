@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_SearchShowallForm extends Xcore_SearchResultsForm
 {
@@ -9,10 +11,10 @@ class Xcore_SearchShowallForm extends Xcore_SearchResultsForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['mid'] =new XCube_IntProperty('mid');
-		$this->mFormProperties['andor'] =new XCube_StringProperty('andor');
-		$this->mFormProperties['query'] =new XCube_StringProperty('query');
-		$this->mFormProperties['start'] =new XCube_IntProperty('start');
+		$this->mFormProperties['mid'] =new IntProperty('mid');
+		$this->mFormProperties['andor'] =new StringProperty('andor');
+		$this->mFormProperties['query'] =new StringProperty('query');
+		$this->mFormProperties['start'] =new IntProperty('start');
 	
 		//
 		// Set field properties

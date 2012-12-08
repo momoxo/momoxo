@@ -6,6 +6,9 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
 
 class Xcore_CommentListForm extends ActionForm
 {
@@ -37,10 +40,10 @@ class Xcore_CommentListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['status'] =new XCube_IntArrayProperty('status');
-		$this->mFormProperties['delete']= new XCube_BoolArrayProperty('delete');
+		$this->mFormProperties['status'] =new IntArrayProperty('status');
+		$this->mFormProperties['delete']= new BoolArrayProperty('delete');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 
 		// set fields
 		$this->mFieldProperties['status'] =new FieldProperty($this);

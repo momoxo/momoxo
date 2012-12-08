@@ -7,6 +7,10 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\StringArrayProperty;
 
 class Xcore_BlockListForm extends ActionForm
 {
@@ -40,13 +44,13 @@ class Xcore_BlockListForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['title'] =new XCube_StringArrayProperty('title');
-		$this->mFormProperties['weight'] =new XCube_IntArrayProperty('weight');
-		$this->mFormProperties['side'] =new XCube_IntArrayProperty('side');
-		$this->mFormProperties['bcachetime'] =new XCube_IntArrayProperty('bcachetime');
-		$this->mFormProperties['uninstall']=new XCube_BoolArrayProperty('uninstall');
+		$this->mFormProperties['title'] =new StringArrayProperty('title');
+		$this->mFormProperties['weight'] =new IntArrayProperty('weight');
+		$this->mFormProperties['side'] =new IntArrayProperty('side');
+		$this->mFormProperties['bcachetime'] =new IntArrayProperty('bcachetime');
+		$this->mFormProperties['uninstall']=new BoolArrayProperty('uninstall');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 
 		//
 		// Set field properties

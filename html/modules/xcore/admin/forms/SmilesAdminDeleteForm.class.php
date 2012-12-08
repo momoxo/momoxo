@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class Xcore_SmilesAdminDeleteForm extends ActionForm
 {
@@ -15,7 +16,7 @@ class Xcore_SmilesAdminDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['id'] =new XCube_IntProperty('id');
+		$this->mFormProperties['id'] =new IntProperty('id');
 	
 		//
 		// Set field properties

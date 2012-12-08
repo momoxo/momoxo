@@ -5,6 +5,12 @@
  * @version $Id$
 **/
 
+use XCore\Property\BoolProperty;
+use XCore\Property\FloatProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -77,7 +83,7 @@ class Profile_FieldTypeString implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_StringProperty';
+        return 'StringProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -141,7 +147,7 @@ class Profile_FieldTypeText implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_TextProperty';
+        return 'TextProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -190,7 +196,7 @@ class Profile_FieldTypeInt implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_IntProperty';
+        return 'IntProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -240,7 +246,7 @@ class Profile_FieldTypeFloat implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_FloatProperty';
+        return 'FloatProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -298,7 +304,7 @@ class Profile_FieldTypeDate implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_StringProperty';
+        return 'StringProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -362,7 +368,7 @@ class Profile_FieldTypeCheckbox implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_BoolProperty';
+        return 'BoolProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -417,7 +423,7 @@ class Profile_FieldTypeSelectbox implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_StringProperty';
+        return 'StringProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -466,7 +472,7 @@ class Profile_FieldTypeCategory implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_IntProperty';
+        return 'IntProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)
@@ -521,7 +527,7 @@ class Profile_FieldTypeUri implements Profile_iFieldType
 
     public function getFormPropertyClass()
     {
-        return 'XCube_TextProperty';
+        return 'TextProperty';
     }
 
     public function getSearchFormString(/*** string ***/ $key)

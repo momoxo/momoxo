@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_SearchResultsForm extends ActionForm
 {
@@ -19,9 +21,9 @@ class Xcore_SearchResultsForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['mids'] =new XCube_IntArrayProperty('mids');
-		$this->mFormProperties['andor'] =new XCube_StringProperty('andor');
-		$this->mFormProperties['query'] =new XCube_StringProperty('query');
+		$this->mFormProperties['mids'] =new IntArrayProperty('mids');
+		$this->mFormProperties['andor'] =new StringProperty('andor');
+		$this->mFormProperties['query'] =new StringProperty('query');
 	
 		//
 		// Set field properties

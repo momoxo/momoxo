@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Property\BoolProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_ModuleUpdateForm extends ActionForm
 {
@@ -14,8 +16,8 @@ class Xcore_ModuleUpdateForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['dirname'] =new XCube_StringProperty('dirname');
-		$this->mFormProperties['force'] =new XCube_BoolProperty('force');
+		$this->mFormProperties['dirname'] =new StringProperty('dirname');
+		$this->mFormProperties['force'] =new BoolProperty('force');
 	}
 
 	function load(&$obj)

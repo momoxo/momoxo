@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\ImageFileProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_SmilesAdminEditForm extends ActionForm
 {
@@ -19,11 +23,11 @@ class Xcore_SmilesAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['id'] =new XCube_IntProperty('id');
-		$this->mFormProperties['code'] =new XCube_StringProperty('code');
-		$this->mFormProperties['smile_url'] =new XCube_ImageFileProperty('smile_url');
-		$this->mFormProperties['emotion'] =new XCube_StringProperty('emotion');
-		$this->mFormProperties['display'] =new XCube_BoolProperty('display');
+		$this->mFormProperties['id'] =new IntProperty('id');
+		$this->mFormProperties['code'] =new StringProperty('code');
+		$this->mFormProperties['smile_url'] =new ImageFileProperty('smile_url');
+		$this->mFormProperties['emotion'] =new StringProperty('emotion');
+		$this->mFormProperties['display'] =new BoolProperty('display');
 	
 		//
 		// Set field properties

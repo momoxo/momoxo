@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\FileProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_TplsetUploadForm extends ActionForm
 {
@@ -20,8 +22,8 @@ class Xcore_TplsetUploadForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['upload'] =new XCube_FileProperty('upload');
-		$this->mFormProperties['tplset_name'] =new XCube_StringProperty('tplset_name');
+		$this->mFormProperties['upload'] =new FileProperty('upload');
+		$this->mFormProperties['tplset_name'] =new StringProperty('tplset_name');
 	
 		//
 		// Set field properties

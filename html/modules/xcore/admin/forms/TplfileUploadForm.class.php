@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\ActionForm;
+use XCore\Property\FileArrayProperty;
 
 class Xcore_TplfileUploadForm extends ActionForm
 {
@@ -14,7 +15,7 @@ class Xcore_TplfileUploadForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['upload'] =new XCube_FileArrayProperty('upload');
+		$this->mFormProperties['upload'] =new FileArrayProperty('upload');
 	
 		//
 		// Set field properties

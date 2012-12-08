@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class User_MailjobAdminEditForm extends ActionForm
 {
@@ -15,13 +19,13 @@ class User_MailjobAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['mailjob_id'] =new XCube_IntProperty('mailjob_id');
-		$this->mFormProperties['title'] =new XCube_StringProperty('title');
-		$this->mFormProperties['body'] =new XCube_TextProperty('body');
-		$this->mFormProperties['from_name'] =new XCube_StringProperty('from_name');
-		$this->mFormProperties['from_email'] =new XCube_StringProperty('from_email');
-		$this->mFormProperties['is_pm'] =new XCube_BoolProperty('is_pm');
-		$this->mFormProperties['is_mail'] =new XCube_BoolProperty('is_mail');
+		$this->mFormProperties['mailjob_id'] =new IntProperty('mailjob_id');
+		$this->mFormProperties['title'] =new StringProperty('title');
+		$this->mFormProperties['body'] =new TextProperty('body');
+		$this->mFormProperties['from_name'] =new StringProperty('from_name');
+		$this->mFormProperties['from_email'] =new StringProperty('from_email');
+		$this->mFormProperties['is_pm'] =new BoolProperty('is_pm');
+		$this->mFormProperties['is_mail'] =new BoolProperty('is_mail');
 	
 		//
 		// Set field properties

@@ -5,6 +5,7 @@
 **/
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class Xupdate_StoreDeleteForm extends ActionForm
 {
@@ -32,7 +33,7 @@ class Xupdate_StoreDeleteForm extends ActionForm
         //
         // Set form properties
         //
-        $this->mFormProperties['sid'] = new XCube_IntProperty('sid');
+        $this->mFormProperties['sid'] = new IntProperty('sid');
     
         //
         // Set field properties

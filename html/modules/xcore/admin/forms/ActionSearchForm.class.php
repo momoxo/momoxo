@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_ActionSearchForm extends ActionForm
 {
@@ -9,7 +10,7 @@ class Xcore_ActionSearchForm extends ActionForm
 	
 	function prepare()
 	{
-		$this->mFormProperties['keywords']=new XCube_StringProperty('keywords');
+		$this->mFormProperties['keywords']=new StringProperty('keywords');
 
 		// set fields
 		$this->mFieldProperties['keywords']=new FieldProperty($this);

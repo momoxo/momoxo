@@ -6,6 +6,9 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
 
 class User_UserSearchListForm extends ActionForm
 {
@@ -37,11 +40,11 @@ class User_UserSearchListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['level']= new XCube_IntArrayProperty('level');
-		$this->mFormProperties['posts']= new XCube_IntArrayProperty('posts');
-		$this->mFormProperties['delete']= new XCube_BoolArrayProperty('delete');
+		$this->mFormProperties['level']= new IntArrayProperty('level');
+		$this->mFormProperties['posts']= new IntArrayProperty('posts');
+		$this->mFormProperties['delete']= new BoolArrayProperty('delete');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 
 		$this->mFieldProperties['level']= new FieldProperty($this);
 		$this->mFieldProperties['level']->setDependsByArray(array('required','min'));

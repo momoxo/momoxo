@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class Profile_DataEditForm extends ActionForm
 {
@@ -27,7 +28,7 @@ class Profile_DataEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['uid'] =new XCube_IntProperty('uid');
+		$this->mFormProperties['uid'] =new IntProperty('uid');
 		foreach(array_keys($this->mDef) as $key){
 			$className = $this->mDef[$key]->mFieldType->getFormPropertyClass();
 			$this->mFormProperties[$this->mDef[$key]->get('field_name')] =new $className($this->mDef[$key]->get('field_name'));

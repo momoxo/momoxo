@@ -2,6 +2,11 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\FloatProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringArrayProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class Xcore_PreferenceEditForm extends ActionForm
 {
@@ -39,16 +44,16 @@ class Xcore_PreferenceEditForm extends ActionForm
 				case 'text':
 				case 'string':
 					if ($config->get('conf_formtype') == 'textarea') {
-						$this->mFormProperties[$config->get('conf_name')] =new XCube_TextProperty($config->get('conf_name'));
+						$this->mFormProperties[$config->get('conf_name')] =new TextProperty($config->get('conf_name'));
 					}
 					else {
-						$this->mFormProperties[$config->get('conf_name')] =new XCube_StringProperty($config->get('conf_name'));
+						$this->mFormProperties[$config->get('conf_name')] =new StringProperty($config->get('conf_name'));
 					}
 					$this->set($config->get('conf_name'), $config->get('conf_value'));
 					break;
 
 				case 'float':
-					$this->mFormProperties[$config->get('conf_name')] =new XCube_FloatProperty($config->get('conf_name'));
+					$this->mFormProperties[$config->get('conf_name')] =new FloatProperty($config->get('conf_name'));
 					$this->set($config->get('conf_name'), $config->get('conf_value'));
 					
 					$this->mFieldProperties[$config->get('conf_name')] =new FieldProperty($this);
@@ -57,7 +62,7 @@ class Xcore_PreferenceEditForm extends ActionForm
 					break;
 
 				case 'int':
-					$this->mFormProperties[$config->get('conf_name')] =new XCube_IntProperty($config->get('conf_name'));
+					$this->mFormProperties[$config->get('conf_name')] =new IntProperty($config->get('conf_name'));
 					$this->set($config->get('conf_name'), $config->get('conf_value'));
 					
 					$this->mFieldProperties[$config->get('conf_name')] =new FieldProperty($this);
@@ -66,17 +71,17 @@ class Xcore_PreferenceEditForm extends ActionForm
 					break;
 					
 				case 'other':
-					$this->mFormProperties[$config->get('conf_name')] =new XCube_StringProperty($config->get('conf_name'));
+					$this->mFormProperties[$config->get('conf_name')] =new StringProperty($config->get('conf_name'));
 					$this->set($config->get('conf_name'), $config->get('conf_value'));
 					break;
 
 				case 'array':
 					if($config->get('conf_formtype') == 'textarea') {
-						$this->mFormProperties[$config->get('conf_name')] =new XCube_StringProperty($config->get('conf_name'));
+						$this->mFormProperties[$config->get('conf_name')] =new StringProperty($config->get('conf_name'));
 						$this->set($config->get('conf_name'), implode("|", unserialize($config->get('conf_value'))));
 					}
 					else {
-						$this->mFormProperties[$config->get('conf_name')] =new XCube_StringArrayProperty($config->get('conf_name'));
+						$this->mFormProperties[$config->get('conf_name')] =new StringArrayProperty($config->get('conf_name'));
 						$t_arr = unserialize($config->get('conf_value'));
 						if (is_array($t_arr)) {
 							foreach ($t_arr as $_key => $_value) {

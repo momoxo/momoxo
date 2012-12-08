@@ -6,6 +6,10 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\StringArrayProperty;
 
 class User_RanksListForm extends ActionForm
 {
@@ -37,12 +41,12 @@ class User_RanksListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['title'] =new XCube_StringArrayProperty('title');
-		$this->mFormProperties['min'] =new XCube_IntArrayProperty('min');
-		$this->mFormProperties['max'] =new XCube_IntArrayProperty('max');
-		$this->mFormProperties['delete']= new XCube_BoolArrayProperty('delete');
+		$this->mFormProperties['title'] =new StringArrayProperty('title');
+		$this->mFormProperties['min'] =new IntArrayProperty('min');
+		$this->mFormProperties['max'] =new IntArrayProperty('max');
+		$this->mFormProperties['delete']= new BoolArrayProperty('delete');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 
 		$this->mFieldProperties['title'] =new FieldProperty($this);
 		$this->mFieldProperties['title']->setDependsByArray(array('required','maxlength'));

@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_ImagecategoryAdminEditForm extends ActionForm
 {
@@ -15,15 +19,15 @@ class Xcore_ImagecategoryAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['imgcat_id'] =new XCube_IntProperty('imgcat_id');
-		$this->mFormProperties['imgcat_name'] =new XCube_StringProperty('imgcat_name');
-		$this->mFormProperties['imgcat_maxsize'] =new XCube_IntProperty('imgcat_maxsize');
-		$this->mFormProperties['imgcat_maxwidth'] =new XCube_IntProperty('imgcat_maxwidth');
-		$this->mFormProperties['imgcat_maxheight'] =new XCube_IntProperty('imgcat_maxheight');
-		$this->mFormProperties['imgcat_display'] =new XCube_BoolProperty('imgcat_display');
-		$this->mFormProperties['imgcat_weight'] =new XCube_IntProperty('imgcat_weight');
-		$this->mFormProperties['readgroups'] =new XCube_IntArrayProperty('readgroups');
-		$this->mFormProperties['uploadgroups'] =new XCube_IntArrayProperty('uploadgroups');
+		$this->mFormProperties['imgcat_id'] =new IntProperty('imgcat_id');
+		$this->mFormProperties['imgcat_name'] =new StringProperty('imgcat_name');
+		$this->mFormProperties['imgcat_maxsize'] =new IntProperty('imgcat_maxsize');
+		$this->mFormProperties['imgcat_maxwidth'] =new IntProperty('imgcat_maxwidth');
+		$this->mFormProperties['imgcat_maxheight'] =new IntProperty('imgcat_maxheight');
+		$this->mFormProperties['imgcat_display'] =new BoolProperty('imgcat_display');
+		$this->mFormProperties['imgcat_weight'] =new IntProperty('imgcat_weight');
+		$this->mFormProperties['readgroups'] =new IntArrayProperty('readgroups');
+		$this->mFormProperties['uploadgroups'] =new IntArrayProperty('uploadgroups');
 
 		//
 		// Set field properties

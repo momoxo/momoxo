@@ -2,6 +2,9 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class User_UserSearchForm extends ActionForm
 {
@@ -10,34 +13,34 @@ class User_UserSearchForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['uname'] =new XCube_StringProperty('uname');
-		$this->mFormProperties['name'] =new XCube_StringProperty('name');
-		$this->mFormProperties['email'] =new XCube_StringProperty('email');
-		$this->mFormProperties['user_icq'] =new XCube_StringProperty('user_icq');
-		$this->mFormProperties['user_aim'] =new XCube_StringProperty('user_aim');
-		$this->mFormProperties['user_yim'] =new XCube_StringProperty('user_yim');
-		$this->mFormProperties['user_msnm'] =new XCube_StringProperty('user_msnm');
-		$this->mFormProperties['url'] =new XCube_StringProperty('url');
-		$this->mFormProperties['user_from'] =new XCube_StringProperty('user_from');
-		$this->mFormProperties['user_occ'] =new XCube_StringProperty('user_occ');
-		$this->mFormProperties['user_intrest'] =new XCube_StringProperty('user_intrest');
-		$this->mFormProperties['lastlog_more'] =new XCube_IntProperty('lastlog_more');
-		$this->mFormProperties['lastlog_less'] =new XCube_IntProperty('lastlog_less');
-		$this->mFormProperties['regdate_more'] =new XCube_IntProperty('regdate_more');
-		$this->mFormProperties['regdate_less'] =new XCube_IntProperty('regdate_less');
-		$this->mFormProperties['over_posts'] =new XCube_IntProperty('over_posts');
-		$this->mFormProperties['under_posts'] =new XCube_IntProperty('under_posts');
-		$this->mFormProperties['mail_condition'] =new XCube_IntProperty('mail_condition');
-		$this->mFormProperties['user_level'] =new XCube_IntProperty('user_level');
-		$this->mFormProperties['groups'] =new XCube_IntArrayProperty('groups');
+		$this->mFormProperties['uname'] =new StringProperty('uname');
+		$this->mFormProperties['name'] =new StringProperty('name');
+		$this->mFormProperties['email'] =new StringProperty('email');
+		$this->mFormProperties['user_icq'] =new StringProperty('user_icq');
+		$this->mFormProperties['user_aim'] =new StringProperty('user_aim');
+		$this->mFormProperties['user_yim'] =new StringProperty('user_yim');
+		$this->mFormProperties['user_msnm'] =new StringProperty('user_msnm');
+		$this->mFormProperties['url'] =new StringProperty('url');
+		$this->mFormProperties['user_from'] =new StringProperty('user_from');
+		$this->mFormProperties['user_occ'] =new StringProperty('user_occ');
+		$this->mFormProperties['user_intrest'] =new StringProperty('user_intrest');
+		$this->mFormProperties['lastlog_more'] =new IntProperty('lastlog_more');
+		$this->mFormProperties['lastlog_less'] =new IntProperty('lastlog_less');
+		$this->mFormProperties['regdate_more'] =new IntProperty('regdate_more');
+		$this->mFormProperties['regdate_less'] =new IntProperty('regdate_less');
+		$this->mFormProperties['over_posts'] =new IntProperty('over_posts');
+		$this->mFormProperties['under_posts'] =new IntProperty('under_posts');
+		$this->mFormProperties['mail_condition'] =new IntProperty('mail_condition');
+		$this->mFormProperties['user_level'] =new IntProperty('user_level');
+		$this->mFormProperties['groups'] =new IntArrayProperty('groups');
 		//
-		$this->mFormProperties['user_uname_match'] =new XCube_IntProperty('user_uname_match');
-		$this->mFormProperties['user_name_match'] =new XCube_IntProperty('user_name_match');
-		$this->mFormProperties['user_email_match'] =new XCube_IntProperty('user_email_match');
-		$this->mFormProperties['user_icq_match'] =new XCube_IntProperty('user_icq_match');
-		$this->mFormProperties['user_aim_match'] =new XCube_IntProperty('user_aim_match');
-		$this->mFormProperties['user_yim_match'] =new XCube_IntProperty('user_yim_match');
-		$this->mFormProperties['user_msnm_match'] =new XCube_IntProperty('user_msnm_match');
+		$this->mFormProperties['user_uname_match'] =new IntProperty('user_uname_match');
+		$this->mFormProperties['user_name_match'] =new IntProperty('user_name_match');
+		$this->mFormProperties['user_email_match'] =new IntProperty('user_email_match');
+		$this->mFormProperties['user_icq_match'] =new IntProperty('user_icq_match');
+		$this->mFormProperties['user_aim_match'] =new IntProperty('user_aim_match');
+		$this->mFormProperties['user_yim_match'] =new IntProperty('user_yim_match');
+		$this->mFormProperties['user_msnm_match'] =new IntProperty('user_msnm_match');
 
 		//
 		// Set field properties

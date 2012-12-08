@@ -5,6 +5,8 @@
 **/
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xupdate_StoreEditForm extends ActionForm
 {
@@ -32,15 +34,15 @@ class Xupdate_StoreEditForm extends ActionForm
         //
         // Set form properties
         //
-		$this->mFormProperties['sid'] = new XCube_IntProperty('sid');
-//		$this->mFormProperties['uid'] = new XCube_IntProperty('uid');
-//		$this->mFormProperties['valid'] = new XCube_IntProperty('valid');
-		$this->mFormProperties['name'] = new XCube_StringProperty('name');
-	    $this->mFormProperties['contents'] = new XCube_StringProperty('contents');
-		$this->mFormProperties['addon_url'] = new XCube_StringProperty('addon_url');
-	    $this->mFormProperties['setting_type'] = new XCube_IntProperty('setting_type');
-//		$this->mFormProperties['theme_url'] = new XCube_StringProperty('theme_url');
-		$this->mFormProperties['reg_unixtime'] = new XCube_IntProperty('reg_unixtime');
+		$this->mFormProperties['sid'] = new IntProperty('sid');
+//		$this->mFormProperties['uid'] = new IntProperty('uid');
+//		$this->mFormProperties['valid'] = new IntProperty('valid');
+		$this->mFormProperties['name'] = new StringProperty('name');
+	    $this->mFormProperties['contents'] = new StringProperty('contents');
+		$this->mFormProperties['addon_url'] = new StringProperty('addon_url');
+	    $this->mFormProperties['setting_type'] = new IntProperty('setting_type');
+//		$this->mFormProperties['theme_url'] = new StringProperty('theme_url');
+		$this->mFormProperties['reg_unixtime'] = new IntProperty('reg_unixtime');
 
 
         //

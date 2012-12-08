@@ -3,6 +3,9 @@
 use XCore\Kernel\Root;
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xcore_ModuleEditForm extends ActionForm
 {
@@ -16,12 +19,12 @@ class Xcore_ModuleEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['mid'] =new XCube_IntProperty('mid');
-		$this->mFormProperties['name'] =new XCube_StringProperty('name');
-		$this->mFormProperties['weight'] =new XCube_IntProperty('weight');
-		$this->mFormProperties['read_groupid'] =new XCube_IntArrayProperty('read_groupid');
-		$this->mFormProperties['admin_groupid'] =new XCube_IntArrayProperty('admin_groupid');
-		$this->mFormProperties['module_cache'] =new XCube_StringProperty('module_cache');
+		$this->mFormProperties['mid'] =new IntProperty('mid');
+		$this->mFormProperties['name'] =new StringProperty('name');
+		$this->mFormProperties['weight'] =new IntProperty('weight');
+		$this->mFormProperties['read_groupid'] =new IntArrayProperty('read_groupid');
+		$this->mFormProperties['admin_groupid'] =new IntArrayProperty('admin_groupid');
+		$this->mFormProperties['module_cache'] =new StringProperty('module_cache');
 	
 		//
 		// Set field properties

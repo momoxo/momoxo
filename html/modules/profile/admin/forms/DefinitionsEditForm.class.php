@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class Profile_Admin_DefinitionsEditForm extends ActionForm
 {
@@ -21,17 +25,17 @@ class Profile_Admin_DefinitionsEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['field_id'] =new XCube_IntProperty('field_id');
-		$this->mFormProperties['field_name'] =new XCube_StringProperty('field_name');
-		$this->mFormProperties['label'] =new XCube_StringProperty('label');
-		$this->mFormProperties['type'] =new XCube_StringProperty('type');
-		$this->mFormProperties['validation'] =new XCube_StringProperty('validation');
-		$this->mFormProperties['required'] =new XCube_BoolProperty('required');
-		$this->mFormProperties['show_form'] =new XCube_BoolProperty('show_form');
-		$this->mFormProperties['weight'] =new XCube_IntProperty('weight');
-		$this->mFormProperties['description'] =new XCube_TextProperty('description');
-		$this->mFormProperties['access'] =new XCube_TextProperty('access');
-		$this->mFormProperties['options'] =new XCube_TextProperty('options');
+		$this->mFormProperties['field_id'] =new IntProperty('field_id');
+		$this->mFormProperties['field_name'] =new StringProperty('field_name');
+		$this->mFormProperties['label'] =new StringProperty('label');
+		$this->mFormProperties['type'] =new StringProperty('type');
+		$this->mFormProperties['validation'] =new StringProperty('validation');
+		$this->mFormProperties['required'] =new BoolProperty('required');
+		$this->mFormProperties['show_form'] =new BoolProperty('show_form');
+		$this->mFormProperties['weight'] =new IntProperty('weight');
+		$this->mFormProperties['description'] =new TextProperty('description');
+		$this->mFormProperties['access'] =new TextProperty('access');
+		$this->mFormProperties['options'] =new TextProperty('options');
 	
 		//
 		// Set field properties

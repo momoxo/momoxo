@@ -1,27 +1,44 @@
 <?php
 // TODO >> このファイルはクラス名の移行が完了したら削除する
 
+use XCore\Property\AbstractArrayProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\FileArrayProperty;
+use XCore\Property\FileProperty;
+use XCore\Property\FloatArrayProperty;
+use XCore\Property\FloatProperty;
+use XCore\Property\GenericArrayProperty;
+use XCore\Property\ImageFileArrayProperty;
+use XCore\Property\ImageFileProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringArrayProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextArrayProperty;
+use XCore\Property\TextProperty;
+
 call_user_func(function(){
 	$legacyClasses = array(
 		'AbstractXoopsObject'                  => null,
-		'XCube_AbstractArrayProperty'          => null,
-		'XCube_BoolArrayProperty'              => null,
-		'XCube_BoolProperty'                   => null,
+		'AbstractArrayProperty'          => null,
+		'BoolArrayProperty'              => null,
+		'BoolProperty'                   => null,
 		'XCube_DependClassFactory'             => null,
 		'XCube_EmailValidator'                 => null,
 		'XCube_ExtensionValidator'             => null,
-		'XCube_FileArrayProperty'              => null,
-		'XCube_FileProperty'                   => null,
-		'XCube_FloatArrayProperty'             => null,
-		'XCube_FloatProperty'                  => null,
+		'FileArrayProperty'              => null,
+		'FileProperty'                   => null,
+		'FloatArrayProperty'             => null,
+		'FloatProperty'                  => null,
 		'XCube_FormFile'                       => null,
 		'XCube_FormImageFile'                  => null,
-		'XCube_GenericArrayProperty'           => null,
-		'XCube_ImageFileArrayProperty'         => null,
-		'XCube_ImageFileProperty'              => null,
+		'GenericArrayProperty'           => null,
+		'ImageFileArrayProperty'         => null,
+		'ImageFileProperty'              => null,
 		'XCube_IniHandler'                     => null,
-		'XCube_IntArrayProperty'               => null,
-		'XCube_IntProperty'                    => null,
+		'IntArrayProperty'               => null,
+		'IntProperty'                    => null,
 		'XCube_IntRangeValidator'              => null,
 		'XCube_MaskValidator'                  => null,
 		'XCube_MaxValidator'                   => null,
@@ -38,10 +55,10 @@ call_user_func(function(){
 		'XCube_RequiredValidator'              => null,
 		'XCube_Role'                           => null,
 		'XCube_Root'                           => '\XCore\Kernel\Root',
-		'XCube_StringArrayProperty'            => null,
-		'XCube_StringProperty'                 => null,
-		'XCube_TextArrayProperty'              => null,
-		'XCube_TextProperty'                   => null,
+		'StringArrayProperty'            => null,
+		'StringProperty'                 => null,
+		'TextArrayProperty'              => null,
+		'TextProperty'                   => null,
 		'XCube_Theme'                          => null,
 		'XCube_Utils'                          => null,
 		'LegacyBlock_module_linkHandler'        => null,

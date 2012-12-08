@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class Xcore_SearchShowallbyuserForm extends Xcore_SearchShowallForm
 {
@@ -11,9 +12,9 @@ class Xcore_SearchShowallbyuserForm extends Xcore_SearchShowallForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['uid'] =new XCube_IntProperty('uid');
-		$this->mFormProperties['mid'] =new XCube_IntProperty('mid');
-		$this->mFormProperties['start'] =new XCube_IntProperty('start');
+		$this->mFormProperties['uid'] =new IntProperty('uid');
+		$this->mFormProperties['mid'] =new IntProperty('mid');
+		$this->mFormProperties['start'] =new IntProperty('start');
 		
 		//
 		// Set field properties

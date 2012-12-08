@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\ImageFileProperty;
+use XCore\Property\IntProperty;
 
 class User_AvatarEditForm extends ActionForm
 {
@@ -24,8 +26,8 @@ class User_AvatarEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['uid'] =new XCube_IntProperty('uid');
-		$this->mFormProperties['uploadavatar'] =new XCube_ImageFileProperty('uploadavatar');
+		$this->mFormProperties['uid'] =new IntProperty('uid');
+		$this->mFormProperties['uploadavatar'] =new ImageFileProperty('uploadavatar');
 
 		//
 		// Set field properties

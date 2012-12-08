@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Form\FieldProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class Xcore_CustomBlockEditForm extends Xcore_BlockEditForm
 {
@@ -16,8 +18,8 @@ class Xcore_CustomBlockEditForm extends Xcore_BlockEditForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['content'] =new XCube_TextProperty('content');
-		$this->mFormProperties['c_type'] =new XCube_StringProperty('c_type');
+		$this->mFormProperties['content'] =new TextProperty('content');
+		$this->mFormProperties['c_type'] =new StringProperty('c_type');
 	
 		//
 		// Set field properties

@@ -2,6 +2,9 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\StringArrayProperty;
 
 class Xcore_ModuleListForm extends ActionForm
 {
@@ -33,10 +36,10 @@ class Xcore_ModuleListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['name']=new XCube_StringArrayProperty('name');
-		$this->mFormProperties['weight']=new XCube_IntArrayProperty('weight');
-		$this->mFormProperties['isactive']=new XCube_BoolArrayProperty('isactive');
-        $this->mFormProperties['issystem']=new XCube_BoolArrayProperty('issystem');
+		$this->mFormProperties['name']=new StringArrayProperty('name');
+		$this->mFormProperties['weight']=new IntArrayProperty('weight');
+		$this->mFormProperties['isactive']=new BoolArrayProperty('isactive');
+        $this->mFormProperties['issystem']=new BoolArrayProperty('issystem');
 
 		// set fields
 		$this->mFieldProperties['name']=new FieldProperty($this);

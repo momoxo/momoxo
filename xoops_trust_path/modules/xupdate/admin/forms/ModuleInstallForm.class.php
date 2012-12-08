@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class Xupdate_Admin_ModuleInstallForm extends ActionForm
 {
@@ -28,21 +30,21 @@ class Xupdate_Admin_ModuleInstallForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['id'] = new XCube_IntProperty('id');
-		$this->mFormProperties['sid'] = new XCube_IntProperty('sid');
+		$this->mFormProperties['id'] = new IntProperty('id');
+		$this->mFormProperties['sid'] = new IntProperty('sid');
 
-		$this->mFormProperties['addon_url'] = new XCube_StringProperty('addon_url');
+		$this->mFormProperties['addon_url'] = new StringProperty('addon_url');
 
-		$this->mFormProperties['trust_dirname'] = new XCube_StringProperty('trust_dirname');
-		$this->mFormProperties['dirname'] = new XCube_StringProperty('dirname');
+		$this->mFormProperties['trust_dirname'] = new StringProperty('trust_dirname');
+		$this->mFormProperties['dirname'] = new StringProperty('dirname');
 
-		$this->mFormProperties['target_key'] = new XCube_StringProperty('target_key');
-		$this->mFormProperties['target_type'] = new XCube_StringProperty('target_type');
+		$this->mFormProperties['target_key'] = new StringProperty('target_key');
+		$this->mFormProperties['target_type'] = new StringProperty('target_type');
 
-		$this->mFormProperties['unzipdirlevel'] = new XCube_StringProperty('unzipdirlevel');
+		$this->mFormProperties['unzipdirlevel'] = new StringProperty('unzipdirlevel');
 
-		$this->mFormProperties['license'] = new XCube_StringProperty('license');
-		$this->mFormProperties['required'] = new XCube_StringProperty('required');
+		$this->mFormProperties['license'] = new StringProperty('license');
+		$this->mFormProperties['required'] = new StringProperty('required');
 
 		//
 		// Set field properties
@@ -77,7 +79,7 @@ class Xupdate_Admin_ModuleInstallForm extends ActionForm
 		$this->mFieldProperties['target_type']->setDependsByArray(array('required'));
 		$this->mFieldProperties['target_type']->addMessage('required', _MD_XUPDATE_ERROR_REQUIRED, 'target_type');
 
-		$this->mFormProperties['html_only'] = new XCube_IntProperty('html_only');
+		$this->mFormProperties['html_only'] = new IntProperty('html_only');
 
 		$this->mFieldProperties['license'] = new FieldProperty($this);
 		$this->mFieldProperties['required'] = new FieldProperty($this);

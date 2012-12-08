@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\FileProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
 
 class User_RanksAdminEditForm extends ActionForm
 {
@@ -19,12 +23,12 @@ class User_RanksAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['rank_id'] =new XCube_IntProperty('rank_id');
-		$this->mFormProperties['rank_title'] =new XCube_StringProperty('rank_title');
-		$this->mFormProperties['rank_min'] =new XCube_IntProperty('rank_min');
-		$this->mFormProperties['rank_max'] =new XCube_IntProperty('rank_max');
-		$this->mFormProperties['rank_special'] =new XCube_BoolProperty('rank_special');
-		$this->mFormProperties['rank_image'] =new XCube_FileProperty('rank_image');
+		$this->mFormProperties['rank_id'] =new IntProperty('rank_id');
+		$this->mFormProperties['rank_title'] =new StringProperty('rank_title');
+		$this->mFormProperties['rank_min'] =new IntProperty('rank_min');
+		$this->mFormProperties['rank_max'] =new IntProperty('rank_max');
+		$this->mFormProperties['rank_special'] =new BoolProperty('rank_special');
+		$this->mFormProperties['rank_image'] =new FileProperty('rank_image');
 
 		//
 		// Set field properties

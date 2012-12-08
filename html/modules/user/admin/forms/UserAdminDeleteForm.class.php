@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class User_UserAdminDeleteForm extends ActionForm
 {
@@ -15,7 +16,7 @@ class User_UserAdminDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['uid'] =new XCube_IntProperty('uid');
+		$this->mFormProperties['uid'] =new IntProperty('uid');
 
 		//
 		// Set field properties

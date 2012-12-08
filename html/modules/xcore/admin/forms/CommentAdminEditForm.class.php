@@ -2,6 +2,10 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntProperty;
+use XCore\Property\StringProperty;
+use XCore\Property\TextProperty;
 
 class Xcore_AbstractCommentAdminEditForm extends ActionForm
 {
@@ -15,17 +19,17 @@ class Xcore_AbstractCommentAdminEditForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['com_id'] =new XCube_IntProperty('com_id');
-		$this->mFormProperties['com_icon'] =new XCube_StringProperty('com_icon');
-		$this->mFormProperties['com_title'] =new XCube_StringProperty('com_title');
-		$this->mFormProperties['com_text'] =new XCube_TextProperty('com_text');
-		$this->mFormProperties['com_sig'] =new XCube_BoolProperty('com_sig');
-		$this->mFormProperties['com_status'] =new XCube_IntProperty('com_status');
-		$this->mFormProperties['dohtml'] =new XCube_BoolProperty('dohtml');
-		$this->mFormProperties['dosmiley'] =new XCube_BoolProperty('dosmiley');
-		$this->mFormProperties['doxcode'] =new XCube_BoolProperty('doxcode');
-		$this->mFormProperties['doimage'] =new XCube_BoolProperty('doimage');
-		$this->mFormProperties['dobr'] =new XCube_BoolProperty('dobr');
+		$this->mFormProperties['com_id'] =new IntProperty('com_id');
+		$this->mFormProperties['com_icon'] =new StringProperty('com_icon');
+		$this->mFormProperties['com_title'] =new StringProperty('com_title');
+		$this->mFormProperties['com_text'] =new TextProperty('com_text');
+		$this->mFormProperties['com_sig'] =new BoolProperty('com_sig');
+		$this->mFormProperties['com_status'] =new IntProperty('com_status');
+		$this->mFormProperties['dohtml'] =new BoolProperty('dohtml');
+		$this->mFormProperties['dosmiley'] =new BoolProperty('dosmiley');
+		$this->mFormProperties['doxcode'] =new BoolProperty('doxcode');
+		$this->mFormProperties['doimage'] =new BoolProperty('doimage');
+		$this->mFormProperties['dobr'] =new BoolProperty('dobr');
 	
 		//
 		// Set field properties

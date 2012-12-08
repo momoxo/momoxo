@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\IntProperty;
 
 class Xcore_ImageAdminDeleteForm extends ActionForm
 {
@@ -15,7 +16,7 @@ class Xcore_ImageAdminDeleteForm extends ActionForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['image_id'] =new XCube_IntProperty('image_id');
+		$this->mFormProperties['image_id'] =new IntProperty('image_id');
 	
 		//
 		// Set field properties

@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntProperty;
 
 class Xcore_ImageAdminCreateForm extends Xcore_ImageUploadForm
 {
@@ -18,9 +20,9 @@ class Xcore_ImageAdminCreateForm extends Xcore_ImageUploadForm
 		//
 		// Set form properties
 		//
-		$this->mFormProperties['image_id'] =new XCube_IntProperty('image_id');
-		$this->mFormProperties['image_display'] =new XCube_BoolProperty('image_display');
-		$this->mFormProperties['image_weight'] =new XCube_IntProperty('image_weight');
+		$this->mFormProperties['image_id'] =new IntProperty('image_id');
+		$this->mFormProperties['image_display'] =new BoolProperty('image_display');
+		$this->mFormProperties['image_weight'] =new IntProperty('image_weight');
 	
 		//
 		// Set field properties

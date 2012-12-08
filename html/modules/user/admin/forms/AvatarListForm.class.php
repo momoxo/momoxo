@@ -6,6 +6,10 @@
  */
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Property\BoolArrayProperty;
+use XCore\Property\BoolProperty;
+use XCore\Property\IntArrayProperty;
+use XCore\Property\StringArrayProperty;
 
 class User_AvatarListForm extends ActionForm
 {
@@ -37,12 +41,12 @@ class User_AvatarListForm extends ActionForm
 	function prepare()
 	{
 		// set properties
-		$this->mFormProperties['name'] =new XCube_StringArrayProperty('name');
-		$this->mFormProperties['display'] =new XCube_BoolArrayProperty('display');
-		$this->mFormProperties['weight'] =new XCube_IntArrayProperty('weight');
-		$this->mFormProperties['delete']= new XCube_BoolArrayProperty('delete');
+		$this->mFormProperties['name'] =new StringArrayProperty('name');
+		$this->mFormProperties['display'] =new BoolArrayProperty('display');
+		$this->mFormProperties['weight'] =new IntArrayProperty('weight');
+		$this->mFormProperties['delete']= new BoolArrayProperty('delete');
 		//to display error-msg at confirm-page
-		$this->mFormProperties['confirm'] =new XCube_BoolProperty('confirm');
+		$this->mFormProperties['confirm'] =new BoolProperty('confirm');
 
 		$this->mFieldProperties['name'] =new FieldProperty($this);
 		$this->mFieldProperties['name']->setDependsByArray(array('required','maxlength'));
