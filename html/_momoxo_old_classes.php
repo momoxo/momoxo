@@ -3,7 +3,6 @@
 
 call_user_func(function(){
 	$legacyClasses = array(
-		'XCube_DependClassFactory'             => null,
 		'XCube_IniHandler'                     => null,
 		'XCube_Object'                         => null,
 		'XCube_ObjectArray'                    => null,
