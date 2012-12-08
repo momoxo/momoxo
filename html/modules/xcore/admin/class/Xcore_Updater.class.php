@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Utils\Utils;
 
 class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 {
@@ -130,11 +131,11 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 
 		if ($db->query($sql))
 		{
-			$this->mLog->addReport(XCube_Utils::formatString(_AD_XCORE_MESSAGE_EXTEND_CONFIG_TITLE_SIZE_SUCCESSFUL, $table));
+			$this->mLog->addReport(Utils::formatString(_AD_XCORE_MESSAGE_EXTEND_CONFIG_TITLE_SIZE_SUCCESSFUL, $table));
 		}
 		else
 		{
-			$this->mLog->addError(XCube_Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_EXTEND_CONFIG_TITLE_SIZE, $table));
+			$this->mLog->addError(Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_EXTEND_CONFIG_TITLE_SIZE, $table));
 		}
 	}
 
@@ -153,7 +154,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 				$sql = sprintf('DELETE FROM `%s` WHERE `uid` = %d AND `groupid` = %d ORDER BY `linkid` DESC', $table, $row['uid'], $row['groupid']);
 				if (!$db->query($sql, $row['c'] - 1))
 				{
-					$this->mLog->addError(XCube_Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_DELETE_DUPLICATE_DATA, $table));
+					$this->mLog->addError(Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_DELETE_DUPLICATE_DATA, $table));
 					return;
 				}
 			}
@@ -165,11 +166,11 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 		$sql = 'ALTER TABLE `' . $table . '` ADD UNIQUE `uid_groupid` (`uid`,`groupid`)';
 		if ($db->query($sql))
 		{
-			$this->mLog->addReport(XCube_Utils::formatString(_AD_XCORE_MESSAGE_SET_UNIQUE_KEY_SUCCESSFUL, $table));
+			$this->mLog->addReport(Utils::formatString(_AD_XCORE_MESSAGE_SET_UNIQUE_KEY_SUCCESSFUL, $table));
 		}
 		else
 		{
-			$this->mLog->addError(XCube_Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_SET_UNIQUE_KEY, $table));
+			$this->mLog->addError(Utils::formatString(_AD_XCORE_ERROR_COULD_NOT_SET_UNIQUE_KEY, $table));
 		}
 	}
 

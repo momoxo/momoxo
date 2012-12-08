@@ -1,6 +1,7 @@
 <?php
 use XCore\Kernel\Root;
 use XCore\Kernel\ActionFilter;
+use XCore\Utils\Utils;
 
 if (!defined('XOOPS_ROOT_PATH')) die();
 
@@ -48,7 +49,7 @@ class Message_Preload extends ActionFilter
         $root->mLanguageManager->loadModuleMessageCatalog('message');
         $arrays[] = array(
           'url' => XOOPS_MODULE_URL.'/message/index.php',
-          'title' => XCube_Utils::formatString(_MD_MESSAGE_NEWMESSAGE, $num)
+          'title' => Utils::formatString(_MD_MESSAGE_NEWMESSAGE, $num)
         );
       }
     }

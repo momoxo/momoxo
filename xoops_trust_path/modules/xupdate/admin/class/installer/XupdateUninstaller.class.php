@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Utils\Utils;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -110,7 +111,7 @@ class Xupdate_Uninstaller
                 if($db->query($sql))
                 {
                     $this->mLog->addReport(
-                        XCube_Utils::formatString(
+                        Utils::formatString(
                             _MI_XUPDATE_INSTALL_MSG_TABLE_DOROPPED,
                             $tableName
                         )
@@ -119,7 +120,7 @@ class Xupdate_Uninstaller
                 else
                 {
                     $this->mLog->addError(
-                        XCube_Utils::formatString(
+                        Utils::formatString(
                             _MI_XUPDATE_INSTALL_ERROR_TABLE_DOROPPED,
                             $tableName
                         )
@@ -157,7 +158,7 @@ class Xupdate_Uninstaller
         if(!$tplHandler->deleteAll($cri))
         {
             $this->mLog->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_BLOCK_TPL_DELETED,
                     $tplHandler->db->error()
                 )
@@ -189,7 +190,7 @@ class Xupdate_Uninstaller
         if(!$this->mLog->hasError())
         {
             $this->mLog->add(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_MODULE_UNINSTALLED,
                     $this->_mXoopsModule->get('name')
                 )
@@ -198,7 +199,7 @@ class Xupdate_Uninstaller
         else if(is_object($this->_mXoopsModule))
         {
             $this->mLog->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_UNINSTALLED,
                     $this->_mXoopsModule->get('name')
                 )
@@ -207,7 +208,7 @@ class Xupdate_Uninstaller
         else
         {
             $this->mLog->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_UNINSTALLED,
                     'something'
                 )

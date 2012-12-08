@@ -1,6 +1,7 @@
 <?php
 
 use XCore\FormFile\FormFile;
+use XCore\Utils\Utils;
 
 class Xcore_TplsetUploadAction extends Xcore_Action
 {
@@ -74,7 +75,7 @@ class Xcore_TplsetUploadAction extends Xcore_Action
 		
 		$handler =& xoops_getmodulehandler('tplset');
 		if ($handler->getCount(new Criteria('tplset_name', $tplsetName)) != 0) {
-			$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_TPLSET_ALREADY_EXISTS, $tplsetName));
+			$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_TPLSET_ALREADY_EXISTS, $tplsetName));
 			return XCORE_FRAME_VIEW_ERROR;
 		}
 		
@@ -118,7 +119,7 @@ class Xcore_TplsetUploadAction extends Xcore_Action
 				$tplfile->set('tpl_lastimported', time());
 				
 				if (!$handler->insert($tplfile)) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_TPLFILE, $tplfile->get('tpl_file')));
+					$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_TPLFILE, $tplfile->get('tpl_file')));
 				}
 				unset($default);
 			}
@@ -140,7 +141,7 @@ class Xcore_TplsetUploadAction extends Xcore_Action
 		$imgset->set('imgset_refid', 0);
 		
 		if (!$handler->insert($imgset)) {
-			$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGESET, $tplset->get('tplset_name')));
+			$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGESET, $tplset->get('tplset_name')));
 			return false;
 		}
 		
@@ -157,7 +158,7 @@ class Xcore_TplsetUploadAction extends Xcore_Action
 				$image->set('imgsetimg_imgset', $imgset->get('imgset_id'));
 				$image->set('imgsetimg_body', $themeimages[$i]['content'], true);
 				if (!$handler->insert($image)) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $image->get('imgsetimg_file')));
+					$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $image->get('imgsetimg_file')));
 				}
 				unset($image);
 			}

@@ -6,6 +6,7 @@ use XCore\Property\IntArrayProperty;
 use XCore\Property\IntProperty;
 use XCore\Property\StringArrayProperty;
 use XCore\Property\StringProperty;
+use XCore\Utils\Utils;
 
 class Xcore_BlockEditForm extends ActionForm
 {
@@ -78,7 +79,7 @@ class Xcore_BlockEditForm extends ActionForm
 			foreach ($this->get('bmodule') as $mid) {
 				$module =& $handler->get($mid);
 				if ($mid != -1 && $mid != 0 && !is_object($module)) {
-					$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_BMODULE));
+					$this->addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_OBJECTEXIST, _AD_XCORE_LANG_BMODULE));
 				}
 			}
 		}

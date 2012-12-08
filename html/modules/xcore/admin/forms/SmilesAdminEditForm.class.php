@@ -6,6 +6,7 @@ use XCore\Property\BoolProperty;
 use XCore\Property\ImageFileProperty;
 use XCore\Property\IntProperty;
 use XCore\Property\StringProperty;
+use XCore\Utils\Utils;
 
 class Xcore_SmilesAdminEditForm extends ActionForm
 {
@@ -57,7 +58,7 @@ class Xcore_SmilesAdminEditForm extends ActionForm
 	function validateSmile_url()
 	{
 		if ($this->_mIsNew && $this->get('smile_url') == null) {
-			$this->addErrorMessage(XCube_Utils::formatMessage(_MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_SMILE_URL));
+			$this->addErrorMessage(Utils::formatMessage(_MD_XCORE_ERROR_REQUIRED, _AD_XCORE_LANG_SMILE_URL));
 		}
 	}
 

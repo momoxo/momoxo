@@ -3,6 +3,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Utils\Utils;
 
 class Xcore_ModuleUninstaller
 {
@@ -108,10 +109,10 @@ class Xcore_ModuleUninstaller
 				$sql = "DROP TABLE " . $t_tableName;
 				
 				if ($db->query($sql)) {
-					$this->mLog->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_DROP_TABLE, $t_tableName));
+					$this->mLog->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_DROP_TABLE, $t_tableName));
 				}
 				else {
-					$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_DROP_TABLE, $t_tableName));
+					$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_DROP_TABLE, $t_tableName));
 				}
 			}
 		}
@@ -142,7 +143,7 @@ class Xcore_ModuleUninstaller
 		$tplHandler =& xoops_gethandler('tplfile');
 		$criteria =new Criteria('tpl_module', $this->_mXoopsModule->get('dirname'));
 		if(!$tplHandler->deleteAll($criteria)) {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_DELETE_BLOCK_TEMPLATES, $tplHandler->db->error()));
+			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_DELETE_BLOCK_TEMPLATES, $tplHandler->db->error()));
 		}
 	}
 
@@ -167,7 +168,7 @@ class Xcore_ModuleUninstaller
 			
 			if (function_exists($funcName)) {
 				if (!call_user_func($funcName, $this->_mXoopsModule, new Ref($this->mLog))) {
-					$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
+					$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
 				}
 			}
 		}
@@ -176,10 +177,10 @@ class Xcore_ModuleUninstaller
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
+			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_UNINSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
+			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_UNINSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
 		}
 	}
 

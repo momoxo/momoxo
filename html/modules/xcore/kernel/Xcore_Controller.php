@@ -19,6 +19,7 @@ use XCore\Kernel\HttpRequest;
 use XCore\Kernel\DelegateUtils;
 use XCore\Kernel\Delegate;
 use XCore\Kernel\RenderTarget;
+use XCore\Utils\Utils;
 
 class Xcore_Controller extends Controller
 {
@@ -989,7 +990,7 @@ class Xcore_Controller extends Controller
 					}
 				}
 
-				$this->executeRedirect($url, 1, XCube_Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
+				$this->executeRedirect($url, 1, Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
 			}
 			else {
 				DelegateUtils::call('Site.CheckLogin.Fail', new Ref($this->mRoot->mContext->mXoopsUser));

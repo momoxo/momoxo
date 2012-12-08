@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Utils\Utils;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -58,7 +59,7 @@ class Xupdate_InstallUtils
         if(!$scanner->loadFile($sqlFilePath))
         {
             $log->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_SQL_FILE_NOT_FOUND,
                     $sqlFile
                 )
@@ -109,7 +110,7 @@ class Xupdate_InstallUtils
             if($root->mController->mDB->query($sql))
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_SQL_SUCCESS,
                         $sql
                     )
@@ -118,7 +119,7 @@ class Xupdate_InstallUtils
             else
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_SQL_ERROR,
                         $sql
                     )
@@ -251,7 +252,7 @@ class Xupdate_InstallUtils
         if($tplHandler->insert($tplFile))
         {
             $log->addReport(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_TPL_INSTALLED,
                     $filename['public']
                 )
@@ -260,7 +261,7 @@ class Xupdate_InstallUtils
         else
         {
             $log->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_TPL_INSTALLED,
                     $filename['public']
                 )
@@ -295,7 +296,7 @@ class Xupdate_InstallUtils
                 if(!$tplHandler->delete($tpl))
                 {
                     $log->addError(
-                        XCube_Utils::formatString(
+                        Utils::formatString(
                             _MI_XUPDATE_INSTALL_ERROR_TPL_UNINSTALLED,
                             $tpl->get('tpl_file')
                         )
@@ -383,7 +384,7 @@ class Xupdate_InstallUtils
         if(!$blockHandler->insert($blockObj,$autoLink))
         {
             $log->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_BLOCK_INSTALLED,
                     $blockObj->getVar('name')
                 )
@@ -392,7 +393,7 @@ class Xupdate_InstallUtils
         }
     
         $log->addReport(
-            XCube_Utils::formatString(
+            Utils::formatString(
                 _MI_XUPDATE_INSTALL_MSG_BLOCK_INSTALLED,
                 $blockObj->getVar('name')
             )
@@ -415,7 +416,7 @@ class Xupdate_InstallUtils
             if(!$blockHandler->db->query($sql))
             {
                 $log->addWarning(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_BLOCK_COULD_NOT_LINK,
                         $blockObj->getVar('name')
                     )
@@ -439,7 +440,7 @@ class Xupdate_InstallUtils
                 if(!$gpermHandler->insert($perm))
                 {
                     $log->addWarning(
-                        XCube_Utils::formatString(
+                        Utils::formatString(
                             _MI_XUPDATE_INSTALL_ERROR_PERM_COULD_NOT_SET,
                             $blockObj->getVar('name')
                         )
@@ -456,7 +457,7 @@ class Xupdate_InstallUtils
                 if(!$gpermHandler->insert($perm))
                 {
                     $log->addWarning(
-                        XCube_Utils::formatString(
+                        Utils::formatString(
                             _MI_XUPDATE_INSTALL_ERROR_BLOCK_PERM_SET,
                             $blockObj->getVar('name')
                         )
@@ -528,7 +529,7 @@ class Xupdate_InstallUtils
         if($tplHandler->insert($tplFile))
         {
             $log->addReport(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_BLOCK_TPL_INSTALLED,
                     $filename['public']
                 )
@@ -537,7 +538,7 @@ class Xupdate_InstallUtils
         }
     
         $log->addError(
-            XCube_Utils::formatString(
+            Utils::formatString(
                 _MI_XUPDATE_INSTALL_ERROR_BLOCK_TPL_INSTALLED,
                 $filename['public']
             )
@@ -567,7 +568,7 @@ class Xupdate_InstallUtils
             if($blockHandler->delete($block))
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_BLOCK_UNINSTALLED,
                         $block->get('name')
                     )
@@ -576,7 +577,7 @@ class Xupdate_InstallUtils
             else
             {
                 $log->addWarning(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_BLOCK_UNINSTALLED,
                         $block->get('name')
                     )
@@ -591,7 +592,7 @@ class Xupdate_InstallUtils
             if(!$gpermHandler->deleteAll($cri))
             {
                 $log->addWarning(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_BLOCK_PERM_DELETE,
                         $block->get('name')
                     )
@@ -700,7 +701,7 @@ class Xupdate_InstallUtils
             if($blockHandler->insert($block))
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_BLOCK_UPDATED,
                         $block->get('name')
                     )
@@ -709,7 +710,7 @@ class Xupdate_InstallUtils
             else
             {
                 $log->addError(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_BLOCK_UPDATED,
                         $block->get('name')
                     )
@@ -756,7 +757,7 @@ class Xupdate_InstallUtils
         if(!$blockHandler->insert($block))
         {
             $log->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_BLOCK_INSTALLED,
                     $block->get('name')
                 )
@@ -765,7 +766,7 @@ class Xupdate_InstallUtils
         }
     
         $log->addReport(
-            XCube_Utils::formatString(
+            Utils::formatString(
                 _MI_XUPDATE_INSTALL_MSG_BLOCK_INSTALLED,
                 $block->get('name')
             )
@@ -798,7 +799,7 @@ class Xupdate_InstallUtils
             if($blockHandler->delete($block))
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_BLOCK_UNINSTALLED,
                         $block->get('name')
                     )
@@ -807,7 +808,7 @@ class Xupdate_InstallUtils
             else
             {
                 $log->addError(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_BLOCK_UNINSTALLED,
                         $block->get('name')
                     )
@@ -840,7 +841,7 @@ class Xupdate_InstallUtils
                 if(!$tplHandler->delete($tpl))
                 {
                     $log->addError(
-                        XCube_Utils::formatString(
+                        Utils::formatString(
                             _MI_XUPDATE_INSTALL_ERROR_TPL_UNINSTALLED,
                             $tpl->get('tpl_file')
                         )
@@ -850,7 +851,7 @@ class Xupdate_InstallUtils
         }
     
         $log->addReport(
-            XCube_Utils::formatString(
+            Utils::formatString(
                 _MI_XUPDATE_INSTALL_MSG_BLOCK_TPL_UNINSTALLED,
                 $block->get('template')
             )
@@ -901,7 +902,7 @@ class Xupdate_InstallUtils
             if($configHandler->insertConfig($config))
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_CONFIG_ADDED,
                         $config->get('conf_name')
                     )
@@ -910,7 +911,7 @@ class Xupdate_InstallUtils
             else
             {
                 $log->addError(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_CONFIG_ADDED,
                         $config->get('conf_name')
                     )
@@ -960,7 +961,7 @@ class Xupdate_InstallUtils
         if($configHandler->insertConfig($config))
         {
             $log->addReport(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_CONFIG_ADDED,
                     $config->get('conf_name')
                 )
@@ -969,7 +970,7 @@ class Xupdate_InstallUtils
         else
         {
             $log->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_CONFIG_ADDED,
                     $config->get('conf_name')
                 )
@@ -1007,7 +1008,7 @@ class Xupdate_InstallUtils
             if($configHandler->deleteConfig($config))
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_CONFIG_DELETED,
                         $config->getVar('conf_name')
                     )
@@ -1016,7 +1017,7 @@ class Xupdate_InstallUtils
             else
             {
                 $log->addWarning(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_CONFIG_DELETED,
                         $config->getVar('conf_name')
                     )
@@ -1051,7 +1052,7 @@ class Xupdate_InstallUtils
             if($configHandler->deleteConfig($config))
             {
                 $log->addReport(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_MSG_CONFIG_DELETED,
                         $config->get('conf_name')
                     )
@@ -1060,7 +1061,7 @@ class Xupdate_InstallUtils
             else
             {
                 $log->addError(
-                    XCube_Utils::formatString(
+                    Utils::formatString(
                         _MI_XUPDATE_INSTALL_ERROR_CONFIG_DELETED,
                         $config->get('conf_name')
                     )
@@ -1174,7 +1175,7 @@ class Xupdate_InstallUtils
         if($configHandler->insertConfig($config))
         {
             $log->addReport(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_CONFIG_UPDATED,
                     $config->get('conf_name')
                 )
@@ -1183,7 +1184,7 @@ class Xupdate_InstallUtils
         }
     
         $log->addError(
-            XCube_Utils::formatString(
+            Utils::formatString(
                 _MI_XUPDATE_INSTALL_ERROR_CONFIG_UPDATED,
                 $config->get('conf_name')
             )
@@ -1220,7 +1221,7 @@ class Xupdate_InstallUtils
         if(!$configHandler->insertConfig($config))
         {
             $log->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_CONFIG_UPDATED,
                     $config->get('conf_name')
                 )

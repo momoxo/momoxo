@@ -8,6 +8,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
+use XCore\Utils\Utils;
 
 class Xcore_ModuleInstaller
 {
@@ -206,10 +207,10 @@ class Xcore_ModuleInstaller
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_INSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
+			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_INSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_INSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
+			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_INSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
 		}
 	}
 

@@ -6,6 +6,7 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Utils\Utils;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -443,7 +444,7 @@ class Xupdate_Updater
         if(!$this->mLog->hasError())
         {
             $this->mLog->add(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_MODULE_UPDATED,
                     $this->_mCurrentXoopsModule->get('name')
                 )
@@ -452,7 +453,7 @@ class Xupdate_Updater
         else
         {
             $this->mLog->add(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_UPDATED,
                     $this->_mCurrentXoopsModule->get('name')
                 )

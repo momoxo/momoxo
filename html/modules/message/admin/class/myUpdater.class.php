@@ -4,6 +4,7 @@
  * @author Marijuana
  */
 use XCore\Kernel\Root;
+use XCore\Utils\Utils;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -79,7 +80,7 @@ class Message_myUpdater extends Xcore_ModulePhasedUpgrader
     $scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
     $scanner->setDirname($this->_mTargetXoopsModule->get('dirname'));
     if (!$scanner->loadFile($sqlfilepath)) {
-      $this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
+      $this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
       return false;
     }
   

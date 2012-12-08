@@ -21,7 +21,7 @@ class Validator
 	/**
 	 *
 	 * @param AbstractProperty $form
-	 * @param array $vars variables of this field property.
+	 * @param array            $vars variables of this field property.
 	 * @return bool
 	 */
 	public function isValid(&$form, $vars)

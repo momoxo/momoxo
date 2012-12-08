@@ -32,6 +32,7 @@
  * @see Xcore_ModuleInstallUtils
  */
 use XCore\Kernel\Ref;
+use XCore\Utils\Utils;
 
 class Xcore_ModulePhasedUpgrader
 {
@@ -274,10 +275,10 @@ class Xcore_ModulePhasedUpgrader
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UPDATING_MODULE_SUCCESSFUL, $this->_mCurrentXoopsModule->get('name')));
+			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_UPDATING_MODULE_SUCCESSFUL, $this->_mCurrentXoopsModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_UPDATING_MODULE_FAILURE, $this->_mCurrentXoopsModule->get('name')));
+			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_UPDATING_MODULE_FAILURE, $this->_mCurrentXoopsModule->get('name')));
 		}
 	}
 	

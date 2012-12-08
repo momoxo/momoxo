@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Utils\Utils;
 
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
@@ -88,7 +89,7 @@ if( is_object( @$xoopsUser ) ) {
 				$xugj_pm_new_count = $client->call('getCountUnreadPM', array('uid' => $root->mContext->mXoopsUser->get('uid')));
 				if(intval($xugj_pm_new_count)>0){
 					$root->mLanguageManager->loadModuleMessageCatalog('message');
-					$xugj_pm_new_message = XCube_Utils::formatString(_MD_MESSAGE_NEWMESSAGE, $xugj_pm_new_count);
+					$xugj_pm_new_message = Utils::formatString(_MD_MESSAGE_NEWMESSAGE, $xugj_pm_new_count);
 					$this->assign( 'xugj_pm_new_message' , $xugj_pm_new_message."<br/><a href='".$url."'>"._MD_MESSAGE_TEMPLATE15."</a>" ) ;
 				}
 				$this->assign( 'xugj_pm_new_count' , intval($xugj_pm_new_count) ) ;

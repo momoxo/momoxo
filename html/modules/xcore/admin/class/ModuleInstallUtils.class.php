@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Utils\Utils;
 
 define("MODINSTALL_LOGTYPE_REPORT", "report");
 define("MODINSTALL_LOGTYPE_WARNING", "warning");
@@ -154,7 +155,7 @@ class Xcore_ModuleInstallUtils
 			$scanner->setDirname($module->get('dirname'));
 			
 			if (!$scanner->loadFile($sqlfilepath)) {
-				$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
+				$log->addError(Utils::formatMessage(_AD_XCORE_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
 				return false;
 			}
 	
@@ -301,10 +302,10 @@ class Xcore_ModuleInstallUtils
 		$tplfile->setVar('tpl_desc', $description, true);
 		
 		if ($tplHandler->insert($tplfile)) {
-			$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_TEMPLATE_INSTALLED, $fileName));
+			$log->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_TEMPLATE_INSTALLED, $fileName));
 		}
 		else {
-			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_TEMPLATE, $fileName));
+			$log->addError(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_TEMPLATE, $fileName));
 			return false;
 		}
 	}
@@ -348,7 +349,7 @@ class Xcore_ModuleInstallUtils
 			
 			foreach ($delTemplates as $tpl) {
 				if (!$tplHandler->delete($tpl)) {
-					$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_TEMPLATE_UNINSTALLED, $tpl->get('tpl_file')));
+					$log->addError(Utils::formatMessage(_AD_XCORE_ERROR_TEMPLATE_UNINSTALLED, $tpl->get('tpl_file')));
 				}
 			}
 		}
@@ -527,12 +528,12 @@ class Xcore_ModuleInstallUtils
             $autolink = true;
         }
 		if (!$blockHandler->insert($blockObj, $autolink)) {
-			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_BLOCK, $blockObj->getVar('name')));
+			$log->addError(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_BLOCK, $blockObj->getVar('name')));
 
 			return false;
 		}
 		else {
-			$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_INSTALLED, $blockObj->getVar('name')));
+			$log->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_INSTALLED, $blockObj->getVar('name')));
 
 			$tplHandler =& xoops_gethandler('tplfile');
 
@@ -545,7 +546,7 @@ class Xcore_ModuleInstallUtils
                 if (!empty($block['show_all_module'])) {
         			$link_sql = "INSERT INTO " . $blockHandler->db->prefix('block_module_link') . " (block_id, module_id) VALUES (".$blockObj->getVar('bid').", 0)";
 		        	if (!$blockHandler->db->query($link_sql)) {
-       					$log->addWarning(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_LINK, $blockObj->getVar('name')));
+       					$log->addWarning(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_LINK, $blockObj->getVar('name')));
 		        	}
     			}
    				$gpermHandler =& xoops_gethandler('groupperm');
@@ -561,7 +562,7 @@ class Xcore_ModuleInstallUtils
         				$bperm->setVar('gperm_groupid', $group->getVar('groupid'));
         				$bperm->setNew();
         				if (!$gpermHandler->insert($bperm)) {
-        					$log->addWarning(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
+        					$log->addWarning(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
         				}
         			}
 				} else {
@@ -571,7 +572,7 @@ class Xcore_ModuleInstallUtils
         				$bperm->setVar('gperm_groupid', $mygroup);
         				$bperm->setNew();
         				if (!$gpermHandler->insert($bperm)) {
-        					$log->addWarning(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
+        					$log->addWarning(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SET_BLOCK_PERMISSION, $blockObj->getVar('name')));
     				    }
     				}
 				}
@@ -595,7 +596,7 @@ class Xcore_ModuleInstallUtils
 	{
 		$blockHandler =& xoops_gethandler('block');
 		$blockHandler->delete($block);
-		$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $block->get('name')));
+		$log->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $block->get('name')));
 		
 		//
 		// Deletes permissions
@@ -647,11 +648,11 @@ class Xcore_ModuleInstallUtils
 		$tplfile->set('tpl_lastmodified', time());
 
 		if ($tplHandler->insert($tplfile)) {
-		    $log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_TEMPLATE_INSTALLED, $block->get('template')));
+		    $log->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_TEMPLATE_INSTALLED, $block->get('template')));
 			return true;
 		}
 		else {
-			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_BLOCK_TEMPLATE_INSTALL, $block->get('name')));
+			$log->addError(Utils::formatMessage(_AD_XCORE_ERROR_BLOCK_TEMPLATE_INSTALL, $block->get('name')));
 			return false;
 		}
 	}
@@ -747,10 +748,10 @@ class Xcore_ModuleInstallUtils
 		}
 		
 		if ($handler->insertConfig($config)) {
-			$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_INSERT_CONFIG, $config->get('conf_name')));
+			$log->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_INSERT_CONFIG, $config->get('conf_name')));
 		}
 		else {
-			$log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSERT_CONFIG, $config->get('conf_name')));
+			$log->addError(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSERT_CONFIG, $config->get('conf_name')));
 		}
 	}
 	
@@ -1012,10 +1013,10 @@ class Xcore_ModuleInstallUtils
 			$blockArr[$idx]->set('template', $info->mTemplate);
 			
 			if ($handler->insert($blockArr[$idx])) {
-				$log->addReport(XCube_Utils::formatMessage('Update {0} block successfully.', $blockArr[$idx]->get('name')));
+				$log->addReport(Utils::formatMessage('Update {0} block successfully.', $blockArr[$idx]->get('name')));
 			}
 			else {
-				$log->addError(XCube_Utils::formatMessage('Could not update {0} block.', $blockArr[$idx]->get('name')));
+				$log->addError(Utils::formatMessage('Could not update {0} block.', $blockArr[$idx]->get('name')));
 			}
 			
 			Xcore_ModuleInstallUtils::clearBlockTemplateForUpdate($blockArr[$idx], $module, $log);
@@ -1078,10 +1079,10 @@ class Xcore_ModuleInstallUtils
 		}
 
 		if ($handler->insertConfig($config)) {
-			$log->addReport(XCube_Utils::formatMessage("Preference '{0}' is updateded.", $config->get('conf_name')));
+			$log->addReport(Utils::formatMessage("Preference '{0}' is updateded.", $config->get('conf_name')));
 		}
 		else {
-			$log->addError(XCube_Utils::formatMessage("Could not update preference '{0}'.", $config->get('conf_name')));
+			$log->addError(Utils::formatMessage("Could not update preference '{0}'.", $config->get('conf_name')));
 		}
 	}
 
@@ -1106,7 +1107,7 @@ class Xcore_ModuleInstallUtils
 		$config->set('conf_order', $info->mOrder);
 
 		if (!$handler->insertConfig($config)) {
-			$log->addError(XCube_Utils::formatMessage("Could not update the order of preference '{0}'.", $config->get('conf_name')));
+			$log->addError(Utils::formatMessage("Could not update the order of preference '{0}'.", $config->get('conf_name')));
 		}
 	}
 	
@@ -1129,11 +1130,11 @@ class Xcore_ModuleInstallUtils
         $block->set('c_type', 1);
 
         if (!$handler->insert($block)) {
-            $log->addError(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_BLOCK, $block->get('name')));
+            $log->addError(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_INSTALL_BLOCK, $block->get('name')));
             return false;
         }
         else {
-            $log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_INSTALLED, $block->get('name')));
+            $log->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_BLOCK_INSTALLED, $block->get('name')));
 
             Xcore_ModuleInstallUtils::installBlockTemplate($block, $module, $log);
 
@@ -1155,7 +1156,7 @@ class Xcore_ModuleInstallUtils
 		$blockArr =& $handler->getObjects($criteria);
 		foreach (array_keys($blockArr) as $idx) {
 			if ($handler->delete($blockArr[$idx])) {
-				$log->addReport(XCube_Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $blockArr[$idx]->get('name')));
+				$log->addReport(Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_BLOCK_SUCCESSFUL, $blockArr[$idx]->get('name')));
 			}
 			else {
 				// Uninstall fail
@@ -1221,10 +1222,10 @@ class Xcore_ModuleInstallUtils
 		
 		foreach (array_keys($configArr) as $idx) {
 			if ($handler->deleteConfig($configArr[$idx])) {
-				$log->addReport(XCube_Utils::formatMessage("Delete preference '{0}'.", $configArr[$idx]->get('conf_name')));
+				$log->addReport(Utils::formatMessage("Delete preference '{0}'.", $configArr[$idx]->get('conf_name')));
 			}
 			else {
-				$log->addError(XCube_Utils::formatMessage("Could not delete preference '{0}'.", $configArr[$idx]->get('conf_name')));
+				$log->addError(Utils::formatMessage("Could not delete preference '{0}'.", $configArr[$idx]->get('conf_name')));
 			}
 		}
 	}

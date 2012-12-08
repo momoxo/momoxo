@@ -1,4 +1,6 @@
 <?php
+use XCore\Utils\Utils;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require _MY_MODULE_PATH.'forms/MessageForm.class.php';
@@ -134,7 +136,7 @@ class newAction extends AbstractAction
     if ( $body == 1 ) {
       $tpl->assign('note', $this->mActionForm->get('note'));
     } else {
-      $tpl->assign('note', XCube_Utils::formatString(_MD_MESSAGE_MAILBODY, XOOPS_URL.'/'));
+      $tpl->assign('note', Utils::formatString(_MD_MESSAGE_MAILBODY, XOOPS_URL.'/'));
     }
     $tpl->assign('siteurl', XOOPS_URL.'/');
     return $tpl->fetch(_MY_MODULE_PATH.'language/'.$this->root->mLanguageManager->mLanguageName.'/invitation.tpl');

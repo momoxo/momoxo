@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Utils\Utils;
+
 class Xcore_ImageUploadAction extends Xcore_Action
 {
 	var $mActionForm = null;
@@ -137,11 +139,11 @@ class Xcore_ImageUploadAction extends Xcore_Action
 				$save_file_name = uniqid('img').'.'.$ext;
 				$filehandle = fopen(XOOPS_UPLOAD_PATH.'/'.$save_file_name, "w");
 				if ( !$filehandle ) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+					$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 					continue;
 				}
 				if ( !@fwrite($filehandle, $targetimages[$i]['content']) ) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+					$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 					@fclose($filehandle);
 					continue;
 				}
@@ -156,7 +158,7 @@ class Xcore_ImageUploadAction extends Xcore_Action
 				$image->set('imgcat_id', $t_imgcat_id);
 
 				if ( !$imagehandler->insert($image) ) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+					$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 				}
 				unset($image);
 			} //end of for
@@ -187,7 +189,7 @@ class Xcore_ImageUploadAction extends Xcore_Action
 				$image->mImageBody->set('image_body', $targetimages[$i]['content']);
 
 				if ( !$imagehandler->insert($image) ) {
-					$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
+					$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_IMAGE_FILE, $file_name));
 				}
 				unset($image);
 			} //end of for

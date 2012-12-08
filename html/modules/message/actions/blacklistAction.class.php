@@ -1,4 +1,6 @@
 <?php
+use XCore\Utils\Utils;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class blacklistAction extends AbstractAction
@@ -81,7 +83,7 @@ class blacklistAction extends AbstractAction
     $blackuser = $this->getLinkUnameFromId($uid);
     $lists = explode(',', $modobj->get('blacklist'));
     if ( in_array($uid, $lists) ) {
-      $this->setErr(XCube_Utils::formatString(_MD_MESSAGE_SETTINGS_MSG14, $blackuser));
+      $this->setErr(Utils::formatString(_MD_MESSAGE_SETTINGS_MSG14, $blackuser));
       return;
     }
     if ( $lists[0] == "" ) {
@@ -91,9 +93,9 @@ class blacklistAction extends AbstractAction
       $modobj->set('blacklist', implode(',', $lists));
     }
     if ( $modHand->insert($modobj, true) ) {
-      $this->setErr(XCube_Utils::formatString(_MD_MESSAGE_SETTINGS_MSG12, $blackuser));
+      $this->setErr(Utils::formatString(_MD_MESSAGE_SETTINGS_MSG12, $blackuser));
     } else {
-      $this->setErr(XCube_Utils::formatString(_MD_MESSAGE_SETTINGS_MSG13, $blackuser));
+      $this->setErr(Utils::formatString(_MD_MESSAGE_SETTINGS_MSG13, $blackuser));
     }
   }
   

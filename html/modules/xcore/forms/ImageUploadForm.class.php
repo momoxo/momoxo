@@ -6,6 +6,7 @@ use XCore\Form\FieldProperty;
 use XCore\Property\ImageFileProperty;
 use XCore\Property\IntProperty;
 use XCore\Property\StringProperty;
+use XCore\Utils\Utils;
 
 class Xcore_ImageUploadForm extends ActionForm
 {
@@ -104,14 +105,14 @@ class Xcore_ImageUploadForm extends ActionForm
 			// Imagefile width & height check.
 			//
 			if ($formFile->getWidth() > $category->get('imgcat_maxwidth') || $formFile->getHeight() > $category->get('imgcat_maxheight')) {
-				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_IMG_SIZE, $category->get('imgcat_maxwidth'), $category->get('imgcat_maxheight')));
+				$this->addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_IMG_SIZE, $category->get('imgcat_maxwidth'), $category->get('imgcat_maxheight')));
 			}
 			
 			//
 			// Check file size
 			//
 			if ($formFile->getFilesize() > $category->get('imgcat_maxsize')) {
-				$this->addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_IMG_FILESIZE, $category->get('imgcat_maxsize')));
+				$this->addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_IMG_FILESIZE, $category->get('imgcat_maxsize')));
 			}
 		}
 	}

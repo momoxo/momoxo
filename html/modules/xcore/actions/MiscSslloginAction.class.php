@@ -5,6 +5,8 @@
  * @public
  * @todo This action should be implemented by base. We must move it to user.
  */
+use XCore\Utils\Utils;
+
 class Xcore_MiscSslloginAction extends Xcore_Action
 {
 	function execute(&$controller, &$xoopsUser)
@@ -27,7 +29,7 @@ class Xcore_MiscSslloginAction extends Xcore_Action
 		}
 	
 		$render->setTemplateName("xcore_misc_ssllogin.html");
-		$render->setAttribute("message", XCube_Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $xoopsUser->get('uname')));
+		$render->setAttribute("message", Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $xoopsUser->get('uname')));
 	}
 }
 

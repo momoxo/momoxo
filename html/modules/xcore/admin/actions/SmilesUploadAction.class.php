@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Utils\Utils;
+
 class Xcore_SmilesUploadAction extends Xcore_Action
 {
 	var $mActionForm = null;
@@ -128,11 +130,11 @@ class Xcore_SmilesUploadAction extends Xcore_Action
 			$save_file_name = uniqid('smil').'.'.$ext;
 			$filehandle = fopen(XOOPS_UPLOAD_PATH.'/'.$save_file_name, "w");
 			if ( !$filehandle ) {
-				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
+				$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
 				continue;
 			}
 			if ( !@fwrite($filehandle, $smilesimages[$i]['content']) ) {
-				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
+				$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
 				@fclose($filehandle);
 				continue;
 			}
@@ -146,7 +148,7 @@ class Xcore_SmilesUploadAction extends Xcore_Action
 			$smiles->set('display', 1);
 
 			if ( !$smileshandler->insert($smiles) ) {
-				$this->_addErrorMessage(XCube_Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
+				$this->_addErrorMessage(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_SAVE_SMILES_FILE, $file_name));
 			}
 			unset($smiles);
 		}

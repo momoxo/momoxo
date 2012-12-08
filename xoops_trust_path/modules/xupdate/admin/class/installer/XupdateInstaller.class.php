@@ -5,6 +5,8 @@
  * @version $Id$
 **/
 
+use XCore\Utils\Utils;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -211,7 +213,7 @@ class Xupdate_Installer
         if(!$this->mLog->hasError())
         {
             $this->mLog->add(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_MODULE_INSTALLED,
                     $this->_mXoopsModule->getInfo('name')
                 )
@@ -220,7 +222,7 @@ class Xupdate_Installer
         else if(is_object($this->_mXoopsModule))
         {
             $this->mLog->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_INSTALLED,
                     $this->_mXoopsModule->getInfo('name')
                 )
@@ -229,7 +231,7 @@ class Xupdate_Installer
         else
         {
             $this->mLog->addError(
-                XCube_Utils::formatString(
+                Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_INSTALLED,
                     'something'
                 )

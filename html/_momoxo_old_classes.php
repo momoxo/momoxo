@@ -13,7 +13,6 @@ call_user_func(function(){
 		'XCube_Role'                           => null,
 		'XCube_Root'                           => '\XCore\Kernel\Root',
 		'XCube_Theme'                          => null,
-		'XCube_Utils'                          => null,
 		'LegacyBlock_module_linkHandler'        => null,
 		'LegacyBlock_module_linkObject'         => null,
 		'LegacyBlockctypeHandler'               => null,
