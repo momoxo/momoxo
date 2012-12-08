@@ -1,6 +1,8 @@
 <?php
 
 // From ../../html/modules/xcore/kernel/block.php
+use XCore\FormFile\FormFile;
+
 define ('SHOW_SIDEBLOCK_LEFT',     1);
 define ('SHOW_SIDEBLOCK_RIGHT',    2);
 define ('SHOW_CENTERBLOCK_LEFT',   4);
@@ -85,7 +87,7 @@ define("XCUBE_DELEGATE_PRIORITY_FIRST", XCUBE_DELEGATE_PRIORITY_1);
 define("XCUBE_DELEGATE_PRIORITY_NORMAL", XCUBE_DELEGATE_PRIORITY_5);
 define("XCUBE_DELEGATE_PRIORITY_FINAL", XCUBE_DELEGATE_PRIORITY_10);
 
-// From ../../html/modules/xcore/kernel/XCube_FormFile.class.php
+// From ../../html/modules/xcore/kernel/FormFile.class.php
 define("XCUBE_FORMFILE_CHMOD", 0644);
 
 // From XCore\Kernel\HttpContext

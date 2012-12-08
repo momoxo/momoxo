@@ -1,5 +1,7 @@
 <?php
 
+use XCore\FormFile\FormFile;
+
 class Xcore_TplsetUploadAction extends Xcore_Action
 {
 	var $mActionForm = null;
@@ -41,7 +43,7 @@ class Xcore_TplsetUploadAction extends Xcore_Action
 		//
 		// [Warn] access private member directly
 		// TODO We should define the access method because we oftern 
-		//      access private member of XCube_FormFile.
+		//      access private member of FormFile.
 		//
 		$tar->openTar($formFile->_mTmpFileName);
 

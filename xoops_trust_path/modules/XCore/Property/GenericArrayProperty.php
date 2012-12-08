@@ -20,8 +20,9 @@ abstract class GenericArrayProperty extends PropertyInterface
 
 	/**
 	 * @var AbstractProperty[]
+     * @todo 直接参照しているクライアントコードを直して protected にする
 	 */
-	protected $mProperties = array();
+	public $mProperties = array();
 	
 	/**
 	 * @var string

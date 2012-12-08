@@ -1,44 +1,12 @@
 <?php
 // TODO >> このファイルはクラス名の移行が完了したら削除する
 
-use XCore\Property\AbstractArrayProperty;
-use XCore\Property\BoolArrayProperty;
-use XCore\Property\BoolProperty;
-use XCore\Property\FileArrayProperty;
-use XCore\Property\FileProperty;
-use XCore\Property\FloatArrayProperty;
-use XCore\Property\FloatProperty;
-use XCore\Property\GenericArrayProperty;
-use XCore\Property\ImageFileArrayProperty;
-use XCore\Property\ImageFileProperty;
-use XCore\Property\IntArrayProperty;
-use XCore\Property\IntProperty;
-use XCore\Property\StringArrayProperty;
-use XCore\Property\StringProperty;
-use XCore\Property\TextArrayProperty;
-use XCore\Property\TextProperty;
-
 call_user_func(function(){
 	$legacyClasses = array(
-		'AbstractXoopsObject'                  => null,
-		'AbstractArrayProperty'          => null,
-		'BoolArrayProperty'              => null,
-		'BoolProperty'                   => null,
 		'XCube_DependClassFactory'             => null,
 		'XCube_EmailValidator'                 => null,
 		'XCube_ExtensionValidator'             => null,
-		'FileArrayProperty'              => null,
-		'FileProperty'                   => null,
-		'FloatArrayProperty'             => null,
-		'FloatProperty'                  => null,
-		'XCube_FormFile'                       => null,
-		'XCube_FormImageFile'                  => null,
-		'GenericArrayProperty'           => null,
-		'ImageFileArrayProperty'         => null,
-		'ImageFileProperty'              => null,
 		'XCube_IniHandler'                     => null,
-		'IntArrayProperty'               => null,
-		'IntProperty'                    => null,
 		'XCube_IntRangeValidator'              => null,
 		'XCube_MaskValidator'                  => null,
 		'XCube_MaxValidator'                   => null,
@@ -55,10 +23,6 @@ call_user_func(function(){
 		'XCube_RequiredValidator'              => null,
 		'XCube_Role'                           => null,
 		'XCube_Root'                           => '\XCore\Kernel\Root',
-		'StringArrayProperty'            => null,
-		'StringProperty'                 => null,
-		'TextArrayProperty'              => null,
-		'TextProperty'                   => null,
 		'XCube_Theme'                          => null,
 		'XCube_Utils'                          => null,
 		'LegacyBlock_module_linkHandler'        => null,

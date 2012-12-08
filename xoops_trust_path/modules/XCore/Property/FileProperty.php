@@ -4,10 +4,11 @@ namespace XCore\Property;
 
 use XCore\Property\AbstractProperty;
 use XCore\Property\FileArrayProperty;
+use XCore\FormFile\FormFile;
 
 /**
  * Represents the special property which handles uploaded file.
- * @see XCube_FormFile
+ * @see FormFile
  */
 class FileProperty extends AbstractProperty
 {
@@ -21,7 +22,7 @@ class FileProperty extends AbstractProperty
 	public function __construct($name)
 	{
 		parent::__construct($name);
-		$this->mValue = new XCube_FormFile($name);
+		$this->mValue = new FormFile($name);
 	}
 	
 	public function hasFetchControl()

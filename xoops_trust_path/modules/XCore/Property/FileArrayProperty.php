@@ -13,7 +13,7 @@ class FileArrayProperty extends GenericArrayProperty
 {
 	public function __construct($name)
 	{
-		parent::__construct("FileProperty", $name);
+		parent::__construct('XCore\Property\FileProperty', $name);
 	}
 	
 	public function hasFetchControl()

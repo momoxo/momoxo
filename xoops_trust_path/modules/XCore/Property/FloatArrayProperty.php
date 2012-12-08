@@ -13,6 +13,6 @@ class FloatArrayProperty extends GenericArrayProperty
 {
 	public function __construct($name)
 	{
-		parent::__construct("FloatProperty", $name);
+		parent::__construct('XCore\Property\FloatProperty', $name);
 	}
 }

@@ -13,6 +13,6 @@ class IntArrayProperty extends GenericArrayProperty
 {
 	public function __construct($name)
 	{
-		parent::__construct("IntProperty", $name);
+		parent::__construct('XCore\Property\IntProperty', $name);
 	}
 }

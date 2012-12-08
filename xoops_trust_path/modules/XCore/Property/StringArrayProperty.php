@@ -13,6 +13,6 @@ class StringArrayProperty extends GenericArrayProperty
 {
 	public function __construct($name)
 	{
-		parent::__construct("StringProperty", $name);
+		parent::__construct('XCore\Property\StringProperty', $name);
 	}
 }

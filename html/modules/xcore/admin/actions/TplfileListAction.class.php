@@ -1,5 +1,7 @@
 <?php
 
+use XCore\FormFile\FormFile;
+
 class Xcore_TplfileListAction extends Xcore_AbstractListAction
 {
 	/**
@@ -97,7 +99,7 @@ class Xcore_TplfileListAction extends Xcore_AbstractListAction
 			$last_module = $obj->get('tpl_module');
 			
 			//
-			// [Warning] Access to a private property of XCube_FormFile.
+			// [Warning] Access to a private property of FormFile.
 			//
 			if ($formFile != null) {
 				$source = file_get_contents($formFile->_mTmpFileName);

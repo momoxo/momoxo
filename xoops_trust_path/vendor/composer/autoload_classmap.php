@@ -18,6 +18,8 @@ use XCore\Property\StringArrayProperty;
 use XCore\Property\StringProperty;
 use XCore\Property\TextArrayProperty;
 use XCore\Property\TextProperty;
+use XCore\FormFile\FormFile;
+use XCore\FormFile\FormImageFile;
 
 $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
@@ -357,8 +359,8 @@ return array(
     'FileProperty' => $baseDir . '/../html/modules/xcore/kernel/FileProperty.php',
     'FloatArrayProperty' => $baseDir . '/../html/modules/xcore/kernel/FloatArrayProperty.php',
     'FloatProperty' => $baseDir . '/../html/modules/xcore/kernel/FloatProperty.php',
-    'XCube_FormFile' => $baseDir . '/../html/modules/xcore/kernel/XCube_FormFile.php',
-    'XCube_FormImageFile' => $baseDir . '/../html/modules/xcore/kernel/XCube_FormImageFile.php',
+    'FormFile' => $baseDir . '/../html/modules/xcore/kernel/FormFile.php',
+    'FormImageFile' => $baseDir . '/../html/modules/xcore/kernel/FormImageFile.php',
     'GenericArrayProperty' => $baseDir . '/../html/modules/xcore/kernel/GenericArrayProperty.php',
     'ImageFileArrayProperty' => $baseDir . '/../html/modules/xcore/kernel/ImageFileArrayProperty.php',
     'ImageFileProperty' => $baseDir . '/../html/modules/xcore/kernel/ImageFileProperty.php',
