@@ -3,6 +3,7 @@
 namespace XCore\Property;
 
 use XCore\Property\PropertyInterface;
+use XCore\FormFile\FormFile;
 
 /**
  * The base class which implements PropertyInterface, for all properties.
@@ -15,9 +16,10 @@ abstract class AbstractProperty extends PropertyInterface
 	protected $mName = null;
 
 	/**
-	 * @var string
+	 * @var FormFile|string
+     * @todo クライアントコードからの直接参照を直して protected にする
 	 */
-	protected $mValue = null;
+	public $mValue;
 
 	/**
 	 * Constructor.

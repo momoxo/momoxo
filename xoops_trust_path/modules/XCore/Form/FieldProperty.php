@@ -6,6 +6,7 @@ use XCube_DependClassFactory;
 use XCube_Utils;
 use XCore\Validator\Validator;
 use XCore\Form\ActionForm;
+use XCore\Validator\MinlengthValidator;
 
 /**
  * Used for validating member property values of ActionForm.
@@ -137,7 +138,7 @@ class FieldProperty
 	 * Adds a virtual variable used by validators.
 	 *
 	 *   Virtual variables are used for validating by validators. For example,
-	 *   XCube_MinlengthValidator needs a value indication a minimum length.
+	 *   MinlengthValidator needs a value indication a minimum length.
 	 * \code
 	 *   $field->addVar('minlength', 2);
 	 * \endcode

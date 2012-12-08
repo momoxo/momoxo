@@ -31,7 +31,7 @@ class XCube_DependClassFactory
 		
 		if (!isset($_cache[$dependName])) {
 			// or switch?
-			$class_name = "XCube_" . ucfirst($dependName) . "Validator";
+            $class_name = sprintf('XCore\Validator\%sValidator', ucfirst($dependName));
 			$_cache[$dependName] = new $class_name();
 		}
 

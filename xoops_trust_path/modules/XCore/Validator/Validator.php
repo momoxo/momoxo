@@ -4,6 +4,7 @@ namespace XCore\Validator;
 
 use XCore\Property\PropertyInterface;
 use XCore\Form\ActionForm;
+use XCore\Property\AbstractProperty;
 
 /**
  *  This class defines a interface which ActionForm calls the check functions.
@@ -19,7 +20,7 @@ class Validator
 {
 	/**
 	 *
-	 * @param PropertyInterface $form
+	 * @param AbstractProperty $form
 	 * @param array $vars variables of this field property.
 	 * @return bool
 	 */
