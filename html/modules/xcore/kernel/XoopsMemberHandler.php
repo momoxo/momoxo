@@ -11,6 +11,7 @@
 * @package kernel
 */
 use XCore\Repository\UserRepository;
+use XCore\Entity\User;
 
 class XoopsMemberHandler
 {
@@ -62,7 +63,7 @@ class XoopsMemberHandler
     /**
      * create a new user
      *
-     * @return object XoopsUser reference to the new user
+     * @return object User reference to the new user
      */
     function &createUser()
     {
@@ -86,7 +87,7 @@ class XoopsMemberHandler
      * retrieve a user
      *
      * @param int $id ID for the user
-     * @return object XoopsUser reference to the user
+     * @return object User reference to the user
      */
     function &getUser($id)
     {
@@ -115,11 +116,11 @@ class XoopsMemberHandler
 
     /**
      * Delete function. This function is virtual overload function.
-     * @param $object XoopsUser or XoopsGroup
+     * @param $object User or XoopsGroup
      */
     function delete(&$object)
     {
-        if ( $object instanceof XoopsUser ) {
+        if ( $object instanceof User ) {
             return $this->deleteUser($object);
         }
         elseif ( $object instanceof XoopsGroup ) {
@@ -195,7 +196,7 @@ class XoopsMemberHandler
      *
      * @param object $criteria {@link CriteriaElement}
      * @param bool $id_as_key use the group's ID as key for the array?
-     * @return array array of {@link XoopsUser} objects
+     * @return array array of {@link User} objects
      */
     function &getUsers($criteria = null, $id_as_key = false)
     {
@@ -294,7 +295,7 @@ class XoopsMemberHandler
      * @param bool $asobject return the users as objects?
      * @param int $limit number of users to return
      * @param int $start index of the first user to return
-     * @return array Array of {@link XoopsUser} objects (if $asobject is TRUE)
+     * @return array Array of {@link User} objects (if $asobject is TRUE)
      * or of associative arrays matching the record structure in the database.
      */
     function &getUsersByGroup($group_id, $asobject = false, $limit = 0, $start = 0)
@@ -362,7 +363,7 @@ class XoopsMemberHandler
      *
      * @param string $uname username as entered in the login form
      * @param string $pwd password entered in the login form
-     * @return object XoopsUser reference to the logged in user. FALSE if failed to log in
+     * @return object User reference to the logged in user. FALSE if failed to log in
      */
     function &loginUser($uname, $pwd)
     {
@@ -381,7 +382,7 @@ class XoopsMemberHandler
      *
      * @param string $uname username
      * @param string $md5pwd password encrypted with md5
-     * @return object XoopsUser reference to the logged in user. FALSE if failed to log in
+     * @return object User reference to the logged in user. FALSE if failed to log in
      */
     function &loginUserMd5($uname, $md5pwd)
     {
@@ -446,7 +447,7 @@ class XoopsMemberHandler
     /**
      * updates a single field in a users record
      *
-     * @param object $user reference to the {@link XoopsUser} object
+     * @param object $user reference to the {@link User} object
      * @param string $fieldName name of the field to update
      * @param string $fieldValue updated value for the field
      * @return bool TRUE if success or unchanged, FALSE on failure
@@ -473,7 +474,7 @@ class XoopsMemberHandler
     /**
      * activate a user
      *
-     * @param object $user reference to the {@link XoopsUser} object
+     * @param object $user reference to the {@link User} object
      * @return bool successful?
      */
     function activateUser(&$user)

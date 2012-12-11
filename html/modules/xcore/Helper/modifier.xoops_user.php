@@ -13,14 +13,16 @@
  * -------------------------------------------------------------
  * Type:	 modifier
  * Name:	 xoops_user
- * Purpose:  Adapter for XoopsUserObject::getVar with using $uid parameter.
+ * Purpose:  Adapter for UserObject::getVar with using $uid parameter.
  * Input:	 uid : user id
- *			 key : XoopsUserObject/Profile_DataObject property name OR user_name
+ *			 key : UserObject/Profile_DataObject property name OR user_name
  *			 flag: Enum(Profile_ActionType) 
  *			   If you set 0, you can get raw value.
  *			   If you set 2, you can get escaped value.
  * -------------------------------------------------------------
  */
+use XCore\Entity\User;
+
 function smarty_modifier_xoops_user($uid, $key, $flag=2)
 {
 	$handler = xoops_gethandler('member');

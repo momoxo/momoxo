@@ -3,9 +3,9 @@
 namespace XCore\Repository;
 
 use XoopsObjectHandler;
-use XoopsUser;
 use XoopsConfigHandler;
 use Criteria;
+use XCore\Entity\User;
 
 /**
 * XOOPS user handler class.  
@@ -23,11 +23,11 @@ class UserRepository extends XoopsObjectHandler
      * create a new user
      * 
      * @param bool $isNew flag the new objects as "new"?
-     * @return object XoopsUser
+     * @return object User
      */
     function &create($isNew = true)
     {
-        $user =new XoopsUser();
+        $user =new User();
         if ($isNew) {
             $user->setNew();
         }
@@ -38,7 +38,7 @@ class UserRepository extends XoopsObjectHandler
      * retrieve a user
      * 
      * @param int $id UID of the user
-     * @return mixed reference to the {@link XoopsUser} object, FALSE if failed
+     * @return mixed reference to the {@link User} object, FALSE if failed
      */
     function &get($id)
     {
@@ -48,7 +48,7 @@ class UserRepository extends XoopsObjectHandler
             if ($result = $this->db->query($sql)) {
                 $numrows = $this->db->getRowsNum($result);
                 if ($numrows == 1) {
-                        $user =new XoopsUser();
+                        $user =new User();
                     $user->assignVars($this->db->fetchArray($result));
                         $ret =& $user;
                 }
@@ -60,13 +60,13 @@ class UserRepository extends XoopsObjectHandler
     /**
      * insert a new user in the database
      * 
-     * @param object $user reference to the {@link XoopsUser} object
+     * @param object $user reference to the {@link User} object
      * @param bool $force
      * @return bool FALSE if failed, TRUE if already present and unchanged or successful
      */
     function insert(&$user, $force = false)
     {
-        if (strtolower(get_class($user)) != 'xoopsuser') {
+        if ( ($user instanceof User) === false ) {
             return false;
         }
         if (!$user->isDirty()) {
@@ -116,7 +116,7 @@ class UserRepository extends XoopsObjectHandler
      */
     function delete(&$user, $force = false)
     {
-        if (strtolower(get_class($user)) != 'xoopsuser') {
+        if ( ($user instanceof User) === false ) {
             return false;
         }
         $sql = sprintf("DELETE FROM %s WHERE uid = %u", $this->db->prefix("users"), $user->getVar('uid'));
@@ -136,7 +136,7 @@ class UserRepository extends XoopsObjectHandler
      * 
      * @param object $criteria {@link CriteriaElement} conditions to be met
      * @param bool $id_as_key use the UID as key for the array?
-     * @return array array of {@link XoopsUser} objects
+     * @return array array of {@link User} objects
      */
     function &getObjects($criteria = null, $id_as_key = false)
     {
@@ -156,7 +156,7 @@ class UserRepository extends XoopsObjectHandler
             return $ret;
         }
         while ($myrow = $this->db->fetchArray($result)) {
-            $user =new XoopsUser();
+            $user =new User();
             $user->assignVars($myrow);
             if (!$id_as_key) {
                 $ret[] =& $user;
@@ -182,7 +182,7 @@ class UserRepository extends XoopsObjectHandler
 			return $ret;
 
 		while($myrow=$this->db->fetchArray($result)) {
-			$user=new XoopsUser();
+			$user=new User();
 			$user->assignVars($myrow);
 			$ret[]=&$user;
 			unset($user);

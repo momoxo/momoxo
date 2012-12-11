@@ -6,7 +6,9 @@
  * @copyright copyright (c) 2000-2003 XOOPS.org
  * @package kernel
  */
-class XoopsGuestUser extends XoopsUser
+use XCore\Entity\User;
+
+class XoopsGuestUser extends User
 {
 	/**
 	 * check if the user is a guest user

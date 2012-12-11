@@ -13,6 +13,8 @@
  * @author		Kazumi Ono	<onokazu@xoops.org>
  * @copyright	(c) 2000-2003 The Xoops Project - www.xoops.org
  */
+use XCore\Entity\User;
+
 class XoopsMailer
 {
 	/**
@@ -148,7 +150,7 @@ class XoopsMailer
 	// public
 	function setFromUser(&$user)
 	{
-        if ( strtolower(get_class($user)) == "xoopsuser" ) {
+        if ( $user instanceof User ) {
 			$this->fromUser =& $user;
 		}
 	}
@@ -430,8 +432,8 @@ class XoopsMailer
 	function setToUsers(&$user)
 	{
 		if ( !is_array($user) ) {
-		    //@ToDo $user should be either XoopsUser or UserUsersObject now
-			if ( in_array(strtolower(get_class($user)) , array("xoopsuser", "userusersobject"))) {
+
+			if ( $user instanceof User or $user instanceof UserUsersObject ) {
 				array_push($this->toUsers, $user);
 			}
 		} else {

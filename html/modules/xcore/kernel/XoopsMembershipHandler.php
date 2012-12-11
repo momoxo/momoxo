@@ -10,6 +10,8 @@
 * @copyright copyright (c) 2000-2003 XOOPS.org
 * @package kernel
 */
+use XCore\Entity\User;
+
 class XoopsMembershipHandler extends XoopsObjectHandler
 {
 
@@ -198,7 +200,7 @@ class XoopsMembershipHandler extends XoopsObjectHandler
      * retrieve users belonging to a group
      * 
      * @param int $groupid ID of the group
-     * @param bool $asobject return users as {@link XoopsUser} objects?
+     * @param bool $asobject return users as {@link User} objects?
      * FALSE will return arrays
      * @param int $limit number of entries to return
      * @param int $start offset of first entry to return

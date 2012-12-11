@@ -7,6 +7,7 @@
  * constructor, because the delegate is called in preBlockFilter().
  */
 use XCore\Kernel\ActionFilter;
+use XCore\Entity\User;
 
 class Xcore_ThemeSelect extends ActionFilter
 {
@@ -34,7 +35,7 @@ class Xcore_ThemeSelect extends ActionFilter
 	 * Because this process needs sessions, this functions is added to
 	 * SiteLogin event.
 	 * 
-	 * @param XoopsUser $xoopsUser Must parameter, because this is added to login event.
+	 * @param User $xoopsUser Must parameter, because this is added to login event.
 	 */
 	function doChangeTheme(&$principal, &$controller, &$context)
 	{

@@ -15,6 +15,7 @@
  */
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Entity\User;
 
 class XoopsNotificationHandler extends XoopsObjectHandler
 {
@@ -337,7 +338,7 @@ class XoopsNotificationHandler extends XoopsObjectHandler
         }
 
         if (!isset($mode)) {
-            $user = new XoopsUser($user_id);
+            $user = new User($user_id);
             $mode = $user->getVar('notify_mode');
         }
 

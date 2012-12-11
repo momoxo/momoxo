@@ -5,6 +5,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Entity\User;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -21,7 +22,7 @@ class User_UserRegistMailDirector
 	var $mBuilder;
 	
 	/***
-	 * @var XoopsUser
+	 * @var User
 	 */
 	var $mUser;
 	

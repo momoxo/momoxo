@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Entity\User;
+
 class XoopsStory
 {
     var $table;
@@ -234,7 +236,7 @@ class XoopsStory
 
 	function uname()
 	{
-		return XoopsUser::getUnameFromId($this->uid);
+		return User::getUnameFromId($this->uid);
 	}
 
 	function title($format="Show")

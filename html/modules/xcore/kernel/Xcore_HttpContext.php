@@ -9,12 +9,13 @@
  */
 use XCore\Kernel\Root;
 use XCore\Kernel\HttpContext;
+use XCore\Entity\User;
 
 class Xcore_HttpContext extends HttpContext
 {
 	/**
 	 * @public
-	 * @brief [READ ONLY] XoopsUser - The current user profile object.
+	 * @brief [READ ONLY] User - The current user profile object.
 	 */
 	var $mXoopsUser = null;
 

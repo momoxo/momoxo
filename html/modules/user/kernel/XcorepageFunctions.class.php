@@ -230,11 +230,11 @@ class User_XcorepageFunctions
 		$criteria->add(new Criteria('pass', md5(xoops_getrequest('pass'))));
 		
 		$userArr =& $userHandler->getObjects($criteria);
-		
+
 		if (count($userArr) != 1) {
 			return;
 		}
-		
+
 		if ($userArr[0]->get('level') == 0) {
 			// TODO We should use message "_MD_USER_LANG_NOACTTPADM"
 			return;
@@ -242,8 +242,8 @@ class User_XcorepageFunctions
 		
 		$handler =& xoops_gethandler('user');
 		$user =& $handler->get($userArr[0]->get('uid'));
-		
-		if (is_callable(array($user, "getNumGroups"))) { // Compatible for replaced handler.
+
+		if ( $user instanceof \XCore\Entity\User ) { // Compatible for replaced handler.
 			if ($user->getNumGroups() == 0) {
 				return;
 			}
@@ -256,7 +256,7 @@ class User_XcorepageFunctions
 		}
 		
 		$xoopsUser = $user;
-	
+
 		//
 		// Regist to session
 		//

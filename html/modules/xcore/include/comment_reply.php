@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Entity\User;
 
 require_once XOOPS_ROOT_PATH.'/header.php';
 
@@ -34,7 +35,7 @@ if (!isset($_GET['com_order'])) {
 $comment_handler =& xoops_gethandler('comment');
 $comment =& $comment_handler->get($com_id);
 
-$r_name = XoopsUser::getUnameFromId($comment->getVar('com_uid'));
+$r_name = User::getUnameFromId($comment->getVar('com_uid'));
 $r_text = _CM_POSTER.': <b>'.$r_name.'</b>&nbsp;&nbsp;'._CM_POSTED.': <b>'.formatTimestamp($comment->getVar('com_created')).'</b><br /><br />'.$comment->getVar('com_text');$com_title = $comment->getVar('com_title', 'E');
 if (!preg_match("/^re:/i", $com_title)) {
 	$com_title = "Re: ".xoops_substr($com_title, 0, 56);

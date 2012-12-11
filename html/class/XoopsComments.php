@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Entity\User;
+
 class XoopsComments extends XoopsObject
 {
 	var $ctable;
@@ -187,7 +189,7 @@ class XoopsComments extends XoopsObject
 		$delete_image = "";
 		$post_date = formatTimestamp($this->getVar("date"),"m");
 		if ( $this->getVar("user_id") != 0 ) {
-			$poster = new XoopsUser($this->getVar("user_id"));
+			$poster = new User($this->getVar("user_id"));
 			if ( !$poster->isActive() ) {
 				$poster = 0;
 			}
@@ -302,7 +304,7 @@ class XoopsComments extends XoopsObject
 		} else {
 			$icon = "icons/no_posticon.gif";
 		}
-		echo "<tr class='$bg' align='left'><td>".$prefix."<img src='".XOOPS_URL."/images/".$icon."'>&nbsp;<a href='".xoops_getenv('PHP_SELF')."?item_id=".$this->getVar("item_id")."&amp;comment_id=".$this->getVar("comment_id")."&amp;mode=".$mode."&amp;order=".$order."#".$this->getVar("comment_id")."'>".$this->getVar("subject")."</a></td><td><a href='".XOOPS_URL."/userinfo.php?uid=".$this->getVar("user_id")."'>".XoopsUser::getUnameFromId($this->getVar("user_id"))."</a></td><td>".$date."</td></tr>";
+		echo "<tr class='$bg' align='left'><td>".$prefix."<img src='".XOOPS_URL."/images/".$icon."'>&nbsp;<a href='".xoops_getenv('PHP_SELF')."?item_id=".$this->getVar("item_id")."&amp;comment_id=".$this->getVar("comment_id")."&amp;mode=".$mode."&amp;order=".$order."#".$this->getVar("comment_id")."'>".$this->getVar("subject")."</a></td><td><a href='".XOOPS_URL."/userinfo.php?uid=".$this->getVar("user_id")."'>".User::getUnameFromId($this->getVar("user_id"))."</a></td><td>".$date."</td></tr>";
 	}
 
 	function showTreeFoot()

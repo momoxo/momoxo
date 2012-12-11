@@ -4,6 +4,7 @@
  * The action filter for the site close procedure.
  */
 use XCore\Kernel\ActionFilter;
+use XCore\Entity\User;
 
 class Xcore_SiteClose extends ActionFilter
 {
@@ -18,7 +19,7 @@ class Xcore_SiteClose extends ActionFilter
 	/**
 	 * Checks whether the site is closed now, and whether all of must modules
 	 * have been installed. This function is called through delegates.
-	 * @var XoopsUser &$xoopsUser
+	 * @var User &$xoopsUser
 	 * @see preBlockFilter()
 	 */
 	function callbackSetupUser(&$principal, &$controller, &$context)
@@ -65,7 +66,7 @@ class Xcore_SiteClose extends ActionFilter
 	 * When the user logs in successfully, checks whether the user belongs to
 	 * the special group which is allowed to login. This function is called
 	 * through delegates.
-	 * @var XoopsUser &$xoopsUser
+	 * @var User &$xoopsUser
 	 * @see preBlockFilter
 	 */
 	function callbackCheckLoginSuccess(&$xoopsUser)

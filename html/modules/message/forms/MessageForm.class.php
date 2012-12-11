@@ -9,47 +9,47 @@ use XCore\Property\TextProperty;
 class MessageForm extends ActionForm
 {
   public $fuid = 0;
-  
+
   public function __construct()
   {
     parent::__construct();
   }
-  
+
   public function getTokenName()
   {
     return 'module.message.NewMessage.TOKEN';
   }
-  
-  private function set_Property($key, $classname = 'StringProperty')
+
+  private function set_Property($key, $classname = 'XCore\Property\StringProperty')
   {
     $this->mFormProperties[$key] = new $classname($key);
   }
-  
+
   public function prepare()
   {
     $this->set_Property('uname');
     $this->set_Property('title');
     $this->set_Property('Xcore_Event_User_Preview');
     $this->set_Property('Xcore_Event_User_Submit');
-    $this->set_Property('note', 'TextProperty');
-    
+    $this->set_Property('note', 'XCore\Property\TextProperty');
+
     $this->mFieldProperties['uname'] = new FieldProperty($this);
     $this->mFieldProperties['uname']->setDependsByArray(array('required', 'maxlength'));
     $this->mFieldProperties['uname']->addMessage('required', _MD_MESSAGE_FORMERROR1);
     $this->mFieldProperties['uname']->addMessage('maxlength', _MD_MESSAGE_FORMERROR2);
     $this->mFieldProperties['uname']->addVar('maxlength', '30');
-    
+
     $this->mFieldProperties['title'] = new FieldProperty($this);
     $this->mFieldProperties['title']->setDependsByArray(array('required', 'maxlength'));
     $this->mFieldProperties['title']->addMessage('required', _MD_MESSAGE_FORMERROR3);
     $this->mFieldProperties['title']->addMessage('maxlength', _MD_MESSAGE_FORMERROR4);
     $this->mFieldProperties['title']->addVar('maxlength', '100');
-    
+
     $this->mFieldProperties['note'] = new FieldProperty($this);
     $this->mFieldProperties['note']->setDependsByArray(array('required'));
     $this->mFieldProperties['note']->addMessage('required', _MD_MESSAGE_FORMERROR5);
   }
-  
+
   public function validateUname()
   {
     if ( $this->get('uname') != "" ) {
@@ -66,7 +66,7 @@ class MessageForm extends ActionForm
       $this->set('uname', $uname);
     }
   }
-  
+
   public function getShow($name, $type = 'toShow')
   {
     if ( isset($this->mFormProperties[$name]) ) {
@@ -76,7 +76,7 @@ class MessageForm extends ActionForm
     }
     return "";
   }
-  
+
   public function update(&$obj)
   {
     $root = Root::getSingleton();
@@ -86,14 +86,14 @@ class MessageForm extends ActionForm
     $obj->set('message', $this->get('note'));
     $obj->set('utime', time());
   }
-  
+
   public function setRes(&$obj)
   {
     $title = $obj->get('title','n');
     if (!preg_match("/^Re:/i", $title)) {
       $title = 'Re: '.$title;
     }
-    
+
     $userhand = xoops_gethandler('user');
     $uobj = $userhand->get($obj->get('from_uid'));
     if ( is_object($uobj) ) {
@@ -104,7 +104,7 @@ class MessageForm extends ActionForm
     }
     return false;
   }
-  
+
   public function setUser(&$user)
   {
     $this->set('uname', $user->get('uname'));
