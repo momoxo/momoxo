@@ -1,39 +1,12 @@
 <?php
-// $Id: functions.php,v 1.6 2008/10/03 03:23:27 mumincacao Exp $
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
 
-// ################## Various functions from here ################
-
-/**
- * @deprecated see RequestObject
- */
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
 
+/**
+ * @deprecated see RequestObject
+ */
 function xoops_getrequest($name)
 {
     $root = Root::getSingleton();
@@ -583,44 +556,6 @@ function &xoops_gethandler($name, $optional = false )
 	DelegateUtils::call('Xcore.Event.GetHandler', new Ref($handler), $name, $optional);
 	if ( $handler ) {
 		return $handlers[$name] =& $handler;
-	}
-
-	// TODO >> このマップがなくてもロードできるようにする
-	$nameMap = array(
-		'avatar'         => 'XoopsAvatarHandler',
-		'block'          => 'XoopsBlockHandler',
-		'cachetime'      => 'XoopsCachetimeHandler',
-		'comment'        => 'XoopsCommentHandler',
-		'config'         => 'XoopsConfigHandler',
-		'configcategory' => 'XoopsConfigCategoryHandler',
-		'configitem'     => 'XoopsConfigItemHandler',
-		'configoption'   => 'XoopsConfigOptionHandler',
-		'group'          => 'XoopsGroupHandler',
-		'membership'     => 'XoopsMembershipHandler',
-		'groupperm'      => 'XoopsGroupPermHandler',
-		'handler'        => 'XoopsObjectGenericHandler',
-		'image'          => 'XoopsImageHandler',
-		'imagecategory'  => 'XoopsImagecategoryHandler',
-		'imageset'       => 'XoopsImagesetHandler',
-		'imagesetimg'    => 'XoopsImagesetimgHandler',
-		'member'         => 'XoopsMemberHandler',
-		'module'         => 'XoopsModuleHandler',
-		'notification'   => 'XoopsNotificationHandler',
-		'object'         => 'XoopsObjectHandler',
-		'online'         => 'XoopsOnlineHandler',
-		'privmessage'    => 'XoopsPrivmessageHandler',
-		'session'        => 'XoopsSessionHandler',
-		'subjecticon'    => 'XoopsSubjecticonHandler',
-		'timezone'       => 'XoopsTimezoneHandler',
-		'tplfile'        => 'XoopsTplfileHandler',
-		'tplset'         => 'XoopsTplsetHandler',
-		'user'           => 'XoopsUserHandler',
-	);
-
-	if ( isset($nameMap[$name]) and class_exists($nameMap[$name]) ) {
-		$class = $nameMap[$name];
-		$handlers[$name] = new $class($GLOBALS['xoopsDB']);
-		return $handlers[$name];
 	}
 
 	// internal Class handler exist

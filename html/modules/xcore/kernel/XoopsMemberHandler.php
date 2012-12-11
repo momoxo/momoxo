@@ -10,6 +10,8 @@
 * @copyright copyright (c) 2000-2003 XOOPS.org
 * @package kernel
 */
+use XCore\Repository\UserRepository;
+
 class XoopsMemberHandler
 {
 
@@ -42,7 +44,7 @@ class XoopsMemberHandler
     function XoopsMemberHandler(&$db)
     {
         $this->_gHandler =new XoopsGroupHandler($db);
-        $this->_uHandler =new XoopsUserHandler($db);
+        $this->_uHandler =new UserRepository($db);
         $this->_mHandler =new XoopsMembershipHandler($db);
     }
 

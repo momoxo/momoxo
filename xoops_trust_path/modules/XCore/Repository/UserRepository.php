@@ -1,5 +1,12 @@
 <?php
 
+namespace XCore\Repository;
+
+use XoopsObjectHandler;
+use XoopsUser;
+use XoopsConfigHandler;
+use Criteria;
+
 /**
 * XOOPS user handler class.  
 * This class is responsible for providing data access mechanisms to the data source 
@@ -9,7 +16,7 @@
 * @copyright copyright (c) 2000-2003 XOOPS.org
 * @package kernel
 */
-class XoopsUserHandler extends XoopsObjectHandler
+class UserRepository extends XoopsObjectHandler
 {
 
     /**
@@ -74,6 +81,7 @@ class XoopsUserHandler extends XoopsObjectHandler
         // RMV-NOTIFY
         // Added two fields, notify_method, notify_mode
         if ($user->isNew()) {
+	        /** @var $config XoopsConfigHandler */
             $config = xoops_gethandler('config');
             $options = $config->getConfigs(new Criteria('conf_name', 'notify_method'));
             if (isset($options) and (count($options) == 1)) {

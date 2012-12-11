@@ -392,7 +392,6 @@ call_user_func(function(){
 		'XoopsTplsetHandler'                   => null,
 		'XoopsTree'                            => null,
 		'XoopsUser'                            => null,
-		'XoopsUserHandler'                     => null,
 		'XoopsXmlRpcApi'                       => null,
 		'XoopsXmlRpcArray'                     => null,
 		'XoopsXmlRpcBase64'                    => null,

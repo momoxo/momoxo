@@ -137,7 +137,7 @@ class XoopsConfigHandler
      * @param	bool    $id_as_key      Use the configs' ID as keys?
      * @param	bool    $with_options   get the options now?
      * 
-     * @return	array   Array of {@link XoopsConfigItem} objects
+     * @return XoopsConfigItem[]
      */
     function &getConfigs($criteria = null, $id_as_key = false, $with_options = false)
     {
