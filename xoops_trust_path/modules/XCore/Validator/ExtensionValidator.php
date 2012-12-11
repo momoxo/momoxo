@@ -12,7 +12,7 @@ class ExtensionValidator extends Validator
         if ( $form->isNull() ) {
             return true;
         } else {
-            if ( !is_a($form, "FileProperty") ) {
+            if ( ( $form instanceof FileProperty) === false ) {
                 return true;
             }
 

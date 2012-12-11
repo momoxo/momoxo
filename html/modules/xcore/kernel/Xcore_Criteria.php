@@ -68,7 +68,7 @@ class Xcore_Criteria
 	{
 		$t_arr = array();
 		$t_arr['condition'] = XCORE_EXPRESSION_AND;
-		if (is_object($column) && is_a($column, 'Xcore_Criteria')) {
+		if (is_object($column) && $column instanceof Xcore_Criteria) {
 			$t_arr['value'] = $column;
 			$this->mChildlen[] = $t_arr;
 		}
@@ -88,7 +88,7 @@ class Xcore_Criteria
 	{
 		$t_arr = array();
 		$t_arr['condition'] = XCORE_EXPRESSION_OR;
-		if (is_object($column) && is_a($column, 'Xcore_Criteria')) {
+		if (is_object($column) && $column instanceof Xcore_Criteria) {
 			$t_arr['value'] = $column;
 			$this->mChildlen[] = $t_arr;
 		}

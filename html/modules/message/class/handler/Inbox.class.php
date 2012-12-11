@@ -107,7 +107,7 @@ class MessageInboxHandler extends XoopsObjectGenericHandler
   
   private function _chane_old(&$criteria)
   {
-    if ( is_a($criteria, 'CriteriaElement') ) {
+    if ( $criteria instanceof CriteriaElement ) {
       if ( $criteria->hasChildElements() ) {
         for ( $i = 0; $i < $criteria->getCountChildElements(); $i++ ) {
           $this->_chane_old($criteria->criteriaElements[$i]);

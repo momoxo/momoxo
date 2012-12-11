@@ -106,7 +106,7 @@ class Xcore_ActionFrame
 		//
 		$this->mCreateAction->call(new Ref($this));
 	
-		if (!(is_object($this->mAction) && is_a($this->mAction, 'Xcore_Action'))) {
+		if (!(is_object($this->mAction) && $this->mAction instanceof Xcore_Action)) {
 			throw new RuntimeException();
 		}
 		

@@ -117,10 +117,10 @@ class XoopsMemberHandler
      */
     function delete(&$object)
     {
-        if (is_a($object, "XoopsUser")) {
+        if ( $object instanceof XoopsUser ) {
             return $this->deleteUser($object);
         }
-        elseif (is_a($object, "XoopsGroup")) {
+        elseif ( $object instanceof XoopsGroup ) {
             return $this->deleteGroup($object);
         }
     }

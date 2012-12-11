@@ -89,7 +89,7 @@ class User_ActionFrame
 		//
 		$this->mCreateAction->call(new Ref($this));
 		
-		if (!(is_object($this->mAction) && is_a($this->mAction, 'User_Action'))) {
+		if (!(is_object($this->mAction) && $this->mAction instanceof User_Action)) {
 			die();	//< TODO
 		}
 	

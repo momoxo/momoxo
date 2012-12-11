@@ -62,7 +62,7 @@ class Xcore_Utils
 		//
 		DelegateUtils::call('Xcore_Utils.CreateModule', new Ref($instance), $module, $loadConfig);
 		
-		if (is_object($instance) && is_a($instance, 'Xcore_AbstractModule')) {
+		if (is_object($instance) && $instance instanceof Xcore_AbstractModule) {
 			return $instance;
 		}
 		
@@ -107,7 +107,7 @@ class Xcore_Utils
 		//
 		DelegateUtils::call('Xcore_Utils.CreateBlockProcedure', new Ref($retBlock), $block);
 		
-		if (is_object($retBlock) && is_a($retBlock, 'Xcore_AbstractBlockProcedure')) {
+		if (is_object($retBlock) && $retBlock instanceof Xcore_AbstractBlockProcedure) {
 			return $retBlock;
 		}
 		

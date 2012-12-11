@@ -89,7 +89,7 @@ class Profile_ActionFrame
 		//
 		$this->mCreateAction->call(new Ref($this));
 		
-		if (!(is_object($this->mAction) && is_a($this->mAction, 'Profile_Action'))) {
+		if (!(is_object($this->mAction) && $this->mAction instanceof Profile_Action)) {
 			die();	//< TODO
 		}
 	

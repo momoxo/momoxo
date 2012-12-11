@@ -77,7 +77,7 @@ class Xupdate_Utils
             new Ref($asset),
             $dirname
         );
-        if(is_object($asset) && is_a($asset, 'Xupdate_AssetManager'))
+        if(is_object($asset) && $asset instanceof Xupdate_AssetManager)
         {
             return $asset->getObject('handler',$name);
         }
