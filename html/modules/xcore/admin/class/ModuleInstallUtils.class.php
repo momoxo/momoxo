@@ -507,6 +507,8 @@ class Xcore_ModuleInstallUtils
 		$func_num = isset($block['func_num']) ? intval($block['func_num']) : $func_num;
 		$blockObj->set('func_num', $func_num);
 
+		$blockObj->set('weight', $block['weight']);
+
 		return $blockObj;
 	}
 	
