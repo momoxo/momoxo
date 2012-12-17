@@ -187,7 +187,7 @@ $modversion['config'][]=array (
 		"title"=>"_MI_USER_CONF_AVTR_ALLOW_UP",
 		"formtype"=>"yesno",
 		"valuetype"=>"int",
-		"default"=>0
+		"default"=>1
 	);
 
 $modversion['config'][]=array (
