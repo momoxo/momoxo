@@ -10,28 +10,29 @@ use Momoxo\Installer\ValueObject\Database;
  */
 class DatabaseConnectionTestService
 {
-	/**
-	 * @var DatabaseConnectableRequirement
-	 */
-	private $databaseConnectableRequirement;
+    /**
+     * @var DatabaseConnectableRequirement
+     */
+    private $databaseConnectableRequirement;
 
-	/**
-	 * @param DatabaseConnectableRequirement $databaseConnectableRequirement
-	 * @return DatabaseConnectionTestService
-	 */
-	public function setDatabaseConnectableRequirement(DatabaseConnectableRequirement $databaseConnectableRequirement)
-	{
-		$this->databaseConnectableRequirement = $databaseConnectableRequirement;
-		return $this;
-	}
+    /**
+     * @param  DatabaseConnectableRequirement $databaseConnectableRequirement
+     * @return DatabaseConnectionTestService
+     */
+    public function setDatabaseConnectableRequirement(DatabaseConnectableRequirement $databaseConnectableRequirement)
+    {
+        $this->databaseConnectableRequirement = $databaseConnectableRequirement;
 
-	/**
-	 * Test if the database can be connected
-	 * @param Database $database
-	 * @return bool
-	 */
-	public function test(Database $database)
-	{
-		return $this->databaseConnectableRequirement->isSatisfiedBy($database);
-	}
+        return $this;
+    }
+
+    /**
+     * Test if the database can be connected
+     * @param  Database $database
+     * @return bool
+     */
+    public function test(Database $database)
+    {
+        return $this->databaseConnectableRequirement->isSatisfiedBy($database);
+    }
 }
