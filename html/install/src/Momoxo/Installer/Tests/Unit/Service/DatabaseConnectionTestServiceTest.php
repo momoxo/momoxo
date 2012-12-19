@@ -8,67 +8,68 @@ use Momoxo\Installer\ValueObject\Database;
 
 class DatabaseConnectionTestServiceTest extends \PHPUnit_Framework_TestCase
 {
-	public function getDatabaseConnectableRequirementStub()
-	{
-		$stub = $this->getMock('Momoxo\Installer\Requirement\DatabaseConnectableRequirement', array('isSatisfiedBy'));
-		return $stub;
-	}
+    public function getDatabaseConnectableRequirementStub()
+    {
+        $stub = $this->getMock('Momoxo\Installer\Requirement\DatabaseConnectableRequirement', array('isSatisfiedBy'));
 
-	public function returnFalse()
-	{
-		return $this->returnValue(false);
-	}
+        return $stub;
+    }
 
-	public function returnTrue()
-	{
-		return $this->returnValue(true);
-	}
+    public function returnFalse()
+    {
+        return $this->returnValue(false);
+    }
 
-	public function testWithNotSatisfiedDatabase()
-	{
-		// Create dummy database object
-		$database = new Database();
+    public function returnTrue()
+    {
+        return $this->returnValue(true);
+    }
 
-		// Get requirement stub
-		$requirement = $this->getDatabaseConnectableRequirementStub();
+    public function testWithNotSatisfiedDatabase()
+    {
+        // Create dummy database object
+        $database = new Database();
 
-		// Requirement's behavior
-		$requirement
-			->expects($this->once())
-			->method('isSatisfiedBy')
-			->with($database)
-			->will($this->returnFalse());
+        // Get requirement stub
+        $requirement = $this->getDatabaseConnectableRequirementStub();
 
-		// Set up service object
-		$service = new DatabaseConnectionTestService();
-		$service
-			->setDatabaseConnectableRequirement($requirement);
+        // Requirement's behavior
+        $requirement
+            ->expects($this->once())
+            ->method('isSatisfiedBy')
+            ->with($database)
+            ->will($this->returnFalse());
 
-		// Test
-		$this->assertFalse($service->test($database));
-	}
+        // Set up service object
+        $service = new DatabaseConnectionTestService();
+        $service
+            ->setDatabaseConnectableRequirement($requirement);
 
-	public function testWithSatisfiedDatabase()
-	{
-		// Create dummy database object
-		$database = new Database();
+        // Test
+        $this->assertFalse($service->test($database));
+    }
 
-		// Get requirement stub
-		$requirement = $this->getDatabaseConnectableRequirementStub();
+    public function testWithSatisfiedDatabase()
+    {
+        // Create dummy database object
+        $database = new Database();
 
-		// Requirement's behavior
-		$requirement
-			->expects($this->once())
-			->method('isSatisfiedBy')
-			->with($database)
-			->will($this->returnTrue());
+        // Get requirement stub
+        $requirement = $this->getDatabaseConnectableRequirementStub();
 
-		// Set up service object
-		$service = new DatabaseConnectionTestService();
-		$service
-			->setDatabaseConnectableRequirement($requirement);
+        // Requirement's behavior
+        $requirement
+            ->expects($this->once())
+            ->method('isSatisfiedBy')
+            ->with($database)
+            ->will($this->returnTrue());
 
-		// Test
-		$this->assertTrue($service->test($database));
-	}
+        // Set up service object
+        $service = new DatabaseConnectionTestService();
+        $service
+            ->setDatabaseConnectableRequirement($requirement);
+
+        // Test
+        $this->assertTrue($service->test($database));
+    }
 }

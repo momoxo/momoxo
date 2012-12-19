@@ -11,68 +11,71 @@ use Momoxo\Installer\ValueObject\Database;
  */
 class DatabaseConnectableRequirementTest extends \PHPUnit_Framework_TestCase
 {
-	public function getConnectionFactoryStub()
-	{
-		$stub = $this->getMock('Momoxo\Installer\Database\ConnectionFactory');
-		return $stub;
-	}
+    public function getConnectionFactoryStub()
+    {
+        $stub = $this->getMock('Momoxo\Installer\Database\ConnectionFactory');
 
-	public function getDummyPDO()
-	{
-		$dummyPDO = $this->getMock('stdClass');
-		return $dummyPDO;
-	}
+        return $stub;
+    }
 
-	public function getDatabase()
-	{
-		$database = new Database();
-		$database
-			->setHost('localhost')
-			->setUser('root')
-			->setPassword('root')
-			->setName('momoxo');
-		return $database;
-	}
+    public function getDummyPDO()
+    {
+        $dummyPDO = $this->getMock('stdClass');
 
-	public function testWithConnectableDatabase()
-	{
-		// Create stub
-		$connectionFactory = $this->getConnectionFactoryStub();
+        return $dummyPDO;
+    }
 
-		// Connection factory behavior
-		$connectionFactory
-			->expects($this->once())
-			->method('create')
-			->with('localhost', 'root', 'root')
-			->will($this->returnValue($this->getDummyPDO()));
+    public function getDatabase()
+    {
+        $database = new Database();
+        $database
+            ->setHost('localhost')
+            ->setUser('root')
+            ->setPassword('root')
+            ->setName('momoxo');
 
-		// Set up requirement object
-		$requirement = new DatabaseConnectableRequirement();
-		$requirement->setConnectionFactory($connectionFactory);
+        return $database;
+    }
 
-		// Test
-		$database = $this->getDatabase();
-		$this->assertTrue($requirement->isSatisfiedBy($database));
-	}
+    public function testWithConnectableDatabase()
+    {
+        // Create stub
+        $connectionFactory = $this->getConnectionFactoryStub();
 
-	public function testWithNotConnectableDatabase()
-	{
-		// Create stub
-		$connectionFactory = $this->getConnectionFactoryStub();
+        // Connection factory behavior
+        $connectionFactory
+            ->expects($this->once())
+            ->method('create')
+            ->with('localhost', 'root', 'root')
+            ->will($this->returnValue($this->getDummyPDO()));
 
-		// Connection factory behavior
-		$connectionFactory
-			->expects($this->once())
-			->method('create')
-			->with('localhost', 'root', 'root')
-			->will($this->throwException(new \PDOException('This is dummy exception')));
+        // Set up requirement object
+        $requirement = new DatabaseConnectableRequirement();
+        $requirement->setConnectionFactory($connectionFactory);
 
-		// Set up requirement object
-		$requirement = new DatabaseConnectableRequirement();
-		$requirement->setConnectionFactory($connectionFactory);
+        // Test
+        $database = $this->getDatabase();
+        $this->assertTrue($requirement->isSatisfiedBy($database));
+    }
 
-		// Test
-		$database = $this->getDatabase();
-		$this->assertFalse($requirement->isSatisfiedBy($database));
-	}
+    public function testWithNotConnectableDatabase()
+    {
+        // Create stub
+        $connectionFactory = $this->getConnectionFactoryStub();
+
+        // Connection factory behavior
+        $connectionFactory
+            ->expects($this->once())
+            ->method('create')
+            ->with('localhost', 'root', 'root')
+            ->will($this->throwException(new \PDOException('This is dummy exception')));
+
+        // Set up requirement object
+        $requirement = new DatabaseConnectableRequirement();
+        $requirement->setConnectionFactory($connectionFactory);
+
+        // Test
+        $database = $this->getDatabase();
+        $this->assertFalse($requirement->isSatisfiedBy($database));
+    }
 }

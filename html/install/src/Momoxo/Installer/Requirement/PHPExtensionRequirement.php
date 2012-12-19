@@ -7,21 +7,21 @@ namespace Momoxo\Installer\Requirement;
  */
 class PHPExtensionRequirement
 {
-	/**
-	 * Return not loaded PHP extensions by required extension list
-	 * @param string[] $requiredExtensions
-	 * @return string[]
-	 */
-	public function getUnsatisfiedBy(array $requiredExtensions)
-	{
-		$unloadedExtensions = array();
+    /**
+     * Return not loaded PHP extensions by required extension list
+     * @param  string[] $requiredExtensions
+     * @return string[]
+     */
+    public function getUnsatisfiedBy(array $requiredExtensions)
+    {
+        $unloadedExtensions = array();
 
-		foreach ( $requiredExtensions as $requiredExtension ) {
-			if ( extension_loaded($requiredExtension) === false ) {
-				$unloadedExtensions[] = $requiredExtension;
-			}
-		}
+        foreach ($requiredExtensions as $requiredExtension) {
+            if ( extension_loaded($requiredExtension) === false ) {
+                $unloadedExtensions[] = $requiredExtension;
+            }
+        }
 
-		return $unloadedExtensions;
-	}
+        return $unloadedExtensions;
+    }
 }

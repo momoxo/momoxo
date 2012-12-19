@@ -14,241 +14,249 @@ use Momoxo\Installer\Security\PasswordEncryptorInterface;
  */
 class SiteConstructionService
 {
-	/**
-	 * @var string
-	 */
-	private $configFilename;
+    /**
+     * @var string
+     */
+    private $configFilename;
 
-	/**
-	 * @var FormatterInterface
-	 */
-	private $formatter;
+    /**
+     * @var FormatterInterface
+     */
+    private $formatter;
 
-	/**
-	 * @var ConnectionFactory
-	 */
-	private $connectionFactory;
+    /**
+     * @var ConnectionFactory
+     */
+    private $connectionFactory;
 
-	/**
-	 * @var SqlUtility
-	 */
-	private $sqlUtility;
+    /**
+     * @var SqlUtility
+     */
+    private $sqlUtility;
 
-	/**
-	 * @var PasswordEncryptorInterface
-	 */
-	private $encryptor;
+    /**
+     * @var PasswordEncryptorInterface
+     */
+    private $encryptor;
 
-	/**
-	 * @var string
-	 */
-	private $schemaFile;
+    /**
+     * @var string
+     */
+    private $schemaFile;
 
-	/**
-	 * @var string
-	 */
-	private $dataFile;
+    /**
+     * @var string
+     */
+    private $dataFile;
 
-	/**
-	 * @param string $configFilename
-	 * @return SiteConstructionService
-	 */
-	public function setConfigFilename($configFilename)
-	{
-		$this->configFilename = $configFilename;
-		return $this;
-	}
+    /**
+     * @param  string                  $configFilename
+     * @return SiteConstructionService
+     */
+    public function setConfigFilename($configFilename)
+    {
+        $this->configFilename = $configFilename;
 
-	/**
-	 * @param FormatterInterface $formatter
-	 * @return SiteConstructionService
-	 */
-	public function setFormatter(FormatterInterface $formatter)
-	{
-		$this->formatter = $formatter;
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @param ConnectionFactory $connectionFactory
-	 * @return SiteConstructionService
-	 */
-	public function setConnectionFactory(ConnectionFactory $connectionFactory)
-	{
-		$this->connectionFactory = $connectionFactory;
-		return $this;
-	}
+    /**
+     * @param  FormatterInterface      $formatter
+     * @return SiteConstructionService
+     */
+    public function setFormatter(FormatterInterface $formatter)
+    {
+        $this->formatter = $formatter;
 
-	/**
-	 * @param SqlUtility $sqlUtility
-	 * @return SiteConstructionService
-	 */
-	public function setSqlUtility(SqlUtility $sqlUtility)
-	{
-		$this->sqlUtility = $sqlUtility;
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @param PasswordEncryptorInterface $encryptor
-	 * @return SiteConstructionService
-	 */
-	public function setEncryptor(PasswordEncryptorInterface $encryptor)
-	{
-		$this->encryptor = $encryptor;
-		return $this;
-	}
+    /**
+     * @param  ConnectionFactory       $connectionFactory
+     * @return SiteConstructionService
+     */
+    public function setConnectionFactory(ConnectionFactory $connectionFactory)
+    {
+        $this->connectionFactory = $connectionFactory;
 
-	/**
-	 * @param string $schemaFile
-	 * @return SiteConstructionService
-	 */
-	public function setSchemaFile($schemaFile)
-	{
-		$this->schemaFile = $schemaFile;
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @param string $dataFile
-	 * @return SiteConstructionService
-	 */
-	public function setDataFile($dataFile)
-	{
-		$this->dataFile = $dataFile;
-		return $this;
-	}
+    /**
+     * @param  SqlUtility              $sqlUtility
+     * @return SiteConstructionService
+     */
+    public function setSqlUtility(SqlUtility $sqlUtility)
+    {
+        $this->sqlUtility = $sqlUtility;
 
-	/**
-	 * Construct site
-	 * @param Site $site
-	 * @throws \Exception
-	 * @throws ServiceException
-	 */
-	public function construct(Site $site)
-	{
-		$state = array(
-			'configFileCreated' => false,
-			'createdTables'  => array(),
-		);
+        return $this;
+    }
 
-		try {
-			$this->_createConfigFile($site);
-			$state['configFileCreated'] = true;
-			$connection = $this->connectionFactory->createWithDatabase($site->getDB());
-			$state['createdTables'] = $this->_constructSchema($connection, $site);
-			$this->_constructData($connection, $site);
-			$this->_createAdminAccount($connection, $site);
-		} catch ( \Exception $e ) {
-			if ( $state['configFileCreated'] ) {
-				unlink($this->configFilename);
-			}
+    /**
+     * @param  PasswordEncryptorInterface $encryptor
+     * @return SiteConstructionService
+     */
+    public function setEncryptor(PasswordEncryptorInterface $encryptor)
+    {
+        $this->encryptor = $encryptor;
 
-			if ( isset($connection) and $connection instanceof \PDO ) {
-				$this->_dropTables($state['createdTables'], $connection);
-			}
+        return $this;
+    }
 
-			throw $e;
-		}
-	}
+    /**
+     * @param  string                  $schemaFile
+     * @return SiteConstructionService
+     */
+    public function setSchemaFile($schemaFile)
+    {
+        $this->schemaFile = $schemaFile;
 
-	/**
-	 * @param Site $site
-	 * @throws ServiceException
-	 */
-	private function _createConfigFile(Site $site)
-	{
-		$configFileContents = $this->formatter->format($site);
+        return $this;
+    }
 
-		if ( @file_put_contents($this->configFilename, $configFileContents) === false ) {
-			throw ServiceException::failedToCreateConfigFile($this->configFilename);
-		}
-	}
+    /**
+     * @param  string                  $dataFile
+     * @return SiteConstructionService
+     */
+    public function setDataFile($dataFile)
+    {
+        $this->dataFile = $dataFile;
 
-	/**
-	 * @param \PDO $connection
-	 * @param Site $site
-	 * @return string[]
-	 */
-	private function _constructSchema(\PDO $connection, Site $site)
-	{
-		$createdTables = array();
-		$queries = $this->_splitQueries(file_get_contents($this->schemaFile));
-		$prefix = $site->getDB()->getPrefix();
+        return $this;
+    }
 
-		foreach ( $queries as $query ) {
-			$queryInfo = $this->sqlUtility->prefixQuery($query, $prefix);
-			$connection->query($queryInfo[0]);
-			$createdTables[] = $prefix.'_'.$queryInfo[4];
-		}
+    /**
+     * Construct site
+     * @param  Site             $site
+     * @throws \Exception
+     * @throws ServiceException
+     */
+    public function construct(Site $site)
+    {
+        $state = array(
+            'configFileCreated' => false,
+            'createdTables'  => array(),
+        );
 
-		return $createdTables;
-	}
+        try {
+            $this->_createConfigFile($site);
+            $state['configFileCreated'] = true;
+            $connection = $this->connectionFactory->createWithDatabase($site->getDB());
+            $state['createdTables'] = $this->_constructSchema($connection, $site);
+            $this->_constructData($connection, $site);
+            $this->_createAdminAccount($connection, $site);
+        } catch ( \Exception $e ) {
+            if ($state['configFileCreated']) {
+                unlink($this->configFilename);
+            }
 
-	/**
-	 * @param \PDO $connection
-	 * @param Site $site
-	 */
-	private function _constructData(\PDO $connection, Site $site)
-	{
-		$queries = $this->_splitQueries(file_get_contents($this->dataFile));
+            if ( isset($connection) and $connection instanceof \PDO ) {
+                $this->_dropTables($state['createdTables'], $connection);
+            }
 
-		foreach ( $queries as $query ) {
-			$queryInfo = $this->sqlUtility->prefixQuery($query, $site->getDB()->getPrefix());
-			$connection->query($queryInfo[0]);
-		}
-	}
+            throw $e;
+        }
+    }
 
-	/**
-	 * @param \PDO $connection
-	 * @param Site $site
-	 */
-	private function _createAdminAccount(\PDO $connection, Site $site)
-	{
-		// TODO >> どのカラムがどの値か一目瞭然にする
-		$statement = $connection->prepare("
-			INSERT INTO ".$site->getDB()->getPrefix()."_users (
-				uid, name, uname, email, url, user_avatar, user_regdate, user_icq,
-				user_from, user_sig, user_viewemail, actkey, user_aim, user_yim,
-				user_msnm, pass, posts, attachsig, rank, level, theme, timezone_offset,
-				last_login, umode, uorder, notify_method, notify_mode, user_occ, bio,
-				user_intrest, user_mailok)
-			VALUES (
-				1, '', :uname, :email, :url, 'blank.gif', :user_regdate, '', '', '', 1,
-				'', '', '', '', :pass, 0, 0, 7, 5, '', :timezone_offset, :last_login,
-				'thread', 0, 1, 0, '', '', '', 0);
-		");
+    /**
+     * @param  Site             $site
+     * @throws ServiceException
+     */
+    private function _createConfigFile(Site $site)
+    {
+        $configFileContents = $this->formatter->format($site);
 
-		$admin = $site->getAdmin();
+        if ( @file_put_contents($this->configFilename, $configFileContents) === false ) {
+            throw ServiceException::failedToCreateConfigFile($this->configFilename);
+        }
+    }
 
-		$statement->execute(array(
-			':uname'           => $admin->getUsername(),
-			':email'           => $admin->getEmail(),
-			':url'             => $admin->getUrl(),
-			':user_regdate'    => $admin->getRegisteredDate(),
-			':pass'            => $this->encryptor->encrypt($admin->getPassword()),
-			':timezone_offset' => $admin->getTimezoneOffset(),
-			':last_login'      => $admin->getLastLogin(),
-		));
-	}
+    /**
+     * @param  \PDO     $connection
+     * @param  Site     $site
+     * @return string[]
+     */
+    private function _constructSchema(\PDO $connection, Site $site)
+    {
+        $createdTables = array();
+        $queries = $this->_splitQueries(file_get_contents($this->schemaFile));
+        $prefix = $site->getDB()->getPrefix();
 
-	private function _dropTables(array $tables, \PDO $connection)
-	{
-		if ( count($tables) > 0 ) {
-			foreach ( $tables as $table ) {
-				$connection->query(sprintf("DROP TABLE %s", $table));
-			}
-		}
-	}
+        foreach ($queries as $query) {
+            $queryInfo = $this->sqlUtility->prefixQuery($query, $prefix);
+            $connection->query($queryInfo[0]);
+            $createdTables[] = $prefix.'_'.$queryInfo[4];
+        }
 
-	/**
-	 * @param string $sql
-	 * @return string[]
-	 */
-	private function _splitQueries($sql)
-	{
-		$queries = array();
-		$this->sqlUtility->splitMySqlFile($queries, $sql);
-		return $queries;
-	}
+        return $createdTables;
+    }
+
+    /**
+     * @param \PDO $connection
+     * @param Site $site
+     */
+    private function _constructData(\PDO $connection, Site $site)
+    {
+        $queries = $this->_splitQueries(file_get_contents($this->dataFile));
+
+        foreach ($queries as $query) {
+            $queryInfo = $this->sqlUtility->prefixQuery($query, $site->getDB()->getPrefix());
+            $connection->query($queryInfo[0]);
+        }
+    }
+
+    /**
+     * @param \PDO $connection
+     * @param Site $site
+     */
+    private function _createAdminAccount(\PDO $connection, Site $site)
+    {
+        // TODO >> どのカラムがどの値か一目瞭然にする
+        $statement = $connection->prepare("
+            INSERT INTO ".$site->getDB()->getPrefix()."_users (
+                uid, name, uname, email, url, user_avatar, user_regdate, user_icq,
+                user_from, user_sig, user_viewemail, actkey, user_aim, user_yim,
+                user_msnm, pass, posts, attachsig, rank, level, theme, timezone_offset,
+                last_login, umode, uorder, notify_method, notify_mode, user_occ, bio,
+                user_intrest, user_mailok)
+            VALUES (
+                1, '', :uname, :email, :url, 'blank.gif', :user_regdate, '', '', '', 1,
+                '', '', '', '', :pass, 0, 0, 7, 5, '', :timezone_offset, :last_login,
+                'thread', 0, 1, 0, '', '', '', 0);
+        ");
+
+        $admin = $site->getAdmin();
+
+        $statement->execute(array(
+            ':uname'           => $admin->getUsername(),
+            ':email'           => $admin->getEmail(),
+            ':url'             => $admin->getUrl(),
+            ':user_regdate'    => $admin->getRegisteredDate(),
+            ':pass'            => $this->encryptor->encrypt($admin->getPassword()),
+            ':timezone_offset' => $admin->getTimezoneOffset(),
+            ':last_login'      => $admin->getLastLogin(),
+        ));
+    }
+
+    private function _dropTables(array $tables, \PDO $connection)
+    {
+        if ( count($tables) > 0 ) {
+            foreach ($tables as $table) {
+                $connection->query(sprintf("DROP TABLE %s", $table));
+            }
+        }
+    }
+
+    /**
+     * @param  string   $sql
+     * @return string[]
+     */
+    private function _splitQueries($sql)
+    {
+        $queries = array();
+        $this->sqlUtility->splitMySqlFile($queries, $sql);
+
+        return $queries;
+    }
 }

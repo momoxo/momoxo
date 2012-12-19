@@ -4,40 +4,41 @@ namespace Momoxo\Installer\HTTP;
 
 class Request
 {
-	/**
-	 * Return site top page URL
-	 * @return string
-	 */
-	public function getSiteUrl()
-	{
-		if ( $this->_isSSL() ) {
-			$scheme = 'https';
-		} else {
-			$scheme = 'http';
-		}
+    /**
+     * Return site top page URL
+     * @return string
+     */
+    public function getSiteUrl()
+    {
+        if ( $this->_isSSL() ) {
+            $scheme = 'https';
+        } else {
+            $scheme = 'http';
+        }
 
-		$hostname = $_SERVER['SERVER_NAME'];
-		// installer の URL が http://example.com/install/index.php だから dirname 2回してる
-		$path = dirname(dirname($_SERVER['SCRIPT_NAME']));
+        $hostname = $_SERVER['SERVER_NAME'];
+        // installer の URL が http://example.com/install/index.php だから dirname 2回してる
+        $path = dirname(dirname($_SERVER['SCRIPT_NAME']));
 
-		$url = "$scheme://$hostname$path";
-		$url = rtrim($url, '/');
-		return $url;
-	}
+        $url = "$scheme://$hostname$path";
+        $url = rtrim($url, '/');
 
-	/**
-	 * @return bool
-	 */
-	private function _isSSL()
-	{
-		if ( isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on' ) {
-			return true;
-		}
+        return $url;
+    }
 
-		if ( isset($_SERVER['SSL']) and $_SERVER['SSL'] == 'on' ) {
-			return true;
-		}
+    /**
+     * @return bool
+     */
+    private function _isSSL()
+    {
+        if ( isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on' ) {
+            return true;
+        }
 
-		return false;
-	}
+        if ( isset($_SERVER['SSL']) and $_SERVER['SSL'] == 'on' ) {
+            return true;
+        }
+
+        return false;
+    }
 }
