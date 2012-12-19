@@ -20,7 +20,7 @@ class TrustPathFinder
     {
         foreach ($this->candidates as $candidate) {
             $candidate = $rootPath.$candidate;
-            if ( is_dir($candidate) ) {
+            if (is_dir($candidate)) {
                 return realpath($candidate);
             }
         }

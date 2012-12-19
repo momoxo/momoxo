@@ -151,7 +151,7 @@ class SiteConstructionService
                 unlink($this->configFilename);
             }
 
-            if ( isset($connection) and $connection instanceof \PDO ) {
+            if (isset($connection) and $connection instanceof \PDO) {
                 $this->_dropTables($state['createdTables'], $connection);
             }
 
@@ -167,7 +167,7 @@ class SiteConstructionService
     {
         $configFileContents = $this->formatter->format($site);
 
-        if ( @file_put_contents($this->configFilename, $configFileContents) === false ) {
+        if (@file_put_contents($this->configFilename, $configFileContents) === false) {
             throw ServiceException::failedToCreateConfigFile($this->configFilename);
         }
     }
@@ -241,7 +241,7 @@ class SiteConstructionService
 
     private function _dropTables(array $tables, \PDO $connection)
     {
-        if ( count($tables) > 0 ) {
+        if (count($tables) > 0) {
             foreach ($tables as $table) {
                 $connection->query(sprintf("DROP TABLE %s", $table));
             }

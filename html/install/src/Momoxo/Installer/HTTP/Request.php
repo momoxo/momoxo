@@ -10,7 +10,7 @@ class Request
      */
     public function getSiteUrl()
     {
-        if ( $this->_isSSL() ) {
+        if ($this->_isSSL()) {
             $scheme = 'https';
         } else {
             $scheme = 'http';
@@ -31,11 +31,11 @@ class Request
      */
     private function _isSSL()
     {
-        if ( isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on' ) {
+        if (isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on') {
             return true;
         }
 
-        if ( isset($_SERVER['SSL']) and $_SERVER['SSL'] == 'on' ) {
+        if (isset($_SERVER['SSL']) and $_SERVER['SSL'] == 'on') {
             return true;
         }
 

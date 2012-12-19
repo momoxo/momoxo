@@ -16,7 +16,7 @@ class InstallerConfig
      */
     public function __construct($configFilename, array $parameters = array())
     {
-        if ( file_exists($configFilename) === false ) {
+        if (file_exists($configFilename) === false) {
             throw new \InvalidArgumentException(sprintf('Config file not found: %s', $configFilename));
         }
 
@@ -37,7 +37,7 @@ class InstallerConfig
             $search = '%'.$search.'%';
         });
         array_walk_recursive($this->config, function(&$item) use ($searches, $replaces) {
-            if ( is_string($item) ) {
+            if (is_string($item)) {
                 $item = str_replace($searches, $replaces, $item);
             }
         });

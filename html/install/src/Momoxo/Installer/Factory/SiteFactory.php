@@ -39,7 +39,7 @@ class SiteFactory
             ->setPrefix($form->getDBPrefix())
             ->disablePermanentConnection();
 
-        if ( $config->get('database.permanent_connection') ) {
+        if ($config->get('database.permanent_connection')) {
             $database->enablePermanentConnection();
         } else {
             $database->disablePermanentConnection();

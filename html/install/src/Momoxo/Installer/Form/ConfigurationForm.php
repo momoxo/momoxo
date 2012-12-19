@@ -103,31 +103,31 @@ class ConfigurationForm
         $this->errors = array();
 
         // TODO >> 形式的な書き方を宣言的な書き方に変える
-        if ( empty($this->dbHost) ) {
+        if (empty($this->dbHost)) {
             $this->errors[] = "データベースのホスト名を入力してください";
         }
 
-        if ( empty($this->dbUser) ) {
+        if (empty($this->dbUser)) {
             $this->errors[] = "データベースユーザ名を入力してください";
         }
 
-        if ( empty($this->dbName) ) {
+        if (empty($this->dbName)) {
             $this->errors[] = "データベース名を入力してください";
         }
 
-        if ( empty($this->dbPrefix) ) {
+        if (empty($this->dbPrefix)) {
             $this->errors[] = "テーブル接頭語を入力してください";
         }
 
-        if ( empty($this->adminUsername) ) {
+        if (empty($this->adminUsername)) {
             $this->errors[] = "管理者ユーザ名を入力してください";
         }
 
-        if ( empty($this->adminEmail) ) {
+        if (empty($this->adminEmail)) {
             $this->errors[] = "管理者メールアドレスを入力してください";
         }
 
-        if ( empty($this->adminPassword) ) {
+        if (empty($this->adminPassword)) {
             $this->errors[] = "管理者パスワードを入力してください";
         }
 

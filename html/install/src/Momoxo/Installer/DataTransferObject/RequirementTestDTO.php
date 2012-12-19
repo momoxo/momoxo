@@ -106,11 +106,11 @@ class RequirementTestDTO
      */
     public function requirementIsSatisfied()
     {
-        if ( $this->hasMissingPHPExtensions() ) {
+        if ($this->hasMissingPHPExtensions()) {
             return false;
         }
 
-        if ( $this->hasNotWritableFiles() ) {
+        if ($this->hasNotWritableFiles()) {
             return false;
         }
 

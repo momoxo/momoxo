@@ -17,7 +17,7 @@ class FileWritableRequirement
         $notWritableFiles = array();
 
         foreach ($requiredFiles as $requiredFile) {
-            if ( is_writable($requiredFile) === false ) {
+            if (is_writable($requiredFile) === false) {
                 $notWritableFiles[] = $requiredFile;
             }
         }

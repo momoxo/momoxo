@@ -68,16 +68,16 @@ class DefaultController
         $form = new ConfigurationForm();
         $form->setURL($request->getSiteUrl());
 
-        if ( $form->isMethod('POST') ) {
+        if ($form->isMethod('POST')) {
             $form->fetch($_POST);
-            if ( $form->isValid() == false ) {
+            if ($form->isValid() == false) {
                 goto input_page;
             }
 
             $siteFactory = new SiteFactory();
             $site = $siteFactory->createByConfigurationForm($form, $this->config);
 
-            if ( $this->_testDatabaseConnection($site) === false ) {
+            if ($this->_testDatabaseConnection($site) === false) {
                 $form->addError("データベースに接続できません。設定を確認してください。");
                 goto input_page;
             }

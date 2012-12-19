@@ -17,7 +17,7 @@ class PHPExtensionRequirement
         $unloadedExtensions = array();
 
         foreach ($requiredExtensions as $requiredExtension) {
-            if ( extension_loaded($requiredExtension) === false ) {
+            if (extension_loaded($requiredExtension) === false) {
                 $unloadedExtensions[] = $requiredExtension;
             }
         }
