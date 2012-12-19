@@ -140,19 +140,19 @@ class SiteConstructionService
         );
 
         try {
-            $this->_createConfigFile($site);
+            $this->createConfigFile($site);
             $state['configFileCreated'] = true;
             $connection = $this->connectionFactory->createWithDatabase($site->getDB());
-            $state['createdTables'] = $this->_constructSchema($connection, $site);
-            $this->_constructData($connection, $site);
-            $this->_createAdminAccount($connection, $site);
+            $state['createdTables'] = $this->constructSchema($connection, $site);
+            $this->constructData($connection, $site);
+            $this->createAdminAccount($connection, $site);
         } catch ( \Exception $e ) {
             if ($state['configFileCreated']) {
                 unlink($this->configFilename);
             }
 
             if (isset($connection) and $connection instanceof \PDO) {
-                $this->_dropTables($state['createdTables'], $connection);
+                $this->dropTables($state['createdTables'], $connection);
             }
 
             throw $e;
@@ -163,7 +163,7 @@ class SiteConstructionService
      * @param  Site             $site
      * @throws ServiceException
      */
-    private function _createConfigFile(Site $site)
+    private function createConfigFile(Site $site)
     {
         $configFileContents = $this->formatter->format($site);
 
@@ -177,10 +177,10 @@ class SiteConstructionService
      * @param  Site     $site
      * @return string[]
      */
-    private function _constructSchema(\PDO $connection, Site $site)
+    private function constructSchema(\PDO $connection, Site $site)
     {
         $createdTables = array();
-        $queries = $this->_splitQueries(file_get_contents($this->schemaFile));
+        $queries = $this->splitQueries(file_get_contents($this->schemaFile));
         $prefix = $site->getDB()->getPrefix();
 
         foreach ($queries as $query) {
@@ -196,9 +196,9 @@ class SiteConstructionService
      * @param \PDO $connection
      * @param Site $site
      */
-    private function _constructData(\PDO $connection, Site $site)
+    private function constructData(\PDO $connection, Site $site)
     {
-        $queries = $this->_splitQueries(file_get_contents($this->dataFile));
+        $queries = $this->splitQueries(file_get_contents($this->dataFile));
 
         foreach ($queries as $query) {
             $queryInfo = $this->sqlUtility->prefixQuery($query, $site->getDB()->getPrefix());
@@ -210,7 +210,7 @@ class SiteConstructionService
      * @param \PDO $connection
      * @param Site $site
      */
-    private function _createAdminAccount(\PDO $connection, Site $site)
+    private function createAdminAccount(\PDO $connection, Site $site)
     {
         // TODO >> どのカラムがどの値か一目瞭然にする
         $statement = $connection->prepare("
@@ -239,7 +239,7 @@ class SiteConstructionService
         ));
     }
 
-    private function _dropTables(array $tables, \PDO $connection)
+    private function dropTables(array $tables, \PDO $connection)
     {
         if (count($tables) > 0) {
             foreach ($tables as $table) {
@@ -252,7 +252,7 @@ class SiteConstructionService
      * @param  string   $sql
      * @return string[]
      */
-    private function _splitQueries($sql)
+    private function splitQueries($sql)
     {
         $queries = array();
         $this->sqlUtility->splitMySqlFile($queries, $sql);

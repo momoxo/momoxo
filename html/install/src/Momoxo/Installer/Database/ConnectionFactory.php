@@ -18,7 +18,7 @@ class ConnectionFactory
     {
         $dsn = sprintf('mysql:host=%s;charset=utf8', $host);
 
-        return new PDO($dsn, $username, $password, $this->_getOptions());
+        return new PDO($dsn, $username, $password, $this->getOptions());
     }
 
     /**
@@ -33,7 +33,7 @@ class ConnectionFactory
     {
         $dsn = sprintf('mysql:dbname=%s;host=%s;charset=utf8', $databaseName, $host);
 
-        return new PDO($dsn, $username, $password, $this->_getOptions());
+        return new PDO($dsn, $username, $password, $this->getOptions());
     }
 
     /**
@@ -49,7 +49,7 @@ class ConnectionFactory
     /**
      * @return array
      */
-    private function _getOptions()
+    private function getOptions()
     {
         return array(
             PDO::ATTR_ORACLE_NULLS       => PDO::NULL_NATURAL,

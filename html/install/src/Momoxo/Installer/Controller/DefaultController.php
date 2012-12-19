@@ -62,7 +62,7 @@ class DefaultController
 
     private function inputAction()
     {
-        $requirementTestResult = $this->_testRequirement();
+        $requirementTestResult = $this->testRequirement();
 
         $request = new Request();
         $form = new ConfigurationForm();
@@ -77,7 +77,7 @@ class DefaultController
             $siteFactory = new SiteFactory();
             $site = $siteFactory->createByConfigurationForm($form, $this->config);
 
-            if ($this->_testDatabaseConnection($site) === false) {
+            if ($this->testDatabaseConnection($site) === false) {
                 $form->addError("データベースに接続できません。設定を確認してください。");
                 goto input_page;
             }
@@ -123,7 +123,7 @@ class DefaultController
     /**
      * @return RequirementTestDTO
      */
-    private function _testRequirement()
+    private function testRequirement()
     {
         $dto = new RequirementTestDTO($this->config->getRequirements());
         $service = $this->container['service.requirement_test'];
@@ -136,7 +136,7 @@ class DefaultController
      * @param  \Momoxo\Installer\ValueObject\Site $site
      * @return mixed
      */
-    private function _testDatabaseConnection(Site $site)
+    private function testDatabaseConnection(Site $site)
     {
         return $this->get('service.database_connection_test')->test($site->getDB());
     }
