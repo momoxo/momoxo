@@ -43,7 +43,12 @@ class ConnectionFactory
      */
     public function createWithDatabase(Database $database)
     {
-        return $this->createWithDatabaseName($database->getHost(), $database->getUser(), $database->getPassword(), $database->getName());
+        return $this->createWithDatabaseName(
+            $database->getHost(),
+            $database->getUser(),
+            $database->getPassword(),
+            $database->getName()
+        );
     }
 
     /**
