@@ -33,10 +33,10 @@ class InstallerConfig
         $this->config['parameters'][$name] = $value;
         $searches = array_keys($this->config['parameters']);
         $replaces = array_values($this->config['parameters']);
-        array_walk($searches, function(&$search) {
+        array_walk($searches, function (&$search) {
             $search = '%'.$search.'%';
         });
-        array_walk_recursive($this->config, function(&$item) use ($searches, $replaces) {
+        array_walk_recursive($this->config, function (&$item) use ($searches, $replaces) {
             if (is_string($item)) {
                 $item = str_replace($searches, $replaces, $item);
             }
