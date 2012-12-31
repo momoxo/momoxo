@@ -15,9 +15,9 @@ class XoopsNotification extends XoopsObject
     /**
      * Constructor
      **/
-    function XoopsNotification()
+    function __construct()
     {
-        $this->XoopsObject();
+        parent::__construct();
 		$this->initVar('not_id', XOBJ_DTYPE_INT, NULL, false);
 		$this->initVar('not_modid', XOBJ_DTYPE_INT, NULL, false);
 		$this->initVar('not_category', XOBJ_DTYPE_TXTBOX, null, false, 30);

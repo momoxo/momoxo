@@ -6,9 +6,9 @@ class Xcore_PublicControllerStrategy extends Xcore_AbstractControllerStrategy
 {
 	var $mStatusFlag = XCORE_CONTROLLER_STATE_PUBLIC;
 	
-	function Xcore_PublicControllerStrategy(&$controller)
+	function __construct(&$controller)
 	{
-		parent::Xcore_AbstractControllerStrategy($controller);
+		parent::__construct($controller);
 		
 		$controller->mRoot->mContext->mBaseRenderSystemName = "Xcore_RenderSystem";
 		

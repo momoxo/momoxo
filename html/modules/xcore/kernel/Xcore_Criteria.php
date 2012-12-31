@@ -48,7 +48,7 @@ class Xcore_Criteria
 	 */
 	var $mChildlen = array();
 	
-	function Xcore_Criteria($typeInfoArr)
+	function __construct($typeInfoArr)
 	{
 		$this->mTypeInfoArr = $typeInfoArr;
 	}

@@ -4,7 +4,7 @@ class XoopsSubjecticonHandler extends XoopsObjectHandler
 {
 	var $_mResult;
 	
-	function XoopsSubjecticonHandler(&$db)
+	function __construct(&$db)
 	{
 		$this->_mResult =& XoopsLists::getSubjectsList();
 	}

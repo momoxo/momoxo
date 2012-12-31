@@ -63,7 +63,7 @@ class XoopsObject extends AbstractXoopsObject
      * normally, this is called from child classes only
      * @access public
      */
-    function XoopsObject()
+    function __construct()
     {
     }
 

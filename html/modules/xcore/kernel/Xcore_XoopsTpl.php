@@ -16,7 +16,7 @@ class Xcore_XoopsTpl extends XoopsTpl
 	 */
 	var $_mContextReserve = array();
 	
-	function Xcore_XoopsTpl()
+	function __construct()
 	{
 		$this->_mContextReserve = array ('xoops_pagetitle' => 'xcore_pagetitle');
 		parent::XoopsTpl();

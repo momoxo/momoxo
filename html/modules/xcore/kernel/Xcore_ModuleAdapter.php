@@ -24,9 +24,9 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
      */
     var $mAdminMenu = null;
     
-    function Xcore_ModuleAdapter($module, $loadConfig=true)
+    function __construct($module, $loadConfig=true)
     {
-        parent::Xcore_AbstractModule($module, $loadConfig);
+        parent::__construct($module, $loadConfig);
     }
 
     /**

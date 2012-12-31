@@ -6,9 +6,9 @@ class XoopsTimezoneHandler extends XoopsObjectHandler
 {
 	var $_mResult;
 	
-	function XoopsTimezoneHandler(&$db)
+	function __construct(&$db)
 	{
-		parent::XoopsObjectHandler($db);
+		parent::__construct($db);
 
 		$root = Root::getSingleton();
 

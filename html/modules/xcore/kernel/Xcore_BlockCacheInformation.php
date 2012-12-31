@@ -18,9 +18,9 @@ class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
       */
      var $mGetCacheFilePath = null;
      
-     function Xcore_BlockCacheInformation()
+     function __construct()
      {
-         parent::Xcore_AbstractCacheInformation();
+         parent::__construct();
          $this->mGetCacheFilePath = new Delegate();
          $this->mGetCacheFilePath->register('Xcore_BlockCachInformation.getCacheFilePath');
      }

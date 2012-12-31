@@ -18,7 +18,7 @@ class Xcore_ActionForm extends ActionForm
 	 * @public
 	 * @brief Constructor.
 	 */
-	function Xcore_ActionForm()
+	function __construct()
 	{
 		parent::__construct();
 	}

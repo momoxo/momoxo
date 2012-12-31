@@ -2,9 +2,9 @@
 
 class Xcore_ThemeRenderTarget extends Xcore_AbstractThemeRenderTarget
 {
-	function Xcore_ThemeRenderTarget()
+	function __construct()
 	{
-		parent::Xcore_AbstractThemeRenderTarget();
+		parent::__construct();
 		$this->setAttribute("isFileTheme",true);
 	}
 }

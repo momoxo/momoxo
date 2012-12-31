@@ -2,9 +2,9 @@
 
 class Xcore_DialogRenderTarget extends Xcore_AbstractThemeRenderTarget
 {
-	function Xcore_DialogRenderTarget()
+	function __construct()
 	{
-		parent::Xcore_AbstractThemeRenderTarget();
+		parent::__construct();
 		$this->setAttribute("isFileTheme",false);
 	}
 	

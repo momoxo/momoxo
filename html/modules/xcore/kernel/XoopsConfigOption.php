@@ -13,14 +13,14 @@ class XoopsConfigOption extends XoopsObject
     /**
      * Constructor
      */
-    function XoopsConfigOption()
+    function __construct()
     {
         static $initVars;
         if (isset($initVars)) {
             $this->vars = $initVars;
             return;
         }
-        $this->XoopsObject();
+        parent::__construct();
         $this->initVar('confop_id', XOBJ_DTYPE_INT, null);
         $this->initVar('confop_name', XOBJ_DTYPE_TXTBOX, null, true, 255);
         $this->initVar('confop_value', XOBJ_DTYPE_TXTBOX, null, true, 255);

@@ -29,7 +29,7 @@ class XoopsObjectHandler
      * @param object $db reference to the {@link XoopsDatabase} object
      * @access protected
      */
-    function XoopsObjectHandler(&$db)
+    function __construct(&$db)
     {
         $this->db =& $db;
     }

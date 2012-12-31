@@ -2,7 +2,7 @@
 
 class XoopsTimezone extends XoopsObject
 {
-	function XoopsTimezone()
+	function __construct()
 	{
 		static $initVars;
 		if (isset($initVars)) {

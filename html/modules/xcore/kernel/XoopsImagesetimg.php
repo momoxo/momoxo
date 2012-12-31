@@ -2,9 +2,9 @@
 
 class XoopsImagesetimg extends XoopsObject
 {
-	function XoopsImagesetimg()
+	function __construct()
 	{
-		$this->XoopsObject();
+		parent::__construct();
 		$this->initVar('imgsetimg_id', XOBJ_DTYPE_INT, null, false);
 		$this->initVar('imgsetimg_file', XOBJ_DTYPE_OTHER, null, false);
 		$this->initVar('imgsetimg_body', XOBJ_DTYPE_SOURCE, null, false);

@@ -42,7 +42,7 @@ class XoopsMemberHandler
      * constructor
      *
      */
-    function XoopsMemberHandler(&$db)
+    function __construct(&$db)
     {
         $this->_gHandler =new XoopsGroupHandler($db);
         $this->_uHandler =new UserRepository($db);

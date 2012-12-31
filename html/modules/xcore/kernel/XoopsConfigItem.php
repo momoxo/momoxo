@@ -20,7 +20,7 @@ class XoopsConfigItem extends XoopsObject
     /**
      * Constructor
      */
-    function XoopsConfigItem()
+    function __construct()
     {
 		static $initVars;
 		if (isset($initVars)) {

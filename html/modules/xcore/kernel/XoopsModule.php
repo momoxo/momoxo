@@ -24,9 +24,9 @@ class XoopsModule extends XoopsObject
 	/**
 	 * Constructor
 	 */
-	function XoopsModule()
+	function __construct()
 	{
-		$this->XoopsObject();
+		parent::__construct();
 		static $initVars;
 		if (isset($initVars)) {
 			$this->vars = $initVars;

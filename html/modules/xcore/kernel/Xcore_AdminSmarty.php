@@ -17,7 +17,7 @@ class Xcore_AdminSmarty extends Smarty
 	//
 	var $overrideMode = true;
 	
-	function Xcore_AdminSmarty()
+	function __construct()
 	{
 		parent::Smarty();
 

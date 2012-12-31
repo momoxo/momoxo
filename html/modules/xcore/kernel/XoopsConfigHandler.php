@@ -44,7 +44,7 @@ class XoopsConfigHandler
      * 
      * @param	object  &$db    reference to database object
      */
-    function XoopsConfigHandler(&$db)
+    function __construct(&$db)
     {
         $this->_cHandler =new XoopsConfigItemHandler($db);
         $this->_oHandler =new XoopsConfigOptionHandler($db);

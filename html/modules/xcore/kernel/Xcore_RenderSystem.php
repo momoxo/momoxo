@@ -40,7 +40,7 @@ class Xcore_RenderSystem extends RenderSystem
 
 	var $mBeginRender = null;
 	
-	function Xcore_RenderSystem()
+	function __construct()
 	{
 		parent::__construct();
 		$this->mSetupXoopsTpl =new Delegate();

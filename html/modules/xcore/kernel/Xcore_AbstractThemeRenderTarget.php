@@ -6,7 +6,7 @@ class Xcore_AbstractThemeRenderTarget extends RenderTarget
 {
 	var $mSendHeaderFlag=false;
 
-	function Xcore_AbstractThemeRenderTarget()
+	function __construct()
 	{
 		parent::__construct();
 		$this->setAttribute('xcore_buffertype', XCORE_RENDER_TARGET_TYPE_THEME);

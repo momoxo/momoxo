@@ -27,9 +27,9 @@ class Xcore_ModuleCacheInformation extends Xcore_AbstractCacheInformation
       */
      var $mGetCacheFilePath = null;
      
-     function Xcore_ModuleCacheInformation()
+     function __construct()
      {
-         parent::Xcore_AbstractCacheInformation();
+         parent::__construct();
          $this->mGetCacheFilePath = new Delegate();
          $this->mGetCacheFilePath->register('Xcore_ModuleCacheInformation.GetCacheFilePath');
      }

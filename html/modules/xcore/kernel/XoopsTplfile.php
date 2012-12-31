@@ -3,14 +3,14 @@
 class XoopsTplfile extends XoopsObject
 {
 
-	function XoopsTplfile()
+	function __construct()
 	{
 		static $initVars;
 		if (isset($initVars)) {
 		    $this->vars = $initVars;
 		    return;
 		}
-		$this->XoopsObject();
+		parent::__construct();
 		$this->initVar('tpl_id', XOBJ_DTYPE_INT, null, false);
 		$this->initVar('tpl_refid', XOBJ_DTYPE_INT, 0, false);
 		$this->initVar('tpl_tplset', XOBJ_DTYPE_OTHER, null, false);

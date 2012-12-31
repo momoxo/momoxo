@@ -26,11 +26,11 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 	 */
 	var $_mSpecialActions = array("Help", "CommentList");
 
-	function Xcore_AdminControllerStrategy(&$controller)
+	function __construct(&$controller)
 	{
 		global $xoopsOption;
 		
-		parent::Xcore_AbstractControllerStrategy($controller);
+		parent::__construct($controller);
 		
 		//
 		// TODO We have to develop complated-switching-controller-mechanizm.

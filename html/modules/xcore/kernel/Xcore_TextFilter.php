@@ -66,7 +66,7 @@ class Xcore_TextFilter extends TextFilter
 	 * @todo
 	 *	  This method keeps a deprecated delegate.
 	 */
-	function Xcore_TextFilter()
+	function __construct()
 	{
 		$obj = $this->mMakeClickableConvertTable = new Delegate;
 		$obj->register('Xcore_TextFilter.MakeClickableConvertTable');

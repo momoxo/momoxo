@@ -14,7 +14,7 @@ class Xcore_AbstractControllerStrategy
 
 	var $mStatusFlag;
 
-	function Xcore_AbstractControllerStrategy(&$controller)
+	function __construct(&$controller)
 	{
 		$this->mController =& $controller;
 	}

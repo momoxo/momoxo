@@ -44,7 +44,7 @@ class Xcore_AbstractCacheInformation
      */
     var $mAttributes = array();
     
-    function Xcore_AbstractCacheInformation()
+    function __construct()
     {
     }
     

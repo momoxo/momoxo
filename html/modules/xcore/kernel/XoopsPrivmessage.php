@@ -16,9 +16,9 @@ class XoopsPrivmessage extends XoopsObject
 /**
  * constructor
  **/
-    function XoopsPrivmessage()
+    function __construct()
     {
-        $this->XoopsObject();
+        parent::__construct();
         $this->initVar('msg_id', XOBJ_DTYPE_INT, null, false);
         $this->initVar('msg_image', XOBJ_DTYPE_OTHER, 'icon1.gif', false, 100);
         $this->initVar('subject', XOBJ_DTYPE_TXTBOX, null, true, 255);

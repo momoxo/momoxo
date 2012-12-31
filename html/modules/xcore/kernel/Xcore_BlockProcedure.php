@@ -19,7 +19,7 @@ class Xcore_BlockProcedure extends Xcore_AbstractBlockProcedure
      */
     var $mRender = null;
     
-    function Xcore_BlockProcedure(&$block)
+    function __construct(&$block)
     {
         $this->_mBlock =& $block;
     }

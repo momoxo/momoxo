@@ -24,7 +24,7 @@ class XoopsSessionHandler
      * @param	object  &$mf    reference to a XoopsManagerFactory
      * 
      */
-    function XoopsSessionHandler(&$db)
+    function __construct(&$db)
     {
         $this->db =& $db;
     }

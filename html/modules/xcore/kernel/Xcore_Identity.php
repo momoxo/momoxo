@@ -4,7 +4,7 @@ use XCore\Kernel\Identity;
 
 class Xcore_Identity extends Identity
 {
-	function Xcore_Identity(&$xoopsUser)
+	function __construct(&$xoopsUser)
 	{
 		parent::__construct();
 		

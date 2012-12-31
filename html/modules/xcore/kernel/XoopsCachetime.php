@@ -2,7 +2,7 @@
 
 class XoopsCachetime extends XoopsObject
 {
-	function XoopsCachetime()
+	function __construct()
 	{
 		static $initVars;
 		if (isset($initVars)) {

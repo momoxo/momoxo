@@ -15,7 +15,7 @@ class Xcore_AbstractBlockProcedure
      */
     var $mRender = null;
     
-    function Xcore_AbstractBlockProcedure()
+    function __construct()
     {
     }
     

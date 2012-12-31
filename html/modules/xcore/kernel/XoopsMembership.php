@@ -12,9 +12,9 @@ class XoopsMembership extends XoopsObject
     /**
      * constructor 
      */
-    function XoopsMembership()
+    function __construct()
     {
-        $this->XoopsObject();
+        parent::__construct();
         $this->initVar('linkid', XOBJ_DTYPE_INT, null, false);
         $this->initVar('groupid', XOBJ_DTYPE_INT, null, false);
         $this->initVar('uid', XOBJ_DTYPE_INT, null, false);

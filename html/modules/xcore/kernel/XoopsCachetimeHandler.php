@@ -4,9 +4,9 @@ class XoopsCachetimeHandler extends XoopsObjectHandler
 {
 	var $_mResult;
 	
-	function XoopsCachetimeHandler(&$db)
+	function __construct(&$db)
 	{
-		parent::XoopsObjectHandler($db);
+		parent::__construct($db);
 
 		//
 		// This handler not connects to database.

@@ -68,7 +68,7 @@ class Xcore_AbstractModule
      *     Basically, only Xcore_Controller and its utility functions should call the
      *     constructor.
      */
-    function Xcore_AbstractModule(&$module, $loadConfig=true)
+    function __construct(&$module, $loadConfig=true)
     {
         $this->setXoopsModule($module);
         

@@ -29,9 +29,9 @@ class XoopsNotificationHandler extends XoopsObjectHandler
 	 */
 	var $mTriggerPreAction = null;
 	
-	function XoopsNotificationHandler(&$db)
+	function __construct(&$db)
 	{
-		parent::XoopsObjectHandler($db);
+		parent::__construct($db);
 		
 		$this->mTrigger =new Delegate();
 		$this->mTrigger->register('XoopsNotificationHandler.Trigger');
