@@ -10,9 +10,9 @@ use XCore\FormFile\FormImageFile;
  */
 class ImageFileProperty extends FileProperty
 {
-	public function __construct($name)
-	{
-		parent::__construct($name);
-		$this->mValue = new FormImageFile($name);
-	}
+    public function __construct($name)
+    {
+        parent::__construct($name);
+        $this->mValue = new FormImageFile($name);
+    }
 }

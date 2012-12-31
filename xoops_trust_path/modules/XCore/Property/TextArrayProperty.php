@@ -11,8 +11,8 @@ use XCore\Property\TextProperty;
  */
 class TextArrayProperty extends GenericArrayProperty
 {
-	public function __construct($name)
-	{
-		parent::__construct('XCore\Property\TextProperty', $name);
-	}
+    public function __construct($name)
+    {
+        parent::__construct('XCore\Property\TextProperty', $name);
+    }
 }

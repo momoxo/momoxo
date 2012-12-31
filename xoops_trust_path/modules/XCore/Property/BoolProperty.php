@@ -1,6 +1,5 @@
 <?php
 
-
 namespace XCore\Property;
 
 use XCore\Property\AbstractProperty;
@@ -10,8 +9,8 @@ use XCore\Property\AbstractProperty;
  */
 class BoolProperty extends AbstractProperty
 {
-	public function set($value)
-	{
-		$this->mValue = (int)$value ? 1 : 0;
-	}
+    public function set($value)
+    {
+        $this->mValue = (int) $value ? 1 : 0;
+    }
 }

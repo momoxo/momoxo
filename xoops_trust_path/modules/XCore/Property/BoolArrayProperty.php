@@ -10,8 +10,8 @@ use XCore\Property\GenericArrayProperty;
  */
 class BoolArrayProperty extends GenericArrayProperty
 {
-	public function __construct($name)
-	{
-		parent::__construct('XCore\Property\BoolProperty', $name);
-	}
+    public function __construct($name)
+    {
+        parent::__construct('XCore\Property\BoolProperty', $name);
+    }
 }

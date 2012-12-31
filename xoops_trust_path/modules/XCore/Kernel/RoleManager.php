@@ -7,10 +7,10 @@ namespace XCore\Kernel;
  */
 class RoleManager
 {
-	/**
-	 * @param string $username
-	 */
-	public function getRolesForUser($username = null)
-	{
-	}
+    /**
+     * @param string $username
+     */
+    public function getRolesForUser($username = null)
+    {
+    }
 }

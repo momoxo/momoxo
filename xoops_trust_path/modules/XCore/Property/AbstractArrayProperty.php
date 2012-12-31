@@ -14,7 +14,7 @@ class AbstractArrayProperty extends GenericArrayProperty
      * @param string $name
      */
     public function __construct($name)
-	{
-		parent::__construct($this->mPropertyClassName, $name);
-	}
+    {
+        parent::__construct($this->mPropertyClassName, $name);
+    }
 }

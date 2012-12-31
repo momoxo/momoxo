@@ -9,7 +9,7 @@ use XCore\FormFile\FormFile;
  */
 class FormImageFile extends FormFile
 {
-    function fetch()
+    public function fetch()
     {
         parent::fetch();
 
@@ -24,7 +24,7 @@ class FormImageFile extends FormFile
      * Gets a width of the uploaded file.
      * @return int
      */
-    function getWidth()
+    public function getWidth()
     {
         list($width, $height, $type, $attr) = getimagesize($this->_mTmpFileName);
 
@@ -35,7 +35,7 @@ class FormImageFile extends FormFile
      * Gets a height of the uploaded file.
      * @return int
      */
-    function getHeight()
+    public function getHeight()
     {
         list($width, $height, $type, $attr) = getimagesize($this->_mTmpFileName);
 
@@ -47,7 +47,7 @@ class FormImageFile extends FormFile
      * @access private
      * @return bool
      */
-    function _checkFormat()
+    public function _checkFormat()
     {
         if ( !$this->hasUploadFile() ) {
             return false;
@@ -55,7 +55,7 @@ class FormImageFile extends FormFile
 
         list($width, $height, $type, $attr) = getimagesize($this->_mTmpFileName);
 
-        switch ( $type ) {
+        switch ($type) {
             case IMAGETYPE_GIF:
                 $this->setExtension("gif");
                 break;

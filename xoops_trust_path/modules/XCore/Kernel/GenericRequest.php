@@ -9,32 +9,32 @@ use XCore\Kernel\AbstractRequest;
  */
 class GenericRequest extends AbstractRequest
 {
-	/**
-	 * Hash map which stores registered values.
-	 * @var array
-	 */
-	protected $mAttributes = array();
+    /**
+     * Hash map which stores registered values.
+     * @var array
+     */
+    protected $mAttributes = array();
 
-	/**
-	 * Return new GenericRequest instance
-	 * @param array $arr
-	 */
-	public function __construct(array $arr = null)
-	{
-		if ( is_array($arr) ) {
-			$this->mAttributes = $arr;
-		}
-	}
+    /**
+     * Return new GenericRequest instance
+     * @param array $arr
+     */
+    public function __construct(array $arr = null)
+    {
+        if ( is_array($arr) ) {
+            $this->mAttributes = $arr;
+        }
+    }
 
-	/**
-	 * {@inherit}
-	 */
-	public function getRequest($key)
-	{
-		if ( !isset($this->mAttributes[$key]) ) {
-			return null;
-		}
+    /**
+     * {@inherit}
+     */
+    public function getRequest($key)
+    {
+        if ( !isset($this->mAttributes[$key]) ) {
+            return null;
+        }
 
-		return $this->mAttributes[$key];
-	}
+        return $this->mAttributes[$key];
+    }
 }

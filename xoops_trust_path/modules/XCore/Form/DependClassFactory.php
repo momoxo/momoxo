@@ -1,6 +1,5 @@
 <?php
 
-
 namespace XCore\Form;
 
 use XCore\Validator\Validator;
@@ -17,7 +16,7 @@ class DependClassFactory
     /**
      * Gets a Validator object by the rule name (depend name).
      * @internal
-     * @param string $dependName
+     * @param  string    $dependName
      * @return Validator
      * @attention
      *      Only 'ActionForm' class should use this class.

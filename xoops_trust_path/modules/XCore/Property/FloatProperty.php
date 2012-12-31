@@ -9,8 +9,8 @@ use XCore\Property\AbstractProperty;
  */
 class FloatProperty extends AbstractProperty
 {
-	public function set($value)
-	{
-		$this->mValue = trim($value)!== ''?(float)$value:null;
-	}
+    public function set($value)
+    {
+        $this->mValue = trim($value)!== ''?(float) $value:null;
+    }
 }

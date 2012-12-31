@@ -9,166 +9,166 @@ namespace XCore\Kernel;
  */
 class RenderTarget
 {
-	/**
-	 * @var string
-	 */
-	protected $mName;
+    /**
+     * @var string
+     */
+    protected $mName;
 
-	/**
-	 * @var string
-	 */
-	protected $mRenderBuffer;
+    /**
+     * @var string
+     */
+    protected $mRenderBuffer;
 
-	/**
-	 * @var string
-	 */
-	protected $mModuleName;
+    /**
+     * @var string
+     */
+    protected $mModuleName;
 
-	/**
-	 * @var string
-	 */
-	protected $mTemplateName;
+    /**
+     * @var string
+     */
+    protected $mTemplateName;
 
-	/**
-	 * @var array
-	 */
-	protected $mAttributes = array();
+    /**
+     * @var array
+     */
+    protected $mAttributes = array();
 
-	/**
-	 * @deprecated
-	 */
-	protected $mType = XCUBE_RENDER_TARGET_TYPE_BUFFER;
+    /**
+     * @deprecated
+     */
+    protected $mType = XCUBE_RENDER_TARGET_TYPE_BUFFER;
 
-	/**
-	 * @var null
-	 */
-	protected $mCacheTime = null;
+    /**
+     * @var null
+     */
+    protected $mCacheTime = null;
 
-	/**
-	 * Return new RenderTarget instance
-	 */
-	public function __construct()
-	{
-	}
+    /**
+     * Return new RenderTarget instance
+     */
+    public function __construct()
+    {
+    }
 
-	/**
-	 * @param $name
-	 * @return void
-	 */
-	public function setName($name)
-	{
-		$this->mName = $name;
-	}
+    /**
+     * @param $name
+     * @return void
+     */
+    public function setName($name)
+    {
+        $this->mName = $name;
+    }
 
-	/**
-	 * @return null
-	 */
-	public function getName()
-	{
-		return $this->mName;
-	}
+    /**
+     * @return null
+     */
+    public function getName()
+    {
+        return $this->mName;
+    }
 
-	/**
-	 * @param string $name
-	 * @return void
-	 */
-	public function setTemplateName($name)
-	{
-		$this->mTemplateName = $name;
-	}
+    /**
+     * @param  string $name
+     * @return void
+     */
+    public function setTemplateName($name)
+    {
+        $this->mTemplateName = $name;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getTemplateName()
-	{
-		return $this->mTemplateName;
-	}
+    /**
+     * @return string
+     */
+    public function getTemplateName()
+    {
+        return $this->mTemplateName;
+    }
 
-	/**
-	 * @param string $key
-	 * @param mixed  $value
-	 * @return void
-	 */
-	public function setAttribute($key, $value)
-	{
-		$this->mAttributes[$key] = $value;
-	}
+    /**
+     * @param  string $key
+     * @param  mixed  $value
+     * @return void
+     */
+    public function setAttribute($key, $value)
+    {
+        $this->mAttributes[$key] = $value;
+    }
 
-	/**
-	 * @param array $attr
-	 * @return void
-	 */
-	public function setAttributes($attr)
-	{
-		$this->mAttributes = $attr;
-	}
+    /**
+     * @param  array $attr
+     * @return void
+     */
+    public function setAttributes($attr)
+    {
+        $this->mAttributes = $attr;
+    }
 
-	/**
-	 * @param string $key
-	 * @return mixed
-	 */
-	public function getAttribute($key)
-	{
-		return isset($this->mAttributes[$key]) ? $this->mAttributes[$key] : null;
-	}
+    /**
+     * @param  string $key
+     * @return mixed
+     */
+    public function getAttribute($key)
+    {
+        return isset($this->mAttributes[$key]) ? $this->mAttributes[$key] : null;
+    }
 
-	/**
-	 * @return array
-	 */
-	public function getAttributes()
-	{
-		return $this->mAttributes;
-	}
+    /**
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->mAttributes;
+    }
 
-	/**
-	 * Set render-target type.
-	 * @param $type int Use constants that are defined by us.
-	 * @deprecated
-	 */
-	public function setType($type)
-	{
-		$this->mType = $type;
-		$this->setAttribute('xcore_buffertype', $type);
-	}
+    /**
+     * Set render-target type.
+     * @param $type int Use constants that are defined by us.
+     * @deprecated
+     */
+    public function setType($type)
+    {
+        $this->mType = $type;
+        $this->setAttribute('xcore_buffertype', $type);
+    }
 
-	/**
-	 * Return render-target type.
-	 * @return int
-	 * @deprecated
-	 */
-	public function getType()
-	{
-		return $this->getAttribute('xcore_buffertype');
-		//return $this->mType;
-	}
+    /**
+     * Return render-target type.
+     * @return int
+     * @deprecated
+     */
+    public function getType()
+    {
+        return $this->getAttribute('xcore_buffertype');
+        //return $this->mType;
+    }
 
-	/**
-	 * @param string $result
-	 * @return void
-	 */
-	public function setResult(&$result)
-	{
-		$this->mRenderBuffer = $result;
-	}
+    /**
+     * @param  string $result
+     * @return void
+     */
+    public function setResult(&$result)
+    {
+        $this->mRenderBuffer = $result;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getResult()
-	{
-		return $this->mRenderBuffer;
-	}
+    /**
+     * @return string
+     */
+    public function getResult()
+    {
+        return $this->mRenderBuffer;
+    }
 
-	/**
-	 * Reset a template name and attributes in own properties.
-	 * @return void
-	 */
-	public function reset()
-	{
-		$this->setTemplateName(null);
-		unset($this->mAttributes);
-		$this->mAttributes = array();
-		$this->mRenderBuffer = null;
-	}
+    /**
+     * Reset a template name and attributes in own properties.
+     * @return void
+     */
+    public function reset()
+    {
+        $this->setTemplateName(null);
+        unset($this->mAttributes);
+        $this->mAttributes = array();
+        $this->mRenderBuffer = null;
+    }
 }

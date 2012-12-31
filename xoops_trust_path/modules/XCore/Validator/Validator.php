@@ -2,7 +2,6 @@
 
 namespace XCore\Validator;
 
-use XCore\Property\PropertyInterface;
 use XCore\Form\ActionForm;
 use XCore\Property\AbstractProperty;
 
@@ -18,13 +17,13 @@ use XCore\Property\AbstractProperty;
  */
 class Validator
 {
-	/**
-	 *
-	 * @param AbstractProperty $form
-	 * @param array            $vars variables of this field property.
-	 * @return bool
-	 */
-	public function isValid(&$form, $vars)
-	{
-	}
+    /**
+     *
+     * @param  AbstractProperty $form
+     * @param  array            $vars variables of this field property.
+     * @return bool
+     */
+    public function isValid(&$form, $vars)
+    {
+    }
 }

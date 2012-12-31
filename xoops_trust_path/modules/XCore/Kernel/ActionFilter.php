@@ -25,56 +25,56 @@ use XCore\Kernel\Controller;
  */
 abstract class ActionFilter
 {
-	/**
-	 * @var Controller
-	 * @readonly
-	 */
-	protected $mController;
+    /**
+     * @var Controller
+     * @readonly
+     */
+    protected $mController;
 
-	/**
-	 * @var Root
-	 * @readonly
-	 */
-	protected $mRoot;
+    /**
+     * @var Root
+     * @readonly
+     */
+    protected $mRoot;
 
-	/**
-	 * Constructor.
-	 * @param Controller $controller
-	 */
-	public function __construct(&$controller)
-	{
-		$this->mController =& $controller;
-		$this->mRoot =& $this->mController->mRoot;
-	}
+    /**
+     * Constructor.
+     * @param Controller $controller
+     */
+    public function __construct(&$controller)
+    {
+        $this->mController =& $controller;
+        $this->mRoot =& $this->mController->mRoot;
+    }
 
-	/**
-	 * Executes the logic, when the controller executes preFilter().
-	 *
-	 * This method is called earliest in the controller's initialization process, so
-	 * some of filters may not be called if these filters are registered later.
-	 */
-	public function preFilter()
-	{
-		// template method
-	}
+    /**
+     * Executes the logic, when the controller executes preFilter().
+     *
+     * This method is called earliest in the controller's initialization process, so
+     * some of filters may not be called if these filters are registered later.
+     */
+    public function preFilter()
+    {
+        // template method
+    }
 
-	/**
-	 * Executes the logic, when the controller executes preBlockFilter().
-	 *
-	 * Each controller has different timing when it calls preBlockFilter().
-	 */
-	public function preBlockFilter()
-	{
-		// template method
-	}
+    /**
+     * Executes the logic, when the controller executes preBlockFilter().
+     *
+     * Each controller has different timing when it calls preBlockFilter().
+     */
+    public function preBlockFilter()
+    {
+        // template method
+    }
 
-	/**
-	 * Executes the logic, when the controller executes postFilter().
-	 *
-	 * Each controller has different timing when it calls postFilter().
-	 */
-	public function postFilter()
-	{
-		// template method
-	}
+    /**
+     * Executes the logic, when the controller executes postFilter().
+     *
+     * Each controller has different timing when it calls postFilter().
+     */
+    public function postFilter()
+    {
+        // template method
+    }
 }

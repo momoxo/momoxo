@@ -11,8 +11,8 @@ use XCore\Property\GenericArrayProperty;
  */
 class FloatArrayProperty extends GenericArrayProperty
 {
-	public function __construct($name)
-	{
-		parent::__construct('XCore\Property\FloatProperty', $name);
-	}
+    public function __construct($name)
+    {
+        parent::__construct('XCore\Property\FloatProperty', $name);
+    }
 }

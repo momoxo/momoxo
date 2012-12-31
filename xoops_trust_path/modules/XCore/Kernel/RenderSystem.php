@@ -13,51 +13,52 @@ use XCore\Kernel\RenderTarget;
  */
 class RenderSystem
 {
-	/**
-	 * @private
-	 * @var Controller
-	 * @todo 他のクラスからの参照を取り除いてprivateにする
-	 */
-	public $mController;
+    /**
+     * @private
+     * @var Controller
+     * @todo 他のクラスからの参照を取り除いてprivateにする
+     */
+    public $mController;
 
-	/**
-	 * @var int
-	 */
-	public $mRenderMode = XCUBE_RENDER_MODE_NORMAL;
+    /**
+     * @var int
+     */
+    public $mRenderMode = XCUBE_RENDER_MODE_NORMAL;
 
-	/**
-	 * Return new RenderSysatem instance
-	 */
-	public function __construct()
-	{
-	}
+    /**
+     * Return new RenderSysatem instance
+     */
+    public function __construct()
+    {
+    }
 
-	/**
-	 * Prepare.
-	 * @param Controller $controller
-	 * @return void
-	 */
-	public function prepare(&$controller)
-	{
-		$this->mController =& $controller;
-	}
+    /**
+     * Prepare.
+     * @param  Controller $controller
+     * @return void
+     */
+    public function prepare(&$controller)
+    {
+        $this->mController =& $controller;
+    }
 
-	/**
-	 * Create an object of the render-target, and return it.
-	 * @return RenderTarget
-	 */
-	public function &createRenderTarget()
-	{
-		$renderTarget = new RenderTarget();
-		return $renderTarget;
-	}
+    /**
+     * Create an object of the render-target, and return it.
+     * @return RenderTarget
+     */
+    public function &createRenderTarget()
+    {
+        $renderTarget = new RenderTarget();
 
-	/**
-	 * Render to $target.
-	 * @param RenderTarget $target
-	 * @return void
-	 */
-	public function render(&$target)
-	{
-	}
+        return $renderTarget;
+    }
+
+    /**
+     * Render to $target.
+     * @param  RenderTarget $target
+     * @return void
+     */
+    public function render(&$target)
+    {
+    }
 }

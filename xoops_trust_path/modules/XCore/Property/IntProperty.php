@@ -9,8 +9,8 @@ use XCore\Property\AbstractProperty;
  */
 class IntProperty extends AbstractProperty
 {
-	public function set($value)
-	{
-		$this->mValue = trim($value)!==''?(int)$value:null;
-	}
+    public function set($value)
+    {
+        $this->mValue = trim($value)!==''?(int) $value:null;
+    }
 }

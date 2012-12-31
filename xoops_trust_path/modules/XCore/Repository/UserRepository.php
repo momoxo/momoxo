@@ -8,8 +8,8 @@ use Criteria;
 use XCore\Entity\User;
 
 /**
-* XOOPS user handler class.  
-* This class is responsible for providing data access mechanisms to the data source 
+* XOOPS user handler class.
+* This class is responsible for providing data access mechanisms to the data source
 * of XOOPS user class objects.
 *
 * @author  Kazumi Ono <onokazu@xoops.org>
@@ -21,8 +21,8 @@ class UserRepository extends XoopsObjectHandler
 
     /**
      * create a new user
-     * 
-     * @param bool $isNew flag the new objects as "new"?
+     *
+     * @param  bool   $isNew flag the new objects as "new"?
      * @return object User
      */
     function &create($isNew = true)
@@ -31,19 +31,20 @@ class UserRepository extends XoopsObjectHandler
         if ($isNew) {
             $user->setNew();
         }
+
         return $user;
     }
 
     /**
      * retrieve a user
-     * 
-     * @param int $id UID of the user
+     *
+     * @param  int   $id UID of the user
      * @return mixed reference to the {@link User} object, FALSE if failed
      */
     function &get($id)
     {
         $ret = false;
-        if ((int)$id > 0) {
+        if ((int) $id > 0) {
             $sql = 'SELECT * FROM '.$this->db->prefix('users').' WHERE uid='.$id;
             if ($result = $this->db->query($sql)) {
                 $numrows = $this->db->getRowsNum($result);
@@ -54,17 +55,18 @@ class UserRepository extends XoopsObjectHandler
                 }
             }
         }
+
         return $ret;
     }
 
     /**
      * insert a new user in the database
-     * 
-     * @param object $user reference to the {@link User} object
-     * @param bool $force
-     * @return bool FALSE if failed, TRUE if already present and unchanged or successful
+     *
+     * @param  object $user  reference to the {@link User} object
+     * @param  bool   $force
+     * @return bool   FALSE if failed, TRUE if already present and unchanged or successful
      */
-    function insert(&$user, $force = false)
+    public function insert(&$user, $force = false)
     {
         if ( ($user instanceof User) === false ) {
             return false;
@@ -81,7 +83,7 @@ class UserRepository extends XoopsObjectHandler
         // RMV-NOTIFY
         // Added two fields, notify_method, notify_mode
         if ($user->isNew()) {
-	        /** @var $config XoopsConfigHandler */
+            /** @var $config XoopsConfigHandler */
             $config = xoops_gethandler('config');
             $options = $config->getConfigs(new Criteria('conf_name', 'notify_method'));
             if (isset($options) and (count($options) == 1)) {
@@ -104,17 +106,18 @@ class UserRepository extends XoopsObjectHandler
             $uid = $this->db->getInsertId();
         }
         $user->assignVar('uid', $uid);
+
         return true;
     }
 
     /**
      * delete a user from the database
-     * 
-     * @param object $user reference to the user to delete
-     * @param bool $force
-     * @return bool FALSE if failed.
+     *
+     * @param  object $user  reference to the user to delete
+     * @param  bool   $force
+     * @return bool   FALSE if failed.
      */
-    function delete(&$user, $force = false)
+    public function delete(&$user, $force = false)
     {
         if ( ($user instanceof User) === false ) {
             return false;
@@ -128,15 +131,16 @@ class UserRepository extends XoopsObjectHandler
         if (!$result) {
             return false;
         }
+
         return true;
     }
 
     /**
      * retrieve users from the database
-     * 
-     * @param object $criteria {@link CriteriaElement} conditions to be met
-     * @param bool $id_as_key use the UID as key for the array?
-     * @return array array of {@link User} objects
+     *
+     * @param  object $criteria  {@link CriteriaElement} conditions to be met
+     * @param  bool   $id_as_key use the UID as key for the array?
+     * @return array  array of {@link User} objects
      */
     function &getObjects($criteria = null, $id_as_key = false)
     {
@@ -165,39 +169,41 @@ class UserRepository extends XoopsObjectHandler
             }
             unset($user);
         }
+
         return $ret;
     }
-    
-	/**
-	 This method is called from pmlite.php. Wmm..
-	 Type:expand (no using criteria).
-	 @author minahito
-	 */
+
+    /**
+     This method is called from pmlite.php. Wmm..
+     Type:expand (no using criteria).
+     @author minahito
+     */
     function &getObjectsByLevel($level=0)
     {
-		$ret=array();
-		$level=(int)$level;
-		$result = $this->db->query("SELECT * FROM ".$this->db->prefix("users")." WHERE level > $level ORDER BY uname");
-		if(!$result)
-			return $ret;
+        $ret=array();
+        $level=(int) $level;
+        $result = $this->db->query("SELECT * FROM ".$this->db->prefix("users")." WHERE level > $level ORDER BY uname");
+        if(!$result)
 
-		while($myrow=$this->db->fetchArray($result)) {
-			$user=new User();
-			$user->assignVars($myrow);
-			$ret[]=&$user;
-			unset($user);
-		}
-		
-		return $ret;
-	}
+            return $ret;
+
+        while ($myrow=$this->db->fetchArray($result)) {
+            $user=new User();
+            $user->assignVars($myrow);
+            $ret[]=&$user;
+            unset($user);
+        }
+
+        return $ret;
+    }
 
     /**
      * count users matching a condition
-     * 
-     * @param object $criteria {@link CriteriaElement} to match
-     * @return int count of users
+     *
+     * @param  object $criteria {@link CriteriaElement} to match
+     * @return int    count of users
      */
-    function getCount($criteria = null)
+    public function getCount($criteria = null)
     {
         $sql = 'SELECT COUNT(*) FROM '.$this->db->prefix('users');
         if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
@@ -208,16 +214,17 @@ class UserRepository extends XoopsObjectHandler
             return 0;
         }
         list($count) = $this->db->fetchRow($result);
+
         return $count;
     }
 
     /**
      * delete users matching a set of conditions
-     * 
-     * @param object $criteria {@link CriteriaElement} 
-     * @return bool FALSE if deletion failed
+     *
+     * @param  object $criteria {@link CriteriaElement}
+     * @return bool   FALSE if deletion failed
      */
-    function deleteAll($criteria = null)
+    public function deleteAll($criteria = null)
     {
         $sql = 'DELETE FROM '.$this->db->prefix('users');
         if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
@@ -226,19 +233,20 @@ class UserRepository extends XoopsObjectHandler
         if (!$result = $this->db->query($sql)) {
             return false;
         }
+
         return true;
     }
 
-	/**
+    /**
      * Change a value for users with a certain criteria
-     * 
-     * @param   string  $fieldname  Name of the field
-     * @param   string  $fieldvalue Value to write
-     * @param   object  $criteria   {@link CriteriaElement} 
-     * 
-     * @return  bool
+     *
+     * @param string $fieldname  Name of the field
+     * @param string $fieldvalue Value to write
+     * @param object $criteria   {@link CriteriaElement}
+     *
+     * @return bool
      **/
-    function updateAll($fieldname, $fieldvalue, $criteria = null)
+    public function updateAll($fieldname, $fieldvalue, $criteria = null)
     {
         $set_clause = is_numeric($fieldvalue) ? $fieldname.' = '.$fieldvalue : $fieldname.' = '.$this->db->quoteString($fieldvalue);
         $sql = 'UPDATE '.$this->db->prefix('users').' SET '.$set_clause;
@@ -248,6 +256,7 @@ class UserRepository extends XoopsObjectHandler
         if (!$result = $this->db->query($sql)) {
             return false;
         }
+
         return true;
     }
 }

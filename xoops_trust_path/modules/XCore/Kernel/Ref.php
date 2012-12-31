@@ -22,29 +22,29 @@ use XCore\Kernel\Delegate;
  */
 final class Ref
 {
-	/**
-	 * @var mixed
-	 */
-	private $_mObject = null;
+    /**
+     * @var mixed
+     */
+    private $_mObject = null;
 
-	/**
-	 * Constructor.
-	 * @param mixed $obj
-	 */
-	public function __construct(&$obj)
-	{
-		$this->_mObject =& $obj;
-	}
+    /**
+     * Constructor.
+     * @param mixed $obj
+     */
+    public function __construct(&$obj)
+    {
+        $this->_mObject =& $obj;
+    }
 
-	/**
-	 * Gets the value which this class is adapting.
-	 *
-	 * Only Delegate & DelegateManager should call this method.
-	 * @internal
-	 * @return mixed
-	 */
-	public function &getObject()
-	{
-		return $this->_mObject;
-	}
+    /**
+     * Gets the value which this class is adapting.
+     *
+     * Only Delegate & DelegateManager should call this method.
+     * @internal
+     * @return mixed
+     */
+    public function &getObject()
+    {
+        return $this->_mObject;
+    }
 }

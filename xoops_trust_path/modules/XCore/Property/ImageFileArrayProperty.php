@@ -10,8 +10,8 @@ use XCore\Property\ImageFileProperty;
  */
 class ImageFileArrayProperty extends FileArrayProperty
 {
-	public function __construct($name)
-	{
-		parent::__construct("ImageFileProperty", $name);
-	}
+    public function __construct($name)
+    {
+        parent::__construct("ImageFileProperty", $name);
+    }
 }

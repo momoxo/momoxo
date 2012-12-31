@@ -11,8 +11,8 @@ use XCore\Property\IntProperty;
  */
 class IntArrayProperty extends GenericArrayProperty
 {
-	public function __construct($name)
-	{
-		parent::__construct('XCore\Property\IntProperty', $name);
-	}
+    public function __construct($name)
+    {
+        parent::__construct('XCore\Property\IntProperty', $name);
+    }
 }
