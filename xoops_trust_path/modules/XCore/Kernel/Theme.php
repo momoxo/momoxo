@@ -1,11 +1,13 @@
 <?php
 
+namespace XCore\Kernel;
+
+use XCore\Utils\IniHandler;
+
 /**
  * The theme class.
  */
-use XCore\Utils\IniHandler;
-
-class XCube_Theme
+class Theme
 {
 	/**
 	 * A name of the theme.

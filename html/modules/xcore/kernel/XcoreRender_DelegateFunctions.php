@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Theme;
+
 class XcoreRender_DelegateFunctions
 {
 	/**
@@ -8,7 +10,7 @@ class XcoreRender_DelegateFunctions
 	public static function getInstalledThemes(&$results)
 	{
 		foreach (glob(XOOPS_THEME_PATH.'/*', GLOB_ONLYDIR) as $themeDir) {
-			$theme =new XCube_Theme();
+			$theme =new Theme();
 			$theme->mDirname = $dirname = basename($themeDir);
 		
 			if ($theme->loadManifesto($themeDir . '/manifesto.ini.php')) {
