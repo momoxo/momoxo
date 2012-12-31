@@ -28,14 +28,14 @@ class Xcore_RoleManager
 			return;
 		}
 		
-		$groups = is_object($context->mXoopsUser) ? $context->mXoopsUser->getGroups() : array(XOOPS_GROUP_ANONYMOUS);
+		$groups = is_object($context->mKarimojiUser) ? $context->mKarimojiUser->getGroups() : array(XOOPS_GROUP_ANONYMOUS);
 		
 		$handler =& xoops_gethandler('groupperm');
 		if ($handler->checkRight('module_read', $module->get('mid'), $groups)) {
 			$context->mUser->addRole('Module.' . $module->get('dirname') . '.Visitor');
 		}
 		
-		if (is_object($context->mXoopsUser) && $handler->checkRight('module_admin', $module->get('mid'), $groups)) {
+		if (is_object($context->mKarimojiUser) && $handler->checkRight('module_admin', $module->get('mid'), $groups)) {
 			$context->mUser->addRole('Module.' . $module->get('dirname') . '.Admin');
 		}
 		

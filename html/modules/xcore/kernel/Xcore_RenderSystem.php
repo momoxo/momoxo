@@ -14,7 +14,7 @@ use XCore\Kernel\RenderTarget;
 
 class Xcore_RenderSystem extends RenderSystem
 {
-	var $mXoopsTpl;
+	var $mKarimojiTpl;
 
 	/**
 	 * Temporary
@@ -60,11 +60,11 @@ class Xcore_RenderSystem extends RenderSystem
 		
 		// XoopsTpl default setup
 		if ( isset($GLOBALS['xoopsTpl']) ) {
-			$this->mXoopsTpl =& $GLOBALS['xoopsTpl'];
+			$this->mKarimojiTpl =& $GLOBALS['xoopsTpl'];
 		} else {
-			$this->mXoopsTpl =new Xcore_XoopsTpl();
+			$this->mKarimojiTpl =new Xcore_XoopsTpl();
 		}
-		$mTpl = $this->mXoopsTpl;
+		$mTpl = $this->mKarimojiTpl;
 		$mTpl->register_function('xcore_notifications_select', 'XcoreRender_smartyfunction_notifications_select');
 		$this->mSetupXoopsTpl->call(new Ref($mTpl));
 
@@ -119,11 +119,11 @@ class Xcore_RenderSystem extends RenderSystem
 		// Add User
 		// --------------------------------------
 		$arr = null;
-		if (is_object($context->mXoopsUser)) {
+		if (is_object($context->mKarimojiUser)) {
 			$arr = array(
 				'xoops_isuser' => true,
-				'xoops_userid' => $context->mXoopsUser->getVar('uid', 'n'),
-				'xoops_uname' => $context->mXoopsUser->getVar('uname')
+				'xoops_userid' => $context->mKarimojiUser->getVar('uid', 'n'),
+				'xoops_uname' => $context->mKarimojiUser->getVar('uname')
 			);
 		}
 		else {
@@ -167,7 +167,7 @@ class Xcore_RenderSystem extends RenderSystem
 		// Assign module informations.
 		//
 		if($context->mModule != null) {	// The process of module
-			$xoopsModule =& $context->mXoopsModule;
+			$xoopsModule =& $context->mKarimojiModule;
 			$vars['xoops_modulename'] = $xoopsModule->getVar('name');
 			$vars['xoops_dirname'] = $xoopsModule->getVar('dirname');
 		}
@@ -175,7 +175,7 @@ class Xcore_RenderSystem extends RenderSystem
 		if (isset($GLOBALS['xoopsUserIsAdmin'])) {
 			$vars['xoops_isadmin']=$GLOBALS['xoopsUserIsAdmin'];
 		}
-		$this->mXoopsTpl->assign($vars);
+		$this->mKarimojiTpl->assign($vars);
 	}
 	
 	function renderBlock(&$target)
@@ -185,7 +185,7 @@ class Xcore_RenderSystem extends RenderSystem
 		//
 		// Temporary
 		//
-		$mTpl = $this->mXoopsTpl;
+		$mTpl = $this->mKarimojiTpl;
 		$mTpl->xoops_setCaching(0);
 
 		$vars = $target->getAttributes();
@@ -204,15 +204,15 @@ class Xcore_RenderSystem extends RenderSystem
 	function _render(&$target)
 	{
 		foreach($target->getAttributes() as $key=>$value) {
-			$this->mXoopsTpl->assign($key,$value);
+			$this->mKarimojiTpl->assign($key,$value);
 		}
 
-		$this->mBeginRender->call(new Ref($this->mXoopsTpl), $target->getAttribute('xcore_buffertype'));
-		$result=$this->mXoopsTpl->fetch('db:'.$target->getTemplateName());
+		$this->mBeginRender->call(new Ref($this->mKarimojiTpl), $target->getAttribute('xcore_buffertype'));
+		$result=$this->mKarimojiTpl->fetch('db:'.$target->getTemplateName());
 		$target->setResult($result);
 
 		foreach ($target->getAttributes() as $key => $value) {
-			$this->mXoopsTpl->clear_assign($key);
+			$this->mKarimojiTpl->clear_assign($key);
 		}
 	}
 	
@@ -247,19 +247,19 @@ class Xcore_RenderSystem extends RenderSystem
 		$cachedTemplateId = isset($GLOBLAS['xoopsCachedTemplateId']) ? $GLOBLAS['xoopsCachedTemplateId'] : null;
 
 		foreach($target->getAttributes() as $key=>$value) {
-			$this->mXoopsTpl->assign($key,$value);
+			$this->mKarimojiTpl->assign($key,$value);
 		}
 
 		if ($target->getTemplateName()) {
 			if ($cachedTemplateId!==null) {
-				$contents=$this->mXoopsTpl->fetch('db:'.$target->getTemplateName(), $xoopsCachedTemplateId);
+				$contents=$this->mKarimojiTpl->fetch('db:'.$target->getTemplateName(), $xoopsCachedTemplateId);
 			} else {
-				$contents=$this->mXoopsTpl->fetch('db:'.$target->getTemplateName());
+				$contents=$this->mKarimojiTpl->fetch('db:'.$target->getTemplateName());
 			}
 		} else {
 			if ($cachedTemplateId!==null) {
-				$this->mXoopsTpl->assign('dummy_content', $target->getAttribute('stdout_buffer'));
-				$contents=$this->mXoopsTpl->fetch($GLOBALS['xoopsCachedTemplate'], $xoopsCachedTemplateId);
+				$this->mKarimojiTpl->assign('dummy_content', $target->getAttribute('stdout_buffer'));
+				$contents=$this->mKarimojiTpl->fetch($GLOBALS['xoopsCachedTemplate'], $xoopsCachedTemplateId);
 			} else {
 				$contents=$target->getAttribute('stdout_buffer');
 			}
@@ -277,7 +277,7 @@ class Xcore_RenderSystem extends RenderSystem
 		$mContext = $mRoot->mContext;
 		DelegateUtils::call('Site.JQuery.AddFunction', new Ref($mContext->mAttributes['headerScript']));
 		$headerScript = $mContext->getAttribute('headerScript');
-		$mTpl = $this->mXoopsTpl;
+		$mTpl = $this->mKarimojiTpl;
 		$moduleHeader = $mTpl->get_template_vars('xoops_module_header');
 		$moduleHeader =  $headerScript->createLibraryTag() . $moduleHeader . $headerScript->createOnloadFunctionTag();
 

@@ -84,9 +84,9 @@ if( is_object( @$xoopsUser ) ) {
 		$service =& $root->mServiceManager->getService('privateMessage');
 		if ($service != null) {
 			$client =& $root->mServiceManager->createClient($service);
-			$url = $client->call('getPmInboxUrl', array('uid' => $root->mContext->mXoopsUser->get('uid')));
+			$url = $client->call('getPmInboxUrl', array('uid' => $root->mContext->mKarimojiUser->get('uid')));
 			if ($url != null) {
-				$xugj_pm_new_count = $client->call('getCountUnreadPM', array('uid' => $root->mContext->mXoopsUser->get('uid')));
+				$xugj_pm_new_count = $client->call('getCountUnreadPM', array('uid' => $root->mContext->mKarimojiUser->get('uid')));
 				if(intval($xugj_pm_new_count)>0){
 					$root->mLanguageManager->loadModuleMessageCatalog('message');
 					$xugj_pm_new_message = Utils::formatString(_MD_MESSAGE_NEWMESSAGE, $xugj_pm_new_count);
@@ -99,7 +99,7 @@ if( is_object( @$xoopsUser ) ) {
 			$pm_handler =& xoops_gethandler('privmessage' ,true) ;
 			if (is_object($pm_handler)){
 				$criteria = new CriteriaCompo(new Criteria('read_msg', 0));
-				$criteria->add(new Criteria('to_userid', $root->mContext->mXoopsUser->get('uid')));
+				$criteria->add(new Criteria('to_userid', $root->mContext->mKarimojiUser->get('uid')));
 				$this->assign( 'pm' , array( new_messages => $pm_handler->getCount( $criteria ) ) ) ;
 			}
 		}

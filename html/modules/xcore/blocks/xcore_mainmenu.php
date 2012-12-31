@@ -23,8 +23,8 @@ use XCore\Kernel\Root;
 
 function b_xcore_mainmenu_show( $options ) {
     $root = Root::getSingleton();
-    $xoopsModule =& $root->mContext->mXoopsModule;
-    $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
+    $xoopsModule =& $root->mContext->mKarimojiModule;
+    $xoopsUser =& $root->mController->mRoot->mContext->mKarimojiUser;
     
     $block = array();
 	$block['_display_'] = true;

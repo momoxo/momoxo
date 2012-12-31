@@ -53,7 +53,7 @@ class Xcore_BackendAction extends Xcore_Action
 	
 	function executeViewIndex(&$controller, &$xoopsUser, &$render)
 	{
-		$xoopsConfig = $controller->mRoot->mContext->mXoopsConfig;
+		$xoopsConfig = $controller->mRoot->mContext->mKarimojiConfig;
 		
 		//
 		// Set up the render buffer.

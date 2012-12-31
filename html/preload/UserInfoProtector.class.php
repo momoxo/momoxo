@@ -29,7 +29,7 @@ class UserInfoProtector extends ActionFilter
 			$root->mController->executeForward(XOOPS_URL);
 		}
 		
-		$uid = $root->mContext->mXoopsUser->get('uid');
+		$uid = $root->mContext->mKarimojiUser->get('uid');
 		$requestUid = $root->mContext->mRequest->getRequest('uid');
 		if ($uid != null && $uid != $requestUid) {
 			$root->mController->executeForward(XOOPS_URL);

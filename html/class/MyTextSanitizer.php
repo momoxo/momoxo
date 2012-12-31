@@ -39,7 +39,7 @@ class MyTextSanitizer
 	 * @var Delegate
      * @deprecated
 	 */
-	var $mXoopsCodePostFilter = null;
+	var $mKarimojiCodePostFilter = null;
 
     /*
     * Constructor of this class
@@ -58,8 +58,8 @@ class MyTextSanitizer
 		$this->mMakeClickablePostFilter =new Delegate();
 		$this->mMakeClickablePostFilter->register('MyTextSanitizer.MakeClickablePostFilter');
 
-		$this->mXoopsCodePostFilter =new Delegate();
-		$this->mXoopsCodePostFilter->register('MyTextSanitizer.XoopsCodePostFilter');
+		$this->mKarimojiCodePostFilter =new Delegate();
+		$this->mKarimojiCodePostFilter->register('MyTextSanitizer.XoopsCodePostFilter');
 
         $root = Root::getSingleton();
         $this->mTextFilter =& $root->getTextFilter();
@@ -143,7 +143,7 @@ class MyTextSanitizer
         //      'string'       [I/O] : Text to convert;
         //      'allowimage'   [I]   : xoopsCodeDecode $allowimage parameter
         //
-        $this->mXoopsCodePostFilter->call(new Ref($text), $allowimage);
+        $this->mKarimojiCodePostFilter->call(new Ref($text), $allowimage);
         return $text;
     }
 

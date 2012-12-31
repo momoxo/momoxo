@@ -11,7 +11,7 @@ function smarty_function_message_newmessage($params, &$smarty)
   $root = Root::getSingleton();
   if ($root->mContext->mUser->isInRole('Site.RegisteredUser')) {
     $modHand = xoops_getmodulehandler('inbox', 'message');
-    $new_messages = $modHand->getCountUnreadByFromUid($root->mContext->mXoopsUser->get('uid'));
+    $new_messages = $modHand->getCountUnreadByFromUid($root->mContext->mKarimojiUser->get('uid'));
     if ( empty($_SESSION[$name]) ) {
       $_SESSION[$name] = 0;
     }

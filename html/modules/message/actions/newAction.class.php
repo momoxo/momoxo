@@ -52,7 +52,7 @@ class newAction extends AbstractAction
       } elseif ( $inboxid > 0 ) {
         $modHand = xoops_getmodulehandler('inbox', _MY_DIRNAME);
         $modObj = $modHand->get($inboxid);
-        if ( is_object($modObj) && $modObj->get('from_uid') > 0 && $modObj->get('uid') == $this->root->mContext->mXoopsUser->get('uid') ) {
+        if ( is_object($modObj) && $modObj->get('from_uid') > 0 && $modObj->get('uid') == $this->root->mContext->mKarimojiUser->get('uid') ) {
           if ( !$this->mActionForm->setRes($modObj) ) {
             $this->errMsg = _MD_MESSAGE_ACTIONMSG9;
           }
@@ -67,7 +67,7 @@ class newAction extends AbstractAction
   
   private function chk_deny($uid)
   {
-    $fromid = $this->root->mContext->mXoopsUser->get('uid');
+    $fromid = $this->root->mContext->mKarimojiUser->get('uid');
     $modObj = $this->getSettings($uid);
     $blacklist = $modObj->get('blacklist');
     if ( $blacklist == "" ) {
@@ -93,8 +93,8 @@ class newAction extends AbstractAction
       require_once _MY_MODULE_PATH.'class/MyMailer.class.php';
       $mailer = new My_Mailer();
       $mailer->prepare();
-      $mailer->setFromname($this->root->mContext->mXoopsConfig['sitename']);
-      $mailer->setFrom($this->root->mContext->mXoopsConfig['adminmail']);
+      $mailer->setFromname($this->root->mContext->mKarimojiConfig['sitename']);
+      $mailer->setFrom($this->root->mContext->mKarimojiConfig['adminmail']);
       $mailer->setTo($user->get('email'), $user->get('uname'));
       
       $mailer->setSubject(_MD_MESSAGE_MAILSUBJECT);
@@ -113,8 +113,8 @@ class newAction extends AbstractAction
       $user = $userhand->get($this->mActionForm->fuid);
       
       $mailer = $this->getMailer();
-      $mailer->setFromName($this->root->mContext->mXoopsConfig['sitename']);
-      $mailer->setFromEmail($this->root->mContext->mXoopsConfig['adminmail']);
+      $mailer->setFromName($this->root->mContext->mKarimojiConfig['sitename']);
+      $mailer->setFromEmail($this->root->mContext->mKarimojiConfig['adminmail']);
       $mailer->setToEmails($user->get('email'));
       $mailer->setSubject(_MD_MESSAGE_MAILSUBJECT);
       $mailer->setBody($this->getMailBody($setting->get('viewmsm')));
@@ -131,8 +131,8 @@ class newAction extends AbstractAction
     $tpl->cache_dir = XOOPS_CACHE_PATH;
     $tpl->compile_dir = XOOPS_COMPILE_PATH;
     
-    $tpl->assign('sitename', $this->root->mContext->mXoopsConfig['sitename']);
-    $tpl->assign('uname', $this->root->mContext->mXoopsUser->get('uname'));
+    $tpl->assign('sitename', $this->root->mContext->mKarimojiConfig['sitename']);
+    $tpl->assign('uname', $this->root->mContext->mKarimojiUser->get('uname'));
     if ( $body == 1 ) {
       $tpl->assign('note', $this->mActionForm->get('note'));
     } else {

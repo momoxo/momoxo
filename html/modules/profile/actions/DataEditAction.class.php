@@ -19,8 +19,8 @@ class Profile_DataEditAction extends Profile_AbstractEditAction
 	 */
 	function _getId()
 	{
-		if($this->mRoot->mContext->mXoopsUser){
-			return $this->mRoot->mContext->mXoopsUser->get('uid');
+		if($this->mRoot->mContext->mKarimojiUser){
+			return $this->mRoot->mContext->mKarimojiUser->get('uid');
 		}
 		else{
 			$this->mRoot->mController->executeRedirect(XOOPS_URL ."/user.php", 1, _MD_PROFILE_ERROR_REGISTER_REQUIRED);

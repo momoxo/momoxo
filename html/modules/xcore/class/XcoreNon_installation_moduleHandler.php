@@ -6,7 +6,7 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 	 * object cache.
 	 * @var Array
 	 */
-	var $_mXoopsModules = array();
+	var $_mKarimojiModules = array();
 
 	/***
 	 * readonly property
@@ -24,13 +24,13 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 	 */
 	function _setupObjects()
 	{
-		if (count($this->_mXoopsModules) == 0) {
+		if (count($this->_mKarimojiModules) == 0) {
 			if ($handler = opendir(XOOPS_MODULE_PATH))	{
 				while (($dir = readdir($handler)) !== false) {
 					if (!in_array($dir, $this->_mExclusions) && is_dir(XOOPS_MODULE_PATH . "/" . $dir)) {
 						$module =& $this->get($dir);
 						if ($module !== false ) {
-							$this->_mXoopsModules[] =& $module;
+							$this->_mKarimojiModules[] =& $module;
 						}
 						unset($module);
 					}
@@ -68,16 +68,16 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 
 	function &getObjects($criteria=null)
 	{
-		return $this->_mXoopsModules;
+		return $this->_mKarimojiModules;
 	}
 	
 	function &getObjectsFor2ndInstaller()
 	{
 		$ret = array();
 		
-		foreach (array_keys($this->_mXoopsModules) as $key) {
-			if (empty($this->_mXoopsModules[$key]->modinfo['disable_xcore_2nd_installer'])) {
-				$ret[] =& $this->_mXoopsModules[$key];
+		foreach (array_keys($this->_mKarimojiModules) as $key) {
+			if (empty($this->_mKarimojiModules[$key]->modinfo['disable_xcore_2nd_installer'])) {
+				$ret[] =& $this->_mKarimojiModules[$key];
 			}
 		}
 		

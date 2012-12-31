@@ -95,7 +95,7 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 		}
 		
 		if ($this->mController->mRoot->mContext->mModule != null) {
-			$module =& $this->mController->mRoot->mContext->mXoopsModule;
+			$module =& $this->mController->mRoot->mContext->mKarimojiModule;
 			
 			if ($module->get('dirname') == "xcore" && isset($_REQUEST['dirname'])) {
 				if (in_array(xoops_getrequest('action'), $this->_mSpecialActions)) {
@@ -146,12 +146,12 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 		}
 		
 		if ($this->mController->mRoot->mContext->mModule != null) {
-			$dirname = $this->mController->mRoot->mContext->mXoopsModule->get('dirname');
+			$dirname = $this->mController->mRoot->mContext->mKarimojiModule->get('dirname');
 			
 			if ($dirname == 'xcore') {
 				return $principal->isInRole('Site.Administrator');
 			} elseif ( defined('_XCORE_ALLOW_ACCESS_FROM_ANY_ADMINS_') ) {
-				return $this->mController->mRoot->mContext->mXoopsUser->isAdmin(0);
+				return $this->mController->mRoot->mContext->mKarimojiUser->isAdmin(0);
 			}
 			
 			return $principal->isInRole("Module.${dirname}.Admin");
@@ -167,12 +167,12 @@ class Xcore_AdminControllerStrategy extends Xcore_AbstractControllerStrategy
 	{
 		$root = Root::getSingleton();
 		
-		$root->mContext->mXoopsModule->loadInfo($root->mContext->mXoopsModule->get('dirname'));
+		$root->mContext->mKarimojiModule->loadInfo($root->mContext->mKarimojiModule->get('dirname'));
 		
-		if (isset($root->mContext->mXoopsModule->modinfo['cube_style']) && $root->mContext->mXoopsModule->modinfo['cube_style'] != false) {
-			$root->mLanguageManager->loadModuleMessageCatalog($root->mContext->mXoopsModule->get('dirname'));
+		if (isset($root->mContext->mKarimojiModule->modinfo['cube_style']) && $root->mContext->mKarimojiModule->modinfo['cube_style'] != false) {
+			$root->mLanguageManager->loadModuleMessageCatalog($root->mContext->mKarimojiModule->get('dirname'));
 		}
-		$root->mLanguageManager->loadModuleAdminMessageCatalog($root->mContext->mXoopsModule->get('dirname'));
-		$root->mLanguageManager->loadModinfoMessageCatalog($root->mContext->mXoopsModule->get('dirname'));
+		$root->mLanguageManager->loadModuleAdminMessageCatalog($root->mContext->mKarimojiModule->get('dirname'));
+		$root->mLanguageManager->loadModinfoMessageCatalog($root->mContext->mKarimojiModule->get('dirname'));
 	}
 }

@@ -63,13 +63,13 @@ class Xcore_AbstractControllerStrategy
 		}
 
 		$context->mModule =& Xcore_Utils::createModule($module);
-		$context->mXoopsModule =& $context->mModule->getXoopsModule();
+		$context->mKarimojiModule =& $context->mModule->getXoopsModule();
 		$context->mModuleConfig = $context->mModule->getModuleConfig();
 
 		//
 		// Load Roles
 		//
-		$this->mController->mRoot->mRoleManager->loadRolesByMid($context->mXoopsModule->get('mid'));
+		$this->mController->mRoot->mRoleManager->loadRolesByMid($context->mKarimojiModule->get('mid'));
 	}
 
 	function setupBlock()

@@ -144,7 +144,7 @@ class Profile_Service extends Service
 		$definitionsArr = array();
 	
 		$root = Root::getSingleton();
-		$uid = ($root->mContext->mXoopsUser) ? $root->mContext->mXoopsUser->get('uid') : 0;
+		$uid = ($root->mContext->mKarimojiUser) ? $root->mContext->mKarimojiUser->get('uid') : 0;
 	
 		//get parameters
 		//access limit by uid

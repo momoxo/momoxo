@@ -56,7 +56,7 @@ abstract class AbstractAction
   public function getSettings($uid = 0)
   {
     if ( $uid == 0 ) {
-      $uid = $this->root->mContext->mXoopsUser->get('uid');
+      $uid = $this->root->mContext->mKarimojiUser->get('uid');
     }
     
     $modHand = xoops_getmodulehandler('settings', _MY_DIRNAME);
@@ -82,7 +82,7 @@ abstract class AbstractAction
         $this->unamelink[$uid] = '<a href="'.XOOPS_URL.'/userinfo.php?uid='.$uid.'">'. $user->getVar('uname').'</a>';
         return $this->unamelink[$uid];
       }
-      return $this->root->mContext->mXoopsConfig['anonymous'];
+      return $this->root->mContext->mKarimojiConfig['anonymous'];
     } else {
       return $uname;
     }

@@ -16,25 +16,25 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 class User_LostPassMailDirector
 {
 	var $mBuilder;
-	var $mXoopsUser;
-	var $mXoopsConfig;
+	var $mKarimojiUser;
+	var $mKarimojiConfig;
 	var $mExtraVars;
 	
 	function User_LostPassMailDirector(&$builder, &$user, &$xoopsConfig, $extraVars = array())
 	{
 		$this->mBuilder =& $builder;
-		$this->mXoopsUser =& $user;
-		$this->mXoopsConfig =& $xoopsConfig;
+		$this->mKarimojiUser =& $user;
+		$this->mKarimojiConfig =& $xoopsConfig;
 		$this->mExtraVars = $extraVars;
 	}
 	
 	function contruct()
 	{
-		$this->mBuilder->setToUsers($this->mXoopsUser, $this->mXoopsConfig);
-		$this->mBuilder->setFromEmail($this->mXoopsUser, $this->mXoopsConfig);
-		$this->mBuilder->setSubject($this->mXoopsUser, $this->mXoopsConfig);
+		$this->mBuilder->setToUsers($this->mKarimojiUser, $this->mKarimojiConfig);
+		$this->mBuilder->setFromEmail($this->mKarimojiUser, $this->mKarimojiConfig);
+		$this->mBuilder->setSubject($this->mKarimojiUser, $this->mKarimojiConfig);
 		$this->mBuilder->setTemplate();
-		$this->mBuilder->setBody($this->mXoopsUser, $this->mXoopsConfig,$this->mExtraVars);
+		$this->mBuilder->setBody($this->mKarimojiUser, $this->mKarimojiConfig,$this->mExtraVars);
 	}
 }
 

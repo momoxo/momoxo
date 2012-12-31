@@ -41,7 +41,7 @@ class Message_Block extends Xcore_BlockProcedure
     $render->setAttribute('bid', $this->_mBlock->get('bid'));
     
     $service = $root->mServiceManager->getService('privateMessage');
-    $uid = $root->mContext->mXoopsUser->get('uid');
+    $uid = $root->mContext->mKarimojiUser->get('uid');
     if ($service != null) {
       $client = $root->mServiceManager->createClient($service);
       $render->setAttribute('block', $client->call('getCountUnreadPM', array('uid' => $uid)));

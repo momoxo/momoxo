@@ -114,9 +114,9 @@ class Xcore_EventFunction
 		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 
 		$root = Root::getSingleton();
-		$xoopsModule =& $root->mContext->mXoopsModule;
+		$xoopsModule =& $root->mContext->mKarimojiModule;
 		$moduleConfig =& $root->mContext->mModuleConfig;
-		$xoopsUser =& $root->mContext->mXoopsUser;
+		$xoopsUser =& $root->mContext->mKarimojiUser;
 
 		$xoops_notification = array();
 		$xoops_notification['show'] = is_object($xoopsModule) && is_object($xoopsUser) && notificationEnabled('inline') ? 1 : 0;

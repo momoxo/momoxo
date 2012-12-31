@@ -37,7 +37,7 @@ class Xcore_AbstractModule
      * @public
      * @brief [READ ONLY] XoopsModule
      */
-    var $mXoopsModule = null;
+    var $mKarimojiModule = null;
     
     /**
      * @public
@@ -123,7 +123,7 @@ class Xcore_AbstractModule
      */ 
     function setXoopsModule(&$xoopsModule)
     {
-        $this->mXoopsModule =& $xoopsModule;
+        $this->mKarimojiModule =& $xoopsModule;
     }
     
     /**
@@ -133,7 +133,7 @@ class Xcore_AbstractModule
      */
     function &getXoopsModule()
     {
-        return $this->mXoopsModule;
+        return $this->mKarimojiModule;
     }
     
     /**
@@ -190,7 +190,7 @@ class Xcore_AbstractModule
     {
         $this->mCacheInfo = new Xcore_ModuleCacheInformation();
         $this->mCacheInfo->mURL = xoops_getenv('REQUEST_URI');
-        $this->mCacheInfo->setModule($this->mXoopsModule);
+        $this->mCacheInfo->setModule($this->mKarimojiModule);
     }
     
     /**
@@ -222,8 +222,8 @@ class Xcore_AbstractModule
         $renderSystem =& $this->getRenderSystem();
         
         $this->mRender =& $renderSystem->createRenderTarget('main');
-        if ($this->mXoopsModule != null) {
-            $this->mRender->setAttribute('xcore_module', $this->mXoopsModule->get('dirname'));
+        if ($this->mKarimojiModule != null) {
+            $this->mRender->setAttribute('xcore_module', $this->mKarimojiModule->get('dirname'));
         }
     }
     
@@ -264,11 +264,11 @@ class Xcore_AbstractModule
      */
     function isActive()
     {
-        if (!is_object($this->mXoopsModule)) {  //< FIXME
+        if (!is_object($this->mKarimojiModule)) {  //< FIXME
             return false;
         }
         
-        return $this->mXoopsModule->get('isactive') ? true : false;
+        return $this->mKarimojiModule->get('isactive') ? true : false;
     }
     
     /**
@@ -285,7 +285,7 @@ class Xcore_AbstractModule
         
         $root = Root::getSingleton();
         
-        return is_object($this->mXoopsModule) && !empty($root->mContext->mXoopsConfig['module_cache'][$this->mXoopsModule->get('mid')]);
+        return is_object($this->mKarimojiModule) && !empty($root->mContext->mKarimojiConfig['module_cache'][$this->mKarimojiModule->get('mid')]);
     }
     
     /**
@@ -297,7 +297,7 @@ class Xcore_AbstractModule
     {
         $this->mCacheInfo = new Xcore_ModuleCacheInformation();
         $this->mCacheInfo->mURL = xoops_getenv('REQUEST_URI');
-        $this->mCacheInfo->setModule($this->mXoopsModule);
+        $this->mCacheInfo->setModule($this->mKarimojiModule);
         
         return $this->mCacheInfo;
     }

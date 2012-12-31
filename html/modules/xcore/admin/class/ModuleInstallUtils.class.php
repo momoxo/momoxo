@@ -569,7 +569,7 @@ class Xcore_ModuleInstallUtils
         			}
 				} else {
 				    $root = Root::getSingleton();
-                    $groups = $root->mContext->mXoopsUser->getGroups(true);
+                    $groups = $root->mContext->mKarimojiUser->getGroups(true);
                     foreach ($groups as $mygroup) {
         				$bperm->setVar('gperm_groupid', $mygroup);
         				$bperm->setNew();

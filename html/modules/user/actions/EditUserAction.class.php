@@ -34,7 +34,7 @@ class User_EditUserAction extends User_AbstractEditAction
 	function _getId()
 	{
 		$root = Root::getSingleton();
-		$uid = is_object($root->mContext->mXoopsUser) ? $root->mContext->mXoopsUser->get('uid') : 0;
+		$uid = is_object($root->mContext->mKarimojiUser) ? $root->mContext->mKarimojiUser->get('uid') : 0;
 		
 		return isset($_REQUEST['uid']) ? intval(xoops_getrequest('uid')) : $uid;
 	}

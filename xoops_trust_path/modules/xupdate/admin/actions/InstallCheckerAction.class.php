@@ -27,7 +27,7 @@ class Xupdate_Admin_InstallCheckerAction extends Xupdate_AbstractAction
 	public function getDefaultView()
 	{
 		if (! $this->mod_config['_FtpLoginCheck'] || ! $this->_removeInstallDir()) {
-			$url = XOOPS_MODULE_URL . '/xcore/admin/index.php?action=PreferenceEdit&confmod_id=' . $this->mRoot->mContext->mModule->mXoopsModule->get('mid');
+			$url = XOOPS_MODULE_URL . '/xcore/admin/index.php?action=PreferenceEdit&confmod_id=' . $this->mRoot->mContext->mModule->mKarimojiModule->get('mid');
 			redirect_header($url, 10, _MD_XUPDATE_MESSAGE_INSTALL_COMPLETE_WARNING);
 		} else {
 			$url = XOOPS_URL . '/index.php';

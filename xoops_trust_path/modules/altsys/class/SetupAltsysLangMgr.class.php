@@ -47,8 +47,8 @@ class AltsysLangMgr_LanguageManager extends Xcore_LanguageManager
 		// read/check once (selected_theme)/language/(lang).php
 		if( ! $this->theme_lang_checked ) {
 			$root = Root::getSingleton() ;
-			if( ! empty( $root->mContext->mXoopsConfig['theme_set'] ) ) {
-				$langdir = XOOPS_THEME_PATH.'/'.$root->mContext->mXoopsConfig['theme_set'].'/language' ;
+			if( ! empty( $root->mContext->mKarimojiConfig['theme_set'] ) ) {
+				$langdir = XOOPS_THEME_PATH.'/'.$root->mContext->mKarimojiConfig['theme_set'].'/language' ;
 				if( file_exists( $langdir ) ) {
 					$langfile = $langdir.'/'.$this->mLanguageName.'.php' ;
 					$engfile = $langdir.'/english.php' ;

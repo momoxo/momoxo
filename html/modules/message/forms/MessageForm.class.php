@@ -81,7 +81,7 @@ class MessageForm extends ActionForm
   {
     $root = Root::getSingleton();
     $obj->set('uid', $this->fuid);
-    $obj->set('from_uid', $root->mContext->mXoopsUser->get('uid'));
+    $obj->set('from_uid', $root->mContext->mKarimojiUser->get('uid'));
     $obj->set('title', $this->get('title'));
     $obj->set('message', $this->get('note'));
     $obj->set('utime', time());

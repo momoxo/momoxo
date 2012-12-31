@@ -30,12 +30,12 @@ class My_Mailer extends PHPMailer
     $this->reset();
     
     if ($xoopsMailerConfig['from'] == '') {
-      $this->From = $root->mContext->mXoopsConfig['adminmail'];
+      $this->From = $root->mContext->mKarimojiConfig['adminmail'];
     } else {
       $this->From = $xoopsMailerConfig['from'];
     }
     
-    $this->Sender = $root->mContext->mXoopsConfig['adminmail'];
+    $this->Sender = $root->mContext->mKarimojiConfig['adminmail'];
     $this->SetLanguage(XCORE_MAIL_LANG, XOOPS_VENDOR_PATH.'/phpmailer/language/');
     $this->CharSet = XCORE_MAIL_CHAR;
     $this->Encoding = XCORE_MAIL_ENCO;

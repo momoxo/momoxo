@@ -71,7 +71,7 @@ function Xcore_modifier_helpurl($file, $dirname = null )
 	$dirname = $root->mContext->getAttribute('xcore_help_dirname');
 
 	if ( $dirname == null ) {
-		$moduleObject =& $root->mContext->mXoopsModule;
+		$moduleObject =& $root->mContext->mKarimojiModule;
 		$dirname = $moduleObject->get('dirname');
 	}
 

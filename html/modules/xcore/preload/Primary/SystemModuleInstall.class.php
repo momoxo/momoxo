@@ -32,15 +32,15 @@ class Xcore_SystemModuleInstall extends ActionFilter
 			define('XOOPS_CPFUNC_LOADED', 1);
 			$controller->checkLogin();
 			return;
-		} elseif (is_object($context->mXoopsUser)) {
-		    if (in_array(XOOPS_GROUP_ADMIN, $context->mXoopsUser->getGroups())) {
+		} elseif (is_object($context->mKarimojiUser)) {
+		    if (in_array(XOOPS_GROUP_ADMIN, $context->mKarimojiUser->getGroups())) {
 				$accessAllowFlag = true;
 			}
 		}
 		
 		// @todo Devide following lines to another preload file
 		if ($accessAllowFlag) {
-			$GLOBALS['xoopsUser'] = $context->mXoopsUser;
+			$GLOBALS['xoopsUser'] = $context->mKarimojiUser;
 			if (!empty($_POST['cube_module_install'])) { //@todo use Ticket
 				if (isset($_POST['uninstalled_modules']) && is_array($_POST['uninstalled_modules'])){
 					foreach ($_POST['uninstalled_modules'] as $module) {

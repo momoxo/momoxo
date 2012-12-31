@@ -184,7 +184,7 @@ class Xcore_Utils
 	public static function getUid()
 	{
 		$root = Root::getSingleton();
-		return ($root->mContext->mUser->isInRole('Site.RegisteredUser')) ? $root->mContext->mXoopsUser->get('uid') : 0;
+		return ($root->mContext->mUser->isInRole('Site.RegisteredUser')) ? $root->mContext->mKarimojiUser->get('uid') : 0;
 	}
 
 	/**

@@ -110,11 +110,11 @@ class Xcore_ActionFrame
 			throw new RuntimeException();
 		}
 		
-		if ($this->mAction->prepare($controller, $controller->mRoot->mContext->mXoopsUser) === false) {
+		if ($this->mAction->prepare($controller, $controller->mRoot->mContext->mKarimojiUser) === false) {
 			throw new RuntimeException();
 		}
 	
-		if (!$this->mAction->hasPermission($controller, $controller->mRoot->mContext->mXoopsUser)) {
+		if (!$this->mAction->hasPermission($controller, $controller->mRoot->mContext->mKarimojiUser)) {
 			if ($this->mAdminFlag) {
 				$controller->executeForward(XOOPS_URL . "/admin.php");
 			}
@@ -124,35 +124,35 @@ class Xcore_ActionFrame
 		}
 	
 		if (xoops_getenv("REQUEST_METHOD") == "POST") {
-			$viewStatus = $this->mAction->execute($controller, $controller->mRoot->mContext->mXoopsUser);
+			$viewStatus = $this->mAction->execute($controller, $controller->mRoot->mContext->mKarimojiUser);
 		}
 		else {
-			$viewStatus = $this->mAction->getDefaultView($controller, $controller->mRoot->mContext->mXoopsUser);
+			$viewStatus = $this->mAction->getDefaultView($controller, $controller->mRoot->mContext->mKarimojiUser);
 		}
 	
 		switch($viewStatus) {
 			case XCORE_FRAME_VIEW_SUCCESS:
-				$this->mAction->executeViewSuccess($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
+				$this->mAction->executeViewSuccess($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
 			case XCORE_FRAME_VIEW_ERROR:
-				$this->mAction->executeViewError($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
+				$this->mAction->executeViewError($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
 			case XCORE_FRAME_VIEW_INDEX:
-				$this->mAction->executeViewIndex($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
+				$this->mAction->executeViewIndex($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		
 			case XCORE_FRAME_VIEW_INPUT:
-				$this->mAction->executeViewInput($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
+				$this->mAction->executeViewInput($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 
 			case XCORE_FRAME_VIEW_PREVIEW:
-				$this->mAction->executeViewPreview($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
+				$this->mAction->executeViewPreview($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 
 			case XCORE_FRAME_VIEW_CANCEL:
-				$this->mAction->executeViewCancel($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModule->getRenderTarget());
+				$this->mAction->executeViewCancel($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModule->getRenderTarget());
 				break;
 		}
 	}

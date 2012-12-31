@@ -30,7 +30,7 @@ class Xupdate_Root extends XoopsSimpleObject {
 		$this->db = $root->mController->mDB;
 
 		// module ID & name
-		$this_module = $root->mContext->mXoopsModule;
+		$this_module = $root->mContext->mKarimojiModule;
 		$this->mid = $this_module->get('mid');
 		$this->mname = $this_module->get('name');
 		$this->mydirname = $this_module->get('dirname');

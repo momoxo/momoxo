@@ -20,9 +20,9 @@ class Xcore_ModuleUninstaller
 	/**
 	 * @protected
 	 * @var XoopsModule
-	 * @remark [Precondition] _mXoopsModule has to be an object.
+	 * @remark [Precondition] _mKarimojiModule has to be an object.
 	 */
-	var $_mXoopsModule = null;
+	var $_mKarimojiModule = null;
 	
 	/**
 	 * @var Delegate
@@ -49,7 +49,7 @@ class Xcore_ModuleUninstaller
 	 */
 	function setCurrentXoopsModule(&$xoopsModule)
 	{
-		$this->_mXoopsModule =& $xoopsModule;
+		$this->_mKarimojiModule =& $xoopsModule;
 	}
 	
 	/**
@@ -70,7 +70,7 @@ class Xcore_ModuleUninstaller
 	function _uninstallModule()
 	{
 		$moduleHandler =& xoops_gethandler('module');
-		if (!$moduleHandler->delete($this->_mXoopsModule)) {
+		if (!$moduleHandler->delete($this->_mKarimojiModule)) {
 			$this->mLog->addError(_AD_XCORE_ERROR_DELETE_MODULEINFO_FROM_DB);
 		}
 		else {
@@ -88,18 +88,18 @@ class Xcore_ModuleUninstaller
 		$root = Root::getSingleton();
 		$db =& $root->mController->getDB();
 
-		$dirname = $this->_mXoopsModule->get('dirname');
+		$dirname = $this->_mKarimojiModule->get('dirname');
 		$t_search = array('{prefix}', '{dirname}', '{Dirname}', '{_dirname_}');
 		$t_replace = array(XOOPS_DB_PREFIX, strtolower($dirname), ucfirst(strtolower($dirname)), $dirname);
 		
-		$tables = $this->_mXoopsModule->getInfo('tables');
+		$tables = $this->_mKarimojiModule->getInfo('tables');
 		if ($tables != false && is_array($tables)) {
 			foreach($tables as $table) {
 				//
 				// TODO Do we need to check reserved core tables?
 				//
 				$t_tableName = $table;
-				if (isset($this->_mXoopsModule->modinfo['cube_style']) && $this->_mXoopsModule->modinfo['cube_style'] == true) {
+				if (isset($this->_mKarimojiModule->modinfo['cube_style']) && $this->_mKarimojiModule->modinfo['cube_style'] == true) {
 					$t_tableName = str_replace($t_search, $t_replace, $table);
 				}
 				else {
@@ -124,8 +124,8 @@ class Xcore_ModuleUninstaller
 	 */
 	function _uninstallTemplates()
 	{
-		$this->m_fireNotifyUninstallTemplateBegun->call(new Ref($this->_mXoopsModule));
-		Xcore_ModuleInstallUtils::uninstallAllOfModuleTemplates($this->_mXoopsModule, $this->mLog);
+		$this->m_fireNotifyUninstallTemplateBegun->call(new Ref($this->_mKarimojiModule));
+		Xcore_ModuleInstallUtils::uninstallAllOfModuleTemplates($this->_mKarimojiModule, $this->mLog);
 	}
 
 	/**
@@ -135,13 +135,13 @@ class Xcore_ModuleUninstaller
 	 */
 	function _uninstallBlocks()
 	{
-		Xcore_ModuleInstallUtils::uninstallAllOfBlocks($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::uninstallAllOfBlocks($this->_mKarimojiModule, $this->mLog);
 
 		//
 		// Additional
 		//
 		$tplHandler =& xoops_gethandler('tplfile');
-		$criteria =new Criteria('tpl_module', $this->_mXoopsModule->get('dirname'));
+		$criteria =new Criteria('tpl_module', $this->_mKarimojiModule->get('dirname'));
 		if(!$tplHandler->deleteAll($criteria)) {
 			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_COULD_NOT_DELETE_BLOCK_TEMPLATES, $tplHandler->db->error()));
 		}
@@ -149,17 +149,17 @@ class Xcore_ModuleUninstaller
 
 	function _uninstallPreferences()
 	{
-		Xcore_ModuleInstallUtils::uninstallAllOfConfigs($this->_mXoopsModule, $this->mLog);
-		Xcore_ModuleInstallUtils::deleteAllOfNotifications($this->_mXoopsModule, $this->mLog);
-		Xcore_ModuleInstallUtils::deleteAllOfComments($this->_mXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::uninstallAllOfConfigs($this->_mKarimojiModule, $this->mLog);
+		Xcore_ModuleInstallUtils::deleteAllOfNotifications($this->_mKarimojiModule, $this->mLog);
+		Xcore_ModuleInstallUtils::deleteAllOfComments($this->_mKarimojiModule, $this->mLog);
 	}
 
 	function _processScript()
 	{
-		$installScript = trim($this->_mXoopsModule->getInfo('onUninstall'));
+		$installScript = trim($this->_mKarimojiModule->getInfo('onUninstall'));
 		if ($installScript != false) {
-			require_once XOOPS_MODULE_PATH . "/" . $this->_mXoopsModule->get('dirname') . "/" . $installScript;
-			$funcName = 'xoops_module_uninstall_' . $this->_mXoopsModule->get('dirname');
+			require_once XOOPS_MODULE_PATH . "/" . $this->_mKarimojiModule->get('dirname') . "/" . $installScript;
+			$funcName = 'xoops_module_uninstall_' . $this->_mKarimojiModule->get('dirname');
 			
 			if (!preg_match("/^[a-zA-Z_][a-zA-Z0-9_]*$/", $funcName)) {
 				$this->mLog->addError(XCUbe_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
@@ -167,7 +167,7 @@ class Xcore_ModuleUninstaller
 			}
 			
 			if (function_exists($funcName)) {
-				if (!call_user_func($funcName, $this->_mXoopsModule, new Ref($this->mLog))) {
+				if (!call_user_func($funcName, $this->_mKarimojiModule, new Ref($this->mLog))) {
 					$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
 				}
 			}
@@ -177,15 +177,15 @@ class Xcore_ModuleUninstaller
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
+			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_UNINSTALLATION_MODULE_SUCCESSFUL, $this->_mKarimojiModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_UNINSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
+			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_UNINSTALLATION_MODULE_FAILURE, $this->_mKarimojiModule->get('name')));
 		}
 	}
 
 	/**
-	 * @todo Check whether $this->_mXoopsObject is ready.
+	 * @todo Check whether $this->_mKarimojiObject is ready.
 	 */
 	function executeUninstall()
 	{
@@ -194,7 +194,7 @@ class Xcore_ModuleUninstaller
 			$this->_processReport();
 			return false;
 		}
-		if ($this->_mXoopsModule->get('mid') != null) {
+		if ($this->_mKarimojiModule->get('mid') != null) {
 			$this->_uninstallModule();
 			if (!$this->_mForceMode && $this->mLog->hasError()) {
 				$this->_processReport();

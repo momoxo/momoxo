@@ -228,7 +228,7 @@ class Xcore_SearchUtils
    public static function getUserGroups()
     {
         $root = Root::getSingleton();
-        $user =& $root->mController->mRoot->mContext->mXoopsUser;
+        $user =& $root->mController->mRoot->mContext->mKarimojiUser;
         $groups = array();
         
         if (!is_object($user)) {

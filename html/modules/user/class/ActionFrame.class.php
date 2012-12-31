@@ -93,7 +93,7 @@ class User_ActionFrame
 			die();	//< TODO
 		}
 	
-		if ($this->mAction->isSecure() && !is_object($controller->mRoot->mContext->mXoopsUser)) {
+		if ($this->mAction->isSecure() && !is_object($controller->mRoot->mContext->mKarimojiUser)) {
 			//
 			// error
 			//
@@ -101,9 +101,9 @@ class User_ActionFrame
 			$controller->executeForward(XOOPS_URL . '/');
 		}
 		
-		$this->mAction->prepare($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModuleConfig);
+		$this->mAction->prepare($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModuleConfig);
 	
-		if (!$this->mAction->hasPermission($controller, $controller->mRoot->mContext->mXoopsUser, $controller->mRoot->mContext->mModuleConfig)) {
+		if (!$this->mAction->hasPermission($controller, $controller->mRoot->mContext->mKarimojiUser, $controller->mRoot->mContext->mModuleConfig)) {
 			//
 			// error
 			//
@@ -112,10 +112,10 @@ class User_ActionFrame
 		}
 	
 		if (xoops_getenv("REQUEST_METHOD") == "POST") {
-			$viewStatus = $this->mAction->execute($controller, $controller->mRoot->mContext->mXoopsUser);
+			$viewStatus = $this->mAction->execute($controller, $controller->mRoot->mContext->mKarimojiUser);
 		}
 		else {
-			$viewStatus = $this->mAction->getDefaultView($controller, $controller->mRoot->mContext->mXoopsUser);
+			$viewStatus = $this->mAction->getDefaultView($controller, $controller->mRoot->mContext->mKarimojiUser);
 		}
 	
         $render = $controller->mRoot->mContext->mModule->getRenderTarget();
@@ -123,27 +123,27 @@ class User_ActionFrame
 	
 		switch($viewStatus) {
 			case USER_FRAME_VIEW_SUCCESS:
-				$this->mAction->executeViewSuccess($controller, $controller->mRoot->mContext->mXoopsUser, $render);
+				$this->mAction->executeViewSuccess($controller, $controller->mRoot->mContext->mKarimojiUser, $render);
 				break;
 		
 			case USER_FRAME_VIEW_ERROR:
-				$this->mAction->executeViewError($controller, $controller->mRoot->mContext->mXoopsUser, $render);
+				$this->mAction->executeViewError($controller, $controller->mRoot->mContext->mKarimojiUser, $render);
 				break;
 		
 			case USER_FRAME_VIEW_INDEX:
-				$this->mAction->executeViewIndex($controller, $controller->mRoot->mContext->mXoopsUser, $render);
+				$this->mAction->executeViewIndex($controller, $controller->mRoot->mContext->mKarimojiUser, $render);
 				break;
 		
 			case USER_FRAME_VIEW_INPUT:
-				$this->mAction->executeViewInput($controller, $controller->mRoot->mContext->mXoopsUser, $render);
+				$this->mAction->executeViewInput($controller, $controller->mRoot->mContext->mKarimojiUser, $render);
 				break;
 				
 			case USER_FRAME_VIEW_PREVIEW:
-				$this->mAction->executeViewPreview($controller, $controller->mRoot->mContext->mXoopsUser, $render);
+				$this->mAction->executeViewPreview($controller, $controller->mRoot->mContext->mKarimojiUser, $render);
 				break;
 				
 			case USER_FRAME_VIEW_CANCEL:
-				$this->mAction->executeViewCancel($controller, $controller->mRoot->mContext->mXoopsUser, $render);
+				$this->mAction->executeViewCancel($controller, $controller->mRoot->mContext->mKarimojiUser, $render);
 				break;
 		}
 	}
@@ -186,7 +186,7 @@ class User_Action
 
 	public function getPageTitle()
 	{
-		return Xcore_Utils::formatPagetitle(Root::getSingleton()->mContext->mModule->mXoopsModule->get('name'), $this->_getPagetitle(), $this->_getPageAction());
+		return Xcore_Utils::formatPagetitle(Root::getSingleton()->mContext->mModule->mKarimojiModule->get('name'), $this->_getPagetitle(), $this->_getPageAction());
 	}
 
 	function hasPermission(&$controller, &$xoopsUser, $moduleConfig)

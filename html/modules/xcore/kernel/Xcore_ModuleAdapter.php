@@ -43,20 +43,20 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
             return;
         }
 
-        $this->mXoopsModule->loadAdminMenu();
-        if(count($this->mXoopsModule->adminmenu) == 0 && !isset($this->mXoopsModule->modinfo['config']) ) {
+        $this->mKarimojiModule->loadAdminMenu();
+        if(count($this->mKarimojiModule->adminmenu) == 0 && !isset($this->mKarimojiModule->modinfo['config']) ) {
             return;
         }
             
         //
         // Search preference
         //
-        if(isset($this->mXoopsModule->modinfo['config'])&&count($this->mXoopsModule->modinfo['config'])>0) {
+        if(isset($this->mKarimojiModule->modinfo['config'])&&count($this->mKarimojiModule->modinfo['config'])>0) {
             $findFlag = false;
             foreach($searchArgs->getKeywords() as $word) {
                 if (stristr(_PREFERENCES, $word) !== false) {
                     $root = Root::getSingleton();
-                    $searchArgs->addRecord($this->mXoopsModule->getVar('name'), $root->mController->getPreferenceEditUrl($this->mXoopsModule), _PREFERENCES);
+                    $searchArgs->addRecord($this->mKarimojiModule->getVar('name'), $root->mController->getPreferenceEditUrl($this->mKarimojiModule), _PREFERENCES);
                     $findFlag = true;
                     break;
                 }
@@ -64,7 +64,7 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
             
             if (!$findFlag) {
                 $configInfos=array();
-                foreach($this->mXoopsModule->modinfo['config'] as $config) {
+                foreach($this->mKarimojiModule->modinfo['config'] as $config) {
                     if(isset($config['title']))
                         $configInfos[]=@constant($config['title']);
                     if(isset($config['description']))
@@ -82,8 +82,8 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
                 }
                     
                 if($findFlag) {
-                    $searchArgs->addRecord($this->mXoopsModule->getVar('name'),
-                                      XOOPS_URL.'/modules/xcore/admin/index.php?action=PreferenceEdit&amp;confmod_id='.$this->mXoopsModule->getVar('mid'),
+                    $searchArgs->addRecord($this->mKarimojiModule->getVar('name'),
+                                      XOOPS_URL.'/modules/xcore/admin/index.php?action=PreferenceEdit&amp;confmod_id='.$this->mKarimojiModule->getVar('mid'),
                                       _PREFERENCES );
                 }
             }
@@ -92,8 +92,8 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
         //
         // Search AdminMenu
         //
-        if(count($this->mXoopsModule->adminmenu)>0) {
-            foreach($this->mXoopsModule->adminmenu as $menu) {
+        if(count($this->mKarimojiModule->adminmenu)>0) {
+            foreach($this->mKarimojiModule->adminmenu as $menu) {
                 $findFlag=true;
                 foreach($searchArgs->getKeywords() as $word) {
                     $tmpFlag=false;
@@ -117,13 +117,13 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
                         $url=$menu['link'];
                     }
                     else {
-                        $url=XOOPS_URL."/modules/".$this->mXoopsModule->getVar('dirname')."/".$menu['link'];
+                        $url=XOOPS_URL."/modules/".$this->mKarimojiModule->getVar('dirname')."/".$menu['link'];
                     }
 
                     //
                     // Add record
                     //
-                    $searchArgs->addRecord($this->mXoopsModule->getVar('name'),$url,$menu['title']);
+                    $searchArgs->addRecord($this->mKarimojiModule->getVar('name'),$url,$menu['title']);
                 }
             }
         }
@@ -131,13 +131,13 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
         //
         // Search help
         //
-        if ($this->mXoopsModule->hasHelp()) {
+        if ($this->mKarimojiModule->hasHelp()) {
             $findFlag = false;
             
             foreach($searchArgs->getKeywords() as $word) {
                 if (stristr(_HELP, $word) !== false) {
                     $root = Root::getSingleton();
-                    $searchArgs->addRecord($this->mXoopsModule->getVar('name'), $root->mController->getHelpViewUrl($this->mXoopsModule), _HELP);
+                    $searchArgs->addRecord($this->mKarimojiModule->getVar('name'), $root->mController->getHelpViewUrl($this->mKarimojiModule), _HELP);
                     $findFlag = true;
                     break;
                 }
@@ -146,11 +146,11 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
             if (!$findFlag) {
                 $root = Root::getSingleton();
                 $language = $root->mContext->getXoopsConfig('language');
-                $helpfile = $this->mXoopsModule->getHelp();
-                $dir = XOOPS_MODULE_PATH . "/" . $this->mXoopsModule->getVar('dirname') . "/language/" . $language. "/help";
+                $helpfile = $this->mKarimojiModule->getHelp();
+                $dir = XOOPS_MODULE_PATH . "/" . $this->mKarimojiModule->getVar('dirname') . "/language/" . $language. "/help";
     
                 if (!file_exists($dir . "/" . $helpfile)) {
-                    $dir = XOOPS_MODULE_PATH . "/" . $this->mXoopsModule->getVar('dirname') . "/language/english/help";
+                    $dir = XOOPS_MODULE_PATH . "/" . $this->mKarimojiModule->getVar('dirname') . "/language/english/help";
                         if (!file_exists($dir . "/" . $helpfile)) {
                             return;
                         }
@@ -159,8 +159,8 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
                 foreach ($lines as $line) {
                     foreach($searchArgs->getKeywords() as $word) {
                         if (stristr($line, $word) !== false) {
-                            $url = XOOPS_MODULE_URL . "/xcore/admin/index.php?action=Help&amp;dirname=" . $this->mXoopsModule->getVar('dirname');
-                            $searchArgs->addRecord($this->mXoopsModule->getVar('name'), $url, _HELP);
+                            $url = XOOPS_MODULE_URL . "/xcore/admin/index.php?action=Help&amp;dirname=" . $this->mKarimojiModule->getVar('dirname');
+                            $searchArgs->addRecord($this->mKarimojiModule->getVar('name'), $url, _HELP);
                             return;
                         }
                     }
@@ -172,19 +172,19 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
     function doXcoreGlobalSearch($queries, $andor, $max_hit, $start, $uid)
     {
         $ret = array();
-        $results = $this->mXoopsModule->search($queries, $andor, $max_hit, $start, $uid);
+        $results = $this->mKarimojiModule->search($queries, $andor, $max_hit, $start, $uid);
         
         if (is_array($results) && count($results) > 0) {
             foreach ($results as $result) {
                 $item = array();
                 if (isset($result['image']) && strlen($result['image']) > 0) {
-                    $item['image'] = XOOPS_URL . '/modules/' . $this->mXoopsModule->get('dirname') . '/' . $result['image'];
+                    $item['image'] = XOOPS_URL . '/modules/' . $this->mKarimojiModule->get('dirname') . '/' . $result['image'];
                 }
                 else {
                     $item['image'] = XOOPS_URL . '/images/icons/posticon2.gif';
                 }
                         
-                $item['link'] = XOOPS_URL . '/modules/' . $this->mXoopsModule->get('dirname') . '/' . $result['link'];
+                $item['link'] = XOOPS_URL . '/modules/' . $this->mKarimojiModule->get('dirname') . '/' . $result['link'];
                 $item['title'] = $result['title'];
                 $item['uid'] = $result['uid'];
                         
@@ -209,8 +209,8 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
      */
     function hasAdminIndex()
     {
-        $dmy =& $this->mXoopsModule->getInfo();
-        return isset($this->mXoopsModule->modinfo['adminindex']) && $this->mXoopsModule->modinfo['adminindex'] != null;
+        $dmy =& $this->mKarimojiModule->getInfo();
+        return isset($this->mKarimojiModule->modinfo['adminindex']) && $this->mKarimojiModule->modinfo['adminindex'] != null;
     }
     
     /**
@@ -221,8 +221,8 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
      */
     function getAdminIndex()
     {
-        $dmy =& $this->mXoopsModule->getInfo();
-        return XOOPS_MODULE_URL . '/' . $this->mXoopsModule->get('dirname') . '/' . $this->mXoopsModule->modinfo['adminindex'];
+        $dmy =& $this->mKarimojiModule->getInfo();
+        return XOOPS_MODULE_URL . '/' . $this->mKarimojiModule->get('dirname') . '/' . $this->mKarimojiModule->modinfo['adminindex'];
     }
     
     function getAdminMenu()
@@ -231,33 +231,33 @@ class Xcore_ModuleAdapter extends Xcore_AbstractModule
             return $this->mAdminMenu;
         }
         
-        $info =& $this->mXoopsModule->getInfo();
+        $info =& $this->mKarimojiModule->getInfo();
         $root = Root::getSingleton();
 
         //
         // Load admin menu, and add preference menu by own judge.
         //
-        $this->mXoopsModule->loadAdminMenu();
-        if ($this->mXoopsModule->get('hasnotification')
+        $this->mKarimojiModule->loadAdminMenu();
+        if ($this->mKarimojiModule->get('hasnotification')
             || (isset($info['config']) && is_array($info['config']))
             || (isset($info['comments']) && is_array($info['comments']))) {
-                $this->mXoopsModule->adminmenu[] = array(
-                    'link' => $root->mController->getPreferenceEditUrl($this->mXoopsModule),
+                $this->mKarimojiModule->adminmenu[] = array(
+                    'link' => $root->mController->getPreferenceEditUrl($this->mKarimojiModule),
                     'title' => _PREFERENCES,
                     'absolute' => true);
         }
             
-        if ($this->mXoopsModule->hasHelp()) {
-            $this->mXoopsModule->adminmenu[] = array('link' =>  $root->mController->getHelpViewUrl($this->mXoopsModule),
+        if ($this->mKarimojiModule->hasHelp()) {
+            $this->mKarimojiModule->adminmenu[] = array('link' =>  $root->mController->getHelpViewUrl($this->mKarimojiModule),
                                           'title' => _HELP,
                                           'absolute' => true);
         }
         
         $this->_mAdminMenuLoadedFlag = true;
         
-        if ($this->mXoopsModule->adminmenu) {
-			$dirname = $this->mXoopsModule->get('dirname');
-            foreach ($this->mXoopsModule->adminmenu as $menu) {
+        if ($this->mKarimojiModule->adminmenu) {
+			$dirname = $this->mKarimojiModule->get('dirname');
+            foreach ($this->mKarimojiModule->adminmenu as $menu) {
                 if (!isset($menu['absolute']) || (isset($menu['absolute']) && $menu['absolute'] != true)) {
                     $menu['link'] = XOOPS_MODULE_URL . '/' . $dirname . '/' . $menu['link'];
                 }

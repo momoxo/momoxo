@@ -60,7 +60,7 @@ class Xcore_ModulePhasedUpgrader
 	
 	/**
 	 * @var XoopsModule
-	 * @remark [Precondition] _mXoopsModule has to be an object.
+	 * @remark [Precondition] _mKarimojiModule has to be an object.
 	 */
 	var $_mCurrentXoopsModule;
 	
@@ -71,7 +71,7 @@ class Xcore_ModulePhasedUpgrader
 
 	/**
 	 * @var XoopsModule
-	 * @remark [Precondition] _mXoopsModule has to be an object.
+	 * @remark [Precondition] _mKarimojiModule has to be an object.
 	 */
 	var $_mTargetXoopsModule;
 	

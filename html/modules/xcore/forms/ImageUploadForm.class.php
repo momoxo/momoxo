@@ -64,7 +64,7 @@ class Xcore_ImageUploadForm extends ActionForm
 		$imgcat_id = $this->get('imgcat_id');
 		if ($imgcat_id != null) {
 			$root = Root::getSingleton();
-			$xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
+			$xoopsUser =& $root->mController->mRoot->mContext->mKarimojiUser;
 			
 			$groups = array();
 			if (is_object($xoopsUser)) {

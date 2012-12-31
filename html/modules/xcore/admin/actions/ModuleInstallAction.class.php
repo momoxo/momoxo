@@ -68,7 +68,7 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 	 * @private
 	 * @var XoopsModule
 	 */
-	var $mXoopsModule = null;
+	var $mKarimojiModule = null;
 	
 	/**
 	 * @private
@@ -92,23 +92,23 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 		$dirname = $controller->mRoot->mContext->mRequest->getRequest('dirname');
 		
 		$handler =& xoops_gethandler('module');
-		$this->mXoopsModule =& $handler->getByDirname($dirname);
+		$this->mKarimojiModule =& $handler->getByDirname($dirname);
 		
-		if (is_object($this->mXoopsModule)) {
+		if (is_object($this->mKarimojiModule)) {
 			return false;
 		}
 		
-        $this->mXoopsModule =& $handler->create();
+        $this->mKarimojiModule =& $handler->create();
         
-        $this->mXoopsModule->loadInfoAsVar($dirname);
-        $this->mXoopsModule->set('weight', 1);
+        $this->mKarimojiModule->loadInfoAsVar($dirname);
+        $this->mKarimojiModule->set('weight', 1);
         
-        if ($this->mXoopsModule->get('dirname') == null) {
+        if ($this->mKarimojiModule->get('dirname') == null) {
             return false;
         }
         
-        if ($this->mXoopsModule->get('dirname') == 'system') {
-            $this->mXoopsModule->set('mid', 1);
+        if ($this->mKarimojiModule->get('dirname') == 'system') {
+            $this->mKarimojiModule->set('mid', 1);
         }
 		
 		$this->_setupActionForm();
@@ -118,14 +118,14 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 		//
 		// Set the current object.
 		//
-		$this->mInstaller->setCurrentXoopsModule($this->mXoopsModule);
+		$this->mInstaller->setCurrentXoopsModule($this->mKarimojiModule);
 		
 		return true;
 	}
 
 	function &_getInstaller()
 	{
-		$dirname = $this->mXoopsModule->get('dirname');
+		$dirname = $this->mKarimojiModule->get('dirname');
 		$installer =& Xcore_ModuleInstallUtils::createInstaller($dirname);
 		return $installer;
 	}
@@ -138,7 +138,7 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm->load($this->mXoopsModule);
+		$this->mActionForm->load($this->mKarimojiModule);
 		
 		return XCORE_FRAME_VIEW_INPUT;
 	}
@@ -159,11 +159,11 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 		$this->mInstaller->setForceMode($this->mActionForm->get('force'));
 		if (!$this->mInstaller->executeInstall()) {
 			$this->mInstaller->mLog->addReport('Force Uninstallation is started.');
-			$dirname = $this->mXoopsModule->get('dirname');
+			$dirname = $this->mKarimojiModule->get('dirname');
 			$uninstaller =& Xcore_ModuleInstallUtils::createUninstaller($dirname);
 			
 			$uninstaller->setForceMode(true);
-			$uninstaller->setCurrentXoopsModule($this->mXoopsModule);
+			$uninstaller->setCurrentXoopsModule($this->mKarimojiModule);
 			
 			$uninstaller->executeUninstall();
 		}
@@ -177,16 +177,16 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 	function executeViewSuccess(&$controller,&$xoopsUser,&$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			$this->mInstallSuccess->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
-			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			$this->mInstallSuccess->call(new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mKarimojiModule->get('dirname') . '.Success'), new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
 		}
 		else {
-			$this->mInstallFail->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
-			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			$this->mInstallFail->call(new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.' . ucfirst($this->mKarimojiModule->get('dirname') . '.Fail'), new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
 		}
 
 		$renderer->setTemplateName("module_install_success.html");
-		$renderer->setAttribute('module', $this->mXoopsModule);
+		$renderer->setAttribute('module', $this->mKarimojiModule);
 		$renderer->setAttribute('log', $this->mInstaller->mLog->mMessages);
 	}
 
@@ -196,9 +196,9 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 	function executeViewInput(&$controller,&$xoopsUser,&$renderer)
 	{
 		$renderer->setTemplateName("module_install.html");
-		$renderer->setAttribute('module', $this->mXoopsModule);
+		$renderer->setAttribute('module', $this->mKarimojiModule);
 		$renderer->setAttribute('actionForm', $this->mActionForm);
-		$renderer->setAttribute('currentVersion', round($this->mXoopsModule->get('version') / 100, 2));
+		$renderer->setAttribute('currentVersion', round($this->mKarimojiModule->get('version') / 100, 2));
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$render)

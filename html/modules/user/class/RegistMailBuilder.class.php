@@ -26,7 +26,7 @@ class User_UserRegistMailDirector
 	 */
 	var $mUser;
 	
-	var $mXoopsConfig;
+	var $mKarimojiConfig;
 	
 	var $mUserConfig;
 
@@ -35,7 +35,7 @@ class User_UserRegistMailDirector
 		$this->mBuilder =& $builder;
 		
 		$this->mUser =& $user;
-		$this->mXoopsConfig =$xoopsConfig;
+		$this->mKarimojiConfig =$xoopsConfig;
 		$this->mUserConfig = $userConfig;
 	}
 	
@@ -47,9 +47,9 @@ class User_UserRegistMailDirector
 	{
 		$this->mBuilder->setTemplate();
 		$this->mBuilder->setToUsers($this->mUser, $this->mUserConfig);
-		$this->mBuilder->setFromEmail($this->mXoopsConfig);
-		$this->mBuilder->setSubject($this->mUser, $this->mXoopsConfig);
-		$this->mBuilder->setBody($this->mUser, $this->mXoopsConfig);
+		$this->mBuilder->setFromEmail($this->mKarimojiConfig);
+		$this->mBuilder->setSubject($this->mUser, $this->mKarimojiConfig);
+		$this->mBuilder->setBody($this->mUser, $this->mKarimojiConfig);
 	}
 }
 

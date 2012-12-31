@@ -48,7 +48,7 @@ class Xcore_ImageUploadForm extends ActionForm
 		}
 		else {
 			$root = Root::getSingleton();
-			$xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
+			$xoopsUser =& $root->mController->mRoot->mContext->mKarimojiUser;
 			
 			$groups = array();
 			if (is_object($xoopsUser)) {

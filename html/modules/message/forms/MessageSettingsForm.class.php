@@ -45,7 +45,7 @@ class MessageSettingsForm extends ActionForm
   public function update(&$obj)
   {
     $root = Root::getSingleton();
-    $obj->set('uid', $root->mContext->mXoopsUser->get('uid'));
+    $obj->set('uid', $root->mContext->mKarimojiUser->get('uid'));
     $obj->set('usepm', $this->get('usepm'));
     $obj->set('tomail', $this->get('tomail'));
     $obj->set('viewmsm', $this->get('viewmsm'));

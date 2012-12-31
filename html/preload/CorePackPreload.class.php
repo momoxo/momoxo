@@ -18,7 +18,7 @@ class CorePackPreload extends ActionFilter
 	function tplhook( &$xoopsTpl )
 	{
 		if (! defined('HYP_COMMON_PRELOAD_CONF')) {
-			$xoopsConfig = $this->mRoot->mContext->mXoopsConfig;
+			$xoopsConfig = $this->mRoot->mContext->mKarimojiConfig;
 
 			$target_dir = XOOPS_TRUST_PATH.'/vendor/smartyplugins';
 			if(is_dir($target_dir)) {

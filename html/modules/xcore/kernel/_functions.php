@@ -76,7 +76,7 @@ function Xcore_function_stylesheet($params, &$smarty)
 function Xcore_get_override_file($file, $prefix = null, $isSpDirname = false)
 {
 	$root = Root::getSingleton();
-	$moduleObject =& $root->mContext->mXoopsModule;
+	$moduleObject =& $root->mContext->mKarimojiModule;
 
 	if ($isSpDirname && is_object($moduleObject) && $moduleObject->get('dirname') == 'xcore' && isset($_REQUEST['dirname'])) {
 		$dirname = xoops_getrequest('dirname');

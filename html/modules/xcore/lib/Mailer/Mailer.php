@@ -29,13 +29,13 @@ class Xcore_Mailer extends PHPMailer
 		$this->reset();
 		
 		if ($xoopsMailerConfig['from'] == '') {
-			$this->From = $root->mContext->mXoopsConfig['adminmail'];
+			$this->From = $root->mContext->mKarimojiConfig['adminmail'];
 		}
 		else {
 			$this->From = $xoopsMailerConfig['from'];
 		}
 		
-		$this->Sender = $root->mContext->mXoopsConfig['adminmail'];
+		$this->Sender = $root->mContext->mKarimojiConfig['adminmail'];
 		
 		$this->SetLanguage = XCORE_MAIL_LANG;
 		$this->CharSet = XCORE_MAIL_CHAR;

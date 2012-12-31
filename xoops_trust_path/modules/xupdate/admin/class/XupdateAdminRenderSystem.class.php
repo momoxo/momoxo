@@ -158,7 +158,7 @@ class Xupdate_AdminRenderSystem extends Xcore_AdminRenderSystem
         }
         $root = Root::getSingleton();
     
-        $module =& $root->mContext->mXoopsModule;
+        $module =& $root->mContext->mKarimojiModule;
         $dirName = $root->mContext->mRequest->getRequest('dirname');
         if($isSpDirName && preg_match('/^\w+$/',$dirName))
         {

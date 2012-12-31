@@ -84,7 +84,7 @@ class User_XcorepageFunctions
 	public static function register()
 	{
 		$root = Root::getSingleton();
-		$xoopsUser =& $root->mContext->mXoopsUser;
+		$xoopsUser =& $root->mContext->mKarimojiUser;
 		
 		if (is_object($xoopsUser)) {
 			$root->mController->executeForward(XOOPS_URL);
@@ -128,7 +128,7 @@ class User_XcorepageFunctions
 	public static function lostpass()
 	{
 		$root = Root::getSingleton();
-		$xoopsUser =& $root->mContext->mXoopsUser;
+		$xoopsUser =& $root->mContext->mKarimojiUser;
 
 		if (is_object($xoopsUser)) {
 			$root->mController->executeForward(XOOPS_URL);
@@ -165,7 +165,7 @@ class User_XcorepageFunctions
 	{
 		$root = Root::getSingleton();
 		$op = isset($_REQUEST['op']) ? trim(xoops_getrequest('op')) : "main";
-		$xoopsUser =& $root->mContext->mXoopsUser;
+		$xoopsUser =& $root->mContext->mKarimojiUser;
 		
 		$actionName = "default";
 		
@@ -279,7 +279,7 @@ class User_XcorepageFunctions
 	public static function logout(&$successFlag, $xoopsUser)
 	{
 		$root = Root::getSingleton();
-		$xoopsConfig = $root->mContext->mXoopsConfig;
+		$xoopsConfig = $root->mContext->mKarimojiConfig;
 		
 		$root->mLanguageManager->loadModuleMessageCatalog('user');
 

@@ -11,12 +11,12 @@ class UserinfoAction extends User_UserInfoAction
   protected $errMsg = "";
   protected $url = 'index.php';
   protected $mController = null;
-  protected $mXoopsUser = null;
+  protected $mKarimojiUser = null;
   
   public function __construct($controller)
   {
   	$this->mController = $controller;
-  	$this->mXoopsUser =  $controller->mRoot->mContext->mXoopsUser;
+  	$this->mKarimojiUser =  $controller->mRoot->mContext->mKarimojiUser;
   }
 
   protected function setUrl($url)
@@ -48,7 +48,7 @@ class UserinfoAction extends User_UserInfoAction
   function execute(&$controller = null, &$xoopsUser = null)
   {
   	if (!is_object($controller)) $controller = $this->mController;
-  	if (!is_object($xoopsUser)) $xoopsUser = $this->mXoopsUser;
+  	if (!is_object($xoopsUser)) $xoopsUser = $this->mKarimojiUser;
     $result = $this->getDefaultView($controller, $xoopsUser);
     if ($result == USER_FRAME_VIEW_ERROR) {
       $this->setErr(_MD_MESSAGE_SETTINGS_MSG19);
@@ -69,7 +69,7 @@ class UserinfoAction extends User_UserInfoAction
     $render->setAttribute('user_signature', $userSignature);
     $render->setAttribute('searchResults', $this->mSearchResults);
     
-    $user_ownpage = (is_object($this->mXoopsUser) && $this->mXoopsUser->get('uid') == $this->mObject->get('uid'));
+    $user_ownpage = (is_object($this->mKarimojiUser) && $this->mKarimojiUser->get('uid') == $this->mObject->get('uid'));
     $render->setAttribute('user_ownpage', $user_ownpage);
     
     $render->setAttribute('self_delete', $this->mSelfDelete);

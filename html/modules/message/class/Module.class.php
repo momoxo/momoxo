@@ -20,9 +20,9 @@ class Message_Module extends Xcore_ModuleAdapter
   
   public function getAdminIndex()
   {
-    //return XOOPS_MODULE_URL.'/'.$this->mXoopsModule->get('dirname').'/admin/index.php';
+    //return XOOPS_MODULE_URL.'/'.$this->mKarimojiModule->get('dirname').'/admin/index.php';
     $root = Root::getSingleton();
-    return $root->mController->getPreferenceEditUrl($this->mXoopsModule);
+    return $root->mController->getPreferenceEditUrl($this->mKarimojiModule);
   }
   
   public function getAdminMenu()
@@ -32,7 +32,7 @@ class Message_Module extends Xcore_ModuleAdapter
     }
     $root = Root::getSingleton();
     $this->mAdminMenu[] = array(
-      'link' => $root->mController->getPreferenceEditUrl($this->mXoopsModule),
+      'link' => $root->mController->getPreferenceEditUrl($this->mKarimojiModule),
       'title' => _PREFERENCES,
       'show' => true
     );
