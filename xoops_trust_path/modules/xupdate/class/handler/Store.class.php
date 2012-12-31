@@ -7,6 +7,7 @@
 
 use XCore\Repository\ObjectGenericRepository;
 use XCore\Entity\SimpleObject;
+use XCore\Database\Database;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -54,12 +55,12 @@ class Xupdate_StoreHandler extends ObjectGenericRepository
 	/**
 	 * __construct
 	 *
-	 * @param	XoopsDatabase  &$db
+	 * @param	Database  &$db
 	 * @param	string	$dirname
 	 *
 	 * @return	void
 	**/
-	public function __construct(/*** XoopsDatabase ***/ &$db,/*** string ***/ $dirname)
+	public function __construct(/*** Database ***/ &$db,/*** string ***/ $dirname)
 	{
 		$this->mTable = strtr($this->mTable,array('{dirname}' => $dirname));
 		parent::ObjectGenericRepository($db);

@@ -5,6 +5,7 @@ use XCore\Database\CriteriaCompo;
 use XCore\Entity\SimpleObject;
 use XCore\Database\Criteria;
 use XCore\Entity\Module;
+use XCore\Database\Database;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -441,7 +442,7 @@ class Xupdate_ModuleStoreHandler extends Xcore_AbstractClientObjectHandler
 	public $mDirname;
 
 
-	public function __construct(/*** XoopsDatabase ***/ &$db,/*** string ***/ $dirname)
+	public function __construct(/*** Database ***/ &$db,/*** string ***/ $dirname)
 	{
 		$this->mTable = strtr($this->mTable,array('{dirname}' => $dirname));
 		$this->mDirname = $dirname;

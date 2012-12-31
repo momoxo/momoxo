@@ -13,14 +13,16 @@ namespace XCore\Repository;
  * @author  Kazumi Ono <onokazu@xoops.org>
  * @copyright copyright &copy; 2000 The XOOPS Project
  */
+use XCore\Database\Database;
+
 class ObjectRepository
 {
 
     /**
-     * holds referenced to {@link XoopsDatabase} class object
+     * holds referenced to {@link Database} class object
      *
      * @var object
-     * @see XoopsDatabase
+     * @see Database
      * @access protected
      */
     var $db;
@@ -29,7 +31,7 @@ class ObjectRepository
     /**
      * called from child classes only
      *
-     * @param object $db reference to the {@link XoopsDatabase} object
+     * @param object $db reference to the {@link Database} object
      * @access protected
      */
     function __construct(&$db)

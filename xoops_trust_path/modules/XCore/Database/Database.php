@@ -1,5 +1,8 @@
 <?php
 
+
+namespace XCore\Database;
+
 /**
  * Abstract base class for Database access classes
  * 
@@ -13,7 +16,7 @@
  */
 use XCore\Kernel\Logger;
 
-class XoopsDatabase
+class Database
 {
 	/**
 	 * Prefix for tables in the database
@@ -32,7 +35,7 @@ class XoopsDatabase
      *
      * will always fail, because this is an abstract class!
 	 */
-	function XoopsDatabase()
+	function Database()
 	{
 		// exit("Cannot instantiate this class directly");
 	}

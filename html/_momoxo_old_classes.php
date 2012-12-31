@@ -2,6 +2,8 @@
 // TODO >> このファイルはクラス名の移行が完了したら削除する
 
 
+use XCore\Database\Database;
+
 call_user_func(function(){
 	$legacyClasses = array(
 		'XCube_Object'                         => null,
@@ -266,7 +268,7 @@ call_user_func(function(){
 		'Legacy_Waiting'                        => null,
 		'Legacy_XoopsTpl'                       => null,
 		'XoopsApi'                             => null,
-		'XoopsDatabase'                        => null,
+		'Database'                        => null,
 		'XoopsDownloader'                      => null,
 		'XoopsErrorHandler'                    => null,
 		'XoopsForm'                            => null,

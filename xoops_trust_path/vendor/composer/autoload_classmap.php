@@ -61,6 +61,7 @@ use XCore\Entity\Block;
 use XCore\Utils\TextSanitizer;
 use XCore\Database\DatabaseFactory;
 use XCore\Kernel\Logger;
+use XCore\Database\Database;
 
 $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
@@ -717,7 +718,7 @@ return array(
     'ConfigItemRepository' => $baseDir . '/../html/modules/xcore/kernel/ConfigItemRepository.php',
     'ConfigOption' => $baseDir . '/../html/modules/xcore/kernel/ConfigOption.php',
     'ConfigOptionRepository' => $baseDir . '/../html/modules/xcore/kernel/ConfigOptionRepository.php',
-    'XoopsDatabase' => $baseDir . '/../html/class/XoopsDatabase.php',
+    'Database' => $baseDir . '/../html/class/Database.php',
     'DatabaseFactory' => $baseDir . '/../html/class/DatabaseFactory.php',
     'XoopsDownloader' => $baseDir . '/../html/class/XoopsDownloader.php',
     'XoopsErrorHandler' => $baseDir . '/../html/class/XoopsErrorHandler.php',

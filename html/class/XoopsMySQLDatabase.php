@@ -11,7 +11,9 @@
  * @package     kernel
  * @subpackage  database
  */
-class XoopsMySQLDatabase extends XoopsDatabase
+use XCore\Database\Database;
+
+class XoopsMySQLDatabase extends Database
 {
 	/**
 	 * Database connection
