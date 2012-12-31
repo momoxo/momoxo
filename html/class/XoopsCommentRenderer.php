@@ -12,7 +12,7 @@
 use XCore\Entity\Comment;
 use XCore\Entity\Object;
 
-class CommentRenderer {
+class XoopsCommentRenderer {
 
     /**#@+
      * @access  private

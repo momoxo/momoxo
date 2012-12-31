@@ -10,7 +10,7 @@
  */
 use XCore\Entity\Group;
 
-class GroupFormCheckBox extends XoopsFormElement
+class XoopsGroupFormCheckBox extends XoopsFormElement
 {
     /**
      * Pre-selected value(s)

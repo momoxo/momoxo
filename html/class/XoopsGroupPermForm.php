@@ -12,7 +12,7 @@ use XCore\Kernel\Root;
 use XCore\Entity\GroupPerm;
 use XCore\Entity\Group;
 
-class GroupPermForm extends XoopsForm
+class XoopsGroupPermForm extends XoopsForm
 {
     /**
      * Module ID

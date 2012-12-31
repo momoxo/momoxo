@@ -4,7 +4,7 @@ use XCore\Entity\User;
 use XCore\Entity\Comment;
 use XCore\Entity\Object;
 
-class Comments extends Object
+class XoopsComments extends Object
 {
 	var $ctable;
 	var $db;
