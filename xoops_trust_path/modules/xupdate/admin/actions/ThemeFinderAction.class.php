@@ -32,7 +32,7 @@ class Xupdate_Admin_ThemeFinderAction extends Xupdate_AbstractAction
 {
 	const THEME_FINDER_API_VERSION = '1';
 
-	protected $themeFinderUrl = "http://cmsthemefinder.com/store/enter_store.php";
+	protected $themeFinderUrl = "http://store.momoxo.org/store/enter_store.php";
 
 	public function __construct()
 	{
