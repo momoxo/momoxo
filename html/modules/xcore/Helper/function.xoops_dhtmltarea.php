@@ -81,16 +81,6 @@ function smarty_function_xoops_dhtmltarea($params, &$smarty)
 			break;
 		}
 		print $html;
-	
-		/*
-		$form =new XoopsFormDhtmlTextArea($name, $name, $value, $rows, $cols);
-		$form->setId($id);
-		if ($class != null) {
-			$form->setClass($class);
-		}
-		
-		print $form->render();
-		*/
 	}
 }
 

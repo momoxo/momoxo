@@ -1,60 +1,6 @@
 <?php
 // TODO >> このファイルはクラス名の移行が完了したら削除する
 
-use XCore\Repository\ConfigCategoryRepository;
-use XCore\Repository\ObjectGenericRepository;
-use XCore\Repository\ImagecategoryRepository;
-use XCore\Repository\NotificationRepository;
-use XCore\Repository\ConfigOptionRepository;
-use XCore\Repository\SubjecticonRepository;
-use XCore\Repository\PrivmessageRepository;
-use XCore\Repository\ImagesetimgRepository;
-use XCore\Repository\MembershipRepository;
-use XCore\Repository\ConfigItemRepository;
-use XCore\Repository\GroupPermRepository;
-use XCore\Repository\CachetimeRepository;
-use XCore\Repository\TimezoneRepository;
-use XCore\Repository\ImagesetRepository;
-use XCore\Repository\TplfileRepository;
-use XCore\Repository\SessionRepository;
-use XCore\Repository\CommentRepository;
-use XCore\Repository\TplsetRepository;
-use XCore\Repository\OnlineRepository;
-use XCore\Repository\ObjectRepository;
-use XCore\Repository\ModuleRepository;
-use XCore\Repository\MemberRepository;
-use XCore\Repository\ConfigRepository;
-use XCore\Repository\AvatarRepository;
-use XCore\Repository\ImageRepository;
-use XCore\Repository\GroupRepository;
-use XCore\Repository\BlockRepository;
-use XCore\Database\CriteriaElement;
-use XCore\Entity\ConfigCategory;
-use XCore\Database\CriteriaCompo;
-use XCore\Entity\Imagecategory;
-use XCore\Entity\SimpleObject;
-use XCore\Entity\Notification;
-use XCore\Entity\ConfigOption;
-use XCore\Entity\Subjecticon;
-use XCore\Entity\Privmessage;
-use XCore\Entity\Imagesetimg;
-use XCore\Entity\Membership;
-use XCore\Entity\ConfigItem;
-use XCore\Entity\GuestUser;
-use XCore\Entity\GroupPerm;
-use XCore\Entity\Cachetime;
-use XCore\Database\Criteria;
-use XCore\Entity\Timezone;
-use XCore\Entity\Imageset;
-use XCore\Entity\Tplfile;
-use XCore\Entity\Comment;
-use XCore\Entity\Tplset;
-use XCore\Entity\Object;
-use XCore\Entity\Module;
-use XCore\Entity\Avatar;
-use XCore\Entity\Image;
-use XCore\Entity\Group;
-use XCore\Entity\Block;
 
 call_user_func(function(){
 	$legacyClasses = array(
@@ -334,23 +280,6 @@ call_user_func(function(){
 		'Legacy_iWorkflowClientDelegate'        => null,
 		'Legacy_iWorkflowDelegate'              => null,
 		'XoopsApi'                             => null,
-		'Avatar'                          => null,
-		'AvatarRepository'                   => null,
-		'Block'                           => null,
-		'BlockRepository'                    => null,
-		'Cachetime'                       => null,
-		'CachetimeRepository'                => null,
-		'Comment'                         => null,
-		'CommentRepository'                  => null,
-		'CommentRenderer'                 => null,
-		'Comments'                        => null,
-		'ConfigCategory'                  => null,
-		'ConfigCategoryRepository'           => null,
-		'ConfigRepository'                   => null,
-		'ConfigItem'                      => null,
-		'ConfigItemRepository'               => null,
-		'ConfigOption'                    => null,
-		'ConfigOptionRepository'             => null,
 		'XoopsDatabase'                        => null,
 		'XoopsDatabaseFactory'                 => null,
 		'XoopsDownloader'                      => null,
@@ -382,67 +311,28 @@ call_user_func(function(){
 		'XoopsFormTextArea'                    => null,
 		'XoopsFormTextDateSelect'              => null,
 		'XoopsFormToken'                       => null,
-		'Group'                           => null,
-		'GroupFormCheckBox'               => null,
-		'GroupRepository'                    => null,
-		'GroupPerm'                       => null,
-		'GroupPermForm'                   => null,
-		'GroupPermRepository'                => null,
-		'GuestUser'                       => null,
-		'Image'                           => null,
-		'ImageRepository'                    => null,
-		'Imagecategory'                   => null,
-		'ImagecategoryRepository'            => null,
-		'Imageset'                        => null,
-		'ImagesetRepository'                 => null,
-		'Imagesetimg'                     => null,
-		'ImagesetimgRepository'              => null,
 		'XoopsLists'                           => null,
 		'XoopsLogger'                          => null,
 		'XoopsMailer'                          => null,
 		'XoopsMediaUploader'                   => null,
-		'MemberRepository'                   => null,
-		'Membership'                      => null,
-		'MembershipRepository'               => null,
-		'Module'                          => null,
-		'ModuleRepository'                   => null,
 		'XoopsMultiMailer'                     => null,
 		'XoopsMultiTokenHandler'               => null,
 		'XoopsMySQLDatabase'                   => null,
 		'XoopsMySQLDatabaseProxy'              => null,
 		'XoopsMySQLDatabaseSafe'               => null,
-		'Notification'                    => null,
-		'NotificationRepository'             => null,
-		'Object'                          => null,
-		'ObjectGenericRepository'            => null,
-		'ObjectRepository'                   => null,
-		'ObjectTree'                      => null,
-		'OnlineRepository'                   => null,
 		'XoopsPageNav'                         => null,
-		'Privmessage'                     => null,
-		'PrivmessageRepository'              => null,
 		'XoopsSecurity'                        => null,
-		'SessionRepository'                  => null,
 		'XoopsSimpleForm'                      => null,
-		'SimpleObject'                    => null,
 		'XoopsSingleTokenHandler'              => null,
 		'XoopsStory'                           => null,
-		'Subjecticon'                     => null,
-		'SubjecticonRepository'              => null,
 		'XoopsTableForm'                       => null,
 		'XoopsTarDownloader'                   => null,
 		'XoopsThemeForm'                       => null,
 		'XoopsThemeSetParser'                  => null,
-		'Timezone'                        => null,
-		'TimezoneRepository'                 => null,
 		'XoopsToken'                           => null,
 		'XoopsTokenHandler'                    => null,
 		'XoopsTopic'                           => null,
 		'XoopsTpl'                             => null,
-		'Tplfile'                         => null,
-		'TplfileRepository'                  => null,
-		'Tplset'                          => null,
-		'TplsetRepository'                   => null,
 		'XoopsTree'                            => null,
 		'XoopsXmlRpcApi'                       => null,
 		'XoopsXmlRpcArray'                     => null,
@@ -461,9 +351,6 @@ call_user_func(function(){
 		'XoopsXmlRpcTag'                       => null,
 		'XoopsXmlRss2Parser'                   => null,
 		'XoopsZipDownloader'                   => null,
-		'Criteria'                             => null,
-		'CriteriaCompo'                        => null,
-		'CriteriaElement'                      => null,
 		'Database'                             => null,
 		'ErrorHandler'                         => null,
 	);
