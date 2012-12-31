@@ -3,7 +3,6 @@
 
 call_user_func(function(){
 	$legacyClasses = array(
-		'XCube_IniHandler'                     => null,
 		'XCube_Object'                         => null,
 		'XCube_ObjectArray'                    => null,
 		'XCore\Validator\ObjectExistValidator' => 'XCube_ObjectExistValidator', // TODO

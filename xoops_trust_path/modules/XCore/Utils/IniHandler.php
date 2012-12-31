@@ -1,14 +1,17 @@
 <?php
 
+
+namespace XCore\Utils;
+
 /**
  *
  * @package XCube
- * @version $Id: XCube_IniHandler.class.php,v 1.0
+ * @version $Id: IniHandler.class.php,v 1.0
  * @copyright Copyright 2005-2010 XOOPS Cube Project  <https://github.com/momoxo/momoxo>
  * @license https://github.com/momoxo/momoxo/blob/master/docs/bsd_licenses.txt Modified BSD license
  *
  */
-class XCube_IniHandler
+class IniHandler
 {
 	protected /*** string[] ***/	$_mConfig = array();
 	protected /*** string ***/	$_mFilePath = null;

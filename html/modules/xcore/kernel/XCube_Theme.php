@@ -3,6 +3,8 @@
 /**
  * The theme class.
  */
+use XCore\Utils\IniHandler;
+
 class XCube_Theme
 {
 	/**
@@ -74,7 +76,7 @@ class XCube_Theme
 	function loadManifesto($file)
 	{
 		if (file_exists($file)) {
-			$iniHandler = new XCube_IniHandler($file, true);
+			$iniHandler = new IniHandler($file, true);
 			$this->_mManifesto = $iniHandler->getAllConfig();
 			$this->mName = isset($this->_mManifesto['Manifesto']['Name']) ? $this->_mManifesto['Manifesto']['Name'] : "";
 			$this->mDepends = isset($this->_mManifesto['Manifesto']['Depends']) ? $this->_mManifesto['Manifesto']['Depends'] : "";

@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Utils\IniHandler;
+
 class XcoreTheme
 {
 	var $mDirName=null;
@@ -43,7 +45,7 @@ class XcoreThemeHandler
 				if (is_dir($themeDir)) {
 					$manifesto = array();
 					if (file_exists($mnfFile = $themeDir . "/manifesto.ini.php")) {
-						$iniHandler = new XCube_IniHandler($mnfFile, true);
+						$iniHandler = new IniHandler($mnfFile, true);
 						$manifesto = $iniHandler->getAllConfig();
 					}
 					
