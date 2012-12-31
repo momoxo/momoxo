@@ -11,6 +11,8 @@
  * @package kernel
  * @subpackage database
  */
+use XCore\Kernel\Logger;
+
 class XoopsDatabase
 {
 	/**
@@ -19,9 +21,9 @@ class XoopsDatabase
 	 */
 	var $prefix = '';
 	/**
-	 * reference to a {@link XoopsLogger} object
-     * @see XoopsLogger
-	 * @var object XoopsLogger
+	 * reference to a {@link Logger} object
+     * @see Logger
+	 * @var object Logger
 	 */
 	var $logger;
 
@@ -36,12 +38,12 @@ class XoopsDatabase
 	}
 
 	/**
-	 * assign a {@link XoopsLogger} object to the database
+	 * assign a {@link Logger} object to the database
 	 *
-     * @see XoopsLogger
-     * @param XoopsLogger $logger reference to a {@link XoopsLogger} object
+     * @see Logger
+     * @param Logger $logger reference to a {@link Logger} object
 	 */
-	function setLogger(XoopsLogger $logger)
+	function setLogger(Logger $logger)
 	{
 		$this->logger = $logger;
 	}

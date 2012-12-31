@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Kernel\Logger;
+
 class Xcore_MysqlDebugger extends Xcore_AbstractDebugger
 {
 	function prepare()
@@ -10,7 +12,7 @@ class Xcore_MysqlDebugger extends Xcore_AbstractDebugger
 	
 	function renderLog()
 	{
-		$xoopsLogger =& XoopsLogger::instance();
+		$xoopsLogger =& Logger::instance();
 		return $xoopsLogger->dumpAll();
 	}
 	

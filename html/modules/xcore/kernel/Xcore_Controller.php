@@ -24,6 +24,8 @@ use XCore\Database\CriteriaCompo;
 use XCore\Database\Criteria;
 use XCore\Entity\Object;
 use XCore\Entity\Module;
+use XCore\Database\DatabaseFactory;
+use XCore\Kernel\Logger;
 
 class Xcore_Controller extends Controller
 {
@@ -81,7 +83,7 @@ class Xcore_Controller extends Controller
 	var $_mNotifyRedirectToUser = null;
 
 	/**
-	 * @var XoopsLogger
+	 * @var Logger
 	 */
 	var $mLogger = null;
 
@@ -225,7 +227,7 @@ class Xcore_Controller extends Controller
 
 	function _setupLogger()
 	{
-		$this->mLogger = XoopsLogger::instance();
+		$this->mLogger = Logger::instance();
 		$this->mLogger->startTime();
 
 		$GLOBALS['xoopsLogger'] = $this->mLogger;
@@ -573,7 +575,7 @@ class Xcore_Controller extends Controller
 			define('XOOPS_DB_PROXY', 1);
 		}
 
-		$this->mDB =& XoopsDatabaseFactory::getDatabaseConnection();
+		$this->mDB =& DatabaseFactory::getDatabaseConnection();
 
 		$GLOBALS['xoopsDB']=&$this->mDB;
 	}

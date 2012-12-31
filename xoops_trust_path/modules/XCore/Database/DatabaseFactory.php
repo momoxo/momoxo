@@ -1,9 +1,14 @@
 <?php
 
-class XoopsDatabaseFactory
+
+namespace XCore\Database;
+
+use XCore\Kernel\Logger;
+
+class DatabaseFactory
 {
 
-	function XoopsDatabaseFactory()
+	function __construct()
 	{
 	}
 
@@ -39,10 +44,10 @@ class XoopsDatabaseFactory
 				$class = 'Xoops'.$dbType.'DatabaseProxy';
 			}
 			$instance = new $class();
-			$instance->setLogger(XoopsLogger::instance());
+			$instance->setLogger(Logger::instance());
 			$instance->setPrefix(XOOPS_DB_PREFIX);
 			if (!$instance->connect()) {
-				throw new RuntimeException("Unable to connect to database");
+				throw new \RuntimeException("Unable to connect to database");
 			}
 		}
 		return $instance;

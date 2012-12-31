@@ -1,5 +1,8 @@
 <?php
 
+
+namespace XCore\Kernel;
+
 /**
  * Collects information for a page request
  *
@@ -14,7 +17,7 @@
  *
  * @package kernel
  */
-class XoopsLogger
+class Logger
 {
     /**#@+
      * @var array
@@ -31,7 +34,7 @@ class XoopsLogger
      *
      * @access  private
      */
-    public function XoopsLogger()
+    public function Logger()
     {
 
     }
@@ -39,13 +42,13 @@ class XoopsLogger
     /**
      * get a reference to the only instance of this class
      *
-     * @return  object XoopsLogger  reference to the only instance
+     * @return  object Logger  reference to the only instance
      */
     public static function instance()
     {
         static $instance;
         if (!isset($instance)) {
-            $instance = new XoopsLogger();
+            $instance = new Logger();
         }
         return $instance;
     }

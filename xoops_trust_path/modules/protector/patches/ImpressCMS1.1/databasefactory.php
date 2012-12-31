@@ -22,14 +22,16 @@
  * @copyright   copyright (c) 2000-2003 XOOPS.org
  * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
  */
-class XoopsDatabaseFactory{
+use XCore\Kernel\Logger;
+
+class DatabaseFactory{
 
 	/**
 	 * Constructor
 	 *
 	 * Makes nothing.
 	 */
-	function XoopsDatabaseFactory(){}
+	function DatabaseFactory(){}
 
 	/**
 	 * Get a reference to the only instance of database class and connects to DB
@@ -56,7 +58,7 @@ class XoopsDatabaseFactory{
 				$class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseProxy';
 			}
 			$instance = new $class();
-			$instance->setLogger(XoopsLogger::instance());
+			$instance->setLogger(Logger::instance());
 			$instance->setPrefix(XOOPS_DB_PREFIX);
 			if (!$instance->connect()) {
 				trigger_error("notrace:Unable to connect to database", E_USER_ERROR);

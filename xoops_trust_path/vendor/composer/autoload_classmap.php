@@ -59,6 +59,8 @@ use XCore\Entity\Image;
 use XCore\Entity\Group;
 use XCore\Entity\Block;
 use XCore\Utils\TextSanitizer;
+use XCore\Database\DatabaseFactory;
+use XCore\Kernel\Logger;
 
 $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
@@ -716,7 +718,7 @@ return array(
     'ConfigOption' => $baseDir . '/../html/modules/xcore/kernel/ConfigOption.php',
     'ConfigOptionRepository' => $baseDir . '/../html/modules/xcore/kernel/ConfigOptionRepository.php',
     'XoopsDatabase' => $baseDir . '/../html/class/XoopsDatabase.php',
-    'XoopsDatabaseFactory' => $baseDir . '/../html/class/XoopsDatabaseFactory.php',
+    'DatabaseFactory' => $baseDir . '/../html/class/DatabaseFactory.php',
     'XoopsDownloader' => $baseDir . '/../html/class/XoopsDownloader.php',
     'XoopsErrorHandler' => $baseDir . '/../html/class/XoopsErrorHandler.php',
     'XoopsForm' => $baseDir . '/../html/class/XoopsForm.php',
@@ -762,7 +764,7 @@ return array(
     'Imagesetimg' => $baseDir . '/../html/modules/xcore/kernel/Imagesetimg.php',
     'ImagesetimgRepository' => $baseDir . '/../html/modules/xcore/kernel/ImagesetimgRepository.php',
     'XoopsLists' => $baseDir . '/../html/class/XoopsLists.php',
-    'XoopsLogger' => $baseDir . '/../html/class/XoopsLogger.php',
+    'Logger' => $baseDir . '/../html/class/Logger.php',
     'XoopsMailer' => $baseDir . '/../html/class/XoopsMailer.php',
     'XoopsMediaUploader' => $baseDir . '/../html/class/XoopsMediaUploader.php',
     'MemberRepository' => $baseDir . '/../html/modules/xcore/kernel/MemberRepository.php',

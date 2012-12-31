@@ -5,6 +5,8 @@
  * 
  * @deprecated
  */
+use XCore\Database\DatabaseFactory;
+
 class Database
 {
 	/**
@@ -13,7 +15,7 @@ class Database
 	 */
 	public static function getInstance()
 	{
-		$instance = XoopsDatabaseFactory::getDatabaseConnection();
+		$instance = DatabaseFactory::getDatabaseConnection();
 		return $instance;
 	}
 }
