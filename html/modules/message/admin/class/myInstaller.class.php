@@ -11,9 +11,9 @@ require_once XOOPS_ROOT_PATH.'/modules/xcore/admin/class/ModuleInstaller.class.p
 
 class Message_myInstaller extends Xcore_ModuleInstaller
 {
-  function Message_myInstaller()
+  function __construct()
   {
-    parent::Xcore_ModuleInstaller();
+    parent::__construct();
   }
   
   function executeInstall()

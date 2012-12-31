@@ -10,7 +10,7 @@ class Message_Module extends Xcore_ModuleAdapter
 {
   public function __construct(&$xoopsModule)
   {
-    parent::Xcore_ModuleAdapter($xoopsModule);
+    parent::__construct($xoopsModule);
   }
   
   public function hasAdminIndex()

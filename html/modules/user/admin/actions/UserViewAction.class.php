@@ -18,9 +18,9 @@ class User_UserViewAction extends User_AbstractViewAction
 	 */
 	var $mGetUserPosts = null;
 	
-	function User_UserViewAction()
+	function __construct()
 	{
-		parent::User_AbstractViewAction();
+		parent::__construct();
 		$this->mGetUserPosts =new Delegate();
 		$this->mGetUserPosts->register('User_UserViewAction.GetUserPosts');
 	}

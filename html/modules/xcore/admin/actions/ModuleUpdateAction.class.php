@@ -71,9 +71,9 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	
 	var $mInstaller = null;
 	
-	function Xcore_ModuleUpdateAction($flag)
+	function __construct($flag)
 	{
-		parent::Xcore_Action($flag);
+		parent::__construct($flag);
 		
 		$this->mUpdateSuccess =new Delegate();
 		$this->mUpdateSuccess->register('Xcore_ModuleUpdateAction.UpdateSuccess');

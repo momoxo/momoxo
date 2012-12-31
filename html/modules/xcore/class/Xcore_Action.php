@@ -7,7 +7,7 @@ class Xcore_Action
 	 */
 	var $_mAdminFlag = false;
 	
-	function Xcore_Action($adminFlag = false)
+	function __construct($adminFlag = false)
 	{
 		$this->_mAdminFlag = $adminFlag;
 	}

@@ -8,7 +8,7 @@ class Xcore_ActionSearchArgs
 	var $mKeywords;
 	var $mRecords;
 
-	function Xcore_ActionSearchArgs($words)
+	function __construct($words)
 	{
 		$this->setKeywords($words);
 	}
@@ -58,7 +58,7 @@ class Xcore_ActionSearchRecord
 	var $mTitle;
 	var $mDescription;
 
-	function Xcore_ActionSearchRecord($moduleName, $url, $title, $desc=null)
+	function __construct($moduleName, $url, $title, $desc=null)
 	{
 		$this->mModuleName = $moduleName;
 		$this->mActionUrl = $url;
@@ -83,9 +83,9 @@ class Xcore_ActSearchAction extends Xcore_Action
 	
 	var $mSearchAction = null;
 	
-	function Xcore_ActSearchAction($flag)
+	function __construct($flag)
 	{
-		parent::Xcore_Action($flag);
+		parent::__construct($flag);
 		
 		$this->mSearchAction =new Delegate();
 		$this->mSearchAction->add(array(&$this, 'defaultSearch'));

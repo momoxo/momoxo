@@ -13,9 +13,9 @@ require_once XOOPS_ROOT_PATH.'/modules/xcore/admin/class/ModuleUpdater.class.php
 
 class Message_myUpdater extends Xcore_ModulePhasedUpgrader
 {
-  function Message_myUpdater()
+  function __construct()
   {
-    parent::Xcore_ModulePhasedUpgrader();
+    parent::__construct();
     $this->_mMilestone = array(
       '041' => 'update041',
       '060' => 'update060',

@@ -77,9 +77,9 @@ class Xcore_ModuleInstallAction extends Xcore_Action
 	 */
 	var $mInstaller = null;
 	
-	function Xcore_ModuleInstallAction($flag)
+	function __construct($flag)
 	{
-		parent::Xcore_Action($flag);
+		parent::__construct($flag);
 		
 		$this->mInstallSuccess =new Delegate();
 		$this->mInstallSuccess->register('Xcore_ModuleInstallAction.InstallSuccess');

@@ -7,9 +7,9 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 
 class User_Module extends Xcore_ModuleAdapter
 {
-	function User_Module(&$xoopsModule)
+	function __construct(&$xoopsModule)
 	{
-		parent::Xcore_ModuleAdapter($xoopsModule);
+		parent::__construct($xoopsModule);
 		$this->mGetAdminMenu =new Delegate();
 		$this->mGetAdminMenu->register('User_Module.getAdminMenu');
 	}

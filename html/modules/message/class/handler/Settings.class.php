@@ -28,7 +28,7 @@ class MessageSettingsHandler extends ObjectGenericRepository
 
   public function __construct(&$db)
   {
-    parent::ObjectGenericRepository($db);
+    parent::__construct($db);
   }
   
   public function chkUser($uid)

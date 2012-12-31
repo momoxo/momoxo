@@ -78,9 +78,9 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 	 */
 	var $mInstaller = null;
 	
-	function Xcore_ModuleUninstallAction($flag)
+	function __construct($flag)
 	{
-		parent::Xcore_Action($flag);
+		parent::__construct($flag);
 		
 		$this->mUninstallSuccess =new Delegate();
 		$this->mUninstallSuccess->register('Xcore_ModuleUninstallAction.UninstallSuccess');

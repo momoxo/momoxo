@@ -35,9 +35,9 @@ class Xcore_HelpSmarty extends Smarty
 	 */
 	var $mFilename = null;
 
-	function Xcore_HelpSmarty()
+	function __construct()
 	{
-		parent::Smarty();
+		parent::__construct();
 
 		$this->compile_id = null;
 		$this->_canUpdateFromFile = true;
@@ -121,9 +121,9 @@ class Xcore_HelpAction extends Xcore_Action
 	 */
 	var $mCreateHelpSmarty = null;
 	
-	function Xcore_HelpAction($flag)
+	function __construct($flag)
 	{
-		parent::Xcore_Action($flag);
+		parent::__construct($flag);
 		
 		$this->mCreateHelpSmarty =new Delegate();
 		$this->mCreateHelpSmarty->add(array(&$this, '_createHelpSmarty'));

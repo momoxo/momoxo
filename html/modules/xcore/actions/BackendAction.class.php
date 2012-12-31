@@ -26,9 +26,9 @@ class Xcore_BackendAction extends Xcore_Action
 	 */
 	var $mGetRSSItems = null;
 	
-	function Xcore_BackendAction($flag)
+	function __construct($flag)
 	{
-		parent::Xcore_Action($flag);
+		parent::__construct($flag);
 		
 		$this->mGetRSSItems =new Delegate();
 		$this->mGetRSSItems->register('Xcore_BackendAction.GetRSSItems');

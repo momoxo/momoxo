@@ -19,7 +19,7 @@ class Xcore_AdminSmarty extends Smarty
 	
 	function __construct()
 	{
-		parent::Smarty();
+		parent::__construct();
 
 		$this->compile_id = XOOPS_URL;
 		$this->_canUpdateFromFile = true;
