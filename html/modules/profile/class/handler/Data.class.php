@@ -6,10 +6,12 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Profile_DataObject extends XoopsSimpleObject
+class Profile_DataObject extends SimpleObject
 {
 	public $mDef = null;
 
@@ -72,7 +74,7 @@ class Profile_DataObject extends XoopsSimpleObject
 	}
 }
 
-class Profile_DataHandler extends XoopsObjectGenericHandler
+class Profile_DataHandler extends ObjectGenericRepository
 {
 	var $mTable = 'profile_data';
 	var $mPrimary = 'uid';

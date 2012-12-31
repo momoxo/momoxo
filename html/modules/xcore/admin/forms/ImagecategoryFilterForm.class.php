@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 define('IMAGECATEGORY_SORT_KEY_IMGCAT_ID', 1);
 define('IMAGECATEGORY_SORT_KEY_IMGCAT_NAME', 2);

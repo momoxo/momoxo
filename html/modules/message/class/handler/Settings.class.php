@@ -3,8 +3,11 @@
  * @license http://www.gnu.org/licenses/gpl.txt GNU GENERAL PUBLIC LICENSE Version 3
  * @author Marijuana
  */
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
-class MessageSettingsObject extends XoopsSimpleObject
+class MessageSettingsObject extends SimpleObject
 {
   public function __construct()
   {
@@ -17,7 +20,7 @@ class MessageSettingsObject extends XoopsSimpleObject
   }
 }
 
-class MessageSettingsHandler extends XoopsObjectGenericHandler
+class MessageSettingsHandler extends ObjectGenericRepository
 {
   public $mTable = 'message_users';
   public $mPrimary = 'uid';
@@ -25,7 +28,7 @@ class MessageSettingsHandler extends XoopsObjectGenericHandler
 
   public function __construct(&$db)
   {
-    parent::XoopsObjectGenericHandler($db);
+    parent::ObjectGenericRepository($db);
   }
   
   public function chkUser($uid)

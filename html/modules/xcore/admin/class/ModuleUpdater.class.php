@@ -24,15 +24,16 @@
  * @section Convention
  * 
  * Module Update function build the current-$xoopsModule from DB, and then sets
- * it to this class through setCurrentXoopsModule(). Basically, you can access
- * it by $this->_mCurrentXoopsModule. And, that function build the
+ * it to this class through setCurrentModule(). Basically, you can access
+ * it by $this->_mCurrentModule. And, that function build the
  * target-$xoopsModule from xoops_version, and then set it to this class through
- * setTargetXoopsModule(). Also you can access it by $this->_mTargetXoopsModule.
+ * setTargetModule(). Also you can access it by $this->_mTargetModule.
  * 
  * @see Xcore_ModuleInstallUtils
  */
 use XCore\Kernel\Ref;
 use XCore\Utils\Utils;
+use XCore\Entity\Module;
 
 class Xcore_ModulePhasedUpgrader
 {
@@ -59,10 +60,10 @@ class Xcore_ModulePhasedUpgrader
 	var $mLog = null;
 	
 	/**
-	 * @var XoopsModule
-	 * @remark [Precondition] _mKarimojiModule has to be an object.
+	 * @var Module
+	 * @remark [Precondition] _mXoopsModule has to be an object.
 	 */
-	var $_mCurrentXoopsModule;
+	var $_mCurrentModule;
 	
 	/**
 	 * @var int
@@ -70,10 +71,10 @@ class Xcore_ModulePhasedUpgrader
 	var $_mCurrentVersion;
 
 	/**
-	 * @var XoopsModule
-	 * @remark [Precondition] _mKarimojiModule has to be an object.
+	 * @var Module
+	 * @remark [Precondition] _mXoopsModule has to be an object.
 	 */
-	var $_mTargetXoopsModule;
+	var $_mTargetModule;
 	
 	/**
 	 * @var int
@@ -100,16 +101,16 @@ class Xcore_ModulePhasedUpgrader
 	}
 	
 	/**
-	 * Sets the current XoopsModule. This method creates the clone of this
+	 * Sets the current Module. This method creates the clone of this
 	 * object to prevent cache of the module handler, and then keep it to the
 	 * property. Plus, this method copies the version value of this object to
 	 * the _mCurrentVersion as backup for the case where the value of this
 	 * object is changed for updating.
 	 * 
 	 * @public
-	 * @param XoopsModule $xoopsModule
+	 * @param Module $xoopsModule
 	 */
-	function setCurrentXoopsModule(&$xoopsModule)
+	function setCurrentModule(&$xoopsModule)
 	{
 		$handler =& xoops_gethandler('module');
 		$cloneModule =& $handler->create();
@@ -129,19 +130,19 @@ class Xcore_ModulePhasedUpgrader
 		$cloneModule->set('hascomments', $xoopsModule->get('hascomments'));
 		$cloneModule->set('hasnotification', $xoopsModule->get('hasnotification'));
 		
-		$this->_mCurrentXoopsModule =& $cloneModule;
+		$this->_mCurrentModule =& $cloneModule;
 		$this->_mCurrentVersion = $cloneModule->get('version');
 	}
 	
 	/**
-	 * Sets the target XoopsModule.
+	 * Sets the target Module.
 	 * 
 	 * @access public
-	 * @param XoopsModule $xoopsModule
+	 * @param Module $xoopsModule
 	 */
-	function setTargetXoopsModule(&$xoopsModule)
+	function setTargetModule(&$xoopsModule)
 	{
-		$this->_mTargetXoopsModule =& $xoopsModule;
+		$this->_mTargetModule =& $xoopsModule;
 		$this->_mTargetVersion = $this->getTargetPhase();
 	}
 	
@@ -188,7 +189,7 @@ class Xcore_ModulePhasedUpgrader
 			}
 		}
 		
-		return $this->_mTargetXoopsModule->get('version');
+		return $this->_mTargetModule->get('version');
 	}
 	
 	/**
@@ -239,19 +240,19 @@ class Xcore_ModulePhasedUpgrader
 	 */
 	function isLatestUpgrade()
 	{
-		return ($this->_mTargetXoopsModule->get('version') == $this->getTargetPhase());
+		return ($this->_mTargetModule->get('version') == $this->getTargetPhase());
 	}
 	
 	/**
-	 * Saves XoopsModule object to DB.
+	 * Saves Module object to DB.
 	 * 
 	 * @access protected
 	 */	
-	function saveXoopsModule(&$module)
+	function saveModule(&$module)
 	{
 		$handler =& xoops_gethandler('module');
 		if ($handler->insert($module)) {
-			$this->mLog->addReport("XoopsModule is updated.");
+			$this->mLog->addReport("Module is updated.");
 		}
 		else {
 			$this->mLog->addError("Could not update module information.");
@@ -260,12 +261,12 @@ class Xcore_ModulePhasedUpgrader
 	
 	function _processScript()
 	{
-		$installScript = trim($this->_mTargetXoopsModule->getInfo('onUpdate'));
+		$installScript = trim($this->_mTargetModule->getInfo('onUpdate'));
 		if ($installScript != false) {
-			require_once XOOPS_MODULE_PATH . "/" . $this->_mTargetXoopsModule->get('dirname') . "/" . $installScript;
-			$funcName = 'xoops_module_update_' . $this->_mTargetXoopsModule->get('dirname');
+			require_once XOOPS_MODULE_PATH . "/" . $this->_mTargetModule->get('dirname') . "/" . $installScript;
+			$funcName = 'xoops_module_update_' . $this->_mTargetModule->get('dirname');
 			if (function_exists($funcName)) {
-				if (!call_user_func($funcName, $this->_mTargetXoopsModule, $this->getCurrentVersion(), new Ref($this->mLog))) {
+				if (!call_user_func($funcName, $this->_mTargetModule, $this->getCurrentVersion(), new Ref($this->mLog))) {
 					$this->mLog->addError("Failed to execute " . $funcName);
 				}
 			}
@@ -275,10 +276,10 @@ class Xcore_ModulePhasedUpgrader
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_UPDATING_MODULE_SUCCESSFUL, $this->_mCurrentXoopsModule->get('name')));
+			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_UPDATING_MODULE_SUCCESSFUL, $this->_mCurrentModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_UPDATING_MODULE_FAILURE, $this->_mCurrentXoopsModule->get('name')));
+			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_UPDATING_MODULE_FAILURE, $this->_mCurrentModule->get('name')));
 		}
 	}
 	
@@ -290,8 +291,8 @@ class Xcore_ModulePhasedUpgrader
 	 */
 	function _updateModuleTemplates()
 	{
-		Xcore_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetXoopsModule, $this->mLog);
-		Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetModule, $this->mLog);
 	}
 	
 	/**
@@ -302,7 +303,7 @@ class Xcore_ModulePhasedUpgrader
 	 */
 	function _updateBlocks()
 	{
-		Xcore_ModuleInstallUtils::smartUpdateAllOfBlocks($this->_mTargetXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::smartUpdateAllOfBlocks($this->_mTargetModule, $this->mLog);
 	}
 	
 	/**
@@ -313,7 +314,7 @@ class Xcore_ModulePhasedUpgrader
 	 */
 	function _updatePreferences()
 	{
-		Xcore_ModuleInstallUtils::smartUpdateAllOfPreferences($this->_mTargetXoopsModule, $this->mLog);
+		Xcore_ModuleInstallUtils::smartUpdateAllOfPreferences($this->_mTargetModule, $this->mLog);
 	}
 	
 	/**
@@ -359,7 +360,7 @@ class Xcore_ModulePhasedUpgrader
 		//
 		// Update module object.
 		//
-		$this->saveXoopsModule($this->_mTargetXoopsModule);
+		$this->saveModule($this->_mTargetModule);
 		if (!$this->_mForceMode && $this->mLog->hasError()) {
 			$this->_processReport();
 			return false;

@@ -8,6 +8,7 @@ use XCore\Kernel\Principal;
 use XCore\Kernel\Service;
 use XCore\Property\AbstractProperty;
 use XCore\Form\FieldProperty;
+use XCore\Entity\SimpleObject;
 
 /**
  * Fetches input values, validates fetched values and passes them to some object.
@@ -386,7 +387,7 @@ abstract class ActionForm
      *
      * Set initial values to this action form from a object. This member
      * function mediates between the logic and the validation. For example,
-     * developers can use this method to load values from XoopsSimpleObject.
+     * developers can use this method to load values from SimpleObject.
      *
      * This member function is abstract. But, the sub-class of this class
      * doesn't have to implement this.
@@ -404,7 +405,7 @@ abstract class ActionForm
      *
      * Set input values to a object from this action form. This member function
      * mediates between the logic and the result of validations. For example,
-     * developers can use this method to set values to XoopsSimpleObject.
+     * developers can use this method to set values to SimpleObject.
      *
      * This member function is abstract. But, the sub-class of this class
      * doesn't have to implement this.

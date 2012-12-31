@@ -1,8 +1,11 @@
 <?php
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserGroupsObject extends XoopsSimpleObject
+class UserGroupsObject extends SimpleObject
 {
 	function UserGroupsObject()
 	{
@@ -25,7 +28,7 @@ class UserGroupsObject extends XoopsSimpleObject
 	}
 }
 
-class UserGroupsHandler extends XoopsObjectGenericHandler
+class UserGroupsHandler extends ObjectGenericRepository
 {
 	var $mTable = "groups";
 	var $mPrimary = "groupid";

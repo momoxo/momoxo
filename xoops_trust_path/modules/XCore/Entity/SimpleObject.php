@@ -1,0 +1,205 @@
+<?php
+
+
+namespace XCore\Entity;
+
+/**
+ *	This class implements the interface of ObjectInterface. It gives a developer
+ * 'TYPE SAFE' with the limit. The instance can have only five data type that are
+ * BOOL, INT, FLOAT, STRING and TEXT.
+ *	You can not get the sanitizing values by cleanVars() that is the function of
+ * Object. But, all set functions give you 'TYPE SAFE'. You should use this 
+ * class with using your favorite ActionForm.
+ *
+ * "Check values by actionform, set values to SimpleObject"
+ *
+ *	This class was defined for "The prolongation of human life plan". This is not 
+ * the rule that you are forced.
+ * 
+ */
+use XCore\Kernel\Root;
+use XCore\Entity\Object;
+
+class SimpleObject extends AbstractObject
+{
+	public $mVars = array();
+	public $mIsNew = true;
+	public $mDirname = null;
+	
+	function __construct()
+	{
+	}
+	
+	function setNew()
+	{
+		$this->mIsNew = true;
+	}
+	
+	function unsetNew()
+	{
+		$this->mIsNew = false;
+	}
+
+	function isNew()
+	{
+		return $this->mIsNew;
+	}
+	
+	function initVar($key, $dataType, $value = null, $required = false, $size = null)
+	{
+		static $_mAllowType = array(XOBJ_DTYPE_BOOL=>XOBJ_DTYPE_BOOL, XOBJ_DTYPE_INT=>XOBJ_DTYPE_INT, XOBJ_DTYPE_FLOAT=>XOBJ_DTYPE_FLOAT, XOBJ_DTYPE_STRING=>XOBJ_DTYPE_STRING, XOBJ_DTYPE_TEXT=>XOBJ_DTYPE_TEXT);
+	
+		if (!$_mAllowType[$dataType]) {
+			throw new RuntimeException();
+		}
+		
+		$this->mVars[$key] = array(
+			'data_type' => $dataType,
+			'value' => null,
+			'required' => $required ? true : false,
+			'maxlength' => $size ? (int)$size : null
+		);
+		
+		$this->assignVar($key, $value);
+	}
+	
+	function assignVar($key, $value)
+	{
+		$vars = &$this->mVars[$key];
+		if (!isset($vars)) return;
+		
+		switch ($vars['data_type']) {
+			case XOBJ_DTYPE_BOOL:
+				$vars['value'] = $value ? 1 : 0;
+				return;
+
+			case XOBJ_DTYPE_INT:
+				$vars['value'] = $value !== null ? (int)$value : null;
+				return;
+
+			case XOBJ_DTYPE_FLOAT:
+				$vars['value'] = $value !== null ? (float)$value : null;
+				return;
+
+			case XOBJ_DTYPE_STRING:
+				$len = $vars['maxlength'];
+				$vars['value'] = ($len !== null && strlen($value) > $len) ? xoops_substr($value, 0, $len, null) : $value;
+				return;
+
+			case XOBJ_DTYPE_TEXT:
+				$vars['value'] = $value;
+				return;
+		}
+	}
+	
+	function assignVars($values)
+	{
+		foreach($values as $key => $value) $this->assignVar($key, $value);
+	}
+	
+	function set($key, $value)
+	{
+		$this->assignVar($key, $value);
+	}
+	
+	function get($key)
+	{
+		return $this->mVars[$key]['value'];
+	}
+	
+	function gets()
+	{
+		$ret = array();
+		
+		foreach ($this->mVars as $key => $value) {
+			$ret[$key] = $value['value'];
+		}
+		
+		return $ret;
+	}
+	
+	function setVar($key, $value)
+	{
+		$this->assignVar($key, $value);
+	}
+
+	function setVars($values)
+	{
+		$this->assignVars($values);
+	}
+
+	/**
+	 * @deprecated
+	 */	
+	function getVar($key)
+	{
+		return $this->getShow($key);
+	}
+	
+	/**
+	 * Return HTML string for displaying only by HTML.
+	 * The second parametor doesn't exist.
+	 */
+	function getShow($key)
+	{
+		$value = null;
+		$vars = $this->mVars[$key];
+		
+		switch ($vars['data_type']) {
+			case XOBJ_DTYPE_BOOL:
+			case XOBJ_DTYPE_INT:
+			case XOBJ_DTYPE_FLOAT:
+				return $vars['value'];
+
+			case XOBJ_DTYPE_STRING:
+				$root = Root::getSingleton();
+				$textFilter =& $root->getTextFilter();
+				return $textFilter->toShow($vars['value']);
+
+			case XOBJ_DTYPE_TEXT:
+				$root = Root::getSingleton();
+				$textFilter =& $root->getTextFilter();
+				return $textFilter->toShowTarea($vars['value'], 0, 1, 1, 1, 1);
+		}
+		
+		return $value;
+	}
+
+	function getTypeInformations()
+	{
+		$ret = array();
+		foreach (array_keys($this->mVars) as $key) {
+			$ret[$key] = $this->mVars[$key]['data_type'];
+		}
+		
+		return $ret;
+	}
+
+	/**
+	 * getPurifiedHtml
+	 * 
+	 * @param	string	$key
+	 * @param	string	$encoding
+	 * @param	string	$doctype
+	 * 
+	 * @return	string
+	**/
+	public function getPurifiedHtml(/*** string ***/ $key, /*** string ***/ $encoding=null, /*** string ***/ $doctype=null)
+	{
+		$root = Root::getSingleton();
+		$textFilter = $root->getTextFilter();
+		return $textFilter->purifyHtml($this->get($key), $encoding, $doctype);
+	}
+
+	/**
+	 * getDirname
+	 * 
+	 * @param	void
+	 * 
+	 * @return	string
+	**/
+	public function getDirname()
+	{
+		return $this->mDirname;
+	}
+}

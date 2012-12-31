@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 class Xcore_ModuleListAction extends Xcore_Action
 {
 	var $mModuleObjects = array();

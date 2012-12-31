@@ -16,6 +16,8 @@
  * ThemeSelect preload in Legacy module.
  */
 use XCore\Kernel\DelegateUtils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 class Xcore_ThemeListAction extends Xcore_Action
 {

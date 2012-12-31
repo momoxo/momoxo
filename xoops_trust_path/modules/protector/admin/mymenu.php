@@ -1,6 +1,8 @@
 <?php
 
 // Skip for ORETEKI XOOPS
+use XCore\Database\Criteria;
+
 if( defined( 'XOOPS_ORETEKI' ) ) return ;
 
 global $xoopsModule ;

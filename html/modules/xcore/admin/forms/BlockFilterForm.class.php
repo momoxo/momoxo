@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 define('NEWBLOCKS_SORT_KEY_BID', 1);
 define('NEWBLOCKS_SORT_KEY_MID', 2);

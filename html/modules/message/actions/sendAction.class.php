@@ -1,5 +1,6 @@
 <?php
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 require _MY_MODULE_PATH.'kernel/MyPageNavi.class.php';
@@ -30,7 +31,7 @@ class sendAction extends AbstractAction
     $this->mPagenavi->setUrl($this->url);
     $this->mPagenavi->setPagenum($pagenum);
     $this->mPagenavi->addSort('utime', 'DESC');
-    $this->mPagenavi->addCriteria(new Criteria('uid', $this->root->mContext->mKarimojiUser->get('uid')));
+    $this->mPagenavi->addCriteria(new Criteria('uid', $this->root->mContext->mXoopsUser->get('uid')));
     if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $fromuid = intval($this->root->mContext->mRequest->getRequest('touid'));
       if ( $fromuid > 0 ) {
@@ -45,7 +46,7 @@ class sendAction extends AbstractAction
     $this->mPagenavi->fetch();
     $this->mPagenavi->mNavi->addExtra('action', 'send');
     
-    $this->select = $modHand->getReceiveUserList($this->root->mContext->mKarimojiUser->get('uid'), $fromuid);
+    $this->select = $modHand->getReceiveUserList($this->root->mContext->mXoopsUser->get('uid'), $fromuid);
     
     $modObj = $modHand->getObjects($this->mPagenavi->getCriteria());
 
@@ -53,7 +54,7 @@ class sendAction extends AbstractAction
       foreach ( array_keys($val->gets()) as $var_name ) {
         $item_ary[$var_name] = $val->getShow($var_name);
       }
-      $item_ary['fromname'] = $this->getLinkUnameFromId($item_ary['to_uid'], $this->root->mContext->mKarimojiConfig['anonymous']);
+      $item_ary['fromname'] = $this->getLinkUnameFromId($item_ary['to_uid'], $this->root->mContext->mXoopsConfig['anonymous']);
       $this->listdata[] = $item_ary;
       unset($item_ary);
     }

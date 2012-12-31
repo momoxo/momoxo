@@ -1,6 +1,8 @@
 <?php
 
-class XcoreSmilesHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+
+class XcoreSmilesHandler extends ObjectGenericRepository
 {
 	var $mTable = "smiles";
 	var $mPrimary = "id";

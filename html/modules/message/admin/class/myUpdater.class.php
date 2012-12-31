@@ -5,6 +5,7 @@
  */
 use XCore\Kernel\Root;
 use XCore\Utils\Utils;
+use XCore\Entity\Module;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -24,10 +25,10 @@ class Message_myUpdater extends Xcore_ModulePhasedUpgrader
   
   function updatemain()
   {
-    Xcore_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetXoopsModule, $this->mLog);
-    Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetXoopsModule, $this->mLog);
+    Xcore_ModuleInstallUtils::clearAllOfModuleTemplatesForUpdate($this->_mTargetModule, $this->mLog);
+    Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mTargetModule, $this->mLog);
     
-    $this->saveXoopsModule($this->_mTargetXoopsModule);
+    $this->saveModule($this->_mTargetModule);
     $this->mLog->add('Version'.($this->_mTargetVersion / 100).' for update.');
     $this->_mCurrentVersion = $this->_mTargetVersion;
   }
@@ -71,14 +72,14 @@ class Message_myUpdater extends Xcore_ModulePhasedUpgrader
     $this->mLog->addReport(_AD_XCORE_MESSAGE_UPDATE_STARTED);
     
     //Add Table
-    $sqlfileInfo = $this->_mTargetXoopsModule->getInfo('sqlfile');
-    $dirname = $this->_mTargetXoopsModule->getVar('dirname');
+    $sqlfileInfo = $this->_mTargetModule->getInfo('sqlfile');
+    $dirname = $this->_mTargetModule->getVar('dirname');
     $sqlfile = $sqlfileInfo[XOOPS_DB_TYPE];
     $sqlfilepath = XOOPS_MODULE_PATH.'/'.$dirname.'/'.$sqlfile;
     require_once XOOPS_MODULE_PATH.'/xcore/admin/class/Xcore_SQLScanner.class.php';
     $scanner = new Xcore_SQLScanner();
     $scanner->setDB_PREFIX(XOOPS_DB_PREFIX);
-    $scanner->setDirname($this->_mTargetXoopsModule->get('dirname'));
+    $scanner->setDirname($this->_mTargetModule->get('dirname'));
     if (!$scanner->loadFile($sqlfilepath)) {
       $this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_SQL_FILE_NOT_FOUND, $sqlfile));
       return false;

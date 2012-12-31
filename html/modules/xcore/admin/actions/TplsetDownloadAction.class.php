@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 class Xcore_TplsetDownloadAction extends Xcore_Action
 {
 	var $mPreparedFlag = false;

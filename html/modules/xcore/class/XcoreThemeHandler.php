@@ -2,8 +2,9 @@
 
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Repository\ObjectRepository;
 
-class XcoreThemeHandler extends XoopsObjectHandler
+class XcoreThemeHandler extends ObjectRepository
 {
 	var $_mResults = array();
 	

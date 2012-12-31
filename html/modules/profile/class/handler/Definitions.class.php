@@ -5,9 +5,14 @@
  * @version $Id$
  */
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class Profile_DefinitionsObject extends XoopsSimpleObject
+class Profile_DefinitionsObject extends SimpleObject
 {
 	public $mFieldType = null;	//Profile_FieldType
 
@@ -54,7 +59,7 @@ class Profile_DefinitionsObject extends XoopsSimpleObject
 	}
 }
 
-class Profile_DefinitionsHandler extends XoopsObjectGenericHandler
+class Profile_DefinitionsHandler extends ObjectGenericRepository
 {
 	var $mTable = 'profile_definitions';
 	var $mPrimary = 'field_id';

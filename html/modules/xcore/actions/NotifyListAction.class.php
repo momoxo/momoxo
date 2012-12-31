@@ -5,6 +5,8 @@
  * List up notifications. This action is like notifications.php (when $op is
  * 'list').
  */
+use XCore\Database\Criteria;
+
 class Xcore_NotifyListAction extends Xcore_Action
 {
 	var $mModules = array();

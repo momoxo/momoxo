@@ -2,6 +2,8 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\Service;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 class Xcore_SearchModule extends XCube_Object
 {
@@ -228,7 +230,7 @@ class Xcore_SearchUtils
    public static function getUserGroups()
     {
         $root = Root::getSingleton();
-        $user =& $root->mController->mRoot->mContext->mKarimojiUser;
+        $user =& $root->mController->mRoot->mContext->mXoopsUser;
         $groups = array();
         
         if (!is_object($user)) {

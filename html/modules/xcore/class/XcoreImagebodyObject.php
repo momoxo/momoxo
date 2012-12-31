@@ -1,6 +1,8 @@
 <?php
 
-class XcoreImagebodyObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreImagebodyObject extends SimpleObject
 {
 	function XcoreImagebodyObject()
 	{

@@ -21,7 +21,7 @@ class favoritesAction extends AbstractAction
       $this->setErr(_MD_MESSAGE_FAVORITES0);
       return true;
     }
-    $mid = $this->root->mContext->mKarimojiModule->get('mid');
+    $mid = $this->root->mContext->mXoopsModule->get('mid');
     $client = $this->root->mServiceManager->createClient($this->mService);
     foreach ( $adduid as $fuid ) {
       $ret[] = $client->call('addFavorites', array('mid' => $mid, 'fuid' => $fuid, 'weight' => 0));
@@ -71,7 +71,7 @@ class favoritesAction extends AbstractAction
   
   private function getFavorites()
   {
-    $mid = $this->root->mContext->mKarimojiModule->get('mid');
+    $mid = $this->root->mContext->mXoopsModule->get('mid');
     $client = $this->root->mServiceManager->createClient($this->mService);
     $this->favorites = $client->call('getFavoritesUsers', array('mid' => $mid));
   }

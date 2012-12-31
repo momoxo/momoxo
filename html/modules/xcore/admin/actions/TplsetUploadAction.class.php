@@ -2,6 +2,7 @@
 
 use XCore\FormFile\FormFile;
 use XCore\Utils\Utils;
+use XCore\Database\Criteria;
 
 class Xcore_TplsetUploadAction extends Xcore_Action
 {

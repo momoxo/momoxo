@@ -4,6 +4,9 @@
  * @internal
  * This class is a filter form for list up tplfile object *with* override.
  */
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_TplfileSetFilterForm extends Xcore_TplfileFilterForm
 {
 	function additionalFetch()

@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 class Xcore_CommentViewAction extends Xcore_Action
 {
 	var $mObject = null;

@@ -4,6 +4,8 @@
  * @version $Id: AvatarEditAction.class.php,v 1.3 2007/08/23 13:04:21 minahito Exp $
  */
 
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractEditAction.class.php";

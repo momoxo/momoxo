@@ -4,10 +4,12 @@
  * This is abstract class for 3 action classes that are Install, Update and
  * Uninstall.
  */
+use XCore\Entity\Module;
+
 class Xcore_AbstractModuleInstallAction extends Xcore_Action
 {
 	/**
-	 * XoopsModule instance specified.
+	 * Module instance specified.
 	 */
 	var $mModuleObject = null;
 	var $mLog = null;

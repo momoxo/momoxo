@@ -1,4 +1,6 @@
 <?php
+use XCore\Database\Criteria;
+
 function b_user_online_show() {
     global $xoopsUser, $xoopsModule;
     $online_handler =& xoops_gethandler('online');

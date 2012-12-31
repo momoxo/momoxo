@@ -45,31 +45,31 @@ class User_Utils
 {
 	public static function setupUser(&$principal, &$controller, &$context)
 	{
-		if (is_object($context->mKarimojiUser)) {
+		if (is_object($context->mXoopsUser)) {
 			return;
 		}
 		
 		if (!empty($_SESSION['xoopsUserId'])) {
 			$memberHandler = xoops_gethandler('member');
 			$user =& $memberHandler->getUser($_SESSION['xoopsUserId']);
-			$context->mKarimojiUser =& $user;
-			if (is_object($context->mKarimojiUser)) {
-				$context->mKarimojiUser->setGroups($_SESSION['xoopsUserGroups']);
+			$context->mXoopsUser =& $user;
+			if (is_object($context->mXoopsUser)) {
+				$context->mXoopsUser->setGroups($_SESSION['xoopsUserGroups']);
 				
 				$roles = array();
 				$roles[] = "Site.RegisteredUser";
-				if ($context->mKarimojiUser->isAdmin(-1)) {
+				if ($context->mXoopsUser->isAdmin(-1)) {
 					$roles[] = "Site.Administrator";
 				}
 				if (in_array(XOOPS_GROUP_ADMIN, $_SESSION['xoopsUserGroups'])) {
 					$roles[] = "Site.Owner";
 				}
 				
-				$identity =new Xcore_Identity($context->mKarimojiUser);
+				$identity =new Xcore_Identity($context->mXoopsUser);
 				$principal = new Xcore_GenericPrincipal($identity, $roles);
 				return;
 			} else {
-				$context->mKarimojiUser = null;
+				$context->mXoopsUser = null;
 				$_SESSION = array();
 			}
 		}

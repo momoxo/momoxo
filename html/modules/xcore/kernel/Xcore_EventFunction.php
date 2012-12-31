@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 class Xcore_EventFunction
 {
@@ -114,9 +115,9 @@ class Xcore_EventFunction
 		require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php';
 
 		$root = Root::getSingleton();
-		$xoopsModule =& $root->mContext->mKarimojiModule;
+		$xoopsModule =& $root->mContext->mXoopsModule;
 		$moduleConfig =& $root->mContext->mModuleConfig;
-		$xoopsUser =& $root->mContext->mKarimojiUser;
+		$xoopsUser =& $root->mContext->mXoopsUser;
 
 		$xoops_notification = array();
 		$xoops_notification['show'] = is_object($xoopsModule) && is_object($xoopsUser) && notificationEnabled('inline') ? 1 : 0;

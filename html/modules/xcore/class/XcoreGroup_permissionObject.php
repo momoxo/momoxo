@@ -1,6 +1,8 @@
 <?php
 
-class XcoreGroup_permissionObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreGroup_permissionObject extends SimpleObject
 {
 	function XcoreGroup_permissionObject()
 	{

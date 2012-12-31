@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\Criteria;
+use XCore\Utils\TextSanitizer;
+
 require_once dirname(dirname(__FILE__)) . '/include/altsys_functions.php';
 
 function b_altsys_admin_menu_show( $options )
@@ -25,7 +28,7 @@ function b_altsys_admin_menu_show( $options )
 	}
 
 	$db =& Database::getInstance();
-	$myts =& MyTextSanitizer::getInstance();
+	$myts =& TextSanitizer::getInstance();
 
 	$module_handler =& xoops_gethandler('module');
 	$current_module =& $module_handler->getByDirname($mydirname);

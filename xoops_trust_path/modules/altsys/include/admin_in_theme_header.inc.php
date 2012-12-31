@@ -29,6 +29,10 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Block;
+
 require_once dirname(dirname(__FILE__)).'/class/AltsysBreadcrumbs.class.php' ;
 
 	$xoopsOption['theme_use_smarty'] = 1;
@@ -58,7 +62,7 @@ require_once dirname(dirname(__FILE__)).'/class/AltsysBreadcrumbs.class.php' ;
 		$handler =& xoops_gethandler('block');
 		$xoopsblock =& $handler->create(false) ;
 	}else{
-		$xoopsblock = new XoopsBlock();
+		$xoopsblock = new Block();
 	}
 
 	$block_arr = array();
@@ -146,7 +150,7 @@ require_once dirname(dirname(__FILE__)).'/class/AltsysBreadcrumbs.class.php' ;
 				$block =& $handler->create(false) ;
 				$block->assignVars($myrow);
 			}else{
-				$block = new XoopsBlock( $myrow ) ;
+				$block = new Block( $myrow ) ;
 			}
 
 			$block_arr[ $myrow['bid'] ] = $block ;

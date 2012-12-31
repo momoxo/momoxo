@@ -17,6 +17,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Entity\Block;
 
 function XoopsErrorHandler_HandleError($errNo, $errStr, $errFile, $errLine)
 {
@@ -118,7 +119,7 @@ function xoops_template_create ($resource_type, $resource_name, &$template_sourc
  **/
 function xoops_template_clear_module_cache($mid)
 {
-	$block_arr =& XoopsBlock::getByModule($mid);
+	$block_arr =& Block::getByModule($mid);
 	$count = count($block_arr);
 	if ($count > 0) {
 		$xoopsTpl = new XoopsTpl();	

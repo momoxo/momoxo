@@ -1,6 +1,8 @@
 <?php
 
-class XcoreImageHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+
+class XcoreImageHandler extends ObjectGenericRepository
 {
 	var $mTable = "image";
 	var $mPrimary = "image_id";

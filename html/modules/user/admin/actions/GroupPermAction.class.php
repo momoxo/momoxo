@@ -4,6 +4,9 @@
  * @version $Id: GroupPermAction.class.php,v 1.2 2007/06/07 05:27:37 minahito Exp $
  */
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH."/user/admin/actions/GroupPropertyAction.class.php";

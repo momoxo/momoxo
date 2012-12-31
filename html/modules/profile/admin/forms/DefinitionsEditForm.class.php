@@ -6,6 +6,7 @@ use XCore\Property\BoolProperty;
 use XCore\Property\IntProperty;
 use XCore\Property\StringProperty;
 use XCore\Property\TextProperty;
+use XCore\Database\Criteria;
 
 class Profile_Admin_DefinitionsEditForm extends ActionForm
 {

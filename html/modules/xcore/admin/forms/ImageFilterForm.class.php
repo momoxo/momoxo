@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 define('IMAGE_SORT_KEY_IMAGE_ID', 1);
 define('IMAGE_SORT_KEY_IMAGE_NAME', 2);

@@ -2,6 +2,8 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\DelegateUtils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 define("XCORE_PEREFERENCE_ID_GENERAL", 1);
 

@@ -7,6 +7,7 @@
 
 use XCore\Kernel\Root;
 use XCore\Utils\Utils;
+use XCore\Entity\Module;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -28,9 +29,9 @@ class Xupdate_Updater
     		'022' => 'update022'
     	);
 
-    private /*** XoopsModule ***/ $_mCurrentXoopsModule = null;
+    private /*** Module ***/ $_mCurrentModule = null;
 
-    private /*** XoopsModule ***/ $_mTargetXoopsModule = null;
+    private /*** Module ***/ $_mTargetModule = null;
 
     private /*** int ***/ $_mCurrentVersion = 0;
 
@@ -45,7 +46,7 @@ class Xupdate_Updater
     	// Update database table index.
     	$root = Root::getSingleton();
     	$db =& $root->mController->getDB();
-    	$table = $db->prefix($this->_mCurrentXoopsModule->get('dirname') . '_modulestore');
+    	$table = $db->prefix($this->_mCurrentModule->get('dirname') . '_modulestore');
     	 
     	$sql = 'SELECT `isactive` FROM '.$table ;
     	if(! $db->query($sql)) {
@@ -83,7 +84,7 @@ class Xupdate_Updater
     	// Update database table index.
     	$root = Root::getSingleton();
     	$db =& $root->mController->getDB();
-    	$table = $db->prefix($this->_mCurrentXoopsModule->get('dirname') . '_modulestore');
+    	$table = $db->prefix($this->_mCurrentModule->get('dirname') . '_modulestore');
     
     	$sql = 'SELECT `contents` FROM '.$table ;
     	if(! $db->query($sql)) {
@@ -117,7 +118,7 @@ class Xupdate_Updater
     	// Update database table index.
     	$root = Root::getSingleton();
     	$db =& $root->mController->getDB();
-    	$table = $db->prefix($this->_mCurrentXoopsModule->get('dirname') . '_modulestore');
+    	$table = $db->prefix($this->_mCurrentModule->get('dirname') . '_modulestore');
     
    		$sql = 'ALTER TABLE `'.$table.'` CHANGE `dirname` `dirname` varchar(255) NOT NULL default \'\'';
     	if ($db->query($sql)) {
@@ -166,13 +167,13 @@ class Xupdate_Updater
     }
 
     /**
-     * setCurrentXoopsModule
+     * setCurrentModule
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * 
      * @return  void
     **/
-    public function setCurrentXoopsModule(/*** XoopsModule ***/ &$module)
+    public function setCurrentModule(/*** Module ***/ &$module)
     {
         $moduleHandler =& Xupdate_Utils::getXoopsHandler('module');
         $cloneModule =& $moduleHandler->create();
@@ -190,20 +191,20 @@ class Xupdate_Updater
         $cloneModule->set('hasadmin',$module->get('hasadmin'));
         $cloneModule->set('hasconfig',$module->get('hasconfig'));
     
-        $this->_mCurrentXoopsModule =& $cloneModule;
+        $this->_mCurrentModule =& $cloneModule;
         $this->_mCurrentVersion = $cloneModule->get('version');
     }
 
     /**
-     * setTargetXoopsModule
+     * setTargetModule
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * 
      * @return  void
     **/
-    public function setTargetXoopsModule(/*** XoopsModule ***/ &$module)
+    public function setTargetModule(/*** Module ***/ &$module)
     {
-        $this->_mTargetXoopsModule =& $module;
+        $this->_mTargetModule =& $module;
         $this->_mTargetVersion = $this->getTargetPhase();
     }
 
@@ -238,7 +239,7 @@ class Xupdate_Updater
             }
         }
     
-        return $this->_mTargetXoopsModule->get('version');
+        return $this->_mTargetModule->get('version');
     }
 
     /**
@@ -272,7 +273,7 @@ class Xupdate_Updater
     **/
     public function isLatestUpgrade()
     {
-        return ($this->_mTargetXoopsModule->get('version') == $this->getTargetPhase());
+        return ($this->_mTargetModule->get('version') == $this->getTargetPhase());
     }
 
     /**
@@ -284,8 +285,8 @@ class Xupdate_Updater
     **/
     private function _updateModuleTemplates()
     {
-        Xupdate_InstallUtils::uninstallAllOfModuleTemplates($this->_mTargetXoopsModule,$this->mLog);
-        Xupdate_InstallUtils::installAllOfModuleTemplates($this->_mTargetXoopsModule,$this->mLog);
+        Xupdate_InstallUtils::uninstallAllOfModuleTemplates($this->_mTargetModule,$this->mLog);
+        Xupdate_InstallUtils::installAllOfModuleTemplates($this->_mTargetModule,$this->mLog);
     }
 
     /**
@@ -297,7 +298,7 @@ class Xupdate_Updater
     **/
     private function _updateBlocks()
     {
-        Xupdate_InstallUtils::smartUpdateAllOfBlocks($this->_mTargetXoopsModule,$this->mLog);
+        Xupdate_InstallUtils::smartUpdateAllOfBlocks($this->_mTargetModule,$this->mLog);
     }
 
     /**
@@ -309,7 +310,7 @@ class Xupdate_Updater
     **/
     private function _updatePreferences()
     {
-        Xupdate_InstallUtils::smartUpdateAllOfConfigs($this->_mTargetXoopsModule,$this->mLog);
+        Xupdate_InstallUtils::smartUpdateAllOfConfigs($this->_mTargetModule,$this->mLog);
     }
 
     /**
@@ -324,7 +325,7 @@ class Xupdate_Updater
     	// remove modules.ini cache
     	$root = Root::getSingleton();
     	$ch =& xoops_gethandler('config');
-    	$mconf = $ch->getConfigsByDirname($this->_mCurrentXoopsModule->get('dirname'));
+    	$mconf = $ch->getConfigsByDirname($this->_mCurrentModule->get('dirname'));
     	$cdir = XOOPS_TRUST_PATH . '/'.trim($mconf['temp_path'], '/');
     	if (is_dir($cdir)) {
     		if ($dh = opendir($cdir)) {
@@ -399,7 +400,7 @@ class Xupdate_Updater
             return false;
         }
     
-        $this->saveXoopsModule($this->_mTargetXoopsModule);
+        $this->saveModule($this->_mTargetModule);
         if(!$this->_mForceMode && $this->mLog->hasError())
         {
             $this->_processReport();
@@ -412,13 +413,13 @@ class Xupdate_Updater
     }
 
     /**
-     * saveXoopsModule
+     * saveModule
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * 
      * @return  void
     **/
-    public function saveXoopsModule(/*** XoopsModule ***/ &$module)
+    public function saveModule(/*** Module ***/ &$module)
     {
         $moduleHandler =& Xupdate_Utils::getXoopsHandler('module');
     
@@ -446,7 +447,7 @@ class Xupdate_Updater
             $this->mLog->add(
                 Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_MODULE_UPDATED,
-                    $this->_mCurrentXoopsModule->get('name')
+                    $this->_mCurrentModule->get('name')
                 )
             );
         }
@@ -455,7 +456,7 @@ class Xupdate_Updater
             $this->mLog->add(
                 Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_UPDATED,
-                    $this->_mCurrentXoopsModule->get('name')
+                    $this->_mCurrentModule->get('name')
                 )
             );
         }

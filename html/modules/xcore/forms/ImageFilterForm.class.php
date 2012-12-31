@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 define('IMAGE_SORT_KEY_IMAGE_ID', 1);
 define('IMAGE_SORT_KEY_IMAGE_NAME', 2);
 define('IMAGE_SORT_KEY_IMAGE_NICENAME', 3);

@@ -10,6 +10,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\HttpContext;
 use XCore\Entity\User;
+use XCore\Entity\Module;
 
 class Xcore_HttpContext extends HttpContext
 {
@@ -17,7 +18,7 @@ class Xcore_HttpContext extends HttpContext
 	 * @public
 	 * @brief [READ ONLY] User - The current user profile object.
 	 */
-	var $mKarimojiUser = null;
+	var $mXoopsUser = null;
 
 	/**
 	 * @public
@@ -27,11 +28,11 @@ class Xcore_HttpContext extends HttpContext
 	
 	/**
 	 * @public
-	 * @brief [READ ONLY] XoopsModule - The current Xoops Module object.
+	 * @brief [READ ONLY] Module - The current Xoops Module object.
 	 * @remarks
-	 *     This is a shortcut to mModule->mKarimojiModule.
+	 *     This is a shortcut to mModule->mXoopsModule.
 	 */
-	var $mKarimojiModule = null;
+	var $mXoopsModule = null;
 	
 	/**
 	 * @public
@@ -44,7 +45,7 @@ class Xcore_HttpContext extends HttpContext
 	 *     The array for Xoops, which is configured in the preference of the base. This
 	 *     property and $xoopsConfig (X2) is the same.
 	 */
-	var $mKarimojiConfig = array();
+	var $mXoopsConfig = array();
 	
 	/**
 	 * @public
@@ -72,10 +73,10 @@ class Xcore_HttpContext extends HttpContext
 	function getXoopsConfig($id = null)
 	{
 		if ($id != null) {
-			return isset($this->mKarimojiConfig[$id]) ? $this->mKarimojiConfig[$id] : null;
+			return isset($this->mXoopsConfig[$id]) ? $this->mXoopsConfig[$id] : null;
 		}
 
-		return $this->mKarimojiConfig;
+		return $this->mXoopsConfig;
 	}
 	
 	/**
@@ -90,7 +91,7 @@ class Xcore_HttpContext extends HttpContext
 	function setThemeName($name)
 	{
 		parent::setThemeName($name);
-		$this->mKarimojiConfig['theme_set'] = $name;
+		$this->mXoopsConfig['theme_set'] = $name;
 		$GLOBALS['xoopsConfig']['theme_set'] = $name;
 	}
 }

@@ -33,6 +33,8 @@
 *  displayes xoopsCode buttons and target textarea to which xoopscodes are inserted
 *  $textarea_id is a unique id of the target textarea
 */
+use XCore\Utils\TextSanitizer;
+
 function xoopsCodeTarea($textarea_id, $cols=60, $rows=15, $suffix=null)
 {
     $hiddentext = isset($suffix) ? 'xoopsHiddenText'.trim($suffix) : 'xoopsHiddenText';
@@ -80,7 +82,7 @@ function xoopsCodeTarea($textarea_id, $cols=60, $rows=15, $suffix=null)
 */
 function xoopsSmilies($textarea_id)
 {
-    $myts =& MyTextSanitizer::getInstance();
+    $myts =& TextSanitizer::getInstance();
     $smiles = $myts->getSmileys();
     if (empty($smiles)) {
         $db =& Database::getInstance();

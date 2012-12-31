@@ -19,10 +19,12 @@
 //  This file has been modified for Legacy from XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
+use XCore\Utils\TextSanitizer;
+
 function b_xcore_siteinfo_show($options) {
     global $xoopsConfig, $xoopsUser;
     $xoopsDB =& Database::getInstance();
-    $myts =& MyTextSanitizer::getInstance();
+    $myts =& TextSanitizer::getInstance();
     $block = array();
     if (!empty($options[3])) {
         $block['showgroups'] = true;

@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Entity\Module;
 
 class Xcore_ModuleCacheInformation extends Xcore_AbstractCacheInformation
 {
@@ -9,7 +10,7 @@ class Xcore_ModuleCacheInformation extends Xcore_AbstractCacheInformation
      * [READ ONLY] Xoops Module Object.
      * 
      * @access protected
-     * @var XoopsModule
+     * @var Module
      */
     var $mModule = null;
     
@@ -36,7 +37,7 @@ class Xcore_ModuleCacheInformation extends Xcore_AbstractCacheInformation
      
     /**
      * Sets a module object.
-     * @param XoopsModule $module
+     * @param Module $module
      */
     function setModule(&$module)
     {

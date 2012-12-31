@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_CustomBlockEditAction extends Xcore_BlockEditAction
 {
 	function _setupActionForm()

@@ -5,6 +5,7 @@
  */
 use XCore\Kernel\ActionFilter;
 use XCore\Entity\User;
+use XCore\Entity\Module;
 
 class Xcore_SystemModuleInstall extends ActionFilter
 {
@@ -32,15 +33,15 @@ class Xcore_SystemModuleInstall extends ActionFilter
 			define('XOOPS_CPFUNC_LOADED', 1);
 			$controller->checkLogin();
 			return;
-		} elseif (is_object($context->mKarimojiUser)) {
-		    if (in_array(XOOPS_GROUP_ADMIN, $context->mKarimojiUser->getGroups())) {
+		} elseif (is_object($context->mXoopsUser)) {
+		    if (in_array(XOOPS_GROUP_ADMIN, $context->mXoopsUser->getGroups())) {
 				$accessAllowFlag = true;
 			}
 		}
 		
 		// @todo Devide following lines to another preload file
 		if ($accessAllowFlag) {
-			$GLOBALS['xoopsUser'] = $context->mKarimojiUser;
+			$GLOBALS['xoopsUser'] = $context->mXoopsUser;
 			if (!empty($_POST['cube_module_install'])) { //@todo use Ticket
 				if (isset($_POST['uninstalled_modules']) && is_array($_POST['uninstalled_modules'])){
 					foreach ($_POST['uninstalled_modules'] as $module) {
@@ -55,7 +56,7 @@ class Xcore_SystemModuleInstall extends ActionFilter
 							
 							$installer =& Xcore_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
 							$installer->setForceMode(true);
-							$installer->setCurrentXoopsModule($xoopsModule);
+							$installer->setCurrentModule($xoopsModule);
 							$installer->executeInstall();
 						}
 					}
@@ -96,7 +97,7 @@ class Xcore_SystemModuleInstall extends ActionFilter
 							
 							$installer =& Xcore_ModuleInstallUtils::createInstaller($xoopsModule->get('dirname'));
 							$installer->setForceMode(true);
-							$installer->setCurrentXoopsModule($xoopsModule);
+							$installer->setCurrentModule($xoopsModule);
 							$installer->executeInstall();
 						}
 					}
@@ -126,7 +127,7 @@ class Xcore_SystemModuleInstall extends ActionFilter
 					
 					$uninstaller =& Xcore_ModuleInstallUtils::createUninstaller($xoopsModule->get('dirname'));
 					$uninstaller->setForceMode(true);
-					$uninstaller->setCurrentXoopsModule($xoopsModule);
+					$uninstaller->setCurrentModule($xoopsModule);
 					$uninstaller->executeUninstall();
 				}
 				$controller->executeRedirect(XOOPS_URL . '/',1);

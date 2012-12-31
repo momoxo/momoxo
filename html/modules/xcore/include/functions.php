@@ -3,6 +3,10 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Object;
+use XCore\Utils\TextSanitizer;
 
 /**
  * @deprecated see RequestObject
@@ -538,7 +542,7 @@ function &getMailer()
 }
 
 /**
- * This function is Fly-Weight to get an instance of XoopsObject in Xcore
+ * This function is Fly-Weight to get an instance of Object in Xcore
  * Kernel.
  */
 function &xoops_gethandler($name, $optional = false )
@@ -625,7 +629,7 @@ function &xoops_getmodulehandler($name = null, $module_dir = null, $optional = f
 function xoops_getrank($rank_id =0, $posts = 0)
 {
     $db = Database::getInstance();
-    $myts = MyTextSanitizer::getInstance();
+    $myts = TextSanitizer::getInstance();
     $rank_id = (int)$rank_id;
     if ($rank_id != 0) {
         $sql = 'SELECT rank_title AS title, rank_image AS image, rank_id AS id FROM '.$db->prefix('ranks').' WHERE rank_id = '.$rank_id;

@@ -4,6 +4,7 @@ use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
 use XCore\Property\IntProperty;
 use XCore\Property\StringProperty;
+use XCore\Entity\SimpleObject;
 
 class Xupdate_Admin_ModuleInstallForm extends ActionForm
 {
@@ -88,11 +89,11 @@ class Xupdate_Admin_ModuleInstallForm extends ActionForm
 	/**
 	 * load
 	 *
-	 * @param   XoopsSimpleObject  &$obj
+	 * @param   SimpleObject  &$obj
 	 *
 	 * @return  void
 	**/
-	public function load(/*** XoopsSimpleObject ***/ &$obj)
+	public function load(/*** SimpleObject ***/ &$obj)
 	{
 
 	}
@@ -100,11 +101,11 @@ class Xupdate_Admin_ModuleInstallForm extends ActionForm
 	/**
 	 * update
 	 *
-	 * @param   XoopsSimpleObject  &$obj
+	 * @param   SimpleObject  &$obj
 	 *
 	 * @return  void
 	**/
-	public function update(/*** XoopsSimpleObject ***/ &$obj)
+	public function update(/*** SimpleObject ***/ &$obj)
 	{
 
 	}

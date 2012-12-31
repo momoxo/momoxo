@@ -1,6 +1,10 @@
 <?php
 
-class XcoreTplsetObject extends XoopsSimpleObject
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
+class XcoreTplsetObject extends SimpleObject
 {
 	var $mModuleTemplates = array();
 	

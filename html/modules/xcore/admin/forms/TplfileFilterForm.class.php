@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 define('TPLFILE_SORT_KEY_TPL_ID', 1);
 define('TPLFILE_SORT_KEY_TPL_REFID', 2);
 define('TPLFILE_SORT_KEY_TPL_MODULE', 3);

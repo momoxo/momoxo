@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 class User_AbstractListAction extends User_Action
 {
 	var $mObjects = array();

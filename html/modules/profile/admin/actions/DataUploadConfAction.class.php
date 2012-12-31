@@ -4,6 +4,9 @@
  * @version $Id: UserDataUploadAction.class.php,v 1.1 2007/05/15 02:34:42 minahito Exp $
  */
 
+use XCore\Database\CriteriaElement;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once dirname(__FILE__)."/DataUploadAction.class.php";

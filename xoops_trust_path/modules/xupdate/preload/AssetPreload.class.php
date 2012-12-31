@@ -7,6 +7,8 @@
 
 use XCore\Kernel\Root;
 use XCore\Kernel\ActionFilter;
+use XCore\Entity\Module;
+use XCore\Entity\Block;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -109,11 +111,11 @@ class Xupdate_AssetPreloadBase extends ActionFilter
      * getModule
      *
      * @param   Xcore_AbstractModule  &$obj
-     * @param   XoopsModule  $module
+     * @param   Module  $module
      *
      * @return  void
     **/
-    public static function getModule(/*** Xcore_AbstractModule ***/ &$obj,/*** XoopsModule ***/ $module)
+    public static function getModule(/*** Xcore_AbstractModule ***/ &$obj,/*** Module ***/ $module)
     {
         if($module->getInfo('trust_dirname') == 'xupdate')
         {
@@ -126,11 +128,11 @@ class Xupdate_AssetPreloadBase extends ActionFilter
      * getBlock
      *
      * @param   Xcore_AbstractBlockProcedure  &$obj
-     * @param   XoopsBlock  $block
+     * @param   Block  $block
      *
      * @return  void
     **/
-    public static function getBlock(/*** Xcore_AbstractBlockProcedure ***/ &$obj,/*** XoopsBlock ***/ $block)
+    public static function getBlock(/*** Xcore_AbstractBlockProcedure ***/ &$obj,/*** Block ***/ $block)
     {
         $moduleHandler =& Xupdate_Utils::getXoopsHandler('module');
         $module =& $moduleHandler->get($block->get('mid'));

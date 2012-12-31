@@ -9,6 +9,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Utils\Utils;
+use XCore\Entity\Module;
 
 class Xcore_ModuleInstaller
 {
@@ -21,10 +22,10 @@ class Xcore_ModuleInstaller
 	var $_mForceMode = false;
 	
 	/**
-	 * @var XoopsModule
-	 * @remark [Precondition] _mKarimojiModule has to be an object.
+	 * @var Module
+	 * @remark [Precondition] _mXoopsModule has to be an object.
 	 */
-	var $_mKarimojiModule = null;
+	var $_mXoopsModule = null;
 	
 	function Xcore_ModuleInstaller()
 	{
@@ -32,14 +33,14 @@ class Xcore_ModuleInstaller
 	}
 
 	/**
-	 * Sets the current XoopsModule.
+	 * Sets the current Module.
 	 * 
 	 * @public
-	 * @param XoopsModule $xoopsModule
+	 * @param Module $xoopsModule
 	 */
-	function setCurrentXoopsModule(&$xoopsModule)
+	function setCurrentModule(&$xoopsModule)
 	{
-		$this->_mKarimojiModule =& $xoopsModule;
+		$this->_mXoopsModule =& $xoopsModule;
 	}
 	
 	/**
@@ -53,7 +54,7 @@ class Xcore_ModuleInstaller
 	
 	function _installTables()
 	{
-		Xcore_ModuleInstallUtils::installSQLAutomatically($this->_mKarimojiModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installSQLAutomatically($this->_mXoopsModule, $this->mLog);
 	}
 	
 	/**
@@ -62,7 +63,7 @@ class Xcore_ModuleInstaller
     function _installModule()
     {
 		$moduleHandler =& xoops_gethandler('module');
-		if (!$moduleHandler->insert($this->_mKarimojiModule)) {
+		if (!$moduleHandler->insert($this->_mXoopsModule)) {
 			$this->mLog->addError("*Could not install module information*");
 			return false;
 		}
@@ -72,7 +73,7 @@ class Xcore_ModuleInstaller
         //
         // Add a permission which administrators can manage.
         //
-        if ($this->_mKarimojiModule->getInfo('hasAdmin')) {
+        if ($this->_mXoopsModule->getInfo('hasAdmin')) {
             $adminPerm =& $this->_createPermission(XOOPS_GROUP_ADMIN);
             $adminPerm->setVar('gperm_name', 'module_admin');
 
@@ -84,7 +85,7 @@ class Xcore_ModuleInstaller
         //
         // Add a permission which administrators can manage. (Special for Legacy System Module)
         //
-        if ($this->_mKarimojiModule->getVar('dirname') == 'system') {
+        if ($this->_mXoopsModule->getVar('dirname') == 'system') {
 			$root = Root::getSingleton();
 			$root->mLanguageManager->loadModuleAdminMessageCatalog('system');
 
@@ -109,8 +110,8 @@ class Xcore_ModuleInstaller
             }
         }
         
-        if ($this->_mKarimojiModule->getInfo('hasMain')) {
-            $read_any = $this->_mKarimojiModule->getInfo('read_any');
+        if ($this->_mXoopsModule->getInfo('hasMain')) {
+            $read_any = $this->_mXoopsModule->getInfo('read_any');
             if ($read_any) {
                 $memberHandler =& xoops_gethandler('member');
                 $groupObjects =& $memberHandler->getGroups();
@@ -130,7 +131,7 @@ class Xcore_ModuleInstaller
                 // Add a permission which administrators can read.
                 //
                 $root = Root::getSingleton();
-                $groups = $root->mContext->mKarimojiUser->getGroups(true);
+                $groups = $root->mContext->mXoopsUser->getGroups(true);
                 foreach($groups as $mygroup) {
                     $readPerm =& $this->_createPermission($mygroup);
                     $readPerm->setVar('gperm_name', 'module_read');
@@ -156,7 +157,7 @@ class Xcore_ModuleInstaller
         $perm =& $gpermHandler->create();
 
         $perm->setVar('gperm_groupid', $group);
-        $perm->setVar('gperm_itemid', $this->_mKarimojiModule->getVar('mid'));
+        $perm->setVar('gperm_itemid', $this->_mXoopsModule->getVar('mid'));
         $perm->setVar('gperm_modid', 1);
         
         return $perm;
@@ -167,25 +168,25 @@ class Xcore_ModuleInstaller
 	 */
 	function _installTemplates()
 	{
-		Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mKarimojiModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installAllOfModuleTemplates($this->_mXoopsModule, $this->mLog);
 	}
 
     function _installBlocks()
     {
-		Xcore_ModuleInstallUtils::installAllOfBlocks($this->_mKarimojiModule, $this->mLog);
+		Xcore_ModuleInstallUtils::installAllOfBlocks($this->_mXoopsModule, $this->mLog);
     }
 
     function _installPreferences()
     {
-        Xcore_ModuleInstallUtils::installAllOfConfigs($this->_mKarimojiModule, $this->mLog);
+        Xcore_ModuleInstallUtils::installAllOfConfigs($this->_mXoopsModule, $this->mLog);
     }
     
     function _processScript()
     {
-        $installScript = trim($this->_mKarimojiModule->getInfo('onInstall'));
+        $installScript = trim($this->_mXoopsModule->getInfo('onInstall'));
         if ($installScript != false) {
-            require_once XOOPS_MODULE_PATH . "/" . $this->_mKarimojiModule->get('dirname') . "/" . $installScript;
-            $funcName = 'xoops_module_install_' . $this->_mKarimojiModule->get('dirname');
+            require_once XOOPS_MODULE_PATH . "/" . $this->_mXoopsModule->get('dirname') . "/" . $installScript;
+            $funcName = 'xoops_module_install_' . $this->_mXoopsModule->get('dirname');
 			
 			if (!preg_match("/^[a-zA-Z_][a-zA-Z0-9_]*$/", $funcName)) {
 				$this->mLog->addError(XCUbe_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
@@ -194,9 +195,9 @@ class Xcore_ModuleInstaller
 			
             if (function_exists($funcName)) {
 				// Because X2 can use reference parameter, Legacy doesn't use the following code;'
-                // if (!call_user_func($funcName, $this->_mKarimojiModule)) {
+                // if (!call_user_func($funcName, $this->_mXoopsModule)) {
 
-				$result = $funcName($this->_mKarimojiModule, new Ref($this->mLog));
+				$result = $funcName($this->_mXoopsModule, new Ref($this->mLog));
 				if (!$result) {
                     $this->mLog->addError(XCUbe_Utils::formatMessage(_AD_XCORE_ERROR_FAILED_TO_EXECUTE_CALLBACK, $funcName));
                 }
@@ -207,15 +208,15 @@ class Xcore_ModuleInstaller
 	function _processReport()
 	{
 		if (!$this->mLog->hasError()) {
-			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_INSTALLATION_MODULE_SUCCESSFUL, $this->_mKarimojiModule->get('name')));
+			$this->mLog->add(Utils::formatMessage(_AD_XCORE_MESSAGE_INSTALLATION_MODULE_SUCCESSFUL, $this->_mXoopsModule->get('name')));
 		}
 		else {
-			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_INSTALLATION_MODULE_FAILURE, $this->_mKarimojiModule->get('name')));
+			$this->mLog->addError(Utils::formatMessage(_AD_XCORE_ERROR_INSTALLATION_MODULE_FAILURE, $this->_mXoopsModule->get('name')));
 		}
 	}
 
 	/**
-	 * @todo Check whether $this->_mKarimojiObject is ready.
+	 * @todo Check whether $this->_mXoopsObject is ready.
 	 */
 	function executeInstall()
 	{

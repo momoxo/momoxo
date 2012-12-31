@@ -1,6 +1,9 @@
 <?php
 
-class XcoreImagecategoryObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
+class XcoreImagecategoryObject extends SimpleObject
 {
 	var $mImage = array();
 	var $_mImageLoadedFlag = false;

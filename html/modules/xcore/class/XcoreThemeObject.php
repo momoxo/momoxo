@@ -1,6 +1,8 @@
 <?php
 
-class XcoreThemeObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreThemeObject extends SimpleObject
 {
 	function XcoreThemeObject()
 	{

@@ -17,11 +17,12 @@
   *    This interfaces are initialized by only Xcore_Controller.
   * 
   * @see Xcore_Utils::createModule()
-  * @see XoopsModule
+  * @see Module
   */
 use XCore\Kernel\Root;
 use XCore\Kernel\RenderSystem;
 use XCore\Kernel\RenderTarget;
+use XCore\Entity\Module;
 
 class Xcore_AbstractModule
 {
@@ -35,9 +36,9 @@ class Xcore_AbstractModule
     
     /**
      * @public
-     * @brief [READ ONLY] XoopsModule
+     * @brief [READ ONLY] Module
      */
-    var $mKarimojiModule = null;
+    var $mXoopsModule = null;
     
     /**
      * @public
@@ -63,14 +64,14 @@ class Xcore_AbstractModule
     /**
      * @public
      * @brief constructor
-     * @param $module XoopsModule
+     * @param $module Module
      * @attention
      *     Basically, only Xcore_Controller and its utility functions should call the
      *     constructor.
      */
     function __construct(&$module, $loadConfig=true)
     {
-        $this->setXoopsModule($module);
+        $this->setModule($module);
         
         if ($loadConfig && ($module->get('hasconfig') == 1 || $module->get('hascomments') == 1 || $module->get('hasnotification') == 1)) {
             $handler =& xoops_gethandler('config');
@@ -117,23 +118,23 @@ class Xcore_AbstractModule
 
     /**
      * @public
-     * @brief Binds an instance of XoopsModule to the property.
-     * @param $xoopsModule XoopsModule
+     * @brief Binds an instance of Module to the property.
+     * @param $xoopsModule Module
      * @return void
      */ 
-    function setXoopsModule(&$xoopsModule)
+    function setModule(&$xoopsModule)
     {
-        $this->mKarimojiModule =& $xoopsModule;
+        $this->mXoopsModule =& $xoopsModule;
     }
     
     /**
      * @public
-     * @brief Gets the binded XoopsModule instance.
-     * @return XoopsModule
+     * @brief Gets the binded Module instance.
+     * @return Module
      */
-    function &getXoopsModule()
+    function &getModule()
     {
-        return $this->mKarimojiModule;
+        return $this->mXoopsModule;
     }
     
     /**
@@ -190,7 +191,7 @@ class Xcore_AbstractModule
     {
         $this->mCacheInfo = new Xcore_ModuleCacheInformation();
         $this->mCacheInfo->mURL = xoops_getenv('REQUEST_URI');
-        $this->mCacheInfo->setModule($this->mKarimojiModule);
+        $this->mCacheInfo->setModule($this->mXoopsModule);
     }
     
     /**
@@ -222,8 +223,8 @@ class Xcore_AbstractModule
         $renderSystem =& $this->getRenderSystem();
         
         $this->mRender =& $renderSystem->createRenderTarget('main');
-        if ($this->mKarimojiModule != null) {
-            $this->mRender->setAttribute('xcore_module', $this->mKarimojiModule->get('dirname'));
+        if ($this->mXoopsModule != null) {
+            $this->mRender->setAttribute('xcore_module', $this->mXoopsModule->get('dirname'));
         }
     }
     
@@ -264,11 +265,11 @@ class Xcore_AbstractModule
      */
     function isActive()
     {
-        if (!is_object($this->mKarimojiModule)) {  //< FIXME
+        if (!is_object($this->mXoopsModule)) {  //< FIXME
             return false;
         }
         
-        return $this->mKarimojiModule->get('isactive') ? true : false;
+        return $this->mXoopsModule->get('isactive') ? true : false;
     }
     
     /**
@@ -285,7 +286,7 @@ class Xcore_AbstractModule
         
         $root = Root::getSingleton();
         
-        return is_object($this->mKarimojiModule) && !empty($root->mContext->mKarimojiConfig['module_cache'][$this->mKarimojiModule->get('mid')]);
+        return is_object($this->mXoopsModule) && !empty($root->mContext->mXoopsConfig['module_cache'][$this->mXoopsModule->get('mid')]);
     }
     
     /**
@@ -297,7 +298,7 @@ class Xcore_AbstractModule
     {
         $this->mCacheInfo = new Xcore_ModuleCacheInformation();
         $this->mCacheInfo->mURL = xoops_getenv('REQUEST_URI');
-        $this->mCacheInfo->setModule($this->mKarimojiModule);
+        $this->mCacheInfo->setModule($this->mXoopsModule);
         
         return $this->mCacheInfo;
     }

@@ -3,7 +3,9 @@
 /**
  * Abstract Category Class
 **/
-abstract class Xcore_AbstractCategoryObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+abstract class Xcore_AbstractCategoryObject extends SimpleObject
 {
 	const PRIMARY = 'cat_id';
 	const DATANAME = 'cat';

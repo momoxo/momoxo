@@ -41,8 +41,8 @@
  * @subsection process Install Process
  * 
  * \li Gets a instance of the update installer class through Xcore_ModuleUpdateAction::_getInstaller().
- * \li Sets the current XoopsModule to the instance.
- * \li Builds the target XoopsModule from xoops_version, and sets it to the instance.
+ * \li Sets the current Module to the instance.
+ * \li Builds the target Module from xoops_version, and sets it to the instance.
  * \li Sets a value indicating whether an administrator hopes the force-mode, to the instance.
  * \li Calls executeUpgrade().
  * 
@@ -53,6 +53,7 @@
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
 use XCore\Kernel\Delegate;
+use XCore\Entity\Module;
 
 class Xcore_ModuleUpdateAction extends Xcore_Action
 {
@@ -66,7 +67,7 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	 */
 	var $mUpdateFail = null;
 	
-	var $mKarimojiModule = null;
+	var $mXoopsModule = null;
 	
 	var $mInstaller = null;
 	
@@ -86,9 +87,9 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 		$dirname = $controller->mRoot->mContext->mRequest->getRequest('dirname');
 		
 		$handler =& xoops_gethandler('module');
-		$this->mKarimojiModule =& $handler->getByDirname($dirname);
+		$this->mXoopsModule =& $handler->getByDirname($dirname);
 		
-		if (!is_object($this->mKarimojiModule)) {
+		if (!is_object($this->mXoopsModule)) {
 			return false;
 		}
 		
@@ -99,15 +100,15 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 		//
 		// Set the current object.
 		//
-		$this->mInstaller->setCurrentXoopsModule($this->mKarimojiModule);
+		$this->mInstaller->setCurrentModule($this->mXoopsModule);
 		
 		//
 		// Load the manifesto, and set it as the target object.
 		//
-        $name = $this->mKarimojiModule->get('name');
-		$this->mKarimojiModule->loadInfoAsVar($dirname);
-		$this->mKarimojiModule->set('name', $name);
-		$this->mInstaller->setTargetXoopsModule($this->mKarimojiModule);
+        $name = $this->mXoopsModule->get('name');
+		$this->mXoopsModule->loadInfoAsVar($dirname);
+		$this->mXoopsModule->set('name', $name);
+		$this->mInstaller->setTargetModule($this->mXoopsModule);
 		
 		return true;
 	}
@@ -122,18 +123,18 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	 * Creates a instance of the upgrade installer to mInstaller. And returns
 	 * it.
 	 * 
-	 * The precondition is the existence of mKarimojiModule.
+	 * The precondition is the existence of mXoopsModule.
 	 */
 	function &_getInstaller()
 	{
-		$dirname = $this->mKarimojiModule->get('dirname');
+		$dirname = $this->mXoopsModule->get('dirname');
 		$installer =& Xcore_ModuleInstallUtils::createUpdater($dirname);
 		return $installer;
 	}
 	
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm->load($this->mKarimojiModule);
+		$this->mActionForm->load($this->mXoopsModule);
 		
 		return XCORE_FRAME_VIEW_INPUT;
 	}
@@ -160,16 +161,16 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			$this->mUpdateSuccess->call(new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mKarimojiModule->get('dirname') . '.Success'), new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			$this->mUpdateSuccess->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		else {
-			$this->mUpdateFail->call(new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mKarimojiModule->get('dirname') . '.Fail'), new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			$this->mUpdateFail->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		
 		$renderer->setTemplateName("module_update_success.html");
-		$renderer->setAttribute('module', $this->mKarimojiModule);
+		$renderer->setAttribute('module', $this->mXoopsModule);
 		$renderer->setAttribute('log', $this->mInstaller->mLog->mMessages);
 		$renderer->setAttribute('currentVersion', round($this->mInstaller->getCurrentVersion() / 100, 2));
 		$renderer->setAttribute('targetVersion', round($this->mInstaller->getTargetPhase() / 100, 2));
@@ -180,7 +181,7 @@ class Xcore_ModuleUpdateAction extends Xcore_Action
 	function executeViewInput(&$controller, &$xoopsUser, &$renderer)
 	{
 		$renderer->setTemplateName("module_update.html");
-		$renderer->setAttribute('module', $this->mKarimojiModule);
+		$renderer->setAttribute('module', $this->mXoopsModule);
 		$renderer->setAttribute('actionForm', $this->mActionForm);
 		$renderer->setAttribute('currentVersion', round($this->mInstaller->getCurrentVersion() / 100, 2));
 		$renderer->setAttribute('targetVersion', round($this->mInstaller->getTargetPhase() / 100, 2));

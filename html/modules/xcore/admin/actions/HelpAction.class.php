@@ -16,6 +16,7 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Entity\Module;
 
 class Xcore_HelpSmarty extends Smarty
 {
@@ -25,7 +26,7 @@ class Xcore_HelpSmarty extends Smarty
 	var $mDirname = null;
 	
 	/**
-	 * @var XoopsModule
+	 * @var Module
 	 */
 	var $mModuleObject = null;
 	
@@ -71,7 +72,7 @@ function Xcore_modifier_helpurl($file, $dirname = null )
 	$dirname = $root->mContext->getAttribute('xcore_help_dirname');
 
 	if ( $dirname == null ) {
-		$moduleObject =& $root->mContext->mKarimojiModule;
+		$moduleObject =& $root->mContext->mXoopsModule;
 		$dirname = $moduleObject->get('dirname');
 	}
 

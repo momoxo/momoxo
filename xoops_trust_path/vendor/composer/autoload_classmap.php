@@ -4,12 +4,67 @@
 
 use XCore\Utils\IniHandler;
 use XCore\Kernel\Theme;
+use XCore\Repository\ConfigCategoryRepository;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Repository\ImagecategoryRepository;
+use XCore\Repository\NotificationRepository;
+use XCore\Repository\ConfigOptionRepository;
+use XCore\Repository\SubjecticonRepository;
+use XCore\Repository\PrivmessageRepository;
+use XCore\Repository\ImagesetimgRepository;
+use XCore\Repository\MembershipRepository;
+use XCore\Repository\ConfigItemRepository;
+use XCore\Repository\GroupPermRepository;
+use XCore\Repository\CachetimeRepository;
+use XCore\Repository\TimezoneRepository;
+use XCore\Repository\ImagesetRepository;
+use XCore\Repository\TplfileRepository;
+use XCore\Repository\SessionRepository;
+use XCore\Repository\CommentRepository;
+use XCore\Repository\TplsetRepository;
+use XCore\Repository\OnlineRepository;
+use XCore\Repository\ObjectRepository;
+use XCore\Repository\ModuleRepository;
+use XCore\Repository\MemberRepository;
+use XCore\Repository\ConfigRepository;
+use XCore\Repository\AvatarRepository;
+use XCore\Repository\ImageRepository;
+use XCore\Repository\GroupRepository;
+use XCore\Repository\BlockRepository;
+use XCore\Database\CriteriaElement;
+use XCore\Entity\ConfigCategory;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\Imagecategory;
+use XCore\Entity\SimpleObject;
+use XCore\Entity\Notification;
+use XCore\Entity\ConfigOption;
+use XCore\Entity\Subjecticon;
+use XCore\Entity\Privmessage;
+use XCore\Entity\Imagesetimg;
+use XCore\Entity\Membership;
+use XCore\Entity\ConfigItem;
+use XCore\Entity\GuestUser;
+use XCore\Entity\GroupPerm;
+use XCore\Entity\Cachetime;
+use XCore\Database\Criteria;
+use XCore\Entity\Timezone;
+use XCore\Entity\Imageset;
+use XCore\Entity\Tplfile;
+use XCore\Entity\Comment;
+use XCore\Entity\Tplset;
+use XCore\Entity\Object;
+use XCore\Entity\Module;
+use XCore\Entity\Avatar;
+use XCore\Entity\Image;
+use XCore\Entity\Group;
+use XCore\Entity\Block;
+use XCore\Utils\TextSanitizer;
 
 $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AbstractXoopsObject' => $baseDir . '/../html/modules/xcore/kernel/AbstractXoopsObject.php',
+    'AbstractObject' => $baseDir . '/../html/modules/xcore/kernel/AbstractObject.php',
     'Archive_Zip' => $baseDir . '/../html/class/Archive_Zip.php',
     'BloggerApi' => $baseDir . '/../html/class/BloggerApi.php',
     'Config_File' => $baseDir . '/vendor/smarty/Config_File.class.php',
@@ -243,7 +298,7 @@ return array(
     'Lenum_WorkflowStatus' => $baseDir . '/../html/modules/xcore/class/Lenum_WorkflowStatus.php',
     'MetaWeblogApi' => $baseDir . '/../html/class/MetaWeblogApi.php',
     'MovableTypeApi' => $baseDir . '/../html/class/MovableTypeApi.php',
-    'MyTextSanitizer' => $baseDir . '/../html/class/MyTextSanitizer.php',
+    'TextSanitizer' => $baseDir . '/../html/class/TextSanitizer.php',
     'PHPMailer' => $baseDir . '/vendor/phpmailer/class.phpmailer.php',
     'POP3' => $baseDir . '/vendor/phpmailer/class.pop3.php',
     'RpcArrayHandler' => $baseDir . '/../html/class/RpcArrayHandler.php',
@@ -643,23 +698,23 @@ return array(
     'Xcore_iWorkflowDelegate' => $baseDir . '/../html/modules/xcore/class/Xcore_iWorkflowDelegate.php',
     'XmlTagHandler' => $baseDir . '/../html/class/XmlTagHandler.php',
     'XoopsApi' => $baseDir . '/../html/class/XoopsApi.php',
-    'XoopsAvatar' => $baseDir . '/../html/modules/xcore/kernel/XoopsAvatar.php',
-    'XoopsAvatarHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsAvatarHandler.php',
-    'XoopsBlock' => $baseDir . '/../html/modules/xcore/kernel/XoopsBlock.php',
-    'XoopsBlockHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsBlockHandler.php',
-    'XoopsCachetime' => $baseDir . '/../html/modules/xcore/kernel/XoopsCachetime.php',
-    'XoopsCachetimeHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsCachetimeHandler.php',
-    'XoopsComment' => $baseDir . '/../html/modules/xcore/kernel/XoopsComment.php',
-    'XoopsCommentHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsCommentHandler.php',
-    'XoopsCommentRenderer' => $baseDir . '/../html/class/XoopsCommentRenderer.php',
-    'XoopsComments' => $baseDir . '/../html/class/XoopsComments.php',
-    'XoopsConfigCategory' => $baseDir . '/../html/modules/xcore/kernel/XoopsConfigCategory.php',
-    'XoopsConfigCategoryHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsConfigCategoryHandler.php',
-    'XoopsConfigHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsConfigHandler.php',
-    'XoopsConfigItem' => $baseDir . '/../html/modules/xcore/kernel/XoopsConfigItem.php',
-    'XoopsConfigItemHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsConfigItemHandler.php',
-    'XoopsConfigOption' => $baseDir . '/../html/modules/xcore/kernel/XoopsConfigOption.php',
-    'XoopsConfigOptionHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsConfigOptionHandler.php',
+    'Avatar' => $baseDir . '/../html/modules/xcore/kernel/Avatar.php',
+    'AvatarRepository' => $baseDir . '/../html/modules/xcore/kernel/AvatarRepository.php',
+    'Block' => $baseDir . '/../html/modules/xcore/kernel/Block.php',
+    'BlockRepository' => $baseDir . '/../html/modules/xcore/kernel/BlockRepository.php',
+    'Cachetime' => $baseDir . '/../html/modules/xcore/kernel/Cachetime.php',
+    'CachetimeRepository' => $baseDir . '/../html/modules/xcore/kernel/CachetimeRepository.php',
+    'Comment' => $baseDir . '/../html/modules/xcore/kernel/Comment.php',
+    'CommentRepository' => $baseDir . '/../html/modules/xcore/kernel/CommentRepository.php',
+    'CommentRenderer' => $baseDir . '/../html/class/CommentRenderer.php',
+    'Comments' => $baseDir . '/../html/class/Comments.php',
+    'ConfigCategory' => $baseDir . '/../html/modules/xcore/kernel/ConfigCategory.php',
+    'ConfigCategoryRepository' => $baseDir . '/../html/modules/xcore/kernel/ConfigCategoryRepository.php',
+    'ConfigRepository' => $baseDir . '/../html/modules/xcore/kernel/ConfigRepository.php',
+    'ConfigItem' => $baseDir . '/../html/modules/xcore/kernel/ConfigItem.php',
+    'ConfigItemRepository' => $baseDir . '/../html/modules/xcore/kernel/ConfigItemRepository.php',
+    'ConfigOption' => $baseDir . '/../html/modules/xcore/kernel/ConfigOption.php',
+    'ConfigOptionRepository' => $baseDir . '/../html/modules/xcore/kernel/ConfigOptionRepository.php',
     'XoopsDatabase' => $baseDir . '/../html/class/XoopsDatabase.php',
     'XoopsDatabaseFactory' => $baseDir . '/../html/class/XoopsDatabaseFactory.php',
     'XoopsDownloader' => $baseDir . '/../html/class/XoopsDownloader.php',
@@ -691,67 +746,67 @@ return array(
     'XoopsFormTextArea' => $baseDir . '/../html/class/XoopsFormTextArea.php',
     'XoopsFormTextDateSelect' => $baseDir . '/../html/class/XoopsFormTextDateSelect.php',
     'XoopsFormToken' => $baseDir . '/../html/class/XoopsFormToken.php',
-    'XoopsGroup' => $baseDir . '/../html/modules/xcore/kernel/XoopsGroup.php',
-    'XoopsGroupFormCheckBox' => $baseDir . '/../html/class/XoopsGroupFormCheckBox.php',
-    'XoopsGroupHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsGroupHandler.php',
-    'XoopsGroupPerm' => $baseDir . '/../html/modules/xcore/kernel/XoopsGroupPerm.php',
-    'XoopsGroupPermForm' => $baseDir . '/../html/class/XoopsGroupPermForm.php',
-    'XoopsGroupPermHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsGroupPermHandler.php',
-    'XoopsGuestUser' => $baseDir . '/../html/modules/xcore/kernel/XoopsGuestUser.php',
-    'XoopsImage' => $baseDir . '/../html/modules/xcore/kernel/XoopsImage.php',
-    'XoopsImageHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsImageHandler.php',
-    'XoopsImagecategory' => $baseDir . '/../html/modules/xcore/kernel/XoopsImagecategory.php',
-    'XoopsImagecategoryHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsImagecategoryHandler.php',
-    'XoopsImageset' => $baseDir . '/../html/modules/xcore/kernel/XoopsImageset.php',
-    'XoopsImagesetHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsImagesetHandler.php',
-    'XoopsImagesetimg' => $baseDir . '/../html/modules/xcore/kernel/XoopsImagesetimg.php',
-    'XoopsImagesetimgHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsImagesetimgHandler.php',
+    'Group' => $baseDir . '/../html/modules/xcore/kernel/Group.php',
+    'GroupFormCheckBox' => $baseDir . '/../html/class/GroupFormCheckBox.php',
+    'GroupRepository' => $baseDir . '/../html/modules/xcore/kernel/GroupRepository.php',
+    'GroupPerm' => $baseDir . '/../html/modules/xcore/kernel/GroupPerm.php',
+    'GroupPermForm' => $baseDir . '/../html/class/GroupPermForm.php',
+    'GroupPermRepository' => $baseDir . '/../html/modules/xcore/kernel/GroupPermRepository.php',
+    'GuestUser' => $baseDir . '/../html/modules/xcore/kernel/GuestUser.php',
+    'Image' => $baseDir . '/../html/modules/xcore/kernel/Image.php',
+    'ImageRepository' => $baseDir . '/../html/modules/xcore/kernel/ImageRepository.php',
+    'Imagecategory' => $baseDir . '/../html/modules/xcore/kernel/Imagecategory.php',
+    'ImagecategoryRepository' => $baseDir . '/../html/modules/xcore/kernel/ImagecategoryRepository.php',
+    'Imageset' => $baseDir . '/../html/modules/xcore/kernel/Imageset.php',
+    'ImagesetRepository' => $baseDir . '/../html/modules/xcore/kernel/ImagesetRepository.php',
+    'Imagesetimg' => $baseDir . '/../html/modules/xcore/kernel/Imagesetimg.php',
+    'ImagesetimgRepository' => $baseDir . '/../html/modules/xcore/kernel/ImagesetimgRepository.php',
     'XoopsLists' => $baseDir . '/../html/class/XoopsLists.php',
     'XoopsLogger' => $baseDir . '/../html/class/XoopsLogger.php',
     'XoopsMailer' => $baseDir . '/../html/class/XoopsMailer.php',
     'XoopsMediaUploader' => $baseDir . '/../html/class/XoopsMediaUploader.php',
-    'XoopsMemberHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsMemberHandler.php',
-    'XoopsMembership' => $baseDir . '/../html/modules/xcore/kernel/XoopsMembership.php',
-    'XoopsMembershipHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsMembershipHandler.php',
-    'XoopsModule' => $baseDir . '/../html/modules/xcore/kernel/XoopsModule.php',
-    'XoopsModuleHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsModuleHandler.php',
+    'MemberRepository' => $baseDir . '/../html/modules/xcore/kernel/MemberRepository.php',
+    'Membership' => $baseDir . '/../html/modules/xcore/kernel/Membership.php',
+    'MembershipRepository' => $baseDir . '/../html/modules/xcore/kernel/MembershipRepository.php',
+    'Module' => $baseDir . '/../html/modules/xcore/kernel/Module.php',
+    'ModuleRepository' => $baseDir . '/../html/modules/xcore/kernel/ModuleRepository.php',
     'XoopsMultiMailer' => $baseDir . '/../html/class/XoopsMultiMailer.php',
     'XoopsMultiTokenHandler' => $baseDir . '/../html/class/XoopsMultiTokenHandler.php',
     'XoopsMySQLDatabase' => $baseDir . '/../html/class/XoopsMySQLDatabase.php',
     'XoopsMySQLDatabaseProxy' => $baseDir . '/../html/class/XoopsMySQLDatabaseProxy.php',
     'XoopsMySQLDatabaseSafe' => $baseDir . '/../html/class/XoopsMySQLDatabaseSafe.php',
-    'XoopsNotification' => $baseDir . '/../html/modules/xcore/kernel/XoopsNotification.php',
-    'XoopsNotificationHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsNotificationHandler.php',
-    'XoopsObject' => $baseDir . '/../html/modules/xcore/kernel/XoopsObject.php',
-    'XoopsObjectGenericHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsObjectGenericHandler.php',
-    'XoopsObjectHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsObjectHandler.php',
-    'XoopsObjectTree' => $baseDir . '/../html/class/XoopsObjectTree.php',
-    'XoopsOnlineHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsOnlineHandler.php',
+    'Notification' => $baseDir . '/../html/modules/xcore/kernel/Notification.php',
+    'NotificationRepository' => $baseDir . '/../html/modules/xcore/kernel/NotificationRepository.php',
+    'Object' => $baseDir . '/../html/modules/xcore/kernel/Object.php',
+    'ObjectGenericRepository' => $baseDir . '/../html/modules/xcore/kernel/ObjectGenericRepository.php',
+    'ObjectRepository' => $baseDir . '/../html/modules/xcore/kernel/ObjectRepository.php',
+    'ObjectTree' => $baseDir . '/../html/class/ObjectTree.php',
+    'OnlineRepository' => $baseDir . '/../html/modules/xcore/kernel/OnlineRepository.php',
     'XoopsPageNav' => $baseDir . '/../html/class/XoopsPageNav.php',
-    'XoopsPrivmessage' => $baseDir . '/../html/modules/xcore/kernel/XoopsPrivmessage.php',
-    'XoopsPrivmessageHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsPrivmessageHandler.php',
+    'Privmessage' => $baseDir . '/../html/modules/xcore/kernel/Privmessage.php',
+    'PrivmessageRepository' => $baseDir . '/../html/modules/xcore/kernel/PrivmessageRepository.php',
     'XoopsSecurity' => $baseDir . '/../html/class/XoopsSecurity.php',
-    'XoopsSessionHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsSessionHandler.php',
+    'SessionRepository' => $baseDir . '/../html/modules/xcore/kernel/SessionRepository.php',
     'XoopsSimpleForm' => $baseDir . '/../html/class/XoopsSimpleForm.php',
-    'XoopsSimpleObject' => $baseDir . '/../html/modules/xcore/kernel/XoopsSimpleObject.php',
+    'SimpleObject' => $baseDir . '/../html/modules/xcore/kernel/SimpleObject.php',
     'XoopsSingleTokenHandler' => $baseDir . '/../html/class/XoopsSingleTokenHandler.php',
     'XoopsStory' => $baseDir . '/../html/class/XoopsStory.php',
-    'XoopsSubjecticon' => $baseDir . '/../html/modules/xcore/kernel/XoopsSubjecticon.php',
-    'XoopsSubjecticonHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsSubjecticonHandler.php',
+    'Subjecticon' => $baseDir . '/../html/modules/xcore/kernel/Subjecticon.php',
+    'SubjecticonRepository' => $baseDir . '/../html/modules/xcore/kernel/SubjecticonRepository.php',
     'XoopsTableForm' => $baseDir . '/../html/class/XoopsTableForm.php',
     'XoopsTarDownloader' => $baseDir . '/../html/class/XoopsTarDownloader.php',
     'XoopsThemeForm' => $baseDir . '/../html/class/XoopsThemeForm.php',
     'XoopsThemeSetParser' => $baseDir . '/../html/class/XoopsThemeSetParser.php',
-    'XoopsTimezone' => $baseDir . '/../html/modules/xcore/kernel/XoopsTimezone.php',
-    'XoopsTimezoneHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsTimezoneHandler.php',
+    'Timezone' => $baseDir . '/../html/modules/xcore/kernel/Timezone.php',
+    'TimezoneRepository' => $baseDir . '/../html/modules/xcore/kernel/TimezoneRepository.php',
     'XoopsToken' => $baseDir . '/../html/class/XoopsToken.php',
     'XoopsTokenHandler' => $baseDir . '/../html/class/XoopsTokenHandler.php',
     'XoopsTopic' => $baseDir . '/../html/class/XoopsTopic.php',
     'XoopsTpl' => $baseDir . '/../html/class/XoopsTpl.php',
-    'XoopsTplfile' => $baseDir . '/../html/modules/xcore/kernel/XoopsTplfile.php',
-    'XoopsTplfileHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsTplfileHandler.php',
-    'XoopsTplset' => $baseDir . '/../html/modules/xcore/kernel/XoopsTplset.php',
-    'XoopsTplsetHandler' => $baseDir . '/../html/modules/xcore/kernel/XoopsTplsetHandler.php',
+    'Tplfile' => $baseDir . '/../html/modules/xcore/kernel/Tplfile.php',
+    'TplfileRepository' => $baseDir . '/../html/modules/xcore/kernel/TplfileRepository.php',
+    'Tplset' => $baseDir . '/../html/modules/xcore/kernel/Tplset.php',
+    'TplsetRepository' => $baseDir . '/../html/modules/xcore/kernel/TplsetRepository.php',
     'XoopsTree' => $baseDir . '/../html/class/XoopsTree.php',
     'XoopsXmlRpcApi' => $baseDir . '/../html/class/XoopsXmlRpcApi.php',
     'XoopsXmlRpcArray' => $baseDir . '/../html/class/XoopsXmlRpcArray.php',

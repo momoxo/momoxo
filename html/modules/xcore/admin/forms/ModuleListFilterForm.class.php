@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 define("MODULE_SORT_KEY_MID",         1);
 define("MODULE_SORT_KEY_NAME",        2);
 define("MODULE_SORT_KEY_VERSION",     3);

@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 class Xcore_AbstractListAction extends Xcore_Action
 {
 	var $mObjects = array();

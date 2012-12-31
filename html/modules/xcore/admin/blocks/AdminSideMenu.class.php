@@ -56,7 +56,7 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 		$langMgr->loadModinfoMessageCatalog('xcore');
 		
 		$controller =& $root->mController;
-		$user =& $root->mContext->mKarimojiUser;
+		$user =& $root->mContext->mXoopsUser;
 		$groups = implode(",", $user->getGroups());
 		$cachePath = XCORE_ADMINMENU_CACHEPREFIX . md5(XOOPS_SALT . "($groups)". $langMgr->mLanguageName).'.html';
 		$render =& $this->getRenderTarget();
@@ -66,7 +66,7 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 		}
 		$render->setAttribute('xcore_module', 'xcore');
 		
-		$this->mCurrentModule =& $controller->mRoot->mContext->mKarimojiModule;
+		$this->mCurrentModule =& $controller->mRoot->mContext->mXoopsModule;
 		
 		if ($this->mCurrentModule->get('dirname') == 'xcore') {
 			if (xoops_getrequest('action') == "help") {

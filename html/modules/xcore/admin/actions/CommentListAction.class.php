@@ -1,5 +1,9 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Object;
+
 class Xcore_CommentListAction extends Xcore_AbstractListAction
 {
 	var $mCommentObjects = array();
@@ -233,7 +237,7 @@ class Xcore_CommentListAction extends Xcore_AbstractListAction
 				}
 				    // get all comments posted later within the same thread
 				$thread_comments =& $comment_handler->getThread($comment->getVar('com_rootid'), $cid);
-				$xot = new XoopsObjectTree($thread_comments, 'com_id', 'com_pid', 'com_rootid');
+				$xot = new ObjectTree($thread_comments, 'com_id', 'com_pid', 'com_rootid');
 				$child_comments =& $xot->getFirstChild($cid);
 				 // now set new parent ID for direct child comments
 				$new_pid = $comment->getVar('com_pid');

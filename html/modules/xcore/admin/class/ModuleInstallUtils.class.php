@@ -2,6 +2,10 @@
 
 use XCore\Kernel\Root;
 use XCore\Utils\Utils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Module;
+use XCore\Entity\Block;
 
 define("MODINSTALL_LOGTYPE_REPORT", "report");
 define("MODINSTALL_LOGTYPE_WARNING", "warning");
@@ -133,7 +137,7 @@ class Xcore_ModuleInstallUtils
 	 * for detail.
 	 * 
 	 * @static
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
 	 */
@@ -236,7 +240,7 @@ class Xcore_ModuleInstallUtils
 	 * static function is needed by the 2nd installer of Legacy System.
 	 * 
 	 * @static
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
 	 * @see Xcore_ModuleInstallUtils::uninstallAllOfModuleTemplates()
@@ -260,7 +264,7 @@ class Xcore_ModuleInstallUtils
 	 * static function is needed by the 2nd installer of Legacy System.
 	 * 
 	 * @static
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @param string[][] $template
 	 * @param Xcore_ModuleInstallLog $log
 	 * @return bool
@@ -324,7 +328,7 @@ class Xcore_ModuleInstallUtils
 	 * static function is needed by the 2nd installer of Legacy System.
 	 * 
 	 * @static
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @param Xcore_ModuleInstallLog $log
 	 * @param bool $defaultOnly Indicates whether this function deletes templates from all of tplsets.
 	 * @note FOR THE CUSTOM-INSTALLER
@@ -371,7 +375,7 @@ class Xcore_ModuleInstallUtils
 	 * This function gets informations about blocks from xoops_version.
 	 * 
 	 * @static
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
 	 * @see Xcore_ModuleInstallUtils::uninstallAllOfBlocks()
@@ -438,7 +442,7 @@ class Xcore_ModuleInstallUtils
 	 * This function gets informations about templates from the database.
 	 * 
 	 * @static
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @param Xcore_ModuleInstallLog $log
 	 * @return bool
 	 * 
@@ -463,10 +467,10 @@ class Xcore_ModuleInstallUtils
 	}
 	
 	/**
-	 * Create XoopsBlock object by array that is defined in xoops_version, return it.
-	 * @param $module XoopsModule
+	 * Create Block object by array that is defined in xoops_version, return it.
+	 * @param $module Module
 	 * @param $block array
-	 * @return XoopsBlock
+	 * @return Block
 	 */
 	function &createBlockByInfo(&$module, $block, $func_num)
 	{
@@ -514,8 +518,8 @@ class Xcore_ModuleInstallUtils
 	
 	/**
 	 * This function can receive both new and update.
-	 * @param $module XoopsModule
-	 * @param $blockObj XoopsBlock
+	 * @param $module Module
+	 * @param $blockObj Block
 	 * @param $block array
 	 * @return bool
 	 */
@@ -569,7 +573,7 @@ class Xcore_ModuleInstallUtils
         			}
 				} else {
 				    $root = Root::getSingleton();
-                    $groups = $root->mContext->mKarimojiUser->getGroups(true);
+                    $groups = $root->mContext->mXoopsUser->getGroups(true);
                     foreach ($groups as $mygroup) {
         				$bperm->setVar('gperm_groupid', $mygroup);
         				$bperm->setNew();
@@ -588,7 +592,7 @@ class Xcore_ModuleInstallUtils
 	 * Uninstalls a block which $block specifies. In the same time, deletes
 	 * permissions for the block.
 	 * 
-	 * @param XoopsBlock $block
+	 * @param Block $block
 	 * @param Xcore_ModuleInstallLog $log
 	 * @note FOR THE CUSTOM-INSTALLER
 	 * 
@@ -847,7 +851,7 @@ class Xcore_ModuleInstallUtils
 	/**
 	 * Delete all configs of $module.
 	 *
-	 * @param $module XoopsModule
+	 * @param $module Module
 	 */
 	function uninstallAllOfConfigs(&$module, &$log)
 	{
@@ -1171,8 +1175,8 @@ class Xcore_ModuleInstallUtils
 	/**
 	 * @private
 	 * Uninstalls the block template data specified by $block of $module.
-	 * @param XoopsBlock  $block
-	 * @param XoopsModule $module This object is must the module which has $block.
+	 * @param Block  $block
+	 * @param Module $module This object is must the module which has $block.
 	 * @param string      $tplset A name of the template set. If this is null, uninstalls
 	 *                            all templates of any template-sets. 
 	 * @param $log

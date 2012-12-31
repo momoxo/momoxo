@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractFilterForm.class.php";

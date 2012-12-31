@@ -1,6 +1,8 @@
 <?php
 
-class XcoreTplsourceObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreTplsourceObject extends SimpleObject
 {
 	function XcoreTplsourceObject()
 	{

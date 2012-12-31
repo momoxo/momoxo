@@ -7,6 +7,8 @@
 
 // Xupdate class object
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 require_once XUPDATE_TRUST_PATH .'/class/Root.class.php';
 

@@ -9,8 +9,10 @@
  * @subpackage form
  */
 use XCore\Kernel\Root;
+use XCore\Entity\GroupPerm;
+use XCore\Entity\Group;
 
-class XoopsGroupPermForm extends XoopsForm
+class GroupPermForm extends XoopsForm
 {
     /**
      * Module ID
@@ -40,7 +42,7 @@ class XoopsGroupPermForm extends XoopsForm
     /**
      * Constructor
      */
-    function XoopsGroupPermForm($title, $modid, $permname, $permdesc, $url = "")
+    function GroupPermForm($title, $modid, $permname, $permdesc, $url = "")
     {
         $this->XoopsForm($title, 'groupperm_form', XOOPS_URL . '/modules/xcore/include/groupperm.php', 'post');
         $this->_modid = intval($modid);
@@ -110,7 +112,7 @@ class XoopsGroupPermForm extends XoopsForm
         foreach (array_keys($glist) as $i) {
             // get selected item id(s) for each group
             $selected = $gperm_handler->getItemIds($this->_permName, $i, $this->_modid);
-            $ele = new XoopsGroupFormCheckBox($glist[$i], 'perms[' . $this->_permName . ']', $i, $selected);
+            $ele = new GroupFormCheckBox($glist[$i], 'perms[' . $this->_permName . ']', $i, $selected);
             $ele->setOptionTree($this->_itemTree);
             $this->addElement($ele);
             unset($ele);

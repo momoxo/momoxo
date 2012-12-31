@@ -1,7 +1,9 @@
 <?php
 
+use XCore\Utils\TextSanitizer;
+
 require_once dirname(dirname(__FILE__)).'/class/gtickets.php' ;
-$myts =& MyTextSanitizer::getInstance() ;
+$myts =& TextSanitizer::getInstance() ;
 $db =& Database::getInstance() ;
 
 // GET vars

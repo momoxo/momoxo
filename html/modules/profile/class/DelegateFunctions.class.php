@@ -6,6 +6,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
+use XCore\Entity\SimpleObject;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -41,7 +42,7 @@ class Profile_Delegate
     /**
      * getProfile
      *
-     * @param XoopsSimpleObject &$profile
+     * @param SimpleObject &$profile
      * @param int       $uid    user id
      *
      * @return  void

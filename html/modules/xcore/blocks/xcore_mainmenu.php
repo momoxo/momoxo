@@ -20,11 +20,13 @@
 // ------------------------------------------------------------------------- //
 
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 function b_xcore_mainmenu_show( $options ) {
     $root = Root::getSingleton();
-    $xoopsModule =& $root->mContext->mKarimojiModule;
-    $xoopsUser =& $root->mController->mRoot->mContext->mKarimojiUser;
+    $xoopsModule =& $root->mContext->mXoopsModule;
+    $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
     
     $block = array();
 	$block['_display_'] = true;

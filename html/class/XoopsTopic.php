@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Utils\TextSanitizer;
+
 class XoopsTopic
 {
 	var $table;
@@ -61,7 +63,7 @@ class XoopsTopic
 
 	function store()
 	{
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		$title = "";
 		$imgurl = "";
 		if ( isset($this->topic_title) && $this->topic_title != "" ) {
@@ -171,7 +173,7 @@ class XoopsTopic
 
 	function topic_title($format="S")
 	{
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		switch($format){
 			case "S":
 				$title = $myts->makeTboxData4Show($this->topic_title);
@@ -191,7 +193,7 @@ class XoopsTopic
 
 	function topic_imgurl($format="S")
 	{
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		switch($format){
 			case "S":
 				$imgurl= $myts->makeTboxData4Show($this->topic_imgurl);
@@ -286,7 +288,7 @@ class XoopsTopic
 	{
 		$result = $this->db->query('SELECT topic_id, topic_pid, topic_title FROM '.$this->table);
 		$ret = array();
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		while ($myrow = $this->db->fetchArray($result)) {
 			$ret[$myrow['topic_id']] = array('title' => $myts->htmlSpecialChars($myrow['topic_title']), 'pid' => $myrow['topic_pid']);
 		}

@@ -15,6 +15,8 @@ use XCore\Property\IntProperty;
 use XCore\Property\StringProperty;
 use XCore\Property\TextProperty;
 use XCore\Utils\Utils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 class User_UserAdminEditForm extends ActionForm
 {

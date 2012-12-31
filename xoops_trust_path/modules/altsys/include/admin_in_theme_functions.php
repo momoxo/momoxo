@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 function altsys_admin_in_theme( $s )
 {
 	global $xoops_admin_contents ;

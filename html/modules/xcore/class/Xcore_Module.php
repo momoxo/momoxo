@@ -5,9 +5,9 @@ use XCore\Kernel\Delegate;
 
 class Xcore_Module extends Xcore_ModuleAdapter
 {
-	function Xcore_Module(&$xoopsModule)
+	function __construct(&$xoopsModule)
 	{
-		parent::Xcore_ModuleAdapter($xoopsModule);
+		parent::__construct($xoopsModule);
 		$this->mGetAdminMenu =new Delegate();
 		$this->mGetAdminMenu->register('Xcore_Module.getAdminMenu');
 	}

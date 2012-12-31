@@ -15,7 +15,7 @@ function smarty_function_message_suggestlist($params, &$smarty)
   $db = $root->mController->getDB();
   
   $sql = "SELECT `uname` FROM `".$db->prefix('users')."` ";
-  $sql.= "WHERE `uid` <> ".$root->mContext->mKarimojiUser->get('uid'). " ";
+  $sql.= "WHERE `uid` <> ".$root->mContext->mXoopsUser->get('uid'). " ";
   $sql.= "ORDER BY `uname`";
   $result = $db->query($sql);
   $name = array();

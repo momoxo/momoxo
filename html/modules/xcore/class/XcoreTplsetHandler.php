@@ -1,6 +1,9 @@
 <?php
 
-class XcoreTplsetHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\Criteria;
+
+class XcoreTplsetHandler extends ObjectGenericRepository
 {
 	var $mTable = "tplset";
 	var $mPrimary = "tplset_id";

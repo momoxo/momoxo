@@ -1,6 +1,8 @@
 <?php
 
-class XcoreBlockctypeHandler extends XoopsObjectHandler
+use XCore\Repository\ObjectRepository;
+
+class XcoreBlockctypeHandler extends ObjectRepository
 {
 	var $_mResults = array();
 	

@@ -6,6 +6,8 @@
 **/
 
 use XCore\Utils\Utils;
+use XCore\Entity\GroupPerm;
+use XCore\Entity\Module;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -23,7 +25,7 @@ class Xupdate_Installer
 
     private /*** bool ***/ $_mForceMode = false;
 
-    private /*** XoopsModule ***/ $_mKarimojiModule = null;
+    private /*** Module ***/ $_mXoopsModule = null;
 
     /**
      * __construct
@@ -38,16 +40,16 @@ class Xupdate_Installer
     }
 
     /**
-     * setCurrentXoopsModule
+     * setCurrentModule
      * 
-     * @param   XoopsModule  &$xoopsModule
+     * @param   Module  &$xoopsModule
      * 
      * @return  void
     **/
-    public function setCurrentXoopsModule(/*** XoopsModule ***/ &$xoopsModule)
+    public function setCurrentModule(/*** Module ***/ &$xoopsModule)
     {
-        $this->_mKarimojiModule =& $xoopsModule;
-        $this->_mKarimojiModule->setVar('weight', 0);
+        $this->_mXoopsModule =& $xoopsModule;
+        $this->_mXoopsModule->setVar('weight', 0);
     }
 
     /**
@@ -72,7 +74,7 @@ class Xupdate_Installer
     private function _installTables()
     {
         return Xupdate_InstallUtils::installSQLAutomatically(
-            $this->_mKarimojiModule,
+            $this->_mXoopsModule,
             $this->mLog
         );
     }
@@ -87,7 +89,7 @@ class Xupdate_Installer
     private function _installModule()
     {
         $moduleHandler =& Xupdate_Utils::getXoopsHandler('module');
-        if(!$moduleHandler->insert($this->_mKarimojiModule))
+        if(!$moduleHandler->insert($this->_mXoopsModule))
         {
             $this->mLog->addError(_MI_XUPDATE_INSTALL_ERROR_MODULE_INSTALLED);
             return false;
@@ -95,7 +97,7 @@ class Xupdate_Installer
     
         $gpermHandler =& Xupdate_Utils::getXoopsHandler('groupperm');
     
-        if($this->_mKarimojiModule->getInfo('hasAdmin'))
+        if($this->_mXoopsModule->getInfo('hasAdmin'))
         {
             $adminPerm =& $this->_createPermission(XOOPS_GROUP_ADMIN);
             $adminPerm->setVar('gperm_name','module_admin');
@@ -105,9 +107,9 @@ class Xupdate_Installer
             }
         }
     
-        if($this->_mKarimojiModule->getInfo('hasMain'))
+        if($this->_mXoopsModule->getInfo('hasMain'))
         {
-            if($this->_mKarimojiModule->getInfo('read_any'))
+            if($this->_mXoopsModule->getInfo('read_any'))
             {
                 $memberHandler =& Xupdate_Utils::getXoopsHandler('member');
                 $groupObjects =& $memberHandler->getGroups();
@@ -143,14 +145,14 @@ class Xupdate_Installer
      * 
      * @param   int  $group
      * 
-     * @return  XoopsGroupPerm
+     * @return  GroupPerm
     **/
     private function &_createPermission(/*** int ***/ $group)
     {
         $gpermHandler =& Xupdate_Utils::getXoopsHandler('groupperm');
         $perm =& $gpermHandler->create();
         $perm->setVar('gperm_groupid',$group);
-        $perm->setVar('gperm_itemid',$this->_mKarimojiModule->getVar('mid'));
+        $perm->setVar('gperm_itemid',$this->_mXoopsModule->getVar('mid'));
         $perm->setVar('gperm_modid',1);
     
         return $perm;
@@ -166,7 +168,7 @@ class Xupdate_Installer
     private function _installTemplates()
     {
         Xupdate_InstallUtils::installAllOfModuleTemplates(
-            $this->_mKarimojiModule,
+            $this->_mXoopsModule,
             $this->mLog
         );
     }
@@ -181,7 +183,7 @@ class Xupdate_Installer
     private function _installBlocks()
     {
         Xupdate_InstallUtils::installAllOfBlocks(
-            $this->_mKarimojiModule,
+            $this->_mXoopsModule,
             $this->mLog
         );
     }
@@ -196,7 +198,7 @@ class Xupdate_Installer
     private function _installPreferences()
     {
         Xupdate_InstallUtils::installAllOfConfigs(
-            $this->_mKarimojiModule,
+            $this->_mXoopsModule,
             $this->mLog
         );
     }
@@ -215,16 +217,16 @@ class Xupdate_Installer
             $this->mLog->add(
                 Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_MODULE_INSTALLED,
-                    $this->_mKarimojiModule->getInfo('name')
+                    $this->_mXoopsModule->getInfo('name')
                 )
             );
         }
-        else if(is_object($this->_mKarimojiModule))
+        else if(is_object($this->_mXoopsModule))
         {
             $this->mLog->addError(
                 Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_INSTALLED,
-                    $this->_mKarimojiModule->getInfo('name')
+                    $this->_mXoopsModule->getInfo('name')
                 )
             );
         }

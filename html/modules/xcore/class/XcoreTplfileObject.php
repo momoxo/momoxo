@@ -1,6 +1,10 @@
 <?php
 
-class XcoreTplfileObject extends XoopsSimpleObject
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
+class XcoreTplfileObject extends SimpleObject
 {
 	/**
 	 * @access public

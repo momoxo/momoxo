@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_TplsetListAction extends Xcore_AbstractListAction
 {
 	var $mActionForm = null;

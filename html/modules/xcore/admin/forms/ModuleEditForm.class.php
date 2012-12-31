@@ -89,7 +89,7 @@ class Xcore_ModuleEditForm extends ActionForm
 		$this->set('weight', $obj->get('weight'));
 
 		$root = Root::getSingleton();
-		$module_cache = !empty($root->mContext->mKarimojiConfig['module_cache'][$obj->get('mid')]) ? $root->mContext->mKarimojiConfig['module_cache'][$obj->get('mid')]: 0;
+		$module_cache = !empty($root->mContext->mXoopsConfig['module_cache'][$obj->get('mid')]) ? $root->mContext->mXoopsConfig['module_cache'][$obj->get('mid')]: 0;
 		$this->set('module_cache', $module_cache);
 	}
 

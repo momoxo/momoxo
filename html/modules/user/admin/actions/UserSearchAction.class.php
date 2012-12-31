@@ -4,6 +4,8 @@
  * @version $Id: UserSearchAction.class.php,v 1.1 2007/05/15 02:34:41 minahito Exp $
  */
 
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/user/admin/forms/UserSearchForm.class.php";

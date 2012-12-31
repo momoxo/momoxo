@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_ModuleEditAction extends Xcore_AbstractEditAction
 {
 

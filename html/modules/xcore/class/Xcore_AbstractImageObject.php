@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Entity\SimpleObject;
 
-abstract class Xcore_AbstractImageObject extends XoopsSimpleObject
+abstract class Xcore_AbstractImageObject extends SimpleObject
 {
 	const IMAGE_TAG = '<img src="%s" width="%d" height="%d" alt="%s" />';
 	const SWF_TAG = '<object data="%s" type="application/x-shockwave-flash" width="%d" height="%d"><param name="movie" value="%s" /><param name=loop value=false>

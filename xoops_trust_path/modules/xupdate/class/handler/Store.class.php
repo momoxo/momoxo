@@ -5,6 +5,9 @@
  * @version $Id$
 **/
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
 	exit;
@@ -13,7 +16,7 @@ if(!defined('XOOPS_ROOT_PATH'))
 /**
  * Xupdate_StoreObject
 **/
-class Xupdate_StoreObject extends XoopsSimpleObject
+class Xupdate_StoreObject extends SimpleObject
 {
 	/**
 	 * __construct
@@ -38,7 +41,7 @@ class Xupdate_StoreObject extends XoopsSimpleObject
 /**
  * Xupdate_StoreHandler
 **/
-class Xupdate_StoreHandler extends XoopsObjectGenericHandler
+class Xupdate_StoreHandler extends ObjectGenericRepository
 {
 	public /*** string ***/ $mTable = '{dirname}_store';
 
@@ -59,7 +62,7 @@ class Xupdate_StoreHandler extends XoopsObjectGenericHandler
 	public function __construct(/*** XoopsDatabase ***/ &$db,/*** string ***/ $dirname)
 	{
 		$this->mTable = strtr($this->mTable,array('{dirname}' => $dirname));
-		parent::XoopsObjectGenericHandler($db);
+		parent::ObjectGenericRepository($db);
 		$configHandler = & xoops_gethandler('config');
 		$module_config = $configHandler->getConfigsByDirname($dirname);
 		$this->cacheCheckFile = XOOPS_TRUST_PATH . '/' . trim($module_config['temp_path'], '/') . '/' . rawurlencode(substr(XOOPS_URL, 7)).'_cacheCheck.ini.php';

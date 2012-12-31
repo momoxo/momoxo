@@ -1,6 +1,7 @@
 <?php
 
 use XCore\FormFile\FormFile;
+use XCore\Database\Criteria;
 
 class Xcore_TplfileListAction extends Xcore_AbstractListAction
 {

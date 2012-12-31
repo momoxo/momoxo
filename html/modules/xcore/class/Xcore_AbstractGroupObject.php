@@ -3,7 +3,9 @@
 /**
  * Xcore_AbstractGroupObject
 **/
-abstract class Xcore_AbstractGroupObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+abstract class Xcore_AbstractGroupObject extends SimpleObject
 {
 	const PRIMARY = 'group_id';
 	const DATANAME = 'group';

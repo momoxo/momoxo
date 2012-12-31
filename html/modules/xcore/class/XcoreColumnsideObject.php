@@ -1,6 +1,8 @@
 <?php
 
-class XcoreColumnsideObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreColumnsideObject extends SimpleObject
 {
 	function XcoreColumnsideObject()
 	{

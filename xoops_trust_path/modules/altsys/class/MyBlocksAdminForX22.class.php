@@ -1,5 +1,10 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\GroupPerm;
+use XCore\Database\Criteria;
+use XCore\Utils\TextSanitizer;
+
 require_once dirname(__FILE__).'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX22 extends MyBlocksAdmin {
@@ -33,7 +38,7 @@ function list_blocks( $target_mid , $target_dirname )
 {
 	global $xoopsGTicket ;
 
-	$myts =& MyTextSanitizer::getInstance() ;
+	$myts =& TextSanitizer::getInstance() ;
 
 	// main query
 	$db = Database::getInstance();
@@ -281,7 +286,7 @@ function list_groups( $target_mid , $target_dirname , $target_mname )
 		$item_list[ $iid ] = $title ;
 	}
 
-	$form = new MyXoopsGroupPermForm( _MD_A_MYBLOCKSADMIN_PERMFORM , 1 , 'block_read' , '' ) ;
+	$form = new MyGroupPermForm( _MD_A_MYBLOCKSADMIN_PERMFORM , 1 , 'block_read' , '' ) ;
 	// skip system (TODO)
 	if( $target_mid > 1 ) {
 		$form->addAppendix( 'module_admin' , $target_mid , $target_mname . ' ' . _MD_A_MYBLOCKSADMIN_PERM_MADMIN ) ;

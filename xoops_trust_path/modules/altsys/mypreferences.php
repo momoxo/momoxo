@@ -5,6 +5,9 @@
 //                     GIJOE <http://www.peak.ne.jp/>                        //
 // ------------------------------------------------------------------------- //
 
+use XCore\Database\Criteria;
+use XCore\Utils\TextSanitizer;
+
 require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
 include_once dirname(__FILE__).'/include/gtickets.php' ;
 include_once dirname(__FILE__).'/include/altsys_functions.php' ;
@@ -17,7 +20,7 @@ if( ! is_object( $xoopsUser ) || ! is_object( $xoopsModule ) || ! $xoopsUser->is
 
 // initials
 $db =& Database::getInstance();
-$myts =& MyTextSanitizer::getInstance() ;
+$myts =& TextSanitizer::getInstance() ;
 
 // language file
 altsys_include_language_file( 'mypreferences' ) ;
@@ -75,7 +78,7 @@ if ($op == 'showmod') {
 		$title = '' ; // GIJ
 		switch ($config[$i]->getVar('conf_formtype')) {
 		case 'textarea':
-			$myts =& MyTextSanitizer::getInstance();
+			$myts =& TextSanitizer::getInstance();
 			if ($config[$i]->getVar('conf_valuetype') == 'array') {
 				// this is exceptional.. only when value type is arrayneed a smarter way for this
 				$ele = ($config[$i]->getVar('conf_value') != '') ? new XoopsFormTextArea($title, $config[$i]->getVar('conf_name'), $myts->htmlspecialchars(implode('|', $config[$i]->getConfValueForOutput())), 5, 50) : new XoopsFormTextArea($title, $config[$i]->getVar('conf_name'), '', 5, 50);
@@ -120,12 +123,12 @@ if ($op == 'showmod') {
 			$ele = new XoopsFormSelectUser($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput(), 5, true);
 			break;
 		case 'password':
-			$myts =& MyTextSanitizer::getInstance();
+			$myts =& TextSanitizer::getInstance();
 			$ele = new XoopsFormPassword($title, $config[$i]->getVar('conf_name'), 50, 255, $myts->htmlspecialchars($config[$i]->getConfValueForOutput()));
 			break;
 		case 'textbox':
 		default:
-			$myts =& MyTextSanitizer::getInstance();
+			$myts =& TextSanitizer::getInstance();
 			$ele = new XoopsFormText($title, $config[$i]->getVar('conf_name'), 50, 255, $myts->htmlspecialchars($config[$i]->getConfValueForOutput()));
 			break;
 		}

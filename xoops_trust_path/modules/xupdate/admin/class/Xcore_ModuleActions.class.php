@@ -19,9 +19,9 @@ class Xupdate_ModuleInstallAction extends Xcore_ModuleInstallAction
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.Success', new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.Success', new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		} else {
-			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.Fail', new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleInstall.Fail', new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 
 		parent::executeViewSuccess($controller, $xoopsUser, $renderer);
@@ -35,9 +35,9 @@ class Xupdate_ModuleUpdateAction extends Xcore_ModuleUpdateAction
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.Success', new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.Success', new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		} else {
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.Fail', new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUpdate.Fail', new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		
 		parent::executeViewSuccess($controller, $xoopsUser, $renderer);
@@ -51,9 +51,9 @@ class Xupdate_ModuleUninstallAction extends Xcore_ModuleUninstallAction
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.Success', new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.Success', new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		} else {
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.Fail', new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.Fail', new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 
 		parent::executeViewSuccess($controller, $xoopsUser, $renderer);

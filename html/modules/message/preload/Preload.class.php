@@ -42,7 +42,7 @@ class Message_Preload extends ActionFilter
   {
     $root = Root::getSingleton();
     if ($root->mContext->mUser->isInRole('Site.RegisteredUser')) {
-      $uid = $root->mContext->mKarimojiUser->get('uid');
+      $uid = $root->mContext->mXoopsUser->get('uid');
       $modHand = xoops_getmodulehandler('inbox', 'message');
       $num = $modHand->getCountUnreadByFromUid($uid);
       if ( $num > 0 ) {

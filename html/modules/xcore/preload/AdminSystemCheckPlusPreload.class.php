@@ -86,11 +86,11 @@ class Xcore_AdminSystemCheckPlusPreload extends ActionFilter
 		$systeminfo_message = array();
 
 		$systeminfo_message[] = _AD_XCORE_XCXCOREVERSION." : ".XOOPS_VERSION;
-		$systeminfo_message[] = _MD_AM_DTHEME." : ".$root->mContext->mKarimojiConfig['theme_set'];
-		$systeminfo_message[] = _MD_AM_DTPLSET." : ".$root->mContext->mKarimojiConfig['template_set'];
-		$systeminfo_message[] = _MD_AM_LANGUAGE." : ".$root->mContext->mKarimojiConfig['language'];
+		$systeminfo_message[] = _MD_AM_DTHEME." : ".$root->mContext->mXoopsConfig['theme_set'];
+		$systeminfo_message[] = _MD_AM_DTPLSET." : ".$root->mContext->mXoopsConfig['template_set'];
+		$systeminfo_message[] = _MD_AM_LANGUAGE." : ".$root->mContext->mXoopsConfig['language'];
 		
-		$debugmode = intval($root->mContext->mKarimojiConfig['debug_mode']);
+		$debugmode = intval($root->mContext->mXoopsConfig['debug_mode']);
 		if ( $debugmode == 0 ) {
 		$systeminfo_message[] = _MD_AM_DEBUGMODE." : "._MD_AM_DEBUGMODE0;
 		}

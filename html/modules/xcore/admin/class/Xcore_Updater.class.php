@@ -2,6 +2,8 @@
 
 use XCore\Kernel\Root;
 use XCore\Utils\Utils;
+use XCore\Entity\GroupPerm;
+use XCore\Entity\Module;
 
 class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 {
@@ -44,7 +46,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 			return false;
 		}
 		
-		$this->saveXoopsModule($this->_mTargetXoopsModule);
+		$this->saveModule($this->_mTargetModule);
 		if (!$this->_mForceMode && $this->mLog->hasError())
 		{
 			$this->_processReport();
@@ -69,7 +71,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 		
 		// Update database table index.
 		$this->_setUniqueToGroupUserLink();
-		$this->_recoverXoopsGroupPermission();
+		$this->_recoverGroupPermission();
 		if (!$this->_mForceMode && $this->mLog->hasError())
 		{
 			$this->_processReport();
@@ -98,7 +100,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 			return false;
 		}
 		
-		$this->saveXoopsModule($this->_mTargetXoopsModule);
+		$this->saveModule($this->_mTargetModule);
 		if (!$this->_mForceMode && $this->mLog->hasError())
 		{
 			$this->_processReport();
@@ -178,7 +180,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 	 * @brief Removes invalid permission instances from DB.
 	 * @author orrisroot
 	 */
-	function _recoverXoopsGroupPermission()
+	function _recoverGroupPermission()
 	{
 		$root = Root::getSingleton();
 		$db =& $root->mController->getDB();

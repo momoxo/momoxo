@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
 function myDeleteByModule($DB, $gperm_modid, $gperm_name = null, $gperm_itemid = null)

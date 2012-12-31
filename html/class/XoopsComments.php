@@ -1,17 +1,19 @@
 <?php
 
 use XCore\Entity\User;
+use XCore\Entity\Comment;
+use XCore\Entity\Object;
 
-class XoopsComments extends XoopsObject
+class Comments extends Object
 {
 	var $ctable;
 	var $db;
 
-	function XoopsComments($ctable, $id=null)
+	function Comments($ctable, $id=null)
 	{
 		$this->ctable = $ctable;
 		$this->db =& Database::getInstance();
-		$this->XoopsObject();
+		$this->Object();
 		$this->initVar('comment_id', XOBJ_DTYPE_INT, null, false);
 		$this->initVar('item_id', XOBJ_DTYPE_INT, null, false);
 		$this->initVar('order', XOBJ_DTYPE_INT, null, false);
@@ -109,7 +111,7 @@ class XoopsComments extends XoopsObject
 		$ret = array();
 		$tarray = $mytree->getChildTreeArray($this->getVar("comment_id"), "comment_id");
 		foreach ( $tarray as $ele ) {
-			$ret[] = new XoopsComments($this->ctable,$ele);
+			$ret[] = new Comments($this->ctable,$ele);
 		}
 		return $ret;
 	}
@@ -135,7 +137,7 @@ class XoopsComments extends XoopsObject
 			$sql = "SELECT * FROM ".$this->ctable."".$where_query." ORDER BY $orderby";
 			$result = $this->db->query($sql,$limit,$start);
 			while ( $myrow = $this->db->fetchArray($result) ) {
-				$ret[] = new XoopsComments($this->ctable,$myrow);
+				$ret[] = new Comments($this->ctable,$myrow);
 			}
 		}
 		//echo $sql;

@@ -1,6 +1,8 @@
 <?php
 
-class XcoreColumnsideHandler extends XoopsObjectHandler
+use XCore\Repository\ObjectRepository;
+
+class XcoreColumnsideHandler extends ObjectRepository
 {
 	var $_mResults = array();
 	

@@ -1,8 +1,10 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Entity\SimpleObject;
+use XCore\Utils\TextSanitizer;
 
-class Xupdate_Root extends XoopsSimpleObject {
+class Xupdate_Root extends SimpleObject {
 
 	public $mRoot ;
 	public $xoops_root_path ;
@@ -30,7 +32,7 @@ class Xupdate_Root extends XoopsSimpleObject {
 		$this->db = $root->mController->mDB;
 
 		// module ID & name
-		$this_module = $root->mContext->mKarimojiModule;
+		$this_module = $root->mContext->mXoopsModule;
 		$this->mid = $this_module->get('mid');
 		$this->mname = $this_module->get('name');
 		$this->mydirname = $this_module->get('dirname');
@@ -39,7 +41,7 @@ class Xupdate_Root extends XoopsSimpleObject {
 		//adump($this->mod_config);
 
 		// mytextsanitizer   ToDo --> Cube Style ??
-		$this->myts =& MyTextSanitizer::getInstance();
+		$this->myts =& TextSanitizer::getInstance();
 
 		// set temp_path
 		$this->params['temp_dirname'] = trim( strrchr( trim($this->mod_config['temp_path'],'/'), '/'), '/') ;

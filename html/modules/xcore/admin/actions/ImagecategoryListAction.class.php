@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 class Xcore_ImagecategoryListAction extends Xcore_AbstractListAction
 {

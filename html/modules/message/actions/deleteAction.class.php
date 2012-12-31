@@ -27,7 +27,7 @@ class deleteAction extends AbstractAction
       return;
     }
     
-    if ( $modObj->get('uid') != $this->root->mContext->mKarimojiUser->get('uid') ) {
+    if ( $modObj->get('uid') != $this->root->mContext->mXoopsUser->get('uid') ) {
       $this->setErr(_MD_MESSAGE_ACTIONMSG2);
       return;
     }

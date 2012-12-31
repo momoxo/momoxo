@@ -1,4 +1,7 @@
 <?php
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 function b_user_newusers_show($options)
 {
     $block = array();

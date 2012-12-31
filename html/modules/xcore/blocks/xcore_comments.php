@@ -19,6 +19,9 @@
 //  This file has been modified for Legacy from XOOPS2 System module block   //
 // ------------------------------------------------------------------------- //
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 function b_xcore_comments_show($options) {
     $block = array();
 

@@ -20,6 +20,10 @@ use XCore\Kernel\DelegateUtils;
 use XCore\Kernel\Delegate;
 use XCore\Kernel\RenderTarget;
 use XCore\Utils\Utils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Object;
+use XCore\Entity\Module;
 
 class Xcore_Controller extends Controller
 {
@@ -49,7 +53,7 @@ class Xcore_Controller extends Controller
 	var $mSetBlockCachePolicy = null;
 
 	/**
-	 * @var XoopsModule[]
+	 * @var Module[]
 	 */
 	var $mActiveModules = null;
 
@@ -460,7 +464,7 @@ class Xcore_Controller extends Controller
 		$this->_mStrategy->setupModuleContext($this->mRoot->mContext, $dirname);
 
 		if ($this->mRoot->mContext->mModule != null) {
-			$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mModule->mKarimojiModule->get('name'));
+			$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mModule->mXoopsModule->get('name'));
 		}
 	}
 
@@ -487,7 +491,7 @@ class Xcore_Controller extends Controller
 			$this->_mStrategy->setupModuleLanguage();
 			$module->startup();
 
-			$GLOBALS['xoopsModule'] =& $module->mKarimojiModule;
+			$GLOBALS['xoopsModule'] =& $module->mXoopsModule;
 			$GLOBALS['xoopsModuleConfig'] =& $module->mModuleConfig;
 		}
 
@@ -535,8 +539,8 @@ class Xcore_Controller extends Controller
 		parent::_setupUser();
 
 		// Set instance to global variable for compatiblity with XOOPS 2.0.x
-		$GLOBALS['xoopsUser'] =& $this->mRoot->mContext->mKarimojiUser;
-		$GLOBALS['xoopsUserIsAdmin'] = is_object($this->mRoot->mContext->mKarimojiUser) ? $this->mRoot->mContext->mKarimojiUser->isAdmin(1) : false;	//@todo Remove '1'
+		$GLOBALS['xoopsUser'] =& $this->mRoot->mContext->mXoopsUser;
+		$GLOBALS['xoopsUserIsAdmin'] = is_object($this->mRoot->mContext->mXoopsUser) ? $this->mRoot->mContext->mXoopsUser->isAdmin(1) : false;	//@todo Remove '1'
 
 		//
 		// Set member handler to global variables for compatibility with XOOPS 2.0.x.
@@ -668,22 +672,22 @@ class Xcore_Controller extends Controller
 	{
 		$configHandler = xoops_gethandler('config');
 
-		$this->mRoot->mContext->mKarimojiConfig =& $configHandler->getConfigsByCat(XOOPS_CONF);
+		$this->mRoot->mContext->mXoopsConfig =& $configHandler->getConfigsByCat(XOOPS_CONF);
 
-		$this->mRoot->mContext->mKarimojiConfig['language'] = $this->mRoot->mLanguageManager->getLanguage();
-		$GLOBALS['xoopsConfig'] =& $this->mRoot->mContext->mKarimojiConfig; // Compatiblity for 2.0.x
+		$this->mRoot->mContext->mXoopsConfig['language'] = $this->mRoot->mLanguageManager->getLanguage();
+		$GLOBALS['xoopsConfig'] =& $this->mRoot->mContext->mXoopsConfig; // Compatiblity for 2.0.x
 		$GLOBALS['config_handler'] =& $configHandler;
 		$GLOBALS['module_handler'] = xoops_gethandler('module');
 
-		if(count($this->mRoot->mContext->mKarimojiConfig) == 0) {
+		if(count($this->mRoot->mContext->mXoopsConfig) == 0) {
 			return;
 		}
 
-		$this->mRoot->mContext->setThemeName($this->mRoot->mContext->mKarimojiConfig['theme_set']);
+		$this->mRoot->mContext->setThemeName($this->mRoot->mContext->mXoopsConfig['theme_set']);
 
-		$this->mRoot->mContext->setAttribute('xcore_sitename', $this->mRoot->mContext->mKarimojiConfig['sitename']);
-		$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mKarimojiConfig['slogan']);
-		$this->mRoot->mContext->setAttribute('xcore_slogan', $this->mRoot->mContext->mKarimojiConfig['slogan']);
+		$this->mRoot->mContext->setAttribute('xcore_sitename', $this->mRoot->mContext->mXoopsConfig['sitename']);
+		$this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mXoopsConfig['slogan']);
+		$this->mRoot->mContext->setAttribute('xcore_slogan', $this->mRoot->mContext->mXoopsConfig['slogan']);
 	}
 
 	function _setupScript()
@@ -700,7 +704,7 @@ class Xcore_Controller extends Controller
 	{
 		error_reporting(0);
 
-		$debug_mode = $this->mRoot->mContext->mKarimojiConfig['debug_mode'];
+		$debug_mode = $this->mRoot->mContext->mXoopsConfig['debug_mode'];
 		if (defined('OH_MY_GOD_HELP_ME')) {
 			$debug_mode = XOOPS_DEBUG_PHP;
 		}
@@ -756,7 +760,7 @@ class Xcore_Controller extends Controller
 		parent::_setupSession();
 
 		$root = Root::getSingleton();
-		$xoopsConfig = $root->mContext->mKarimojiConfig;
+		$xoopsConfig = $root->mContext->mXoopsConfig;
 		if ($xoopsConfig['use_mysession']) {
 			$this->mRoot->mSession->setParam($xoopsConfig['session_name'], $xoopsConfig['session_expire']);
 		}
@@ -800,9 +804,9 @@ class Xcore_Controller extends Controller
 				//
 				// Checks whether the cache file exists.
 				//
-				$xoopsModule =& $this->mRoot->mContext->mKarimojiModule;
+				$xoopsModule =& $this->mRoot->mContext->mXoopsModule;
 
-				$cachetime = $this->mRoot->mContext->mKarimojiConfig['module_cache'][$xoopsModule->get('mid')];
+				$cachetime = $this->mRoot->mContext->mXoopsConfig['module_cache'][$xoopsModule->get('mid')];
 				$filepath = $cacheInfo->getCacheFilePath();
 
 				//
@@ -897,16 +901,16 @@ class Xcore_Controller extends Controller
 		// Debug Process
 		//
 		$isAdmin=false;
-		if(is_object($this->mRoot->mContext->mKarimojiUser)) {
+		if(is_object($this->mRoot->mContext->mXoopsUser)) {
 			if($this->mRoot->mContext->mModule != null && $this->mRoot->mContext->mModule->isActive()) {
 				// @todo I depend on Legacy Module Controller.
-				$mid = $this->mRoot->mContext->mKarimojiModule->getVar('mid');
+				$mid = $this->mRoot->mContext->mXoopsModule->getVar('mid');
 			}
 			else {
 				$mid = 1;	///< @todo Do not use literal directly!
 			}
 
-			$isAdmin = $this->mRoot->mContext->mKarimojiUser->isAdmin($mid);
+			$isAdmin = $this->mRoot->mContext->mXoopsUser->isAdmin($mid);
 		}
 
 		if ($isAdmin) {
@@ -942,21 +946,21 @@ class Xcore_Controller extends Controller
 	}
 
 	/**
-	 * Check the login request through delegates, and set XoopsObject to member
+	 * Check the login request through delegates, and set Object to member
 	 * property if the login is success.
 	 *
 	 * @access public
 	 */
 	function checkLogin()
 	{
-		if (!is_object($this->mRoot->mContext->mKarimojiUser)) {
-			$this->mCheckLogin->call(new Ref($this->mRoot->mContext->mKarimojiUser));
+		if (!is_object($this->mRoot->mContext->mXoopsUser)) {
+			$this->mCheckLogin->call(new Ref($this->mRoot->mContext->mXoopsUser));
 
 			$this->mRoot->mLanguageManager->loadModuleMessageCatalog('xcore');
 
-			if (is_object($this->mRoot->mContext->mKarimojiUser)) {
+			if (is_object($this->mRoot->mContext->mXoopsUser)) {
 				// If the current user doesn't bring to any groups, kick out him for XCL's security.
-				$t_groups = $this->mRoot->mContext->mKarimojiUser->getGroups();
+				$t_groups = $this->mRoot->mContext->mXoopsUser->getGroups();
 				if (!is_array($t_groups)) {
 					// exception
 					$this->logout();
@@ -971,9 +975,9 @@ class Xcore_Controller extends Controller
 				// RMV-NOTIFY
 				// Perform some maintenance of notification records
 				$notification_handler = xoops_gethandler('notification');
-				$notification_handler->doLoginMaintenance($this->mRoot->mContext->mKarimojiUser->get('uid'));
+				$notification_handler->doLoginMaintenance($this->mRoot->mContext->mXoopsUser->get('uid'));
 
-				DelegateUtils::call('Site.CheckLogin.Success', new Ref($this->mRoot->mContext->mKarimojiUser));
+				DelegateUtils::call('Site.CheckLogin.Success', new Ref($this->mRoot->mContext->mXoopsUser));
 
 				//
 				// Fall back process for login success.
@@ -990,10 +994,10 @@ class Xcore_Controller extends Controller
 					}
 				}
 
-				$this->executeRedirect($url, 1, Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mKarimojiUser->get('uname')));
+				$this->executeRedirect($url, 1, Utils::formatMessage(_MD_XCORE_MESSAGE_LOGIN_SUCCESS, $this->mRoot->mContext->mXoopsUser->get('uname')));
 			}
 			else {
-				DelegateUtils::call('Site.CheckLogin.Fail', new Ref($this->mRoot->mContext->mKarimojiUser));
+				DelegateUtils::call('Site.CheckLogin.Fail', new Ref($this->mRoot->mContext->mXoopsUser));
 
 				//
 				// Fall back process for login fail.
@@ -1014,7 +1018,7 @@ class Xcore_Controller extends Controller
 	function logout()
 	{
 		$successFlag = false;
-		$xoopsUser =& $this->mRoot->mContext->mKarimojiUser;
+		$xoopsUser =& $this->mRoot->mContext->mXoopsUser;
 
 
 		if (is_object($xoopsUser)) {
@@ -1090,7 +1094,7 @@ class Xcore_Controller extends Controller
 	 *	Preferences page, Help page and some pages returns the specified module by
 	 * dirname. It's useful for controlling a theme.
 	 *
-	 * @return XoopsModule
+	 * @return Module
 	 */
 	function &getVirtualCurrentModule()
 	{
@@ -1277,7 +1281,7 @@ class Xcore_Controller extends Controller
 	/**
 	 * Gets URL of preference editor by this controller.
 	 * @public
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @return string absolute URL
 	 */
 	function getPreferenceEditUrl(&$module)
@@ -1292,7 +1296,7 @@ class Xcore_Controller extends Controller
 	/**
 	 * Gets URL of help viewer by this controller.
 	 * @public
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @return string absolute URL
 	 */
 	function getHelpViewUrl(&$module)

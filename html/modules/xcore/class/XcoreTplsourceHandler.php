@@ -1,6 +1,8 @@
 <?php
 
-class XcoreTplsourceHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+
+class XcoreTplsourceHandler extends ObjectGenericRepository
 {
 	var $mTable = "tplsource";
 	var $mPrimary = "tpl_id";

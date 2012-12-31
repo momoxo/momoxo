@@ -6,6 +6,9 @@
 **/
 
 use XCore\Kernel\Root;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -23,7 +26,7 @@ abstract class Xupdate_AbstractFilterForm
 
     public /*** XCube_PageNavigator ***/ $mNavi = null;
 
-    protected /*** XoopsObjectGenericHandler ***/ $_mHandler = null;
+    protected /*** ObjectGenericRepository ***/ $_mHandler = null;
 
     protected /*** Criteria ***/ $_mCriteria = null;
 
@@ -43,7 +46,7 @@ abstract class Xupdate_AbstractFilterForm
      *
      * @param   void
      *
-     * @return  XoopsObjectGenericHandler
+     * @return  ObjectGenericRepository
     **/
     protected function &_getHandler()
     {
@@ -65,11 +68,11 @@ abstract class Xupdate_AbstractFilterForm
      * prepare
      *
      * @param   XCube_PageNavigator  &$navi
-     * @param   XoopsObjectGenericHandler  &$handler
+     * @param   ObjectGenericRepository  &$handler
      *
      * @return  void
     **/
-    public function prepare(/*** XCube_PageNavigator ***/ &$navi,/*** XoopsObjectGenericHandler ***/ &$handler)
+    public function prepare(/*** XCube_PageNavigator ***/ &$navi,/*** ObjectGenericRepository ***/ &$handler)
     {
         $this->mNavi =& $navi;
         $this->_mHandler =& $handler;

@@ -5,6 +5,9 @@
  * @version $Id$
 **/
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+
 if(!defined('XOOPS_ROOT_PATH'))
 {
     exit;
@@ -15,9 +18,9 @@ if(!defined('XOOPS_ROOT_PATH'))
 **/
 abstract class Xupdate_AbstractViewAction extends Xupdate_AbstractAction
 {
-    public /*** XoopsSimpleObject ***/ $mObject = null;
+    public /*** SimpleObject ***/ $mObject = null;
 
-    public /*** XoopsObjectGenericHandler ***/ $mObjectHandler = null;
+    public /*** ObjectGenericRepository ***/ $mObjectHandler = null;
 
     /**
      * _getId
@@ -35,7 +38,7 @@ abstract class Xupdate_AbstractViewAction extends Xupdate_AbstractAction
      * 
      * @param   void
      * 
-     * @return  &XoopsObjectGenericHandler
+     * @return  &ObjectGenericRepository
     **/
     protected function &_getHandler()
     {

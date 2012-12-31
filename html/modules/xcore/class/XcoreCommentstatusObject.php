@@ -1,6 +1,8 @@
 <?php
 
-class XcoreCommentstatusObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreCommentstatusObject extends SimpleObject
 {
 	function XcoreCommentstatusObject()
 	{

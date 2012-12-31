@@ -1,6 +1,12 @@
 <?php
 // $Id: MyBlocksAdmin.class.php ,ver 0.0.7.1 2011/02/15 02:55:00 domifara Exp $
 
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\GroupPerm;
+use XCore\Database\Criteria;
+use XCore\Entity\Block;
+use XCore\Utils\TextSanitizer;
+
 class MyBlocksAdmin {
 
 var $db ;
@@ -183,7 +189,7 @@ function renderCell4BlockOptions( $block_data )
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
 	}else{
-		$block = new XoopsBlock( $bid ) ;
+		$block = new Block( $bid ) ;
 	}
 	return $block->getOptions() ;
 }
@@ -376,7 +382,7 @@ function list_blocks()
 			$block_one->assignVars($myrow);
 			$block_arr[] =& $block_one ;
 		}else{
-			$block_arr[] = new XoopsBlock( $myrow ) ;
+			$block_arr[] = new Block( $myrow ) ;
 		}
 
 	}
@@ -449,7 +455,7 @@ function list_groups()
 			$block_one->assignVars($myrow);
 			$block_arr[] =& $block_one ;
 		}else{
-			$block_arr[] = new XoopsBlock( $myrow ) ;
+			$block_arr[] = new Block( $myrow ) ;
 		}
 	}
 
@@ -458,7 +464,7 @@ function list_groups()
 		$item_list[ $block_arr[$i]->getVar("bid") ] = $block_arr[$i]->getVar("title") ;
 	}
 
-	$form = new MyXoopsGroupPermForm( _MD_A_MYBLOCKSADMIN_PERMFORM , 1 , 'block_read' , '' ) ;
+	$form = new MyGroupPermForm( _MD_A_MYBLOCKSADMIN_PERMFORM , 1 , 'block_read' , '' ) ;
 	// skip system (TODO)
 	if( $this->target_mid > 1 ) {
 		$form->addAppendix( 'module_admin' , $this->target_mid , $this->target_mname . ' ' . _MD_A_MYBLOCKSADMIN_PERM_MADMIN ) ;
@@ -481,7 +487,7 @@ function update_block($bid, $bside, $bweight, $bvisible, $btitle, $bcontent, $bc
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
 	}else{
-		$block = new XoopsBlock($bid);
+		$block = new Block($bid);
 	}
 
 	if( $bside >= 0 ) $block->setVar('side', $bside);
@@ -589,7 +595,7 @@ function do_order()
 function fetchRequest4Block( $bid )
 {
 	$bid = intval( $bid ) ;
-	$myts =& MyTextSanitizer::getInstance() ;
+	$myts =& TextSanitizer::getInstance() ;
 
 	if( @$_POST['extra_sides'][$bid] > 0 ) {
 		$_POST['sides'][$bid] = intval( $_POST['extra_sides'][$bid] ) ;
@@ -628,7 +634,7 @@ function do_delete( $bid )
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
 	}else{
-		$block = new XoopsBlock( $bid ) ;
+		$block = new Block( $bid ) ;
 	}
 
 	if( ! is_object( $block ) ) die( 'Invalid bid' ) ;
@@ -658,7 +664,7 @@ function form_delete( $bid )
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
 	}else{
-		$block = new XoopsBlock( $bid ) ;
+		$block = new Block( $bid ) ;
 	}
 
 	if( ! is_object( $block ) ) die( 'Invalid bid' ) ;
@@ -684,7 +690,7 @@ function do_clone( $bid )
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
 	}else{
-		$block = new XoopsBlock( $bid ) ;
+		$block = new Block( $bid ) ;
 	}
 
 	if( ! $block->getVar('bid') ) die( 'Invalid bid' ) ;
@@ -701,7 +707,7 @@ function do_clone( $bid )
 	if (defined( 'XOOPS_CUBE_XCORE' )){
 		$cblock =& $handler->create(false) ;
 	}else{
-		$cblock = new XoopsBlock() ;
+		$cblock = new Block() ;
 	}
 
 	foreach( $block->vars as $k => $v ) {
@@ -754,7 +760,7 @@ function do_edit( $bid )
 		$handler =& xoops_gethandler('block');
 		$new_block =& $handler->create(false) ;
 	}else{
-		$new_block = new XoopsBlock() ;
+		$new_block = new Block() ;
 	}
 
 		$new_block->setNew() ;
@@ -795,7 +801,7 @@ function form_edit( $bid , $mode = 'edit' )
 		$block =& $handler->create(false) ;
 		$block->load($bid) ;
 	}else{
-		$block = new XoopsBlock( $bid ) ;
+		$block = new Block( $bid ) ;
 	}
 
 	if( ! $block->getVar('bid') ) {
@@ -921,7 +927,7 @@ function previewContent( $block_data )
 
 //HACK by domifara
 //TODO : need no hook block at this
-	$block = new XoopsBlock( $bid ) ;
+	$block = new Block( $bid ) ;
 /*
 	$handler =& xoops_gethandler('block');
 	$block =& $handler->create(false) ;

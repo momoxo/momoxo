@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A tree structures with {@link XoopsObject}s as nodes
+ * A tree structures with {@link Object}s as nodes
  *
  * @package		kernel
  * @subpackage	core
@@ -9,7 +9,9 @@
  * @author		Kazumi Ono 	<onokazu@xoops.org>
  * @copyright	(c) 2000-2003 The Xoops Project - www.xoops.org
  */
-class XoopsObjectTree {
+use XCore\Entity\Object;
+
+class ObjectTree {
 
 	/**#@+
 	 * @access	private
@@ -24,12 +26,12 @@ class XoopsObjectTree {
 	/**
 	 * Constructor
 	 * 
-	 * @param   array   $objectArr  Array of {@link XoopsObject}s 
+	 * @param   array   $objectArr  Array of {@link Object}s 
 	 * @param   string     $myId       field name of object ID
 	 * @param   string     $parentId   field name of parent object ID
 	 * @param   string     $rootId     field name of root object ID
 	 **/
-	function XoopsObjectTree(&$objectArr, $myId, $parentId, $rootId = null)
+	function ObjectTree(&$objectArr, $myId, $parentId, $rootId = null)
 	{
 		$this->_objects =& $objectArr;
 		$this->_myId = $myId;

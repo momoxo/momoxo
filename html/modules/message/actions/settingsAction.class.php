@@ -16,7 +16,7 @@ class settingsAction extends AbstractAction
   public function execute()
   {
     $modHand = xoops_getmodulehandler('settings', _MY_DIRNAME);
-    $modObj = $modHand->get($this->root->mContext->mKarimojiUser->get('uid'));
+    $modObj = $modHand->get($this->root->mContext->mXoopsUser->get('uid'));
     if ( !is_object($modObj) ) {
       $modObj = $modHand->create();
     }

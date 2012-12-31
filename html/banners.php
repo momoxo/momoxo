@@ -25,6 +25,8 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
 
+use XCore\Utils\TextSanitizer;
+
 include "mainfile.php";
 
 /********************************************/
@@ -280,7 +282,7 @@ if (!empty($_POST['op'])) {
 } elseif (!empty($_GET['op'])) {
   $op = $_GET['op'];
 }
-$myts =& MyTextSanitizer::getInstance();
+$myts =& TextSanitizer::getInstance();
 switch ( $op ) {
 case "click":
     $bid = 0;

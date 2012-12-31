@@ -9,7 +9,10 @@
  * @author      Kazumi Ono  <onokazu@xoops.org>
  * @copyright   (c) 2000-2003 The Xoops Project - www.xoops.org
  */
-class XoopsCommentRenderer {
+use XCore\Entity\Comment;
+use XCore\Entity\Object;
+
+class CommentRenderer {
 
     /**#@+
      * @access  private
@@ -29,7 +32,7 @@ class XoopsCommentRenderer {
      * @param   boolean $use_icons
      * @param   boolean $do_iconcheck
      **/
-    function XoopsCommentRenderer(&$tpl, $use_icons = true, $do_iconcheck = false)
+    function CommentRenderer(&$tpl, $use_icons = true, $do_iconcheck = false)
     {
         $this->_tpl =& $tpl;
         $this->_useIcons = $use_icons;
@@ -50,7 +53,7 @@ class XoopsCommentRenderer {
     {
         static $instance;
         if (!isset($instance)) {
-            $instance = new XoopsCommentRenderer($tpl, $use_icons, $do_iconcheck);
+            $instance = new CommentRenderer($tpl, $use_icons, $do_iconcheck);
         }
         return $instance;
     }
@@ -58,7 +61,7 @@ class XoopsCommentRenderer {
     /**
      * Accessor
      *
-     * @param   object  &$comments_arr  array of {@link XoopsComment} objects
+     * @param   object  &$comments_arr  array of {@link Comment} objects
      **/
     function setComments(&$comments_arr)
     {
@@ -109,7 +112,7 @@ class XoopsCommentRenderer {
     function renderThreadView($comment_id = 0, $admin_view = false, $show_nav = true)
     {
         // construct comment tree
-        $xot = new XoopsObjectTree($this->_comments, 'com_id', 'com_pid', 'com_rootid');
+        $xot = new ObjectTree($this->_comments, 'com_id', 'com_pid', 'com_rootid');
         $tree =& $xot->getTree();
 
         if (false != $this->_useIcons) {
@@ -199,7 +202,7 @@ class XoopsCommentRenderer {
      **/
     function renderNestView($comment_id = 0, $admin_view = false)
     {
-        $xot = new XoopsObjectTree($this->_comments, 'com_id', 'com_pid', 'com_rootid');
+        $xot = new ObjectTree($this->_comments, 'com_id', 'com_pid', 'com_rootid');
         $tree =& $xot->getTree();
         if (false != $this->_useIcons) {
             $title = $this->_getTitleIcon($tree[$comment_id]['obj']->getVar('com_icon')).'&nbsp;'.$tree[$comment_id]['obj']->getVar('com_title');

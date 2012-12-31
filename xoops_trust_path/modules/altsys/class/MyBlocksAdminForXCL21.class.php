@@ -1,6 +1,8 @@
 <?php
 // $Id: MyBlocksAdminForXCL21.class.php ,ver 0.0.7.1 2011/01/27 16:10:00 domifara Exp $
 
+use XCore\Entity\Block;
+
 require_once dirname(__FILE__).'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForXCL21 extends MyBlocksAdmin {
@@ -35,7 +37,7 @@ function renderCell4BlockOptions( $block_data )
 	$bid = intval( $block_data['bid'] ) ;
 
 //HACK by domifara
-//	$block = new XoopsBlock( $bid ) ;
+//	$block = new Block( $bid ) ;
 	$handler =& xoops_gethandler('block');
 	$block =& $handler->create(false) ;
 	$block->load($bid) ;

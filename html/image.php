@@ -26,6 +26,9 @@
 //  ------------------------------------------------------------------------ //
 
 // Disable image content invalid rewriting by mbstring
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 if (function_exists('mb_http_output')) {
     mb_http_output('pass');
 }

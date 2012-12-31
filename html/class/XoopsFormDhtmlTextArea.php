@@ -10,6 +10,7 @@
  * @subpackage  form
  */
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 class XoopsFormDhtmlTextArea extends XoopsFormTextArea
 {

@@ -4,6 +4,9 @@
  * @version $Id: DataDownloadAction.class.php,v 1.1 2007/08/01 02:34:42 kilica Exp $
  */
 
+use XCore\Database\CriteriaElement;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_MODULE_PATH . "/profile/class/AbstractListAction.class.php";

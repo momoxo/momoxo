@@ -7,6 +7,7 @@
 use XCore\Kernel\TextFilter;
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Utils\TextSanitizer;
 
 class Xcore_TextFilter extends TextFilter
 {
@@ -91,10 +92,10 @@ class Xcore_TextFilter extends TextFilter
 		//@deprecated
 		//Todo: For keeping compatible with XC2.1 Beta3
 		$this->mMakeClickablePre = new Delegate();
-		$this->mMakeClickablePre->register('MyTextSanitizer.MakeClickablePre');
+		$this->mMakeClickablePre->register('TextSanitizer.MakeClickablePre');
 
 		$this->mXCodePre = new Delegate();
-		$this->mXCodePre->register('MyTextSanitizer.XoopsCodePre');
+		$this->mXCodePre->register('TextSanitizer.XoopsCodePre');
 	}
 
 	public static function getInstance(&$instance) {
@@ -114,7 +115,7 @@ class Xcore_TextFilter extends TextFilter
 	function toShow($text, $x2comat=false) {
 		if ($x2comat) {
 			//ToDo: &nbsp; patern is defined for XOOPS2.0 compatiblity. But what is it?
-			//		This comatiblity option is used from method from MyTextSanitizer.
+			//		This comatiblity option is used from method from TextSanitizer.
 			//
 			return preg_replace(array("/&amp;(#[0-9]+|#x[0-9a-f]+|[a-z]+[0-9]*);/i", "/&nbsp;/i"), array('&\\1;', '&amp;nbsp;'), htmlspecialchars($text, ENT_QUOTES));
 		} else {
@@ -249,7 +250,7 @@ class Xcore_TextFilter extends TextFilter
 			//
 			$this->mMakeClickableConvertTable->call(new Ref($this->mClickablePatterns), new Ref($this->mClickableReplacements));
 
-			// Delegate Call 'MyTextSanitizer.MakeClickablePre'
+			// Delegate Call 'TextSanitizer.MakeClickablePre'
 			//	Delegate may replace makeClickable conversion table
 			//	Args : 
 			//		'patterns'	   [I/O] : &Array of pattern RegExp
@@ -296,7 +297,7 @@ class Xcore_TextFilter extends TextFilter
 			//
 			$this->mMakeXCodeConvertTable->call(new Ref($this->mXCodePatterns), new Ref($this->mXCodeReplacements));
 
-			// RaiseEvent 'MyTextSanitizer.XoopsCodePre'
+			// RaiseEvent 'TextSanitizer.XoopsCodePre'
 			//	Delegate may replace conversion table
 			//	Args : 
 			//		'patterns'	   [I/O] : &Array of pattern RegExp

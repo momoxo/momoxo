@@ -6,6 +6,8 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\Criteria;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
@@ -48,11 +50,11 @@ class Profile_DataFilterForm extends Profile_AbstractFilterForm
      * prepare
      * 
      * @param   XCube_PageNavigator  &$navi
-     * @param   XoopsObjectGenericHandler  &$handler
+     * @param   ObjectGenericRepository  &$handler
      * 
      * @return  void
     **/
-    public function prepare(/*** XCube_PageNavigator ***/ &$navi,/*** XoopsObjectGenericHandler ***/ &$handler)
+    public function prepare(/*** XCube_PageNavigator ***/ &$navi,/*** ObjectGenericRepository ***/ &$handler)
     {
         $this->mFields = xoops_getmodulehandler('definitions', 'profile')->getFields4DataShow(Xcore_Utils::getUid());
     

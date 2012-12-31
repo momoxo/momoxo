@@ -27,7 +27,7 @@ class viewAction extends AbstractAction
       return;
     }
     
-    if ( $modObj->get('uid') != $this->root->mContext->mKarimojiUser->get('uid') ) {
+    if ( $modObj->get('uid') != $this->root->mContext->mXoopsUser->get('uid') ) {
       $this->setErr(_MD_MESSAGE_ACTIONMSG8);
       return;
     }
@@ -56,7 +56,7 @@ class viewAction extends AbstractAction
     if ( $this->inout == 'inbox' ) {
       $this->msgdata['fromname'] = $this->getLinkUnameFromId($this->msgdata['from_uid'], $this->msgdata['uname']);
     } else {
-      $this->msgdata['toname'] = $this->getLinkUnameFromId($this->msgdata['to_uid'], $this->root->mContext->mKarimojiConfig['anonymous']);
+      $this->msgdata['toname'] = $this->getLinkUnameFromId($this->msgdata['to_uid'], $this->root->mContext->mXoopsConfig['anonymous']);
     }
   }
   
@@ -66,17 +66,17 @@ class viewAction extends AbstractAction
     require_once _MY_MODULE_PATH.'class/MyMailer.class.php';
     $mailer = new My_Mailer();
     $mailer->prepare();
-    $mailer->setFromName($this->root->mContext->mKarimojiConfig['sitename']);
-    $mailer->setFromEmail($this->root->mContext->mKarimojiConfig['adminmail']);
-    $mailer->setTo($this->root->mContext->mKarimojiUser->get('email'), $this->root->mContext->mKarimojiUser->get('uname'));
+    $mailer->setFromName($this->root->mContext->mXoopsConfig['sitename']);
+    $mailer->setFromEmail($this->root->mContext->mXoopsConfig['adminmail']);
+    $mailer->setTo($this->root->mContext->mXoopsUser->get('email'), $this->root->mContext->mXoopsUser->get('uname'));
     $mailer->setSubject($obj->get('title'));
     $mailer->setBody($obj->get('message'));
     $mailer->Send();
     */
     $mailer = $this->getMailer();
-    $mailer->setFromName($this->root->mContext->mKarimojiConfig['sitename']);
-    $mailer->setFromEmail($this->root->mContext->mKarimojiConfig['adminmail']);
-    $mailer->setToEmails($this->root->mContext->mKarimojiUser->get('email'));
+    $mailer->setFromName($this->root->mContext->mXoopsConfig['sitename']);
+    $mailer->setFromEmail($this->root->mContext->mXoopsConfig['adminmail']);
+    $mailer->setToEmails($this->root->mContext->mXoopsUser->get('email'));
     $mailer->setSubject($obj->get('title'));
     $mailer->setBody($obj->get('message'));
     $mailer->send();

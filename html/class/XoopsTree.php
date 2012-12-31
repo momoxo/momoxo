@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Utils\TextSanitizer;
+
 class XoopsTree
 {
 	var $table;     //table with parent-child structure
@@ -99,7 +101,7 @@ class XoopsTree
 			return $path;
 		}
 		list($parentid,$name) = $this->db->fetchRow($result);
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		$name = $myts->makeTboxData4Show($name);
 		$path = "/".$name.$path."";
 		if ( $parentid == 0 ) {
@@ -117,7 +119,7 @@ class XoopsTree
 		if ( $sel_name == "" ) {
 			$sel_name = $this->id;
 		}
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		echo "<select name='".$sel_name."'";
 		if ( $onchange != "" ) {
 			echo " onchange='".$onchange."'";
@@ -161,7 +163,7 @@ class XoopsTree
 			return $path;
 		}
 		list($parentid,$name) = $this->db->fetchRow($result);
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		$name = $myts->makeTboxData4Show($name);
 		$path = "<a href='".$funcURL."&amp;".$this->id."=".$sel_id."'>".$name."</a>&nbsp;:&nbsp;".$path."";
 		if ( $parentid == 0 ) {

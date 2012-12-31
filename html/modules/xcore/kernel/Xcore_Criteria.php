@@ -39,6 +39,9 @@
   *   make new Criteria that is like old Criteria.
   *   (Perhaps, old Criteria was created as Torque like)
   */
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_Criteria
 {
 	var $mTypeInfoArr = array();

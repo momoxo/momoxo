@@ -7,6 +7,8 @@
 
 use XCore\Kernel\Root;
 use XCore\Utils\Utils;
+use XCore\Database\Criteria;
+use XCore\Entity\Module;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -24,7 +26,7 @@ class Xupdate_Uninstaller
 
     private /*** bool ***/ $_mForceMode = false;
 
-    private /*** XoopsModule ***/ $_mKarimojiModule = null;
+    private /*** Module ***/ $_mXoopsModule = null;
 
     /**
      * __construct
@@ -39,15 +41,15 @@ class Xupdate_Uninstaller
     }
 
     /**
-     * setCurrentXoopsModule
+     * setCurrentModule
      * 
-     * @param   XoopsModule  &$xoopsModule
+     * @param   Module  &$xoopsModule
      * 
      * @return  void
     **/
-    public function setCurrentXoopsModule(/*** XoopsModule ***/ &$xoopsModule)
+    public function setCurrentModule(/*** Module ***/ &$xoopsModule)
     {
-        $this->_mKarimojiModule =& $xoopsModule;
+        $this->_mXoopsModule =& $xoopsModule;
     }
 
     /**
@@ -73,7 +75,7 @@ class Xupdate_Uninstaller
     {
         $moduleHandler =& Xupdate_Utils::getXoopsHandler('module');
     
-        if($moduleHandler->delete($this->_mKarimojiModule))
+        if($moduleHandler->delete($this->_mXoopsModule))
         {
             $this->mLog->addReport(_MI_XUPDATE_INSTALL_MSG_MODULE_INFORMATION_DELETED);
         }
@@ -94,9 +96,9 @@ class Xupdate_Uninstaller
     {
         $root = Root::getSingleton();
         $db =& $root->mController->getDB();
-        $dirname = $this->_mKarimojiModule->get('dirname');
+        $dirname = $this->_mXoopsModule->get('dirname');
     
-        $tables =& $this->_mKarimojiModule->getInfo('tables');
+        $tables =& $this->_mXoopsModule->getInfo('tables');
         if(is_array($tables))
         {
             foreach($tables as $table)
@@ -139,7 +141,7 @@ class Xupdate_Uninstaller
     **/
     private function _uninstallTemplates()
     {
-        Xupdate_InstallUtils::uninstallAllOfModuleTemplates($this->_mKarimojiModule,$this->mLog,false);
+        Xupdate_InstallUtils::uninstallAllOfModuleTemplates($this->_mXoopsModule,$this->mLog,false);
     }
 
     /**
@@ -151,10 +153,10 @@ class Xupdate_Uninstaller
     **/
     private function _uninstallBlocks()
     {
-        Xupdate_InstallUtils::uninstallAllOfBlocks($this->_mKarimojiModule,$this->mLog);
+        Xupdate_InstallUtils::uninstallAllOfBlocks($this->_mXoopsModule,$this->mLog);
     
         $tplHandler =& Xupdate_Utils::getXoopsHandler('tplfile');
-        $cri = new Criteria('tpl_module',$this->_mKarimojiModule->get('dirname'));
+        $cri = new Criteria('tpl_module',$this->_mXoopsModule->get('dirname'));
         if(!$tplHandler->deleteAll($cri))
         {
             $this->mLog->addError(
@@ -175,7 +177,7 @@ class Xupdate_Uninstaller
     **/
     private function _uninstallPreferences()
     {
-        Xupdate_InstallUtils::uninstallAllOfConfigs($this->_mKarimojiModule,$this->mLog);
+        Xupdate_InstallUtils::uninstallAllOfConfigs($this->_mXoopsModule,$this->mLog);
     }
 
     /**
@@ -192,16 +194,16 @@ class Xupdate_Uninstaller
             $this->mLog->add(
                 Utils::formatString(
                     _MI_XUPDATE_INSTALL_MSG_MODULE_UNINSTALLED,
-                    $this->_mKarimojiModule->get('name')
+                    $this->_mXoopsModule->get('name')
                 )
             );
         }
-        else if(is_object($this->_mKarimojiModule))
+        else if(is_object($this->_mXoopsModule))
         {
             $this->mLog->addError(
                 Utils::formatString(
                     _MI_XUPDATE_INSTALL_ERROR_MODULE_UNINSTALLED,
-                    $this->_mKarimojiModule->get('name')
+                    $this->_mXoopsModule->get('name')
                 )
             );
         }
@@ -232,7 +234,7 @@ class Xupdate_Uninstaller
             return false;
         }
     
-        if($this->_mKarimojiModule->get('mid') != null)
+        if($this->_mXoopsModule->get('mid') != null)
         {
             $this->_uninstallModule();
             if(!$this->_mForceMode && $this->mLog->hasError())

@@ -8,7 +8,9 @@
  * @package kernel
  * @subpackage form
  */
-class XoopsGroupFormCheckBox extends XoopsFormElement
+use XCore\Entity\Group;
+
+class GroupFormCheckBox extends XoopsFormElement
 {
     /**
      * Pre-selected value(s)
@@ -32,7 +34,7 @@ class XoopsGroupFormCheckBox extends XoopsFormElement
     /**
      * Constructor
      */
-    function XoopsGroupFormCheckBox($caption, $name, $groupId, $values = null)
+    function GroupFormCheckBox($caption, $name, $groupId, $values = null)
     {
         $this->setCaption($caption);
         $this->setName($name);

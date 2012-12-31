@@ -5,6 +5,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 

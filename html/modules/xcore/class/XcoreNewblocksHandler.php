@@ -1,6 +1,10 @@
 <?php
 
-class XcoreNewblocksHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
+class XcoreNewblocksHandler extends ObjectGenericRepository
 {
 	var $mTable = "newblocks";
 	var $mPrimary = "bid";

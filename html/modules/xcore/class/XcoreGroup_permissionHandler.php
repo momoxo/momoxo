@@ -1,6 +1,8 @@
 <?php
 
-class XcoreGroup_permissionHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+
+class XcoreGroup_permissionHandler extends ObjectGenericRepository
 {
 	var $mTable = "group_permission";
 	var $mPrimary = "gperm_id";

@@ -5,8 +5,10 @@
 **/
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
 
-abstract class Xcore_AbstractObject extends XoopsSimpleObject
+abstract class Xcore_AbstractObject extends SimpleObject
 {
     //const PRIMARY = '';
     //const DATANAME = '';
@@ -15,7 +17,7 @@ abstract class Xcore_AbstractObject extends XoopsSimpleObject
 
     public /*** string[] ***/ $mChildList = array();    //Child table's name array
     public /*** string[] ***/ $mParentList = array();   //Parent table's name array
-    public /*** XoopsSimpleObject[] ***/ $mTable = array();
+    public /*** SimpleObject[] ***/ $mTable = array();
     protected /*** bool[] ***/ $_mIsLoaded = array();
 
     protected /*** bool ***/ $_mIsTagLoaded = false;

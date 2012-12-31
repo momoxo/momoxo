@@ -1,11 +1,16 @@
 <?php
 use XCore\Kernel\Root;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+use XCore\Entity\Module;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 //require_once XUPDATE_TRUST_PATH .'/class/Root.class.php';
 /**
-* XoopsSimpleObject
+* SimpleObject
 */
 class Xupdate_ModuleStore extends Xcore_AbstractObject {
 
@@ -141,7 +146,7 @@ class Xupdate_ModuleStore extends Xcore_AbstractObject {
 			}
 
 		} else {
-			$this->mModule = new XoopsModule();//空のobject
+			$this->mModule = new Module();//空のobject
 			$this->mModule->cleanVars();
 			
 			$this->options = $this->unserialize_options($readini);
@@ -423,14 +428,14 @@ class Xupdate_ModuleStore extends Xcore_AbstractObject {
 } // end class
 
 /**
-* XoopsObjectGenericHandler extends
+* ObjectGenericRepository extends
 */
 class Xupdate_ModuleStoreHandler extends Xcore_AbstractClientObjectHandler
 {
 	public $mTable = '{dirname}_modulestore';
 
 	public $mPrimary = 'id';
-	//XoopsSimpleObject
+	//SimpleObject
 	public $mClass = 'Xupdate_ModuleStore';
 	
 	public $mDirname;

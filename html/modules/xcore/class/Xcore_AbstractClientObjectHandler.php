@@ -5,8 +5,10 @@
 **/
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
 
-abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandler
+abstract class Xcore_AbstractClientObjectHandler extends ObjectGenericRepository
 {
 	protected $_mClientField = array('title'=>'title', 'category'=>'category_id', 'posttime'=>'posttime');
 	protected $_mClientConfig = array('tag'=>'tag_dirname', 'image'=>'use_image', 'workflow'=>'use_workflow', 'activity'=>'use_activity', 'map'=>'use_map');
@@ -14,11 +16,11 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * _getTagList
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	string[]
 	 */
-	protected function _getTagList(/*** XoopsSimpleObject ***/ $obj)
+	protected function _getTagList(/*** SimpleObject ***/ $obj)
 	{
 		return $obj->mTag;
 	}
@@ -26,12 +28,12 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * insert data to table
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 * @param bool	$force
 	 *
 	 * @return	bool
 	 */
-	public function insert(/*** XoopsSimpleObject ***/ &$obj, /*** bool ***/ $force=false)
+	public function insert(/*** SimpleObject ***/ &$obj, /*** bool ***/ $force=false)
 	{
 		$ret = parent::insert($obj, $force);
 		if ($ret == true)
@@ -45,12 +47,12 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * delete data from table
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 * @param bool	$force
 	 *
 	 * @return	bool
 	 */
-	public function delete(/*** XoopsSimpleObject ***/ &$obj, /*** bool ***/ $force=false)
+	public function delete(/*** SimpleObject ***/ &$obj, /*** bool ***/ $force=false)
 	{
 		$ret = parent::delete($obj, $force);
 		$this->_deleteClientData($obj);
@@ -61,11 +63,11 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * set client data: tag, image, activity, workflow
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	bool
 	 */
-	protected function _setClientData(/*** XoopsSimpleObject ***/ $obj)
+	protected function _setClientData(/*** SimpleObject ***/ $obj)
 	{
 		$handler = xoops_gethandler('config');
 		$conf = $handler->getConfigsByDirname($obj->getDirname());
@@ -101,11 +103,11 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * delete client data: tag, activity, workflow, image
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	bool
 	 */
-	protected function _deleteClientData(/*** XoopsSimpleObject ***/ $obj)
+	protected function _deleteClientData(/*** SimpleObject ***/ $obj)
 	{
 		$handler = xoops_gethandler('config');
 		$conf = $handler->getConfigsByDirname($obj->getDirname());
@@ -138,11 +140,11 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * save activity
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	bool
 	 */
-	protected function _saveActivity(/*** XoopsSimpleObject ***/ $obj)
+	protected function _saveActivity(/*** SimpleObject ***/ $obj)
 	{
 		$ret = false;
 		DelegateUtils::call(
@@ -161,12 +163,12 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * save tags
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 * @param string	$tagDirname
 	 *
 	 * @return	bool
 	 */
-	protected function _saveTags(/*** XoopsSimpleObject ***/ $obj, /*** string ***/ $tagDirname)
+	protected function _saveTags(/*** SimpleObject ***/ $obj, /*** string ***/ $tagDirname)
 	{
 		$ret = false;
 		DelegateUtils::call('Xcore_Tag.'.$tagDirname.'.SetTags',
@@ -184,7 +186,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * upload and save images
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	bool
 	 */
@@ -211,7 +213,7 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * save map data
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	bool
 	 */
@@ -234,11 +236,11 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * delete activity
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	bool
 	 */
-	protected function _deleteActivity(/*** XoopsSimpleObject ***/ $obj)
+	protected function _deleteActivity(/*** SimpleObject ***/ $obj)
 	{
 		$ret = false;
 		DelegateUtils::call('Xcore_Activity.DeleteActivity', new Ref($ret), $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
@@ -248,12 +250,12 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * delete tags
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 * @param string	$tagDirname
 	 *
 	 * @return	bool
 	 */
-	protected function _deleteTags(/*** XoopsSimpleObject ***/ $obj, /*** string ***/ $tagDirname)
+	protected function _deleteTags(/*** SimpleObject ***/ $obj, /*** string ***/ $tagDirname)
 	{
 		$ret = false;
 		DelegateUtils::call(
@@ -272,11 +274,11 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * delete workflow
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	void
 	 */
-	protected function _deleteWorkflow(/*** XoopsSimpleObject ***/ $obj)
+	protected function _deleteWorkflow(/*** SimpleObject ***/ $obj)
 	{
 		DelegateUtils::call('Xcore_Workflow.DeleteItem', $obj->getDirname(), $this->getDataname(), $obj->get($this->mPrimary));
 	}
@@ -284,11 +286,11 @@ abstract class Xcore_AbstractClientObjectHandler extends XoopsObjectGenericHandl
 	/**
 	 * delete images
 	 *
-	 * @param XoopsSimpleObject	$obj
+	 * @param SimpleObject	$obj
 	 *
 	 * @return	bool
 	 */
-	protected function _deleteImages(/*** XoopsSimpleObject ***/ $obj)
+	protected function _deleteImages(/*** SimpleObject ***/ $obj)
 	{
 		$ret = true;
 		$isPost = false;

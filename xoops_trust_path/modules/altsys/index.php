@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
 require_once dirname(__FILE__).'/include/altsys_functions.php' ;
 

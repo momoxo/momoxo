@@ -3,6 +3,8 @@
 /**
  * xoops_gethandler()の一時的な下位互換性のためのプリロード
  */
+
+
 class LegacyGetHandler extends \XCore\Kernel\ActionFilter
 {
 	public function preFilter()
@@ -13,33 +15,33 @@ class LegacyGetHandler extends \XCore\Kernel\ActionFilter
 	public function callback(&$__handler, $name, $optional)
 	{
 		$nameMap = array(
-			'avatar'         => 'XoopsAvatarHandler',
-			'block'          => 'XoopsBlockHandler',
-			'cachetime'      => 'XoopsCachetimeHandler',
-			'comment'        => 'XoopsCommentHandler',
-			'config'         => 'XoopsConfigHandler',
-			'configcategory' => 'XoopsConfigCategoryHandler',
-			'configitem'     => 'XoopsConfigItemHandler',
-			'configoption'   => 'XoopsConfigOptionHandler',
-			'group'          => 'XoopsGroupHandler',
-			'membership'     => 'XoopsMembershipHandler',
-			'groupperm'      => 'XoopsGroupPermHandler',
-			'handler'        => 'XoopsObjectGenericHandler',
-			'image'          => 'XoopsImageHandler',
-			'imagecategory'  => 'XoopsImagecategoryHandler',
-			'imageset'       => 'XoopsImagesetHandler',
-			'imagesetimg'    => 'XoopsImagesetimgHandler',
-			'member'         => 'XoopsMemberHandler',
-			'module'         => 'XoopsModuleHandler',
-			'notification'   => 'XoopsNotificationHandler',
-			'object'         => 'XoopsObjectHandler',
-			'online'         => 'XoopsOnlineHandler',
-			'privmessage'    => 'XoopsPrivmessageHandler',
-			'session'        => 'XoopsSessionHandler',
-			'subjecticon'    => 'XoopsSubjecticonHandler',
-			'timezone'       => 'XoopsTimezoneHandler',
-			'tplfile'        => 'XoopsTplfileHandler',
-			'tplset'         => 'XoopsTplsetHandler',
+			'avatar'         => 'XCore\Repository\AvatarRepository',
+			'block'          => 'XCore\Repository\BlockRepository',
+			'cachetime'      => 'XCore\Repository\CachetimeRepository',
+			'comment'        => 'XCore\Repository\CommentRepository',
+			'config'         => 'XCore\Repository\ConfigRepository',
+			'configcategory' => 'XCore\Repository\ConfigCategoryRepository',
+			'configitem'     => 'XCore\Repository\ConfigItemRepository',
+			'configoption'   => 'XCore\Repository\ConfigOptionRepository',
+			'group'          => 'XCore\Repository\GroupRepository',
+			'membership'     => 'XCore\Repository\MembershipRepository',
+			'groupperm'      => 'XCore\Repository\GroupPermRepository',
+			'handler'        => 'XCore\Repository\ObjectGenericRepository',
+			'image'          => 'XCore\Repository\ImageRepository',
+			'imagecategory'  => 'XCore\Repository\ImagecategoryRepository',
+			'imageset'       => 'XCore\Repository\ImagesetRepository',
+			'imagesetimg'    => 'XCore\Repository\ImagesetimgRepository',
+			'member'         => 'XCore\Repository\MemberRepository',
+			'module'         => 'XCore\Repository\ModuleRepository',
+			'notification'   => 'XCore\Repository\NotificationRepository',
+			'object'         => 'XCore\Repository\ObjectRepository',
+			'online'         => 'XCore\Repository\OnlineRepository',
+			'privmessage'    => 'XCore\Repository\PrivmessageRepository',
+			'session'        => 'XCore\Repository\SessionRepository',
+			'subjecticon'    => 'XCore\Repository\SubjecticonRepository',
+			'timezone'       => 'XCore\Repository\TimezoneRepository',
+			'tplfile'        => 'XCore\Repository\TplfileRepository',
+			'tplset'         => 'XCore\Repository\TplsetRepository',
 			'user'           => 'XCore\Repository\UserRepository',
 		);
 

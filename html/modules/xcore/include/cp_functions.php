@@ -25,6 +25,8 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 define('XOOPS_CPFUNC_LOADED', 1);
 

@@ -1,6 +1,8 @@
 <?php
 
-class XcoreSmilesObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreSmilesObject extends SimpleObject
 {
 	function XcoreSmilesObject()
 	{

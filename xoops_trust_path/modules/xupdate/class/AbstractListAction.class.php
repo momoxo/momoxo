@@ -3,9 +3,13 @@
 /**
  * Xupdate_AbstractListAction
 **/
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
 abstract class Xupdate_AbstractListAction extends Xupdate_AbstractAction
 {
-    public /*** XoopsSimpleObject[] ***/ $mObjects = null;
+    public /*** SimpleObject[] ***/ $mObjects = null;
 
     public /*** Xupdate_AbstractFilterForm ***/ $mFilter = null;
 
@@ -14,7 +18,7 @@ abstract class Xupdate_AbstractListAction extends Xupdate_AbstractAction
      * 
      * @param   void
      * 
-     * @return  &XoopsObjectGenericHandler
+     * @return  &ObjectGenericRepository
     **/
     protected function &_getHandler()
     {

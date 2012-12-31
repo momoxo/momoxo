@@ -9,6 +9,10 @@
  * @brief This file declare some structure-class and stored-system readers for the installer.
  */
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Module;
+
 define('XCORE_INSTALLINFO_STATUS_LOADED', "loaded");
 define('XCORE_INSTALLINFO_STATUS_UPDATED', "updated");
 define('XCORE_INSTALLINFO_STATUS_ORDER_UPDATED', "order_updated");
@@ -719,7 +723,7 @@ class Xcore_ModinfoX2FileReader extends Xcore_AbstractModinfoReader
 	}
 	
 	/**
-	 * @note Because XoopsModule class of X2 kernel is too complex, this method
+	 * @note Because Module class of X2 kernel is too complex, this method
 	 *       parses xoops_version directly.
 	 * @todo Need guarantee of global variables.
 	 */

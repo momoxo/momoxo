@@ -11,6 +11,10 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Module;
 
 class Xcore_Utils
 {
@@ -50,7 +54,7 @@ class Xcore_Utils
 	/***
 	 * Creates a instance of the module with the generating convention. And,
 	 * returns it.
-	 * @param XoopsModule $module
+	 * @param Module $module
 	 * @return Xcore_Module
 	 */
 	public static function &createModule($module, $loadConfig=true)
@@ -184,7 +188,7 @@ class Xcore_Utils
 	public static function getUid()
 	{
 		$root = Root::getSingleton();
-		return ($root->mContext->mUser->isInRole('Site.RegisteredUser')) ? $root->mContext->mKarimojiUser->get('uid') : 0;
+		return ($root->mContext->mUser->isInRole('Site.RegisteredUser')) ? $root->mContext->mXoopsUser->get('uid') : 0;
 	}
 
 	/**
@@ -277,7 +281,7 @@ class Xcore_Utils
 	 * @param	string	$name
 	 * @param	string	$dirname
 	 * 
-	 * @return	XoopsObjectGenericHandler
+	 * @return	ObjectGenericRepository
 	**/
 	public static function getModuleHandler(/*** string ***/ $name, /*** string ***/ $dirname)
 	{
@@ -305,7 +309,7 @@ class Xcore_Utils
 	 * @param	string	$action
 	 * @param	string	$query
 	 * 
-	 * @return	XoopsObjectGenericHandler
+	 * @return	ObjectGenericRepository
 	**/
 	public static function renderUri(/*** string ***/ $dirname, /*** string ***/ $dataname=null, /*** int ***/ $data_id=0, /*** string ***/ $action=null, /*** string ***/ $query=null)
 	{

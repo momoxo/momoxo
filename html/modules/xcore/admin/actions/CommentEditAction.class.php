@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_CommentEditAction extends Xcore_AbstractEditAction
 {
 	/**

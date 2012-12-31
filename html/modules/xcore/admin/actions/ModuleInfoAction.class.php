@@ -3,10 +3,12 @@
 /**
  * This action will show the information of a module specified to user.
  */
+use XCore\Entity\Module;
+
 class Xcore_ModuleInfoAction extends Xcore_Action
 {
 	/**
-	 * XoopsModule instance specified.
+	 * Module instance specified.
 	 */
 	var $mModuleObject = null;
 	var $mInstalledFlag = false;

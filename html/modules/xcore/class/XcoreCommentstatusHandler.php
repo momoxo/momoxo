@@ -1,8 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Repository\ObjectRepository;
 
-class XcoreCommentstatusHandler extends XoopsObjectHandler
+class XcoreCommentstatusHandler extends ObjectRepository
 {
 	var $_mResults = array();
 	

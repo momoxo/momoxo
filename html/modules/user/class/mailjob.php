@@ -3,10 +3,14 @@
 use XCore\Kernel\Root;
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserMailjobObject extends XoopsSimpleObject
+class UserMailjobObject extends SimpleObject
 {
 	var $mUsers = array();
 	var $_mUsersLoadedFlag = false;
@@ -166,7 +170,7 @@ class UserMailjobObject extends XoopsSimpleObject
 	}
 }
 
-class UserMailjobHandler extends XoopsObjectGenericHandler
+class UserMailjobHandler extends ObjectGenericRepository
 {
 	var $mTable = "user_mailjob";
 	var $mPrimary = "mailjob_id";

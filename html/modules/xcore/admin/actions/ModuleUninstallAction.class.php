@@ -37,7 +37,7 @@
  * @subsection process Uninstall Process
  * 
  * \li Gets a instance of the uninstaller class through Xcore_ModuleUninstallAction::_getInstaller().
- * \li Sets the current XoopsModule to the instance.
+ * \li Sets the current Module to the instance.
  * \li Sets a value indicating whether an administrator hopes the force-mode, to the instance.
  * \li Calls executeUninstall().
  * 
@@ -50,6 +50,7 @@
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
 use XCore\Kernel\Delegate;
+use XCore\Entity\Module;
 
 class Xcore_ModuleUninstallAction extends Xcore_Action
 {
@@ -67,9 +68,9 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 	
 	/**
 	 * @private
-	 * @var XoopsModule
+	 * @var Module
 	 */
-	var $mKarimojiModule = null;
+	var $mXoopsModule = null;
 	
 	/**
 	 * @private
@@ -93,14 +94,14 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 		$dirname = $controller->mRoot->mContext->mRequest->getRequest('dirname');
 		
 		$handler =& xoops_gethandler('module');
-		$this->mKarimojiModule =& $handler->getByDirname($dirname);
+		$this->mXoopsModule =& $handler->getByDirname($dirname);
 
 
 
-		if (!(is_object($this->mKarimojiModule) && $this->mKarimojiModule->get('isactive') == 0)) {
+		if (!(is_object($this->mXoopsModule) && $this->mXoopsModule->get('isactive') == 0)) {
 			return false;
 		}
-		$this->mKarimojiModule->loadInfoAsVar($dirname);
+		$this->mXoopsModule->loadInfoAsVar($dirname);
 
 		$this->_setupActionForm();
 		
@@ -109,13 +110,13 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 		//
 		// Set the current object.
 		//
-		$this->mInstaller->setCurrentXoopsModule($this->mKarimojiModule);
+		$this->mInstaller->setCurrentModule($this->mXoopsModule);
 		return true;
 	}
 	
 	function &_getInstaller()
 	{
-		$dirname = $this->mKarimojiModule->get('dirname');
+		$dirname = $this->mXoopsModule->get('dirname');
 		$installer =&  Xcore_ModuleInstallUtils::createUninstaller($dirname);
 		return $installer;
 	}
@@ -128,7 +129,7 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 
 	function getDefaultView(&$controller, &$xoopsUser)
 	{
-		$this->mActionForm->load($this->mKarimojiModule);
+		$this->mActionForm->load($this->mXoopsModule);
 		
 		return XCORE_FRAME_VIEW_INPUT;
 	}
@@ -155,16 +156,16 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 	function executeViewSuccess(&$controller, &$xoopsUser, &$renderer)
 	{
 		if (!$this->mInstaller->mLog->hasError()) {
-			$this->mUninstallSuccess->call(new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mKarimojiModule->get('dirname') . '.Success'), new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			$this->mUninstallSuccess->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Success'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 		else {
-			$this->mUninstallFail->call(new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
-			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mKarimojiModule->get('dirname') . '.Fail'), new Ref($this->mKarimojiModule), new Ref($this->mInstaller->mLog));
+			$this->mUninstallFail->call(new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
+			DelegateUtils::call('Xcore.Admin.Event.ModuleUninstall.' . ucfirst($this->mXoopsModule->get('dirname') . '.Fail'), new Ref($this->mXoopsModule), new Ref($this->mInstaller->mLog));
 		}
 
 		$renderer->setTemplateName("module_uninstall_success.html");
-		$renderer->setAttribute('module',$this->mKarimojiModule);
+		$renderer->setAttribute('module',$this->mXoopsModule);
 		$renderer->setAttribute('log', $this->mInstaller->mLog->mMessages);
 	}
 
@@ -172,8 +173,8 @@ class Xcore_ModuleUninstallAction extends Xcore_Action
 	{
 		$renderer->setTemplateName("module_uninstall.html");
 		$renderer->setAttribute('actionForm', $this->mActionForm);
-		$renderer->setAttribute('module', $this->mKarimojiModule);
-		$renderer->setAttribute('currentVersion', round($this->mKarimojiModule->get('version') / 100, 2));
+		$renderer->setAttribute('module', $this->mXoopsModule);
+		$renderer->setAttribute('currentVersion', round($this->mXoopsModule->get('version') / 100, 2));
 	}
 
 	function executeViewCancel(&$controller, &$xoopsUser, &$renderer)

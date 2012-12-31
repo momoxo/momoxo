@@ -33,8 +33,8 @@ class Xcore_SiteClose extends ActionFilter
 		} else if (@$_GET['op']=='logout') { // GIJ
 			$controller->logout();
 			return;
-		} elseif (is_object($context->mKarimojiUser)) {
-			foreach ($context->mKarimojiUser->getGroups() as $group) {
+		} elseif (is_object($context->mXoopsUser)) {
+			foreach ($context->mXoopsUser->getGroups() as $group) {
 				if (in_array($group, $xoopsConfig['closesite_okgrp']) || XOOPS_GROUP_ADMIN == $group) {
 					$accessAllowFlag = true;
 					break;
@@ -45,7 +45,7 @@ class Xcore_SiteClose extends ActionFilter
 		if (!$accessAllowFlag) {
 			$xoopsTpl =new XoopsTpl();
 			$xoopsTpl->assign(array('xoops_sitename' => htmlspecialchars($xoopsConfig['sitename']),
-									   'xoops_isuser' => is_object( $context->mKarimojiUser ),//GIJ
+									   'xoops_isuser' => is_object( $context->mXoopsUser ),//GIJ
 									   'xoops_themecss' => xoops_getcss(),
 									   'xoops_imageurl' => XOOPS_THEME_URL . '/' . $xoopsConfig['theme_set'] . '/',
 									   'lang_login' => _LOGIN,

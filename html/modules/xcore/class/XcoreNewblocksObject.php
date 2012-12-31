@@ -1,6 +1,10 @@
 <?php
 
-class XcoreNewblocksObject extends XoopsSimpleObject
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
+class XcoreNewblocksObject extends SimpleObject
 {
 	var $mModule = null;
 	

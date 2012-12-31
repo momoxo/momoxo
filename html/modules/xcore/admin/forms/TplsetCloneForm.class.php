@@ -8,6 +8,7 @@ use XCore\Form\FieldProperty;
 use XCore\Property\IntProperty;
 use XCore\Property\StringProperty;
 use XCore\Property\TextProperty;
+use XCore\Database\Criteria;
 
 class Xcore_TplsetCloneForm extends Xcore_TplsetEditForm
 {

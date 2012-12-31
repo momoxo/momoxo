@@ -6,6 +6,7 @@
  *    This may have to be admin-preload.
  */
 use XCore\Kernel\ActionFilter;
+use XCore\Database\Criteria;
 
 class Xcore_Cacheclear extends ActionFilter {
     function preBlockFilter()

@@ -10,6 +10,7 @@ use XCore\Property\FloatProperty;
 use XCore\Property\IntProperty;
 use XCore\Property\StringProperty;
 use XCore\Property\TextProperty;
+use XCore\Database\Criteria;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {

@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 define('COMMENT_SORT_KEY_COM_ID', 1);
 define('COMMENT_SORT_KEY_COM_PID', 2);

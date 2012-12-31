@@ -1,4 +1,6 @@
 <?php
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 require _MY_MODULE_PATH.'kernel/MyPageNavi.class.php';
 
@@ -29,7 +31,7 @@ class indexAction extends AbstractAction
     $this->mPagenavi->setUrl($this->url);
     $this->mPagenavi->setPagenum($pagenum);
     $this->mPagenavi->addSort('utime', 'DESC');
-    $this->mPagenavi->addCriteria(new Criteria('uid', $this->root->mContext->mKarimojiUser->get('uid')));
+    $this->mPagenavi->addCriteria(new Criteria('uid', $this->root->mContext->mXoopsUser->get('uid')));
     if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $fromuid = intval($this->root->mContext->mRequest->getRequest('fromuid'));
       if ( $fromuid > 0 ) {
@@ -46,7 +48,7 @@ class indexAction extends AbstractAction
       }
     }
     $this->mPagenavi->fetch();
-    $this->select = $modHand->getSendUserList($this->root->mContext->mKarimojiUser->get('uid'), $fromuid);
+    $this->select = $modHand->getSendUserList($this->root->mContext->mXoopsUser->get('uid'), $fromuid);
     $modObj = $modHand->getObjects($this->mPagenavi->getCriteria());
 
     foreach ($modObj as $key => $val) {

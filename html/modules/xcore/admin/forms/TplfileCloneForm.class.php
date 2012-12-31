@@ -2,6 +2,7 @@
 
 use XCore\Form\FieldProperty;
 use XCore\Property\StringProperty;
+use XCore\Database\Criteria;
 
 class Xcore_TplfileCloneForm extends Xcore_TplfileEditForm
 {

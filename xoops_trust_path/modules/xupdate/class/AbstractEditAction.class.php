@@ -6,6 +6,8 @@
 **/
 
 use XCore\Form\ActionForm;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -17,9 +19,9 @@ if(!defined('XOOPS_ROOT_PATH'))
 **/
 abstract class Xupdate_AbstractEditAction extends Xupdate_AbstractAction
 {
-    public /*** XoopsSimpleObject ***/ $mObject = null;
+    public /*** SimpleObject ***/ $mObject = null;
 
-    public /*** XoopsObjectGenericHandler ***/ $mObjectHandler = null;
+    public /*** ObjectGenericRepository ***/ $mObjectHandler = null;
 
     public $mActionForm = null;
 
@@ -39,7 +41,7 @@ abstract class Xupdate_AbstractEditAction extends Xupdate_AbstractAction
      * 
      * @param   void
      * 
-     * @return  XoopsObjectGenericHandler
+     * @return  ObjectGenericRepository
     **/
     protected function &_getHandler()
     {

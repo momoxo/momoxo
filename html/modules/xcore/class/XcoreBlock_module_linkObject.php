@@ -1,6 +1,8 @@
 <?php
 
-class XcoreBlock_module_linkObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreBlock_module_linkObject extends SimpleObject
 {
 	function XcoreBlock_module_linkObject()
 	{

@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 class Xcore_ImageEditAction extends Xcore_ImageCreateAction
 {
 	function _getId()

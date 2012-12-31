@@ -1,5 +1,7 @@
 <?php
 
+use XCore\Database\Criteria;
+
 define('TPLSET_SORT_KEY_TPLSET_ID', 1);
 define('TPLSET_SORT_KEY_TPLSET_NAME', 2);
 define('TPLSET_SORT_KEY_TPLSET_DESC', 3);

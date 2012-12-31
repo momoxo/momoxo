@@ -1,6 +1,10 @@
 <?php
 
-class XcoreImagecategoryHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
+class XcoreImagecategoryHandler extends ObjectGenericRepository
 {
 	var $mTable = "imagecategory";
 	var $mPrimary = "imgcat_id";

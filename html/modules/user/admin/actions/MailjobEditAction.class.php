@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\Criteria;
 
 require_once XOOPS_MODULE_PATH . "/user/class/AbstractEditAction.class.php";
 require_once XOOPS_MODULE_PATH . "/user/admin/forms/MailjobAdminEditForm.class.php";

@@ -3,8 +3,14 @@
  * @license http://www.gnu.org/licenses/gpl.txt GNU GENERAL PUBLIC LICENSE Version 3
  * @author Marijuana
  */
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaElement;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
-class MessageInboxObject extends XoopsSimpleObject
+class MessageInboxObject extends SimpleObject
 {
   public function __construct()
   {
@@ -38,7 +44,7 @@ class MessageInboxObject extends XoopsSimpleObject
   }
 }
 
-class MessageInboxHandler extends XoopsObjectGenericHandler
+class MessageInboxHandler extends ObjectGenericRepository
 {
   public $mTable = 'message_inbox';
   public $mPrimary = 'inbox_id';
@@ -46,7 +52,7 @@ class MessageInboxHandler extends XoopsObjectGenericHandler
   
   public function __construct(&$db)
   {
-    parent::XoopsObjectGenericHandler($db);
+    parent::__construct($db);
   }
   
   public function getCountUnreadByFromUid($uid)

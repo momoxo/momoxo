@@ -1,6 +1,11 @@
 <?php
 
-class XcoreTplfileHandler extends XoopsObjectGenericHandler
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
+class XcoreTplfileHandler extends ObjectGenericRepository
 {
 	var $mTable = "tplfile";
 	var $mPrimary = "tpl_id";
@@ -89,7 +94,7 @@ class XcoreTplfileHandler extends XoopsObjectGenericHandler
 	/**
 	 * This is a kind of getObjects(). Call getObjects() by 5 parameters and return
 	 * the result. Parameters are guaranteed Type Safe because these are used by
-	 * getObjects() for XoopsSimpleObject.
+	 * getObjects() for SimpleObject.
 	 * 
 	 * @param $tplsetName string
 	 * @param $type       string

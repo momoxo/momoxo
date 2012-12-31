@@ -6,6 +6,8 @@
 **/
 
 use XCore\Kernel\RenderTarget;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {

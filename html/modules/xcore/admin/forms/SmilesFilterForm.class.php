@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 define('SMILES_SORT_KEY_ID', 1);
 define('SMILES_SORT_KEY_CODE', 2);

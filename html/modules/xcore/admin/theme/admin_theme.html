@@ -14,7 +14,7 @@
 <script type="text/javascript">
 <!-- <![CDATA[
    
-var cid = <{if $smarty.get.fct == "preferences" && $smarty.get.mod > 0}><{$smarty.get.mod}><{else}><{$currentModule->mKarimojiModule->get('mid')}><{/if}>;
+var cid = <{if $smarty.get.fct == "preferences" && $smarty.get.mod > 0}><{$smarty.get.mod}><{else}><{$currentModule->mXoopsModule->get('mid')}><{/if}>;
 function ccToggle(id)
 {
     var el = xoopsGetElementById('c'+id).style;
@@ -224,7 +224,7 @@ if (typeof jQuery != 'undefined') {
 
 <noscript>
   <div id="menunavi">
-  <h2><{$currentModule->mKarimojiModule->getVar('name')}></h2>
+  <h2><{$currentModule->mXoopsModule->getVar('name')}></h2>
   <{if $currentModule->getAdminMenu()}>
     <ul class="submenunavi">
       <{foreach item=menu from=$currentModule->getAdminMenu()}>
@@ -233,23 +233,23 @@ if (typeof jQuery != 'undefined') {
         <{/if}>
       <{/foreach}>
 
-          <{if $currentModule->mKarimojiModule->getInfo('blocks') && $currentModule->mKarimojiModule->getVar('dirname', 'N') != "xcore" && $currentModule->mKarimojiModule->getVar('dirname', 'N') != "altsys" && $currentModule->mKarimojiModule->getVar('dirname', 'N') != "system"}>
-          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=BlockList&amp;dirname=<{$currentModule->mKarimojiModule->getVar('dirname', 'N')}>"><{$smarty.const._MI_XCORE_MENU_BLOCKLIST}></a></li>
-          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=BlockInstallList&amp;dirname=<{$currentModule->mKarimojiModule->getVar('dirname', 'N')}>"><{$smarty.const._MI_XCORE_MENU_BLOCKINSTALL}></a></li>
+          <{if $currentModule->mXoopsModule->getInfo('blocks') && $currentModule->mXoopsModule->getVar('dirname', 'N') != "xcore" && $currentModule->mXoopsModule->getVar('dirname', 'N') != "altsys" && $currentModule->mXoopsModule->getVar('dirname', 'N') != "system"}>
+          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=BlockList&amp;dirname=<{$currentModule->mXoopsModule->getVar('dirname', 'N')}>"><{$smarty.const._MI_XCORE_MENU_BLOCKLIST}></a></li>
+          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=BlockInstallList&amp;dirname=<{$currentModule->mXoopsModule->getVar('dirname', 'N')}>"><{$smarty.const._MI_XCORE_MENU_BLOCKINSTALL}></a></li>
           <{/if}>
-          <{if $currentModule->mKarimojiModule->getInfo('templates') && $currentModule->mKarimojiModule->getVar('dirname', 'N') != "xcoreRender" && $currentModule->mKarimojiModule->getVar('dirname', 'N') != "altsys" && $currentModule->mKarimojiModule->getVar('dirname', 'N') != "system"}>
-          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcoreRender/admin/index.php?action=TplfileList&amp;tpl_module=<{$currentModule->mKarimojiModule->getVar('dirname', 'N')}>&amp;sort=-9"><{$smarty.const._AD_XCORE_LANG_TEMPLATE_INFO}></a></li>
+          <{if $currentModule->mXoopsModule->getInfo('templates') && $currentModule->mXoopsModule->getVar('dirname', 'N') != "xcoreRender" && $currentModule->mXoopsModule->getVar('dirname', 'N') != "altsys" && $currentModule->mXoopsModule->getVar('dirname', 'N') != "system"}>
+          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcoreRender/admin/index.php?action=TplfileList&amp;tpl_module=<{$currentModule->mXoopsModule->getVar('dirname', 'N')}>&amp;sort=-9"><{$smarty.const._AD_XCORE_LANG_TEMPLATE_INFO}></a></li>
           <{/if}>
-          <{if $currentModule->mKarimojiModule->getInfo('hasComments')}>
-          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=CommentList&amp;com_modid=<{$currentModule->mKarimojiModule->getVar('mid')}>&amp;sort=-8"><{$smarty.const._MI_XCORE_MENU_COMMENT_MANAGE}></a></li>
+          <{if $currentModule->mXoopsModule->getInfo('hasComments')}>
+          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=CommentList&amp;com_modid=<{$currentModule->mXoopsModule->getVar('mid')}>&amp;sort=-8"><{$smarty.const._MI_XCORE_MENU_COMMENT_MANAGE}></a></li>
           <{/if}>
-        <{if $currentModule->mKarimojiModule->hasNeedUpdate()}>
-          <li><a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleUpdate&amp;dirname=<{$currentModule->mKarimojiModule->getVar('dirname', 'N')}>"><{$smarty.const._AD_XCORE_LANG_UPGRADE}>&nbsp;<img src="<{"icons/update.png"|theme}>" alt="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" title="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" /></a></li>
+        <{if $currentModule->mXoopsModule->hasNeedUpdate()}>
+          <li><a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleUpdate&amp;dirname=<{$currentModule->mXoopsModule->getVar('dirname', 'N')}>"><{$smarty.const._AD_XCORE_LANG_UPGRADE}>&nbsp;<img src="<{"icons/update.png"|theme}>" alt="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" title="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" /></a></li>
         <{else}>
-          <li><a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleUpdate&amp;dirname=<{$currentModule->mKarimojiModule->getVar('dirname', 'N')}>"><img src="<{"icons/upgrade.png"|theme}>" alt="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" title="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" />&nbsp;<{$smarty.const._AD_XCORE_LANG_UPGRADE}></a></li>
+          <li><a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleUpdate&amp;dirname=<{$currentModule->mXoopsModule->getVar('dirname', 'N')}>"><img src="<{"icons/upgrade.png"|theme}>" alt="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" title="<{$smarty.const._AD_XCORE_LANG_UPGRADE}>" />&nbsp;<{$smarty.const._AD_XCORE_LANG_UPGRADE}></a></li>
         <{/if}>
-          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleEdit&amp;mid=<{$currentModule->mKarimojiModule->getVar('mid')}>"><{$smarty.const._EDIT}></a></li>
-          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleInfo&amp;dirname=<{$currentModule->mKarimojiModule->getVar('dirname', 'N')}>"><{$smarty.const._AD_XCORE_LANG_INFORMATION}></a></li>
+          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleEdit&amp;mid=<{$currentModule->mXoopsModule->getVar('mid')}>"><{$smarty.const._EDIT}></a></li>
+          <li><img src="<{"icons/upgrade.png"|theme}>" alt="" title="" />&nbsp;<a href="<{$xoops_url}>/modules/xcore/admin/index.php?action=ModuleInfo&amp;dirname=<{$currentModule->mXoopsModule->getVar('dirname', 'N')}>"><{$smarty.const._AD_XCORE_LANG_INFORMATION}></a></li>
     </ul>
   <{/if}>
   </div>

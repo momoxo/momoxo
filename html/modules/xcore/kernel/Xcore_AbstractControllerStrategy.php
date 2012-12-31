@@ -4,6 +4,7 @@
  * @internal
  */
 use XCore\Kernel\DelegateUtils;
+use XCore\Entity\Module;
 
 class Xcore_AbstractControllerStrategy
 {
@@ -44,9 +45,9 @@ class Xcore_AbstractControllerStrategy
 
 	/**
 	 * Create some instances for the module process.
-	 * Because Xcore_ModuleContext needs XoopsModule instance, this function
-	 * kills the process if XoopsModule instance can't be found. Plus, in the
-	 * case, raises 'Xcore.Event.Exception.XoopsModuleNotFound'.
+	 * Because Xcore_ModuleContext needs Module instance, this function
+	 * kills the process if Module instance can't be found. Plus, in the
+	 * case, raises 'Xcore.Event.Exception.ModuleNotFound'.
 	 *
 	 * @param Xcore_HttpContext $context
 	 * @param string $dirname
@@ -57,19 +58,19 @@ class Xcore_AbstractControllerStrategy
 		$module =& $handler->getByDirname($dirname);
 
 		if (!is_object($module)) {
-			DelegateUtils::call('Xcore.Event.Exception.XoopsModuleNotFound', $dirname);
+			DelegateUtils::call('Xcore.Event.Exception.ModuleNotFound', $dirname);
 			$this->mController->executeRedirect(XOOPS_URL . '/', 1, 'You can\'t access this URL.');	// TODO need message catalog.
 			die(); // need to response?
 		}
 
 		$context->mModule =& Xcore_Utils::createModule($module);
-		$context->mKarimojiModule =& $context->mModule->getXoopsModule();
+		$context->mXoopsModule =& $context->mModule->getModule();
 		$context->mModuleConfig = $context->mModule->getModuleConfig();
 
 		//
 		// Load Roles
 		//
-		$this->mController->mRoot->mRoleManager->loadRolesByMid($context->mKarimojiModule->get('mid'));
+		$this->mController->mRoot->mRoleManager->loadRolesByMid($context->mXoopsModule->get('mid'));
 	}
 
 	function setupBlock()
@@ -82,7 +83,7 @@ class Xcore_AbstractControllerStrategy
 	}
 
 	/**
-	 * @return XoopsModule
+	 * @return Module
 	 * @see Xcore_Controller::getVirtualCurrentModule()
 	 */
 	function &getVirtualCurrentModule()

@@ -4,6 +4,8 @@
 
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 require_once XOOPS_ROOT_PATH . '/modules/xcore/include/notification_functions.php' ;
 

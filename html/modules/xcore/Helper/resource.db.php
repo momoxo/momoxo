@@ -12,6 +12,7 @@
  */
 
 use XCore\Kernel\Root;
+use XCore\Entity\Tplfile;
 
 function smarty_resource_db_systemTpl($tpl_name)
 {
@@ -70,7 +71,7 @@ function smarty_resource_db_trusted($tpl_name, &$smarty)
     // not used for templates
 }
 
-// return object(XoopsTplfile) or string(filepath)
+// return object(Tplfile) or string(filepath)
 function smarty_resource_db_tplinfo($tpl_name, $smarty)
 {
 	static $cache = array();
@@ -176,7 +177,7 @@ function smarty_resource_db_tplinfo($tpl_name, $smarty)
 
 class Xcore_ResourcedbUtils
 {
-	public static function getModuleTemplatePath(XoopsTplfile $tplObj)
+	public static function getModuleTemplatePath(Tplfile $tplObj)
 	{
 		$block = ($tplObj->getVar('tpl_type')==='block') ? '/blocks' : null;
 		$dirname = $tplObj->getVar('tpl_module');

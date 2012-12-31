@@ -1,8 +1,10 @@
 <?php
 
 use XCore\Kernel\Delegate;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\Criteria;
 
-class XcoreCommentHandler extends XoopsObjectGenericHandler
+class XcoreCommentHandler extends ObjectGenericRepository
 {
 	var $mTable = "xoopscomments";
 	var $mPrimary = "com_id";
@@ -18,9 +20,9 @@ class XcoreCommentHandler extends XoopsObjectGenericHandler
 	 */	
 	var $mDeleteSuccess;
 	
-	function XcoreCommentHandler(&$db)
+	function __construct(&$db)
 	{
-		parent::XoopsObjectGenericHandler($db);
+		parent::__construct($db);
 		
 		$this->mUpdateSuccess =new Delegate();
 		$this->mDeleteSuccess =new Delegate();

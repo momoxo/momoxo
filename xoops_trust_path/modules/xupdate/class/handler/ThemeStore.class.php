@@ -1,11 +1,13 @@
 <?php
 use XCore\Kernel\Root;
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XUPDATE_TRUST_PATH .'/class/handler/ModuleStore.class.php';
 /**
-* XoopsSimpleObject
+* SimpleObject
 */
 class Xupdate_ThemeStore extends Xupdate_ModuleStore {
 
@@ -37,7 +39,7 @@ class Xupdate_ThemeStore extends Xupdate_ModuleStore {
 } // end class
 
 /**
-* XoopsObjectGenericHandler extends
+* ObjectGenericRepository extends
 */
 class Xupdate_ThemeStoreHandler extends Xupdate_ModuleStoreHandler
 {

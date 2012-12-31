@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\ActionFilter;
+use XCore\Database\Criteria;
 
 class Xcore_Waiting extends ActionFilter {
     function preBlockFilter()

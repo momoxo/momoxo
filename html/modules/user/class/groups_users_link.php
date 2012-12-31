@@ -1,8 +1,13 @@
 <?php
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserGroups_users_linkObject extends XoopsSimpleObject
+class UserGroups_users_linkObject extends SimpleObject
 {
 	function UserGroups_users_linkObject()
 	{
@@ -18,7 +23,7 @@ class UserGroups_users_linkObject extends XoopsSimpleObject
 	}
 }
 
-class UserGroups_users_linkHandler extends XoopsObjectGenericHandler
+class UserGroups_users_linkHandler extends ObjectGenericRepository
 {
 	var $mTable = "groups_users_link";
 	var $mPrimary = "linkid";

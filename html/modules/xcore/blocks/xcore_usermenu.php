@@ -34,7 +34,7 @@ use XCore\Kernel\Root;
 function b_xcore_usermenu_show()
 {
     $root = Root::getSingleton();
-    $xoopsUser =& $root->mController->mRoot->mContext->mKarimojiUser;
+    $xoopsUser =& $root->mController->mRoot->mContext->mXoopsUser;
 
     if (is_object($xoopsUser)) {
         $block = array();

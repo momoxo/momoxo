@@ -7,6 +7,10 @@
 
 use XCore\Kernel\Root;
 use XCore\Utils\Utils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Module;
+use XCore\Entity\Block;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -26,12 +30,12 @@ class Xupdate_InstallUtils
     /**
      * installSQLAutomatically
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installSQLAutomatically(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installSQLAutomatically(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $sqlFileInfo =& $module->getInfo('sqlfile');
         if(!isset($sqlFileInfo[XOOPS_DB_TYPE]))
@@ -87,12 +91,12 @@ class Xupdate_InstallUtils
      * DBquery
      * 
      * @param   string  $query
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function DBquery(/*** string ***/ $query,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function DBquery(/*** string ***/ $query,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         require_once XOOPS_MODULE_PATH . '/xcore/admin/class/Xcore_SQLScanner.class.php';    // TODO will be use other class?
         $scanner = new Xcore_SQLScanner();
@@ -199,12 +203,12 @@ class Xupdate_InstallUtils
     /**
      * installAllOfModuleTemplates
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function installAllOfModuleTemplates(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installAllOfModuleTemplates(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $templates =& $module->getInfo('templates');
         if(is_array($templates) && count($templates) > 0)
@@ -219,13 +223,13 @@ class Xupdate_InstallUtils
     /**
      * installModuleTemplate
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   string[]  $template
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installModuleTemplate(/*** XoopsModule ***/ &$module,/*** string[] ***/ $template,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installModuleTemplate(/*** Module ***/ &$module,/*** string[] ***/ $template,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $dirname = $module->getVar('dirname');
         $trustDirname =& $module->getInfo('trust_dirname');
@@ -275,13 +279,13 @@ class Xupdate_InstallUtils
     /**
      * uninstallAllOfModuleTemplates
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * @param   bool  $defaultOnly
      * 
      * @return  void
     **/
-    public static function uninstallAllOfModuleTemplates(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = true)
+    public static function uninstallAllOfModuleTemplates(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = true)
     {
         $tplHandler   =& Xupdate_Utils::getXoopsHandler('tplfile');
     
@@ -309,12 +313,12 @@ class Xupdate_InstallUtils
     /**
      * installAllOfBlocks
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installAllOfBlocks(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $blocks =& $module->getInfo('blocks');
         if(is_array($blocks) && count($blocks) > 0)
@@ -331,12 +335,12 @@ class Xupdate_InstallUtils
     /**
      * &createBlockByInfo
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   string[]  $block
      * 
-     * @return  XoopsBlock
+     * @return  Block
     **/
-    public static function &createBlockByInfo(/*** XoopsModule ***/ &$module,/*** string[] ***/ $block)
+    public static function &createBlockByInfo(/*** Module ***/ &$module,/*** string[] ***/ $block)
     {
         $visible = isset($block['visible']) ?
             $block['visible'] :
@@ -368,14 +372,14 @@ class Xupdate_InstallUtils
     /**
      * installBlock
      * 
-     * @param   XoopsModule  &$module
-     * @param   XoopsBlock  &$blockObj
+     * @param   Module  &$module
+     * @param   Block  &$blockObj
      * @param   string[]  &$block
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installBlock(/*** XoopsModule ***/ &$module,/*** XoopsBlock ***/ &$blockObj,/*** string[] ***/ &$block,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installBlock(/*** Module ***/ &$module,/*** Block ***/ &$blockObj,/*** string[] ***/ &$block,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $isNew = $blockObj->isNew();
         $blockHandler =& Xupdate_Utils::getXoopsHandler('block');
@@ -472,13 +476,13 @@ class Xupdate_InstallUtils
     /**
      * installBlockTemplate
      * 
-     * @param   XoopsBlock  &$block
-     * @param   XoopsModule  &$module
+     * @param   Block  &$block
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installBlockTemplate(/*** XoopsBlock ***/ &$block,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installBlockTemplate(/*** Block ***/ &$block,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         if($block->get('template') == null)
         {
@@ -549,12 +553,12 @@ class Xupdate_InstallUtils
     /**
      * uninstallAllOfBlocks
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function uninstallAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function uninstallAllOfBlocks(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $successFlag = true;
     
@@ -607,12 +611,12 @@ class Xupdate_InstallUtils
     /**
      * smartUpdateAllOfBlocks
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function smartUpdateAllOfBlocks(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function smartUpdateAllOfBlocks(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $dirname = $module->get('dirname');
     
@@ -648,12 +652,12 @@ class Xupdate_InstallUtils
      * updateBlockTemplateByInfo
      * 
      * @param   Xcore_BlockInformation  &$info
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function updateBlockTemplateByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function updateBlockTemplateByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','xcore');
         $cri = new CriteriaCompo();
@@ -672,12 +676,12 @@ class Xupdate_InstallUtils
      * updateBlockByInfo
      * 
      * @param   Xcore_BlockInformation  &$info
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function updateBlockByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function updateBlockByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','xcore');
         $cri = new CriteriaCompo();
@@ -725,12 +729,12 @@ class Xupdate_InstallUtils
      * installBlockByInfo
      * 
      * @param   Xcore_BlockInformation  &$info
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installBlockByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installBlockByInfo(/*** Xcore_BlockInformation ***/ &$info,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $filename = Xupdate_InstallUtils::replaceDirname(
             $info->mTemplate,
@@ -780,12 +784,12 @@ class Xupdate_InstallUtils
      * uninstallBlockByFuncNum
      * 
      * @param   int  $func_num
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function uninstallBlockByFuncNum(/*** int ***/ $func_num,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function uninstallBlockByFuncNum(/*** int ***/ $func_num,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $blockHandler =& Xupdate_Utils::getModuleHandler('newblocks','xcore');
         $cri = new CriteriaCompo();
@@ -822,14 +826,14 @@ class Xupdate_InstallUtils
     /**
      * uninstallBlockTemplate
      * 
-     * @param   XoopsBlock  &$block
-     * @param   XoopsModule  &$module
+     * @param   Block  &$block
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * @param   bool  $defaultOnly
      * 
      * @return  bool
     **/
-    public static function uninstallBlockTemplate(/*** XoopsBlock ***/ &$block,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = false)
+    public static function uninstallBlockTemplate(/*** Block ***/ &$block,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log,/*** bool ***/ $defaultOnly = false)
     {
         $tplHandler =& Xupdate_Utils::getXoopsHandler('tplfile');
         $delTemplates =& $tplHandler->find($defaultOnly ? 'default' : null,'block',$module->get('mid'),$module->get('dirname'),$block->get('template'));
@@ -862,12 +866,12 @@ class Xupdate_InstallUtils
     /**
      * installAllOfConfigs
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function installAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installAllOfConfigs(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $successFlag = true;
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
@@ -927,12 +931,12 @@ class Xupdate_InstallUtils
      * installConfigByInfo
      * 
      * @param   Xcore_PreferenceInformation  &$info
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function installConfigByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function installConfigByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
         $config =& $configHandler->createConfig();
@@ -982,12 +986,12 @@ class Xupdate_InstallUtils
     /**
      * uninstallAllOfConfigs
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function uninstallAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function uninstallAllOfConfigs(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         if($module->get('hasconfig') == 0)
         {
@@ -1032,12 +1036,12 @@ class Xupdate_InstallUtils
      * uninstallConfigByOrder
      * 
      * @param   int  $order
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function uninstallConfigByOrder(/*** int ***/ $order,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function uninstallConfigByOrder(/*** int ***/ $order,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
     
@@ -1073,12 +1077,12 @@ class Xupdate_InstallUtils
     /**
      * smartUpdateAllOfConfigs
      * 
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  void
     **/
-    public static function smartUpdateAllOfConfigs(/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function smartUpdateAllOfConfigs(/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $dirname = $module->get('dirname');
     
@@ -1114,12 +1118,12 @@ class Xupdate_InstallUtils
      * updateConfigByInfo
      * 
      * @param   Xcore_PreferenceInformation  &$info
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function updateConfigByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function updateConfigByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
         $cri = new CriteriaCompo();
@@ -1196,12 +1200,12 @@ class Xupdate_InstallUtils
      * updateConfigOrderByInfo
      * 
      * @param   Xcore_PreferenceInformation  &$info
-     * @param   XoopsModule  &$module
+     * @param   Module  &$module
      * @param   Xcore_ModuleInstallLog  &$log
      * 
      * @return  bool
     **/
-    public static function updateConfigOrderByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
+    public static function updateConfigOrderByInfo(/*** Xcore_PreferenceInformation ***/ &$info,/*** Module ***/ &$module,/*** Xcore_ModuleInstallLog ***/ &$log)
     {
         $configHandler =& Xupdate_Utils::getXoopsHandler('config');
         $cri = new CriteriaCompo();

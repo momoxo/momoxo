@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_PreferenceListAction extends Xcore_Action
 {
 	var $mObjects = array();

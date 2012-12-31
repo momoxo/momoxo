@@ -1,6 +1,9 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+use XCore\Entity\Object;
 
 $op = 'delete';
 if (!empty($_POST)) {
@@ -126,7 +129,7 @@ case 'delete_one':
     // get all comments posted later within the same thread
     $thread_comments =& $comment_handler->getThread($comment->getVar('com_rootid'), $com_id);
 
-    $xot = new XoopsObjectTree($thread_comments, 'com_id', 'com_pid', 'com_rootid');
+    $xot = new ObjectTree($thread_comments, 'com_id', 'com_pid', 'com_rootid');
 
     $child_comments =& $xot->getFirstChild($com_id);
 
@@ -176,7 +179,7 @@ case 'delete_all':
     $thread_comments =& $comment_handler->getThread($com_rootid, $com_id);
 
     // construct a comment tree
-    $xot = new XoopsObjectTree($thread_comments, 'com_id', 'com_pid', 'com_rootid');
+    $xot = new ObjectTree($thread_comments, 'com_id', 'com_pid', 'com_rootid');
     $child_comments =& $xot->getAllChild($com_id);
     // add itself here
     $child_comments[$com_id] =& $comment;

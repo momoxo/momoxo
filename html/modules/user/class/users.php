@@ -1,8 +1,13 @@
 <?php
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaElement;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserUsersObject extends XoopsSimpleObject
+class UserUsersObject extends SimpleObject
 {
 	//
 	// TODO naming rule
@@ -104,7 +109,7 @@ class UserUsersObject extends XoopsSimpleObject
 	}
 }
 
-class UserUsersHandler extends XoopsObjectGenericHandler
+class UserUsersHandler extends ObjectGenericRepository
 {
 	var $mTable = "users";
 	var $mPrimary = "uid";

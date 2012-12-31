@@ -1,6 +1,9 @@
 <?php
 
-class XcoreCommentObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+use XCore\Utils\TextSanitizer;
+
+class XcoreCommentObject extends SimpleObject
 {
 	var $mUser = null;
 	var $mModule = null;
@@ -63,7 +66,7 @@ class XcoreCommentObject extends XoopsSimpleObject
 	function getVar($key)
 	{
 		if ($key == 'com_text') {
-			$ts =& MyTextSanitizer::getInstance();
+			$ts =& TextSanitizer::getInstance();
 			return $ts->displayTarea($this->get($key), $this->get('dohtml'), $this->get('dosmiley'), $this->get('doxcode'), $this->get('doimage'), $this->get('dobr'));
 		}
 		else {

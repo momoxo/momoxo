@@ -5,6 +5,8 @@
  * This is static functions collection class for Legacy pages access.
  */
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 class User_XcorepageFunctions
 {
@@ -84,7 +86,7 @@ class User_XcorepageFunctions
 	public static function register()
 	{
 		$root = Root::getSingleton();
-		$xoopsUser =& $root->mContext->mKarimojiUser;
+		$xoopsUser =& $root->mContext->mXoopsUser;
 		
 		if (is_object($xoopsUser)) {
 			$root->mController->executeForward(XOOPS_URL);
@@ -128,7 +130,7 @@ class User_XcorepageFunctions
 	public static function lostpass()
 	{
 		$root = Root::getSingleton();
-		$xoopsUser =& $root->mContext->mKarimojiUser;
+		$xoopsUser =& $root->mContext->mXoopsUser;
 
 		if (is_object($xoopsUser)) {
 			$root->mController->executeForward(XOOPS_URL);
@@ -165,7 +167,7 @@ class User_XcorepageFunctions
 	{
 		$root = Root::getSingleton();
 		$op = isset($_REQUEST['op']) ? trim(xoops_getrequest('op')) : "main";
-		$xoopsUser =& $root->mContext->mKarimojiUser;
+		$xoopsUser =& $root->mContext->mXoopsUser;
 		
 		$actionName = "default";
 		
@@ -279,7 +281,7 @@ class User_XcorepageFunctions
 	public static function logout(&$successFlag, $xoopsUser)
 	{
 		$root = Root::getSingleton();
-		$xoopsConfig = $root->mContext->mKarimojiConfig;
+		$xoopsConfig = $root->mContext->mXoopsConfig;
 		
 		$root->mLanguageManager->loadModuleMessageCatalog('user');
 

@@ -1,12 +1,15 @@
 <?php
 
-class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
+use XCore\Repository\ObjectRepository;
+use XCore\Entity\Module;
+
+class XcoreNon_installation_moduleHandler extends ObjectRepository
 {
 	/***
 	 * object cache.
 	 * @var Array
 	 */
-	var $_mKarimojiModules = array();
+	var $_mXoopsModules = array();
 
 	/***
 	 * readonly property
@@ -15,7 +18,7 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 	
 	function XcoreNon_installation_moduleHandler(&$db)
 	{
-		parent::XoopsObjectHandler($db);
+		parent::__construct($db);
 		$this->_setupObjects();
 	}
 
@@ -24,13 +27,13 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 	 */
 	function _setupObjects()
 	{
-		if (count($this->_mKarimojiModules) == 0) {
+		if (count($this->_mXoopsModules) == 0) {
 			if ($handler = opendir(XOOPS_MODULE_PATH))	{
 				while (($dir = readdir($handler)) !== false) {
 					if (!in_array($dir, $this->_mExclusions) && is_dir(XOOPS_MODULE_PATH . "/" . $dir)) {
 						$module =& $this->get($dir);
 						if ($module !== false ) {
-							$this->_mKarimojiModules[] =& $module;
+							$this->_mXoopsModules[] =& $module;
 						}
 						unset($module);
 					}
@@ -43,7 +46,7 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 	 * Return module object by $dirname that is specified module directory.
 	 * If specified module has been installed or doesn't keep xoops_version, not return it.
 	 * @param $dirname string
-	 * @param XoopsModule or false
+	 * @param Module or false
 	 */
 	function &get($dirname)
 	{
@@ -68,16 +71,16 @@ class XcoreNon_installation_moduleHandler extends XoopsObjectHandler
 
 	function &getObjects($criteria=null)
 	{
-		return $this->_mKarimojiModules;
+		return $this->_mXoopsModules;
 	}
 	
 	function &getObjectsFor2ndInstaller()
 	{
 		$ret = array();
 		
-		foreach (array_keys($this->_mKarimojiModules) as $key) {
-			if (empty($this->_mKarimojiModules[$key]->modinfo['disable_xcore_2nd_installer'])) {
-				$ret[] =& $this->_mKarimojiModules[$key];
+		foreach (array_keys($this->_mXoopsModules) as $key) {
+			if (empty($this->_mXoopsModules[$key]->modinfo['disable_xcore_2nd_installer'])) {
+				$ret[] =& $this->_mXoopsModules[$key];
 			}
 		}
 		

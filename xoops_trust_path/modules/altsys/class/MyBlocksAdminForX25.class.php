@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Entity\Block;
+use XCore\Utils\TextSanitizer;
+
 require_once dirname(__FILE__).'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX25 extends MyBlocksAdmin {
@@ -152,7 +155,7 @@ function form_edit( $bid , $mode = 'edit' )
 	$bid = intval( $bid ) ;
 
 //HACK by domifara
-	$block = new XoopsBlock( $bid ) ;
+	$block = new Block( $bid ) ;
 
 	if( ! $block->getVar('bid') ) {
 		// new defaults
@@ -279,7 +282,7 @@ function form_edit( $bid , $mode = 'edit' )
 function fetchRequest4Block( $bid )
 {
 	$bid = intval( $bid ) ;
-	$myts =& MyTextSanitizer::getInstance() ;
+	$myts =& TextSanitizer::getInstance() ;
 
 	if( @$_POST['extra_sides'][$bid] > 0 ) {
 		$_POST['sides'][$bid] = intval( $_POST['extra_sides'][$bid] ) ;
@@ -316,7 +319,7 @@ function previewContent( $block_data )
 
 //HACK by domifara
 //TODO : need no hook block at this
-	$block = new XoopsBlock( $bid ) ;
+	$block = new Block( $bid ) ;
 
 	if( $block->getVar( 'mid' ) ) return '' ;
 
@@ -338,11 +341,11 @@ function previewContent( $block_data )
 		ob_end_clean();
 		$ret = str_replace('{X_SITEURL}', XOOPS_URL . '/', $content);
 	} else if ($c_type == 'S') {
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		$content = str_replace('{X_SITEURL}', XOOPS_URL . '/', $block->getVar('content', 'N'));
 		$ret = $myts->displayTarea($content, 1, 1);
 	} else {
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		$content = str_replace('{X_SITEURL}', XOOPS_URL . '/', $block->getVar('content', 'N'));
 		$ret = $myts->displayTarea($content, 1, 0);
 	}

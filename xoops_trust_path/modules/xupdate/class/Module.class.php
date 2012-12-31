@@ -67,7 +67,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
     {
         parent::startup();
 
-        DelegateUtils::call('Module.xupdate.Global.Event.GetAssetManager',new Ref($this->mAssetManager),$this->mKarimojiModule->get('dirname'));
+        DelegateUtils::call('Module.xupdate.Global.Event.GetAssetManager',new Ref($this->mAssetManager),$this->mXoopsModule->get('dirname'));
 
         $root = Root::getSingleton();
         $root->mController->mExecute->add(array(&$this, 'execute'));
@@ -168,7 +168,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
         $root = Root::getSingleton();
 
         // load admin menu
-        $adminMenu = $this->mKarimojiModule->getInfo('adminmenu');
+        $adminMenu = $this->mXoopsModule->getInfo('adminmenu');
         if(!is_array($adminMenu))
         {
             $adminMenu = array();
@@ -199,7 +199,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
         {
             if(!(isset($menu['absolute']) && $menu['absolute']))
             {
-                $menu['link'] = XOOPS_MODULE_URL . '/' . $this->mKarimojiModule->get('dirname') . '/' . $menu['link'];
+                $menu['link'] = XOOPS_MODULE_URL . '/' . $this->mXoopsModule->get('dirname') . '/' . $menu['link'];
             }
             $this->mAdminMenu[] = $menu;
         }
@@ -219,10 +219,10 @@ class Xupdate_Module extends Xcore_ModuleAdapter
 
         if($this->_mPreferenceEditUrl === null)
         {
-            if(is_array($this->mKarimojiModule->getInfo('config')) && count($this->mKarimojiModule->getInfo('config')) > 0)
+            if(is_array($this->mXoopsModule->getInfo('config')) && count($this->mXoopsModule->getInfo('config')) > 0)
             {
                 $root = Root::getSingleton();
-                $this->_mPreferenceEditUrl = $root->mController->getPreferenceEditUrl($this->mKarimojiModule);
+                $this->_mPreferenceEditUrl = $root->mController->getPreferenceEditUrl($this->mXoopsModule);
             }
             else
             {
@@ -244,10 +244,10 @@ class Xupdate_Module extends Xcore_ModuleAdapter
     {
         if($this->_mHelpViewUrl === null)
         {
-            if($this->mKarimojiModule->hasHelp())
+            if($this->mXoopsModule->hasHelp())
             {
                 $root = Root::getSingleton();
-                $this->_mHelpViewUrl = $root->mController->getHelpViewUrl($this->mKarimojiModule);
+                $this->_mHelpViewUrl = $root->mController->getHelpViewUrl($this->mXoopsModule);
             }
             else
             {
@@ -332,7 +332,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
         switch(true)
         {
             case file_exists(
-                $path = XOOPS_MODULE_PATH . '/' . $this->mKarimojiModule->get('dirname') . $fileName
+                $path = XOOPS_MODULE_PATH . '/' . $this->mXoopsModule->get('dirname') . $fileName
             ):
                 break;
             case file_exists(
@@ -383,7 +383,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        DelegateUtils::call('Module.' . $this->mKarimojiModule->get('dirname') . '.Event.Exception.ActionNotFound');
+        DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.ActionNotFound');
         $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }
@@ -412,7 +412,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        DelegateUtils::call('Module.' . $this->mKarimojiModule->get('dirname') . '.Event.Exception.Preparation');
+        DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Preparation');
         $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }
@@ -441,7 +441,7 @@ class Xupdate_Module extends Xcore_ModuleAdapter
          *
          * @return  void
         **/
-        DelegateUtils::call('Module.' . $this->mKarimojiModule->get('dirname') . '.Event.Exception.Permission');
+        DelegateUtils::call('Module.' . $this->mXoopsModule->get('dirname') . '.Event.Exception.Permission');
         $root = Root::getSingleton();
         $root->mController->executeForward(XOOPS_URL);
     }

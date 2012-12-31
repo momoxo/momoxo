@@ -1,8 +1,12 @@
 <?php
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserAvatarObject extends XoopsSimpleObject
+class UserAvatarObject extends SimpleObject
 {
 	function UserAvatarObject()
 	{
@@ -30,7 +34,7 @@ class UserAvatarObject extends XoopsSimpleObject
 	}
 }
 
-class UserAvatarHandler extends XoopsObjectGenericHandler
+class UserAvatarHandler extends ObjectGenericRepository
 {
 	var $mTable = "avatar";
 	var $mPrimary = "avatar_id";

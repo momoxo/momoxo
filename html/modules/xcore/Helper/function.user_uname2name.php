@@ -15,6 +15,8 @@
  * -------------------------------------------------------------
  */
 
+use XCore\Database\Criteria;
+
 function smarty_function_user_uname2name($params, &$smarty)
 {
 	$handler = xoops_gethandler('user');

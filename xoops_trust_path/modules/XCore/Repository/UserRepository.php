@@ -2,10 +2,11 @@
 
 namespace XCore\Repository;
 
-use XoopsObjectHandler;
-use XoopsConfigHandler;
-use Criteria;
 use XCore\Entity\User;
+use XCore\Repository\ObjectRepository;
+use XCore\Repository\ConfigRepository;
+use XCore\Database\CriteriaElement;
+use XCore\Database\Criteria;
 
 /**
 * XOOPS user handler class.
@@ -16,7 +17,7 @@ use XCore\Entity\User;
 * @copyright copyright (c) 2000-2003 XOOPS.org
 * @package kernel
 */
-class UserRepository extends XoopsObjectHandler
+class UserRepository extends ObjectRepository
 {
 
     /**
@@ -83,7 +84,7 @@ class UserRepository extends XoopsObjectHandler
         // RMV-NOTIFY
         // Added two fields, notify_method, notify_mode
         if ($user->isNew()) {
-            /** @var $config XoopsConfigHandler */
+            /** @var $config ConfigRepository */
             $config = xoops_gethandler('config');
             $options = $config->getConfigs(new Criteria('conf_name', 'notify_method'));
             if (isset($options) and (count($options) == 1)) {
@@ -147,7 +148,7 @@ class UserRepository extends XoopsObjectHandler
         $ret = array();
         $limit = $start = 0;
         $sql = 'SELECT * FROM '.$this->db->prefix('users');
-        if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
+        if (isset($criteria) && $criteria instanceof CriteriaElement) {
             $sql .= ' '.$criteria->renderWhere();
             if ($criteria->getSort() != '') {
                 $sql .= ' ORDER BY '.$criteria->getSort().' '.$criteria->getOrder();
@@ -206,7 +207,7 @@ class UserRepository extends XoopsObjectHandler
     public function getCount($criteria = null)
     {
         $sql = 'SELECT COUNT(*) FROM '.$this->db->prefix('users');
-        if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
+        if (isset($criteria) && $criteria instanceof CriteriaElement) {
             $sql .= ' '.$criteria->renderWhere();
         }
         $result = $this->db->query($sql);
@@ -227,7 +228,7 @@ class UserRepository extends XoopsObjectHandler
     public function deleteAll($criteria = null)
     {
         $sql = 'DELETE FROM '.$this->db->prefix('users');
-        if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
+        if (isset($criteria) && $criteria instanceof CriteriaElement) {
             $sql .= ' '.$criteria->renderWhere();
         }
         if (!$result = $this->db->query($sql)) {
@@ -250,7 +251,7 @@ class UserRepository extends XoopsObjectHandler
     {
         $set_clause = is_numeric($fieldvalue) ? $fieldname.' = '.$fieldvalue : $fieldname.' = '.$this->db->quoteString($fieldvalue);
         $sql = 'UPDATE '.$this->db->prefix('users').' SET '.$set_clause;
-        if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
+        if (isset($criteria) && $criteria instanceof CriteriaElement) {
             $sql .= ' '.$criteria->renderWhere();
         }
         if (!$result = $this->db->query($sql)) {

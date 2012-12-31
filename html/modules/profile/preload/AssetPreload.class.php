@@ -7,6 +7,7 @@
 
 use XCore\Kernel\ActionFilter;
 use XCore\Kernel\Delegate;
+use XCore\Database\Criteria;
 
 if (!defined('XOOPS_ROOT_PATH')) exit();
 

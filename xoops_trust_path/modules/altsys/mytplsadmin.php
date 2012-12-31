@@ -5,6 +5,8 @@
 //                      GIJOE <http://www.peak.ne.jp/>                       //
 // ------------------------------------------------------------------------- //
 
+use XCore\Utils\TextSanitizer;
+
 require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
 include_once dirname(__FILE__)."/include/gtickets.php" ;
 include_once dirname(__FILE__).'/include/altsys_functions.php' ;
@@ -21,7 +23,7 @@ if( ! is_object( @$xoopsUser ) || ! $moduleperm_handler->checkRight( 'module_adm
 
 // initials
 $db =& Database::getInstance();
-$myts =& MyTextSanitizer::getInstance() ;
+$myts =& TextSanitizer::getInstance() ;
 
 // language file
 altsys_include_language_file( 'mytplsadmin' ) ;

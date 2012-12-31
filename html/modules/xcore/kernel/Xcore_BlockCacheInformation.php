@@ -2,6 +2,7 @@
 
 use XCore\Kernel\Ref;
 use XCore\Kernel\Delegate;
+use XCore\Entity\Block;
 
 class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
 {
@@ -9,7 +10,7 @@ class Xcore_BlockCacheInformation extends Xcore_AbstractCacheInformation
      * [READ ONLY] Xoops Block Object.
      * 
      * @access protected
-     * @var XoopsBlock
+     * @var Block
      */
      var $mBlock = null;
      

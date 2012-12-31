@@ -10,6 +10,7 @@
  * @subpackage  form
  */
 use XCore\Kernel\Root;
+use XCore\Utils\TextSanitizer;
 
 class XoopsForm {
     /**#@+
@@ -371,7 +372,7 @@ class XoopsForm {
         if ( $withtags ) {
             $js .= "\n<!-- Start Form Vaidation JavaScript //-->\n<script type='text/javascript'>\n<!--//\n";
         }
-        $myts =& MyTextSanitizer::getInstance();
+        $myts =& TextSanitizer::getInstance();
         $formname = $this->getName();
         $required =& $this->getRequired();
         $reqcount = count($required);

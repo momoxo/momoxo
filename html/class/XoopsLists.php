@@ -1,6 +1,7 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Utils\TextSanitizer;
 
 class XoopsLists
 {
@@ -528,7 +529,7 @@ class XoopsLists
     function &getUserRankList()
     {
         $db =& Database::getInstance();
-        $myts =& MyTextSanitizer::getInstance();
+        $myts =& TextSanitizer::getInstance();
         $sql = "SELECT rank_id, rank_title FROM ".$db->prefix("ranks")." WHERE rank_special = 1";
         $ret = array();
         $result = $db->query($sql);

@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
+
 class Xcore_CommentDeleteAction extends Xcore_AbstractDeleteAction
 {
 	function _getId()

@@ -1,6 +1,8 @@
 <?php
 
-class XcoreBlockctypeObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreBlockctypeObject extends SimpleObject
 {
 	function XcoreBlockctypeObject()
 	{

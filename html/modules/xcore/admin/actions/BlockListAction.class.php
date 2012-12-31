@@ -1,6 +1,8 @@
 <?php
 
 use XCore\Kernel\Root;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 class Xcore_BlockListAction extends Xcore_AbstractListAction
 {

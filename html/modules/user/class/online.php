@@ -1,8 +1,11 @@
 <?php
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserOnlineObject extends XoopsSimpleObject
+class UserOnlineObject extends SimpleObject
 {
 	var $mModule = null;
 	
@@ -30,7 +33,7 @@ class UserOnlineObject extends XoopsSimpleObject
 	}
 }
 
-class UserOnlineHandler extends XoopsObjectGenericHandler
+class UserOnlineHandler extends ObjectGenericRepository
 {
 	var $mTable = "online";
 	var $mPrimary = "";

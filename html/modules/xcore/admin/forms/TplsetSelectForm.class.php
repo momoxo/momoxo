@@ -2,6 +2,7 @@
 
 use XCore\Form\ActionForm;
 use XCore\Property\StringProperty;
+use XCore\Database\Criteria;
 
 class Xcore_TplsetSelectForm extends ActionForm
 {

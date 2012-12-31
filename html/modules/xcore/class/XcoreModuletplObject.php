@@ -1,6 +1,8 @@
 <?php
 
-class XcoreModuletplObject extends XoopsSimpleObject
+use XCore\Entity\SimpleObject;
+
+class XcoreModuletplObject extends SimpleObject
 {
 	function XcoreModuletplObject()
 	{

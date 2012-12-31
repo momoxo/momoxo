@@ -9,7 +9,7 @@ define ('_XCORE_ALLOW_ACCESS_FROM_ANY_ADMINS_', true);
 
 require_once "../../../mainfile.php";
 $root = Root::getSingleton();
-unset($root->mContext->mKarimojiModule);
+unset($root->mContext->mXoopsModule);
 
 //
 // @todo Why does this file know Xcore_RenderSystem?

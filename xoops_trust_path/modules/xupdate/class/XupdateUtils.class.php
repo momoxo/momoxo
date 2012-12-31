@@ -7,6 +7,8 @@
 
 use XCore\Kernel\Ref;
 use XCore\Kernel\DelegateUtils;
+use XCore\Repository\ObjectRepository;
+use XCore\Entity\Object;
 
 if(!defined('XOOPS_ROOT_PATH'))
 {
@@ -24,7 +26,7 @@ class Xupdate_Utils
 	 * @param   string  $name
 	 * @param   bool  $optional
 	 *
-	 * @return  XoopsObjectHandler
+	 * @return  ObjectRepository
 	 **/
 	public static function getModuleConfig(/*** string ***/ $dirname, /*** mixed ***/ $key)
 	{
@@ -39,7 +41,7 @@ class Xupdate_Utils
      * @param   string  $name
      * @param   bool  $optional
      * 
-     * @return  XoopsObjectHandler
+     * @return  ObjectRepository
     **/
     public static function &getXoopsHandler(/*** string ***/ $name,/*** bool ***/ $optional = false)
     {
@@ -53,7 +55,7 @@ class Xupdate_Utils
      * @param   string  $name
      * @param   string  $dirname
      * 
-     * @return  XoopsObjectHandleer
+     * @return  ObjectHandleer
     **/
     public static function &getModuleHandler(/*** string ***/ $name,/*** string ***/ $dirname)
     {
@@ -67,7 +69,7 @@ class Xupdate_Utils
      * @param   string  $name
      * @param   string  $dirname
      * 
-     * @return  XoopsObjectHandleer
+     * @return  ObjectHandleer
     **/
     public static function &getXupdateHandler(/*** string ***/ $name,/*** string ***/ $dirname)
     {

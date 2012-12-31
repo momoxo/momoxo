@@ -1,8 +1,11 @@
 <?php
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Entity\SimpleObject;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserRanksObject extends XoopsSimpleObject
+class UserRanksObject extends SimpleObject
 {
 	function UserRanksObject()
 	{
@@ -21,7 +24,7 @@ class UserRanksObject extends XoopsSimpleObject
 	}
 }
 
-class UserRanksHandler extends XoopsObjectGenericHandler
+class UserRanksHandler extends ObjectGenericRepository
 {
 	var $mTable = "ranks";
 	var $mPrimary = "rank_id";

@@ -1,5 +1,8 @@
 <?php
 
+use XCore\Database\CriteriaElement;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
 require_once XOOPS_ROOT_PATH . "/modules/user/class/users.php";

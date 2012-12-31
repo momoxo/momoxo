@@ -2,8 +2,12 @@
 
 namespace XCore\Entity;
 
-use XoopsObject;
-use Criteria;
+use XCore\Repository\GroupPermRepository;
+use XCore\Repository\OnlineRepository;
+use XCore\Repository\MemberRepository;
+use XCore\Database\Criteria;
+use XCore\Entity\Object;
+use XCore\Entity\Module;
 
 /**
  * Class for users
@@ -11,7 +15,7 @@ use Criteria;
  * @copyright copyright (c) 2000-2003 XOOPS.org
  * @package   kernel
  */
-class User extends XoopsObject
+class User extends Object
 {
 
     /**
@@ -87,7 +91,7 @@ class User extends XoopsObject
             if ( is_array($id) ) {
                 $this->assignVars($id);
             } else {
-                /** @var $member_handler \XoopsMemberHandler */
+                /** @var $member_handler \MemberRepository */
                 $member_handler = xoops_gethandler('member');
                 $user =& $member_handler->getUser($id);
                 foreach ($user->vars as $k => $v) {
@@ -126,7 +130,7 @@ class User extends XoopsObject
             if ( isset($nameCache[$field][$userid]) ) {
                 return $nameCache[$field][$userid];
             }
-            /** @var $member_handler \XoopsMemberHandler */
+            /** @var $member_handler \MemberRepository */
             $member_handler = xoops_gethandler('member');
             $user =& $member_handler->getUser($userid);
             if ( is_object($user) ) {
@@ -144,7 +148,7 @@ class User extends XoopsObject
      */
     public function incrementPost()
     {
-        /** @var $member_handler \XoopsMemberHandler */
+        /** @var $member_handler \MemberRepository */
         $member_handler = xoops_gethandler('member');
 
         return $member_handler->updateUserByField($this, 'posts', $this->getVar('posts') + 1);
@@ -177,7 +181,7 @@ class User extends XoopsObject
         }
 
         if ( empty($this->_groups) ) {
-            /** @var $member_handler \XoopsMemberHandler */
+            /** @var $member_handler \MemberRepository */
             $member_handler = xoops_gethandler('member');
             $this->_groups = $member_handler->getGroupsByUser($this->getVar('uid'));
         }
@@ -218,13 +222,13 @@ class User extends XoopsObject
     public function isAdmin($module_id = null)
     {
         if ($module_id === null) {
-            /** @var $xoopsModule \XoopsModule */
+            /** @var $xoopsModule \Module */
             global $xoopsModule;
             $module_id = isset($xoopsModule) ? $xoopsModule->getVar('mid', 'n') : 1;
         } elseif ( (int) $module_id < 1 ) {
             $module_id = 0;
         }
-        /** @var $moduleperm_handler \XoopsGroupPermHandler */
+        /** @var $moduleperm_handler \GroupPermRepository */
         static $moduleperm_handler;
         isset($moduleperm_handler) || $moduleperm_handler = xoops_gethandler('groupperm');
 
@@ -264,7 +268,7 @@ class User extends XoopsObject
     public function isOnline()
     {
         if ( !isset($this->_isOnline) ) {
-            /** @var $onlinehandler \XoopsOnlineHandler */
+            /** @var $onlinehandler \OnlineRepository */
             $onlinehandler = xoops_gethandler('online');
             $this->_isOnline = ($onlinehandler->getCount(new Criteria('online_uid', $this->getVar('uid', 'N'))) > 0) ? true : false;
         }
@@ -273,11 +277,11 @@ class User extends XoopsObject
     }
 
     /**#@+
-     * specialized wrapper for {@link XoopsObject::getVar()}
+     * specialized wrapper for {@link Object::getVar()}
      *
      * kept for compatibility reasons.
      *
-     * @see XoopsObject::getVar()
+     * @see Object::getVar()
      * @deprecated
      */
     /**
@@ -291,7 +295,7 @@ class User extends XoopsObject
 
     /**
      * get the users name
-     * @param  string $format format for the output, see {@link XoopsObject::getVar()}
+     * @param  string $format format for the output, see {@link Object::getVar()}
      * @return string
      */
     public function name($format = "S")
@@ -301,7 +305,7 @@ class User extends XoopsObject
 
     /**
      * get the user's uname
-     * @param  string $format format for the output, see {@link XoopsObject::getVar()}
+     * @param  string $format format for the output, see {@link Object::getVar()}
      * @return string
      */
     public function uname($format = "S")
@@ -312,7 +316,7 @@ class User extends XoopsObject
     /**
      * get the user's email
      *
-     * @param  string $format format for the output, see {@link XoopsObject::getVar()}
+     * @param  string $format format for the output, see {@link Object::getVar()}
      * @return string
      */
     public function email($format = "S")

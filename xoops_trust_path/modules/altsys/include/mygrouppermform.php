@@ -29,6 +29,9 @@
 // Project: The XOOPS Project                                                //
 // ------------------------------------------------------------------------- //
 
+use XCore\Entity\GroupPerm;
+use XCore\Entity\Group;
+
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
 /**
@@ -40,7 +43,7 @@ if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
  * @package     kernel
  * @subpackage  form
  */
-class MyXoopsGroupPermForm extends XoopsForm
+class MyGroupPermForm extends XoopsForm
 {
 
 	/**
@@ -73,7 +76,7 @@ class MyXoopsGroupPermForm extends XoopsForm
 	 * Constructor
 	 */
 //HACK by domifara
-//	public function MyXoopsGroupPermForm($title, $modid, $permname, $permdesc)
+//	public function MyGroupPermForm($title, $modid, $permname, $permdesc)
 	public function __construct($title, $modid, $permname, $permdesc)
 	{
 //		$this->XoopsForm($title, 'groupperm_form', XOOPS_URL.'/modules/system/admin/groupperm.php', 'post'); GIJ
@@ -154,7 +157,7 @@ class MyXoopsGroupPermForm extends XoopsForm
 		foreach (array_keys($glist) as $i) {
 			// get selected item id(s) for each group
 			$selected = $gperm_handler->getItemIds($this->_permName, $i, $this->_modid);
-			$ele = new MyXoopsGroupFormCheckBox($glist[$i], 'perms['.$this->_permName.']', $i, $selected);
+			$ele = new MyGroupFormCheckBox($glist[$i], 'perms['.$this->_permName.']', $i, $selected);
 			$ele->setOptionTree($this->_itemTree);
 
 			// GIJ start
@@ -217,7 +220,7 @@ class MyXoopsGroupPermForm extends XoopsForm
  * @package     kernel
  * @subpackage  form
  */
-class MyXoopsGroupFormCheckBox extends XoopsFormElement
+class MyGroupFormCheckBox extends XoopsFormElement
 {
 
 	/**
@@ -244,7 +247,7 @@ class MyXoopsGroupFormCheckBox extends XoopsFormElement
 	/**
 	 * Constructor
 	 */
-	function MyXoopsGroupFormCheckBox($caption, $name, $groupId, $values = null)
+	function MyGroupFormCheckBox($caption, $name, $groupId, $values = null)
 	{
 		$this->setCaption($caption);
 		$this->setName($name);

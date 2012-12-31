@@ -2,6 +2,8 @@
 
 use XCore\Form\ActionForm;
 use XCore\Utils\Utils;
+use XCore\Database\CriteriaCompo;
+use XCore\Database\Criteria;
 
 class User_AbstractUserEditForm extends ActionForm
 {

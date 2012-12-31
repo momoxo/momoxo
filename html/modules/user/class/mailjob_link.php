@@ -1,8 +1,14 @@
 <?php
 
+use XCore\Repository\ObjectGenericRepository;
+use XCore\Database\CriteriaElement;
+use XCore\Database\CriteriaCompo;
+use XCore\Entity\SimpleObject;
+use XCore\Database\Criteria;
+
 if (!defined('XOOPS_ROOT_PATH')) exit();
 
-class UserMailjob_linkObject extends XoopsSimpleObject
+class UserMailjob_linkObject extends SimpleObject
 {
 	function UserMailjob_linkObject()
 	{
@@ -19,7 +25,7 @@ class UserMailjob_linkObject extends XoopsSimpleObject
 	}
 }
 
-class UserMailjob_linkHandler extends XoopsObjectGenericHandler
+class UserMailjob_linkHandler extends ObjectGenericRepository
 {
 	var $mTable = "user_mailjob_link";
 	var $mPrimary = "mailjob_id";

@@ -2,15 +2,16 @@
 
 /**
  * This class extends the base class to exchange of information with the
- * controller. And, it has a XoopsBlock instance, and some public methods for
+ * controller. And, it has a Block instance, and some public methods for
  * the public side and the control panel side.
  */
 use XCore\Kernel\RenderTarget;
+use XCore\Entity\Block;
 
 class Xcore_BlockProcedure extends Xcore_AbstractBlockProcedure
 {
     /**
-     * @var XoopsBlock
+     * @var Block
      */
     var $_mBlock = null;
     

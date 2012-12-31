@@ -4,6 +4,7 @@ use XCore\Form\ActionForm;
 use XCore\Form\FieldProperty;
 use XCore\Property\IntArrayProperty;
 use XCore\Property\StringProperty;
+use XCore\Utils\TextSanitizer;
 
 class Xcore_SearchResultsForm extends ActionForm
 {
@@ -40,7 +41,7 @@ class Xcore_SearchResultsForm extends ActionForm
 		
 		$t_queries = array();
 		
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		if ($this->get('andor') == 'exact' && strlen($this->get('query')) >= $this->_mKeywordMin) {
 			$this->mQueries[] = $myts->addSlashes($this->get('query'));
 		}

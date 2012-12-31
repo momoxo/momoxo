@@ -4,6 +4,7 @@
 // Load message resource
 //
 use XCore\Kernel\Root;
+use XCore\Utils\TextSanitizer;
 
 $t_root = Root::getSingleton();
 
@@ -23,7 +24,7 @@ if ($com_itemid > 0) {
 		if (isset($com_replytext)) {
 			themecenterposts($com_replytitle, $com_replytext);
 		}
-		$myts =& MyTextSanitizer::getInstance();
+		$myts =& TextSanitizer::getInstance();
 		$com_title = $myts->htmlSpecialChars($com_replytitle);
 		if (!preg_match("/^re:/i", $com_title)) {
 			$com_title = "Re: ".xoops_substr($com_title, 0, 56);

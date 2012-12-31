@@ -1,10 +1,11 @@
 <?php
 
 /**
- * The adapter class for XoopsBlock objects of XOOPS2 JP.
+ * The adapter class for Block objects of XOOPS2 JP.
  * @see Xcore_AbstractBlockProcedure
  */
 use XCore\Kernel\Root;
+use XCore\Entity\Block;
 
 class Xcore_BlockProcedureAdapter extends Xcore_BlockProcedure
 {
