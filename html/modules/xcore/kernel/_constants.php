@@ -90,9 +90,10 @@ define("XCUBE_DELEGATE_PRIORITY_FINAL", XCUBE_DELEGATE_PRIORITY_10);
 // From ../../html/modules/xcore/kernel/FormFile.class.php
 define("XCUBE_FORMFILE_CHMOD", 0644);
 
-// From XCore\Kernel\HttpContext
-define("XCUBE_CONTEXT_TYPE_DEFAULT", "web_browser");
-define("XCUBE_CONTEXT_TYPE_WEB_SERVICE", "web_service");
+/** @deprecated */
+define("XCUBE_CONTEXT_TYPE_DEFAULT", \XCore\Kernel\HttpContext::TYPE_DEFAULT);
+/** @deprecated */
+define("XCUBE_CONTEXT_TYPE_WEB_SERVICE", \XCore\Kernel\HttpContext::TYPE_WEB_SERVICE);
 
 // From ../../html/modules/xcore/kernel/XCube_PageNavigator.class.php
 define('XCUBE_PAGENAVI_START', 1);

@@ -77,7 +77,9 @@ class Xcore_AdminRenderSystem extends Xcore_RenderSystem
 
 		//jQuery Ready functions
 		$context = $this->mController->mRoot->mContext;
-		DelegateUtils::call('Site.JQuery.AddFunction', new Ref($context->mAttributes['headerScript']));
+        $headerScript = $context->getAttribute('headerScript');
+		DelegateUtils::call('Site.JQuery.AddFunction', new Ref($headerScript));
+        $context->setAttribute('headerScript', $headerScript);
 		$headerScript = $context->getAttribute('headerScript');
 		$moduleHeader =  $headerScript->createLibraryTag() . $headerScript->createOnloadFunctionTag();
 		$vars['xoops_module_header'] = $moduleHeader;

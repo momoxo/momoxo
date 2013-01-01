@@ -1,17 +1,5 @@
 <?php
 
-/**
- * This class is a virtual controller that has the compatibility with XOOPS 2.0.x.
- *
- * [NOTICE]
- * XOOPS 2.0.x can switch to public mode and control panel mode. This controller
- * emulates its process with using STATE. But, we may lose flexible setup by this
- * implement. Now, we are investigating the influence.
- *
- * [TODO]
- * Controller keeps a process that set up instances of some Legacy classes,
- * yet. We should move its process to this controller.
- */
 use XCore\Kernel\Root;
 use XCore\Kernel\Controller;
 use XCore\Kernel\Ref;
@@ -26,7 +14,20 @@ use XCore\Entity\Object;
 use XCore\Entity\Module;
 use XCore\Database\DatabaseFactory;
 use XCore\Kernel\Logger;
+use XCore\Kernel\HttpContext;
 
+/**
+ * This class is a virtual controller that has the compatibility with XOOPS 2.0.x.
+ *
+ * [NOTICE]
+ * XOOPS 2.0.x can switch to public mode and control panel mode. This controller
+ * emulates its process with using STATE. But, we may lose flexible setup by this
+ * implement. Now, we are investigating the influence.
+ *
+ * [TODO]
+ * Controller keeps a process that set up instances of some Legacy classes,
+ * yet. We should move its process to this controller.
+ */
 class Xcore_Controller extends Controller
 {
 	var $_mAdminModeFlag = false;
@@ -371,14 +372,19 @@ class Xcore_Controller extends Controller
 				if ($cacheInfo->isEnableCache() && $this->existActiveCacheFile($filepath, $blockProcedure->getCacheTime())) {
 					$content = $this->loadCache($filepath);
 					if ($blockProcedure->isDisplay() && !empty($content)) {
-						$context->mAttributes['xcore_BlockShowFlags'][$blockProcedure->getEntryIndex()] = true;
-						$context->mAttributes['xcore_BlockContents'][$blockProcedure->getEntryIndex()][] = array(
-							'id' => $blockProcedure->getId(),
-							'name' => $blockProcedure->getName(),
-							'title'   => $blockProcedure->getTitle(),
-							'content' => $content,
-							'weight'  => $blockProcedure->getWeight()
-						);
+                        $blockShowFlags = $context->getAttribute('xcore_BlockShowFlags');
+                        $blockShowFlags[$blockProcedure->getEntryIndex()] = true;
+                        $context->setAttribute('xcore_BlockShowFlags', $blockShowFlags);
+
+                        $blockContents = $context->getAttribute('xcore_BlockContents');
+                        $blockContents[$blockProcedure->getEntryIndex()][] = array(
+                            'id' => $blockProcedure->getId(),
+                            'name' => $blockProcedure->getName(),
+                            'title'   => $blockProcedure->getTitle(),
+                            'content' => $content,
+                            'weight'  => $blockProcedure->getWeight()
+                        );
+                        $context->setAttribute('xcore_BlockContents', $blockContents);
 					}
 
 					$usedCacheFlag = true;
@@ -392,14 +398,19 @@ class Xcore_Controller extends Controller
 				if ($blockProcedure->isDisplay()) {
 					$renderBuffer =& $blockProcedure->getRenderTarget();
 
-					$context->mAttributes['xcore_BlockShowFlags'][$blockProcedure->getEntryIndex()] = true;
-					$context->mAttributes['xcore_BlockContents'][$blockProcedure->getEntryIndex()][] = array(
-							'name' => $blockProcedure->getName(),
-							'title'=>$blockProcedure->getTitle(),
-							'content'=>$renderBuffer->getResult(),
-							'weight'=>$blockProcedure->getWeight(),
-							'id' => $blockProcedure->getId(),
-					);
+                    $blockShowFlags = $context->getAttribute('xcore_BlockShowFlags');
+                    $blockShowFlags[$blockProcedure->getEntryIndex()] = true;
+                    $context->setAttribute('xcore_BlockShowFlags', $blockShowFlags);
+
+                    $blockContents = $context->getAttribute('xcore_BlockContents');
+                    $blockContents[$blockProcedure->getEntryIndex()][] = array(
+                        'name' => $blockProcedure->getName(),
+                        'title'=>$blockProcedure->getTitle(),
+                        'content'=>$renderBuffer->getResult(),
+                        'weight'=>$blockProcedure->getWeight(),
+                        'id' => $blockProcedure->getId(),
+                    );
+                    $context->setAttribute('xcore_BlockContents', $blockContents);
 				}
 				else {
 					//
@@ -1273,7 +1284,7 @@ class Xcore_Controller extends Controller
 
 	function &_createContext()
 	{
-		$context = new Xcore_HttpContext();
+		$context = new HttpContext();
 		$request = new HttpRequest();
 		$context->setRequest($request);
 

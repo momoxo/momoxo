@@ -37,7 +37,7 @@
 	<filter>
 		<whitelist>
 			<directory suffix=".php">../html/install/src</directory>
-			<directory suffix=".php">modules/XCore</directory>
+			<directory suffix=".php">modules/XCore/Kernel</directory>
 			<!-- directory suffix=".php">../html/modules/xcore/class</directory>
 			<directory suffix=".php">../html/modules/xcore/kernel</directory -->
 			<!-- directory suffix=".php">modules</directory -->

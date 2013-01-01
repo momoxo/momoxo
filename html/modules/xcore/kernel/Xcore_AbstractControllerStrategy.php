@@ -5,6 +5,7 @@
  */
 use XCore\Kernel\DelegateUtils;
 use XCore\Entity\Module;
+use XCore\Kernel\HttpContext;
 
 class Xcore_AbstractControllerStrategy
 {
@@ -49,7 +50,7 @@ class Xcore_AbstractControllerStrategy
 	 * kills the process if Module instance can't be found. Plus, in the
 	 * case, raises 'Xcore.Event.Exception.ModuleNotFound'.
 	 *
-	 * @param Xcore_HttpContext $context
+	 * @param HttpContext $context
 	 * @param string $dirname
 	 */
 	function setupModuleContext(&$context, $dirname)

@@ -276,7 +276,9 @@ class Xcore_RenderSystem extends RenderSystem
 		//jQuery Ready functions
 		$mRoot = $this->mController->mRoot;
 		$mContext = $mRoot->mContext;
-		DelegateUtils::call('Site.JQuery.AddFunction', new Ref($mContext->mAttributes['headerScript']));
+        $headerScript = $mContext->getAttribute('headerScript');
+		DelegateUtils::call('Site.JQuery.AddFunction', new Ref($headerScript));
+        $mContext->setAttribute('headerScript', $headerScript);
 		$headerScript = $mContext->getAttribute('headerScript');
 		$mTpl = $this->mXoopsTpl;
 		$moduleHeader = $mTpl->get_template_vars('xoops_module_header');
@@ -331,8 +333,11 @@ class Xcore_RenderSystem extends RenderSystem
 
 		foreach($assignNameMap as $key=>$val) {
 			$mTpl->assign($val['showflag'],$this->_getBlockShowFlag($val['showflag']));
-			if(isset($mContext->mAttributes['xcore_BlockContents'][$key])) {
-				foreach($mContext->mAttributes['xcore_BlockContents'][$key] as $result) {
+
+            $blockContents = $mContext->getAttribute('xcore_BlockContents');
+
+			if(isset($blockContents[$key])) {
+				foreach($blockContents[$key] as $result) {
 					$mTpl->append($val['block'], $result);
 				}
 			}
@@ -360,17 +365,20 @@ class Xcore_RenderSystem extends RenderSystem
 		switch($area) {
 			case 'xoops_showrblock' :
 				if (isset($GLOBALS['show_rblock']) && empty($GLOBALS['show_rblock'])) return 0;
-				return (!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_SIDEBLOCK_RIGHT])) ? 1 : 0;
+                $showFlag = $this->mController->mRoot->mContext->getAttribute('xcore_BlockShowFlags');
+				return (!empty($showFlag[XOOPS_SIDEBLOCK_RIGHT])) ? 1 : 0;
 				break;
 			case 'xoops_showlblock' :
 				if (isset($GLOBALS['show_lblock']) && empty($GLOBALS['show_lblock'])) return 0;
-				return (!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_SIDEBLOCK_LEFT])) ? 1 : 0;
+                $showFlag = $this->mController->mRoot->mContext->getAttribute('xcore_BlockShowFlags');
+				return (!empty($showFlag[XOOPS_SIDEBLOCK_LEFT])) ? 1 : 0;
 				break;
 			case 'xoops_showcblock' :
 				if (isset($GLOBALS['show_cblock']) && empty($GLOBALS['show_cblock'])) return 0;
-				return (!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_CENTERBLOCK_LEFT])||
-						!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_CENTERBLOCK_RIGHT])||
-						!empty($this->mController->mRoot->mContext->mAttributes['xcore_BlockShowFlags'][XOOPS_CENTERBLOCK_CENTER])) ? 1 : 0;
+                $showFlag = $this->mController->mRoot->mContext->getAttribute('xcore_BlockShowFlags');
+				return (!empty($showFlag[XOOPS_CENTERBLOCK_LEFT])||
+						!empty($showFlag[XOOPS_CENTERBLOCK_RIGHT])||
+						!empty($showFlag[XOOPS_CENTERBLOCK_CENTER])) ? 1 : 0;
 				break;
 			default :
 				return 0;
