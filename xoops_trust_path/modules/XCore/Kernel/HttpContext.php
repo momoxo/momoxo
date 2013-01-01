@@ -40,6 +40,12 @@ class HttpContext
     public $mType = XCUBE_CONTEXT_TYPE_DEFAULT;
 
     /**
+     * The current module instance.
+     * @var \Xcore_AbstractModule
+     */
+    public $mModule = null;
+
+    /**
      * The theme is one in one time of request.
      * A decided theme is registered with this property
      * @var string
@@ -92,16 +98,16 @@ class HttpContext
      * @param  AbstractRequest $request
      * @return void
      */
-    public function setRequest(&$request)
+    public function setRequest(AbstractRequest $request)
     {
-        $this->mRequest =& $request;
+        $this->mRequest = $request;
     }
 
     /**
      * Gets the object which has a interface of AbstractRequest.
      * @return AbstractRequest
      */
-    public function &getRequest()
+    public function getRequest()
     {
         return $this->mRequest;
     }
@@ -111,16 +117,16 @@ class HttpContext
      * @param  Principal $principal
      * @return void
      */
-    public function setUser(&$principal)
+    public function setUser(Principal $principal)
     {
-        $this->mUser =& $principal;
+        $this->mUser = $principal;
     }
 
     /**
      * Gets the object which has a interface of Principal.
      * @return Principal
      */
-    public function &getUser()
+    public function getUser()
     {
         return $this->mUser;
     }

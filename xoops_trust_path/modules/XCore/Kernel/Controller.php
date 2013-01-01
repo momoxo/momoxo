@@ -46,7 +46,7 @@ class Controller
 
     /**
      * Array of a procedure class object.
-     * @var object[]
+     * @var \Xcore_AbstractBlockProcedure[]
      * @todo これは public でいいんだろうか？
      */
     public $_mBlockChain = array();

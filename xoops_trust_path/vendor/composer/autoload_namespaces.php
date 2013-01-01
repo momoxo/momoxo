@@ -7,4 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'XCore' => $baseDir . '/modules/',
+    'Symfony\\Component\\Yaml' => $vendorDir . '/symfony/yaml/',
+    'Mockery' => $vendorDir . '/mockery/mockery/library/',
+    'Expose' => $vendorDir . '/suin/php-expose/Source',
 );
