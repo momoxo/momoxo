@@ -3,7 +3,6 @@
 namespace XCore\Database;
 
 use PDO;
-use PDOStatement;
 use XCore\Database\DatabaseInterface;
 
 class MySQLDatabase implements DatabaseInterface
