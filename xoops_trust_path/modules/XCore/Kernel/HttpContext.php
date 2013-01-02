@@ -94,7 +94,7 @@ class HttpContext
      * @internal
      * @brief [Secret Agreement] A name of the render system used by the controller strategy.
      * @attention
-     *     This member is used for only Xcore_Controller.
+     *     This member is used for only Controller.
      */
     public $mBaseRenderSystemName = "";
 

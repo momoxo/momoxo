@@ -1,16 +1,14 @@
 <?php
 
-/**
- * @internal
- */
 use XCore\Kernel\DelegateUtils;
 use XCore\Entity\Module;
 use XCore\Kernel\HttpContext;
+use XCore\Kernel\Controller;
 
 class Xcore_AbstractControllerStrategy
 {
 	/**
-	 * @var Xcore_Controller
+	 * @var Controller
 	 */
 	var $mController = null;
 
@@ -85,7 +83,7 @@ class Xcore_AbstractControllerStrategy
 
 	/**
 	 * @return Module
-	 * @see Xcore_Controller::getVirtualCurrentModule()
+	 * @see Controller::getVirtualCurrentModule()
 	 */
 	function &getVirtualCurrentModule()
 	{

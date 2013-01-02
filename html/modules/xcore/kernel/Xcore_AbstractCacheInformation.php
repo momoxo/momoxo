@@ -2,7 +2,7 @@
 
 /**
  * The structure which have a policy and an information of a module, which
- * Xcore_Controller must know. In the later version, this class may be
+ * Controller must know. In the later version, this class may be
  * replaced with just array.
  * 
  * For a performance, this class has reset() to reuse a object.

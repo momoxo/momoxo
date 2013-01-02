@@ -2,7 +2,7 @@
 
 /**
   * @public
-  * @brief [Abstract] Represents modules and used for Xcore_Controller
+  * @brief [Abstract] Represents modules and used for Controller
   * 
   * This is an abstract class which has interfaces to connect with the controller about
   * the module process. Legacy controller makes an interface of this class and uses its
@@ -11,10 +11,10 @@
   * So modules may define their sub-classes implementing this interface.
   * The instance is attached to the Xcore_Context after initializing, so modules can
   * defines members for module's features and can access them. But, most interfaces
-  * defined by this class should be called by only Xcore_Controller.
+  * defined by this class should be called by only Controller.
   * 
   * @attention
-  *    This interfaces are initialized by only Xcore_Controller.
+  *    This interfaces are initialized by only Controller.
   * 
   * @see Xcore_Utils::createModule()
   * @see Module
@@ -66,7 +66,7 @@ class Xcore_AbstractModule
      * @brief constructor
      * @param $module Module
      * @attention
-     *     Basically, only Xcore_Controller and its utility functions should call the
+     *     Basically, only Controller and its utility functions should call the
      *     constructor.
      */
     function __construct(&$module, $loadConfig=true)

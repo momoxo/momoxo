@@ -61,7 +61,8 @@ define('XCORE_ADMIN_RENDER_FALLBACK_URL', XOOPS_MODULE_URL . '/xcore/admin/theme
 define('XCORE_MODULE_VERSION', '2.2');
 define('XCORE_CONTROLLER_STATE_PUBLIC', 1);
 define('XCORE_CONTROLLER_STATE_ADMIN', 2);
-define('XCORE_XOOPS_MODULE_MANIFESTO_FILENAME', 'xoops_version.php');
+/** @deprecated */
+define('XCORE_XOOPS_MODULE_MANIFESTO_FILENAME', \XCore\Kernel\Controller::MODULE_MANIFESTO_FILENAME);
 
 // From ../../html/modules/xcore/kernel/Xcore_RenderSystem.class.php
 define('XCORE_RENDERSYSTEM_BANNERSETUP_BEFORE', false);

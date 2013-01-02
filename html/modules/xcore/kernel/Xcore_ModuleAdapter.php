@@ -5,7 +5,7 @@
  * @brief Used for adapting $xoopsModule to imitate XOOPS2 responses.
  * @remarks
  *    This class is the standard class implementing Xcore_AbstractModule, and is helpful
- *    to be used by Xcore_Controller. If a module doesn't define its sub-class of
+ *    to be used by Controller. If a module doesn't define its sub-class of
  *    Xcore_AbstractModule, this class is used as generic Xcore_AbstractModule.
  */
 use XCore\Kernel\Root;

@@ -62,7 +62,7 @@ class User_UserDeleteAction extends User_Action
 		$this->mActionForm =new User_UserDeleteForm();
 		$this->mActionForm->prepare();
 		
-		$this->_mDoDelete =new Delegate('bool &', 'Xcore_Controller', 'XCore\Entity\User');
+		$this->_mDoDelete =new Delegate();
 		$this->_mDoDelete->register('User_UserDeleteAction._doDelete');
 		
 		$this->_mDoDelete->add(array(&$this, "_doDelete"));

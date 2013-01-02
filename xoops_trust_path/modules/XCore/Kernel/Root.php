@@ -261,12 +261,9 @@ class Root
         // We don't decide the style of SiteConfig.
         //
         $controllerName = $this->mSiteConfig['Cube']['Controller'];
-        $controller =& $this->mSiteConfig[$controllerName];
-        if (isset($controller['root'])) {
-            $this->mController =& $this->_createInstance($controller['class'], $controller['path'], $controller['root']);
-        } else {
-            $this->mController =& $this->_createInstance($controller['class'], $controller['path']);
-        }
+        $controller = $this->mSiteConfig[$controllerName]['class'];
+
+        $this->mController = new $controller();
         $this->mController->prepare($this);
     }
 
@@ -358,9 +355,9 @@ class Root
         $chunkName = $config['RenderSystems'][$name];
         $chunk =& $config[$chunkName];
         if (isset($config[$chunkName]['root'])) {
-            $mRS[$name] =& $this->_createInstance($chunk['class'], $chunk['path'], $chunk['root']);
+            $mRS[$name] = $this->_createInstance($chunk['class'], $chunk['path'], $chunk['root']);
         } else {
-            $mRS[$name] =& $this->_createInstance($chunk['class'], $chunk['path']);
+            $mRS[$name] = $this->_createInstance($chunk['class'], $chunk['path']);
         }
 
         if (!is_object($mRS[$name])) {
@@ -490,7 +487,7 @@ class Root
      * @return object
      * @todo If the file doesn't exist, require_once() raises fatal errors.
      */
-    function &_createInstance($className, $classPath = null, $root = null)
+    function _createInstance($className, $classPath = null, $root = null)
     {
         $ret = null;
 
