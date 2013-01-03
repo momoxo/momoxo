@@ -37,7 +37,8 @@
 	<filter>
 		<whitelist>
 			<directory suffix=".php">../html/install/src</directory>
-			<directory suffix=".php">modules/XCore/Kernel</directory>
+			<directory suffix=".php">modules/XCore/Repository</directory>
+			<directory suffix=".php">modules/XCore/Database</directory>
 			<!-- directory suffix=".php">../html/modules/xcore/class</directory>
 			<directory suffix=".php">../html/modules/xcore/kernel</directory -->
 			<!-- directory suffix=".php">modules</directory -->
@@ -53,9 +54,7 @@
 			<!-- <directory suffix=".php" group="PHPUNIT">/path/to/dir</directory> -->
 		</blacklist>
 	</filter>
-	<!--
 	<listeners>
 		<listener class="\Mockery\Adapter\Phpunit\TestListener" file="Vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php" />
 	</listeners>
-	-->
 </phpunit>
