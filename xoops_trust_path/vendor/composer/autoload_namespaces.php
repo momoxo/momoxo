@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Xoops' => $baseDir . '/modules/',
     'XCore' => $baseDir . '/modules/',
     'Symfony\\Component\\Yaml' => $vendorDir . '/symfony/yaml/',
     'Mockery' => $vendorDir . '/mockery/mockery/library/',
