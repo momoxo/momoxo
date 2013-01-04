@@ -53,18 +53,21 @@ class TemplateFileTest extends \PHPUnit_Framework_TestCase
 
         $persistingObject = $templateFile->exportForPersistence();
 
-        $this->assertSame(array(
-            'tpl_id'           => 123,
-            'tpl_refid'        => 456,
-            'tpl_tplset'       => 'DUMMY_TPL_SET',
-            'tpl_file'         => 'DUMMY_FILE',
-            'tpl_desc'         => 'DUMMY_DESC',
-            'tpl_lastmodified' => 123456789,
-            'tpl_lastimported' => 987654321,
-            'tpl_module'       => 'DUMMY_MODULE',
-            'tpl_type'         => 'DUMMY_TYPE',
-            'tpl_source'       => 'DUMMY_SOURCE',
-        ), $persistingObject);
+        $this->assertSame(
+            array(
+                'tpl_id'           => 123,
+                'tpl_refid'        => 456,
+                'tpl_tplset'       => 'DUMMY_TPL_SET',
+                'tpl_file'         => 'DUMMY_FILE',
+                'tpl_desc'         => 'DUMMY_DESC',
+                'tpl_lastmodified' => 123456789,
+                'tpl_lastimported' => 987654321,
+                'tpl_module'       => 'DUMMY_MODULE',
+                'tpl_type'         => 'DUMMY_TYPE',
+                'tpl_source'       => 'DUMMY_SOURCE',
+            ),
+            $persistingObject
+        );
     }
 
     public function testId()

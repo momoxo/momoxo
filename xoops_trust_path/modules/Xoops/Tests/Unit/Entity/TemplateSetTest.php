@@ -37,13 +37,16 @@ class TemplateSetTest extends \PHPUnit_Framework_TestCase
 
         $persistingObject = $templateSet->exportForPersistence();
 
-        $this->assertSame(array(
-            'tplset_id'      => null,
-            'tplset_name'    => 'DUMMY_NAME',
-            'tplset_desc'    => 'DUMMY_DESCRIPTION',
-            'tplset_credits' => 'DUMMY_CREDITS',
-            'tplset_created' => '999994149',
-        ), $persistingObject);
+        $this->assertSame(
+            array(
+                'tplset_id'      => null,
+                'tplset_name'    => 'DUMMY_NAME',
+                'tplset_desc'    => 'DUMMY_DESCRIPTION',
+                'tplset_credits' => 'DUMMY_CREDITS',
+                'tplset_created' => '999994149',
+            ),
+            $persistingObject
+        );
     }
 
     public function testId()
