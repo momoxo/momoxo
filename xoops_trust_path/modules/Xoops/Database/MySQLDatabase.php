@@ -1,9 +1,9 @@
 <?php
 
-namespace XCore\Database;
+namespace Xoops\Database;
 
 use PDO;
-use XCore\Database\DatabaseInterface;
+use Xoops\Database\DatabaseInterface;
 
 class MySQLDatabase implements DatabaseInterface
 {
@@ -39,8 +39,8 @@ class MySQLDatabase implements DatabaseInterface
      */
     public function connect(array $params)
     {
-        $dsn = sprintf('mysql:host=%s;dbname=%s;charset=%s', $params['host'], $params['dbname'], $params['charset']);
-        $this->pdo = new PDO($dsn, $params['username'], $params['password'], array(
+        $dsn = sprintf('mysql:host=%s;dbname=%s;charset=%s', $params['host'], $params['name'], $params['charset']);
+        $this->pdo = new PDO($dsn, $params['user'], $params['password'], array(
             PDO::ATTR_ORACLE_NULLS       => PDO::NULL_NATURAL, // NULL is available
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

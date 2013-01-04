@@ -1,6 +1,6 @@
 <?php
 
-namespace XCore\Database;
+namespace Xoops\Database;
 
 use PDOStatement;
 use Exception;
