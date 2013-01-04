@@ -39,13 +39,20 @@ class MySQLDatabase implements DatabaseInterface
      */
     public function connect(array $params)
     {
-        $dsn = sprintf('mysql:host=%s;dbname=%s;charset=%s', $params['host'], $params['name'], $params['charset']);
-        $this->pdo = new PDO($dsn, $params['user'], $params['password'], array(
+        if (isset($params['name'])) {
+            $dsn = sprintf('mysql:host=%s;dbname=%s;charset=%s', $params['host'], $params['name'], $params['charset']);
+        } else {
+            $dsn = sprintf('mysql:host=%s;charset=%s', $params['host'], $params['charset']);
+        }
+
+        $options = array(
             PDO::ATTR_ORACLE_NULLS       => PDO::NULL_NATURAL, // NULL is available
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_AUTOCOMMIT         => true,
-        ));
+        );
+
+        $this->pdo = new PDO($dsn, $params['user'], $params['password'], $options);
 
         return $this;
     }

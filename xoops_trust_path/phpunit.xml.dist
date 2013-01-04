@@ -13,6 +13,7 @@
 		<server name="XOOPS_TEST_DB_NAME_DEFAULT" value="momoxo_test"/>
 		<server name="XOOPS_TEST_DB_USER_DEFAULT" value="root"/>
 		<server name="XOOPS_TEST_DB_PASS_DEFAULT" value="root"/>
+		<server name="XOOPS_TEST_DB_PREFIX_DEFAULT" value="xoops"/>
 	</php>
 
 	<testsuites>

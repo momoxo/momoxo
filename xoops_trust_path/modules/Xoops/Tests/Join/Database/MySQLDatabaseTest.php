@@ -17,6 +17,19 @@ class MySQLDatabaseTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testConnectWithoutDatabaseName()
+    {
+        $db = new MySQLDatabase();
+        $db->connect(
+            array(
+                'host'     => $_SERVER['XOOPS_TEST_DB_HOST'],
+                'charset'  => 'utf8',
+                'user'     => $_SERVER['XOOPS_TEST_DB_USER'],
+                'password' => $_SERVER['XOOPS_TEST_DB_PASS'],
+            )
+        );
+    }
+
     public function testInsertAndSelect()
     {
         $db = new MySQLDatabase();

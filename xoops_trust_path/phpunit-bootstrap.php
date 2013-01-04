@@ -30,3 +30,6 @@ if ( isset($_SERVER['XOOPS_TEST_DB_USER']) === false ) {
 if ( isset($_SERVER['XOOPS_TEST_DB_PASS']) === false ) {
 	$_SERVER['XOOPS_TEST_DB_PASS'] = $_SERVER['XOOPS_TEST_DB_PASS_DEFAULT'];
 }
+if ( isset($_SERVER['XOOPS_TEST_DB_PREFIX']) === false ) {
+    $_SERVER['XOOPS_TEST_DB_PREFIX'] = $_SERVER['XOOPS_TEST_DB_PREFIX_DEFAULT'];
+}
