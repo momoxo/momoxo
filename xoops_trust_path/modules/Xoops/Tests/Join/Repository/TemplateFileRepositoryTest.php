@@ -14,6 +14,13 @@ class TemplateFileRepositoryTest extends \PHPUnit_Framework_TestCase
         TestDatabaseFactory::resetSchema();
     }
 
+    public static function assertTableSame(array $expectedRows, $tableName)
+    {
+        $db = TestDatabaseFactory::getDatabase();
+        $actualRows = $db->query('SELECT * FROM '.$db->prefix($tableName))->fetchAll();
+        self::assertSame($expectedRows, $actualRows, sprintf('The table "%s" contents are not same', $tableName));
+    }
+
     /**
      * @return TemplateFileRepository
      */
@@ -102,10 +109,60 @@ class TemplateFileRepositoryTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public static function assertTableSame(array $expectedRows, $tableName)
+    public function testFind()
     {
-        $db = TestDatabaseFactory::getDatabase();
-        $actualRows = $db->query('SELECT * FROM '.$db->prefix($tableName))->fetchAll();
-        self::assertSame($expectedRows, $actualRows, sprintf('The table "%s" contents are not same', $tableName));
+        $templateFile = new TemplateFile();
+        $templateFile
+            ->setReferenceId(2)
+            ->setModuleName('DUMMY_MODULE_NAME')
+            ->setTemplateSetName('DUMMY_TEMPLATE_SET_NAME')
+            ->setFilename('DUMMY_FILENAME')
+            ->setDescription('DUMMY_DESCRIPTION')
+            ->setModifiedAt(4)
+            ->setImportedAt(8)
+            ->setType(TemplateFile::TYPE_MODULE)
+            ->setSource('DUMMY_SOURCE');
+
+        $repository = $this->getRepository();
+        $repository->persist($templateFile);
+
+        $foundTemplateFile = $repository->find($templateFile->getId());
+
+        $this->assertNotSame($templateFile, $foundTemplateFile);
+        $this->assertEquals($templateFile, $foundTemplateFile);
+    }
+
+    public function testFindButNotFound()
+    {
+        $repository = $this->getRepository();
+        $foundTemplateFile = $repository->find(1);
+        $this->assertNull($foundTemplateFile);
+    }
+
+    public function testDelete()
+    {
+        $templateFile = new TemplateFile();
+        $templateFile
+            ->setReferenceId(2)
+            ->setModuleName('DUMMY_MODULE_NAME')
+            ->setTemplateSetName('DUMMY_TEMPLATE_SET_NAME')
+            ->setFilename('DUMMY_FILENAME')
+            ->setDescription('DUMMY_DESCRIPTION')
+            ->setModifiedAt(4)
+            ->setImportedAt(8)
+            ->setType(TemplateFile::TYPE_MODULE)
+            ->setSource('DUMMY_SOURCE');
+
+        $repository = $this->getRepository();
+        $repository->persist($templateFile);
+
+        $this->assertNotNull($repository->find(1));
+
+        $repository->delete($templateFile);
+
+        $this->assertNull($repository->find(1));
+
+        $this->assertTableSame(array(), 'tplfile');
+        $this->assertTableSame(array(), 'tplsource');
     }
 }

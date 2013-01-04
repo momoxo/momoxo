@@ -47,8 +47,47 @@ class TemplateFileRepository
         }
     }
 
+    /**
+     * Find TemplateFile entity by ID
+     * @param int $id
+     * @return TemplateFile|null When entity is not found, returns NULL
+     */
     public function find($id)
     {
+        $templateFileTable = $this->templateFileTable;
+        $templateSourceTable = $this->templateSourceTable;
+
+        $select = "SELECT f.*, s.tpl_source FROM $templateFileTable AS f ".
+            "INNER JOIN $templateSourceTable AS s ON f.tpl_id = s.tpl_id ".
+            "WHERE f.tpl_id = :tpl_id";
+        $statement = $this->db->prepare($select);
+        $statement->execute(array(':tpl_id' => $id));
+
+        $row = $statement->fetch();
+
+        if ($row === false) {
+            return null;
+        }
+
+        $templateFile = new TemplateFile();
+        $templateFile->importByPersistedObject($row);
+
+        return $templateFile;
+    }
+
+    /**
+     * Delete TemplateFile entity from database
+     * @param TemplateFile $templateFile
+     */
+    public function delete(TemplateFile $templateFile)
+    {
+        $delete = "DELETE FROM {$this->templateSourceTable} WHERE tpl_id = :tpl_id";
+        $statement = $this->db->prepare($delete);
+        $statement->execute(array(':tpl_id' => $templateFile->getId()));
+
+        $delete = "DELETE FROM {$this->templateFileTable} WHERE tpl_id = :tpl_id";
+        $statement = $this->db->prepare($delete);
+        $statement->execute(array(':tpl_id' => $templateFile->getId()));
     }
 
     private function update(TemplateFile $templateFile)
