@@ -6,6 +6,59 @@ use Xoops\Entity\Avatar;
 
 class AvatarTest extends \PHPUnit_Framework_TestCase
 {
+    public function testImportByPersistedObject()
+    {
+        $persistedObject = array(
+            'avatar_id'       => 123,
+            'avatar_file'     => 'DUMMY_FILENAME',
+            'avatar_name'     => 'DUMMY_NAME',
+            'avatar_mimetype' => 'DUMMY_MIME_TYPE',
+            'avatar_created'  => 999994149,
+            'avatar_display'  => 1,
+            'avatar_weight'   => 456,
+            'avatar_type'     => 'DUMMY_TYPE',
+        );
+
+        $avatar = new Avatar();
+        $avatar->importByPersistedObject($persistedObject);
+        $this->assertSame(123, $avatar->getId());
+        $this->assertSame('DUMMY_FILENAME', $avatar->getFilename());
+        $this->assertSame('DUMMY_NAME', $avatar->getName());
+        $this->assertSame('DUMMY_MIME_TYPE', $avatar->getMimeType());
+        $this->assertSame(999994149, $avatar->getCreatedAt());
+        $this->assertSame(true, $avatar->isDisplayed());
+        $this->assertSame(456, $avatar->getWeight());
+        $this->assertSame('DUMMY_TYPE', $avatar->getType());
+    }
+
+    public function testExportForPersistence()
+    {
+        $avatar = new Avatar();
+        $avatar
+            ->setId(123)
+            ->setFilename('DUMMY_FILENAME')
+            ->setName('DUMMY_NAME')
+            ->setMimeType('DUMMY_MIME_TYPE')
+            ->setCreatedAt(999994149)
+            ->hide()
+            ->setWeight(456)
+            ->setType('DUMMY_TYPE');
+
+        $this->assertSame(
+            array(
+                'avatar_id'       => 123,
+                'avatar_file'     => 'DUMMY_FILENAME',
+                'avatar_name'     => 'DUMMY_NAME',
+                'avatar_mimetype' => 'DUMMY_MIME_TYPE',
+                'avatar_created'  => 999994149,
+                'avatar_display'  => 0,
+                'avatar_weight'   => 456,
+                'avatar_type'     => 'DUMMY_TYPE',
+            ),
+            $avatar->exportForPersistence()
+        );
+    }
+
     public function testId()
     {
         $avatar = new Avatar();

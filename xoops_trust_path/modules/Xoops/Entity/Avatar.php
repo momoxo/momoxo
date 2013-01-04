@@ -2,7 +2,9 @@
 
 namespace Xoops\Entity;
 
-class Avatar
+use Xoops\Entity\PersistableInterface;
+
+class Avatar implements PersistableInterface
 {
     const TYPE_SYSTEM = 'S';
     const TYPE_CUSTOM = 'C';
@@ -46,6 +48,40 @@ class Avatar
      * @var string
      */
     private $type;
+
+    /**
+     * {@inherit}
+     */
+    public function importByPersistedObject(array $data)
+    {
+        $this->id          = $data['avatar_id'];
+        $this->filename    = $data['avatar_file'];
+        $this->name        = $data['avatar_name'];
+        $this->mimeType    = $data['avatar_mimetype'];
+        $this->createdAt   = $data['avatar_created'];
+        $this->isDisplayed = (bool) $data['avatar_display'];
+        $this->weight      = $data['avatar_weight'];
+        $this->type        = $data['avatar_type'];
+
+        return $this;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function exportForPersistence()
+    {
+        return array(
+            'avatar_id'       => $this->id,
+            'avatar_file'     => $this->filename,
+            'avatar_name'     => $this->name,
+            'avatar_mimetype' => $this->mimeType,
+            'avatar_created'  => $this->createdAt,
+            'avatar_display'  => (int) $this->isDisplayed,
+            'avatar_weight'   => $this->weight,
+            'avatar_type'     => $this->type,
+        );
+    }
 
     /**
      * Set avatar ID
