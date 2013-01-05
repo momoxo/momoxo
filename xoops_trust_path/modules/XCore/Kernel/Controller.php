@@ -237,22 +237,7 @@ class Controller
         //
         $this->_processHostAbstractLayer();
 
-        $urlInfo = $this->_parseUrl();
-
-        $adminStateFlag = false;
-        if (count($urlInfo) >= 3) {
-            if (strtolower($urlInfo[0]) == 'modules') {
-                if (strtolower($urlInfo[2]) == 'admin') {
-                    $adminStateFlag = true;
-                } elseif ($urlInfo[1] == 'xcore' && $urlInfo[2] == 'include') {
-                    $adminStateFlag = true;
-                } elseif ($urlInfo[1] == 'system' && substr($urlInfo[2], 0, 9) == 'admin.php') {
-                    $adminStateFlag = true;
-                }
-            }
-        } elseif (substr($urlInfo[0], 0, 9) == 'admin.php') {
-            $adminStateFlag = true;
-        }
+        $adminStateFlag = UrlParser::isAdminPage(UrlParser::parse(XOOPS_URL));
 
         if ($adminStateFlag) {
             $this->_mStrategy = new Xcore_AdminControllerStrategy($this);
@@ -935,15 +920,6 @@ class Controller
     }
 
     /**
-     * @return string
-     * @deprecated
-     */
-    private function _parseUrl()
-    {
-        return UrlParser::parse(XOOPS_URL);
-    }
-
-    /**
      * Calls the preBlockFilter() member function of action filters which have been
      * loaded to the list of the controller.
      */
@@ -1077,19 +1053,7 @@ class Controller
     function setupModuleContext($dirname = null)
     {
         if ( $dirname == null ) {
-            //
-            // Sets a module object.
-            //
-            $urlInfo = $this->_parseUrl();
-
-            if ( count($urlInfo) >= 2 ) {
-                if ( strtolower($urlInfo[0]) == 'modules' ) {
-                    $dirname = $urlInfo[1];
-                }
-            }
-            if ( substr($urlInfo[0], 0, 9) == 'admin.php' ) {
-                $dirname = 'xcore';
-            }
+            $dirname = UrlParser::getModuleDirname(UrlParser::parse(XOOPS_URL));
         }
 
         if ( $dirname == null ) {

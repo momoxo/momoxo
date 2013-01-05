@@ -10,7 +10,7 @@ class UrlParser
      */
     public static function parse($xoopsUrl)
     {
-        $baseUri    = parse_url($xoopsUrl, PHP_URL_PATH).'/';
+        $baseUri = parse_url($xoopsUrl, PHP_URL_PATH).'/';
         $scriptPath = parse_url($_SERVER['SCRIPT_NAME'], PHP_URL_PATH).'/';
         $requestUri = substr($scriptPath, strlen($baseUri));
         $ret = preg_split('#/#', $requestUri, -1, PREG_SPLIT_NO_EMPTY);
@@ -38,5 +38,21 @@ class UrlParser
         }
 
         return $adminStateFlag;
+    }
+
+    public static function getModuleDirname(array $urlInfo)
+    {
+        $dirname = null;
+
+        if (count($urlInfo) >= 2) {
+            if (strtolower($urlInfo[0]) == 'modules') {
+                $dirname = $urlInfo[1];
+            }
+        }
+        if (substr($urlInfo[0], 0, 9) == 'admin.php') {
+            $dirname = 'xcore';
+        }
+
+        return $dirname;
     }
 }

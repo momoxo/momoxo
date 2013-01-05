@@ -123,4 +123,25 @@ class UrlParserTest extends \PHPUnit_Framework_TestCase
             array(false, array('modules', 'news', 'edit.php')),
         );
     }
+
+    /**
+     * @param       $dirname
+     * @param array $urlInfo
+     * @dataProvider dataForTestGetModuleDirname
+     */
+    public function testGetModuleDirname($dirname, array $urlInfo)
+    {
+        $this->assertSame($dirname, UrlParser::getModuleDirname($urlInfo));
+    }
+
+    public static function dataForTestGetModuleDirname()
+    {
+        return array(
+            array('news', array('modules', 'news', 'article.php')),
+            array('user', array('modules', 'user', 'admin', 'index.php')),
+            array('xcore', array('admin.php')),
+            array('xcore', array('admin.php.back')),
+            array(null, array('edituser.php')),
+        );
+    }
 }
