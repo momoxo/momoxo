@@ -48,9 +48,10 @@ class UrlParser
             if (strtolower($urlInfo[0]) == 'modules') {
                 $dirname = $urlInfo[1];
             }
-        }
-        if (substr($urlInfo[0], 0, 9) == 'admin.php') {
-            $dirname = 'xcore';
+        } elseif (count($urlInfo) >= 1) {
+            if (substr($urlInfo[0], 0, 9) == 'admin.php') {
+                $dirname = 'xcore';
+            }
         }
 
         return $dirname;

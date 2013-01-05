@@ -1016,7 +1016,7 @@ class Controller
         //
         // FIXME: Access private method.
         //
-        $manager =& $this->mRoot->_createInstance($this->mRoot->getSiteConfig($chunkName, 'class'), $this->mRoot->getSiteConfig($chunkName, 'path'));
+        $manager = $this->mRoot->_createInstance($this->mRoot->getSiteConfig($chunkName, 'class'), $this->mRoot->getSiteConfig($chunkName, 'path'));
 
         return $manager;
     }
@@ -1032,7 +1032,7 @@ class Controller
         //
         // FIXME: Access private method.
         //
-        $manager =& $this->mRoot->_createInstance($this->mRoot->getSiteConfig($chunkName, 'class'), $this->mRoot->getSiteConfig($chunkName, 'path'));
+        $manager = $this->mRoot->_createInstance($this->mRoot->getSiteConfig($chunkName, 'class'), $this->mRoot->getSiteConfig($chunkName, 'path'));
 
         return $manager;
     }

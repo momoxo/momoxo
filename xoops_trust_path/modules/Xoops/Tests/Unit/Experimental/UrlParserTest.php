@@ -142,6 +142,7 @@ class UrlParserTest extends \PHPUnit_Framework_TestCase
             array('xcore', array('admin.php')),
             array('xcore', array('admin.php.back')),
             array(null, array('edituser.php')),
+            array(null, array()),
         );
     }
 }
