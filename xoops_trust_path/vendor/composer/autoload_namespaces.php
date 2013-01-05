@@ -9,6 +9,7 @@ return array(
     'Xoops' => $baseDir . '/modules/',
     'XCore' => $baseDir . '/modules/',
     'Symfony\\Component\\Yaml' => $vendorDir . '/symfony/yaml/',
+    'Psr\\Log\\' => $vendorDir . '/psr/log/',
     'Mockery' => $vendorDir . '/mockery/mockery/library/',
     'Expose' => $vendorDir . '/suin/php-expose/Source',
 );
