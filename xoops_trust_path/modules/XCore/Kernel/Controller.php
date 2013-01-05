@@ -29,6 +29,7 @@ use Xcore_HeaderScript;
 use Xcore_SearchService;
 use XCore\Utils\Utils;
 use XoopsTpl;
+use Xoops\Experimental\UrlParser;
 
 /**
  * Virtual or Actual front controller class.
@@ -928,25 +929,9 @@ class Controller
         }
     }
 
-    function _parseUrl()
+    private function _parseUrl()
     {
-        $ret = array();
-        $rootPathInfo = @parse_url(XOOPS_URL);
-        $rootPath = (isset($rootPathInfo['path']) ? $rootPathInfo['path'] : '').'/';
-        $php_info = xoops_getenv('PATH_INFO');
-        $requestPathInfo = @parse_url(!empty($php_info) ? substr(xoops_getenv('PHP_SELF'), 0, -strlen(xoops_getenv('PATH_INFO'))) : xoops_getenv('PHP_SELF'));
-
-        if ( $requestPathInfo === false ) {
-            throw new RuntimeException();
-        }
-
-        $requestPath = isset($requestPathInfo['path']) ? urldecode($requestPathInfo['path']) : '';
-        $subPath = substr($requestPath, strlen($rootPath));
-        $subPath = trim($subPath, '/');
-        $subPath = preg_replace('@/{2,}@', '/', $subPath);
-        $ret = explode('/', $subPath);
-
-        return $ret;
+        return UrlParser::parse(XOOPS_URL);
     }
 
     /**
