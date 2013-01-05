@@ -177,41 +177,22 @@ class Controller
 
     public function __construct()
     {
-        $this->_mBlockChain = array();
-        $this->_mFilterChain = array();
-        $this->_mLoadedFilterNames = array();
+        $this->mExecute               = new Delegate();
+        $this->mSetupUser             = new Delegate('Controller.SetupUser');
+        $this->mCheckLogin            = new Delegate('Site.CheckLogin');
+        $this->mLogout                = new Delegate('Site.Logout');
+        $this->mCreateLanguageManager = new Delegate('Controller.CreateLanguageManager');
+        $this->mGetLanguageName       = new Delegate('Controller.GetLanguageName');
+        $this->mSetBlockCachePolicy   = new Delegate();
+        $this->mSetModuleCachePolicy  = new Delegate();
+        $this->mSetupDebugger         = new Delegate();
+        $this->mSetupTextFilter       = new Delegate();
+        $this->_mNotifyRedirectToUser = new Delegate();
 
-        $this->mSetupUser = new Delegate();
-        $this->mExecute = new Delegate();
-        $this->mSetupTextFilter = new Delegate();
-        $this->mSetupTextFilter->add('XCore\Kernel\TextFilter::getInstance', XCUBE_DELEGATE_PRIORITY_FINAL);
-
-        //
-        // Setup member properties as member delegates.
-        //
-        $this->mSetupUser->register('Controller.SetupUser');
-
-        $this->mCheckLogin = new Delegate();
-        $this->mCheckLogin->register('Site.CheckLogin');
-
-        $this->mLogout = new Delegate();
-        $this->mLogout->register('Site.Logout');
-
-        $this->mCreateLanguageManager = new Delegate();
-        $this->mCreateLanguageManager->register('Controller.CreateLanguageManager');
-
-        $this->mGetLanguageName = new Delegate();
-        $this->mGetLanguageName->register('Controller.GetLanguageName');
-
-        $this->mSetBlockCachePolicy = new Delegate();
-        $this->mSetModuleCachePolicy = new Delegate();
-
-        $this->mSetupDebugger = new Delegate();
         $this->mSetupDebugger->add('Xcore_DebuggerManager::createInstance');
-
+        $this->mSetupTextFilter->add('XCore\Kernel\TextFilter::getInstance', XCUBE_DELEGATE_PRIORITY_FINAL);
         $this->mSetupTextFilter->add('Xcore_TextFilter::getInstance', XCUBE_DELEGATE_PRIORITY_FINAL - 1);
 
-        $this->_mNotifyRedirectToUser = new Delegate();
         if ( get_magic_quotes_runtime() ) {
             set_magic_quotes_runtime(0); // ^^;
         }

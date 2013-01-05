@@ -72,11 +72,12 @@ final class Delegate
      * $delegate = new Delegate("string", "string");
      * ```
      */
-    public function __construct()
+    public function __construct($delegateName = null)
     {
-        if ( func_num_args() ) {
-            $this->_setSignatures(func_get_args());
+        if ($delegateName !== null) {
+            $this->register($delegateName);
         }
+
         $this->_mUniqueID = uniqid(rand(), true);
     }
 
