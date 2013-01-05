@@ -240,16 +240,21 @@ class Controller
         $urlInfo = $this->_parseUrl();
 
         $adminStateFlag = false;
-        if ( count($urlInfo) >= 3 ) {
-            if ( strtolower($urlInfo[0]) == 'modules' ) {
-                if ( strtolower($urlInfo[2]) == 'admin' ) $adminStateFlag = true;
-                elseif ( $urlInfo[1] == 'xcore' && $urlInfo[2] == 'include' ) {
+        if (count($urlInfo) >= 3) {
+            if (strtolower($urlInfo[0]) == 'modules') {
+                if (strtolower($urlInfo[2]) == 'admin') {
                     $adminStateFlag = true;
-                } elseif ( $urlInfo[1] == 'system' && substr($urlInfo[2], 0, 9) == 'admin.php' ) $adminStateFlag = true;
+                } elseif ($urlInfo[1] == 'xcore' && $urlInfo[2] == 'include') {
+                    $adminStateFlag = true;
+                } elseif ($urlInfo[1] == 'system' && substr($urlInfo[2], 0, 9) == 'admin.php') {
+                    $adminStateFlag = true;
+                }
             }
-        } elseif ( substr($urlInfo[0], 0, 9) == 'admin.php' ) $adminStateFlag = true;
+        } elseif (substr($urlInfo[0], 0, 9) == 'admin.php') {
+            $adminStateFlag = true;
+        }
 
-        if ( $adminStateFlag ) {
+        if ($adminStateFlag) {
             $this->_mStrategy = new Xcore_AdminControllerStrategy($this);
         } else {
             $this->_mStrategy = new Xcore_PublicControllerStrategy($this);
@@ -929,6 +934,10 @@ class Controller
         }
     }
 
+    /**
+     * @return string
+     * @deprecated
+     */
     private function _parseUrl()
     {
         return UrlParser::parse(XOOPS_URL);

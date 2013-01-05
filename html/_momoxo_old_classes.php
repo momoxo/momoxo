@@ -10,6 +10,7 @@ call_user_func(function(){
 		'XCube_Permissions'                    => null,
 		'XCube_RenderCache'                    => null,
 		'XCube_Role'                           => null,
+        'XCube_ActionFilter'                   => 'XCore\Kernel\ActionFilter',
 		'XCube_Root'                           => 'XCore\Kernel\Root',
 		'LegacyBlock_module_linkHandler'        => null,
 		'LegacyBlock_module_linkObject'         => null,

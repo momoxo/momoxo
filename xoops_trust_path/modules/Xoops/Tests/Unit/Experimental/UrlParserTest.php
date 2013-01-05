@@ -96,4 +96,31 @@ class UrlParserTest extends \PHPUnit_Framework_TestCase
             ),
         );
     }
+
+    /**
+     * @param       $expected
+     * @param array $urlInfo
+     * @dataProvider dataForTestIsAdminPage
+     */
+    public function testIsAdminPage($expected, array $urlInfo)
+    {
+        $this->assertSame($expected, UrlParser::isAdminPage($urlInfo));
+    }
+
+    public function dataForTestIsAdminPage()
+    {
+        return array(
+            // true patterns
+            array(true, array('admin.php')),
+            array(true, array('admin.php.back')),
+            array(true, array('modules', 'foo', 'admin', 'index.php')),
+            array(true, array('modules', 'xcore', 'include', 'script.php')),
+            array(true, array('modules', 'system', 'admin.php')),
+            array(true, array('modules', 'system', 'admin.php.back')),
+            // false patterns
+            array(false, array()),
+            array(false, array('index.php')),
+            array(false, array('modules', 'news', 'edit.php')),
+        );
+    }
 }
