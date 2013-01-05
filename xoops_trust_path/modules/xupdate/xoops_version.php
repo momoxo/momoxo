@@ -308,7 +308,7 @@ $modversion['config'] = array(
 		'description'	=> '',
 		'formtype'	=> 'text',
 		'valuetype'	=> 'string',
-		'default'	=> 'http://cmsthemefinder.com/modules/lica/index.php?controller=download&id=%u',
+		'default'	=> 'http://store.momoxo.org/modules/lica/index.php?controller=download&id=%u',
 		'options'	=> array(),
 	) ,
 
