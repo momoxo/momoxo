@@ -305,7 +305,6 @@ call_user_func(function(){
 		'XoopsMySQLDatabaseProxy'              => null,
 		'XoopsMySQLDatabaseSafe'               => null,
 		'XoopsPageNav'                         => null,
-		'XoopsSecurity'                        => null,
 		'XoopsSimpleForm'                      => null,
 		'XoopsSingleTokenHandler'              => null,
 		'XoopsStory'                           => null,

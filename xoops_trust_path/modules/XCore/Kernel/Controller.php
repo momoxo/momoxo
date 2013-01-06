@@ -18,7 +18,6 @@ use XCore\Kernel\Delegate;
 use XCore\Entity\Module;
 use Xcore_AdminControllerStrategy;
 use Xcore_PublicControllerStrategy;
-use XoopsSecurity;
 use Xcore_Utils;
 use XCore\Database\DatabaseFactory;
 use XCore\Database\CriteriaCompo;
@@ -636,8 +635,6 @@ class Controller
         define('XOOPS_XCORE_PATH', XOOPS_MODULE_PATH.'/'.XOOPS_XCORE_PROC_NAME);
 
         require_once XOOPS_ROOT_PATH.'/modules/xcore/include/functions.php';
-
-        $GLOBALS['xoopsSecurity'] = new XoopsSecurity();
     }
 
     /**
