@@ -78,7 +78,7 @@ class Xcore_AdminSideMenu extends Xcore_AbstractBlockProcedure
 			}
 		}
 		
-		$db=&$controller->getDB();
+		$db = $controller->getDB();
 
 		$mod = $db->prefix("modules");
 		$perm = $db->prefix("group_permission");

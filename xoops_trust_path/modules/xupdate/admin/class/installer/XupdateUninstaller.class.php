@@ -95,7 +95,7 @@ class Xupdate_Uninstaller
     private function _uninstallTables()
     {
         $root = Root::getSingleton();
-        $db =& $root->mController->getDB();
+        $db = $root->mController->getDB();
         $dirname = $this->_mXoopsModule->get('dirname');
     
         $tables =& $this->_mXoopsModule->getInfo('tables');

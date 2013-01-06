@@ -106,7 +106,7 @@ class Xcore_AdminSystemCheckPlusPreload extends ActionFilter
 
 		$systemconfig = array();
 		$systemconfig['phpversion'] = phpversion();
-		$db = &$root->mController->getDB();
+		$db = $root->mController->getDB();
 		$result = $db->query("SELECT VERSION()");
 		list($mysqlversion) = $db->fetchRow($result);
 		$systemconfig['mysqlversion'] = $mysqlversion; 

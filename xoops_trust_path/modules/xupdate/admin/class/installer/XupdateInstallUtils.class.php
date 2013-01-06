@@ -73,7 +73,7 @@ class Xupdate_InstallUtils
     
         $scanner->parse();
         $root = Root::getSingleton();
-        $db =& $root->mController->getDB();
+        $db = $root->mController->getDB();
     
         foreach($scanner->getSQL() as $sql)
         {

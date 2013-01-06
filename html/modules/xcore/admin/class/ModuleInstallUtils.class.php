@@ -167,7 +167,7 @@ class Xcore_ModuleInstallUtils
 			$sqls = $scanner->getSQL();
 			
 			$root = Root::getSingleton();
-			$db =& $root->mController->getDB();
+			$db = $root->mController->getDB();
 			
 			//
 			// TODO The following variable exists for rollback, but it is not implemented.

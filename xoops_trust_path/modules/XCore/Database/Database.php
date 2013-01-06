@@ -15,8 +15,9 @@ namespace XCore\Database;
  * @subpackage database
  */
 use XCore\Kernel\Logger;
+use Xoops\Database\DatabaseInterface;
 
-class Database
+class Database implements DatabaseInterface
 {
 	/**
 	 * Prefix for tables in the database

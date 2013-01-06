@@ -2,9 +2,18 @@
 
 namespace Xoops\Boot;
 
+use Xoops\Kernel\ControllerInterface;
+
 interface BootCommandInterface
 {
-    public function setRoot($root);
+    /**
+     * @param ControllerInterface $controller
+     */
+    public function setController(ControllerInterface $controller);
 
+    /**
+     * Execute this command
+     * @return void
+     */
     public function execute();
 }

@@ -22,7 +22,7 @@ if (!is_object($root->mController)) exit();
 
 define('XOOPS_FOOTER_INCLUDED',1);
 
-$xoopsLogger=&$root->mController->getLogger();
+$xoopsLogger = $root->mController->getLogger();
 $xoopsLogger->stopTime();
 
 // RMV-NOTIFY
@@ -30,4 +30,3 @@ require_once XOOPS_ROOT_PATH.'/modules/xcore/include/notification_select.php';
 
 // Display view
 $root->mController->executeView();
-?>

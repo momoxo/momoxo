@@ -206,4 +206,27 @@ class HttpContext
 
         return $this->mXoopsConfig;
     }
+
+    /**
+     * Set XOOPS config
+     * @param array $xoopsConfig
+     */
+    public function setXoopsConfig(array $xoopsConfig)
+    {
+        $this->mXoopsConfig = $xoopsConfig;
+    }
+
+    /**
+     * Return XoopsUser object
+     * @return \XCore\Entity\User
+     */
+    public function getXoopsUser()
+    {
+        return $this->mXoopsUser;
+    }
+
+    public function getModule()
+    {
+        return $this->mModule;
+    }
 }

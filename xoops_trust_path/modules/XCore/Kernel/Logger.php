@@ -1,7 +1,8 @@
 <?php
 
-
 namespace XCore\Kernel;
+
+use Xoops\Logger\LoggerInterface;
 
 /**
  * Collects information for a page request
@@ -17,7 +18,7 @@ namespace XCore\Kernel;
  *
  * @package kernel
  */
-class Logger
+class Logger implements LoggerInterface
 {
     /**#@+
      * @var array
@@ -42,7 +43,9 @@ class Logger
     /**
      * get a reference to the only instance of this class
      *
-     * @return  object Logger  reference to the only instance
+     * @return $this
+     * @deprecated
+     * @todo Stop to use singleton pattern
      */
     public static function instance()
     {

@@ -3,14 +3,11 @@
 namespace XCore\Kernel;
 
 use XCore\Kernel\Root;
-use XCore\Kernel\LanguageManager;
 use XCore\Kernel\DelegateManager;
 use XCore\Kernel\ServiceManager;
 use XCore\Kernel\AbstractPermissionProvider;
 use XCore\Kernel\RoleManager;
-use XCore\Kernel\TextFilter;
 use XCore\Kernel\HttpContext;
-use XCore\Kernel\Session;
 use XCore\Kernel\Ref;
 use XCore\Kernel\HttpRequest;
 use XCore\Kernel\ActionFilter;
@@ -19,16 +16,17 @@ use XCore\Entity\Module;
 use Xcore_AdminControllerStrategy;
 use Xcore_PublicControllerStrategy;
 use Xcore_Utils;
-use XCore\Database\DatabaseFactory;
-use XCore\Database\CriteriaCompo;
 use XCore\Database\Criteria;
 use RuntimeException;
-use Xcore_LanguageManager;
-use Xcore_HeaderScript;
 use Xcore_SearchService;
 use XCore\Utils\Utils;
+use Xoops\Boot\BootLoader;
+use Xoops\Database\DatabaseInterface;
+use Xoops\Logger\LoggerInterface;
 use XoopsTpl;
 use Xoops\Experimental\UrlParser;
+use Xcore_AbstractControllerStrategy;
+use Xoops\Kernel\ControllerInterface;
 
 /**
  * Virtual or Actual front controller class.
@@ -50,7 +48,7 @@ use Xoops\Experimental\UrlParser;
  * sub-class controller to override easily. Most of sub-class controllers
  * doesn't need to override them, because typical code is there.
  */
-class Controller
+class Controller implements ControllerInterface
 {
     const MODULE_MANIFESTO_FILENAME = 'xoops_version.php';
 
@@ -117,6 +115,10 @@ class Controller
     public $mSetupTextFilter;
 
     var $_mAdminModeFlag = false;
+
+    /**
+     * @var Xcore_AbstractControllerStrategy
+     */
     var $_mStrategy = null;
 
     var $mDialogMode = false;
@@ -173,6 +175,9 @@ class Controller
      * @var Logger
      */
     var $mLogger = null;
+
+
+    public $mDebugger;
 
     public function __construct()
     {
@@ -232,54 +237,16 @@ class Controller
      */
     public function executeCommon()
     {
+        $bootLoader = new BootLoader($this);
 
-        //
-        // Setup Filter chain and execute the process of these filters.
-        //
-        $this->_setupFilterChain();
-        $this->_processFilter();
+        $commandClasses = $this->mRoot->getSiteConfig('Boot', 'Commands');
 
-        if ( !defined('OH_MY_GOD_HELP_ME') ) {
-//			error_reporting(0);
+        foreach ($commandClasses as $commandClass) {
+            $bootLoader->addCommand(new $commandClass());
         }
 
-        // ^^;
-        $this->_setupErrorHandler();
-        //function date_default_timezone_set() is added on PHP5.1.0
-        if ( function_exists('date_default_timezone_set') ) {
-            date_default_timezone_set($this->_getLocalTimezone());
-        }
-
-        $this->_setupEnvironment();
-
-        $this->_setupLogger();
-//
-        $this->_setupDB();
-
-        $this->_setupLanguage();
-
-        $this->_setupTextFilter();
-
-        $this->_setupConfig();
-
-        $this->_setupScript();
-//
-
-        $this->_setupDebugger();
-
-        $this->_loadInterfaceFiles();
-
-        $this->_processPreBlockFilter(); // What's !?
-
-        $this->_setupSession();
-
-        $this->_setupUser();
-
-        $this->setupModuleContext();
-
-        $this->_processModule();
-
-        $this->_processPostFilter();
+        $this->_setupFilterChain(); // @todo Move to boot command
+        $bootLoader->execute();
     }
 
     /**
@@ -301,72 +268,6 @@ class Controller
             $this->_setupLogger();
             $this->_setupDB();
         }
-    }
-
-    function _setupLogger()
-    {
-        $this->mLogger = Logger::instance();
-        $this->mLogger->startTime();
-
-        $GLOBALS['xoopsLogger'] = $this->mLogger;
-    }
-
-    function &getLogger()
-    {
-        return $this->mLogger;
-    }
-
-    function _getLocalTimezone()
-    {
-        $iTime = time();
-        $arr = localtime($iTime);
-        $arr[5] += 1900;
-        $arr[4]++;
-        $iTztime = gmmktime($arr[2], $arr[1], $arr[0], $arr[4], $arr[3], $arr[5]);
-        $offset = doubleval(($iTztime - $iTime) / (60 * 60));
-        $zonelist =
-            array
-            (
-                'Kwajalein'                      => -12.00,
-                'Pacific/Midway'                 => -11.00,
-                'Pacific/Honolulu'               => -10.00,
-                'America/Anchorage'              => -9.00,
-                'America/Los_Angeles'            => -8.00,
-                'America/Denver'                 => -7.00,
-                'America/Tegucigalpa'            => -6.00,
-                'America/New_York'               => -5.00,
-                'America/Caracas'                => -4.30,
-                'America/Halifax'                => -4.00,
-                'America/St_Johns'               => -3.30,
-                'America/Argentina/Buenos_Aires' => -3.00,
-                'America/Sao_Paulo'              => -3.00,
-                'Atlantic/South_Georgia'         => -2.00,
-                'Atlantic/Azores'                => -1.00,
-                'Europe/Dublin'                  => 0,
-                'Europe/Belgrade'                => 1.00,
-                'Europe/Minsk'                   => 2.00,
-                'Asia/Kuwait'                    => 3.00,
-                'Asia/Tehran'                    => 3.30,
-                'Asia/Muscat'                    => 4.00,
-                'Asia/Yekaterinburg'             => 5.00,
-                'Asia/Kolkata'                   => 5.30,
-                'Asia/Katmandu'                  => 5.45,
-                'Asia/Dhaka'                     => 6.00,
-                'Asia/Rangoon'                   => 6.30,
-                'Asia/Krasnoyarsk'               => 7.00,
-                'Asia/Brunei'                    => 8.00,
-                'Asia/Seoul'                     => 9.00,
-                'Australia/Darwin'               => 9.30,
-                'Australia/Canberra'             => 10.00,
-                'Asia/Magadan'                   => 11.00,
-                'Pacific/Fiji'                   => 12.00,
-                'Pacific/Tongatapu'              => 13.00
-            );
-        $index = array_keys($zonelist, $offset);
-        if ( sizeof($index) != 1 )
-            return false;
-
-        return $index[0];
     }
 
     /**
@@ -483,115 +384,19 @@ class Controller
     }
 
     /**
-     * TODO We may change this name to forward()
-     *
-     * @param string $url     Can't use html tags.
-     * @param int    $time
-     * @param string $message
+     * @deprecated Use forward() instead
      */
     public function executeForward($url, $time = 0, $message = null)
     {
-        // check header output
-        header("location: ".$url);
-        exit(); // need to response
+        $this->forward($url);
     }
 
     /**
-     * Redirect to the specified URL with displaying message.
-     *
-     * @param string $url     Can't use html tags.
-     * @param int    $time
-     * @param string $message
+     * @deprecated Use redirect() instead
      */
     public function executeRedirect($url, $time = 1, $message = null)
     {
-        global $xoopsConfig, $xoopsRequestUri;
-
-        //
-        // Check the following by way of caution.
-        //
-        if (preg_match('/(javascript|vbscript):/si', $url)) {
-            $url = XOOPS_URL;
-        }
-
-        $displayMessage = '';
-        if (is_array($message)) {
-            foreach (array_keys($message) as $key) {
-                $message[$key] = htmlspecialchars($message[$key], ENT_QUOTES);
-            }
-            $displayMessage = implode('<br/>', $message);
-        }
-        else {
-            $displayMessage = $message;
-        }
-
-        $url = htmlspecialchars($url, ENT_QUOTES);
-
-        // XOOPS2 Compatibility
-        if ($addRedirect && strstr($url, 'user.php')) {
-            $this->_mNotifyRedirectToUser->call(new Ref($url));
-        }
-
-        if (defined('SID') && (! isset($_COOKIE[session_name()]) || ($xoopsConfig['use_mysession'] && $xoopsConfig['session_name'] != '' && !isset($_COOKIE[$xoopsConfig['session_name']])))) {
-            if ( strpos($url, XOOPS_URL) === 0 ) {
-                if (!strstr($url, '?')) {
-                    $connector = '?';
-                }
-                else {
-                    $connector = '&amp;';
-                }
-                if (strstr($url, '#')) {
-                    $urlArray = explode( '#', $url );
-                    $url = $urlArray[0] . $connector . SID;
-                    if ( ! empty($urlArray[1]) ) {
-                        $url .= '#' . $urlArray[1];
-                    }
-                }
-                else {
-                    $url .= $connector . SID;
-                }
-            }
-        }
-
-        if (!defined('XOOPS_CPFUNC_LOADED')) {
-            $xoopsTpl = new XoopsTpl();
-            $xoopsTpl->assign(array('xoops_sitename'=>htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES),
-                                    'sitename'=>htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES),
-                                    'langcode'=>_LANGCODE, 'charset'=>_CHARSET,
-                                    'time'=>$time, 'url'=>$url,
-                                    'message'=>$displayMessage,
-                                    'lang_ifnotreload'=>sprintf(_IFNOTRELOAD, $url)));
-            $GLOBALS['xoopsModuleUpdate'] = 1;
-            $xoopsTpl->display('db:system_redirect.html');
-        } else {
-            header('Content-Type:text/html; charset='._CHARSET);
-            echo '
-			<html>
-			<head>
-			<title>'.htmlspecialchars($xoopsConfig['sitename']).'</title>
-			<meta http-equiv="Content-Type" content="text/html; charset='._CHARSET.'" />
-			<meta http-equiv="Refresh" content="'.$time.'; url='.$url.'" />
-			<style type="text/css">
-					body {background-color : #fcfcfc; font-size: 12px; font-family: Trebuchet MS,Verdana, Arial, Helvetica, sans-serif; margin: 0px;}
-					.redirect {width: 70%; margin: 110px; text-align: center; padding: 15px; border: #e0e0e0 1px solid; color: #666666; background-color: #f6f6f6;}
-					.redirect a:link {color: #666666; text-decoration: none; font-weight: bold;}
-					.redirect a:visited {color: #666666; text-decoration: none; font-weight: bold;}
-					.redirect a:hover {color: #999999; text-decoration: underline; font-weight: bold;}
-			</style>
-			</head>
-			<body>
-			<div align="center">
-			<div class="redirect">
-			<span style="font-size: 16px; font-weight: bold;">'.$displayMessage.'</span>
-			<hr style="height: 3px; border: 3px #E18A00 solid; width: 95%;" />
-			<p>'.sprintf(_IFNOTRELOAD, $url).'</p>
-			</div>
-			</div>
-			</body>
-			</html>';
-        }
-
-        exit(); // need to response
+        $this->redirect($url, $time, $message);
     }
 
     /**
@@ -622,171 +427,6 @@ class Controller
     protected function _setupFilterChain()
     {
         $this->_mStrategy->_setupFilterChain();
-    }
-
-    /**
-     * This member function is overridden. Sets up the controller and the
-     * environment.
-     */
-    protected function _setupEnvironment()
-    {
-        require_once XOOPS_ROOT_PATH.'/modules/xcore/include/version.php';
-
-        define('XOOPS_XCORE_PATH', XOOPS_MODULE_PATH.'/'.XOOPS_XCORE_PROC_NAME);
-
-        require_once XOOPS_ROOT_PATH.'/modules/xcore/include/functions.php';
-    }
-
-    /**
-     * Creates the instance of DataBase class, and sets it to member property.
-     */
-    protected function _setupDB()
-    {
-        if ( !defined('XOOPS_XMLRPC') )
-            define('XOOPS_DB_CHKREF', 1);
-        else
-            define('XOOPS_DB_CHKREF', 0);
-
-        if ( $this->mRoot->getSiteConfig('Xcore', 'AllowDBProxy') == true ) {
-            if ( xoops_getenv('REQUEST_METHOD') != 'POST' || !xoops_refcheck(XOOPS_DB_CHKREF) ) {
-                define('XOOPS_DB_PROXY', 1);
-            }
-        } elseif ( xoops_getenv('REQUEST_METHOD') != 'POST' ) {
-            define('XOOPS_DB_PROXY', 1);
-        }
-
-        $this->mDB =& DatabaseFactory::getDatabaseConnection();
-
-        $GLOBALS['xoopsDB'] =& $this->mDB;
-    }
-
-    /**
-     * Gets the DB instance.
-     * @return object
-     */
-    public function &getDB()
-    {
-        return $this->mDB;
-    }
-
-    /**
-     * Creates the instance of Language Manager class, and sets it to member
-     * property.
-     *
-     * [Notice]
-     * Now, this member function sets a string to the member property without
-     * language manager.
-     */
-    protected function _setupLanguage()
-    {
-        $language = null;
-
-        $this->mGetLanguageName->call(new Ref($language));
-
-        if ( $language == null ) {
-            $handler = xoops_gethandler('config');
-            $criteria = new CriteriaCompo(new Criteria('conf_modid', 0));
-            $criteria->add(new Criteria('conf_catid', XOOPS_CONF));
-            $criteria->add(new Criteria('conf_name', 'language'));
-            $configs =& $handler->getConfigs($criteria);
-
-            if ( count($configs) > 0 ) {
-                $language = $configs[0]->get('conf_value', 'none');
-            }
-        }
-
-        $this->mRoot->mLanguageManager =& $this->_createLanguageManager($language);
-        $this->mRoot->mLanguageManager->setLanguage($language);
-        $this->mRoot->mLanguageManager->prepare();
-
-        // If you use special page, load message catalog for it.
-        if ( isset($GLOBALS['xoopsOption']['pagetype']) ) {
-            $this->mRoot->mLanguageManager->loadPageTypeMessageCatalog($GLOBALS['xoopsOption']['pagetype']);
-        }
-    }
-
-    /**
-     * Creates the instance of Text Filter class, and sets it to member
-     * property.
-     */
-    protected function _setupTextFilter()
-    {
-        /** @var $textFilter TextFilter */
-        $textFilter = null;
-        $this->mSetupTextFilter->call(new Ref($textFilter));
-        $this->mRoot->setTextFilter($textFilter);
-    }
-
-    /**
-     * This member function is overridden. Loads site configuration information,
-     * and sets them to the member property.
-     */
-    protected function _setupConfig()
-    {
-        $configHandler = xoops_gethandler('config');
-
-        $this->mRoot->mContext->mXoopsConfig =& $configHandler->getConfigsByCat(XOOPS_CONF);
-
-        $this->mRoot->mContext->mXoopsConfig['language'] = $this->mRoot->mLanguageManager->getLanguage();
-        $GLOBALS['xoopsConfig'] =& $this->mRoot->mContext->mXoopsConfig; // Compatiblity for 2.0.x
-        $GLOBALS['config_handler'] =& $configHandler;
-        $GLOBALS['module_handler'] = xoops_gethandler('module');
-
-        if ( count($this->mRoot->mContext->mXoopsConfig) == 0 ) {
-            return;
-        }
-
-        $this->mRoot->mContext->setThemeName($this->mRoot->mContext->mXoopsConfig['theme_set']);
-
-        $this->mRoot->mContext->setAttribute('xcore_sitename', $this->mRoot->mContext->mXoopsConfig['sitename']);
-        $this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mXoopsConfig['slogan']);
-        $this->mRoot->mContext->setAttribute('xcore_slogan', $this->mRoot->mContext->mXoopsConfig['slogan']);
-    }
-
-    /**
-     * This member function is overridden. Sets up handler for session, then
-     * starts session.
-     */
-    protected function _setupSession()
-    {
-        $this->mRoot->setSession(new Session());
-
-        $root = Root::getSingleton();
-        $xoopsConfig = $root->mContext->mXoopsConfig;
-        if ( $xoopsConfig['use_mysession'] ) {
-            $this->mRoot->mSession->setParam($xoopsConfig['session_name'], $xoopsConfig['session_expire']);
-        }
-        $this->mRoot->mSession->start();
-    }
-
-    /**
-     * Sets up a principal object to the root object. In other words, restores
-     * the principal object from session or other.
-     */
-    protected function _setupUser()
-    {
-        $this->mSetupUser->call(new Ref($this->mRoot->mContext->mUser), new Ref($this), new Ref($this->mRoot->mContext));
-
-        // Set instance to global variable for compatiblity with XOOPS 2.0.x
-        $GLOBALS['xoopsUser'] =& $this->mRoot->mContext->mXoopsUser;
-        $GLOBALS['xoopsUserIsAdmin'] = is_object($this->mRoot->mContext->mXoopsUser) ? $this->mRoot->mContext->mXoopsUser->isAdmin(1) : false; //@todo Remove '1'
-
-        //
-        // Set member handler to global variables for compatibility with XOOPS 2.0.x.
-        //
-        $GLOBALS['xoopsMemberHandler'] = xoops_gethandler('member');
-        $GLOBALS['member_handler'] =& $GLOBALS['xoopsMemberHandler'];
-    }
-
-    /**
-     * Calls the preFilter() member function of action filters which have been
-     * loaded to the list of the controller.
-     */
-    protected function _processFilter()
-    {
-        foreach (array_keys($this->_mFilterChain) as $key) {
-            $this->_mFilterChain[$key]->preFilter();
-        }
     }
 
     /**
@@ -898,30 +538,6 @@ class Controller
     }
 
     /**
-     * Calls the preBlockFilter() member function of action filters which have been
-     * loaded to the list of the controller.
-     */
-    protected function _processPreBlockFilter()
-    {
-        $this->_mStrategy->_processPreBlockFilter();
-
-        foreach (array_keys($this->_mFilterChain) as $key) {
-            $this->_mFilterChain[$key]->preBlockFilter();
-        }
-    }
-
-    /**
-     * Calls the postFilter() member function of action filters which have been
-     * loaded to the list of the controller.
-     */
-    protected function _processPostFilter()
-    {
-        foreach (array_reverse(array_keys($this->_mFilterChain)) as $key) {
-            $this->_mFilterChain[$key]->postFilter();
-        }
-    }
-
-    /**
      * This is utility member function for the sub-class controller. Load files
      * with the rule from $path, and add the instance of the sub-class to the
      * chain.
@@ -1028,57 +644,6 @@ class Controller
         return $context;
     }
 
-    function setupModuleContext($dirname = null)
-    {
-        if ( $dirname == null ) {
-            $dirname = UrlParser::getModuleDirname(UrlParser::parse(XOOPS_URL));
-        }
-
-        if ( $dirname == null ) {
-            return;
-        }
-
-        if ( !file_exists(XOOPS_ROOT_PATH.'/modules/'.$dirname.'/'.self::MODULE_MANIFESTO_FILENAME) ) {
-            return;
-        }
-
-        $this->_mStrategy->setupModuleContext($this->mRoot->mContext, $dirname);
-
-        if ( $this->mRoot->mContext->mModule != null ) {
-            $this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mModule->mXoopsModule->get('name'));
-        }
-    }
-
-    function _processModule()
-    {
-        if ( $this->mRoot->mContext->mModule != null ) {
-            $module =& $this->mRoot->mContext->mModule;
-            if ( !$module->isActive() ) {
-                /**
-                 * Notify that the current user accesses none-activate module
-                 * controller.
-                 */
-                DelegateUtils::call('Xcore.Event.Exception.ModuleNotActive', $module);
-                $this->executeForward(XOOPS_URL.'/');
-                die(); // need to response?
-            }
-
-            if ( !$this->_mStrategy->enableAccess() ) {
-                DelegateUtils::call('Xcore.Event.Exception.ModuleSecurity', $module);
-                $this->executeRedirect(XOOPS_URL.'/user.php', 1, _NOPERM); // TODO Depens on const message catalog.
-                die(); // need to response?
-            }
-
-            $this->_mStrategy->setupModuleLanguage();
-            $module->startup();
-
-            $GLOBALS['xoopsModule'] =& $module->mXoopsModule;
-            $GLOBALS['xoopsModuleConfig'] =& $module->mModuleConfig;
-        }
-
-        Xcore_Utils::raiseUserControlEvent();
-    }
-
     // @todo change to refer settings ini file for HostAbstractLayer.
     function _processHostAbstractLayer()
     {
@@ -1115,87 +680,6 @@ class Controller
         $GLOBALS['xoopsRequestUri'] = xoops_getenv('REQUEST_URI');
     }
 
-    function _setupErrorHandler()
-    {
-    }
-
-    /**
-     * Factory for the language manager. At first, this member function
-     * delegates to get a instance of LanguageManager. If it can't get it, do
-     * the following process:
-     *
-     * 1) Try creating a instance of 'Xcore_LanguageManager_' . ucfirst($language)
-     * 2) If the class doesn't exist, try loading  'LanguageManager.class.php'
-     *      in the specified language.
-     * 3) Re-try creating the instance.
-     *
-     * If it can't create any instances, create a instance of
-     * Xcore_LanguageManager as default.
-     *
-     * @access protected
-     * @param string $language
-     * @return Xcore_LanguageManager
-     */
-    function &_createLanguageManager($language)
-    {
-        $languageManager = null;
-
-        $this->mCreateLanguageManager->call(new Ref($languageManager), $language);
-
-        if ( !is_object($languageManager) ) {
-            $className = 'Xcore_LanguageManager_'.ucfirst(strtolower($language));
-
-            //
-            // If the class exists, create a instance. Else, load the file, and
-            // try creating a instance again.
-            //
-            if ( class_exists($className) ) {
-                $languageManager = new $className();
-            } else {
-                $filePath = XOOPS_ROOT_PATH.'/language/'.$language.'/LanguageManager.class.php';
-                if ( file_exists($filePath) ) {
-                    require_once $filePath;
-                }
-
-                if ( class_exists($className) ) {
-                    $languageManager = new $className();
-                } else {
-                    //
-                    // Default
-                    //
-                    $languageManager = new Xcore_LanguageManager();
-                }
-            }
-        }
-
-        return $languageManager;
-    }
-
-    function _setupScript()
-    {
-        $headerScript = new Xcore_HeaderScript();
-        $this->mRoot->mContext->setAttribute('headerScript', $headerScript);
-    }
-
-    /**
-     * Set debbuger object to member property.
-     * @return void
-     */
-    function _setupDebugger()
-    {
-        error_reporting(0);
-
-        $debug_mode = $this->mRoot->mContext->mXoopsConfig['debug_mode'];
-        if ( defined('OH_MY_GOD_HELP_ME') ) {
-            $debug_mode = XOOPS_DEBUG_PHP;
-        }
-
-        $this->mSetupDebugger->call(new Ref($this->mDebugger), $debug_mode);
-        $this->mDebugger->prepare();
-
-        $GLOBALS['xoopsDebugger'] =& $this->mDebugger;
-    }
-
     function _processModulePreload($dirname)
     {
         //
@@ -1228,11 +712,6 @@ class Controller
                 }
             }
         }
-    }
-
-    protected function _loadInterfaceFiles()
-    {
-        // TODO >> Delete this method. This method is not necessary because class-autoloaing is available
     }
 
     /**
@@ -1530,5 +1009,248 @@ class Controller
         }
 
         return null;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getRoot()
+    {
+        return $this->mRoot;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getActionFilters()
+    {
+        return $this->_mFilterChain;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function setLogger(LoggerInterface $logger)
+    {
+        $this->mLogger = $logger;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getLogger()
+    {
+        return $this->mLogger;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function setDB(DatabaseInterface $db)
+    {
+        $this->mDB = $db;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getDB()
+    {
+        return $this->mDB;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getGetLanguageNameDelegate()
+    {
+        return $this->mGetLanguageName;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getCreateLanguageManagerDelegate()
+    {
+        return $this->mCreateLanguageManager;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getSetupTextFilterDelegate()
+    {
+        return $this->mSetupTextFilter;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function setDebugger($debugger)
+    {
+        $this->mDebugger = $debugger;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getSetUpDebuggerDelegate()
+    {
+        return $this->mSetupDebugger;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function loadModulePreloads()
+    {
+        $this->_mStrategy->_processPreBlockFilter();
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getSetUpUserDelegate()
+    {
+        return $this->mSetupUser;
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function setupModuleContext($dirname = null)
+    {
+        if ( $dirname == null ) {
+            $dirname = UrlParser::getModuleDirname(UrlParser::parse(XOOPS_URL));
+        }
+
+        if ( $dirname == null ) {
+            return;
+        }
+
+        if ( !file_exists(XOOPS_ROOT_PATH.'/modules/'.$dirname.'/'.self::MODULE_MANIFESTO_FILENAME) ) {
+            return;
+        }
+
+        $this->_mStrategy->setupModuleContext($this->mRoot->mContext, $dirname);
+
+        if ( $this->mRoot->mContext->mModule != null ) {
+            $this->mRoot->mContext->setAttribute('xcore_pagetitle', $this->mRoot->mContext->mModule->mXoopsModule->get('name'));
+        }
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function forward($url)
+    {
+        header('location: '.$url);
+        exit(); // need to response
+    }
+
+    /**
+     * {@inherit}
+     */
+    public function getStrategy()
+    {
+        return $this->_mStrategy;
+    }
+
+    /**
+     * Redirect to the specified URL with displaying message.
+     * @param string $url
+     * @param int    $time
+     * @param string $message
+     * @return void
+     */
+    public function redirect($url, $time = 1, $message = null)
+    {
+        global $xoopsConfig, $xoopsRequestUri;
+
+        //
+        // Check the following by way of caution.
+        //
+        if (preg_match('/(javascript|vbscript):/si', $url)) {
+            $url = XOOPS_URL;
+        }
+
+        $displayMessage = '';
+        if (is_array($message)) {
+            foreach (array_keys($message) as $key) {
+                $message[$key] = htmlspecialchars($message[$key], ENT_QUOTES);
+            }
+            $displayMessage = implode('<br/>', $message);
+        }
+        else {
+            $displayMessage = $message;
+        }
+
+        $url = htmlspecialchars($url, ENT_QUOTES);
+
+        // XOOPS2 Compatibility
+        if ($addRedirect && strstr($url, 'user.php')) {
+            $this->_mNotifyRedirectToUser->call(new Ref($url));
+        }
+
+        if (defined('SID') && (! isset($_COOKIE[session_name()]) || ($xoopsConfig['use_mysession'] && $xoopsConfig['session_name'] != '' && !isset($_COOKIE[$xoopsConfig['session_name']])))) {
+            if ( strpos($url, XOOPS_URL) === 0 ) {
+                if (!strstr($url, '?')) {
+                    $connector = '?';
+                }
+                else {
+                    $connector = '&amp;';
+                }
+                if (strstr($url, '#')) {
+                    $urlArray = explode( '#', $url );
+                    $url = $urlArray[0] . $connector . SID;
+                    if ( ! empty($urlArray[1]) ) {
+                        $url .= '#' . $urlArray[1];
+                    }
+                }
+                else {
+                    $url .= $connector . SID;
+                }
+            }
+        }
+
+        if (!defined('XOOPS_CPFUNC_LOADED')) {
+            $xoopsTpl = new XoopsTpl();
+            $xoopsTpl->assign(array('xoops_sitename'=>htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES),
+                                    'sitename'=>htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES),
+                                    'langcode'=>_LANGCODE, 'charset'=>_CHARSET,
+                                    'time'=>$time, 'url'=>$url,
+                                    'message'=>$displayMessage,
+                                    'lang_ifnotreload'=>sprintf(_IFNOTRELOAD, $url)));
+            $GLOBALS['xoopsModuleUpdate'] = 1;
+            $xoopsTpl->display('db:system_redirect.html');
+        } else {
+            header('Content-Type:text/html; charset='._CHARSET);
+            echo '
+			<html>
+			<head>
+			<title>'.htmlspecialchars($xoopsConfig['sitename']).'</title>
+			<meta http-equiv="Content-Type" content="text/html; charset='._CHARSET.'" />
+			<meta http-equiv="Refresh" content="'.$time.'; url='.$url.'" />
+			<style type="text/css">
+					body {background-color : #fcfcfc; font-size: 12px; font-family: Trebuchet MS,Verdana, Arial, Helvetica, sans-serif; margin: 0px;}
+					.redirect {width: 70%; margin: 110px; text-align: center; padding: 15px; border: #e0e0e0 1px solid; color: #666666; background-color: #f6f6f6;}
+					.redirect a:link {color: #666666; text-decoration: none; font-weight: bold;}
+					.redirect a:visited {color: #666666; text-decoration: none; font-weight: bold;}
+					.redirect a:hover {color: #999999; text-decoration: underline; font-weight: bold;}
+			</style>
+			</head>
+			<body>
+			<div align="center">
+			<div class="redirect">
+			<span style="font-size: 16px; font-weight: bold;">'.$displayMessage.'</span>
+			<hr style="height: 3px; border: 3px #E18A00 solid; width: 95%;" />
+			<p>'.sprintf(_IFNOTRELOAD, $url).'</p>
+			</div>
+			</div>
+			</body>
+			</html>';
+        }
+
+        exit(); // need to response
     }
 }

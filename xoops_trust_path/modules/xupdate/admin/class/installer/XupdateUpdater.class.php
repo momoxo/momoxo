@@ -45,7 +45,7 @@ class Xupdate_Updater
     	
     	// Update database table index.
     	$root = Root::getSingleton();
-    	$db =& $root->mController->getDB();
+    	$db = $root->mController->getDB();
     	$table = $db->prefix($this->_mCurrentModule->get('dirname') . '_modulestore');
     	 
     	$sql = 'SELECT `isactive` FROM '.$table ;
@@ -83,7 +83,7 @@ class Xupdate_Updater
     	 
     	// Update database table index.
     	$root = Root::getSingleton();
-    	$db =& $root->mController->getDB();
+    	$db = $root->mController->getDB();
     	$table = $db->prefix($this->_mCurrentModule->get('dirname') . '_modulestore');
     
     	$sql = 'SELECT `contents` FROM '.$table ;
@@ -117,7 +117,7 @@ class Xupdate_Updater
     
     	// Update database table index.
     	$root = Root::getSingleton();
-    	$db =& $root->mController->getDB();
+    	$db = $root->mController->getDB();
     	$table = $db->prefix($this->_mCurrentModule->get('dirname') . '_modulestore');
     
    		$sql = 'ALTER TABLE `'.$table.'` CHANGE `dirname` `dirname` varchar(255) NOT NULL default \'\'';

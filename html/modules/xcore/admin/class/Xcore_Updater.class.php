@@ -126,7 +126,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 	function _extendConfigTitleSize()
 	{
 		$root = Root::getSingleton();
-		$db =& $root->mController->getDB();
+		$db = $root->mController->getDB();
 		$table = $db->prefix('config');
 	
 		$sql = 'ALTER TABLE `'. $table .'` MODIFY `conf_title` varchar(255) NOT NULL default "", MODIFY `conf_desc` varchar(255) NOT NULL default ""';
@@ -144,7 +144,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 	function _setUniqueToGroupUserLink()
 	{
 		$root = Root::getSingleton();
-		$db =& $root->mController->getDB();
+		$db = $root->mController->getDB();
 		$table = $db->prefix('groups_users_link');
 		
 		// Delete duplicate data.
@@ -183,7 +183,7 @@ class Xcore_ModuleUpdater extends Xcore_ModulePhasedUpgrader
 	function _recoverGroupPermission()
 	{
 		$root = Root::getSingleton();
-		$db =& $root->mController->getDB();
+		$db = $root->mController->getDB();
 		
 		$permTable = $db->prefix('group_permission');
 		$groupTable = $db->prefix('groups');

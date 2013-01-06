@@ -457,7 +457,7 @@ class BlockRepository extends ObjectRepository
 	function &getBlocks($groupid, $mid=false, $blockFlag=SHOW_BLOCK_ALL, $orderby='b.weight,b.bid')
     {
         $root = Root::getSingleton();
-        $db = $this->db =& $root->mController->getDB();
+        $db = $this->db = $root->mController->getDB();
 
         $ret = array();
         $sql = 'SELECT DISTINCT gperm_itemid FROM '.$db->prefix('group_permission').' WHERE gperm_name = \'block_read\' AND gperm_modid = 1';
