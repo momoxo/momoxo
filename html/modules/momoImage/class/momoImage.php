@@ -4,6 +4,10 @@
  */
 class momoImage
 {
+	public static function getThumbnailUrl()
+	{
+		return XOOPS_URL.'/images/thumbnail';
+	}
     /* momoImageからの呼び出しに応える */
     static public function imageEditFromText($text, $width, $height, $kind)
     {
@@ -242,7 +246,6 @@ class momoImage
         } else {
             imagepng($newImage, self::getThumbnailPath().'/'.$outFileName);
             return self::getThumbnailUrl().'/'.$outFileName;
-          //  return XOOPS_URL.'/themes/hokusai_pre/images/noimage_80_80.png';
         }
 	}
 }

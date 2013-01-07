@@ -1,6 +1,4 @@
 <?php
-// $Id: xoops_version.php,v 1.4 2003/09/21 07:40:10 kousuke Exp $
-
 // change 
 $modversion['name'] = _MI_MOMOIMAGE_NAME;
 $modversion['dirname'] = "momoImage";
