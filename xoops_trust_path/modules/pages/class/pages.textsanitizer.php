@@ -1,6 +1,6 @@
 <?php
 
-include_once( XOOPS_ROOT_PATH . '/class/mytextsanitizer.php' ) ;
+include_once( XOOPS_ROOT_PATH . '/class/MyTextSanitizer.php' ) ;
 
 class PagesTextSanitizer extends MyTextSanitizer
 {
