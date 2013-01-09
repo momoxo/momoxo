@@ -24,7 +24,6 @@ if( is_object( $xoopsUser ) ) {
 }
 
 
-require_once XOOPS_ROOT_PATH.'/class/template.php' ;
 $tpl = new XoopsTpl() ;
 $tpl->assign( array(
 	'mydirname' => $mydirname ,

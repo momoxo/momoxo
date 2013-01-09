@@ -153,12 +153,12 @@ function getEditorAssigns( $name , $value )
 	if( $editor == 'common_fckeditor' ) {
 		// FCKeditor in common/fckeditor/
 		$header = '
-			<script type="text/javascript" src="'.XOOPS_URL.'/common/fckeditor/fckeditor.js"></script>
+			<script type="text/javascript" src="'.XOOPS_URL.'/js/vendor/fckeditor/fckeditor.js"></script>
 			<script type="text/javascript"><!--
 				function fckeditor_exec() {
 					var oFCKeditor = new FCKeditor( "'.$name.'" , "100%" , "500" , "Default" );
 					
-					oFCKeditor.BasePath = "'.XOOPS_URL.'/common/fckeditor/";
+					oFCKeditor.BasePath = "'.XOOPS_URL.'/js/vendor/fckeditor/";
 					
 					oFCKeditor.ReplaceTextarea();
 				}
