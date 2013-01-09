@@ -31,7 +31,7 @@ function processPreview( $request )
 
 	// initialize
 	$cat_data = $this->currentCategoryObj->getData() ;
-	$myts =& PagesTextSanitizer::getInstance() ;
+	$myts = PagesTextSanitizer::getInstance() ;
 
 	// assigning other than preview/request
 	// parent::execute( $request ) ;

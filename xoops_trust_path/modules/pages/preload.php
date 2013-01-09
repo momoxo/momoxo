@@ -20,9 +20,9 @@ class PagesPreloadBase extends ActionFilter
 	function getRSSItems( &$items )
 	{
 /*		$mydirname = $this->mydirname ;
-		$module_handler =& xoops_gethandler( 'module' ) ;
-		$xoopsModule =& $module_handler->getByDirname( $this->mydirname ) ;
-		$xoopsDB =& Database::getInstance() ;
+		$module_handler = xoops_gethandler( 'module' ) ;
+		$xoopsModule = $module_handler->getByDirname( $this->mydirname ) ;
+		$xoopsDB = Database::getInstance() ;
 		$_GET['page'] = 'rss' ;
 		include dirname(__FILE__).'/main/index.php' ;
 

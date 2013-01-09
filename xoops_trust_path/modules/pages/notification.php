@@ -18,12 +18,12 @@ function pages_notify_base( $mydirname , $category , $item_id )
 {
 	include_once dirname(__FILE__).'/include/common_functions.php' ;
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
-	$module_handler =& xoops_gethandler( 'module' ) ;
-	$module =& $module_handler->getByDirname( $mydirname ) ;
+	$module_handler = xoops_gethandler( 'module' ) ;
+	$module = $module_handler->getByDirname( $mydirname ) ;
 
-	$pagesPermission =& PagesPermission::getInstance() ;
+	$pagesPermission = PagesPermission::getInstance() ;
 	$permissions = $pagesPermission->getPermissions( $mydirname ) ;
 
 	// global

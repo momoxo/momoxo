@@ -13,7 +13,7 @@ function PagesPermission()
 {
 	global $xoopsUser ;
 
-	$this->db =& Database::getInstance() ;
+	$this->db = Database::getInstance() ;
 	$this->uid = is_object( @$xoopsUser ) ? $xoopsUser->getVar('uid') : 0 ;
 }
 
@@ -39,15 +39,15 @@ function queryPermissions( $mydirname )
 	$ret = array() ;
 
 	if( $this->uid > 0 ) {
-		$user_handler =& xoops_gethandler( 'user' ) ;
-		$user =& $user_handler->get( $this->uid ) ;
+		$user_handler = xoops_gethandler( 'user' ) ;
+		$user = $user_handler->get( $this->uid ) ;
 	}
 
 	$is_module_admin = false ;
 	if( is_object( @$user ) ) {
 		// is_module_admin
-		$module_handler =& xoops_gethandler( 'module' ) ;
-		$moduleObj =& $module_handler->getByDirname( $mydirname ) ;
+		$module_handler = xoops_gethandler( 'module' ) ;
+		$moduleObj = $module_handler->getByDirname( $mydirname ) ;
 		if( is_object( $moduleObj ) && $user->isAdmin( $moduleObj->getVar('mid') ) ) {
 			$is_module_admin = true ;
 		}

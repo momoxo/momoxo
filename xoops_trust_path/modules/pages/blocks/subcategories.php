@@ -10,13 +10,13 @@ function b_pages_subcategories_show( $options )
 
 	if( preg_match( '/[^0-9a-zA-Z_-]/' , $mydirname ) ) die( 'Invalid mydirname' ) ;
 
-	$db =& Database::getInstance();
-	$myts =& MyTextSanitizer::getInstance();
+	$db = Database::getInstance();
+	$myts = MyTextSanitizer::getInstance();
 	$uid = is_object( @$xoopsUser ) ? $xoopsUser->getVar('uid') : 0 ;
 
-	$module_handler =& xoops_gethandler('module');
-	$module =& $module_handler->getByDirname($mydirname);
-	$config_handler =& xoops_gethandler('config');
+	$module_handler = xoops_gethandler('module');
+	$module = $module_handler->getByDirname($mydirname);
+	$config_handler = xoops_gethandler('config');
 	$configs = $config_handler->getConfigList( $module->mid() ) ;
 
 	// categories can be read by current viewer (check by category_permissions)

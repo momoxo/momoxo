@@ -18,12 +18,12 @@ function PagesControllerAbstract( &$currentCategoryObj )
 {
 	global $xoopsUser ;
 
-	$this->currentCategoryObj =& $currentCategoryObj ;
+	$this->currentCategoryObj = $currentCategoryObj ;
 	$this->mydirname = $currentCategoryObj->mydirname ;
 	$this->mod_config = $currentCategoryObj->getOverriddenModConfig() ;
 	$this->uid = is_object( $xoopsUser ) ? $xoopsUser->getVar('uid') : 0 ;
 
-	$pagesPermission =& PagesPermission::getInstance() ;
+	$pagesPermission = PagesPermission::getInstance() ;
 	$this->permissions = $pagesPermission->getPermissions( $this->mydirname ) ;
 	$this->assign = array(
 		'mymodname' => htmlspecialchars( $currentCategoryObj->mod_name , ENT_QUOTES ) ,

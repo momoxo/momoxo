@@ -2,8 +2,8 @@
 
 require_once dirname(dirname(__FILE__)).'/include/common_functions.php' ;
 require_once dirname(dirname(__FILE__)).'/class/gtickets.php' ;
-$myts =& MyTextSanitizer::getInstance() ;
-$db =& Database::getInstance() ;
+$myts = MyTextSanitizer::getInstance() ;
+$db = Database::getInstance() ;
 
 // get info of the category
 $cat_id = intval( @$_GET['cat_id'] ) ;
@@ -80,7 +80,7 @@ if( ! empty( $_POST['user_update'] ) ) {
 		}
 	}
 	
-	$member_hander =& xoops_gethandler( 'member' ) ;
+	$member_hander = xoops_gethandler( 'member' ) ;
 	if( is_array( @$_POST['new_uids'] ) ) foreach( array_keys( $_POST['new_uids'] ) as $i ) {
 		if( empty( $_POST['new_can_read'][$i] ) ) continue ;
 		if( empty( $_POST['new_uids'][$i] ) ) {
@@ -89,7 +89,7 @@ if( ! empty( $_POST['user_update'] ) ) {
 			@list( $user ) = $member_handler->getUsers( $criteria ) ;
 		} else {
 			// add new user by uid
-			$user =& $member_handler->getUser( intval( $_POST['new_uids'][$i] ) ) ;
+			$user = $member_handler->getUser( intval( $_POST['new_uids'][$i] ) ) ;
 		}
 		// check the user is valid
 		if( ! is_object( $user ) ) continue ;
@@ -122,8 +122,8 @@ foreach( $pages_category_permissions as $perm_name ) {
 }
 
 // create group form
-$group_handler =& xoops_gethandler( 'group' ) ;
-$groups =& $group_handler->getObjects() ;
+$group_handler = xoops_gethandler( 'group' ) ;
+$groups = $group_handler->getObjects() ;
 $groups4assign = array() ;
 foreach( $groups as $group ) {
 	$gid = $group->getVar('groupid') ;

@@ -39,9 +39,9 @@ function b_pages_menu_show( $options )
 	}
 
 	// module config (not overridden yet)
-	$module_handler =& xoops_gethandler('module');
-	$module =& $module_handler->getByDirname($mydirname);
-	$config_handler =& xoops_gethandler('config');
+	$module_handler = xoops_gethandler('module');
+	$module = $module_handler->getByDirname($mydirname);
+	$config_handler = xoops_gethandler('config');
 	$configs = $config_handler->getConfigList( $module->mid() ) ;
 
 	// constpref

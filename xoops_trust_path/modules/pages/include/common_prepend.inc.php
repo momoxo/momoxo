@@ -14,7 +14,7 @@ if( ! defined( 'PATH_SEPARATOR' ) ) define( 'PATH_SEPARATOR' , DIRECTORY_SEPARAT
 ini_set( 'include_path' , ini_get('include_path') . PATH_SEPARATOR . XOOPS_TRUST_PATH . '/PEAR' ) ;
 
 // breadcrumbs
-$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 $breadcrumbsObj->appendPath( XOOPS_URL.'/modules/'.$mydirname.'/index.php' , $xoopsModule->getVar( 'name' ) ) ;
 
 // URI Mapper
@@ -28,7 +28,7 @@ $uriMapper->initGet() ;
 $pagesRequest = $uriMapper->parseRequest() ; // clean data
 
 // permissions
-$pagesPermission =& PagesPermission::getInstance() ;
+$pagesPermission = PagesPermission::getInstance() ;
 $permissions = $pagesPermission->getPermissions( $mydirname ) ;
 
 // current category object
@@ -45,8 +45,8 @@ $xoopsModuleConfig = $currentCategoryObj->getOverriddenModConfig() ;
 $breadcrumbsObj->appendPath( $currentCategoryObj->getBreadcrumbs() ) ;
 
 /*
-$myts =& PagesTextSanitizer::getInstance() ;
-$db =& Database::getInstance() ;
+$myts = PagesTextSanitizer::getInstance() ;
+$db = Database::getInstance() ;
 
 // for compatibility "wraps mode" and "GET" in some environment
 if( substr( $_SERVER['REQUEST_URI'] , -19 ) == '?page=singlecontent' ) {

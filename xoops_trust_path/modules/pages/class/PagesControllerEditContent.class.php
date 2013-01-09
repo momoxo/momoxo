@@ -46,7 +46,7 @@ function execute( $request )
 	$this->assign['category'] = $this->currentCategoryObj->getData4html() ;
 	$content_data = $contentObj->getData() ;
 	$this->assign['content_base'] = $contentObj->getData4html( true ) ;
-	$this->contentObjs['content_base'] =& $contentObj ;
+	$this->contentObjs['content_base'] = $contentObj ;
 	$this->assign['content'] = $contentObj->getData4edit() ;
 	
 	// contentデータの値を渡す
@@ -82,7 +82,7 @@ function execute( $request )
 	$this->assign['content']['wraps_files'] = array( '' => '---' ) + pages_main_get_wraps_files_recursively( $this->mydirname , '/' ) ;
 
 	// breadcrumbs
-	$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+	$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 	if( $page == 'makecontent' ) {
 		$breadcrumbsObj->appendPath( '' , _MD_PAGES_LINK_MAKECONTENT ) ;
 		$this->assign['xoops_pagetitle'] = _MD_PAGES_LINK_MAKECONTENT ;

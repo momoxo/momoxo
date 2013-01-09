@@ -26,8 +26,8 @@ function b_pages_tags_show( $options )
 	// mydirname check
 	if( preg_match( '/[^0-9a-zA-Z_-]/' , $mydirname ) ) die( 'Invalid mydirname' ) ;
 
-	$db =& Database::getInstance();
-	$myts =& MyTextSanitizer::getInstance();
+	$db = Database::getInstance();
+	$myts = MyTextSanitizer::getInstance();
 
 	// sql
 	$sql = "SELECT label,count FROM ".$db->prefix($mydirname."_tags")." ORDER BY $sqlorder LIMIT $limit" ;
@@ -55,9 +55,9 @@ function b_pages_tags_show( $options )
 	$tags4assign = array_values( $tags ) ;
 
 	// module config
-	$module_handler =& xoops_gethandler('module');
-	$module =& $module_handler->getByDirname($mydirname);
-	$config_handler =& xoops_gethandler('config');
+	$module_handler = xoops_gethandler('module');
+	$module = $module_handler->getByDirname($mydirname);
+	$config_handler = xoops_gethandler('config');
 	$configs = $config_handler->getConfigList( $module->mid() ) ;
 
 	// constpref

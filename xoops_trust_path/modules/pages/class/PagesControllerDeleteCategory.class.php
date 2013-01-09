@@ -29,7 +29,7 @@ function execute( $request )
 	parent::execute( $request ) ;
 
 	// $categoryObj (not parent)
-	$pagesPermission =& PagesPermission::getInstance() ;
+	$pagesPermission = PagesPermission::getInstance() ;
 	$categoryObj = new PagesCategory( $this->mydirname , $request['cat_id'] , $pagesPermission->getPermissions( $this->mydirname ) ) ;
 
 	// check existence

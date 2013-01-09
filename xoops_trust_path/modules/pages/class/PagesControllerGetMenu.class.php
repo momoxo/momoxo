@@ -42,7 +42,7 @@ function execute( $request )
 
 		// contents loop ロジックがわかりにくいので書き直して修正した
 		// #7983対応		
-		$root =& XCube_Root::getSingleton();
+		$root = XCube_Root::getSingleton();
 		$moduleDirName = $root->mContext->mModule->mXoopsModule->get('dirname');
 		$contentObjs = $categoryObj->getContents( true ) ;
 		$private_contents_counter = 0 ;
@@ -69,7 +69,7 @@ function execute( $request )
 
 	// breadcrumbs and pagetitle
 	$lastnode4assign = @$_GET['page'] == 'menu' ? _MD_PAGES_MENU : $GLOBALS['xoopsModule']->getVar('name') ;
-	$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+	$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 	$breadcrumbsObj->appendPath( '' , $lastnode4assign ) ;
 	$this->assign['xoops_breadcrumbs'] = $breadcrumbsObj->getXoopsbreadcrumbs() ;
 	$this->assign['xoops_pagetitle'] = $lastnode4assign ;

@@ -13,14 +13,14 @@ function pages_onuninstall_base( $module , $mydirname )
 
 	// for Cube 2.1
 	if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
-		$root =& XCube_Root::getSingleton();
+		$root = XCube_Root::getSingleton();
 		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleUninstall.' . ucfirst($mydirname) . '.Success' , 'pages_message_append_onuninstall' ) ;
 		$ret = array() ;
 	} else {
 		if( ! is_array( $ret ) ) $ret = array() ;
 	}
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 	$mid = $module->getVar('mid') ;
 
 	// TABLES (loading mysql.sql)
@@ -42,8 +42,8 @@ function pages_onuninstall_base( $module , $mydirname )
 	}
 
 	// TEMPLATES (Not necessary because modulesadmin removes all templates)
-	/* $tplfile_handler =& xoops_gethandler( 'tplfile' ) ;
-	$templates =& $tplfile_handler->find( null , 'module' , $mid ) ;
+	/* $tplfile_handler = xoops_gethandler( 'tplfile' ) ;
+	$templates = $tplfile_handler->find( null , 'module' , $mid ) ;
 	$tcount = count( $templates ) ;
 	if( $tcount > 0 ) {
 		$ret[] = 'Deleting templates...' ;

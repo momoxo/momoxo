@@ -27,7 +27,7 @@ function execute( $request )
 	$cat_data = $this->currentCategoryObj->getData() ;
 	$this->assign['category'] = $this->currentCategoryObj->getData4html() ;
 
-    $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+    $breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
     $this->assign['xoops_breadcrumbs'] = $breadcrumbsObj->getXoopsbreadcrumbs() ;
     $this->assign['xoops_pagetitle'] = $this->assign['category']['title'] ;
 

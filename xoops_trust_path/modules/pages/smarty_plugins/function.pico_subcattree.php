@@ -17,7 +17,7 @@ function smarty_function_pages_subcattree( $params , &$smarty )
 		return ;
 	}
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 	$sql = "SELECT c.cat_redundants FROM ".$db->prefix($mydirname."_categories")." c WHERE c.cat_id=$cat_id" ;
 	list( $redundants_serialized ) = $db->fetchRow( $db->query( $sql ) ) ;
 	$redundants = pages_common_unserialize( $redundants_serialized ) ;

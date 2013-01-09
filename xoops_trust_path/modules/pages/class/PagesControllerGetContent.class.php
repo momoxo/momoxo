@@ -35,7 +35,7 @@ function execute( $request )
 	$this->assign['category'] = $this->currentCategoryObj->getData4html() ;
 	$content_data = $contentObj->getData() ;
 	$this->assign['content'] = $contentObj->getData4html( true ) ;
-	$this->contentObjs['content'] =& $contentObj ;
+	$this->contentObjs['content'] = $contentObj ;
 
 	// permission check
 	if( empty( $content_data['can_read'] ) || empty( $content_data['can_readfull'] ) ) {
@@ -61,12 +61,12 @@ function execute( $request )
 	}
 
 	// prev/next content
-	$prevContentObj =& $contentObj->getPrevContent() ;
+	$prevContentObj = $contentObj->getPrevContent() ;
 	$this->assign['prev_content'] = is_object( $prevContentObj ) ? $prevContentObj->getData4html() : array() ;
-	$this->contentObjs['prev_content'] =& $prevContentObj ;
-	$nextContentObj =& $contentObj->getNextContent() ;
+	$this->contentObjs['prev_content'] = $prevContentObj ;
+	$nextContentObj = $contentObj->getNextContent() ;
 	$this->assign['next_content'] = is_object( $nextContentObj ) ? $nextContentObj->getData4html() : array() ;
-	$this->contentObjs['next_content'] =& $nextContentObj ;
+	$this->contentObjs['next_content'] = $nextContentObj ;
 
 	// link for "tell to friends"
 	if( $this->mod_config['use_taf_module'] ) {
@@ -90,7 +90,7 @@ function execute( $request )
 	}
 
 	// breadcrumbs
-	$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+	$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 	$breadcrumbsObj->appendPath( '' , $this->assign['content']['subject'] ) ;
 	$this->assign['xoops_pagetitle'] = $this->assign['content']['subject'] ;
     // 最後のitemのiが1より大きかったとき、contentだったとき、最後から一つ前の名前と同じだったら最後から1つ前のitemをスキップする

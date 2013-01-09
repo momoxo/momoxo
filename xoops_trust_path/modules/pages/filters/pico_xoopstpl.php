@@ -16,8 +16,8 @@ function pages_xoopstpl( $mydirname , $text , $content4assign )
 	if( is_object( @$xoopsTpl ) ) {
 		$tpl->assign( $xoopsTpl->get_template_vars() ) ;
 		if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
-			$root =& XCube_Root::getSingleton() ;
-			$context =& $root->getContext();
+			$root = XCube_Root::getSingleton() ;
+			$context = $root->getContext();
 			$themeName = $context->getThemeName();
 			$tpl->assign('xoops_theme', $themeName);
 			$tpl->assign('xoops_imageurl', XOOPS_THEME_URL . "/${themeName}/");

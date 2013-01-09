@@ -108,7 +108,7 @@ $GLOBALS['pages_tables'] = array(
 
 function pages_import_errordie()
 {
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	echo _MD_A_PAGES_ERR_SQLONIMPORT ;
 	echo $db->logger->dumpQueries() ;
@@ -119,12 +119,12 @@ function pages_import_errordie()
 
 function pages_import_from_smartsection( $mydirname , $import_mid )
 {
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 	$import_mid = intval( $import_mid ) ;
 
 	// get name of `contents` table 
-	$module_handler =& xoops_gethandler( 'module' ) ;
-	$module =& $module_handler->get( $import_mid ) ;
+	$module_handler = xoops_gethandler( 'module' ) ;
+	$module = $module_handler->get( $import_mid ) ;
 	$from_tables = $module->getInfo('tables') ;
 	if( sizeof( $from_tables ) != 5 ) pages_import_errordie() ;
 	$target_dirname = $module->getVar('dirname') ;
@@ -170,11 +170,11 @@ function pages_import_from_smartsection( $mydirname , $import_mid )
 
 function pages_import_from_tinyd( $mydirname , $import_mid )
 {
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	// get name of `contents` table 
-	$module_handler =& xoops_gethandler( 'module' ) ;
-	$module =& $module_handler->get( $import_mid ) ;
+	$module_handler = xoops_gethandler( 'module' ) ;
+	$module = $module_handler->get( $import_mid ) ;
 	list( $from_table_base ) = $module->getInfo('tables') ;
 	if( empty( $from_table_base ) ) pages_import_errordie() ;
 	$target_dirname = $module->getVar('dirname') ;
@@ -217,10 +217,10 @@ function pages_import_from_tinyd( $mydirname , $import_mid )
 
 function pages_import_from_pages( $mydirname , $import_mid )
 {
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
-	$module_handler =& xoops_gethandler( 'module' ) ;
-	$from_module =& $module_handler->get( $import_mid ) ;
+	$module_handler = xoops_gethandler( 'module' ) ;
+	$from_module = $module_handler->get( $import_mid ) ;
 
 	foreach( $GLOBALS['pages_tables'] as $table_name => $columns ) {
 		$to_table = $db->prefix( $mydirname.'_'.$table_name ) ;
@@ -236,10 +236,10 @@ function pages_import_from_pages( $mydirname , $import_mid )
 // just import a content (contents and content_votes only)
 function pages_import_a_content_from_pages( $mydirname , $import_mid , $content_id )
 {
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
-	$module_handler =& xoops_gethandler( 'module' ) ;
-	$from_module =& $module_handler->get( $import_mid ) ;
+	$module_handler = xoops_gethandler( 'module' ) ;
+	$from_module = $module_handler->get( $import_mid ) ;
 
 	// contents table
 	$to_table = $db->prefix( $mydirname.'_contents' ) ;

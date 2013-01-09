@@ -26,7 +26,7 @@ function execute( $request )
 	$page = empty( $request['makecategory'] ) ? 'categorymanager' : 'makecategory' ;
 
 	// $categoryObj (not parent)
-	$pagesPermission =& PagesPermission::getInstance() ;
+	$pagesPermission = PagesPermission::getInstance() ;
 	$categoryObj = new PagesCategory( $this->mydirname , $request['cat_id'] , $pagesPermission->getPermissions( $this->mydirname ) , $page == 'makecategory' , $this->currentCategoryObj ) ;
 
 	// check existence
@@ -38,7 +38,7 @@ function execute( $request )
 	// fetch data from DB
 	$cat_data = $categoryObj->getData() ;
 	$this->assign['category_base'] = $categoryObj->getData4html( true ) ;
-	$this->categoryObjs['category_base'] =& $categoryObj ;
+	$this->categoryObjs['category_base'] = $categoryObj ;
 	$this->assign['category'] = $categoryObj->getData4edit() ;
 
 	// permission check
@@ -64,7 +64,7 @@ function execute( $request )
 	}
 
 	// breadcrumbs
-	$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+	$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 	if( $page == 'makecategory' ) {
 		$breadcrumbsObj->appendPath( '' , _MD_PAGES_LINK_MAKECATEGORY ) ;
 		$this->assign['xoops_pagetitle'] = _MD_PAGES_LINK_MAKECATEGORY ;

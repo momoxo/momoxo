@@ -26,15 +26,15 @@ function smarty_function_pages_category_search( $params , &$smarty )
 
 	$mydirnames = explode( ',' , $dir ) ;
 
-	$db =& Database::getInstance() ;
-	$myts =& MyTextSanitizer::getInstance() ;
-	$module_handler =& xoops_gethandler('module');
-	$config_handler =& xoops_gethandler('config');
+	$db = Database::getInstance() ;
+	$myts = MyTextSanitizer::getInstance() ;
+	$module_handler = xoops_gethandler('module');
+	$config_handler = xoops_gethandler('config');
 
 	$categories4assign = array() ;
 	foreach( $mydirnames as $mydirname ) {
 
-		$module =& $module_handler->getByDirname($mydirname);
+		$module = $module_handler->getByDirname($mydirname);
 		$configs = $config_handler->getConfigList( $module->getVar('mid') ) ;
 
 		$sql = "SELECT * FROM ".$db->prefix($mydirname."_categories")." c WHERE c.cat_title='".mysql_real_escape_string($cat_title)."'" ;

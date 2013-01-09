@@ -47,7 +47,7 @@ protected static $allContentsModule = Array(
 	/* モジュール名取得 */
 	static public function getModuleDirName()
 	{
-		$root =& XCube_Root::getSingleton();
+		$root = XCube_Root::getSingleton();
         if(is_object($root->mContext->mModule)){
             if(is_object($root->mContext->mModule->mXoopsModule)){
                 return $root->mContext->mModule->mXoopsModule->get('dirname');
@@ -261,8 +261,8 @@ protected static $allContentsModule = Array(
 
     static public function isInRoleSite($role)
     {
-        $root =& XCube_Root::getSingleton();
-        $user =& $root->mContext->mUser;
+        $root = XCube_Root::getSingleton();
+        $user = $root->mContext->mUser;
         if ( $user->isInRole($role) ) {
             return true;
         }
@@ -273,7 +273,7 @@ protected static $allContentsModule = Array(
     static public function getXoopsModuleInfo($item)
     {
 		// ex. dirname,mid,name
-		$root =& XCube_Root::getSingleton();
+		$root = XCube_Root::getSingleton();
 		return $root->mContext->mModule->mXoopsModule->get($item);
     }
     
@@ -352,7 +352,7 @@ protected static $allContentsModule = Array(
     /* 一般設定の値を取得 */
     static public function getConfigItem($name)
     {
-        $root =& XCube_Root::getSingleton();
+        $root = XCube_Root::getSingleton();
         return $root->mContext->mModuleConfig[$name];
     }
 

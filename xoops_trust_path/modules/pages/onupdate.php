@@ -13,14 +13,14 @@ function pages_onupdate_base( $module , $mydirname )
 
 	// for Cube 2.1
 	if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
-		$root =& XCube_Root::getSingleton();
+		$root = XCube_Root::getSingleton();
 		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleUpdate.' . ucfirst($mydirname) . '.Success', 'pages_message_append_onupdate' ) ;
 		$msgs = array() ;
 	} else {
 		if( ! is_array( $msgs ) ) $msgs = array() ;
 	}
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 	$mid = $module->getVar('mid') ;
 
 	// TABLES (write here ALTER TABLE etc. if necessary)
@@ -92,7 +92,7 @@ function pages_onupdate_base( $module , $mydirname )
 	}
 
 	// TEMPLATES (all templates have been already removed by modulesadmin)
-	$tplfile_handler =& xoops_gethandler( 'tplfile' ) ;
+	$tplfile_handler = xoops_gethandler( 'tplfile' ) ;
 	$tpl_path = dirname(__FILE__).'/templates' ;
 	if( $handler = @opendir( $tpl_path . '/' ) ) {
 		while( ( $file = readdir( $handler ) ) !== false ) {
@@ -100,7 +100,7 @@ function pages_onupdate_base( $module , $mydirname )
 			$file_path = $tpl_path . '/' . $file ;
 			if( is_file( $file_path ) ) {
 				$mtime = intval( @filemtime( $file_path ) ) ;
-				$tplfile =& $tplfile_handler->create() ;
+				$tplfile = $tplfile_handler->create() ;
 				$tplfile->setVar( 'tpl_source' , file_get_contents( $file_path ) , true ) ;
 				$tplfile->setVar( 'tpl_refid' , $mid ) ;
 				$tplfile->setVar( 'tpl_tplset' , 'default' ) ;

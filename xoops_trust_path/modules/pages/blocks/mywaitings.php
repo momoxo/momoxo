@@ -9,13 +9,13 @@ function b_pages_mywaitings_show( $options )
 
 	if( preg_match( '/[^0-9a-zA-Z_-]/' , $mydirname ) ) die( 'Invalid mydirname' ) ;
 
-	$db =& Database::getInstance();
-	$myts =& MyTextSanitizer::getInstance();
+	$db = Database::getInstance();
+	$myts = MyTextSanitizer::getInstance();
 	$uid = is_object( @$xoopsUser ) ? $xoopsUser->getVar('uid') : 0 ;
 
-	$module_handler =& xoops_gethandler('module');
-	$module =& $module_handler->getByDirname($mydirname);
-	$config_handler =& xoops_gethandler('config');
+	$module_handler = xoops_gethandler('module');
+	$module = $module_handler->getByDirname($mydirname);
+	$config_handler = xoops_gethandler('config');
 	$configs = $config_handler->getConfigList( $module->mid() ) ;
 
 	$sql = "SELECT o.content_id,o.subject_waiting,o.modified_time FROM ".$db->prefix($mydirname."_contents")." o WHERE ((o.poster_uid=$uid AND !visible) OR (o.modifier_uid=$uid AND visible)) AND approval=0 ORDER BY o.modified_time DESC" ;

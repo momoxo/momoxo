@@ -34,7 +34,7 @@ function execute( $request )
 
 	// initialize
 	$cat_data = $this->currentCategoryObj->getData() ;
-	$pagesPermission =& PagesPermission::getInstance() ;
+	$pagesPermission = PagesPermission::getInstance() ;
 
 	// permission check
 	if( empty( $cat_data['can_post'] ) ) {

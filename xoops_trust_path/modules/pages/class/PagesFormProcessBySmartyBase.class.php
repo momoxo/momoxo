@@ -167,7 +167,7 @@ class PagesFormProcessBySmartyBase
 		// read language files for this plugin
 		$langmanpath = XOOPS_TRUST_PATH.'/modules/altsys/class/D3LanguageManager.class.php' ;
 		require_once( $langmanpath ) ;
-		$langman =& D3LanguageManager::getInstance() ;
+		$langman = D3LanguageManager::getInstance() ;
 		$langman->read( $filename . '.php' , $this->mydirname , 'pages' ) ;
 	}
 
@@ -191,7 +191,7 @@ class PagesFormProcessBySmartyBase
 	{
 		if( class_exists( 'Wizin_User' , false ) ) {
 			// WizMobile (gusagi)
-			$user =& Wizin_User::getSingleton();
+			$user = Wizin_User::getSingleton();
 			return $user->bIsMobile ;
 		} else if( defined( 'HYP_K_TAI_RENDER' ) && HYP_K_TAI_RENDER ) {
 			// hyp_common ktai-renderer (nao-pon)
@@ -206,7 +206,7 @@ class PagesFormProcessBySmartyBase
 	{
 		if( class_exists( 'Wizin_User' ) ) {
 			// WizMobile (gusagi)
-			$user =& Wizin_User::getSingleton();
+			$user = Wizin_User::getSingleton();
 			return $user->bIsMobile ? $user->sEncoding : null ;
 		} else if( defined( 'HYP_K_TAI_RENDER' ) && HYP_K_TAI_RENDER ) {
 			// hyp_common ktai-renderer (nao-pon)
@@ -409,7 +409,7 @@ class PagesFormProcessBySmartyBase
 		// send main mail (server to admin/poster)
 		if( ! empty( $this->toEmails ) ) {
 			// initialize
-			$toMailer =& getMailer() ;
+			$toMailer = getMailer() ;
 			$toMailer->useMail() ;
 			$toMailer->setFromEmail( $this->fromEmail ) ;
 			$toMailer->setFromName( $this->fromName ) ;
@@ -437,7 +437,7 @@ class PagesFormProcessBySmartyBase
 		// send confirming mail (server to visitor)
 		if( ! empty( $this->cc_field_name ) && ! empty( $this->form_processor->fields[ $this->cc_field_name ]['value'] ) ) {
 			// initialize
-			$ccMailer =& getMailer() ;
+			$ccMailer = getMailer() ;
 			$ccMailer->useMail() ;
 			$ccMailer->setFromEmail( $this->fromEmail ) ;
 			$ccMailer->setFromName( $this->fromName ) ;
@@ -490,7 +490,7 @@ class PagesFormProcessBySmartyBase
 
 	function storeDB()
 	{
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 	
 		$content_id = intval( $this->content4disp['id'] ) ;
 		$extra_type4sql = addslashes( 'smarty_plugin::' . $this->mypluginname ) ;
