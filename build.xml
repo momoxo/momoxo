@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="BuildTest" basedir="." default="all">
+  <property name="outputDir" value="./reports" />
+  <property name="src"       value="./" />
+
+  <fileset dir="${src}" id="phpfiles">
+    <include name="html/install/src/Momoxo/**/*.php" />
+    <include name="xoops_trust_path/modules/XCore/**/*.php" />
+    <include name="xoops_trust_path/modules/Xoops/**/*.php" />
+
+    <include name="html/modules/pages/**/*.php" />
+    <include name="xoops_trust_path/modules/pages/**/*.php" />
+
+    <exclude name="**/Tests/**/*.php" />
+
+    <exclude name="SqlUtility.php" />
+    <exclude name="nusoap.php" />
+  </fileset>
+
+  <fileset dir="${src}" id="jsfiles">
+    <include name="**/*.js" />
+  </fileset>
+
+  <!-- <target name="all" depends="prepare,lint,phpcs,phpcpd,phpmd,phpunit"></target> -->
+  <target name="all" depends="prepare,lint,phpcs,phpcpd,phpmd"></target>
+
+  <target name="clean">
+    <delete dir="${outputDir}" includeemptydirs="true" />
+  </target>
+
+  <target name="prepare" depends="clean">
+    <mkdir dir="${outputDir}" />
+    <mkdir dir="${outputDir}/tests"/>
+    <mkdir dir="clover"/>
+  </target>
+
+  <target name="lint">
+    <phplint>
+      <fileset refid="phpfiles" />
+    </phplint>
+  </target>
+
+  <target name="phpcs">
+    <phpcodesniffer standard="PSR2" allowedFileExtensions="php" showSniffs="false" showWarnings="true">
+      <fileset refid="phpfiles" />
+      <formatter type="checkstyle" outfile="${outputDir}/phpcs.xml"/>
+    </phpcodesniffer>
+  </target>
+
+  <target name="phpcpd">
+    <phpcpd minTokens="10">
+      <fileset refid="phpfiles" />
+      <formatter type="pmd" outfile="${outputDir}/phpcpd.xml"/>
+    </phpcpd>
+  </target>
+
+  <target name="phpmd">
+    <phpmd rulesets="ruleset.xml">
+      <fileset refid="phpfiles" />
+      <formatter type="xml" outfile="${outputDir}/pmd.xml"/>
+    </phpmd>
+  </target>
+
+  <target name="phpunit">
+    <coverage-setup database="${outputDir}/coverage.db">
+      <fileset refid="phpfiles" />
+    </coverage-setup>
+    <phpunit configuration="${src}/xoops_trust_path/phpunit.xml.dist" haltonfailure="true" printsummary="true" codecoverage="true">
+      <formatter todir="${outputDir}" type="clover"/>
+      <formatter todir="${outputDir}" type="xml"/>
+      <batchtest>
+        <fileset refid="phpfiles" />
+      </batchtest>
+    </phpunit>
+    <coverage-report outfile="${outputDir}/coverage.xml">
+      <report todir="clover" />
+    </coverage-report>
+  </target>
+</project>
