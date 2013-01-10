@@ -55,7 +55,7 @@
   </target>
 
   <target name="phpmd">
-    <phpmd rulesets="ruleset.xml">
+    <phpmd rulesets="codesize,unusedcode,design,naming">
       <fileset refid="phpfiles" />
       <formatter type="xml" outfile="${outputDir}/pmd.xml"/>
     </phpmd>
