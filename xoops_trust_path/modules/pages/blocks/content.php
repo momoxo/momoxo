@@ -56,7 +56,6 @@ function b_pages_content_show( $options )
 
 	if( empty( $options['disable_renderer'] ) ) {
 		// render it
-		require_once XOOPS_ROOT_PATH.'/class/template.php' ;
 		$tpl = new XoopsTpl() ;
 		$tpl->assign( 'block' , $block ) ;
 		$ret['content'] = $tpl->fetch( $this_template ) ;
@@ -90,7 +89,6 @@ function b_pages_content_edit( $options )
 		$contents[ $id ] = sprintf('%06d',$id).': '.str_repeat('--',$depth).$myts->makeTboxData4Show( $sbj , 1 , 1 ) ;
 	}
 
-	require_once XOOPS_ROOT_PATH.'/class/template.php' ;
 	$tpl = new XoopsTpl() ;
 	$tpl->assign( array(
 		'mydirname' => $mydirname ,
