@@ -7,7 +7,7 @@ class TrustPathFinder
     /**
      * @var string[]
      */
-    private $candidates =array(
+    private $candidates = array(
         '/../xoops_trust_path',
         '/xoops_trust_path',
     );
